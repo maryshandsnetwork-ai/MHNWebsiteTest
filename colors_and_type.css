@@ -1,0 +1,275 @@
+/* =========================================================
+   Mary's Hands Network — Design Tokens
+   Colors & Typography
+   ========================================================= */
+
+/* Libre Baskerville from Google Fonts (serif display/headings) */
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root {
+  /* ---------- BRAND PURPLE SCALE ---------- */
+  --mhn-purple-900: #3F2449;   /* deepest — rare, for text on lightest tints */
+  --mhn-purple-700: #5E376C;   /* PRIMARY — H1/H2, links, brand */
+  --mhn-purple-500: #845995;   /* SECONDARY — H3, accents, "what if" border */
+  --mhn-purple-300: #B8A0C0;   /* TERTIARY — dividers, subtle bg, captions */
+  --mhn-purple-200: #D4BADD;   /* ACCENT — H2 underline accent, highlights */
+  --mhn-purple-50:  #F8F5FA;   /* lightest tint — intro box background */
+
+  /* ---------- NEUTRALS ---------- */
+  --mhn-ink:       #1F1B24;    /* body text on light */
+  --mhn-ink-soft:  #4A4351;    /* secondary body */
+  --mhn-ink-mute:  #736B7A;    /* caption, meta */
+  --mhn-paper:     #FFFFFF;    /* page */
+  --mhn-paper-alt: #FAF8FB;    /* subtle panel bg */
+  --mhn-line:      #E8E2EC;    /* hairline divider */
+  --mhn-line-soft: #F1EDF3;
+
+  /* ---------- SEMANTIC / CALLOUT SYSTEM ---------- */
+  /* Each callout has a tinted bg + a strong left border color. */
+  --mhn-intro-bg:      #F8F5FA;
+  --mhn-intro-border:  #5E376C;
+
+  --mhn-tip-bg:        #F0F7FA;
+  --mhn-tip-border:    #0D9488;   /* teal */
+
+  --mhn-warn-bg:       #FFFBEB;
+  --mhn-warn-border:   #D97706;   /* amber */
+
+  --mhn-clinical-bg:       #F0F9FF;
+  --mhn-clinical-border:   #0284C7;   /* sky blue */
+
+  --mhn-case-bg:       #FDF2F8;
+  --mhn-case-border:   #DB2777;   /* pink — case study + doula script */
+
+  --mhn-whatif-bg:     #FAF5FF;
+  --mhn-whatif-border: #845995;   /* secondary purple */
+
+  --mhn-takeaway-bg:       #F0FDF4;
+  --mhn-takeaway-border:   #059669;   /* emerald */
+
+  /* ---------- TYPOGRAPHY FAMILIES ---------- */
+  --mhn-font-serif: 'Libre Baskerville', 'Georgia', 'Times New Roman', serif;
+  --mhn-font-sans:  Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  --mhn-font-mono:  'SF Mono', Menlo, Consolas, monospace;
+
+  /* ---------- TYPE SCALE (print-aligned; 1pt ≈ 1.333px) ---------- */
+  --mhn-text-xs:   11px;   /* footnotes, captions */
+  --mhn-text-sm:   13px;   /* small body */
+  --mhn-text-base: 16px;   /* 12pt body — the default */
+  --mhn-text-md:   17px;   /* box body */
+  --mhn-text-lg:   19px;   /* H4 uppercase (12pt) */
+  --mhn-text-xl:   24px;   /* H3 (14pt + air) */
+  --mhn-text-2xl:  30px;   /* H2 (18pt) */
+  --mhn-text-3xl:  40px;   /* H1 / chapter title */
+  --mhn-text-4xl:  56px;   /* display */
+
+  /* ---------- SPACING (generous — "room to breathe") ---------- */
+  --mhn-space-1:  4px;
+  --mhn-space-2:  8px;
+  --mhn-space-3:  12px;
+  --mhn-space-4:  16px;
+  --mhn-space-5:  20px;
+  --mhn-space-6:  24px;
+  --mhn-space-8:  32px;
+  --mhn-space-10: 40px;
+  --mhn-space-12: 48px;
+  --mhn-space-16: 64px;
+
+  /* ---------- RADII ---------- */
+  --mhn-radius-sm: 4px;
+  --mhn-radius-md: 8px;
+  --mhn-radius-lg: 12px;   /* callout boxes — rounded-corners */
+  --mhn-radius-xl: 20px;   /* cards, big containers */
+  --mhn-radius-pill: 999px;
+
+  /* ---------- SHADOWS (soft, warm, restrained) ---------- */
+  --mhn-shadow-sm: 0 1px 2px rgba(94, 55, 108, 0.06);
+  --mhn-shadow-md: 0 4px 12px rgba(94, 55, 108, 0.08);
+  --mhn-shadow-lg: 0 12px 32px rgba(94, 55, 108, 0.12);
+
+  /* ---------- BORDERS ---------- */
+  --mhn-border-width-callout: 4px;  /* colored left border on callout boxes */
+
+  /* ---------- ANIMATION ---------- */
+  --mhn-ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --mhn-dur-fast: 140ms;
+  --mhn-dur: 220ms;
+}
+
+/* =========================================================
+   Semantic element styles — matching the MHN Training Manual
+   Use these classes or element selectors directly.
+   ========================================================= */
+
+.mhn-body {
+  font-family: var(--mhn-font-sans);
+  font-size: var(--mhn-text-base);
+  line-height: 1.6;
+  color: var(--mhn-ink);
+  background: var(--mhn-paper);
+}
+
+/* Headings — Libre Baskerville in brand purple */
+.mhn-h1 {
+  font-family: var(--mhn-font-serif);
+  font-size: var(--mhn-text-3xl);
+  line-height: 1.15;
+  font-weight: 700;
+  color: var(--mhn-purple-700);
+  letter-spacing: -0.01em;
+  margin: 0 0 var(--mhn-space-4);
+}
+
+.mhn-h2 {
+  font-family: var(--mhn-font-serif);
+  font-size: var(--mhn-text-2xl);     /* 18pt */
+  line-height: 1.25;
+  font-weight: 700;
+  color: var(--mhn-purple-700);
+  padding-bottom: var(--mhn-space-2);
+  border-bottom: 2px solid var(--mhn-purple-200);
+  margin: var(--mhn-space-8) 0 var(--mhn-space-4);
+}
+
+.mhn-h3 {
+  font-family: var(--mhn-font-serif);
+  font-size: var(--mhn-text-xl);      /* 14pt + */
+  line-height: 1.3;
+  font-weight: 700;
+  color: var(--mhn-purple-500);
+  margin: var(--mhn-space-6) 0 var(--mhn-space-3);
+}
+
+.mhn-h4 {
+  font-family: var(--mhn-font-sans);
+  font-size: var(--mhn-text-lg);      /* 12pt */
+  font-weight: 700;
+  color: var(--mhn-purple-700);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: var(--mhn-space-5) 0 var(--mhn-space-2);
+}
+
+.mhn-p {
+  font-family: var(--mhn-font-sans);
+  font-size: var(--mhn-text-base);
+  line-height: 1.6;
+  color: var(--mhn-ink);
+  margin: 0 0 var(--mhn-space-4);
+  text-wrap: pretty;
+}
+
+.mhn-lead {
+  font-family: var(--mhn-font-serif);
+  font-style: italic;
+  font-size: var(--mhn-text-md);
+  line-height: 1.55;
+  color: var(--mhn-ink-soft);
+}
+
+.mhn-caption {
+  font-family: var(--mhn-font-sans);
+  font-size: var(--mhn-text-xs);
+  color: var(--mhn-ink-mute);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.mhn-quote {
+  font-family: var(--mhn-font-serif);
+  font-style: italic;
+  font-size: var(--mhn-text-xl);
+  line-height: 1.4;
+  color: var(--mhn-purple-700);
+  border-left: 3px solid var(--mhn-purple-200);
+  padding-left: var(--mhn-space-5);
+  margin: var(--mhn-space-6) 0;
+}
+
+.mhn-quote cite {
+  display: block;
+  margin-top: var(--mhn-space-3);
+  font-family: var(--mhn-font-sans);
+  font-style: normal;
+  font-size: var(--mhn-text-sm);
+  letter-spacing: 0.04em;
+  color: var(--mhn-ink-mute);
+}
+
+/* Doula script — italic Libre Baskerville on pink */
+.mhn-script {
+  font-family: var(--mhn-font-serif);
+  font-style: italic;
+  color: var(--mhn-purple-900);
+}
+
+/* =========================================================
+   Callout box primitive — shared by all semantic callouts.
+   Use .mhn-callout + a modifier class.
+   ========================================================= */
+.mhn-callout {
+  padding: var(--mhn-space-5) var(--mhn-space-6);
+  border-radius: var(--mhn-radius-lg);
+  border-left: var(--mhn-border-width-callout) solid var(--mhn-purple-700);
+  background: var(--mhn-purple-50);
+  margin: var(--mhn-space-5) 0;
+}
+.mhn-callout__title {
+  font-family: var(--mhn-font-serif);
+  font-weight: 700;
+  font-size: var(--mhn-text-md);
+  color: var(--mhn-purple-700);
+  margin: 0 0 var(--mhn-space-2);
+}
+.mhn-callout--tip      { background: var(--mhn-tip-bg);      border-left-color: var(--mhn-tip-border); }
+.mhn-callout--tip .mhn-callout__title      { color: var(--mhn-tip-border); }
+.mhn-callout--warn     { background: var(--mhn-warn-bg);     border-left-color: var(--mhn-warn-border); }
+.mhn-callout--warn .mhn-callout__title     { color: var(--mhn-warn-border); }
+.mhn-callout--clinical { background: var(--mhn-clinical-bg); border-left-color: var(--mhn-clinical-border); }
+.mhn-callout--clinical .mhn-callout__title { color: var(--mhn-clinical-border); }
+.mhn-callout--case     { background: var(--mhn-case-bg);     border-left-color: var(--mhn-case-border); }
+.mhn-callout--case .mhn-callout__title     { color: var(--mhn-case-border); }
+.mhn-callout--whatif   { background: var(--mhn-whatif-bg);   border-left-color: var(--mhn-whatif-border); }
+.mhn-callout--whatif .mhn-callout__title   { color: var(--mhn-whatif-border); }
+.mhn-callout--takeaway { background: var(--mhn-takeaway-bg); border-left-color: var(--mhn-takeaway-border); }
+.mhn-callout--takeaway .mhn-callout__title { color: var(--mhn-takeaway-border); }
+
+/* =========================================================
+   Card / surface primitives
+   ========================================================= */
+.mhn-card {
+  background: var(--mhn-paper);
+  border: 1px solid var(--mhn-line);
+  border-radius: var(--mhn-radius-xl);
+  box-shadow: var(--mhn-shadow-sm);
+  padding: var(--mhn-space-6);
+}
+
+/* =========================================================
+   Button primitives — calm, serif-anchored
+   ========================================================= */
+.mhn-btn {
+  font-family: var(--mhn-font-sans);
+  font-size: var(--mhn-text-base);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  padding: 12px 22px;
+  border-radius: var(--mhn-radius-pill);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background var(--mhn-dur) var(--mhn-ease),
+              transform var(--mhn-dur-fast) var(--mhn-ease),
+              color var(--mhn-dur) var(--mhn-ease);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.mhn-btn--primary   { background: var(--mhn-purple-700); color: var(--mhn-paper); }
+.mhn-btn--primary:hover   { background: var(--mhn-purple-900); }
+.mhn-btn--primary:active  { transform: scale(0.98); }
+
+.mhn-btn--secondary { background: var(--mhn-purple-50); color: var(--mhn-purple-700); border-color: var(--mhn-purple-200); }
+.mhn-btn--secondary:hover { background: var(--mhn-purple-200); }
+
+.mhn-btn--ghost     { background: transparent; color: var(--mhn-purple-700); }
+.mhn-btn--ghost:hover     { background: var(--mhn-purple-50); }

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1280">
+<title>Donar · Mary's Hands Network</title>
+<meta name="description" content="Financia cuidado gratuito de doula en Luisiana. $50 envía un kit de parto. $950 financia un lugar en el entrenamiento. Deducible de impuestos 501(c)(3).">
+<link rel="icon" type="image/png" href="./assets/logo-seal.png">
+<link rel="apple-touch-icon" href="./assets/logo-seal.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Apoya a Mary's Hands Network · Cuidado Gratuito de Doula en Luisiana">
+<meta property="og:description" content="Financia cuidado gratuito de doula en Luisiana. Deducible de impuestos.">
+<meta property="og:image" content="https://maryshandsnetwork.org/assets/logo-full.png">
+<meta property="og:url" content="https://maryshandsnetwork.org/donar.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Apoya a Mary's Hands Network">
+<meta name="twitter:description" content="Financia cuidado gratuito de doula en Luisiana. Deducible de impuestos 501(c)(3).">
+<meta name="twitter:image" content="https://maryshandsnetwork.org/assets/logo-full.png">
+<link rel="stylesheet" href="./colors_and_type.css">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<style>
+  html, body{margin:0;padding:0;background:var(--mhn-paper);font-family:var(--mhn-font-sans);color:var(--mhn-ink)}
+  .page{max-width:1280px;margin:0 auto}
+
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:20px 48px;border-bottom:1px solid var(--mhn-line-soft)}
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
+  .brand .seal{width:44px;height:44px;display:flex;align-items:center;justify-content:center}
+  .brand .seal img{width:44px;height:44px;display:block}
+  .brand .name{font-family:var(--mhn-font-serif);font-weight:700;font-size:20px;color:var(--mhn-purple-700);line-height:1}
+  .brand .sub{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--mhn-purple-500);margin-top:2px}
+  .nav-links{display:flex;gap:28px;align-items:center}
+  .nav-links a{text-decoration:none;color:var(--mhn-ink-soft);font-size:14px;font-weight:700;letter-spacing:0.02em;transition:color var(--mhn-dur)}
+  .nav-links a:hover{color:var(--mhn-purple-700)}
+  .nav-links .active{color:var(--mhn-purple-700)}
+  .nav-links .active::after{content:"";display:block;height:2px;background:var(--mhn-purple-200);margin-top:4px}
+  .nav-links .donate-btn{display:inline-flex;align-items:center;gap:6px;padding:10px 18px;border-radius:999px;background:var(--mhn-purple-700);color:#fff}
+
+  .hero{padding:80px 48px 48px;max-width:820px}
+  .eyebrow{font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:700;margin-bottom:18px}
+  h1.t{font-family:var(--mhn-font-serif);font-size:56px;line-height:1.05;color:var(--mhn-purple-700);margin:0 0 22px;letter-spacing:-0.015em;font-weight:700;text-wrap:balance}
+  h1.t em{font-style:italic;color:var(--mhn-purple-500)}
+  .lede{font-family:var(--mhn-font-serif);font-style:italic;font-size:19px;line-height:1.55;color:var(--mhn-ink-soft);margin-bottom:0;max-width:680px;text-wrap:pretty}
+
+  .ladder{padding:32px 48px 80px}
+  .ladder-head{max-width:720px;margin-bottom:36px}
+  .ladder-head h2{font-family:var(--mhn-font-serif);font-size:36px;color:var(--mhn-purple-700);margin:10px 0 12px;letter-spacing:-0.01em;line-height:1.1}
+  .ladder-head p{font-size:16px;line-height:1.65;color:var(--mhn-ink-soft);margin:0}
+  .tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .tier{background:#fff;border:1px solid var(--mhn-line);border-radius:20px;padding:30px;box-shadow:var(--mhn-shadow-sm);transition:box-shadow var(--mhn-dur),transform var(--mhn-dur);display:flex;flex-direction:column}
+  .tier:hover{box-shadow:var(--mhn-shadow-md);transform:translateY(-2px)}
+  .tier .amt{font-family:var(--mhn-font-serif);font-size:44px;font-weight:700;color:var(--mhn-purple-700);line-height:1;letter-spacing:-0.02em}
+  .tier .label{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--mhn-purple-500);margin-top:10px;font-weight:700}
+  .tier h3{font-family:var(--mhn-font-serif);font-size:18px;color:var(--mhn-ink);margin:16px 0 8px;font-weight:700}
+  .tier p{font-size:13.5px;line-height:1.6;color:var(--mhn-ink-soft);margin:0 0 18px;flex:1}
+  .tier a{margin-top:auto;display:inline-block;text-align:center;background:var(--mhn-purple-700);color:#fff;font-weight:700;font-size:13px;letter-spacing:0.02em;padding:11px 16px;border-radius:999px;text-decoration:none;transition:background var(--mhn-dur)}
+  .tier a:hover{background:var(--mhn-purple-900)}
+  .tier.highlight{background:var(--mhn-purple-700);color:#fff;border-color:var(--mhn-purple-700)}
+  .tier.highlight .amt{color:#fff}
+  .tier.highlight .label{color:var(--mhn-purple-200)}
+  .tier.highlight h3{color:#fff}
+  .tier.highlight p{color:#F1EDF3}
+  .tier.highlight a{background:#fff;color:var(--mhn-purple-700)}
+  .tier.highlight a:hover{background:var(--mhn-purple-200)}
+
+  .custom-row{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;background:var(--mhn-paper-alt);border:1px solid var(--mhn-line);border-radius:20px;padding:28px 32px;margin-top:24px}
+  .custom-row h3{font-family:var(--mhn-font-serif);font-size:22px;color:var(--mhn-purple-700);margin:0 0 4px;font-weight:700}
+  .custom-row p{font-size:14px;color:var(--mhn-ink-soft);margin:0}
+
+  .ways{padding:80px 48px;background:var(--mhn-paper-alt)}
+  .ways-head{max-width:620px;margin-bottom:40px}
+  .ways-head h2{font-family:var(--mhn-font-serif);font-size:36px;color:var(--mhn-purple-700);margin:10px 0 0;letter-spacing:-0.01em}
+  .wgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .way{background:#fff;border:1px solid var(--mhn-line);border-radius:16px;padding:28px}
+  .way .ico{width:28px;height:28px;color:var(--mhn-purple-700);margin-bottom:14px}
+  .way h4{font-family:var(--mhn-font-serif);font-size:20px;color:var(--mhn-purple-700);margin:0 0 8px;font-weight:700}
+  .way p{font-size:14px;line-height:1.6;color:var(--mhn-ink-soft);margin:0 0 14px}
+  .way a{font-size:13px;font-weight:700;color:var(--mhn-purple-700);text-decoration:none;letter-spacing:0.02em;border-bottom:1px solid var(--mhn-purple-300);padding-bottom:2px}
+  .way a:hover{color:var(--mhn-purple-900);border-color:var(--mhn-purple-700)}
+
+  .impact{padding:72px 48px;background:var(--mhn-purple-700);color:#fff;margin:0 48px;border-radius:24px}
+  .impact .label{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--mhn-purple-200);font-weight:700;margin-bottom:14px}
+  .impact h2{font-family:var(--mhn-font-serif);font-size:36px;color:#fff;margin:0 0 20px;letter-spacing:-0.01em;font-weight:700;text-wrap:balance;max-width:820px;line-height:1.1}
+  .impact p{font-family:var(--mhn-font-serif);font-style:italic;font-size:17px;color:#E8D4EE;max-width:760px;line-height:1.55;margin:0 0 34px}
+  .igrid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+  .istat{background:var(--mhn-purple-900);border-radius:16px;padding:26px}
+  .istat .n{font-family:var(--mhn-font-serif);font-size:44px;font-weight:700;line-height:1;letter-spacing:-0.02em;color:#fff}
+  .istat .sub{font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--mhn-purple-200);margin-top:12px;font-weight:700}
+  .istat p{font-family:var(--mhn-font-sans);font-style:normal;font-size:13px;line-height:1.55;color:#F1EDF3;margin:14px 0 0}
+
+  .trust{padding:80px 48px}
+  .trust-inner{background:var(--mhn-purple-50);border:1px solid var(--mhn-purple-200);border-radius:20px;padding:36px 40px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+  .trust h3{font-family:var(--mhn-font-serif);font-size:26px;color:var(--mhn-purple-700);margin:0 0 10px;font-weight:700;letter-spacing:-0.01em}
+  .trust p{font-size:15px;line-height:1.65;color:var(--mhn-ink-soft);margin:0 0 12px}
+  .trust .receipt{background:#fff;border:1px solid var(--mhn-purple-200);border-radius:14px;padding:24px}
+  .trust .receipt .lbl{font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:700;margin-bottom:6px}
+  .trust .receipt .val{font-family:var(--mhn-font-sans);font-size:14px;color:var(--mhn-ink);line-height:1.55}
+  .trust .receipt .val b{color:var(--mhn-purple-700)}
+
+  footer{background:var(--mhn-purple-900);color:#D4BADD;padding:64px 48px 32px;margin-top:0}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
+  .foot-brand{display:flex;flex-direction:column;gap:12px}
+  .foot-brand .logo{font-family:var(--mhn-font-serif);font-size:22px;color:#fff;font-weight:700}
+  .foot-brand p{font-size:13px;line-height:1.6;color:#B8A0C0;margin:0;max-width:300px}
+  .foot-col h5{font-family:var(--mhn-font-sans);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:#fff;margin:0 0 14px;font-weight:700}
+  .foot-col a{display:block;font-size:13px;color:#B8A0C0;text-decoration:none;margin-bottom:8px}
+  .foot-col a:hover{color:#fff}
+  .foot-btm{padding-top:24px;border-top:1px solid rgba(212,186,221,0.18);display:flex;justify-content:space-between;font-size:11px;color:#845995;letter-spacing:0.04em}
+</style>
+</head>
+<body>
+<div class="page" data-screen-label="Donar">
+
+<nav class="nav">
+  <a href="inicio.html" class="brand">
+    <div class="seal"><img src="./assets/logo-seal.png" alt="Logo de Mary's Hands Network"></div>
+    <div><div class="name">Mary's Hands</div><div class="sub">Red de Doulas Voluntarias</div></div>
+  </a>
+  <div class="nav-links">
+    <a href="inicio.html">Inicio</a>
+    <a href="nosotras.html">Nosotras</a>
+    <a href="apoyo-de-doula.html">Para Mamá</a>
+    <a href="entrenamiento.html">Entrenamiento</a>
+    <a href="contacto.html">Contacto</a>
+    <a href="donate.html" style="color:var(--mhn-purple-500)">English</a>
+    <a href="donar.html" class="active"><span class="donate-btn">Donar</span></a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="eyebrow">Apoya nuestro trabajo</div>
+  <h1 class="t">Tu donación se convierte en <em>el parto más seguro de alguien.</em></h1>
+  <p class="lede">Mary's Hands Network es una organización sin fines de lucro 501(c)(3) de Luisiana. Cada dólar que donas financia cuidado gratuito de doula basado en evidencia para una familia que de otro modo no podría acceder a él. Tu donación es totalmente deducible de impuestos.</p>
+</section>
+
+<section class="ladder">
+  <div class="ladder-head">
+    <div class="eyebrow">Impacto de tu donación</div>
+    <h2>Lo que hace tu donación.</h2>
+    <p>Cada nivel abajo tiene un costo real y concreto que podemos mostrarte en una hoja de cálculo. Tu donación va directamente a la línea que elijas. Sin juegos de gastos administrativos.</p>
+  </div>
+  <div class="tiers">
+    <div class="tier">
+      <div class="amt">$50</div>
+      <div class="label">Kit de Parto</div>
+      <h3>Un parto, totalmente equipado.</h3>
+      <p>Financia un kit completo de apoyo al parto: rebozo, pelota de cacahuete, toallitas para tens, hidratación, snacks, y un paquete posparto para una familia de MHN.</p>
+      <a href="https://www.paypal.com/donate/?hosted_button_id=GFZYJZ8LRAPFU" target="_blank" rel="noopener">Donar $50</a>
+    </div>
+    <div class="tier">
+      <div class="amt">$250</div>
+      <div class="label">Cuidado Posparto</div>
+      <h3>Ocho semanas de seguimiento.</h3>
+      <p>Cubre el seguimiento posparto de una familia: dos visitas en persona, asesoría de lactancia, y conexiones con WIC, 211, y recursos de salud mental.</p>
+      <a href="https://www.paypal.com/donate/?hosted_button_id=GFZYJZ8LRAPFU" target="_blank" rel="noopener">Donar $250</a>
+    </div>
+    <div class="tier highlight">
+      <div class="amt">$950</div>
+      <div class="label">Beca de Entrenamiento</div>
+      <h3>Un lugar completo en el entrenamiento.</h3>
+      <p>Cubre la matrícula completa, la Guía de Campo, el libro, y las comidas de una doula voluntaria en nuestro grupo certificado por ICEA. Ella se compromete a un año de servicio a cambio.</p>
+      <a href="https://www.paypal.com/donate/?hosted_button_id=GFZYJZ8LRAPFU" target="_blank" rel="noopener">Donar $950</a>
+    </div>
+    <div class="tier">
+      <div class="amt">$9,500</div>
+      <div class="label">Grupo Completo</div>
+      <h3>Diez doulas capacitadas.</h3>
+      <p>Patrocina un grupo de entrenamiento completo: diez nuevas doulas voluntarias uniéndose a nuestra red de Luisiana, cada una comprometida a servir al menos a dos familias clientas en el primer año.</p>
+      <a href="https://www.paypal.com/donate/?hosted_button_id=GFZYJZ8LRAPFU" target="_blank" rel="noopener">Donar $9,500</a>
+    </div>
+  </div>
+
+  <div class="custom-row">
+    <div>
+      <h3>Cualquier otra cantidad es bienvenida.</h3>
+      <p>Da lo que puedas. Cada dólar se rastrea y cada familia que entra por nuestra puerta lo siente.</p>
+    </div>
+    <a href="https://www.paypal.com/donate/?hosted_button_id=GFZYJZ8LRAPFU" target="_blank" rel="noopener" class="mhn-btn mhn-btn--primary">Donar una cantidad personalizada</a>
+  </div>
+</section>
+
+<section class="impact">
+  <div class="label">Por qué importa</div>
+  <h2>Los resultados maternos de Luisiana están entre los peores del país. Nosotras los estamos cambiando.</h2>
+  <p>Las familias de MHN, en su mayoría de bajos ingresos y mayoritariamente afroamericanas, experimentan resultados que superan el promedio nacional. Estas reducciones se lograron con doulas voluntarias capacitadas, no con médicos pagados.</p>
+  <div class="igrid">
+    <div class="istat">
+      <div class="n">63%</div>
+      <div class="sub">Menos Cesáreas</div>
+      <p>Clientas de MHN: tasa de cesárea del 13.3% vs. el 36.1% de Luisiana. Estadísticamente significativo (p&lt;0.001).</p>
+    </div>
+    <div class="istat">
+      <div class="n">83%</div>
+      <div class="sub">Menos Partos Prematuros</div>
+      <p>Clientas de MHN: tasa de prematuridad del 2.2% vs. el 13.4% de Luisiana. Reducción del 86% para mujeres negras específicamente.</p>
+    </div>
+    <div class="istat">
+      <div class="n">$400M+</div>
+      <div class="sub">Ahorro Anual si se Escala</div>
+      <p>Aplicado a los 60,000 partos anuales de Luisiana, los resultados de MHN evitarían 13,662 cesáreas y 6,708 partos prematuros al año.</p>
+    </div>
+  </div>
+</section>
+
+<section class="ways">
+  <div class="ways-head">
+    <div class="eyebrow">Otras formas de donar</div>
+    <h2>Más allá de donaciones únicas.</h2>
+  </div>
+  <div class="wgrid">
+    <div class="way">
+      <i class="ico" data-lucide="repeat"></i>
+      <h4>Donación mensual</h4>
+      <p>Conviértete en socia de apoyo continuo. Un pago recurrente de $25 al mes financia un kit de parto cada dos meses y mantiene la organización funcionando todo el año.</p>
+      <a href="mailto:info@mhndoula.com?subject=Donación%20Mensual">Configurar donación mensual →</a>
+    </div>
+    <div class="way">
+      <i class="ico" data-lucide="briefcase"></i>
+      <h4>Donación paralela del empleador</h4>
+      <p>La mayoría de los empleadores en Luisiana igualan las donaciones caritativas. Pregunta en Recursos Humanos y te enviamos el papeleo.</p>
+      <a href="mailto:info@mhndoula.com?subject=Match%20del%20Empleador">Solicitar información →</a>
+    </div>
+    <div class="way">
+      <i class="ico" data-lucide="gift"></i>
+      <h4>Donaciones en especie</h4>
+      <p>Dona suministros (kits posparto, artículos para recién nacidos), servicios profesionales, espacios para eventos, o tiempo de fotografía con familias.</p>
+      <a href="mailto:info@mhndoula.com?subject=Donación%20en%20especie">Ofrecer una donación en especie →</a>
+    </div>
+    <div class="way">
+      <i class="ico" data-lucide="building-2"></i>
+      <h4>Patrocinio corporativo</h4>
+      <p>Patrocina un grupo de entrenamiento, una ronda de kits de parto, o nuestros eventos comunitarios. Paquetes de reconocimiento disponibles.</p>
+      <a href="mailto:info@mhndoula.com?subject=Patrocinio%20Corporativo">Háblanos →</a>
+    </div>
+    <div class="way">
+      <i class="ico" data-lucide="landmark"></i>
+      <h4>Becas de fundaciones</h4>
+      <p>Trabajamos con fundaciones públicas y privadas en toda Luisiana y a nivel nacional. Solicita nuestro paquete de becas y el reporte de resultados IRB.</p>
+      <a href="mailto:info@mhndoula.com?subject=Paquete%20de%20Becas">Solicitar nuestro paquete →</a>
+    </div>
+    <div class="way">
+      <i class="ico" data-lucide="book-heart"></i>
+      <h4>Donación planificada</h4>
+      <p>Incluye a MHN en tu plan patrimonial. Legados, designaciones de beneficiarias en planes de jubilación, y fideicomisos caritativos son bienvenidos.</p>
+      <a href="mailto:info@mhndoula.com?subject=Donación%20Planificada">Háblanos →</a>
+    </div>
+  </div>
+</section>
+
+<section class="trust">
+  <div class="trust-inner">
+    <div>
+      <h3>Tu donación es deducible de impuestos.</h3>
+      <p>Mary's Hands Network es una organización sin fines de lucro 501(c)(3) registrada bajo la ley de caridad del estado de Luisiana. El 100% de tu contribución es deducible hasta el máximo permitido por ley.</p>
+      <p>Recibirás una carta de acuse de recibo por correo electrónico dentro de cinco días hábiles después de tu donación. Avísanos si prefieres un recibo por correo postal.</p>
+    </div>
+    <div class="receipt">
+      <div class="lbl">Para Tus Registros</div>
+      <div class="val" style="margin-bottom:14px"><b>Mary's Hands Network</b><br>Organización 501(c)(3) de Luisiana</div>
+      <div class="lbl">Número de EIN Federal</div>
+      <div class="val" style="margin-bottom:14px">Disponible a solicitud: <a href="mailto:info@mhndoula.com" style="color:var(--mhn-purple-700);text-decoration:underline">escríbenos</a></div>
+      <div class="lbl">Dirección</div>
+      <div class="val">451 E. Airport Avenue<br>Baton Rouge, LA 70806</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <div class="logo">Mary's Hands Network</div>
+      <p>Una organización sin fines de lucro 501(c)(3) de Luisiana. 451 E. Airport Avenue, Baton Rouge, LA 70806.</p>
+      <p style="font-family:var(--mhn-font-serif);font-style:italic;color:#D4BADD">info@mhndoula.com</p>
+    </div>
+    <div class="foot-col">
+      <h5>Para Familias</h5>
+      <a href="https://forms.monday.com/forms/ca1d4fbc14042eb290043defbd016330?r=use1" target="_blank" rel="noopener">Solicitar una doula</a>
+      <a href="apoyo-de-doula.html#text-a-doula">Envía un texto</a>
+      <a href="apoyo-de-doula.html#bereavement">Pérdida y duelo</a>
+      <a href="apoyo-de-doula.html#resources">Recursos comunitarios</a>
+      <a href="donate.html">English version</a>
+    </div>
+    <div class="foot-col">
+      <h5>Para Doulas</h5>
+      <a href="entrenamiento.html">Entrenamiento ICBD</a>
+      <a href="https://salmon-desert-0f9b0be0f.3.azurestaticapps.net/login/" target="_blank" rel="noopener">Portal de Doulas</a>
+      <a href="entrenamiento.html#scholarships">Becas</a>
+    </div>
+    <div class="foot-col">
+      <h5>Nosotras</h5>
+      <a href="nosotras.html">Nuestra Misión</a>
+      <a href="nosotras.html#outcomes">Resultados</a>
+      <a href="nosotras.html#founder">Fundadora</a>
+      <a href="contacto.html">Contacto</a>
+    </div>
+  </div>
+  <div class="foot-btm">
+    <span>© 2026 Mary's Hands Network · Todos los Derechos Reservados</span>
+    <span>Todo nacimiento merece una doula.</span>
+  </div>
+</footer>
+
+</div>
+<script>lucide.createIcons();</script>
+</body>
+</html>

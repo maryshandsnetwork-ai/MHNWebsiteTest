@@ -1,0 +1,54 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Doula Portal · MHN</title>
+<link rel="stylesheet" href="./colors_and_type.css">
+<style>
+  html,body{margin:0;padding:0;min-height:100vh;font-family:var(--mhn-font-sans);background:linear-gradient(160deg,#F8F5FA 0%,#EDE0F2 100%);display:flex;align-items:center;justify-content:center;color:var(--mhn-ink)}
+  .shell{width:420px;padding:40px}
+  .brand{display:flex;align-items:center;gap:12px;margin-bottom:40px;justify-content:center}
+  .seal{width:56px;height:56px;display:flex;align-items:center;justify-content:center}
+  .seal img{width:56px;height:56px;display:block}
+  .name{font-family:var(--mhn-font-serif);font-weight:700;font-size:22px;color:var(--mhn-purple-700);line-height:1}
+  .sub{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--mhn-purple-500);margin-top:3px}
+  .card{background:#fff;border-radius:20px;padding:40px;box-shadow:var(--mhn-shadow-md);border:1px solid var(--mhn-line)}
+  h1{font-family:var(--mhn-font-serif);font-size:26px;color:var(--mhn-purple-700);margin:0 0 6px;font-weight:700;letter-spacing:-0.01em}
+  .hello{font-family:var(--mhn-font-serif);font-style:italic;color:var(--mhn-ink-soft);font-size:14px;margin:0 0 28px}
+  label{display:block;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--mhn-purple-700);margin-bottom:6px}
+  input{width:100%;box-sizing:border-box;font-family:var(--mhn-font-sans);font-size:14px;padding:12px 14px;border:1px solid var(--mhn-line);border-radius:8px;margin-bottom:18px;outline:none;transition:border-color 160ms}
+  input:focus{border-color:var(--mhn-purple-500);box-shadow:0 0 0 3px rgba(132,89,149,0.12)}
+  .opts{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--mhn-ink-mute);margin-bottom:24px}
+  .opts a{color:var(--mhn-purple-700);text-decoration:none;font-weight:700}
+  .opts label{display:inline-flex;align-items:center;gap:6px;text-transform:none;letter-spacing:0;font-weight:400;color:var(--mhn-ink-soft);margin:0}
+  .btn{display:block;width:100%;background:var(--mhn-purple-700);color:#fff;border:none;font-family:var(--mhn-font-sans);font-weight:700;font-size:14px;padding:14px;border-radius:999px;cursor:pointer;letter-spacing:0.02em}
+  .btn:hover{background:var(--mhn-purple-900)}
+  .divider{display:flex;align-items:center;gap:12px;margin:28px 0;color:var(--mhn-ink-mute);font-size:11px;letter-spacing:0.12em;text-transform:uppercase}
+  .divider::before,.divider::after{content:"";flex:1;height:1px;background:var(--mhn-line)}
+  .ghost{display:block;width:100%;box-sizing:border-box;background:transparent;color:var(--mhn-purple-700);border:1px solid var(--mhn-purple-300);font-family:var(--mhn-font-sans);font-weight:700;font-size:13px;padding:12px;border-radius:999px;cursor:pointer;text-align:center;text-decoration:none}
+  .ghost:hover{background:var(--mhn-purple-50)}
+  .foot{text-align:center;margin-top:28px;font-size:11px;color:var(--mhn-ink-mute);letter-spacing:0.04em}
+  .hotline{margin-top:20px;padding:14px;background:var(--mhn-purple-50);border-left:3px solid var(--mhn-purple-500);border-radius:8px;font-size:12px;color:var(--mhn-purple-700);font-family:var(--mhn-font-serif);font-style:italic;line-height:1.5}
+  .hotline b{font-style:normal;font-family:var(--mhn-font-sans);letter-spacing:0.06em}
+</style></head>
+<body data-screen-label="Doula Portal Login">
+<div class="shell">
+  <div class="brand">
+    <div class="seal"><img src="./assets/logo-seal.png" alt="Mary's Hands Network logo"></div>
+    <div><div class="name">Mary's Hands</div><div class="sub">Doula Portal</div></div>
+  </div>
+  <div class="card">
+    <h1>Welcome back.</h1>
+    <p class="hello">Sign in to submit forms, view your matches, and access the Field Guide.</p>
+    <label>Email</label>
+    <input type="email" placeholder="you@mhndoula.com" value="klewis@mhndoula.com">
+    <label>Password</label>
+    <input type="password" value="••••••••••">
+    <div class="opts">
+      <label><input type="checkbox" checked> Keep me signed in</label>
+      <a href="#">Forgot password?</a>
+    </div>
+    <button class="btn">Sign In</button>
+    <div class="divider">or</div>
+    <a href="index.html" class="ghost">Back to Public Site</a>
+    <div class="hotline"><b>MHN Doula Hotline</b>, Need immediate support for a client? Your volunteer coordinator has the current number.</div>
+  </div>
+  <div class="foot">© 2026 Mary's Hands Network · Powered by Monday.com</div>
+</div>
+</body></html>
