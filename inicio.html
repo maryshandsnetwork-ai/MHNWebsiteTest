@@ -106,6 +106,22 @@
   .foot-col a{display:block;font-size:13px;color:#B8A0C0;text-decoration:none;margin-bottom:8px}
   .foot-col a:hover{color:#fff}
   .foot-btm{padding-top:24px;border-top:1px solid rgba(212,186,221,0.18);display:flex;justify-content:space-between;font-size:11px;color:#845995;letter-spacing:0.04em}
+
+  /* HOTLINE + BIRTH VISION CALLOUTS */
+  .home-hotline{margin:64px 48px;padding:72px 56px;background:var(--mhn-purple-700);color:#fff;border-radius:24px;display:grid;grid-template-columns:1.4fr 1fr;gap:48px;align-items:center}
+  .home-hotline .label{font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--mhn-purple-200);font-weight:700;margin-bottom:14px}
+  .home-hotline h2{font-family:var(--mhn-font-serif);font-size:38px;line-height:1.1;color:#fff;margin:0 0 18px;letter-spacing:-0.01em;text-wrap:balance}
+  .home-hotline p{font-size:15px;line-height:1.7;color:#F1EDF3;margin:0 0 12px}
+  .home-hotline .phone-card{background:rgba(255,255,255,0.08);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.15);border-radius:18px;padding:28px 32px;text-align:center}
+  .home-hotline .phone-card .sml{font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--mhn-purple-200);font-weight:700;margin-bottom:10px}
+  .home-hotline .phone-card .num{font-family:var(--mhn-font-serif);font-size:34px;color:#fff;text-decoration:none;display:block;letter-spacing:-0.01em;font-weight:700}
+  .home-hotline .phone-card .alt{font-size:13px;color:#E8D4EE;font-family:var(--mhn-font-serif);font-style:italic;margin-top:14px}
+  .home-vision{margin:32px 48px 64px;padding:64px 56px;background:linear-gradient(160deg,#F8F5FA,#F1EAF6);border:1px solid var(--mhn-purple-200);border-radius:24px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  .home-vision .eyebrow{font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:700;margin-bottom:14px}
+  .home-vision h2{font-family:var(--mhn-font-serif);font-size:36px;line-height:1.1;color:var(--mhn-purple-700);margin:0 0 16px;letter-spacing:-0.01em;text-wrap:balance}
+  .home-vision p{font-size:15px;line-height:1.7;color:var(--mhn-ink-soft);margin:0 0 12px}
+  .home-vision .vision-art{aspect-ratio:1/1;border-radius:18px;background:radial-gradient(circle at 30% 30%, #E8D4EE 0%, #C8A3D8 70%);display:flex;align-items:center;justify-content:center;font-family:var(--mhn-font-serif);font-style:italic;font-size:24px;color:#fff;text-align:center;padding:40px;line-height:1.3}
+  @media (max-width:900px){.home-hotline,.home-vision{grid-template-columns:1fr;margin:40px 20px;padding:44px 28px}}
 </style>
 </head>
 <body>
@@ -164,6 +180,34 @@
       <a href="donar.html">Ver formas de donar</a>
     </div>
   </div>
+</section>
+
+
+<!-- LÍNEA DIRECTA DE DOULAS -->
+<section class="home-hotline">
+  <div>
+    <div class="label">Text a Doula · Línea Directa MHN</div>
+    <h2>Cuando nos necesites, día o noche.</h2>
+    <p>Llama o envía un mensaje a la Línea Directa cuando lo necesites. ¿Eres clienta? Te conectamos con tu equipo o activamos cobertura de respaldo. ¿Aún no? Haz una pregunta, solicita una doula, o simplemente habla con alguien que entiende.</p>
+    <p style="font-family:var(--mhn-font-serif);font-style:italic;color:#E8D4EE;font-size:14px">Nunca necesitas una cita. Nunca necesitas pedir disculpas por llamar.</p>
+  </div>
+  <div class="phone-card">
+    <div class="sml">Llama o envía mensaje</div>
+    <a href="tel:2254247532" class="num">(225) 424-7532</a>
+    <div class="alt">Inglés disponible · <a href="for-mom.html" style="color:#fff;text-decoration:underline">Support in English →</a></div>
+  </div>
+</section>
+
+<!-- VISIÓN DEL PARTO -->
+<section class="home-vision">
+  <div>
+    <div class="eyebrow">Construye tu Visión del Parto</div>
+    <h2>Un mapa para tu parto, no un plan rígido.</h2>
+    <p>La Guía de Visión del Parto es una herramienta gratuita para explorar tus opciones, compartir tus esperanzas, y comenzar conversaciones significativas con tu equipo de cuidado.</p>
+    <p>Piénsalo como un mapa para tu jornada de parto, una herramienta para prepararte mientras te mantienes flexible cuando las cosas cambian.</p>
+    <a href="./assets/birth-vision-guide.pdf" target="_blank" rel="noopener" class="mhn-btn mhn-btn--primary" style="margin-top:14px">Descargar la Guía (PDF)</a>
+  </div>
+  <div class="vision-art">"Cada parto merece una visión moldeada por la mujer que lo vive."</div>
 </section>
 
 <section class="stats">
