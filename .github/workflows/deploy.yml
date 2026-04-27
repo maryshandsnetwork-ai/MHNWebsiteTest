@@ -12,20 +12,25 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Sync files to DreamHost via SFTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      - name: Stage files for deploy
+        run: |
+          mkdir -p _deploy
+          rsync -av \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='_deploy' \
+            --exclude='README.md' \
+            --exclude='vercel.json' \
+            --exclude='.DS_Store' \
+            ./ _deploy/
+
+      - name: Upload via SFTP
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
           server: ams1-shared-02.dreamhost.com
           username: dh_n5xhce
           password: ${{ secrets.DREAMHOST_SFTP_PASSWORD }}
-          protocol: sftp
           port: 22
-          server-dir: /home/dh_n5xhce/maryshandsnetwork.org/
-          local-dir: ./
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/.github/**
-            **/README.md
-            **/vercel.json
-            **/.DS_Store
+          local_path: './_deploy/*'
+          remote_path: '/home/dh_n5xhce/maryshandsnetwork.org/'
+          sftp_only: true
