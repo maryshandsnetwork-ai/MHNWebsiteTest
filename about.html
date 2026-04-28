@@ -359,38 +359,32 @@
 </div>
 </section>
 
-<!-- PHOTO CAROUSEL -->
-<section style="padding:64px 0 80px;background:#fff">
-<div style="max-width:1200px;margin:0 auto;padding:0 48px;text-align:center">
+<!-- LIFE OF THE NETWORK · 4 FRAMED PHOTOS -->
+<section style="padding:48px 48px 56px;background:#fff">
+<div style="max-width:1100px;margin:0 auto;text-align:center">
 <div class="eyebrow" style="font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:700;margin-bottom:14px">Life of the Network</div>
-<h2 class="h2-warm" style="font-family:var(--mhn-font-serif);font-size:36px;color:var(--mhn-purple-700);margin:0 0 14px;letter-spacing:-0.01em;line-height:1.1">Built one cohort at a time.</h2>
-<p style="font-family:var(--mhn-font-serif);font-style:italic;color:var(--mhn-ink-soft);font-size:17px;margin:0 0 36px">Our staff, our cohorts, our community — the people who make Mary's Hands.</p>
+<h2 class="h2-warm" style="font-family:var(--mhn-font-serif);font-size:32px;color:var(--mhn-purple-700);margin:0 0 12px;letter-spacing:-0.01em;line-height:1.1">Built one cohort at a time.</h2>
+<p style="font-family:var(--mhn-font-serif);font-style:italic;color:var(--mhn-ink-soft);font-size:15px;margin:0 0 28px">Our staff, our cohorts, our families, our community.</p>
+<div class="frame-row">
+  <figure class="mhn-frame">
+    <img src="./assets/photos/mhn-staff-team.jpg" alt="The Mary's Hands staff team">
+    <figcaption>Our staff</figcaption>
+  </figure>
+  <figure class="mhn-frame">
+    <img src="./assets/photos/cohort-graduation-2025.jpg" alt="A graduating MHN cohort with certificates">
+    <figcaption>A certified cohort</figcaption>
+  </figure>
+  <figure class="mhn-frame">
+    <img src="./assets/photos/doula-with-newborn.jpg" alt="An MHN doula with a newborn">
+    <figcaption>First minutes</figcaption>
+  </figure>
+  <figure class="mhn-frame">
+    <img src="./assets/photos/community-tabling-staff.jpg" alt="MHN tabling at a community event">
+    <figcaption>In community</figcaption>
+  </figure>
 </div>
-<div class="mhn-carousel" id="aboutCarousel">
-  <button class="carousel-arrow prev" aria-label="Previous photo" onclick="carouselScroll('aboutCarousel',-1)">‹</button>
-  <div class="carousel-track">
-    <div class="carousel-slide"><img src="./assets/photos/mhn-staff-team.jpg" alt="The Mary's Hands staff team"><div class="cap">The Mary's Hands staff team</div></div>
-    <div class="carousel-slide"><img src="./assets/photos/cohort-graduation-2025.jpg" alt="A graduating cohort with ICEA certificates"><div class="cap">A graduating ICEA-certified cohort</div></div>
-    <div class="carousel-slide"><img src="./assets/photos/community-tabling-staff.jpg" alt="MHN tabling at a community event"><div class="cap">In community, every chance we get</div></div>
-    <div class="carousel-slide"><img src="./assets/photos/doula-with-newborn.jpg" alt="An MHN doula with a newborn"><div class="cap">First minutes of postpartum support</div></div>
-    <div class="carousel-slide"><img src="./assets/photos/training-rebozo-active.jpg" alt="Doulas practicing rebozo techniques"><div class="cap">Rebozo work, on the mat</div></div>
-    <div class="carousel-slide"><img src="./assets/photos/training-shoulder-press.jpg" alt="Doulas practicing comfort techniques"><div class="cap">Comfort techniques, learned in pairs</div></div>
-    <div class="carousel-slide"><img src="./assets/photos/training-joyful-knees.jpg" alt="Trainees in a joyful candid moment"><div class="cap">Joy is part of the work</div></div>
-    <div class="carousel-slide"><img src="./assets/photos/training-cub-smile.jpg" alt="Trainee with a CUB birth tool"><div class="cap">Equipment for upright birth</div></div>
-    <div class="carousel-slide"><img src="./assets/photos/cohort-graduation-icea.jpg" alt="An earlier MHN cohort with certificates"><div class="cap">Every cohort, certified</div></div>
-    <div class="carousel-slide"><img src="./assets/photos/training-postpartum-lecture.jpg" alt="A postpartum support lecture"><div class="cap">Postpartum support, session by session</div></div>
-  </div>
-  <button class="carousel-arrow next" aria-label="Next photo" onclick="carouselScroll('aboutCarousel',1)">›</button>
 </div>
 </section>
-<script>
-function carouselScroll(id, dir){
-  var el = document.getElementById(id).querySelector('.carousel-track');
-  var slide = el.querySelector('.carousel-slide');
-  var w = slide ? slide.offsetWidth + 16 : 400;
-  el.scrollBy({left: dir * w, behavior: 'smooth'});
-}
-</script>
 
 <!-- OUR STAFF -->
 <section style="padding:64px 48px;background:var(--mhn-paper-alt)">
