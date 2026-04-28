@@ -16,6 +16,7 @@
 <meta name="twitter:title" content="Apoyo de Doula · Solicita una Doula Gratis · Mary's Hands">
 <meta name="twitter:description" content="Solicita una doula voluntaria gratis, envía un texto a la línea directa de MHN, o encuentra apoyo en pérdida y recursos comunitarios en toda Luisiana.">
 <meta name="twitter:image" content="https://maryshandsnetwork.org/assets/logo-full.png">
+<link rel="canonical" href="https://maryshandsnetwork.org/apoyo-de-doula.html">
 <link rel="stylesheet" href="./colors_and_type.css">
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 <style>
@@ -155,16 +156,19 @@
 <nav class="nav">
   <a href="inicio.html" class="brand">
     <div class="seal"><img src="./assets/logo-seal.png" alt="Mary's Hands Network logo"></div>
-    <div><div class="name">Mary's Hands</div><div class="sub">Red de Doulas Voluntarias</div></div>
+    <div>
+      <div class="name">Mary's Hands</div>
+      <div class="sub">Red de Doulas Voluntarias</div>
+    </div>
   </a>
   <div class="nav-links">
     <a href="inicio.html">Inicio</a>
     <a href="nosotras.html">Nosotras</a>
-    <a href="apoyo-de-doula.html" class="active">Para Mamá</a>
+    <a href="apoyo-de-doula.html" class="active">Para Familias</a>
     <a href="entrenamiento.html">Entrenamiento</a>
     <a href="contacto.html">Contacto</a>
-    <a href="for-mom.html" style="color:var(--mhn-purple-500)">English</a>
-    <a href="donar.html"><span style="display:inline-flex;align-items:center;gap:6px;padding:10px 18px;border-radius:999px;background:var(--mhn-purple-700);color:#fff">Donar</span></a>
+    <div class="lang-toggle"><a href="bereavement.html">EN</a><a href="#" class="active">ES</a></div>
+    <a href="donar.html" class="btn-donate">Donar</a>
   </div>
 </nav>
 
@@ -347,5 +351,17 @@
 
 </div>
 <script>lucide.createIcons();</script>
+<div class="sticky-mobile-cta">
+  <a href="for-mom.html" class="apply">Apply</a>
+  <a href="tel:2254247532" class="call">Call</a>
+  <a href="donate.html" class="donate">Donate</a>
+</div>
+<script>
+  // Fade-in on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
 </body>
 </html>

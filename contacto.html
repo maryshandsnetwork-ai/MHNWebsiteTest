@@ -16,6 +16,7 @@
 <meta name="twitter:title" content="Contacto · Mary's Hands Network">
 <meta name="twitter:description" content="Alianzas, prensa, conferencias o preguntas generales. Respondemos dentro de dos días hábiles. Hablamos español.">
 <meta name="twitter:image" content="https://maryshandsnetwork.org/assets/logo-full.png">
+<link rel="canonical" href="https://maryshandsnetwork.org/contacto.html">
 <link rel="stylesheet" href="./colors_and_type.css">
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 <style>
@@ -131,16 +132,19 @@
 <nav class="nav">
   <a href="inicio.html" class="brand">
     <div class="seal"><img src="./assets/logo-seal.png" alt="Mary's Hands Network logo"></div>
-    <div><div class="name">Mary's Hands</div><div class="sub">Red de Doulas Voluntarias</div></div>
+    <div>
+      <div class="name">Mary's Hands</div>
+      <div class="sub">Red de Doulas Voluntarias</div>
+    </div>
   </a>
   <div class="nav-links">
     <a href="inicio.html">Inicio</a>
     <a href="nosotras.html">Nosotras</a>
-    <a href="apoyo-de-doula.html">Para Mamá</a>
+    <a href="apoyo-de-doula.html">Para Familias</a>
     <a href="entrenamiento.html">Entrenamiento</a>
     <a href="contacto.html" class="active">Contacto</a>
-    <a href="contact.html" style="color:var(--mhn-purple-500)">English</a>
-    <a href="donar.html"><span style="display:inline-flex;align-items:center;gap:6px;padding:10px 18px;border-radius:999px;background:var(--mhn-purple-700);color:#fff">Donar</span></a>
+    <div class="lang-toggle"><a href="contact.html">EN</a><a href="#" class="active">ES</a></div>
+    <a href="donar.html" class="btn-donate">Donar</a>
   </div>
 </nav>
 
@@ -248,38 +252,53 @@
   <div class="foot-grid">
     <div class="foot-brand">
       <div class="logo">Mary's Hands Network</div>
-      <p>Una organización sin fines de lucro 501(c)(3) de Luisiana. 451 E. Airport Avenue, Baton Rouge, LA 70806.</p>
-      <p style="font-family:var(--mhn-font-serif);font-style:italic;color:#D4BADD">info@mhndoula.com</p>
+      <p>Una organización 501(c)(3) de Luisiana · EIN 92-XXXXXXX. 451 E. Airport Avenue, Baton Rouge, LA 70806.</p>
+      <p style="font-family:var(--mhn-font-serif);font-style:italic;color:#D4BADD">info@mhndoula.com · (225) 424-7532</p>
+      <div class="foot-newsletter">
+        <h5>Mantente cerca del trabajo.</h5>
+        <p>Historias de parto, novedades de entrenamientos — una vez al mes, sin spam.</p>
+        <form action="https://formsubmit.co/info@mhndoula.com" method="POST">
+          <input type="email" name="email" placeholder="tu@email.com" required>
+          <button type="submit">Suscribir</button>
+          <input type="hidden" name="_subject" value="Newsletter signup (Spanish)">
+        </form>
+      </div>
+      <div class="ein-line">501(c)(3) · Protocolo IRB #2025-001</div>
     </div>
     <div class="foot-col">
       <h5>Para Familias</h5>
-      <a href="https://forms.monday.com/forms/ca1d4fbc14042eb290043defbd016330?r=use1" target="_blank" rel="noopener">Solicitar una doula</a>
-      <a href="apoyo-de-doula.html#text-a-doula">Envía un texto</a>
-      <a href="apoyo-de-doula.html#bereavement">Pérdida y duelo</a>
-      <a href="apoyo-de-doula.html#resources">Recursos comunitarios</a>
-      <a href="contact.html">English version</a>
+      <a href="apoyo-de-doula.html">Apoyo de Doula</a>
+      <a href="for-mom.html">In English</a>
     </div>
     <div class="foot-col">
       <h5>Para Doulas</h5>
       <a href="entrenamiento.html">Entrenamiento ICBD</a>
-      <a href="https://salmon-desert-0f9b0be0f.3.azurestaticapps.net/login/" target="_blank" rel="noopener">Portal de Doulas</a>
-      <a href="entrenamiento.html#scholarships">Becas</a>
     </div>
     <div class="foot-col">
-      <h5>Nosotras</h5>
+      <h5>Acerca</h5>
       <a href="nosotras.html">Nuestra Misión</a>
-      <a href="nosotras.html#outcomes">Resultados</a>
-      <a href="nosotras.html#founder">Fundadora</a>
       <a href="contacto.html">Contacto</a>
     </div>
   </div>
   <div class="foot-btm">
-    <span>© 2026 Mary's Hands Network · Todos los Derechos Reservados</span>
-    <span>Todo nacimiento merece una doula.</span>
+    <span>© 2026 Mary's Hands Network · Todos los derechos reservados</span>
+    <span>Cada Parto Merece una Doula.</span>
   </div>
 </footer>
 
 </div>
 <script>lucide.createIcons();</script>
+<div class="sticky-mobile-cta">
+  <a href="for-mom.html" class="apply">Apply</a>
+  <a href="tel:2254247532" class="call">Call</a>
+  <a href="donate.html" class="donate">Donate</a>
+</div>
+<script>
+  // Fade-in on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
 </body>
 </html>

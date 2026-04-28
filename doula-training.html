@@ -159,19 +159,22 @@
 <body>
 <div class="page" data-screen-label="Doula Training">
 <nav class="nav">
-<a class="brand" href="index.html">
-<div class="seal"><img alt="Mary's Hands Network logo" src="./assets/logo-seal.png"/></div>
-<div><div class="name">Mary's Hands</div><div class="sub">Volunteer Doula Network</div></div>
-</a>
-<div class="nav-links">
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="for-mom.html">For Families</a>
-<a class="active" href="doula-training.html">Doula Training</a>
-<a href="contact.html">Contact</a>
-<a href="entrenamiento.html" style="color:var(--mhn-purple-500)">Español</a>
-<a href="donate.html"><span style="display:inline-flex;align-items:center;gap:6px;padding:10px 18px;border-radius:999px;background:var(--mhn-purple-700);color:#fff">Donate</span></a>
-</div>
+  <a href="index.html" class="brand">
+    <div class="seal"><img src="./assets/logo-seal.png" alt="Mary's Hands Network logo"></div>
+    <div>
+      <div class="name">Mary's Hands</div>
+      <div class="sub">Volunteer Doula Network</div>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="for-mom.html">For Families</a>
+    <a href="doula-training.html" class="active">Doula Training</a>
+    <a href="contact.html">Contact</a>
+    <div class="lang-toggle"><a href="#" class="active">EN</a><a href="entrenamiento.html">ES</a></div>
+    <a href="donate.html" class="btn-donate">Donate</a>
+  </div>
 </nav>
 <section class="hero">
 <div class="eyebrow">ICEA Certified Birth Doula · Summer 2026</div>
@@ -468,4 +471,16 @@ footer.site-foot{background:var(--mhn-purple-900);color:#D4BADD;padding:64px 48p
 </footer>
 </div>
 <script>lucide.createIcons();</script>
+<div class="sticky-mobile-cta">
+  <a href="for-mom.html" class="apply">Apply</a>
+  <a href="tel:2254247532" class="call">Call</a>
+  <a href="donate.html" class="donate">Donate</a>
+</div>
+<script>
+  // Fade-in on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
 </body></html>
