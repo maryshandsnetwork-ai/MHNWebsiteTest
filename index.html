@@ -133,6 +133,19 @@
   .home-vision p{font-size:15px;line-height:1.7;color:var(--mhn-ink-soft);margin:0 0 12px}
   .home-vision .vision-art{aspect-ratio:1/1;border-radius:18px;background:radial-gradient(circle at 30% 30%, #E8D4EE 0%, #C8A3D8 70%);display:flex;align-items:center;justify-content:center;font-family:var(--mhn-font-serif);font-style:italic;font-size:24px;color:#fff;text-align:center;padding:40px;line-height:1.3}
   @media (max-width:900px){.home-hotline,.home-vision{grid-template-columns:1fr;margin:40px 20px;padding:44px 28px}}
+
+  /* PHOTOS GALLERY */
+  .photo-gallery{padding:64px 48px;background:var(--mhn-paper-alt)}
+  .photo-gallery .gallery-head{max-width:680px;margin:0 auto 36px;text-align:center}
+  .photo-gallery .eyebrow{font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:700;margin-bottom:14px}
+  .photo-gallery h2{font-family:var(--mhn-font-serif);font-size:36px;color:var(--mhn-purple-700);margin:0 0 14px;letter-spacing:-0.01em;line-height:1.1;text-wrap:balance}
+  .photo-gallery p.intro{font-size:15px;line-height:1.6;color:var(--mhn-ink-soft);margin:0;text-wrap:pretty}
+  .gallery-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:18px;max-width:1200px;margin:0 auto}
+  .gallery-grid .photo{position:relative;border-radius:18px;overflow:hidden;box-shadow:var(--mhn-shadow-sm);background:var(--mhn-purple-100)}
+  .gallery-grid .photo img{width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:4/5}
+  .gallery-grid .photo.wide img{aspect-ratio:4/3}
+  .gallery-grid .photo .cap{position:absolute;bottom:14px;left:14px;right:14px;background:rgba(255,255,255,0.94);backdrop-filter:blur(8px);padding:10px 14px;border-radius:10px;font-size:12px;color:var(--mhn-purple-700);font-family:var(--mhn-font-serif);font-style:italic;line-height:1.35}
+  @media (max-width:900px){.gallery-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -304,6 +317,21 @@
       <cite>Client, Lafayette</cite>
       <div class="client">First-time mom · 2025</div>
     </div>
+  </div>
+</section>
+
+
+<!-- INSIDE THE NETWORK · PHOTOS -->
+<section class="photo-gallery">
+  <div class="gallery-head">
+    <div class="eyebrow">Inside the Network</div>
+    <h2>The work, in real life.</h2>
+    <p class="intro">Cohort training days, certifications, and the steady, quiet work of showing up for Louisiana families.</p>
+  </div>
+  <div class="gallery-grid">
+    <div class="photo wide"><img src="./assets/photos/training-materials-binder.jpg" alt="MHN Volunteer Training Materials binder beside The Birth Partner textbook"><div class="cap">Volunteer training materials, every cohort.</div></div>
+    <div class="photo"><img src="./assets/photos/cohort-graduation.jpg" alt="An MHN doula receiving her certificate at a cohort graduation"><div class="cap">Certifying a new community doula.</div></div>
+    <div class="photo"><img src="./assets/photos/certified-doula-caryl.jpg" alt="A certified MHN birth doula holding her ICEA certificate"><div class="cap">Caryl, ICEA-certified MHN birth doula.</div></div>
   </div>
 </section>
 

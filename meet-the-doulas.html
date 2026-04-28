@@ -61,6 +61,26 @@
   .foot-col a{display:block;font-size:13px;color:#B8A0C0;text-decoration:none;margin-bottom:8px}
   .foot-col a:hover{color:#fff}
   .foot-btm{padding-top:24px;border-top:1px solid rgba(212,186,221,0.18);display:flex;justify-content:space-between;font-size:11px;color:#845995;letter-spacing:0.04em}
+
+  /* PHOTOS GALLERY */
+  .photo-gallery{padding:64px 48px;background:var(--mhn-paper-alt)}
+  .photo-gallery .gallery-head{max-width:680px;margin:0 auto 36px;text-align:center}
+  .photo-gallery .eyebrow{font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:700;margin-bottom:14px}
+  .photo-gallery h2{font-family:var(--mhn-font-serif);font-size:36px;color:var(--mhn-purple-700);margin:0 0 14px;letter-spacing:-0.01em;line-height:1.1;text-wrap:balance}
+  .photo-gallery p.intro{font-size:15px;line-height:1.6;color:var(--mhn-ink-soft);margin:0;text-wrap:pretty}
+  .gallery-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:18px;max-width:1200px;margin:0 auto}
+  .gallery-grid .photo{position:relative;border-radius:18px;overflow:hidden;box-shadow:var(--mhn-shadow-sm);background:var(--mhn-purple-100)}
+  .gallery-grid .photo img{width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:4/5}
+  .gallery-grid .photo.wide img{aspect-ratio:4/3}
+  .gallery-grid .photo .cap{position:absolute;bottom:14px;left:14px;right:14px;background:rgba(255,255,255,0.94);backdrop-filter:blur(8px);padding:10px 14px;border-radius:10px;font-size:12px;color:var(--mhn-purple-700);font-family:var(--mhn-font-serif);font-style:italic;line-height:1.35}
+  @media (max-width:900px){.gallery-grid{grid-template-columns:1fr}}
+
+  .featured-doula{margin:32px 0;background:#fff;border:1px solid var(--mhn-line);border-radius:20px;padding:32px;display:grid;grid-template-columns:280px 1fr;gap:32px;align-items:center;box-shadow:var(--mhn-shadow-sm)}
+  .featured-doula img{width:100%;border-radius:14px;display:block}
+  .featured-doula .info h3{font-family:var(--mhn-font-serif);font-size:24px;color:var(--mhn-purple-700);margin:0 0 8px}
+  .featured-doula .info .role{font-family:var(--mhn-font-serif);font-style:italic;color:var(--mhn-purple-500);font-size:14px;margin:0 0 14px}
+  .featured-doula .info p{font-size:14px;line-height:1.6;color:var(--mhn-ink-soft);margin:0 0 10px}
+  @media (max-width:700px){.featured-doula{grid-template-columns:1fr;text-align:center}}
 </style>
 </head>
 <body>
@@ -99,6 +119,17 @@
     <p>We are in the process of inviting each MHN-trained doula to share a bio and photo for this directory. If you're an MHN doula, watch your email for the spotlight invitation.</p>
     <p style="margin-bottom:0">In the meantime, learn about our network as a whole:</p>
   </div>
+
+  <div class="featured-doula">
+    <img src="./assets/photos/certified-doula-caryl.jpg" alt="Caryl, certified MHN birth doula">
+    <div class="info">
+      <h3>Caryl Miller</h3>
+      <p class="role">Certified Birth Doula · ICEA</p>
+      <p>Caryl is one of MHN's certified birth doulas, serving Louisiana families through pregnancy, labor, and the postpartum period. Each MHN doula completes our ICEA-approved Birth Doula training and ongoing mentorship.</p>
+      <p style="font-family:var(--mhn-font-serif);font-style:italic;color:var(--mhn-purple-700)">More doula bios coming as our network grows.</p>
+    </div>
+  </div>
+
 
   <h2>By the Numbers</h2>
   <div class="grid-3">
