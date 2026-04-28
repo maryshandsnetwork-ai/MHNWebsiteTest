@@ -442,7 +442,7 @@
 .hero-split .hero-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .hero-split .hero-img .badge {
   position: absolute;
-  top: 24px;
+  bottom: 24px;
   left: 24px;
   background: rgba(255,255,255,0.96);
   backdrop-filter: blur(8px);
