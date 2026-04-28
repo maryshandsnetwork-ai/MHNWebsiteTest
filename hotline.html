@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=1280">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Doula Hotline · Text a Doula · Mary's Hands Network</title>
 <meta name="description" content="Free 24/7 support from trained doulas. Call or text (225) 424-7532 anytime.">
 <link rel="icon" type="image/png" href="./assets/logo-seal.png">
@@ -26,7 +26,7 @@
   .nav-links a:hover{color:var(--mhn-purple-700)}
   .nav-links .active{color:var(--mhn-purple-700)}
   .nav-links .active::after{content:"";display:block;height:2px;background:var(--mhn-purple-200);margin-top:4px}
-  .hero{padding:88px 48px 56px;max-width:880px}
+  .hero{padding:56px 48px 40px;max-width:880px}
   .eyebrow{font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:700;margin-bottom:18px}
   h1.t{font-family:var(--mhn-font-serif);font-size:52px;line-height:1.05;color:var(--mhn-purple-700);margin:0 0 22px;letter-spacing:-0.015em;font-weight:700;text-wrap:balance}
   h1.t em{font-style:italic;color:var(--mhn-purple-500)}
@@ -40,7 +40,7 @@
   .body strong{color:var(--mhn-ink);font-weight:700}
   .callout{background:var(--mhn-purple-50);border:1px solid var(--mhn-purple-200);border-radius:18px;padding:28px 32px;margin:24px 0}
   .callout h3{margin-top:0;color:var(--mhn-purple-700)}
-  .hero-purple{padding:64px 48px;background:var(--mhn-purple-700);color:#fff;margin:0 48px;border-radius:24px;text-align:center}
+  .hero-purple{padding:64px 48px;background:var(--mhn-purple-700);color:#fff;margin:24px 48px;border-radius:24px;text-align:center}
   .hero-purple h1{font-family:var(--mhn-font-serif);font-size:48px;color:#fff;margin:0 0 18px;letter-spacing:-0.01em;line-height:1.1;font-weight:700}
   .hero-purple .num{font-family:var(--mhn-font-serif);font-size:38px;color:#fff;text-decoration:none;font-weight:700;display:inline-block;margin:8px 0 14px}
   .hero-purple p{color:#F1EDF3;margin:0;font-size:15px;max-width:600px;margin-left:auto;margin-right:auto}
@@ -61,6 +61,41 @@
   .foot-col a{display:block;font-size:13px;color:#B8A0C0;text-decoration:none;margin-bottom:8px}
   .foot-col a:hover{color:#fff}
   .foot-btm{padding-top:24px;border-top:1px solid rgba(212,186,221,0.18);display:flex;justify-content:space-between;font-size:11px;color:#845995;letter-spacing:0.04em}
+
+  /* MOBILE RESPONSIVE */
+  @media (max-width:900px){
+    body, .page{max-width:100%;overflow-x:hidden}
+    .nav{flex-direction:column;gap:14px;padding:14px 18px}
+    .nav-links{flex-wrap:wrap;justify-content:center;gap:14px 18px;font-size:13px}
+    .nav-links a{font-size:13px}
+    .hero, .hero-purple, .body, .mission-wrap, .numbers, .tl-wrap, .footprint, .contact, .founder, .origin, .photo-gallery{padding:48px 20px !important;max-width:100% !important}
+    h1.t, .h1{font-size:34px !important;line-height:1.1 !important}
+    .lede{font-size:16px !important}
+    h2{font-size:26px !important;line-height:1.15 !important}
+    h3{font-size:18px !important}
+    .mv, .ngrid, .tl, .ogrid, .grid-3, .grid-2, .stats-grid, .routes-grid, .services-grid, .gallery-grid, .home-vision, .home-hotline, .contact-inner{grid-template-columns:1fr !important;gap:18px !important}
+    .stats, .mission, .services, .testimonials, .final, .outcomes, .home-hotline, .home-vision{margin:24px 16px !important;padding:48px 24px !important}
+    .home-hotline h2, .home-vision h2{font-size:28px !important}
+    .home-hotline .phone-card .num{font-size:28px !important}
+    .featured-doula{grid-template-columns:1fr !important;text-align:center;padding:24px !important}
+    footer{padding:48px 20px 20px}
+    .foot-grid{grid-template-columns:1fr !important;gap:32px !important}
+    .foot-btm{flex-direction:column;gap:8px;text-align:center}
+    .nitem .n, .stat .n{font-size:36px !important}
+    .ostat .pct{font-size:38px !important}
+    .regions{grid-template-columns:1fr !important}
+    .rchip{text-align:center}
+    .pchip{display:block;margin:6px 0;text-align:center}
+    .callout{padding:20px 18px !important;margin:18px 0 !important}
+    .mhn-btn--inline, .mhn-btn--primary, .mhn-btn--secondary{display:block;text-align:center;margin:8px 0 !important}
+    .tl::before{display:none}
+    .tl-item{padding:18px 0;border-top:1px solid var(--mhn-purple-200)}
+    .tl-item:first-child{border-top:none}
+  }
+  @media (max-width:560px){
+    h1.t, .h1{font-size:28px !important}
+    .home-hotline .phone-card .num{font-size:24px !important}
+  }
 </style>
 </head>
 <body>

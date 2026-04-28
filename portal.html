@@ -26,6 +26,41 @@
   .foot{text-align:center;margin-top:28px;font-size:11px;color:var(--mhn-ink-mute);letter-spacing:0.04em}
   .hotline{margin-top:20px;padding:14px;background:var(--mhn-purple-50);border-left:3px solid var(--mhn-purple-500);border-radius:8px;font-size:12px;color:var(--mhn-purple-700);font-family:var(--mhn-font-serif);font-style:italic;line-height:1.5}
   .hotline b{font-style:normal;font-family:var(--mhn-font-sans);letter-spacing:0.06em}
+
+  /* MOBILE RESPONSIVE */
+  @media (max-width:900px){
+    body, .page{max-width:100%;overflow-x:hidden}
+    .nav{flex-direction:column;gap:14px;padding:14px 18px}
+    .nav-links{flex-wrap:wrap;justify-content:center;gap:14px 18px;font-size:13px}
+    .nav-links a{font-size:13px}
+    .hero, .hero-purple, .body, .mission-wrap, .numbers, .tl-wrap, .footprint, .contact, .founder, .origin, .photo-gallery{padding:48px 20px !important;max-width:100% !important}
+    h1.t, .h1{font-size:34px !important;line-height:1.1 !important}
+    .lede{font-size:16px !important}
+    h2{font-size:26px !important;line-height:1.15 !important}
+    h3{font-size:18px !important}
+    .mv, .ngrid, .tl, .ogrid, .grid-3, .grid-2, .stats-grid, .routes-grid, .services-grid, .gallery-grid, .home-vision, .home-hotline, .contact-inner{grid-template-columns:1fr !important;gap:18px !important}
+    .stats, .mission, .services, .testimonials, .final, .outcomes, .home-hotline, .home-vision{margin:24px 16px !important;padding:48px 24px !important}
+    .home-hotline h2, .home-vision h2{font-size:28px !important}
+    .home-hotline .phone-card .num{font-size:28px !important}
+    .featured-doula{grid-template-columns:1fr !important;text-align:center;padding:24px !important}
+    footer{padding:48px 20px 20px}
+    .foot-grid{grid-template-columns:1fr !important;gap:32px !important}
+    .foot-btm{flex-direction:column;gap:8px;text-align:center}
+    .nitem .n, .stat .n{font-size:36px !important}
+    .ostat .pct{font-size:38px !important}
+    .regions{grid-template-columns:1fr !important}
+    .rchip{text-align:center}
+    .pchip{display:block;margin:6px 0;text-align:center}
+    .callout{padding:20px 18px !important;margin:18px 0 !important}
+    .mhn-btn--inline, .mhn-btn--primary, .mhn-btn--secondary{display:block;text-align:center;margin:8px 0 !important}
+    .tl::before{display:none}
+    .tl-item{padding:18px 0;border-top:1px solid var(--mhn-purple-200)}
+    .tl-item:first-child{border-top:none}
+  }
+  @media (max-width:560px){
+    h1.t, .h1{font-size:28px !important}
+    .home-hotline .phone-card .num{font-size:24px !important}
+  }
 </style></head>
 <body data-screen-label="Doula Portal Login">
 <div class="shell">
