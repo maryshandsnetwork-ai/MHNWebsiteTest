@@ -294,11 +294,21 @@
   <a href="donate.html" class="donate">Donate</a>
 </div>
 <script>
-  // Fade-in on scroll
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  // Fade-in on scroll — but reveal immediately if already in viewport on load
+  (function(){
+    const els = document.querySelectorAll('.fade-in');
+    const reveal = (el) => el.classList.add('visible');
+    // First, immediately reveal anything that's already on screen
+    els.forEach(el => {
+      const r = el.getBoundingClientRect();
+      if (r.top < window.innerHeight && r.bottom > 0) reveal(el);
+    });
+    // Then observe the rest for as they scroll into view
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) reveal(e.target); });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    els.forEach(el => { if (!el.classList.contains('visible')) observer.observe(el); });
+  })();
 </script>
 </body>
 </html>
