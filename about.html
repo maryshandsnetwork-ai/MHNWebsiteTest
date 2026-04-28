@@ -186,22 +186,22 @@
 <div class="page" data-screen-label="About">
 <!-- NAV -->
 <nav class="nav">
-  <a href="index.html" class="brand">
-    <div class="seal"><img src="./assets/logo-seal.png" alt="Mary's Hands Network logo"></div>
-    <div>
-      <div class="name">Mary's Hands</div>
-      <div class="sub">Volunteer Doula Network</div>
-    </div>
-  </a>
-  <div class="nav-links">
-    <a href="index.html">Home</a>
-    <a href="about.html" class="active">About</a>
-    <a href="for-mom.html">For Families</a>
-    <a href="doula-training.html">Doula Training</a>
-    <a href="contact.html">Contact</a>
-    <div class="lang-toggle"><a href="#" class="active">EN</a><a href="nosotras.html">ES</a></div>
-    <a href="donate.html" class="btn-donate">Donate</a>
-  </div>
+<a class="brand" href="index.html">
+<div class="seal"><img alt="Mary's Hands Network logo" src="./assets/logo-seal.png"/></div>
+<div>
+<div class="name">Mary's Hands</div>
+<div class="sub">Volunteer Doula Network</div>
+</div>
+</a>
+<div class="nav-links">
+<a href="index.html">Home</a>
+<a class="active" href="about.html">About</a>
+<a href="for-mom.html">For Families</a>
+<a href="doula-training.html">Doula Training</a>
+<a href="contact.html">Contact</a>
+<div class="lang-toggle"><a class="active" href="#">EN</a><a href="nosotras.html">ES</a></div>
+<a class="btn-donate" href="donate.html">Donate</a>
+</div>
 </nav>
 <!-- HERO -->
 <section class="hero">
@@ -213,7 +213,7 @@
 <section class="mission-wrap">
 <div class="mission-head">
 <div class="eyebrow">Mission &amp; Vision</div>
-<h2>What we believe. Where we are headed.</h2>
+<h2 class="h2-warm">What we believe. Where we are headed.</h2>
 </div>
 <div class="mv">
 <div class="mv-card">
@@ -231,7 +231,7 @@
 <!-- OUTCOMES -->
 <section class="outcomes" id="outcomes">
 <div class="label">Our Outcomes · IRB-Approved Research</div>
-<h2>The case for doula care, made with real evidence.</h2>
+<h2 class="h2-warm">The case for doula care, made with real evidence.</h2>
 <p class="ctx">Louisiana ranks among the worst U.S. states for maternal and infant health. Maternal mortality is 37.3 per 100,000 births, nearly twice the national rate. Black women face a mortality risk three to four times higher than white women. These are the outcomes MHN families are measured against.</p>
 <div class="ogrid">
 <div class="ostat">
@@ -261,7 +261,7 @@
 <section class="numbers">
 <div class="numbers-head">
 <div class="eyebrow">By the Numbers</div>
-<h2>What the network looks like today.</h2>
+<h2 class="h2-warm">What the network looks like today.</h2>
 </div>
 <div class="ngrid">
 <div class="nitem"><div class="n">254</div><div class="lbl">Volunteer Doulas<br/>Trained Since 2023</div></div>
@@ -271,7 +271,17 @@
 </div>
 </section>
 <!-- TIMELINE -->
-<section class="body" style="padding:24px 48px 48px;max-width:1200px;margin:0 auto"><div style="margin-bottom:14px"><div class="eyebrow" style="font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:700">More about MHN</div></div><div class="acc-group"><details><summary>A short history.</summary><div class="acc-body"><div class="tl-head">
+<section class="body bg-warm-cream" style="padding:48px 48px;max-width:none;margin:0">
+<div style="max-width:1100px;margin:0 auto">
+<div class="eyebrow" style="font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:var(--mhn-warm-700);font-weight:700;margin-bottom:6px">The Story</div>
+<h2 class="h2-warm" style="font-family:var(--mhn-font-serif);font-size:32px;color:var(--mhn-purple-700);margin:0 0 24px;letter-spacing:-0.01em">More about Mary's Hands.</h2>
+<div class="tabs">
+<div class="tabs-nav">
+<button class="active" onclick="setTab(this, 'timeline')">A short history</button>
+<button onclick="setTab(this, 'footprint')">Where we serve</button>
+<button onclick="setTab(this, 'origin')">Our name</button>
+</div>
+<div class="tabs-panel active" id="tab-timeline"><div class="tl-head">
 <div class="eyebrow">Milestones</div>
 </div>
 <div class="tl">
@@ -279,42 +289,44 @@
 <div class="tl-item"><div class="dot"></div><div class="yr">2024</div><h4>Scaling</h4><p>Volunteer network expands to all five Louisiana healthcare regions. Postpartum visit protocol formalized.</p></div>
 <div class="tl-item"><div class="dot"></div><div class="yr">2025</div><h4>IRB Research</h4><p>Partnership established with Baton Rouge General. IRB Protocol #2025-001 begins tracking every birth outcome.</p></div>
 <div class="tl-item"><div class="dot"></div><div class="yr">2026</div><h4>Today</h4><p>254 doulas trained. Published outcomes showing 63% cesarean reduction, 83% preterm reduction. Spring cohort opens.</p></div>
-</div></div></details><details><summary>Louisiana, region by region.</summary><div class="acc-body"><div>
-<div class="eyebrow">Where We Serve</div>
-<p>MHN operates across all five of Louisiana's healthcare regions, with intentional focus on the communities carrying the heaviest maternal health burden. Our volunteer workforce mirrors the demographics of the clients we serve, a rare concordance in the doula profession and a core part of why our outcomes are what they are.</p>
-<div class="regions">
-<div class="rchip">Region 1 · Greater New Orleans</div>
-<div class="rchip">Region 2 · Baton Rouge</div>
-<div class="rchip">Region 3 · Houma-Thibodaux</div>
-<div class="rchip">Region 4 · Acadiana</div>
-<div class="rchip">Region 5 · Lake Charles</div>
-</div>
-</div></div></details><details><summary>Mary, who served with her hands.</summary><div class="acc-body"><div>
+</div></div>
+<div class="tabs-panel" id="tab-footprint"><div>
 <div class="label">Our Name</div>
 <p>In the Christian tradition, a teenage Mary travels to the hill country to visit her cousin Elizabeth during Elizabeth's pregnancy. She stays for three months, listening, cooking, walking alongside her, simply being present. The gospel records no advice, no intervention. Only presence.</p>
 <p>The Greek word <em>doule</em> (δούλη) means "a woman who serves." That is the first doula in written history, and she is our inspiration. Every volunteer who trains with us is carrying on a two-thousand-year-old practice of accompaniment.</p>
 <p class="pull">"We doula like the original doula. Continuity, presence, showing up, that is the work."</p>
-</div></div></details></div></section>
+</div></div>
+<div class="tabs-panel" id="tab-origin"><p>Coming soon</p></div>
+</div>
+</div>
+</section>
+<script>
+function setTab(btn, key){
+  document.querySelectorAll('.tabs-nav button').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tabs-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('tab-' + key).classList.add('active');
+}
+</script>
 <!-- LIFE OF THE NETWORK -->
 <section class="photo-gallery">
 <div class="gallery-head">
 <div class="eyebrow">Life of the Network</div>
-<h2>Built one cohort at a time.</h2>
+<h2 class="h2-warm">Built one cohort at a time.</h2>
 </div>
 <div class="gallery-grid">
-<div class="photo wide"><img alt="A graduating MHN cohort with certificates" src="./assets/photos/cohort-graduation-purple.jpg"/><div class="cap">A graduating cohort with their ICEA certificates.</div></div>
+<div class="photo wide"><img alt="A graduating MHN cohort with certificates" src="./assets/photos/cohort-graduation-purple.jpg"><div class="cap">A graduating cohort with their ICEA certificates.</div></img></div>
 <div class="photo"><img alt="MHN doulas sharing a joyful moment" src="./assets/photos/training-doulas-joyful.jpg"/><div class="cap">Joy is part of the work.</div></div>
 <div class="photo"><img alt="MHN trainees practicing rebozo techniques" src="./assets/photos/training-rebozo-practice.jpg"/><div class="cap">Hands-on practice, every cohort.</div></div>
 </div>
 </section>
 <!-- FOOTPRINT -->
-
 <!-- CONTACT -->
 <section class="contact" id="contact">
 <div class="contact-inner">
 <div>
 <div class="eyebrow">Get in Touch</div>
-<h2>We'd love to hear from you.</h2>
+<h2 class="h2-warm">We'd love to hear from you.</h2>
 <p>For partnerships, press, speaking requests, or to ask a question about our training or volunteer network, reach out and a team member will respond within two business days.</p>
 <p style="font-family:var(--mhn-font-serif);font-style:italic;color:var(--mhn-purple-700);margin-top:18px">Are you expecting? <a href="for-mom.html" style="color:var(--mhn-purple-700);text-decoration:underline;font-weight:700">Apply for a free doula instead →</a></p>
 </div>
@@ -354,7 +366,7 @@
 <section class="founder" id="founder">
 <div class="founder-body">
 <div class="eyebrow">Founder</div>
-<h2>Madeline LeBlanc</h2>
+<h2 class="h2-warm">Madeline LeBlanc</h2>
 <p class="creds">MHA · RNC-OB · IBCLC · IAT · Founder &amp; Lead Instructor</p>
 <p>Born and raised in Baton Rouge, Madeline is a Registered Nurse Certified in Obstetrics, an International Board Certified Lactation Consultant, a birth doula, an educator, and a community advocate with a lifelong passion for supporting mothers and families through some of life's most vulnerable transitions.</p>
 <p>Known for her high energy, deep compassion, and contagious passion for birth justice, Madeline is committed to creating a maternal care system that empowers mothers, uplifts families, and centers the whole person: mind, body, and spirit.</p>
@@ -363,66 +375,65 @@
 </div>
 </section>
 <!-- ORIGIN STORY -->
-
 <!-- FOOTER -->
 <footer>
-  <div class="foot-grid">
-    <div class="foot-brand">
-      <div class="logo">Mary's Hands Network</div>
-      <p>A Louisiana 501(c)(3) nonprofit · EIN 92-XXXXXXX. 451 E. Airport Avenue, Baton Rouge, LA 70806.</p>
-      <p style="font-family:var(--mhn-font-serif);font-style:italic;color:#D4BADD">info@mhndoula.com · (225) 424-7532</p>
-      <div class="foot-newsletter">
-        <h5>Stay close to the work.</h5>
-        <p>Birth stories, training updates, ways to help — once a month, never spam.</p>
-        <form action="https://formsubmit.co/info@mhndoula.com" method="POST">
-          <input type="email" name="email" placeholder="you@example.com" required>
-          <button type="submit">Subscribe</button>
-          <input type="hidden" name="_subject" value="Newsletter signup from website">
-          <input type="hidden" name="_template" value="table">
-        </form>
-      </div>
-      <div class="social-row">
-        <a href="https://www.facebook.com/maryshandsnetwork" aria-label="Facebook" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12C22 6.48 17.52 2 12 2S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg></a>
-        <a href="https://www.instagram.com/maryshandsnetwork" aria-label="Instagram" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.64-.07-4.85s.01-3.58.07-4.85c.15-3.23 1.66-4.77 4.92-4.92C8.42 2.17 8.8 2.16 12 2.16zm0-2.16C8.74 0 8.33.01 7.05.07c-4.36.2-6.78 2.62-6.98 6.98C.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.36 2.62 6.78 6.98 6.98C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c4.35-.2 6.78-2.62 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.2-4.35-2.62-6.78-6.98-6.98C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 100 12.32A6.16 6.16 0 0012 5.84zM12 16a4 4 0 110-8 4 4 0 010 8zm6.41-11.85a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/></svg></a>
-        <a href="https://www.youtube.com/@maryshandsnetwork" aria-label="YouTube" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 00.5 6.2C0 8 0 12 0 12s0 4 .5 5.8a3 3 0 002.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 002.1-2.1C24 16 24 12 24 12s0-4-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg></a>
-      </div>
-      <div class="ein-line">501(c)(3) · IRB Protocol #2025-001 · ICEA-approved training</div>
-    </div>
-    <div class="foot-col">
-      <h5>For Families</h5>
-      <a href="for-mom.html">For Families</a>
-      <a href="hotline.html">Doula Hotline</a>
-      <a href="birth-vision.html">Birth Vision Guide</a>
-      <a href="bereavement.html">Loss & Bereavement</a>
-      <a href="apoyo-de-doula.html">Apoyo en español</a>
-    </div>
-    <div class="foot-col">
-      <h5>For Doulas</h5>
-      <a href="doula-training.html">ICBD Training</a>
-      <a href="training-faqs.html">Training FAQs</a>
-      <a href="volunteer.html">Volunteer with MHN</a>
-      <a href="apprenticeship.html">Apprenticeship</a>
-    </div>
-    <div class="foot-col">
-      <h5>About</h5>
-      <a href="about.html">Our Mission</a>
-      <a href="about.html#outcomes">Outcomes</a>
-      <a href="meet-the-doulas.html">Meet the Doulas</a>
-      <a href="community-partners.html">Community Partners</a>
-      <a href="contact.html">Contact</a>
-    </div>
-  </div>
-  <div class="foot-btm">
-    <span>© 2026 Mary's Hands Network · All Rights Reserved</span>
-    <span>Every Birth Deserves a Doula.</span>
-  </div>
+<div class="foot-grid">
+<div class="foot-brand">
+<div class="logo">Mary's Hands Network</div>
+<p>A Louisiana 501(c)(3) nonprofit · EIN 92-XXXXXXX. 451 E. Airport Avenue, Baton Rouge, LA 70806.</p>
+<p style="font-family:var(--mhn-font-serif);font-style:italic;color:#D4BADD">info@mhndoula.com · (225) 424-7532</p>
+<div class="foot-newsletter">
+<h5>Stay close to the work.</h5>
+<p>Birth stories, training updates, ways to help — once a month, never spam.</p>
+<form action="https://formsubmit.co/info@mhndoula.com" method="POST">
+<input name="email" placeholder="you@example.com" required="" type="email"/>
+<button type="submit">Subscribe</button>
+<input name="_subject" type="hidden" value="Newsletter signup from website"/>
+<input name="_template" type="hidden" value="table"/>
+</form>
+</div>
+<div class="social-row">
+<a aria-label="Facebook" href="https://www.facebook.com/maryshandsnetwork" rel="noopener" target="_blank"><svg fill="currentColor" height="18" viewbox="0 0 24 24" width="18"><path d="M22 12C22 6.48 17.52 2 12 2S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"></path></svg></a>
+<a aria-label="Instagram" href="https://www.instagram.com/maryshandsnetwork" rel="noopener" target="_blank"><svg fill="currentColor" height="18" viewbox="0 0 24 24" width="18"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.64-.07-4.85s.01-3.58.07-4.85c.15-3.23 1.66-4.77 4.92-4.92C8.42 2.17 8.8 2.16 12 2.16zm0-2.16C8.74 0 8.33.01 7.05.07c-4.36.2-6.78 2.62-6.98 6.98C.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.36 2.62 6.78 6.98 6.98C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c4.35-.2 6.78-2.62 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.2-4.35-2.62-6.78-6.98-6.98C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 100 12.32A6.16 6.16 0 0012 5.84zM12 16a4 4 0 110-8 4 4 0 010 8zm6.41-11.85a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"></path></svg></a>
+<a aria-label="YouTube" href="https://www.youtube.com/@maryshandsnetwork" rel="noopener" target="_blank"><svg fill="currentColor" height="18" viewbox="0 0 24 24" width="18"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 00.5 6.2C0 8 0 12 0 12s0 4 .5 5.8a3 3 0 002.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 002.1-2.1C24 16 24 12 24 12s0-4-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"></path></svg></a>
+</div>
+<div class="ein-line">501(c)(3) · IRB Protocol #2025-001 · ICEA-approved training</div>
+</div>
+<div class="foot-col">
+<h5>For Families</h5>
+<a href="for-mom.html">For Families</a>
+<a href="hotline.html">Doula Hotline</a>
+<a href="birth-vision.html">Birth Vision Guide</a>
+<a href="bereavement.html">Loss &amp; Bereavement</a>
+<a href="apoyo-de-doula.html">Apoyo en español</a>
+</div>
+<div class="foot-col">
+<h5>For Doulas</h5>
+<a href="doula-training.html">ICBD Training</a>
+<a href="training-faqs.html">Training FAQs</a>
+<a href="volunteer.html">Volunteer with MHN</a>
+<a href="apprenticeship.html">Apprenticeship</a>
+</div>
+<div class="foot-col">
+<h5>About</h5>
+<a href="about.html">Our Mission</a>
+<a href="about.html#outcomes">Outcomes</a>
+<a href="meet-the-doulas.html">Meet the Doulas</a>
+<a href="community-partners.html">Community Partners</a>
+<a href="contact.html">Contact</a>
+</div>
+</div>
+<div class="foot-btm">
+<span>© 2026 Mary's Hands Network · All Rights Reserved</span>
+<span>Every Birth Deserves a Doula.</span>
+</div>
 </footer>
 </div>
 <script>lucide.createIcons();</script>
 <div class="sticky-mobile-cta">
-  <a href="for-mom.html" class="apply">Apply</a>
-  <a href="tel:2254247532" class="call">Call</a>
-  <a href="donate.html" class="donate">Donate</a>
+<a class="apply" href="for-mom.html">Apply</a>
+<a class="call" href="tel:2254247532">Call</a>
+<a class="donate" href="donate.html">Donate</a>
 </div>
 <script>
   // Fade-in on scroll — but reveal immediately if already in viewport on load

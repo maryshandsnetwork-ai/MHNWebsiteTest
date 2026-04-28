@@ -667,3 +667,84 @@ footer .ein-line { font-size: 11px; color: #845995; margin-top: 12px; letter-spa
   .photo-band { height: 40vh; }
   .photo-band .caption { left: 16px; right: 16px; bottom: 16px; padding: 14px 18px; }
 }
+
+/* =========================================================
+   REFINEMENT PASS — more warmth, better proportions
+   ========================================================= */
+
+/* ----- Gold rule divider (section break with ornament) ----- */
+.gold-rule { display:flex; align-items:center; justify-content:center; gap:14px; margin:0 auto; padding:32px 0; max-width:1100px }
+.gold-rule .line { flex:1; height:1px; background:linear-gradient(90deg, transparent, var(--mhn-warm-500) 30%, var(--mhn-warm-500) 70%, transparent) }
+.gold-rule .ornament { color:var(--mhn-warm-700); font-family:var(--mhn-font-serif); font-size:18px; line-height:1; flex-shrink:0; opacity:0.85 }
+
+/* ----- H2 gold underline accent ----- */
+.h2-warm { display:inline-block; position:relative; padding-bottom:8px }
+.h2-warm::after { content:""; position:absolute; left:0; bottom:0; width:48px; height:3px; background:var(--mhn-warm-700); border-radius:2px }
+
+/* ----- Hero image sizing fix ----- */
+.hero-split { padding:48px 48px 56px; max-height:none }
+.hero-split .hero-img { aspect-ratio:5/6; max-height:560px }
+@media (min-width:1200px){ .hero-split .hero-img { max-height:600px } }
+
+/* ----- Photo band: smaller, more refined ----- */
+.photo-band { height:44vh; min-height:320px; max-height:460px; border-radius:0 }
+.photo-band-rounded { border-radius:24px; margin:32px 48px; overflow:hidden; max-width:1280px; margin-left:auto; margin-right:auto }
+.photo-band .caption { padding:16px 20px; max-width:380px; bottom:24px; left:32px }
+.photo-band .caption p { font-size:15px }
+
+/* ----- Photo gallery: smaller, more proportional ----- */
+.photo-gallery { padding:48px 48px }
+.gallery-grid { gap:14px }
+.gallery-grid .photo img { aspect-ratio:4/5; max-height:380px }
+.gallery-grid .photo.wide img { aspect-ratio:4/3; max-height:340px }
+.gallery-grid .photo .cap { padding:8px 12px; font-size:11px; bottom:10px; left:10px; right:10px }
+@media (min-width:1200px){
+  .gallery-grid .photo img { max-height:340px }
+  .gallery-grid .photo.wide img { max-height:300px }
+}
+
+/* ----- Section background variants — alternating ----- */
+.bg-warm-cream { background:var(--mhn-warm-50) }
+.bg-warm-tint { background:linear-gradient(180deg, var(--mhn-warm-50), var(--mhn-cream)) }
+.section-divider-warm { border-top:1px solid var(--mhn-warm-300); border-bottom:1px solid var(--mhn-warm-300) }
+
+/* ----- Pull quote — refined with warm gold quote mark ----- */
+.pull-quote { position:relative; padding:24px 24px 24px 64px; margin:24px 0; font-family:var(--mhn-font-serif); font-style:italic; color:var(--mhn-purple-700); font-size:19px; line-height:1.5; background:var(--mhn-warm-50); border-radius:14px; border-left:4px solid var(--mhn-warm-700) }
+.pull-quote::before { content:"\201C"; position:absolute; top:8px; left:18px; font-size:64px; color:var(--mhn-warm-700); font-family:var(--mhn-font-serif); line-height:1; opacity:0.9 }
+.pull-quote cite { display:block; margin-top:14px; font-family:var(--mhn-font-sans); font-style:normal; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--mhn-ink-mute); font-weight:700 }
+
+/* ----- Card border warm accent (alternative to purple) ----- */
+.card-warm { background:#fff; border:1px solid var(--mhn-warm-300); border-radius:18px; padding:28px; box-shadow:0 4px 14px rgba(181,130,74,0.08) }
+.card-warm h3 { color:var(--mhn-warm-700) }
+
+/* ----- Gold inline icon/dot ----- */
+.gold-dot { display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--mhn-warm-700); margin-right:8px; vertical-align:middle }
+
+/* ----- TABS (replacing accordions on About page) ----- */
+.tabs { margin:32px 0 }
+.tabs-nav { display:flex; gap:4px; border-bottom:2px solid var(--mhn-purple-200); margin-bottom:32px; flex-wrap:wrap }
+.tabs-nav button { background:none; border:none; padding:14px 20px; font-family:var(--mhn-font-serif); font-size:17px; color:var(--mhn-purple-500); cursor:pointer; position:relative; font-weight:700; transition:color 0.15s; border-bottom:3px solid transparent; margin-bottom:-2px }
+.tabs-nav button.active { color:var(--mhn-purple-700); border-bottom-color:var(--mhn-warm-700) }
+.tabs-nav button:hover:not(.active) { color:var(--mhn-purple-700) }
+.tabs-panel { display:none }
+.tabs-panel.active { display:block; animation:tabFade 0.3s ease }
+@keyframes tabFade { from { opacity:0; transform:translateY(8px) } to { opacity:1; transform:translateY(0) } }
+
+/* ----- Accordion grouping under sub-headings ----- */
+.acc-section-head { font-family:var(--mhn-font-sans); font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:var(--mhn-warm-700); font-weight:700; margin:32px 0 14px; display:flex; align-items:center; gap:12px }
+.acc-section-head::before { content:""; width:24px; height:2px; background:var(--mhn-warm-700); display:inline-block }
+
+/* ----- Ornament between sections (decorative purple/gold motif) ----- */
+.ornament-row { text-align:center; padding:32px 0; color:var(--mhn-warm-700); font-family:var(--mhn-font-serif); font-size:24px; letter-spacing:1em; opacity:0.6 }
+
+/* ----- Make donate buttons appear in MORE places with warmth ----- */
+.donate-soft { background:var(--mhn-warm-50); border:1px solid var(--mhn-warm-300); border-radius:14px; padding:20px 24px; display:flex; align-items:center; justify-content:space-between; gap:18px; margin:18px 0 }
+.donate-soft .text { font-family:var(--mhn-font-serif); font-style:italic; color:var(--mhn-purple-700); font-size:15px; line-height:1.4 }
+
+@media (max-width:900px){
+  .photo-band-rounded { margin:24px 12px }
+  .pull-quote { font-size:17px; padding:20px 18px 20px 50px }
+  .pull-quote::before { font-size:48px; left:14px; top:6px }
+  .donate-soft { flex-direction:column; align-items:stretch; text-align:center }
+  .tabs-nav button { padding:12px 14px; font-size:15px }
+}
