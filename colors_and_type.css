@@ -901,3 +901,31 @@ footer .ein-line { font-size: 11px; color: #845995; margin-top: 12px; letter-spa
 @media (max-width: 700px) {
   .foot-quick-help { gap: 10px 14px; padding: 14px 16px; font-size: 12.5px; }
 }
+
+
+/* ===== IMPACT FLIP CARDS (BIG NUMBER ANIMATION) ===== */
+.flip-grid.impact-flip .flip-card {
+  animation: impactFadeUp 0.7s cubic-bezier(0.4, 0, 0.2, 1) backwards;
+}
+.flip-grid.impact-flip .flip-card:nth-child(1) { animation-delay: 0.1s; }
+.flip-grid.impact-flip .flip-card:nth-child(2) { animation-delay: 0.25s; }
+.flip-grid.impact-flip .flip-card:nth-child(3) { animation-delay: 0.4s; }
+@keyframes impactFadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.flip-grid.impact-flip .flip-card .flip-front > div:first-of-type {
+  background: linear-gradient(135deg, var(--mhn-purple-500), var(--mhn-purple-900));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: transform 0.4s ease;
+}
+.flip-grid.impact-flip .flip-card:hover .flip-front > div:first-of-type {
+  transform: scale(1.06);
+}
+
+@media (max-width: 700px) {
+  .flip-grid.impact-flip { grid-template-columns: 1fr !important; }
+  .flip-grid.impact-flip .flip-card { height: 240px !important; }
+}
