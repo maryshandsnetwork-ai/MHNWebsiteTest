@@ -156,51 +156,6 @@
   .gallery-grid .photo.wide img{aspect-ratio:4/3}
   .gallery-grid .photo .cap{position:absolute;bottom:14px;left:14px;right:14px;background:rgba(255,255,255,0.94);backdrop-filter:blur(8px);padding:10px 14px;border-radius:10px;font-size:12px;color:var(--mhn-purple-700);font-family:var(--mhn-font-serif);font-style:italic;line-height:1.35}
   @media (max-width:900px){.gallery-grid{grid-template-columns:1fr}}
-
-  /* IS THIS YOU two-column fit comparison */
-  .is-you-head{max-width:680px;margin-bottom:28px}
-  .is-you-head .eyebrow{font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:700;margin-bottom:12px}
-  .is-you-head h2{font-family:var(--mhn-font-serif);font-size:36px;color:var(--mhn-purple-700);margin:0 0 10px;letter-spacing:-0.01em;line-height:1.1}
-  .is-you-head p{font-family:var(--mhn-font-serif);font-style:italic;font-size:16px;line-height:1.55;color:var(--mhn-ink-soft);margin:0}
-  .fit-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:0 0 24px}
-  .fit-col{background:#fff;border:1px solid var(--mhn-line);border-radius:20px;padding:30px;box-shadow:var(--mhn-shadow-sm)}
-  .fit-col.yes{background:linear-gradient(180deg,#FBF5FF 0%,#FFFFFF 60%);border-color:var(--mhn-purple-200)}
-  .fit-col.no{background:var(--mhn-paper-alt)}
-  .fit-col .fit-tag{display:inline-block;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;font-weight:700;padding:4px 10px;border-radius:999px;margin-bottom:14px}
-  .fit-col.yes .fit-tag{background:var(--mhn-purple-700);color:#fff}
-  .fit-col.no .fit-tag{background:#FAEFE0;color:#85571F;border:1px solid #E8D5BD}
-  .fit-col h3{font-family:var(--mhn-font-serif);font-size:22px;color:var(--mhn-purple-700);margin:0 0 14px;font-weight:700;line-height:1.25}
-  .fit-col .lede-line{font-size:14px;line-height:1.55;color:var(--mhn-ink-soft);margin:0 0 18px}
-  .fit-col ul{list-style:none;padding:0;margin:0}
-  .fit-col li{position:relative;padding:10px 0 10px 30px;font-size:14px;line-height:1.5;color:var(--mhn-ink);border-bottom:1px solid var(--mhn-line-soft)}
-  .fit-col li:last-child{border-bottom:none}
-  .fit-col li::before{position:absolute;left:0;top:11px;font-family:var(--mhn-font-sans);font-size:14px;font-weight:700;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;line-height:1}
-  .fit-col.yes li::before{content:"\2713";background:var(--mhn-purple-700);color:#fff}
-  .fit-col.no li::before{content:"\2014";background:#FAEFE0;color:#85571F;border:1px solid #E8D5BD}
-
-  /* PREREQUISITES strip below the comparison */
-  .prereq-strip{display:flex;flex-wrap:wrap;align-items:center;gap:14px 18px;background:#FFFCF6;border:1px solid #E8D5BD;border-radius:14px;padding:16px 22px;margin:0 0 8px;font-size:13.5px;color:var(--mhn-ink)}
-  .prereq-strip .label{font-family:var(--mhn-font-serif);font-style:italic;color:var(--mhn-purple-700);font-weight:700;margin-right:4px}
-  .prereq-strip .item{display:inline-flex;align-items:center;gap:6px}
-  .prereq-strip .item::before{content:"\2022";color:var(--mhn-purple-500);font-weight:700}
-
-  /* PATH TIMELINE: visible (not behind accordion). Add subtle connector aesthetic */
-  .path-section{padding:24px 48px 36px;max-width:1200px;margin:0 auto}
-  .path-section .p-head{max-width:680px;margin-bottom:28px}
-  .path-section .p-head h2{font-family:var(--mhn-font-serif);font-size:32px;color:var(--mhn-purple-700);margin:6px 0 10px;letter-spacing:-0.01em;line-height:1.15}
-  .path-section .p-head .sub{font-family:var(--mhn-font-serif);font-style:italic;font-size:15px;line-height:1.55;color:var(--mhn-ink-soft);margin:0}
-  .path-section .steps{margin-top:8px}
-  .path-section .step{transition:transform 0.15s,box-shadow 0.15s,border-color 0.15s}
-  .path-section .step:hover{transform:translateY(-2px);box-shadow:var(--mhn-shadow-md);border-color:var(--mhn-purple-200)}
-
-  @media (max-width:900px){
-    .fit-grid{grid-template-columns:1fr !important}
-    .path-section .steps{grid-template-columns:repeat(2,1fr) !important}
-    .is-you-head h2, .path-section .p-head h2{font-size:26px !important}
-  }
-  @media (max-width:560px){
-    .path-section .steps{grid-template-columns:1fr !important}
-  }
 </style></head>
 <body>
 <div class="page" data-screen-label="Doula Training">
@@ -273,44 +228,33 @@
 </section>
 <section class="body" style="padding:24px 48px 48px;max-width:1200px;margin:0 auto"><div class="acc-section-head" style="font-size:13px;letter-spacing:0.24em;color:var(--mhn-purple-700);margin:0 0 22px"><span style="display:inline-block;width:32px;height:2px;background:var(--mhn-purple-500);margin-right:12px"></span>Your Experience</div>
 <div class="acc-group">
-<section class="is-you-head">
-<div class="eyebrow">Before You Apply</div>
-<h2>Is this you?</h2>
-<p>Be honest with yourself. The doulas who thrive in this work share a few qualities — and a few realities of life that make the next four months a wrong-time fit are equally valid to know.</p>
-</section>
-<div class="fit-grid">
-  <div class="fit-col yes">
-    <span class="fit-tag">Yes — keep reading</span>
-    <h3>This training is for you if&hellip;</h3>
-    <ul>
-      <li>You feel called to walk alongside families through pregnancy, birth, and the early postpartum weeks.</li>
-      <li>You can show up for all four live sessions and complete pre-work before Night 1.</li>
-      <li>You're comfortable with overnight on-call work and unpredictable timing.</li>
-      <li>You have lived experience, professional curiosity, or both — birth-work background is welcome but not required.</li>
-      <li>You want to serve Louisiana families through MHN's volunteer doula network for at least one year.</li>
-      <li>You're 18 or older, with a reliable computer, internet, and a quiet space for virtual sessions.</li>
-    </ul>
-  </div>
-  <div class="fit-col no">
-    <span class="fit-tag">Not just yet</span>
-    <h3>This might be the wrong moment if&hellip;</h3>
-    <ul>
-      <li>You can't commit to attending every live session within the 10% absence cap.</li>
-      <li>You're looking for a paid private-doula job with no community service component.</li>
-      <li>You're in a season of life that won't allow flexible on-call response over the next year.</li>
-      <li>You're uncomfortable in clinical hospital settings or working alongside nurses and OB providers.</li>
-      <li>You're under 18, or you can't reliably access a computer with camera and microphone.</li>
-    </ul>
-    <p style="font-size:13px;color:var(--mhn-ink-mute);margin:18px 0 0;line-height:1.55"><em>None of this is permanent.</em> Many of our doulas applied to a later cohort once life made room — we'd love to hear from you when the time is right.</p>
-  </div>
+<details open=""><summary>Who this training is for.</summary><div class="acc-body"><div class="q-head">
+<div class="eyebrow" style="font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:700;margin-bottom:12px">Before You Apply</div>
 </div>
-<div class="prereq-strip">
-  <span class="label">Prerequisites:</span>
-  <span class="item">18+ years of age</span>
-  <span class="item">Pre-work complete before Night 1</span>
-  <span class="item">Camera + mic + reliable internet</span>
-  <span class="item">Full attendance (10% absence cap)</span>
+<div class="qgrid">
+<div class="qcard">
+<i class="ico" data-lucide="users"></i>
+<h3>Anyone called to this work</h3>
+<p style="margin:0 0 10px;font-size:14.5px;color:var(--mhn-ink-soft);line-height:1.55"><strong>No previous experience required.</strong> If you feel called to walk alongside families through pregnancy, birth, and the early weeks of parenthood, you belong here.</p>
+<ul>
+<li>People with no birth-work experience whatsoever</li>
+<li>Anyone with lived experience of pregnancy or maternal health</li>
+<li>Community members who want to give back to Louisiana mothers</li>
+<li>Peer supporters, advocates, and friends-of-friends already doing the work informally</li>
+<li>Nurses, midwives, and other birth workers seeking ICEA credentials</li>
+</ul>
 </div>
+<div class="qcard">
+<i class="ico" data-lucide="clipboard-check"></i>
+<h3>Prerequisites</h3>
+<ul>
+<li>At least 18 years of age</li>
+<li>Complete all pre-work modules before Night 1</li>
+<li>Reliable internet, computer or tablet with camera and microphone</li>
+<li>Full attendance at all four live sessions (10% absence cap)</li>
+</ul>
+</div>
+</div></div></details>
 <details><summary>What you'll learn.</summary><div class="acc-body"><div class="obj">
 <div class="oitem"><i class="ico" data-lucide="heart-pulse"></i><h4>Physiology of birth</h4><p>Stages and phases of labor, hormones, Six P's, ACOG active-labor thresholds.</p></div>
 <div class="oitem"><i class="ico" data-lucide="hand-heart"></i><h4>Comfort measures</h4><p>Counter-pressure, hip squeezes, rebozo, birth ball work, acupressure, water therapy.</p></div>
@@ -348,8 +292,8 @@
 </div></div></details>
 </div>
 <div class="acc-section-head" style="font-size:13px;letter-spacing:0.24em;color:var(--mhn-purple-700);margin:36px 0 22px"><span style="display:inline-block;width:32px;height:2px;background:var(--mhn-purple-500);margin-right:12px"></span>Logistics</div>
-<section class="path-section">
-<div class="p-head">
+<div class="acc-group">
+<details><summary>Your path to ICEA Certified Birth Doula.</summary><div class="acc-body"><div class="p-head">
 <div class="eyebrow" style="font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:700;margin-bottom:12px">Certification Pathway</div>
 <p class="sub">Training is step one. Here's the full arc from application to proctored exam, the MHN volunteer network supports you every step of the way, and active volunteers get exam prep free.</p>
 </div>
@@ -362,9 +306,7 @@
 <div class="step"><div class="n">06</div><h4>Submit to ICEA</h4><p>Package birth experience evidence through ICEA's traditional Birth Doula Pathway.</p></div>
 <div class="step"><div class="n">07</div><h4>Free exam prep</h4><p>Active MHN volunteers receive free access to our online exam prep class.</p></div>
 <div class="step"><div class="n">08</div><h4>Take the exam</h4><p>Sit for the proctored ICEA Certified Birth Doula exam. You are a credentialed doula.</p></div>
-</div>
-</section>
-<div class="acc-group">
+</div></div></details>
 <details><summary>You graduate into a team, not on your own.</summary><div class="acc-body"><div>
 <div class="eyebrow" style="font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:700;margin-bottom:12px">After the Course</div>
 <p>MHN doulas never work alone. Every client is supported by a two-doula team, coordinated by a staff doula, with ongoing education, hospital privileging support, and backup coverage when life happens. The training ends; the network doesn't.</p>
