@@ -934,3 +934,102 @@ footer .ein-line { font-size: 11px; color: #845995; margin-top: 12px; letter-spa
   .flip-grid.impact-flip { grid-template-columns: 1fr !important; }
   .flip-grid.impact-flip .flip-card { height: 240px !important; }
 }
+
+/* =========================================================
+   COMPREHENSIVE MOBILE IMPROVEMENTS
+   Added April 30 2026: tighter spacing, prevented overflow,
+   bigger touch targets, smaller heroes on very narrow screens
+   ========================================================= */
+@media (max-width: 760px) {
+  /* Prevent any horizontal overflow */
+  html, body { overflow-x: hidden; }
+  body, .page { max-width: 100%; }
+  img, iframe, video { max-width: 100%; height: auto; }
+
+  /* Tighter hero on phones */
+  .hero { padding: 40px 20px 28px !important; }
+  h1.t, .h1 { font-size: 36px !important; line-height: 1.08 !important; letter-spacing: -0.01em !important; }
+  .lede { font-size: 16px !important; line-height: 1.5 !important; }
+
+  /* Hero side-by-side photo layout collapses to stacked */
+  .hero-grid, .hero-split, .hero-art-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
+  .hero-art, .hero-img { max-width: 100% !important; margin: 0 auto !important; }
+
+  /* All multi-col grids collapse to single column */
+  .agrid, .rgrid, .cgrid, .qgrid, .mgrid, .scards, .rcards, .grid-3, .grid-2,
+  .stats-grid, .ngrid, .gallery-grid, .partners-grid, .tgrid, .home-vision, .home-hotline,
+  .contact-inner, .program {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  /* Partners stay 2-up on phone (logos look better) */
+  .partners-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
+
+  /* Section padding tightens */
+  section, .body, .actions, .resources, .contacts, .doula-gallery,
+  .partners, .partners-strip, .qualify, .pathway, .materials, .appr,
+  .scholarships, .policy, .photo-gallery, .testimonials, .stats, .mission,
+  .services, .final, .outcomes, .home-hotline, .home-vision, .contact, .footprint, .numbers, .tl-wrap, .founder, .origin {
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+
+  /* Bigger touch targets for nav links and buttons */
+  .nav-links a { padding: 8px 6px; }
+  .mhn-btn, .mhn-btn--primary, .mhn-btn--secondary, .mhn-btn--inline,
+  .acard .go, .rcard .dl, .price-card a, .partner-card {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Stack buttons vertically when they're side-by-side on phones */
+  .cta-row, .hero .cta-row { flex-direction: column; align-items: stretch; gap: 10px !important; }
+  .cta-row .mhn-btn, .cta-row .mhn-btn--primary, .cta-row .mhn-btn--secondary {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Big number stats shrink */
+  .stat .n, .nitem .n, .ostat .pct { font-size: 38px !important; line-height: 1 !important; }
+  h2 { font-size: 26px !important; }
+  h3 { font-size: 19px !important; }
+
+  /* Quotes / blockquotes more readable */
+  blockquote, .quote { font-size: 17px !important; line-height: 1.5 !important; }
+
+  /* Footer always 1-col on phone */
+  .foot-grid { grid-template-columns: 1fr !important; gap: 28px !important; }
+
+  /* Foot quick help wraps properly with pill buttons */
+  .foot-quick-help { padding: 14px 16px; gap: 10px 12px; }
+  .foot-quick-help .qh-label { width: 100%; text-align: center; margin-bottom: 4px; }
+  .foot-quick-help a { font-size: 12.5px; padding: 7px 14px; }
+
+  /* Sticky mobile CTA bar already shows up at <=700px from existing CSS */
+  /* Make sure last footer content is visible above sticky bar */
+  footer { padding-bottom: 28px !important; }
+}
+
+/* iPhone-specific narrow tightening */
+@media (max-width: 420px) {
+  h1.t, .h1 { font-size: 30px !important; }
+  h2 { font-size: 23px !important; }
+  .stat .n, .nitem .n { font-size: 32px !important; }
+  .hero { padding: 32px 16px 22px !important; }
+  section, .body, .actions, .resources, .contacts {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+  /* Partners: 2 columns even at this width, but tighter gap */
+  .partners-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; }
+  .partner-card { height: 76px !important; }
+  .partner-card img { max-height: 52px !important; }
+  .partner-card .partner-name { font-size: 11px !important; line-height: 1.25 !important; }
+
+  /* Field guide PDF viewer shorter on phone */
+  .fg-viewer iframe { height: 320px !important; }
+  .fg-head { flex-direction: column; gap: 14px; }
+  .fg-head .dl { width: 100%; text-align: center; }
+}
