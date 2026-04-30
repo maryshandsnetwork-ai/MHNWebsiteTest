@@ -886,17 +886,22 @@ footer .ein-line { font-size: 11px; color: #845995; margin-top: 12px; letter-spa
   letter-spacing: 0.02em;
 }
 .foot-quick-help a {
+  display: inline-block;
   color: #fff;
   font-weight: 700;
-  text-decoration: underline;
-  text-decoration-color: rgba(212,186,221,0.4);
-  text-underline-offset: 3px;
+  text-decoration: none;
   letter-spacing: 0.02em;
-  transition: text-decoration-color 0.15s, color 0.15s;
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(212,186,221,0.45);
+  border-radius: 999px;
+  padding: 8px 18px;
+  transition: background 0.15s, border-color 0.15s, color 0.15s, transform 0.15s;
 }
 .foot-quick-help a:hover {
   color: #FAEFE0;
-  text-decoration-color: #B5824A;
+  background: rgba(255,255,255,0.18);
+  border-color: #B5824A;
+  transform: translateY(-1px);
 }
 @media (max-width: 700px) {
   .foot-quick-help { gap: 10px 14px; padding: 14px 16px; font-size: 12.5px; }
