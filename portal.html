@@ -115,6 +115,23 @@
   @media (max-width:560px){
     h1.t{font-size:28px !important}
   }
+
+  /* FIELD GUIDE viewer card */
+  .fg-card{background:#fff;border:1px solid var(--mhn-line);border-radius:20px;padding:30px;box-shadow:var(--mhn-shadow-sm)}
+  .fg-head{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;flex-wrap:wrap;margin:0 0 22px}
+  .fg-head .fg-eyebrow{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:700;margin-bottom:8px}
+  .fg-head h3{font-family:var(--mhn-font-serif);font-size:26px;color:var(--mhn-purple-700);margin:0 0 8px;font-weight:700;letter-spacing:-0.005em}
+  .fg-head p{font-size:14.5px;line-height:1.55;color:var(--mhn-ink-soft);margin:0;max-width:560px}
+  .fg-head .dl{display:inline-block;background:var(--mhn-purple-700);color:#fff;padding:11px 22px;border-radius:999px;text-decoration:none;font-weight:700;font-size:13px;flex-shrink:0;align-self:flex-start;letter-spacing:0.02em;transition:background 0.15s}
+  .fg-head .dl:hover{background:var(--mhn-purple-900)}
+  .fg-viewer{position:relative;background:var(--mhn-paper-alt);border:1px solid var(--mhn-line);border-radius:14px;overflow:hidden}
+  .fg-viewer iframe{width:100%;height:780px;border:none;display:block}
+  .fg-fallback{font-size:12.5px;font-style:italic;color:var(--mhn-ink-mute);text-align:center;padding:10px;margin:0;background:#fff;border-top:1px solid var(--mhn-line)}
+  .fg-fallback a{color:var(--mhn-purple-700);font-weight:700;text-decoration:none}
+  @media (max-width:760px){
+    .fg-viewer iframe{height:560px}
+    .fg-head{flex-direction:column}
+  }
 </style>
 </head>
 <body data-screen-label="Doula Portal">
@@ -151,19 +168,19 @@
 <section class="actions">
   <div class="acc-section-head"><span class="line"></span>Submit &amp; Access</div>
   <div class="agrid">
-    <a class="acard" href="#TODO_CLIENT_UPDATE_URL" target="_blank" rel="noopener">
+    <a class="acard" href="https://forms.monday.com/forms/eacf6323d18f393f8987437fa617bd62?r=use1" target="_blank" rel="noopener">
       <i class="ico" data-lucide="clipboard-edit"></i>
       <h3>Client update form</h3>
       <p>Log a client visit, document a birth, or update prenatal/postpartum notes after every interaction.</p>
       <span class="go">Open form &rarr;</span>
     </a>
-    <a class="acard" href="#TODO_AVAILABILITY_URL" target="_blank" rel="noopener">
+    <a class="acard" href="https://wkf.ms/4oI6sdm" target="_blank" rel="noopener">
       <i class="ico" data-lucide="calendar-check"></i>
       <h3>Submit availability</h3>
       <p>Update your monthly availability so Kerionne can match you to client teams that fit your schedule.</p>
       <span class="go">Open form &rarr;</span>
     </a>
-    <a class="acard" href="#TODO_CANVAS_URL" target="_blank" rel="noopener">
+    <a class="acard" href="https://canvas.instructure.com/login/canvas" target="_blank" rel="noopener">
       <i class="ico" data-lucide="graduation-cap"></i>
       <h3>Canvas course</h3>
       <p>Access your training modules, ICEA materials, and the always-updated curriculum library.</p>
@@ -174,13 +191,28 @@
 
 <!-- RESOURCES -->
 <section class="resources">
-  <div class="acc-section-head"><span class="line"></span>Resources</div>
-  <div class="rgrid">
+  <div class="acc-section-head"><span class="line"></span>Field Guide</div>
+  <div class="fg-card">
+    <div class="fg-head">
+      <div>
+        <div class="fg-eyebrow">Internal Reference &middot; 48 pages</div>
+        <h3>MHN Field Guide 2026</h3>
+        <p>Your clinical reference, mailed with every cohort and updated each year. Read it in your browser below or download a copy to your phone for the labor room.</p>
+      </div>
+      <a class="dl" href="./assets/mhn-field-guide-2026.pdf" download>Download PDF &darr;</a>
+    </div>
+    <div class="fg-viewer">
+      <iframe src="./assets/mhn-field-guide-2026.pdf#toolbar=1&navpanes=0&view=FitH" title="MHN Field Guide 2026 PDF"></iframe>
+      <p class="fg-fallback">PDF preview not loading? <a href="./assets/mhn-field-guide-2026.pdf" target="_blank" rel="noopener">Open it in a new tab &rarr;</a></p>
+    </div>
+  </div>
+
+  <div class="rgrid" style="margin-top:24px">
     <div class="rcard">
       <div class="ico"><i data-lucide="file-down"></i></div>
       <div>
         <h3>Birth Vision Guide</h3>
-        <p>The most up-to-date PDF you can share with families when helping them build their birth plan.</p>
+        <p>Client-facing PDF you can share with families when helping them build their birth plan.</p>
         <a class="dl" href="./assets/birth-vision-guide.pdf" target="_blank" rel="noopener">Download PDF &darr;</a>
       </div>
     </div>
