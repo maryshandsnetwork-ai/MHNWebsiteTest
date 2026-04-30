@@ -1,90 +1,306 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><title>Doula Portal · MHN</title>
-<meta name="description" content="MHN Doula Portal. Internal access for active volunteer doulas in the Mary's Hands Network.">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Doula Portal · Mary's Hands Network</title>
+<meta name="description" content="Resources, forms, and contacts for active MHN volunteer doulas. Submit client updates and availability, access the Canvas course, and download the Birth Vision Guide.">
+<link rel="icon" type="image/png" href="./assets/logo-seal.png">
+<link rel="apple-touch-icon" href="./assets/logo-seal.png">
+<meta property="og:title" content="Doula Portal · Mary's Hands Network">
+<meta property="og:description" content="Resources, forms, and contacts for active MHN volunteer doulas.">
+<meta property="og:image" content="https://maryshandsnetwork.org/assets/logo-full.png">
+<link rel="canonical" href="https://maryshandsnetwork.org/portal.html">
 <link rel="stylesheet" href="./colors_and_type.css">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 <style>
-  html,body{margin:0;padding:0;min-height:100vh;font-family:var(--mhn-font-sans);background:linear-gradient(160deg,#F8F5FA 0%,#EDE0F2 100%);display:flex;align-items:center;justify-content:center;color:var(--mhn-ink)}
-  .shell{width:420px;padding:40px}
-  .brand{display:flex;align-items:center;gap:12px;margin-bottom:40px;justify-content:center}
-  .seal{width:56px;height:56px;display:flex;align-items:center;justify-content:center}
-  .seal img{width:56px;height:56px;display:block}
-  .name{font-family:var(--mhn-font-serif);font-weight:700;font-size:22px;color:var(--mhn-purple-700);line-height:1}
-  .sub{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--mhn-purple-500);margin-top:3px}
-  .card{background:#fff;border-radius:20px;padding:40px;box-shadow:var(--mhn-shadow-md);border:1px solid var(--mhn-line)}
-  h1{font-family:var(--mhn-font-serif);font-size:26px;color:var(--mhn-purple-700);margin:0 0 6px;font-weight:700;letter-spacing:-0.01em}
-  .hello{font-family:var(--mhn-font-serif);font-style:italic;color:var(--mhn-ink-soft);font-size:14px;margin:0 0 28px}
-  label{display:block;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--mhn-purple-700);margin-bottom:6px}
-  input{width:100%;box-sizing:border-box;font-family:var(--mhn-font-sans);font-size:14px;padding:12px 14px;border:1px solid var(--mhn-line);border-radius:8px;margin-bottom:18px;outline:none;transition:border-color 160ms}
-  input:focus{border-color:var(--mhn-purple-500);box-shadow:0 0 0 3px rgba(132,89,149,0.12)}
-  .opts{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--mhn-ink-mute);margin-bottom:24px}
-  .opts a{color:var(--mhn-purple-700);text-decoration:none;font-weight:700}
-  .opts label{display:inline-flex;align-items:center;gap:6px;text-transform:none;letter-spacing:0;font-weight:400;color:var(--mhn-ink-soft);margin:0}
-  .btn{display:block;width:100%;background:var(--mhn-purple-700);color:#fff;border:none;font-family:var(--mhn-font-sans);font-weight:700;font-size:14px;padding:14px;border-radius:999px;cursor:pointer;letter-spacing:0.02em}
-  .btn:hover{background:var(--mhn-purple-900)}
-  .divider{display:flex;align-items:center;gap:12px;margin:28px 0;color:var(--mhn-ink-mute);font-size:11px;letter-spacing:0.12em;text-transform:uppercase}
-  .divider::before,.divider::after{content:"";flex:1;height:1px;background:var(--mhn-line)}
-  .ghost{display:block;width:100%;box-sizing:border-box;background:transparent;color:var(--mhn-purple-700);border:1px solid var(--mhn-purple-300);font-family:var(--mhn-font-sans);font-weight:700;font-size:13px;padding:12px;border-radius:999px;cursor:pointer;text-align:center;text-decoration:none}
-  .ghost:hover{background:var(--mhn-purple-50)}
-  .foot{text-align:center;margin-top:28px;font-size:11px;color:var(--mhn-ink-mute);letter-spacing:0.04em}
-  .hotline{margin-top:20px;padding:14px;background:var(--mhn-purple-50);border-left:3px solid var(--mhn-purple-500);border-radius:8px;font-size:12px;color:var(--mhn-purple-700);font-family:var(--mhn-font-serif);font-style:italic;line-height:1.5}
-  .hotline b{font-style:normal;font-family:var(--mhn-font-sans);letter-spacing:0.06em}
+  html, body{margin:0;padding:0;background:var(--mhn-paper);font-family:var(--mhn-font-sans);color:var(--mhn-ink)}
+  .page{max-width:1280px;margin:0 auto}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:20px 48px;border-bottom:1px solid var(--mhn-line-soft)}
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
+  .brand .seal{width:44px;height:44px;display:flex;align-items:center;justify-content:center}
+  .brand .seal img{width:44px;height:44px;display:block}
+  .brand .name{font-family:var(--mhn-font-serif);font-weight:700;font-size:20px;color:var(--mhn-purple-700);line-height:1}
+  .brand .sub{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--mhn-purple-500);margin-top:2px}
+  .nav-links{display:flex;gap:28px;align-items:center}
+  .nav-links a{text-decoration:none;color:var(--mhn-ink-soft);font-size:14px;font-weight:700;letter-spacing:0.02em;transition:color var(--mhn-dur)}
+  .nav-links a:hover{color:var(--mhn-purple-700)}
+  .nav-links .active{color:var(--mhn-purple-700)}
+  .nav-links .active::after{content:"";display:block;height:2px;background:var(--mhn-purple-200);margin-top:4px}
 
-  /* MOBILE RESPONSIVE */
+  /* HERO */
+  .hero{padding:56px 48px 32px;max-width:880px}
+  .eyebrow{font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:700;margin-bottom:18px}
+  h1.t{font-family:var(--mhn-font-serif);font-size:48px;line-height:1.05;color:var(--mhn-purple-700);margin:0 0 20px;letter-spacing:-0.015em;font-weight:700}
+  h1.t em{font-style:italic;color:var(--mhn-purple-500)}
+  .lede{font-family:var(--mhn-font-serif);font-style:italic;font-size:18px;line-height:1.55;color:var(--mhn-ink-soft);margin-bottom:0}
+
+  /* QUICK ACTIONS */
+  .actions{padding:8px 48px 36px;max-width:1200px;margin:0 auto}
+  .acc-section-head{font-size:13px;letter-spacing:0.24em;color:var(--mhn-purple-700);margin:0 0 22px;font-weight:700;text-transform:uppercase}
+  .acc-section-head span.line{display:inline-block;width:32px;height:2px;background:var(--mhn-purple-500);margin-right:12px;vertical-align:middle}
+  .agrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .acard{background:#fff;border:1px solid var(--mhn-line);border-radius:20px;padding:30px;display:flex;flex-direction:column;text-decoration:none;color:inherit;transition:transform 0.15s,box-shadow 0.15s,border-color 0.15s;position:relative;overflow:hidden}
+  .acard:hover{transform:translateY(-2px);box-shadow:var(--mhn-shadow-md);border-color:var(--mhn-purple-200)}
+  .acard .ico{width:36px;height:36px;color:var(--mhn-purple-700);margin-bottom:18px}
+  .acard h3{font-family:var(--mhn-font-serif);font-size:22px;color:var(--mhn-purple-700);margin:0 0 8px;font-weight:700;letter-spacing:-0.005em}
+  .acard p{font-size:14px;line-height:1.55;color:var(--mhn-ink-soft);margin:0 0 22px;flex:1}
+  .acard .go{display:inline-block;background:var(--mhn-purple-700);color:#fff;padding:10px 18px;border-radius:999px;font-weight:700;font-size:13px;letter-spacing:0.02em;text-align:center}
+  .acard.coming .go{background:#FAEFE0;color:#85571F;border:1px solid #E8D5BD}
+
+  /* RESOURCES */
+  .resources{padding:24px 48px 36px;max-width:1200px;margin:0 auto}
+  .rgrid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .rcard{background:var(--mhn-paper-alt);border:1px solid var(--mhn-line);border-radius:20px;padding:30px;display:flex;align-items:flex-start;gap:18px}
+  .rcard .ico{flex-shrink:0;width:42px;height:42px;background:#fff;border:1px solid var(--mhn-line);border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--mhn-purple-700)}
+  .rcard .ico svg{width:22px;height:22px}
+  .rcard h3{font-family:var(--mhn-font-serif);font-size:20px;color:var(--mhn-purple-700);margin:0 0 6px;font-weight:700;letter-spacing:-0.005em}
+  .rcard p{font-size:14px;line-height:1.55;color:var(--mhn-ink-soft);margin:0 0 14px}
+  .rcard a.dl{display:inline-block;background:var(--mhn-purple-700);color:#fff;padding:9px 18px;border-radius:999px;text-decoration:none;font-weight:700;font-size:13px}
+  .rcard a.dl:hover{background:var(--mhn-purple-900)}
+  .rcard.placeholder{opacity:0.85}
+  .rcard.placeholder .pill{display:inline-block;background:#FAEFE0;color:#85571F;padding:9px 18px;border-radius:999px;font-weight:700;font-size:13px;border:1px solid #E8D5BD}
+
+  /* CONTACTS */
+  .contacts{padding:48px 48px;background:var(--mhn-paper-alt)}
+  .contacts-inner{max-width:1200px;margin:0 auto}
+  .contacts h2{font-family:var(--mhn-font-serif);font-size:32px;color:var(--mhn-purple-700);margin:0 0 8px;letter-spacing:-0.01em}
+  .contacts .sub{font-family:var(--mhn-font-serif);font-style:italic;color:var(--mhn-ink-soft);font-size:15px;margin:0 0 28px}
+  .cgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin:0 0 24px}
+  .ccard{background:#fff;border:1px solid var(--mhn-line);border-radius:20px;padding:28px;display:flex;flex-direction:column}
+  .ccard .role{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:700;margin-bottom:10px}
+  .ccard h3{font-family:var(--mhn-font-serif);font-size:22px;color:var(--mhn-purple-700);margin:0 0 4px;font-weight:700}
+  .ccard .title{font-family:var(--mhn-font-serif);font-style:italic;font-size:14px;color:var(--mhn-ink-mute);margin:0 0 16px;line-height:1.4}
+  .ccard a.email{font-family:var(--mhn-font-sans);font-size:14px;color:var(--mhn-purple-700);text-decoration:none;font-weight:700;border-bottom:1px solid var(--mhn-purple-300);align-self:flex-start;padding-bottom:1px}
+  .ccard a.email:hover{color:var(--mhn-purple-900);border-color:var(--mhn-purple-700)}
+  .general{background:#fff;border:1px solid var(--mhn-line);border-radius:20px;padding:24px 30px;display:flex;flex-wrap:wrap;align-items:center;gap:16px 28px;font-size:14.5px}
+  .general .label{font-family:var(--mhn-font-serif);font-style:italic;color:var(--mhn-purple-700);font-weight:700;margin-right:4px}
+  .general a{color:var(--mhn-purple-700);text-decoration:none;font-weight:700}
+  .general a:hover{color:var(--mhn-purple-900);text-decoration:underline}
+  .general .sep{color:var(--mhn-purple-200)}
+
+  /* PHOTO GALLERY */
+  .doula-gallery{padding:48px 48px;text-align:center}
+  .doula-gallery .eyebrow{margin-bottom:12px}
+  .doula-gallery h2{font-family:var(--mhn-font-serif);font-size:32px;color:var(--mhn-purple-700);margin:0 0 28px;letter-spacing:-0.01em}
+  .pgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;max-width:1200px;margin:0 auto}
+  .pgrid figure{margin:0}
+  .pgrid figcaption{font-family:var(--mhn-font-serif);font-style:italic;font-size:12.5px;color:var(--mhn-ink-mute);padding-top:10px;text-align:center}
+
+  /* FOOTER (shared style) */
+  footer{background:var(--mhn-purple-900);color:#D4BADD;padding:64px 48px 32px}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
+  .foot-brand{display:flex;flex-direction:column;gap:12px}
+  .foot-brand .logo{font-family:var(--mhn-font-serif);font-size:22px;color:#fff;font-weight:700}
+  .foot-brand p{font-size:13px;line-height:1.6;color:#B8A0C0;margin:0;max-width:300px}
+  .foot-col h5{font-family:var(--mhn-font-sans);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:#fff;margin:0 0 14px;font-weight:700}
+  .foot-col a{display:block;font-size:13px;color:#B8A0C0;text-decoration:none;margin-bottom:8px}
+  .foot-col a:hover{color:#fff}
+  .foot-btm{padding-top:24px;border-top:1px solid rgba(212,186,221,0.18);display:flex;justify-content:space-between;font-size:11px;color:#845995;letter-spacing:0.04em}
+
+  /* MOBILE */
   @media (max-width:900px){
     body, .page{max-width:100%;overflow-x:hidden}
     .nav{flex-direction:column;gap:14px;padding:14px 18px}
     .nav-links{flex-wrap:wrap;justify-content:center;gap:14px 18px;font-size:13px}
-    .nav-links a{font-size:13px}
-    .hero, .hero-purple, .body, .mission-wrap, .numbers, .tl-wrap, .footprint, .contact, .founder, .origin, .photo-gallery{padding:48px 20px !important;max-width:100% !important}
-    h1.t, .h1{font-size:34px !important;line-height:1.1 !important}
-    .lede{font-size:16px !important}
-    h2{font-size:26px !important;line-height:1.15 !important}
-    h3{font-size:18px !important}
-    .mv, .ngrid, .tl, .ogrid, .grid-3, .grid-2, .stats-grid, .routes-grid, .services-grid, .gallery-grid, .home-vision, .home-hotline, .contact-inner{grid-template-columns:1fr !important;gap:18px !important}
-    .stats, .mission, .services, .testimonials, .final, .outcomes, .home-hotline, .home-vision{margin:24px 16px !important;padding:48px 24px !important}
-    .home-hotline h2, .home-vision h2{font-size:28px !important}
-    .home-hotline .phone-card .num{font-size:28px !important}
-    .featured-doula{grid-template-columns:1fr !important;text-align:center;padding:24px !important}
+    .hero,.actions,.resources,.contacts,.doula-gallery{padding:40px 20px !important}
+    h1.t{font-size:34px !important;line-height:1.1 !important}
+    .agrid,.rgrid,.cgrid,.pgrid{grid-template-columns:1fr !important;gap:16px !important}
+    .general{flex-direction:column;align-items:flex-start;gap:8px}
+    .general .sep{display:none}
     footer{padding:48px 20px 20px}
     .foot-grid{grid-template-columns:1fr !important;gap:32px !important}
     .foot-btm{flex-direction:column;gap:8px;text-align:center}
-    .nitem .n, .stat .n{font-size:36px !important}
-    .ostat .pct{font-size:38px !important}
-    .regions{grid-template-columns:1fr !important}
-    .rchip{text-align:center}
-    .pchip{display:block;margin:6px 0;text-align:center}
-    .callout{padding:20px 18px !important;margin:18px 0 !important}
-    .mhn-btn--inline, .mhn-btn--primary, .mhn-btn--secondary{display:block;text-align:center;margin:8px 0 !important}
-    .tl::before{display:none}
-    .tl-item{padding:18px 0;border-top:1px solid var(--mhn-purple-200)}
-    .tl-item:first-child{border-top:none}
   }
   @media (max-width:560px){
-    h1.t, .h1{font-size:28px !important}
-    .home-hotline .phone-card .num{font-size:24px !important}
+    h1.t{font-size:28px !important}
   }
-</style></head>
-<body data-screen-label="Doula Portal Login">
-<div class="shell">
-  <div class="brand">
+</style>
+</head>
+<body data-screen-label="Doula Portal">
+<div class="page">
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html" class="brand">
     <div class="seal"><img src="./assets/logo-seal.png" alt="Mary's Hands Network logo"></div>
-    <div><div class="name">Mary's Hands</div><div class="sub">Doula Portal</div></div>
-  </div>
-  <div class="card">
-    <h1>Welcome back.</h1>
-    <p class="hello">Sign in to submit forms, view your matches, and access the Field Guide.</p>
-    <label>Email</label>
-    <input type="email" placeholder="you@mhndoula.com" value="klewis@mhndoula.com">
-    <label>Password</label>
-    <input type="password" value="••••••••••">
-    <div class="opts">
-      <label><input type="checkbox" checked> Keep me signed in</label>
-      <a href="#">Forgot password?</a>
+    <div>
+      <div class="name">Mary's Hands</div>
+      <div class="sub">Doula Network</div>
     </div>
-    <button class="btn">Sign In</button>
-    <div class="divider">or</div>
-    <a href="index.html" class="ghost">Back to Public Site</a>
-    <div class="hotline"><b>MHN Doula Hotline</b>, Need immediate support for a client? Your volunteer coordinator has the current number.</div>
+  </a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="for-mom.html">For Families</a>
+    <a href="doula-training.html">Doula Training</a>
+    <a href="contact.html">Contact</a>
+    <div class="lang-toggle"><a href="#" class="active">EN</a><a href="apoyo-de-doula.html">ES</a></div>
+    <a href="donate.html" class="btn-donate">Donate</a>
   </div>
-  <div class="foot">© 2026 Mary's Hands Network · Powered by Monday.com</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="eyebrow">For Active Doulas</div>
+  <h1 class="t">Welcome back, <em>doula.</em></h1>
+  <p class="lede">Forms, course access, resources, and the people you can call when you need backup. Everything an active MHN volunteer doula needs to do the work.</p>
+</section>
+
+<!-- QUICK ACTIONS -->
+<section class="actions">
+  <div class="acc-section-head"><span class="line"></span>Submit &amp; Access</div>
+  <div class="agrid">
+    <a class="acard" href="#TODO_CLIENT_UPDATE_URL" target="_blank" rel="noopener">
+      <i class="ico" data-lucide="clipboard-edit"></i>
+      <h3>Client update form</h3>
+      <p>Log a client visit, document a birth, or update prenatal/postpartum notes after every interaction.</p>
+      <span class="go">Open form &rarr;</span>
+    </a>
+    <a class="acard" href="#TODO_AVAILABILITY_URL" target="_blank" rel="noopener">
+      <i class="ico" data-lucide="calendar-check"></i>
+      <h3>Submit availability</h3>
+      <p>Update your monthly availability so Kerionne can match you to client teams that fit your schedule.</p>
+      <span class="go">Open form &rarr;</span>
+    </a>
+    <a class="acard" href="#TODO_CANVAS_URL" target="_blank" rel="noopener">
+      <i class="ico" data-lucide="graduation-cap"></i>
+      <h3>Canvas course</h3>
+      <p>Access your training modules, ICEA materials, and the always-updated curriculum library.</p>
+      <span class="go">Open course &rarr;</span>
+    </a>
+  </div>
+</section>
+
+<!-- RESOURCES -->
+<section class="resources">
+  <div class="acc-section-head"><span class="line"></span>Resources</div>
+  <div class="rgrid">
+    <div class="rcard">
+      <div class="ico"><i data-lucide="file-down"></i></div>
+      <div>
+        <h3>Birth Vision Guide</h3>
+        <p>The most up-to-date PDF you can share with families when helping them build their birth plan.</p>
+        <a class="dl" href="./assets/birth-vision-guide.pdf" target="_blank" rel="noopener">Download PDF &darr;</a>
+      </div>
+    </div>
+    <div class="rcard placeholder">
+      <div class="ico"><i data-lucide="sparkles"></i></div>
+      <div>
+        <h3>Doula Spotlight form</h3>
+        <p>Nominate yourself or a teammate to be featured on our social channels and in donor communications.</p>
+        <span class="pill">Coming soon</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTS -->
+<section class="contacts">
+  <div class="contacts-inner">
+    <div class="eyebrow">Your team</div>
+    <h2>Who to reach, when.</h2>
+    <p class="sub">When in doubt, start with Kerionne. She'll pull in whoever else needs to be in the loop.</p>
+    <div class="cgrid">
+      <div class="ccard">
+        <div class="role">Volunteer Coordinator</div>
+        <h3>Kerionne Lewis</h3>
+        <p class="title">Schedules, matches, escalations, day-to-day questions.</p>
+        <a class="email" href="mailto:klewis@mhndoula.com">klewis@mhndoula.com</a>
+      </div>
+      <div class="ccard">
+        <div class="role">Operations Director</div>
+        <h3>Breea Carter</h3>
+        <p class="title">Onboarding paperwork, hospital privileging, operations.</p>
+        <a class="email" href="mailto:bcarter@mhndoula.com">bcarter@mhndoula.com</a>
+      </div>
+      <div class="ccard">
+        <div class="role">Executive Director &amp; Lead Instructor</div>
+        <h3>Madeline LeBlanc</h3>
+        <p class="title">Strategy, partnerships, training escalations, anything else.</p>
+        <a class="email" href="mailto:mleblanc@mhndoula.com">mleblanc@mhndoula.com</a>
+      </div>
+    </div>
+    <div class="general">
+      <span class="label">General questions:</span>
+      <a href="mailto:info@maryshandsnetwork.org">info@maryshandsnetwork.org</a>
+      <span class="sep">&bull;</span>
+      <span class="label">Office:</span>
+      <a href="tel:2254247532">(225) 424-7532</a>
+      <span class="sep">&bull;</span>
+      <span class="label">Maddy direct:</span>
+      <a href="tel:2258934906">(225) 893-4906</a>
+    </div>
+  </div>
+</section>
+
+<!-- DOULA PHOTO GALLERY -->
+<section class="doula-gallery">
+  <div class="eyebrow">Our Doulas</div>
+  <h2>The hands behind the network.</h2>
+  <div class="pgrid">
+    <figure class="mhn-frame">
+      <img src="./assets/photos/doula-receives-certificate.jpg" alt="An MHN doula receiving her ICEA certificate at graduation">
+      <figcaption>Cohort graduation</figcaption>
+    </figure>
+    <figure class="mhn-frame">
+      <img src="./assets/photos/doula-with-newborn.jpg" alt="An MHN doula supporting a family with their newborn">
+      <figcaption>Postpartum visit</figcaption>
+    </figure>
+    <figure class="mhn-frame">
+      <img src="./assets/photos/doula-pamela-family.jpg" alt="MHN doula Pamela with a client family">
+      <figcaption>Pamela &amp; family</figcaption>
+    </figure>
+    <figure class="mhn-frame">
+      <img src="./assets/photos/mhn-staff-team.jpg" alt="The MHN staff team together">
+      <figcaption>The MHN team</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <div class="logo">Mary's Hands Network</div>
+      <p>A Louisiana 501(c)(3) nonprofit &middot; EIN 92-2430838. 451 E. Airport Avenue, Ste. A, Baton Rouge, LA 70806.</p>
+      <p style="font-family:var(--mhn-font-serif);font-style:italic;color:#D4BADD">info@mhndoula.com &middot; (225) 424-7532</p>
+    </div>
+    <div class="foot-col">
+      <h5>For Families</h5>
+      <a href="for-mom.html">For Families</a>
+      <a href="hotline.html">Doula Hotline</a>
+      <a href="birth-vision.html">Birth Vision Guide</a>
+      <a href="bereavement.html">Loss &amp; Bereavement</a>
+      <a href="apoyo-de-doula.html">Apoyo en espa&ntilde;ol</a>
+    </div>
+    <div class="foot-col">
+      <h5>For Doulas</h5>
+      <a href="doula-training.html">ICBD Training</a>
+      <a href="volunteer.html">Volunteer with MHN</a>
+      <a href="portal.html">Doula Portal</a>
+    </div>
+    <div class="foot-col">
+      <h5>About</h5>
+      <a href="about.html">Our Mission</a>
+      <a href="about.html#outcomes">Outcomes</a>
+      <a href="meet-the-doulas.html">Meet the Doulas</a>
+      <a href="community-partners.html">Community Partners</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="foot-quick-help">
+    <span class="qh-label">Need help right now?</span>
+    <a href="hotline.html">Doula Hotline</a>
+    <a href="bereavement.html">Loss &amp; Bereavement</a>
+    <a href="birth-vision.html">Birth Vision Guide</a>
+  </div>
+  <div class="foot-btm">
+    <span>&copy; 2026 Mary's Hands Network &middot; All Rights Reserved</span>
+    <span>Every Birth Deserves a Doula.</span>
+  </div>
+</footer>
 </div>
-</body></html>
+<script>lucide.createIcons();</script>
+</body>
+</html>
