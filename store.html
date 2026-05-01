@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Store · Mary's Hands Network</title>
+<meta name="description" content="Shop Mary's Hands Network merchandise. Every purchase supports free volunteer doula care for Louisiana families.">
+<link rel="icon" type="image/png" href="./assets/logo-seal.png">
+<link rel="apple-touch-icon" href="./assets/logo-seal.png">
+<meta property="og:title" content="Store · Mary's Hands Network">
+<meta property="og:description" content="Shop MHN merchandise. Every purchase supports free volunteer doula care.">
+<meta property="og:image" content="https://maryshandsnetwork.org/assets/logo-full.png">
+<link rel="canonical" href="https://maryshandsnetwork.org/store.html">
+<link rel="stylesheet" href="./colors_and_type.css">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script src="./mobile-nav.js" defer></script>
+<style>
+  html, body{margin:0;padding:0;background:var(--mhn-paper);font-family:var(--mhn-font-sans);color:var(--mhn-ink)}
+  .page{max-width:1280px;margin:0 auto}
+
+  /* NAV (shared style) */
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:20px 48px;border-bottom:1px solid var(--mhn-line-soft)}
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
+  .brand .seal{width:44px;height:44px;display:flex;align-items:center;justify-content:center}
+  .brand .seal img{width:44px;height:44px;display:block}
+  .brand .name{font-family:var(--mhn-font-serif);font-weight:700;font-size:20px;color:var(--mhn-purple-700);line-height:1}
+  .nav-links{display:flex;gap:28px;align-items:center}
+  .nav-links a{text-decoration:none;color:var(--mhn-ink-soft);font-size:14px;font-weight:700;letter-spacing:0.02em;transition:color var(--mhn-dur)}
+  .nav-links a:hover{color:var(--mhn-purple-700)}
+  .nav-links .active{color:var(--mhn-purple-700)}
+  .nav-links .active::after{content:"";display:block;height:2px;background:var(--mhn-purple-200);margin-top:4px}
+
+  /* HERO */
+  .hero{padding:56px 48px 36px;max-width:880px}
+  .eyebrow{font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:700;margin-bottom:18px}
+  h1.t{font-family:var(--mhn-font-serif);font-size:48px;line-height:1.05;color:var(--mhn-purple-700);margin:0 0 20px;letter-spacing:-0.015em;font-weight:700}
+  h1.t em{font-style:italic;color:var(--mhn-purple-500)}
+  .lede{font-family:var(--mhn-font-serif);font-style:italic;font-size:18px;line-height:1.55;color:var(--mhn-ink-soft);margin:0;max-width:640px}
+
+  /* PRODUCT GRID */
+  .shop{padding:8px 48px 64px;max-width:1200px;margin:0 auto}
+  .shop .acc-section-head{font-size:13px;letter-spacing:0.24em;color:var(--mhn-purple-700);margin:24px 0 22px;font-weight:700;text-transform:uppercase}
+  .shop .acc-section-head span.line{display:inline-block;width:32px;height:2px;background:var(--mhn-purple-500);margin-right:12px;vertical-align:middle}
+  .pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .product{background:#fff;border:1px solid var(--mhn-line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:transform 0.15s,box-shadow 0.15s,border-color 0.15s}
+  .product:hover{transform:translateY(-3px);box-shadow:var(--mhn-shadow-md);border-color:var(--mhn-purple-200)}
+  .product .photo{aspect-ratio:1/1;background:linear-gradient(135deg,#F8F5FA 0%,#EDE0F2 100%);display:flex;align-items:center;justify-content:center;color:var(--mhn-purple-500);font-family:var(--mhn-font-serif);font-style:italic;font-size:14px;letter-spacing:0.04em;border-bottom:1px solid var(--mhn-line)}
+  .product .photo img{width:100%;height:100%;object-fit:cover;display:block}
+  .product .body{padding:22px 22px 24px;display:flex;flex-direction:column;flex:1}
+  .product h3{font-family:var(--mhn-font-serif);font-size:20px;color:var(--mhn-purple-700);margin:0 0 6px;font-weight:700;letter-spacing:-0.005em}
+  .product .price{font-family:var(--mhn-font-serif);font-size:22px;color:var(--mhn-warm-700,#B5824A);margin:0 0 10px;font-weight:700}
+  .product .desc{font-size:14px;line-height:1.55;color:var(--mhn-ink-soft);margin:0 0 18px;flex:1}
+  .product .buy{display:inline-flex;align-items:center;justify-content:center;background:var(--mhn-purple-700);color:#fff;padding:11px 22px;border-radius:999px;text-decoration:none;font-weight:700;font-size:13px;letter-spacing:0.02em;transition:background 0.15s}
+  .product .buy:hover{background:var(--mhn-purple-900)}
+  .product.placeholder .buy{background:#FAEFE0;color:#85571F;border:1px solid #E8D5BD}
+  .product.placeholder .buy:hover{background:#F4E1C8}
+
+  /* SUPPORT NOTE */
+  .support-note{background:var(--mhn-purple-700);color:#fff;border-radius:24px;padding:40px 48px;margin:40px 48px 48px;text-align:center}
+  .support-note .eyebrow{color:var(--mhn-purple-200);margin-bottom:10px}
+  .support-note h2{font-family:var(--mhn-font-serif);font-size:28px;color:#fff;margin:0 0 10px;letter-spacing:-0.005em;line-height:1.2}
+  .support-note p{font-family:var(--mhn-font-serif);font-style:italic;color:#F1EDF3;margin:0;font-size:16px;max-width:700px;margin:0 auto;line-height:1.5}
+
+  /* SETUP INSTRUCTIONS (only visible during build-out, can be removed later) */
+  .setup-note{background:#FFFCF6;border:1px solid #E8D5BD;border-radius:14px;padding:22px 28px;margin:0 48px 48px;font-size:14px;line-height:1.55;color:var(--mhn-ink)}
+  .setup-note h3{font-family:var(--mhn-font-serif);font-size:18px;color:var(--mhn-purple-700);margin:0 0 8px}
+  .setup-note ol{margin:8px 0 0;padding-left:22px}
+  .setup-note li{margin-bottom:6px}
+  .setup-note code{background:#fff;border:1px solid var(--mhn-line);padding:1px 6px;border-radius:4px;font-size:12.5px}
+
+  /* FOOTER (shared style) */
+  footer{background:var(--mhn-purple-900);color:#D4BADD;padding:64px 48px 32px}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
+  .foot-brand{display:flex;flex-direction:column;gap:12px}
+  .foot-brand .logo{font-family:var(--mhn-font-serif);font-size:22px;color:#fff;font-weight:700}
+  .foot-brand p{font-size:13px;line-height:1.6;color:#B8A0C0;margin:0;max-width:300px}
+  .foot-col h5{font-family:var(--mhn-font-sans);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:#fff;margin:0 0 14px;font-weight:700}
+  .foot-col a{display:block;font-size:13px;color:#B8A0C0;text-decoration:none;margin-bottom:8px}
+  .foot-col a:hover{color:#fff}
+  .foot-btm{padding-top:24px;border-top:1px solid rgba(212,186,221,0.18);display:flex;justify-content:space-between;font-size:11px;color:#845995;letter-spacing:0.04em}
+
+  @media (max-width: 900px){
+    .pgrid{grid-template-columns:repeat(2,1fr);gap:16px}
+    .support-note{margin:32px 18px;padding:32px 22px}
+    .setup-note{margin:0 18px 32px}
+  }
+  @media (max-width: 560px){
+    .pgrid{grid-template-columns:1fr}
+    h1.t{font-size:32px}
+  }
+</style>
+</head>
+<body data-screen-label="Store">
+<div class="page">
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html" class="brand">
+    <div class="seal"><img src="./assets/logo-seal.png" alt="Mary's Hands Network logo"></div>
+    <div>
+      <div class="name">Mary's Hands Network</div>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="for-mom.html">For Families</a>
+    <a href="doula-training.html">Doula Training</a>
+    <a href="store.html" class="active">Store</a>
+    <a href="contact.html">Contact</a>
+    <div class="lang-toggle"><a href="#" class="active">EN</a></div>
+    <a href="donate.html" class="btn-donate">Donate</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="eyebrow">Mary's Hands Network · Store</div>
+  <h1 class="t">Wear it, carry it, <em>support the work.</em></h1>
+  <p class="lede">Every purchase helps fund free volunteer doula care for Louisiana families. Shipping happens within five business days; orders go through PayPal's secure checkout.</p>
+</section>
+
+<!-- SETUP INSTRUCTIONS — REMOVE THIS BLOCK ONCE PRODUCTS ARE LIVE -->
+<div class="setup-note">
+  <h3>How to wire up these products (remove this block when ready)</h3>
+  <ol>
+    <li>Go to <strong>paypal.com → Pay & Get Paid → PayPal Buttons</strong> and create a "Buy Now" hosted button for each product. Set price, name, and shipping options there.</li>
+    <li>After saving each button, PayPal gives you a <code>hosted_button_id</code>. Copy it.</li>
+    <li>In <code>store.html</code>, replace the placeholder <code>#TODO_BUY_BUTTON_ID</code> in each <code>&lt;a class="buy"&gt;</code> with <code>https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=YOUR_ID</code>.</li>
+    <li>Update each product's name, price, description, and photo (drop a JPG into <code>assets/photos/</code> and update the <code>&lt;img src&gt;</code>).</li>
+    <li>Once everything's plugged in and tested, delete this whole "setup-note" block.</li>
+  </ol>
+</div>
+
+<!-- PRODUCT GRID -->
+<section class="shop">
+  <div class="acc-section-head"><span class="line"></span>Shop</div>
+  <div class="pgrid">
+
+    <!-- Product 1 -->
+    <div class="product placeholder">
+      <div class="photo">Product photo</div>
+      <div class="body">
+        <h3>Product name</h3>
+        <p class="price">$0.00</p>
+        <p class="desc">Short description of the product. Sizes, materials, anything a buyer needs to know in one or two sentences.</p>
+        <a class="buy" href="#TODO_BUY_BUTTON_ID" target="_blank" rel="noopener">Buy on PayPal &rarr;</a>
+      </div>
+    </div>
+
+    <!-- Product 2 -->
+    <div class="product placeholder">
+      <div class="photo">Product photo</div>
+      <div class="body">
+        <h3>Product name</h3>
+        <p class="price">$0.00</p>
+        <p class="desc">Short description of the product. Sizes, materials, anything a buyer needs to know in one or two sentences.</p>
+        <a class="buy" href="#TODO_BUY_BUTTON_ID" target="_blank" rel="noopener">Buy on PayPal &rarr;</a>
+      </div>
+    </div>
+
+    <!-- Product 3 -->
+    <div class="product placeholder">
+      <div class="photo">Product photo</div>
+      <div class="body">
+        <h3>Product name</h3>
+        <p class="price">$0.00</p>
+        <p class="desc">Short description of the product. Sizes, materials, anything a buyer needs to know in one or two sentences.</p>
+        <a class="buy" href="#TODO_BUY_BUTTON_ID" target="_blank" rel="noopener">Buy on PayPal &rarr;</a>
+      </div>
+    </div>
+
+    <!-- Product 4 -->
+    <div class="product placeholder">
+      <div class="photo">Product photo</div>
+      <div class="body">
+        <h3>Product name</h3>
+        <p class="price">$0.00</p>
+        <p class="desc">Short description of the product. Sizes, materials, anything a buyer needs to know in one or two sentences.</p>
+        <a class="buy" href="#TODO_BUY_BUTTON_ID" target="_blank" rel="noopener">Buy on PayPal &rarr;</a>
+      </div>
+    </div>
+
+    <!-- Product 5 -->
+    <div class="product placeholder">
+      <div class="photo">Product photo</div>
+      <div class="body">
+        <h3>Product name</h3>
+        <p class="price">$0.00</p>
+        <p class="desc">Short description of the product. Sizes, materials, anything a buyer needs to know in one or two sentences.</p>
+        <a class="buy" href="#TODO_BUY_BUTTON_ID" target="_blank" rel="noopener">Buy on PayPal &rarr;</a>
+      </div>
+    </div>
+
+    <!-- Product 6 -->
+    <div class="product placeholder">
+      <div class="photo">Product photo</div>
+      <div class="body">
+        <h3>Product name</h3>
+        <p class="price">$0.00</p>
+        <p class="desc">Short description of the product. Sizes, materials, anything a buyer needs to know in one or two sentences.</p>
+        <a class="buy" href="#TODO_BUY_BUTTON_ID" target="_blank" rel="noopener">Buy on PayPal &rarr;</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SUPPORT NOTE -->
+<section class="support-note">
+  <div class="eyebrow">Why Shop With Us</div>
+  <h2>Every order funds free doula care.</h2>
+  <p>One hundred percent of store proceeds, after material and shipping costs, go directly to training the next cohort of volunteer doulas and to the families they'll serve.</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <div class="logo">Mary's Hands Network</div>
+      <p>A Louisiana 501(c)(3) nonprofit · EIN 92-2430838. 451 E. Airport Avenue, Ste. A, Baton Rouge, LA 70806.</p>
+      <p style="font-family:var(--mhn-font-serif);font-style:italic;color:#D4BADD">info@mhndoula.com · (225) 424-7532</p>
+    </div>
+    <div class="foot-col">
+      <h5>For Families</h5>
+      <a href="for-mom.html">For Families</a>
+      <a href="hotline.html">Doula Hotline</a>
+      <a href="birth-vision.html">Birth Vision Guide</a>
+      <a href="bereavement.html">Loss &amp; Bereavement</a>
+      <a href="apoyo-de-doula.html">Apoyo en español</a>
+    </div>
+    <div class="foot-col">
+      <h5>For Doulas</h5>
+      <a href="doula-training.html">ICBD Training</a>
+      <a href="volunteer.html">Volunteer with MHN</a>
+      <a href="portal.html">Doula Portal</a>
+    </div>
+    <div class="foot-col">
+      <h5>About</h5>
+      <a href="about.html">Our Mission</a>
+      <a href="store.html">Store</a>
+      <a href="community-partners.html">Community Partners</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="foot-quick-help">
+    <span class="qh-label">Need help right now?</span>
+    <a href="hotline.html">Doula Hotline</a>
+    <a href="bereavement.html">Loss &amp; Bereavement</a>
+    <a href="birth-vision.html">Birth Vision Guide</a>
+  </div>
+  <div class="foot-btm">
+    <span>&copy; 2026 Mary's Hands Network · All Rights Reserved</span>
+    <span>Every Birth Deserves a Doula.</span>
+  </div>
+</footer>
+</div>
+<script>lucide.createIcons();</script>
+</body>
+</html>
