@@ -13,6 +13,7 @@
 <link rel="canonical" href="https://maryshandsnetwork.org/store.html">
 <link rel="stylesheet" href="./colors_and_type.css">
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script src="https://www.paypalobjects.com/ncp/cart/cart.js" data-merchant-id="H9SR7N5JN5FXU"></script>
 <script src="./mobile-nav.js" defer></script>
 <style>
   html, body{margin:0;padding:0;background:var(--mhn-paper);font-family:var(--mhn-font-sans);color:var(--mhn-ink)}
@@ -132,6 +133,60 @@
     box-shadow:0 0 0 3px rgba(132,89,149,0.12);
   }
 
+
+  /* FEATURED PRODUCT — full-width row above the smaller grid */
+  .product--featured{
+    grid-column:1 / -1;
+    display:grid;
+    grid-template-columns:1.05fr 1fr;
+    align-items:stretch;
+    overflow:hidden;
+  }
+  .product--featured .photo{
+    aspect-ratio:auto;
+    height:100%;
+    min-height:380px;
+    border-bottom:none;
+    border-right:1px solid var(--mhn-line);
+  }
+  .product--featured .body{
+    padding:36px 36px 32px;
+  }
+  .product--featured h3{font-size:28px;margin:0 0 8px}
+  .product--featured .price{font-size:26px;margin:0 0 14px}
+  .product--featured .desc{font-size:15px;margin:0 0 22px}
+  .product--featured .buy{padding:14px 28px;font-size:14px}
+
+  /* Course-note callout under bereavement bundle */
+  .course-note{
+    grid-column:1 / -1;
+    margin-top:-4px;
+    background:var(--mhn-purple-50);
+    border:1px solid var(--mhn-purple-200);
+    border-radius:14px;
+    padding:18px 24px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px 22px;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .course-note .copy{flex:1 1 320px;font-size:14px;line-height:1.55;color:var(--mhn-ink-soft)}
+  .course-note .copy strong{color:var(--mhn-purple-700);font-family:var(--mhn-font-serif);font-style:normal}
+  .course-note .copy em{font-style:italic;color:var(--mhn-ink-mute)}
+  .course-note a.email{color:var(--mhn-purple-700);font-weight:700;text-decoration:none;border-bottom:1px solid var(--mhn-purple-300);padding-bottom:1px;white-space:nowrap}
+  .course-note a.email:hover{color:var(--mhn-purple-900);border-color:var(--mhn-purple-700)}
+
+  /* PayPal add-to-cart button: nudge to inherit page styling alignment */
+  paypal-add-to-cart-button{display:inline-block;margin:4px 0}
+
+  @media (max-width: 760px){
+    .product--featured{grid-template-columns:1fr}
+    .product--featured .photo{border-right:none;border-bottom:1px solid var(--mhn-line);min-height:280px}
+    .product--featured .body{padding:24px 22px 24px}
+    .product--featured h3{font-size:24px}
+    .product--featured .price{font-size:22px}
+  }
 </style>
 </head>
 <body data-screen-label="Store">
@@ -171,7 +226,7 @@
   <div class="acc-section-head"><span class="line"></span>Available Now</div>
   <div class="pgrid">
 
-    <div class="product">
+    <div class="product product--featured">
       <div class="photo">
         <div class="photo-cycle">
           <img src="./assets/photos/pocket-doula-hero.jpg" alt="The Pocket Doula tin front-facing on textured fabric">
@@ -216,16 +271,17 @@
         </div>
       </div>
       <div class="body">
-        <h3>The Bereavement Doula Training</h3>
-        <p class="desc">A program for doulas, nurses, and birth workers who want to bear witness to families through pregnancy and infant loss. Choose the option that fits where you are. Earn 16 doula and childbirth-educator CEU credits with the bundle.</p>
-        <label for="bd-variant" style="display:block;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--mhn-purple-700);font-weight:700;margin:0 0 8px">Choose an option</label>
-        <select class="variant" id="bd-variant" aria-label="Select a Bereavement Doula Training option">
-          <option value="workbook">Workbook only, $20</option>
-          <option value="textbook">Textbook only, $30</option>
-          <option value="textbook-workbook">Textbook + Workbook, $50</option>
-          <option value="bundle">Bundle: Textbook, Workbook, and 16 hour Online Course, $575</option>
-        </select>
-        <span class="buy" aria-disabled="true" style="opacity:0.85;cursor:not-allowed;pointer-events:none">Coming soon</span>
+        <h3>Bereavement Doula Bundle</h3>
+        <p class="price">$50 <span style="font-size:13px;color:var(--mhn-ink-mute);font-weight:400;font-family:var(--mhn-font-sans);font-style:italic;letter-spacing:0">textbook + workbook</span></p>
+        <p class="desc">For doulas, nurses, and birth workers who want to bear witness to families through pregnancy and infant loss. The hardcover student training manual paired with the reflective workbook, by Madeline Harris LeBlanc, MHA, RNC-OB, IBCLC, IAT.</p>
+        <paypal-add-to-cart-button data-id="SGL8R9MLKEFQW"></paypal-add-to-cart-button>
+        <script>cartPaypal.AddToCart({ id: "SGL8R9MLKEFQW" })</script>
+      </div>
+    </div>
+
+    <div class="course-note">
+      <div class="copy">
+        <strong>Want the full course?</strong> Our online <em>Bereavement Doula</em> course is approved for <strong>16 ICEA CEUs</strong> and costs <strong>$450</strong>, which includes the textbook and the workbook. Email <a class="email" href="mailto:info@mhndoula.com?subject=Bereavement%20Doula%20Course%20Registration">info@mhndoula.com</a> to register.
       </div>
     </div>
 
