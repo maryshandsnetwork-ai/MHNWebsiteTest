@@ -88,6 +88,50 @@
     .pgrid{grid-template-columns:1fr}
     h1.t{font-size:32px}
   }
+
+  /* PHOTO CYCLE on hover (used by .product .photo-cycle) */
+  .photo-cycle{position:relative;width:100%;height:100%;overflow:hidden}
+  .photo-cycle img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity 0.4s ease}
+  .photo-cycle img:first-child{opacity:1}
+  /* On product hover, run the cycle animation */
+  .product:hover .photo-cycle img{animation:cycle 4s infinite}
+  .product:hover .photo-cycle img:nth-child(1){animation-delay:0s}
+  .product:hover .photo-cycle img:nth-child(2){animation-delay:1s}
+  .product:hover .photo-cycle img:nth-child(3){animation-delay:2s}
+  .product:hover .photo-cycle img:nth-child(4){animation-delay:3s}
+  @keyframes cycle{
+    0%   { opacity: 0 }
+    8%   { opacity: 1 }
+    25%  { opacity: 1 }
+    33%  { opacity: 0 }
+    100% { opacity: 0 }
+  }
+
+  /* Product variant select */
+  .product select.variant{
+    width:100%;
+    box-sizing:border-box;
+    font-family:var(--mhn-font-sans);
+    font-size:14px;
+    padding:10px 14px;
+    border:1px solid var(--mhn-line);
+    border-radius:10px;
+    background:#fff;
+    color:var(--mhn-ink);
+    margin:0 0 14px;
+    appearance:none;
+    -webkit-appearance:none;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%235E376C' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;
+    background-position:right 14px center;
+    cursor:pointer;
+  }
+  .product select.variant:focus{
+    outline:none;
+    border-color:var(--mhn-purple-500);
+    box-shadow:0 0 0 3px rgba(132,89,149,0.12);
+  }
+
 </style>
 </head>
 <body data-screen-label="Store">
@@ -120,18 +164,6 @@
   <p class="lede">Every purchase helps fund free volunteer doula care for Louisiana families. Shipping happens within five business days; orders go through PayPal's secure checkout.</p>
 </section>
 
-<!-- SETUP INSTRUCTIONS — REMOVE THIS BLOCK ONCE PRODUCTS ARE LIVE -->
-<div class="setup-note">
-  <h3>How to wire up these products (remove this block when ready)</h3>
-  <ol>
-    <li>Go to <strong>paypal.com → Pay & Get Paid → PayPal Buttons</strong> and create a "Buy Now" hosted button for each product. Set price, name, and shipping options there.</li>
-    <li>After saving each button, PayPal gives you a <code>hosted_button_id</code>. Copy it.</li>
-    <li>In <code>store.html</code>, replace the placeholder <code>#TODO_BUY_BUTTON_ID</code> in each <code>&lt;a class="buy"&gt;</code> with <code>https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=YOUR_ID</code>.</li>
-    <li>Update each product's name, price, description, and photo (drop a JPG into <code>assets/photos/</code> and update the <code>&lt;img src&gt;</code>).</li>
-    <li>Once everything's plugged in and tested, delete this whole "setup-note" block.</li>
-  </ol>
-</div>
-
 <!-- PRODUCT GRID -->
 <section class="shop">
 
@@ -140,11 +172,11 @@
   <div class="pgrid">
 
     <div class="product">
-      <div class="photo"><img src="./assets/photos/pocket-doula-hero.jpg" alt="The Pocket Doula — 50-card deck in a slim purple tin"></div>
+      <div class="photo"><img src="./assets/photos/pocket-doula-hero.jpg" alt="The Pocket Doula, 50-card deck in a slim purple tin"></div>
       <div class="body">
         <h3>The Pocket Doula</h3>
         <p class="price">$40 <span style="font-size:13px;color:var(--mhn-ink-mute);font-weight:400;font-family:var(--mhn-font-sans);font-style:italic;letter-spacing:0">+ tax · free shipping</span></p>
-        <p class="desc">50 illustrated cards for support and comfort during birth. Comfort measures, labor positions, and quick-reference cues — Music &amp; Sound, Walking, Lunges, Hands &amp; Knees, Warmth, Privacy, and more — packed into a slim purple tin built to slip into a doula bag. © LeBlanc Health Training, LLC.</p>
+        <p class="desc">50 illustrated cards for support and comfort during birth. Comfort measures, labor positions, and quick-reference cues, Music &amp; Sound, Walking, Lunges, Hands &amp; Knees, Warmth, Privacy, and more, packed into a slim purple tin built to slip into a doula bag. © LeBlanc Health Training, LLC.</p>
         <a class="buy" href="https://www.paypal.com/ncp/payment/XCQZ8JHHY7842" target="_blank" rel="noopener">Buy on PayPal &rarr;</a>
       </div>
     </div>
@@ -152,35 +184,28 @@
   </div>
 
   <!-- COMING SOON: BEREAVEMENT DOULA TRAINING -->
-  <div class="acc-section-head" style="margin-top:48px"><span class="line"></span>Bereavement Doula Training &middot; Coming Soon</div>
+  <div class="acc-section-head" style="margin-top:48px"><span class="line"></span>Bereavement Doula Training, Coming Soon</div>
   <div class="pgrid">
 
     <div class="product placeholder">
-      <div class="photo"><img src="./assets/photos/bereavement-doula-textbook.jpg" alt="The Bereavement Doula student training manual cover"></div>
-      <div class="body">
-        <h3>Bereavement Doula Training Bundle</h3>
-        <p class="price">$575 <span style="font-size:13px;color:var(--mhn-ink-mute);font-weight:400;font-family:var(--mhn-font-sans);font-style:italic;letter-spacing:0">complete program</span></p>
-        <p class="desc">The full Bereavement Doula training package: student workbook, hardcover textbook, and 16-hour Doula / Childbirth Educator CEU course. Earn continuing-education credits while learning to bear witness to families through pregnancy and infant loss.</p>
-        <span class="buy" aria-disabled="true" style="opacity:0.85;cursor:not-allowed;pointer-events:none">Coming soon</span>
+      <div class="photo">
+        <div class="photo-cycle">
+          <img src="./assets/photos/bereavement-1.jpg" alt="The Bereavement Doula textbook front cover">
+          <img src="./assets/photos/bereavement-2.jpg" alt="The Bereavement Doula textbook held outside">
+          <img src="./assets/photos/bereavement-3.jpg" alt="The Bereavement Doula textbook angled view">
+          <img src="./assets/photos/bereavement-4.jpg" alt="The Bereavement Doula textbook open inside">
+        </div>
       </div>
-    </div>
-
-    <div class="product placeholder">
-      <div class="photo"><img src="./assets/photos/bereavement-doula-textbook.jpg" alt="Bereavement Doula textbook (paired with the workbook)"></div>
       <div class="body">
-        <h3>Bereavement Doula Workbook</h3>
-        <p class="price">$20 <span style="font-size:13px;color:var(--mhn-ink-mute);font-weight:400;font-family:var(--mhn-font-sans);font-style:italic;letter-spacing:0">student workbook</span></p>
-        <p class="desc">The student workbook for the Bereavement Doula training. Reflective prompts, case studies, and practice exercises. Sold as a standalone for self-study, or as part of the bundle above.</p>
-        <span class="buy" aria-disabled="true" style="opacity:0.85;cursor:not-allowed;pointer-events:none">Coming soon</span>
-      </div>
-    </div>
-
-    <div class="product placeholder">
-      <div class="photo"><img src="./assets/photos/bereavement-doula-textbook.jpg" alt="The Bereavement Doula hardcover student training manual"></div>
-      <div class="body">
-        <h3>The Bereavement Doula Textbook</h3>
-        <p class="price">$30 <span style="font-size:13px;color:var(--mhn-ink-mute);font-weight:400;font-family:var(--mhn-font-sans);font-style:italic;letter-spacing:0">student training manual</span></p>
-        <p class="desc">The hardcover student training manual: <em>Bearing Witness to Love and Loss Intertwined</em>, by Madeline Harris LeBlanc, MHA, RNC-OB, IBCLC, IAT. Sold standalone or as part of the bundle above.</p>
+        <h3>The Bereavement Doula Training</h3>
+        <p class="desc">A program for doulas, nurses, and birth workers who want to bear witness to families through pregnancy and infant loss. Choose the option that fits where you are. Earn 16 doula and childbirth-educator CEU credits with the bundle.</p>
+        <label for="bd-variant" style="display:block;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--mhn-purple-700);font-weight:700;margin:0 0 8px">Choose an option</label>
+        <select class="variant" id="bd-variant" aria-label="Select a Bereavement Doula Training option">
+          <option value="workbook">Workbook only, $20</option>
+          <option value="textbook">Textbook only, $30</option>
+          <option value="textbook-workbook">Textbook + Workbook, $50</option>
+          <option value="bundle">Bundle: Textbook, Workbook, and 16 hour Online Course, $575</option>
+        </select>
         <span class="buy" aria-disabled="true" style="opacity:0.85;cursor:not-allowed;pointer-events:none">Coming soon</span>
       </div>
     </div>
@@ -196,7 +221,7 @@
       <div class="body">
         <h3>The Everything Guide</h3>
         <p class="price">$50 <span style="font-size:13px;color:var(--mhn-ink-mute);font-weight:400;font-family:var(--mhn-font-sans);font-style:italic;letter-spacing:0">to Pregnancy, Childbirth and Postpartum</span></p>
-        <p class="desc">Madeline Harris LeBlanc's parent-facing guide to the whole journey — from early pregnancy through the postpartum weeks. The book MHN doulas reach for first when families want to read alongside their care.</p>
+        <p class="desc">Madeline Harris LeBlanc's parent-facing guide to the whole journey, from early pregnancy through the postpartum weeks. The book MHN doulas reach for first when families want to read alongside their care.</p>
         <span class="buy" aria-disabled="true" style="opacity:0.85;cursor:not-allowed;pointer-events:none">Coming soon</span>
       </div>
     </div>
