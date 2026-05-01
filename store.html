@@ -346,13 +346,23 @@
 
     
 
-    <div class="product placeholder">
+    <div class="product">
       <div class="photo"><img src="./assets/photos/everything-guide.jpg" alt="The Everything Guide to Pregnancy, Childbirth and Postpartum book cover"></div>
       <div class="body">
         <h3>The Everything Guide</h3>
         <p class="price">$50 <span style="font-size:13px;color:var(--mhn-ink-mute);font-weight:400;font-family:var(--mhn-font-sans);font-style:italic;letter-spacing:0">to Pregnancy, Childbirth and Postpartum</span></p>
         <p class="desc">Madeline Harris LeBlanc's parent-facing guide to the whole journey, from early pregnancy through the postpartum weeks. The book MHN doulas reach for first when families want to read alongside their care.</p>
-        <span class="buy" aria-disabled="true" style="opacity:0.85;cursor:not-allowed;pointer-events:none">Coming soon</span>
+        <div class="qty-cart-group">
+          <div class="qty-stepper">
+            <button class="qty-btn qty-minus" type="button" aria-label="Decrease quantity">&minus;</button>
+            <span class="qty-value">1</span>
+            <button class="qty-btn qty-plus" type="button" aria-label="Increase quantity">+</button>
+          </div>
+          <button type="button" class="add-to-cart-custom" data-pp-id="YELRW8QPHAJDW">Add to cart</button>
+          <p class="bulk-note">Need more than 10? <a href="mailto:info@mhndoula.com?subject=Everything%20Guide%20bulk%20pricing">Email for bulk pricing.</a></p>
+          <paypal-add-to-cart-button data-id="YELRW8QPHAJDW" style="display:none"></paypal-add-to-cart-button>
+          <script>cartPaypal.AddToCart({ id: "YELRW8QPHAJDW" })</script>
+        </div>
       </div>
     </div>
 
