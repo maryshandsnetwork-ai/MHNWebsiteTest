@@ -235,12 +235,11 @@
   .size-options{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:12px 0 4px}
   .size-option{background:var(--mhn-paper-alt);border:1px solid var(--mhn-line);border-radius:14px;padding:18px}
   .size-option.placeholder{background:#FFFCF6;border-color:#E8D5BD}
-  .size-option .size-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:6px}
-  .size-option h4{font-family:var(--mhn-font-serif);font-size:17px;color:var(--mhn-purple-700);margin:0;font-weight:700;line-height:1.2}
-  .size-option .size-meta{font-family:var(--mhn-font-serif);font-style:italic;font-size:13px;color:var(--mhn-ink-mute);margin-left:6px}
-  .size-option .size-price{font-family:var(--mhn-font-serif);font-size:20px;color:var(--mhn-warm-700,#B5824A);font-weight:700;margin:0 0 4px}
-  .size-option .price-fine{margin:0 0 12px}
-  .size-option .qty-cart-group{margin-top:6px}
+  .size-option h4{font-family:var(--mhn-font-serif);font-size:18px;color:var(--mhn-purple-700);margin:0 0 4px;font-weight:700;line-height:1.2}
+  .size-option .size-meta{font-family:var(--mhn-font-serif);font-style:italic;font-size:13.5px;color:var(--mhn-ink-mute);margin:0 0 10px;display:block}
+  .size-option .size-price{font-family:var(--mhn-font-serif);font-size:22px;color:var(--mhn-warm-700,#B5824A);font-weight:700;margin:0 0 2px;line-height:1.1}
+  .size-option .price-fine{margin:0 0 14px;font-style:italic;font-size:12.5px;color:var(--mhn-ink-mute)}
+  .size-option .qty-cart-group{margin-top:0}
   .size-option.placeholder .placeholder-buy{display:inline-block;background:#FAEFE0;color:#85571F;border:1px solid #E8D5BD;padding:11px 22px;border-radius:999px;font-weight:700;font-size:13px;letter-spacing:0.02em;cursor:not-allowed}
   @media (max-width: 760px){
     .size-options{grid-template-columns:1fr}
@@ -311,10 +310,9 @@
 
         <div class="size-options">
           <div class="size-option">
-            <div class="size-head">
-              <h4>Standard <span class="size-meta">poker size</span></h4>
-              <div class="size-price">$40</div>
-            </div>
+            <h4>Standard Edition</h4>
+            <span class="size-meta">poker size</span>
+            <div class="size-price">$40</div>
             <p class="price-fine">+ tax · free shipping</p>
             <div class="qty-cart-group">
               <div class="qty-stepper">
@@ -329,10 +327,9 @@
           </div>
 
           <div class="size-option">
-            <div class="size-head">
-              <h4>Instructor Edition <span class="size-meta">tarot size</span></h4>
-              <div class="size-price">$100</div>
-            </div>
+            <h4>Instructor Edition</h4>
+            <span class="size-meta">tarot size</span>
+            <div class="size-price">$100</div>
             <p class="price-fine">+ tax · free shipping</p>
             <div class="qty-cart-group">
               <div class="qty-stepper">
