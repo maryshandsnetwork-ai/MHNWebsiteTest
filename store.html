@@ -14,6 +14,7 @@
 <link rel="stylesheet" href="./colors_and_type.css">
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 <script src="https://www.paypalobjects.com/ncp/cart/cart.js" data-merchant-id="H9SR7N5JN5FXU"></script>
+<script src="./paypal-cart.js" defer></script>
 <script src="./mobile-nav.js" defer></script>
 <style>
   html, body{margin:0;padding:0;background:var(--mhn-paper);font-family:var(--mhn-font-sans);color:var(--mhn-ink)}
@@ -209,6 +210,23 @@
   paypal-add-to-cart-button [data-pp-description],
   paypal-add-to-cart-button img[alt*="paypal" i],
   paypal-add-to-cart-button img[alt*="cards" i]{display:none !important}
+
+  /* QUANTITY STEPPER + BULK NOTE */
+  .qty-cart-group{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:0}
+  .qty-stepper{display:inline-flex;align-items:center;border:1px solid var(--mhn-line);border-radius:999px;background:#fff;height:42px;padding:0 4px}
+  .qty-btn{background:transparent;border:none;width:34px;height:34px;font-size:18px;color:var(--mhn-purple-700);cursor:pointer;font-weight:700;display:inline-flex;align-items:center;justify-content:center;border-radius:50%;line-height:1}
+  .qty-btn:hover:not(:disabled){background:var(--mhn-purple-50)}
+  .qty-btn:disabled{opacity:0.3;cursor:not-allowed}
+  .qty-value{display:inline-flex;align-items:center;justify-content:center;min-width:28px;font-weight:700;color:var(--mhn-ink);font-size:14px;font-variant-numeric:tabular-nums}
+  .add-to-cart-custom{cursor:pointer;border:none;background:var(--mhn-purple-700);color:#fff;padding:11px 22px;border-radius:999px;font-weight:700;font-size:13px;letter-spacing:0.02em;font-family:var(--mhn-font-sans);transition:background 0.15s}
+  .add-to-cart-custom:hover:not(:disabled){background:var(--mhn-purple-900)}
+  .add-to-cart-custom:disabled{opacity:0.6;cursor:wait}
+  .bulk-note{flex:1 1 100%;font-size:12.5px;color:var(--mhn-ink-mute);font-style:italic;margin:8px 0 0;font-family:var(--mhn-font-serif)}
+  .bulk-note a{color:var(--mhn-purple-700);text-decoration:none;border-bottom:1px solid var(--mhn-purple-300);padding-bottom:1px;font-weight:700;font-style:normal}
+  .bulk-note a:hover{color:var(--mhn-purple-900);border-color:var(--mhn-purple-700)}
+  /* Featured Pocket Doula gets larger stepper */
+  .product--featured .qty-stepper{height:46px}
+  .product--featured .add-to-cart-custom{padding:13px 26px}
 </style>
 </head>
 <body data-screen-label="Store">
@@ -273,7 +291,17 @@
         <h3>The Pocket Doula</h3>
         <p class="price">$40 <span style="font-size:13px;color:var(--mhn-ink-mute);font-weight:400;font-family:var(--mhn-font-sans);font-style:italic;letter-spacing:0">+ tax · free shipping</span></p>
         <p class="desc">50 illustrated cards for support and comfort during birth. Comfort measures, labor positions, and quick-reference cues, Music &amp; Sound, Walking, Lunges, Hands &amp; Knees, Warmth, Privacy, and more, packed into a slim purple tin built to slip into a doula bag. © LeBlanc Health Training, LLC.</p>
-        <a class="buy" href="https://www.paypal.com/ncp/payment/XCQZ8JHHY7842" target="_blank" rel="noopener">Buy on PayPal &rarr;</a>
+        <div class="qty-cart-group">
+          <div class="qty-stepper">
+            <button class="qty-btn qty-minus" type="button" aria-label="Decrease quantity">&minus;</button>
+            <span class="qty-value">1</span>
+            <button class="qty-btn qty-plus" type="button" aria-label="Increase quantity">+</button>
+          </div>
+          <button type="button" class="add-to-cart-custom" data-pp-id="X54H24QCB2AGJ">Add to cart</button>
+          <p class="bulk-note">Need more than 10? <a href="mailto:info@mhndoula.com?subject=Pocket%20Doula%20bulk%20pricing">Email for bulk pricing.</a></p>
+          <paypal-add-to-cart-button data-id="X54H24QCB2AGJ" style="display:none"></paypal-add-to-cart-button>
+          <script>cartPaypal.AddToCart({ id: "X54H24QCB2AGJ" })</script>
+        </div>
       </div>
     </div>
 
@@ -302,8 +330,17 @@
         <h3>Bereavement Doula Bundle</h3>
         <p class="price">$50 <span style="font-size:13px;color:var(--mhn-ink-mute);font-weight:400;font-family:var(--mhn-font-sans);font-style:italic;letter-spacing:0">textbook + workbook</span></p>
         <p class="desc">For doulas, nurses, and birth workers who want to bear witness to families through pregnancy and infant loss. The hardcover student training manual paired with the reflective workbook, by Madeline Harris LeBlanc, MHA, RNC-OB, IBCLC, IAT.</p>
-        <paypal-add-to-cart-button data-id="SGL8R9MLKEFQW"></paypal-add-to-cart-button>
-        <script>cartPaypal.AddToCart({ id: "SGL8R9MLKEFQW" })</script>
+        <div class="qty-cart-group">
+          <div class="qty-stepper">
+            <button class="qty-btn qty-minus" type="button" aria-label="Decrease quantity">&minus;</button>
+            <span class="qty-value">1</span>
+            <button class="qty-btn qty-plus" type="button" aria-label="Increase quantity">+</button>
+          </div>
+          <button type="button" class="add-to-cart-custom" data-pp-id="SGL8R9MLKEFQW">Add to cart</button>
+          <p class="bulk-note">Need more than 10? <a href="mailto:info@mhndoula.com?subject=Bereavement%20Bundle%20bulk%20pricing">Email for bulk pricing.</a></p>
+          <paypal-add-to-cart-button data-id="SGL8R9MLKEFQW" style="display:none"></paypal-add-to-cart-button>
+          <script>cartPaypal.AddToCart({ id: "SGL8R9MLKEFQW" })</script>
+        </div>
       </div>
     </div>
 
