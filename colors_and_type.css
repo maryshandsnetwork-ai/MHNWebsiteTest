@@ -1140,3 +1140,25 @@ footer .ein-line { font-size: 11px; color: #845995; margin-top: 12px; letter-spa
     border-bottom: none !important;
   }
 }
+
+/* =========================================================
+   BRAND SEAL FIX
+   The logo PNG fills its 1000x1000 canvas to the edges, so when
+   the seal container squeezes it, the swirl looked clipped. Give
+   the container a touch more room and use object-fit: contain.
+   ========================================================= */
+.brand .seal {
+  width: 52px !important;
+  height: 52px !important;
+  flex-shrink: 0 !important;
+  overflow: visible !important;
+}
+.brand .seal img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  display: block !important;
+}
+@media (max-width: 760px) {
+  .brand .seal { width: 46px !important; height: 46px !important; }
+}
