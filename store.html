@@ -187,6 +187,13 @@
     .product--featured h3{font-size:24px}
     .product--featured .price{font-size:22px}
   }
+
+  /* PAYPAL CART HEADER ROW */
+  .cart-row{display:flex;justify-content:flex-end;align-items:center;margin:0 0 8px;min-height:52px}
+  .cart-row paypal-cart-button{display:inline-block}
+  @media (max-width:560px){
+    .cart-row{justify-content:center;margin-bottom:14px}
+  }
 </style>
 </head>
 <body data-screen-label="Store">
@@ -221,6 +228,12 @@
 
 <!-- PRODUCT GRID -->
 <section class="shop">
+
+  <!-- VIEW CART -->
+  <div class="cart-row">
+    <paypal-cart-button data-id="pp-view-cart"></paypal-cart-button>
+    <script>cartPaypal.Cart({ id: "pp-view-cart" })</script>
+  </div>
 
   <!-- AVAILABLE NOW -->
   <div class="acc-section-head"><span class="line"></span>Available Now</div>
