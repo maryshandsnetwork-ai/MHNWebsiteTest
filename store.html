@@ -13,8 +13,6 @@
 <link rel="canonical" href="https://maryshandsnetwork.org/store.html">
 <link rel="stylesheet" href="./colors_and_type.css">
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-<script src="https://www.paypalobjects.com/ncp/cart/cart.js" data-merchant-id="H9SR7N5JN5FXU"></script>
-<script src="./paypal-cart.js" defer></script>
 <script src="./mobile-nav.js" defer></script>
 <style>
   html, body{margin:0;padding:0;background:var(--mhn-paper);font-family:var(--mhn-font-sans);color:var(--mhn-ink)}
@@ -179,9 +177,6 @@
   .course-note a.email{color:var(--mhn-purple-700);font-weight:700;text-decoration:none;border-bottom:1px solid var(--mhn-purple-300);padding-bottom:1px;white-space:nowrap}
   .course-note a.email:hover{color:var(--mhn-purple-900);border-color:var(--mhn-purple-700)}
 
-  /* PayPal add-to-cart button: nudge to inherit page styling alignment */
-  paypal-add-to-cart-button{display:inline-block;margin:4px 0}
-
   @media (max-width: 760px){
     .product--featured{grid-template-columns:1fr}
     .product--featured .photo{border-right:none;border-bottom:1px solid var(--mhn-line);min-height:280px}
@@ -191,43 +186,14 @@
   }
 
   /* PAYPAL CART HEADER ROW */
-  .cart-row{display:flex;justify-content:flex-end;align-items:center;margin:0 0 8px;min-height:52px}
-  .cart-row paypal-cart-button{display:inline-block}
   @media (max-width:560px){
-    .cart-row{justify-content:center;margin-bottom:14px}
   }
-
-  /* Trim PayPal cart-button so only the actual button shows (no product name caption, no 'Powered by') */
-  paypal-add-to-cart-button{
-    display:inline-block;
-    margin:4px 0 0;
-    --pp-button-margin:0;
-  }
-  paypal-add-to-cart-button > div > *:not(button):not(form):not(input){display:none !important}
-  paypal-add-to-cart-button section,
-  paypal-add-to-cart-button p,
-  paypal-add-to-cart-button small,
-  paypal-add-to-cart-button .pp-description,
-  paypal-add-to-cart-button [data-pp-description],
-  paypal-add-to-cart-button img[alt*="paypal" i],
-  paypal-add-to-cart-button img[alt*="cards" i]{display:none !important}
-
-  /* QUANTITY STEPPER + BULK NOTE */
-  .qty-cart-group{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:0}
-  .qty-stepper{display:inline-flex;align-items:center;border:1px solid var(--mhn-line);border-radius:999px;background:#fff;height:42px;padding:0 4px}
-  .qty-btn{background:transparent;border:none;width:34px;height:34px;font-size:18px;color:var(--mhn-purple-700);cursor:pointer;font-weight:700;display:inline-flex;align-items:center;justify-content:center;border-radius:50%;line-height:1}
-  .qty-btn:hover:not(:disabled){background:var(--mhn-purple-50)}
-  .qty-btn:disabled{opacity:0.3;cursor:not-allowed}
-  .qty-value{display:inline-flex;align-items:center;justify-content:center;min-width:28px;font-weight:700;color:var(--mhn-ink);font-size:14px;font-variant-numeric:tabular-nums}
-  .add-to-cart-custom{cursor:pointer;border:none;background:var(--mhn-purple-700);color:#fff;padding:11px 22px;border-radius:999px;font-weight:700;font-size:13px;letter-spacing:0.02em;font-family:var(--mhn-font-sans);transition:background 0.15s}
-  .add-to-cart-custom:hover:not(:disabled){background:var(--mhn-purple-900)}
-  .add-to-cart-custom:disabled{opacity:0.6;cursor:wait}
   .bulk-note{flex:1 1 100%;font-size:13.5px;color:var(--mhn-ink-mute);font-style:italic;margin:8px 0 0;font-family:var(--mhn-font-serif)}
   .bulk-note a{color:var(--mhn-purple-700);text-decoration:none;border-bottom:1px solid var(--mhn-purple-300);padding-bottom:1px;font-weight:700;font-style:normal}
   .bulk-note a:hover{color:var(--mhn-purple-900);border-color:var(--mhn-purple-700)}
   /* Featured Pocket Doula gets larger stepper */
-  .product--featured .qty-stepper{height:46px}
-  .product--featured .add-to-cart-custom{padding:13px 26px}
+  .product--featured
+  .product--featured
 
   /* Small tax/shipping note under the price */
   .price-fine{font-family:var(--mhn-font-sans);font-style:italic;font-size:13.5px;color:var(--mhn-ink-mute);margin:-6px 0 14px;letter-spacing:0.01em}
@@ -240,14 +206,23 @@
   .size-option .size-meta{font-family:var(--mhn-font-serif);font-style:italic;font-size:13.5px;color:var(--mhn-ink-mute);margin:0 0 10px;display:block}
   .size-option .size-price{font-family:var(--mhn-font-serif);font-size:22px;color:var(--mhn-warm-700,#B5824A);font-weight:700;margin:0 0 2px;line-height:1.1}
   .size-option .price-fine{margin:0 0 14px;font-style:italic;font-size:13.5px;color:var(--mhn-ink-mute)}
-  .size-option .qty-cart-group{margin-top:0}
+  .size-option
   .size-option.placeholder .placeholder-buy{display:inline-block;background:#FAEFE0;color:#85571F;border:1px solid #E8D5BD;padding:11px 22px;border-radius:999px;font-weight:700;font-size:13px;letter-spacing:0.02em;cursor:not-allowed}
   @media (max-width: 760px){
     .size-options{grid-template-columns:1fr}
   }
 
-  /* Visually-hide PayPal button so it still mounts and renders its inner clickable button */
-  .pp-vhide{position:absolute !important;left:-99999px !important;top:auto !important;width:1px !important;height:1px !important;overflow:hidden !important;opacity:0 !important;pointer-events:none !important}
+  /* Buy on PayPal button */
+  .buy-row{display:flex;flex-direction:column;align-items:flex-start;gap:8px;margin:14px 0 0}
+  .product--featured .buy-row{align-items:center}
+  .course-note .buy-row{align-items:flex-end}
+  @media(max-width:600px){.course-note .buy-row{align-items:flex-start}}
+  .buy-btn{display:inline-flex;align-items:center;gap:8px;background:var(--mhn-purple-700);color:#fff;text-decoration:none;padding:12px 22px;border-radius:999px;font-weight:700;font-size:14px;letter-spacing:0.02em;font-family:var(--mhn-font-sans);transition:background 0.15s,transform 0.1s;cursor:pointer}
+  .buy-btn:hover{background:var(--mhn-purple-900)}
+  .buy-btn:active{transform:translateY(1px)}
+  .buy-btn .ext{font-size:13px;opacity:0.85}
+  .buy-row .bulk-note{margin:4px 0 0;font-size:13px;color:var(--mhn-ink-soft);font-style:italic}
+  .buy-row .bulk-note a{color:var(--mhn-purple-700);font-weight:600}
 </style>
 </head>
 <body data-screen-label="Store">
@@ -284,10 +259,6 @@
 <section class="shop">
 
   <!-- VIEW CART -->
-  <div class="cart-row">
-    <paypal-cart-button data-id="pp-view-cart"></paypal-cart-button>
-    <script>cartPaypal.Cart({ id: "pp-view-cart" })</script>
-  </div>
 
   <!-- AVAILABLE NOW -->
   <div class="acc-section-head"><span class="line"></span>Available Now</div>
@@ -318,16 +289,7 @@
             <span class="size-meta">poker size</span>
             <div class="size-price">$40</div>
             <p class="price-fine">+ tax · free shipping</p>
-            <div class="qty-cart-group">
-              <div class="qty-stepper">
-                <button class="qty-btn qty-minus" type="button" aria-label="Decrease quantity">&minus;</button>
-                <span class="qty-value">1</span>
-                <button class="qty-btn qty-plus" type="button" aria-label="Increase quantity">+</button>
-              </div>
-              <button type="button" class="add-to-cart-custom" data-pp-id="X54H24QCB2AGJ">Add to cart</button>
-              <paypal-add-to-cart-button data-id="X54H24QCB2AGJ" class="pp-vhide"></paypal-add-to-cart-button>
-              <script>cartPaypal.AddToCart({ id: "X54H24QCB2AGJ" })</script>
-            </div>
+            <div class="buy-row"><a class="buy-btn" href="https://www.paypal.com/ncp/payment/X54H24QCB2AGJ" target="_blank" rel="noopener">Buy on PayPal<span class="ext" aria-hidden="true">↗</span></a></div>
           </div>
 
           <div class="size-option">
@@ -335,16 +297,7 @@
             <span class="size-meta">tarot size</span>
             <div class="size-price">$100</div>
             <p class="price-fine">+ tax · free shipping</p>
-            <div class="qty-cart-group">
-              <div class="qty-stepper">
-                <button class="qty-btn qty-minus" type="button" aria-label="Decrease quantity">&minus;</button>
-                <span class="qty-value">1</span>
-                <button class="qty-btn qty-plus" type="button" aria-label="Increase quantity">+</button>
-              </div>
-              <button type="button" class="add-to-cart-custom" data-pp-id="CJTW66URBXWTW">Add to cart</button>
-              <paypal-add-to-cart-button data-id="CJTW66URBXWTW" class="pp-vhide"></paypal-add-to-cart-button>
-              <script>cartPaypal.AddToCart({ id: "CJTW66URBXWTW" })</script>
-            </div>
+            <div class="buy-row"><a class="buy-btn" href="https://www.paypal.com/ncp/payment/CJTW66URBXWTW" target="_blank" rel="noopener">Buy on PayPal<span class="ext" aria-hidden="true">↗</span></a></div>
           </div>
         </div>
 
@@ -378,17 +331,7 @@
         <p class="price">$50 <span style="font-size:13px;color:var(--mhn-ink-mute);font-weight:400;font-family:var(--mhn-font-sans);font-style:italic;letter-spacing:0">textbook + workbook</span></p>
         <p class="price-fine">+ tax · free shipping</p>
         <p class="desc">Course materials for Mary's Hands Network's ICEA-approved Bereavement Doula training. The hardcover student training manual paired with the reflective workbook, for doulas, nurses, and birth workers who want to bear witness to families through pregnancy and infant loss.</p>
-        <div class="qty-cart-group">
-          <div class="qty-stepper">
-            <button class="qty-btn qty-minus" type="button" aria-label="Decrease quantity">&minus;</button>
-            <span class="qty-value">1</span>
-            <button class="qty-btn qty-plus" type="button" aria-label="Increase quantity">+</button>
-          </div>
-          <button type="button" class="add-to-cart-custom" data-pp-id="SGL8R9MLKEFQW">Add to cart</button>
-          <p class="bulk-note">Need more than 10? <a href="mailto:info@mhndoula.com?subject=Bereavement%20Bundle%20bulk%20pricing">Email for bulk pricing.</a></p>
-          <paypal-add-to-cart-button data-id="SGL8R9MLKEFQW" class="pp-vhide"></paypal-add-to-cart-button>
-          <script>cartPaypal.AddToCart({ id: "SGL8R9MLKEFQW" })</script>
-        </div>
+        <div class="buy-row"><a class="buy-btn" href="https://www.paypal.com/ncp/payment/SGL8R9MLKEFQW" target="_blank" rel="noopener">Buy on PayPal<span class="ext" aria-hidden="true">↗</span></a><p class="bulk-note">Need more than 10? <a href="mailto:info@mhndoula.com?subject=Bereavement%20Bundle%20bulk%20pricing">Email for bulk pricing.</a></p></div>
       </div>
     </div>
 
@@ -414,17 +357,7 @@
         <p class="price">$50 <span style="font-size:13px;color:var(--mhn-ink-mute);font-weight:400;font-family:var(--mhn-font-sans);font-style:italic;letter-spacing:0">to Pregnancy, Childbirth and Postpartum</span></p>
         <p class="price-fine">+ tax · free shipping</p>
         <p class="desc">A parent-facing guide to the whole journey, from early pregnancy through the postpartum weeks. The book MHN doulas reach for first when families want to read alongside their care.</p>
-        <div class="qty-cart-group">
-          <div class="qty-stepper">
-            <button class="qty-btn qty-minus" type="button" aria-label="Decrease quantity">&minus;</button>
-            <span class="qty-value">1</span>
-            <button class="qty-btn qty-plus" type="button" aria-label="Increase quantity">+</button>
-          </div>
-          <button type="button" class="add-to-cart-custom" data-pp-id="YELRW8QPHAJDW">Add to cart</button>
-          <p class="bulk-note">Need more than 10? <a href="mailto:info@mhndoula.com?subject=Everything%20Guide%20bulk%20pricing">Email for bulk pricing.</a></p>
-          <paypal-add-to-cart-button data-id="YELRW8QPHAJDW" class="pp-vhide"></paypal-add-to-cart-button>
-          <script>cartPaypal.AddToCart({ id: "YELRW8QPHAJDW" })</script>
-        </div>
+        <div class="buy-row"><a class="buy-btn" href="https://www.paypal.com/ncp/payment/YELRW8QPHAJDW" target="_blank" rel="noopener">Buy on PayPal<span class="ext" aria-hidden="true">↗</span></a><p class="bulk-note">Need more than 10? <a href="mailto:info@mhndoula.com?subject=Everything%20Guide%20bulk%20pricing">Email for bulk pricing.</a></p></div>
       </div>
     </div>
 
@@ -435,17 +368,7 @@
         <p class="price">$120 <span style="font-size:13px;color:var(--mhn-ink-mute);font-weight:400;font-family:var(--mhn-font-sans);font-style:italic;letter-spacing:0">5 units, 21 chapters</span></p>
         <p class="price-fine">+ tax · free shipping</p>
         <p class="desc">Course materials for Mary's Hands Network's ICEA-approved doula training. Five units, twenty-one chapters of evidence-based curriculum: physiology of birth, comfort measures, scope of practice, postpartum mental health, and outcomes data.</p>
-        <div class="qty-cart-group">
-          <div class="qty-stepper">
-            <button class="qty-btn qty-minus" type="button" aria-label="Decrease quantity">&minus;</button>
-            <span class="qty-value">1</span>
-            <button class="qty-btn qty-plus" type="button" aria-label="Increase quantity">+</button>
-          </div>
-          <button type="button" class="add-to-cart-custom" data-pp-id="JBVXN4JR33HA6">Add to cart</button>
-          <p class="bulk-note">Need more than 10? <a href="mailto:info@mhndoula.com?subject=Data-Driven%20Doula%20bulk%20pricing">Email for bulk pricing.</a></p>
-          <paypal-add-to-cart-button data-id="JBVXN4JR33HA6" class="pp-vhide"></paypal-add-to-cart-button>
-          <script>cartPaypal.AddToCart({ id: "JBVXN4JR33HA6" })</script>
-        </div>
+        <div class="buy-row"><a class="buy-btn" href="https://www.paypal.com/ncp/payment/JBVXN4JR33HA6" target="_blank" rel="noopener">Buy on PayPal<span class="ext" aria-hidden="true">↗</span></a><p class="bulk-note">Need more than 10? <a href="mailto:info@mhndoula.com?subject=Data-Driven%20Doula%20bulk%20pricing">Email for bulk pricing.</a></p></div>
       </div>
     </div>
 
@@ -453,16 +376,7 @@
       <div class="copy">
         <strong>Want the full course?</strong> The online <em>Bereavement Doula</em> course is approved for <strong>16 ICEA CEUs</strong> and costs <strong>$450</strong> (includes the textbook and the workbook). <em>+ tax · free shipping.</em> Questions? Email <a class="email" href="mailto:info@mhndoula.com?subject=Bereavement%20Doula%20Course">info@mhndoula.com</a>.
       </div>
-      <div class="qty-cart-group">
-        <div class="qty-stepper">
-          <button class="qty-btn qty-minus" type="button" aria-label="Decrease quantity">&minus;</button>
-          <span class="qty-value">1</span>
-          <button class="qty-btn qty-plus" type="button" aria-label="Increase quantity">+</button>
-        </div>
-        <button type="button" class="add-to-cart-custom" data-pp-id="SUV4QJA8V7E36">Add course to cart</button>
-        <paypal-add-to-cart-button data-id="SUV4QJA8V7E36" class="pp-vhide"></paypal-add-to-cart-button>
-        <script>cartPaypal.AddToCart({ id: "SUV4QJA8V7E36" })</script>
-      </div>
+      <div class="buy-row"><a class="buy-btn" href="https://www.paypal.com/ncp/payment/SUV4QJA8V7E36" target="_blank" rel="noopener">Buy course on PayPal<span class="ext" aria-hidden="true">↗</span></a></div>
     </div>
 
   </div>
