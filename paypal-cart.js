@@ -1,38 +1,43 @@
-/* Quantity stepper -> PayPal NCP cart. Renders +/- around a number, capped 1-10.
-   On Add to Cart, clicks the PayPal embed N times. Tries the inner native
-   <button> first (more reliable than the custom-element wrapper). */
+/* Quantity stepper -> PayPal NCP cart.
+   PayPal renders an internal form with a submit button. We:
+     1) wait for the hidden PayPal widget to mount its inner submit button
+     2) on Add-to-cart click, dispatch real MouseEvent on the submit button N times
+        (PayPal's web component checks event source, so .click() can fail
+        but a fully-formed MouseEvent gets through.)
+*/
 (function () {
-  function getInnerPaypalButton(wrapper) {
+  function findPaypalSubmit(wrapper) {
     if (!wrapper) return null;
-    // PayPal NCP renders a plain <button> inside the custom element after init
-    var btn = wrapper.querySelector('button');
-    if (btn) return btn;
-    // Fallback: <a role="button"> or any clickable child
-    var a = wrapper.querySelector('a[role="button"], [role="button"], form button');
-    return a || null;
-  }
-
-  function clickPaypal(wrapper) {
-    var inner = getInnerPaypalButton(wrapper);
-    if (inner) {
-      inner.click();
-      return true;
+    // Real submit button rendered by PayPal NCP inside the widget
+    var el = wrapper.querySelector('button[type="submit"]');
+    if (el) return el;
+    // Fallback: the last button in any form within the wrapper
+    var forms = wrapper.querySelectorAll('form');
+    for (var i = forms.length - 1; i >= 0; i--) {
+      var b = forms[i].querySelector('button');
+      if (b) return b;
     }
-    // Last-resort fallback: dispatch click on wrapper (rarely works but try)
-    try { wrapper.click(); return true; } catch (e) { return false; }
+    // Final fallback: any button
+    return wrapper.querySelector('button');
   }
 
-  function waitForPaypalReady(wrapper, cb, attempts) {
+  function realClick(el) {
+    if (!el) return false;
+    try {
+      // Fire pointerdown/up/click in order; many components require this sequence
+      var opts = { bubbles: true, cancelable: true, view: window, button: 0, buttons: 1 };
+      el.dispatchEvent(new MouseEvent('mousedown', opts));
+      el.dispatchEvent(new MouseEvent('mouseup', opts));
+      el.dispatchEvent(new MouseEvent('click', opts));
+    } catch (e) { try { el.click(); } catch (_) {} }
+    return true;
+  }
+
+  function waitForReady(wrapper, cb, attempts) {
     attempts = attempts || 0;
-    if (attempts > 80) {                      // ~8s max wait
-      cb(false);
-      return;
-    }
-    if (getInnerPaypalButton(wrapper)) {
-      cb(true);
-      return;
-    }
-    setTimeout(function () { waitForPaypalReady(wrapper, cb, attempts + 1); }, 100);
+    if (attempts > 100) { cb(false); return; }
+    if (findPaypalSubmit(wrapper)) { cb(true); return; }
+    setTimeout(function () { waitForReady(wrapper, cb, attempts + 1); }, 100);
   }
 
   function setupGroup(group) {
@@ -41,7 +46,6 @@
     var value = group.querySelector('.qty-value');
     var customBtn = group.querySelector('.add-to-cart-custom');
     if (!minus || !plus || !value || !customBtn) return;
-
     var ppId = customBtn.dataset.ppId;
     var ppBtn = group.querySelector('paypal-add-to-cart-button[data-id="' + ppId + '"]');
 
@@ -62,13 +66,11 @@
       customBtn.disabled = true;
       customBtn.textContent = 'Adding...';
 
-      waitForPaypalReady(ppBtn, function (ready) {
-        if (!ready) {
+      waitForReady(ppBtn, function (ready) {
+        var submit = findPaypalSubmit(ppBtn);
+        if (!ready || !submit) {
           customBtn.textContent = "Cart loading - please retry";
-          setTimeout(function () {
-            customBtn.textContent = orig;
-            customBtn.disabled = false;
-          }, 2200);
+          setTimeout(function () { customBtn.textContent = orig; customBtn.disabled = false; }, 2200);
           return;
         }
         var n = qty;
@@ -76,15 +78,12 @@
         function tick() {
           if (i >= n) {
             customBtn.textContent = 'Added ' + n + ' to cart ✓';
-            setTimeout(function () {
-              customBtn.textContent = orig;
-              customBtn.disabled = false;
-            }, 1600);
+            setTimeout(function () { customBtn.textContent = orig; customBtn.disabled = false; }, 1600);
             return;
           }
-          clickPaypal(ppBtn);
+          realClick(submit);
           i++;
-          setTimeout(tick, 110);
+          setTimeout(tick, 250);
         }
         tick();
       });
@@ -94,9 +93,6 @@
   function init() {
     document.querySelectorAll('.qty-cart-group').forEach(setupGroup);
   }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
 })();
