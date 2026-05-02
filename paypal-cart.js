@@ -8,17 +8,17 @@
 (function () {
   function findPaypalSubmit(wrapper) {
     if (!wrapper) return null;
-    // Real submit button rendered by PayPal NCP inside the widget
-    var el = wrapper.querySelector('button[type="submit"]');
-    if (el) return el;
-    // Fallback: the last button in any form within the wrapper
-    var forms = wrapper.querySelectorAll('form');
-    for (var i = forms.length - 1; i >= 0; i--) {
-      var b = forms[i].querySelector('button');
-      if (b) return b;
+    // PayPal NCP renders all buttons as type="button"; the actual "Add to cart"
+    // button has its 3 state strings stacked: "Add to CartAdding to CartAdded to Cart"
+    var buttons = wrapper.querySelectorAll('button');
+    for (var i = 0; i < buttons.length; i++) {
+      var b = buttons[i];
+      var txt = (b.textContent || '').toLowerCase();
+      if (txt.indexOf('add to cart') !== -1) return b;
     }
-    // Final fallback: any button
-    return wrapper.querySelector('button');
+    // Last button is usually the action button
+    if (buttons.length) return buttons[buttons.length - 1];
+    return null;
   }
 
   function realClick(el) {
