@@ -1,6 +1,40 @@
 /* Quantity stepper -> PayPal NCP cart. Renders +/- around a number, capped 1-10.
-   On Add to Cart, clicks the hidden PayPal embed N times. */
+   On Add to Cart, clicks the PayPal embed N times. Tries the inner native
+   <button> first (more reliable than the custom-element wrapper). */
 (function () {
+  function getInnerPaypalButton(wrapper) {
+    if (!wrapper) return null;
+    // PayPal NCP renders a plain <button> inside the custom element after init
+    var btn = wrapper.querySelector('button');
+    if (btn) return btn;
+    // Fallback: <a role="button"> or any clickable child
+    var a = wrapper.querySelector('a[role="button"], [role="button"], form button');
+    return a || null;
+  }
+
+  function clickPaypal(wrapper) {
+    var inner = getInnerPaypalButton(wrapper);
+    if (inner) {
+      inner.click();
+      return true;
+    }
+    // Last-resort fallback: dispatch click on wrapper (rarely works but try)
+    try { wrapper.click(); return true; } catch (e) { return false; }
+  }
+
+  function waitForPaypalReady(wrapper, cb, attempts) {
+    attempts = attempts || 0;
+    if (attempts > 80) {                      // ~8s max wait
+      cb(false);
+      return;
+    }
+    if (getInnerPaypalButton(wrapper)) {
+      cb(true);
+      return;
+    }
+    setTimeout(function () { waitForPaypalReady(wrapper, cb, attempts + 1); }, 100);
+  }
+
   function setupGroup(group) {
     var minus = group.querySelector('.qty-minus');
     var plus  = group.querySelector('.qty-plus');
@@ -26,24 +60,34 @@
       if (!ppBtn) return;
       var orig = customBtn.textContent;
       customBtn.disabled = true;
-      customBtn.textContent = 'Adding…';
-      var n = qty;
-      var i = 0;
-      function tick() {
-        if (i >= n) {
-          customBtn.textContent = 'Added ' + n + ' to cart ✓';
+      customBtn.textContent = 'Adding...';
+
+      waitForPaypalReady(ppBtn, function (ready) {
+        if (!ready) {
+          customBtn.textContent = "Cart loading - please retry";
           setTimeout(function () {
             customBtn.textContent = orig;
             customBtn.disabled = false;
-          }, 1600);
+          }, 2200);
           return;
         }
-        // Click the PayPal element. Most NCP web components forward .click() to their internal handler.
-        try { ppBtn.click(); } catch (e) {}
-        i++;
-        setTimeout(tick, 90);
-      }
-      tick();
+        var n = qty;
+        var i = 0;
+        function tick() {
+          if (i >= n) {
+            customBtn.textContent = 'Added ' + n + ' to cart ✓';
+            setTimeout(function () {
+              customBtn.textContent = orig;
+              customBtn.disabled = false;
+            }, 1600);
+            return;
+          }
+          clickPaypal(ppBtn);
+          i++;
+          setTimeout(tick, 110);
+        }
+        tick();
+      });
     });
   }
 
