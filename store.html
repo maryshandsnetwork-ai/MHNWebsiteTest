@@ -179,8 +179,6 @@
   .course-note a.email:hover{color:var(--mhn-purple-900);border-color:var(--mhn-purple-700)}
 
   /* PayPal add-to-cart button: nudge to inherit page styling alignment */
-  paypal-add-to-cart-button{display:inline-block;margin:4px 0}
-
   @media (max-width: 760px){
     .product--featured{grid-template-columns:1fr}
     .product--featured .photo{border-right:none;border-bottom:1px solid var(--mhn-line);min-height:280px}
@@ -196,20 +194,8 @@
     .cart-row{justify-content:center;margin-bottom:14px}
   }
 
-  /* Trim PayPal cart-button so only the actual button shows (no product name caption, no 'Powered by') */
-  paypal-add-to-cart-button{
-    display:inline-block;
-    margin:4px 0 0;
-    --pp-button-margin:0;
-  }
-  paypal-add-to-cart-button > div > *:not(button):not(form):not(input){display:none !important}
-  paypal-add-to-cart-button section,
-  paypal-add-to-cart-button p,
-  paypal-add-to-cart-button small,
-  paypal-add-to-cart-button .pp-description,
-  paypal-add-to-cart-button [data-pp-description],
-  paypal-add-to-cart-button img[alt*="paypal" i],
-  paypal-add-to-cart-button img[alt*="cards" i]{display:none !important}
+  /* Let PayPal cart button render its full content (button + label) */
+  paypal-add-to-cart-button{display:inline-block;margin:4px 0 0}
 
   /* QUANTITY STEPPER + BULK NOTE */
   .qty-cart-group{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:0}
