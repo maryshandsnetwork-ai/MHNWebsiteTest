@@ -1162,3 +1162,14 @@ footer .ein-line { font-size:13.5px; color: #845995; margin-top: 12px; letter-sp
 @media (max-width: 760px) {
   .brand .seal { width: 46px !important; height: 46px !important; }
 }
+
+
+/* === LANGUAGE TOGGLE ICON (header nav) === */
+.nav-links .lang-icon{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:34px; height:34px; border-radius:999px;
+  color:var(--mhn-purple-700); background:transparent;
+  text-decoration:none; transition:background 0.15s, color 0.15s;
+}
+.nav-links .lang-icon:hover{background:var(--mhn-purple-50); color:var(--mhn-purple-900)}
+.nav-links .lang-icon i, .nav-links .lang-icon svg{width:18px; height:18px}
