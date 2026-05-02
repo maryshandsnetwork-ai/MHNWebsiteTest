@@ -14,7 +14,6 @@
 <link rel="stylesheet" href="./colors_and_type.css">
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 <script src="https://www.paypalobjects.com/ncp/cart/cart.js" data-merchant-id="H9SR7N5JN5FXU"></script>
-<script src="./paypal-cart.js" defer></script>
 <script src="./mobile-nav.js" defer></script>
 <style>
   html, body{margin:0;padding:0;background:var(--mhn-paper);font-family:var(--mhn-font-sans);color:var(--mhn-ink)}
@@ -248,6 +247,15 @@
 
   /* Visually-hide PayPal button so it still mounts and renders its inner clickable button */
   .pp-vhide{position:absolute !important;left:-99999px !important;top:auto !important;width:1px !important;height:1px !important;overflow:hidden !important;opacity:0 !important;pointer-events:none !important}
+
+  .cart-group{display:flex;flex-direction:column;align-items:flex-start;gap:8px;margin:14px 0 0}
+  .cart-group paypal-add-to-cart-button{display:inline-block;min-height:44px}
+  .cart-group .bulk-note{margin:4px 0 0;font-size:13px;color:var(--mhn-ink-soft);font-style:italic}
+  .cart-group .bulk-note a{color:var(--mhn-purple-700);font-weight:600}
+  .product--featured .cart-group{align-items:center}
+  .size-option .cart-group{margin-top:10px}
+  .course-note .cart-group{align-items:flex-end}
+  @media(max-width:600px){.course-note .cart-group{align-items:flex-start}}
 </style>
 </head>
 <body data-screen-label="Store">
@@ -284,6 +292,7 @@
 <section class="shop">
 
   <!-- VIEW CART -->
+    <p class="store-tip" style="font-family:var(--mhn-font-serif);font-style:italic;color:var(--mhn-ink-soft);font-size:14px;margin:0 0 14px;text-align:right">Each click adds one item to your cart. For larger orders, email for bulk pricing.</p>
   <div class="cart-row">
     <paypal-cart-button data-id="pp-view-cart"></paypal-cart-button>
     <script>cartPaypal.Cart({ id: "pp-view-cart" })</script>
@@ -318,16 +327,7 @@
             <span class="size-meta">poker size</span>
             <div class="size-price">$40</div>
             <p class="price-fine">+ tax · free shipping</p>
-            <div class="qty-cart-group">
-              <div class="qty-stepper">
-                <button class="qty-btn qty-minus" type="button" aria-label="Decrease quantity">&minus;</button>
-                <span class="qty-value">1</span>
-                <button class="qty-btn qty-plus" type="button" aria-label="Increase quantity">+</button>
-              </div>
-              <button type="button" class="add-to-cart-custom" data-pp-id="X54H24QCB2AGJ">Add to cart</button>
-              <paypal-add-to-cart-button data-id="X54H24QCB2AGJ" class="pp-vhide"></paypal-add-to-cart-button>
-              <script>cartPaypal.AddToCart({ id: "X54H24QCB2AGJ" })</script>
-            </div>
+            <div class="cart-group"><paypal-add-to-cart-button data-id="X54H24QCB2AGJ" data-label="Add to cart"></paypal-add-to-cart-button><script>cartPaypal.AddToCart({ id: "X54H24QCB2AGJ" })</script></div>
           </div>
 
           <div class="size-option">
@@ -335,16 +335,7 @@
             <span class="size-meta">tarot size</span>
             <div class="size-price">$100</div>
             <p class="price-fine">+ tax · free shipping</p>
-            <div class="qty-cart-group">
-              <div class="qty-stepper">
-                <button class="qty-btn qty-minus" type="button" aria-label="Decrease quantity">&minus;</button>
-                <span class="qty-value">1</span>
-                <button class="qty-btn qty-plus" type="button" aria-label="Increase quantity">+</button>
-              </div>
-              <button type="button" class="add-to-cart-custom" data-pp-id="CJTW66URBXWTW">Add to cart</button>
-              <paypal-add-to-cart-button data-id="CJTW66URBXWTW" class="pp-vhide"></paypal-add-to-cart-button>
-              <script>cartPaypal.AddToCart({ id: "CJTW66URBXWTW" })</script>
-            </div>
+            <div class="cart-group"><paypal-add-to-cart-button data-id="CJTW66URBXWTW" data-label="Add to cart"></paypal-add-to-cart-button><script>cartPaypal.AddToCart({ id: "CJTW66URBXWTW" })</script></div>
           </div>
         </div>
 
@@ -378,17 +369,7 @@
         <p class="price">$50 <span style="font-size:13px;color:var(--mhn-ink-mute);font-weight:400;font-family:var(--mhn-font-sans);font-style:italic;letter-spacing:0">textbook + workbook</span></p>
         <p class="price-fine">+ tax · free shipping</p>
         <p class="desc">Course materials for Mary's Hands Network's ICEA-approved Bereavement Doula training. The hardcover student training manual paired with the reflective workbook, for doulas, nurses, and birth workers who want to bear witness to families through pregnancy and infant loss.</p>
-        <div class="qty-cart-group">
-          <div class="qty-stepper">
-            <button class="qty-btn qty-minus" type="button" aria-label="Decrease quantity">&minus;</button>
-            <span class="qty-value">1</span>
-            <button class="qty-btn qty-plus" type="button" aria-label="Increase quantity">+</button>
-          </div>
-          <button type="button" class="add-to-cart-custom" data-pp-id="SGL8R9MLKEFQW">Add to cart</button>
-          <p class="bulk-note">Need more than 10? <a href="mailto:info@mhndoula.com?subject=Bereavement%20Bundle%20bulk%20pricing">Email for bulk pricing.</a></p>
-          <paypal-add-to-cart-button data-id="SGL8R9MLKEFQW" class="pp-vhide"></paypal-add-to-cart-button>
-          <script>cartPaypal.AddToCart({ id: "SGL8R9MLKEFQW" })</script>
-        </div>
+        <div class="cart-group"><paypal-add-to-cart-button data-id="SGL8R9MLKEFQW" data-label="Add to cart"></paypal-add-to-cart-button><script>cartPaypal.AddToCart({ id: "SGL8R9MLKEFQW" })</script><p class="bulk-note">Need more than 10? <a href="mailto:info@mhndoula.com?subject=Bereavement%20Bundle%20bulk%20pricing">Email for bulk pricing.</a></p></div>
       </div>
     </div>
 
@@ -414,17 +395,7 @@
         <p class="price">$50 <span style="font-size:13px;color:var(--mhn-ink-mute);font-weight:400;font-family:var(--mhn-font-sans);font-style:italic;letter-spacing:0">to Pregnancy, Childbirth and Postpartum</span></p>
         <p class="price-fine">+ tax · free shipping</p>
         <p class="desc">A parent-facing guide to the whole journey, from early pregnancy through the postpartum weeks. The book MHN doulas reach for first when families want to read alongside their care.</p>
-        <div class="qty-cart-group">
-          <div class="qty-stepper">
-            <button class="qty-btn qty-minus" type="button" aria-label="Decrease quantity">&minus;</button>
-            <span class="qty-value">1</span>
-            <button class="qty-btn qty-plus" type="button" aria-label="Increase quantity">+</button>
-          </div>
-          <button type="button" class="add-to-cart-custom" data-pp-id="YELRW8QPHAJDW">Add to cart</button>
-          <p class="bulk-note">Need more than 10? <a href="mailto:info@mhndoula.com?subject=Everything%20Guide%20bulk%20pricing">Email for bulk pricing.</a></p>
-          <paypal-add-to-cart-button data-id="YELRW8QPHAJDW" class="pp-vhide"></paypal-add-to-cart-button>
-          <script>cartPaypal.AddToCart({ id: "YELRW8QPHAJDW" })</script>
-        </div>
+        <div class="cart-group"><paypal-add-to-cart-button data-id="YELRW8QPHAJDW" data-label="Add to cart"></paypal-add-to-cart-button><script>cartPaypal.AddToCart({ id: "YELRW8QPHAJDW" })</script><p class="bulk-note">Need more than 10? <a href="mailto:info@mhndoula.com?subject=Everything%20Guide%20bulk%20pricing">Email for bulk pricing.</a></p></div>
       </div>
     </div>
 
@@ -435,17 +406,7 @@
         <p class="price">$120 <span style="font-size:13px;color:var(--mhn-ink-mute);font-weight:400;font-family:var(--mhn-font-sans);font-style:italic;letter-spacing:0">5 units, 21 chapters</span></p>
         <p class="price-fine">+ tax · free shipping</p>
         <p class="desc">Course materials for Mary's Hands Network's ICEA-approved doula training. Five units, twenty-one chapters of evidence-based curriculum: physiology of birth, comfort measures, scope of practice, postpartum mental health, and outcomes data.</p>
-        <div class="qty-cart-group">
-          <div class="qty-stepper">
-            <button class="qty-btn qty-minus" type="button" aria-label="Decrease quantity">&minus;</button>
-            <span class="qty-value">1</span>
-            <button class="qty-btn qty-plus" type="button" aria-label="Increase quantity">+</button>
-          </div>
-          <button type="button" class="add-to-cart-custom" data-pp-id="JBVXN4JR33HA6">Add to cart</button>
-          <p class="bulk-note">Need more than 10? <a href="mailto:info@mhndoula.com?subject=Data-Driven%20Doula%20bulk%20pricing">Email for bulk pricing.</a></p>
-          <paypal-add-to-cart-button data-id="JBVXN4JR33HA6" class="pp-vhide"></paypal-add-to-cart-button>
-          <script>cartPaypal.AddToCart({ id: "JBVXN4JR33HA6" })</script>
-        </div>
+        <div class="cart-group"><paypal-add-to-cart-button data-id="JBVXN4JR33HA6" data-label="Add to cart"></paypal-add-to-cart-button><script>cartPaypal.AddToCart({ id: "JBVXN4JR33HA6" })</script><p class="bulk-note">Need more than 10? <a href="mailto:info@mhndoula.com?subject=Data-Driven%20Doula%20bulk%20pricing">Email for bulk pricing.</a></p></div>
       </div>
     </div>
 
@@ -453,16 +414,7 @@
       <div class="copy">
         <strong>Want the full course?</strong> The online <em>Bereavement Doula</em> course is approved for <strong>16 ICEA CEUs</strong> and costs <strong>$450</strong> (includes the textbook and the workbook). <em>+ tax · free shipping.</em> Questions? Email <a class="email" href="mailto:info@mhndoula.com?subject=Bereavement%20Doula%20Course">info@mhndoula.com</a>.
       </div>
-      <div class="qty-cart-group">
-        <div class="qty-stepper">
-          <button class="qty-btn qty-minus" type="button" aria-label="Decrease quantity">&minus;</button>
-          <span class="qty-value">1</span>
-          <button class="qty-btn qty-plus" type="button" aria-label="Increase quantity">+</button>
-        </div>
-        <button type="button" class="add-to-cart-custom" data-pp-id="SUV4QJA8V7E36">Add course to cart</button>
-        <paypal-add-to-cart-button data-id="SUV4QJA8V7E36" class="pp-vhide"></paypal-add-to-cart-button>
-        <script>cartPaypal.AddToCart({ id: "SUV4QJA8V7E36" })</script>
-      </div>
+      <div class="cart-group"><paypal-add-to-cart-button data-id="SUV4QJA8V7E36" data-label="Add course to cart"></paypal-add-to-cart-button><script>cartPaypal.AddToCart({ id: "SUV4QJA8V7E36" })</script></div>
     </div>
 
   </div>
