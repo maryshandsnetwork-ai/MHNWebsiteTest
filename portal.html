@@ -133,6 +133,25 @@
     .fg-viewer iframe{height:360px}
     .fg-head{flex-direction:column}
   }
+
+  /* PORTAL ACCESS GATE */
+  #portal-gate{padding:80px 48px 100px;max-width:540px;margin:0 auto;text-align:center}
+  #portal-gate .eyebrow{font-size:13.5px;letter-spacing:0.28em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:700;margin-bottom:14px}
+  #portal-gate h1{font-family:var(--mhn-font-serif);font-size:36px;line-height:1.1;color:var(--mhn-purple-700);margin:0 0 12px;letter-spacing:-0.01em;font-weight:700}
+  #portal-gate p.lede{font-family:var(--mhn-font-serif);font-style:italic;color:var(--mhn-ink-soft);font-size:16px;margin:0 0 28px;line-height:1.5}
+  #portal-gate form{display:flex;flex-direction:column;gap:12px;align-items:stretch;max-width:380px;margin:0 auto}
+  #portal-gate input{padding:14px 18px;border:2px solid var(--mhn-purple-200);border-radius:12px;font-size:16px;font-family:var(--mhn-font-sans);background:#fff;color:var(--mhn-ink);outline:none;letter-spacing:0.04em;transition:border-color 0.15s}
+  #portal-gate input:focus{border-color:var(--mhn-purple-500)}
+  #portal-gate button{background:var(--mhn-purple-700);color:#fff;border:0;border-radius:12px;padding:14px 22px;font-size:15px;font-weight:700;letter-spacing:0.02em;cursor:pointer;transition:background 0.15s;font-family:var(--mhn-font-sans)}
+  #portal-gate button:hover{background:var(--mhn-purple-500)}
+  #portal-gate .gate-error{color:#a83232;font-size:14px;font-weight:600;margin:6px 0 0;min-height:18px}
+  #portal-gate .gate-help{font-size:13px;color:var(--mhn-ink-soft);margin-top:18px;line-height:1.5}
+  #portal-gate .gate-help a{color:var(--mhn-purple-700);font-weight:600}
+  #portal-protected{display:none}
+  .gate-signout{position:fixed;top:14px;right:14px;background:var(--mhn-purple-50);color:var(--mhn-purple-700);border:1px solid var(--mhn-purple-200);border-radius:999px;padding:6px 14px;font-size:12px;font-weight:700;letter-spacing:0.04em;text-decoration:none;z-index:90}
+  .gate-signout:hover{background:var(--mhn-purple-200)}
+  @media(max-width:600px){#portal-gate{padding:48px 24px 64px}#portal-gate h1{font-size:28px}}
+
 </style>
 </head>
 <body data-screen-label="Doula Portal">
@@ -157,6 +176,22 @@
     <a href="donate.html" class="btn-donate">Donate</a>
   </div>
 </nav>
+
+<!-- ACCESS GATE -->
+<section id="portal-gate">
+  <div class="eyebrow">For Active Doulas</div>
+  <h1>Members only.</h1>
+  <p class="lede">Enter your access code to view the doula portal &mdash; forms, course materials, contacts, and the field guide.</p>
+  <form id="portal-gate-form" autocomplete="off" novalidate>
+    <input id="portal-code" type="text" placeholder="Access code" aria-label="Access code" autocapitalize="characters" spellcheck="false">
+    <button type="submit">Enter portal</button>
+    <p class="gate-error" id="portal-gate-error" role="alert" aria-live="polite"></p>
+  </form>
+  <p class="gate-help">Don't have a code? <a href="contact.html">Contact us</a> or ask your Volunteer Coordinator.</p>
+</section>
+
+<!-- PROTECTED CONTENT -->
+<div id="portal-protected">
 
 <!-- HERO -->
 <section class="hero">
@@ -291,6 +326,9 @@
   </div>
 </section>
 
+
+</div><!-- /portal-protected -->
+
 <!-- FOOTER -->
 <footer>
   <div class="foot-grid">
@@ -334,5 +372,47 @@
 </footer>
 </div>
 <script>lucide.createIcons();</script>
+
+<script>
+(function(){
+  var KEY="mhn_portal_access_v1";
+  var CODE="MHNDOULA2026";
+  var gate=document.getElementById("portal-gate");
+  var prot=document.getElementById("portal-protected");
+  var form=document.getElementById("portal-gate-form");
+  var input=document.getElementById("portal-code");
+  var err=document.getElementById("portal-gate-error");
+  function unlock(){
+    if(gate) gate.style.display="none";
+    if(prot) prot.style.display="block";
+    if(!document.getElementById("gate-signout-btn")){
+      var so=document.createElement("a");
+      so.href="#"; so.id="gate-signout-btn"; so.className="gate-signout"; so.textContent="Sign out";
+      so.addEventListener("click",function(e){e.preventDefault();try{localStorage.removeItem(KEY);}catch(_){}; location.reload();});
+      document.body.appendChild(so);
+    }
+    if(window.lucide && window.lucide.createIcons) window.lucide.createIcons();
+  }
+  try{
+    if(localStorage.getItem(KEY)==="1"){ unlock(); return; }
+  }catch(_){}
+  if(form){
+    form.addEventListener("submit",function(e){
+      e.preventDefault();
+      var v=(input.value||"").trim().toUpperCase().replace(/\s+/g,"");
+      if(v===CODE){
+        try{localStorage.setItem(KEY,"1");}catch(_){}
+        err.textContent="";
+        unlock();
+      } else {
+        err.textContent="That code didn't match. Please check with your Volunteer Coordinator.";
+        input.focus(); input.select();
+      }
+    });
+    setTimeout(function(){try{input.focus();}catch(_){}},200);
+  }
+})();
+</script>
+
 </body>
 </html>
