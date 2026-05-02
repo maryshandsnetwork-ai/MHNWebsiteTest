@@ -302,10 +302,10 @@
 .flip-front{background:var(--mhn-purple-50);border:1px solid var(--mhn-purple-200);text-align:center;align-items:center;justify-content:center}
 .flip-front .ico{width:36px;height:36px;color:var(--mhn-purple-700);margin-bottom:14px}
 .flip-front h3{font-family:var(--mhn-font-serif);font-size:22px;color:var(--mhn-purple-700);margin:0 0 8px;font-weight:700;line-height:1.2}
-.flip-front .hint{font-family:var(--mhn-font-serif);font-style:italic;color:var(--mhn-purple-500);font-size:13px;margin-top:14px;letter-spacing:0.05em}
+.flip-front .hint{font-family:var(--mhn-font-serif);font-style:italic;color:var(--mhn-purple-500);font-size:14px;margin-top:14px;letter-spacing:0.05em}
 .flip-back{background:linear-gradient(135deg,var(--mhn-purple-700),var(--mhn-purple-900));color:#fff;transform:rotateY(180deg);justify-content:flex-start;padding-top:22px}
 .flip-back h4{font-family:var(--mhn-font-serif);font-size:18px;color:#fff;margin:0 0 10px;font-weight:700;flex-shrink:0}
-.flip-back p,.flip-back li{font-size:13.5px;line-height:1.5;color:#F1EDF3;margin:0 0 6px}
+.flip-back p,.flip-back li{font-size:14.5px;line-height:1.5;color:#F1EDF3;margin:0 0 6px}
 .flip-back ul{padding-left:18px;margin:0;align-self:flex-start;width:100%}
 @media (max-width:900px){
   .flip-grid{grid-template-columns:1fr}
@@ -376,7 +376,7 @@
 .now-strip .now-pill {
   background: var(--mhn-warm-700);
   color: #fff;
-  font-size:13.5px;
+  font-size:14.5px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   padding: 5px 12px;
@@ -391,7 +391,7 @@
   margin-left: auto;
 }
 @media (max-width: 700px) {
-  .now-strip { padding: 12px 18px; font-size: 13px; }
+  .now-strip { padding: 12px 18px; font-size: 14px; }
   .now-strip a { margin-left: 0; margin-top: 6px; width: 100%; }
 }
 
@@ -404,7 +404,7 @@
   border-radius: 999px;
   overflow: hidden;
   margin-left: 16px;
-  font-size:13px;
+  font-size:14px;
   font-weight: 700;
   letter-spacing: 0.08em;
 }
@@ -448,7 +448,7 @@
   backdrop-filter: blur(8px);
   padding: 10px 16px;
   border-radius: 999px;
-  font-size:13px;
+  font-size:14px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--mhn-purple-700);
@@ -502,7 +502,7 @@
   margin: 0;
 }
 .stat-feature .stat-card .body .compare {
-  font-size:13px;
+  font-size:14px;
   color: var(--mhn-ink-mute);
   margin-top: 10px;
   font-style: italic;
@@ -521,13 +521,13 @@
   background: var(--mhn-cream);
   text-align: center;
 }
-.team-strip .eyebrow { font-size:13.5px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--mhn-purple-500); font-weight: 700; margin-bottom: 14px; }
+.team-strip .eyebrow { font-size:14.5px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--mhn-purple-500); font-weight: 700; margin-bottom: 14px; }
 .team-strip h2 { font-family: var(--mhn-font-serif); font-size: 32px; color: var(--mhn-purple-700); margin: 0 0 12px; letter-spacing: -0.01em; }
 .team-strip .sub { font-family: var(--mhn-font-serif); font-style: italic; color: var(--mhn-ink-soft); font-size: 16px; margin: 0 auto 32px; max-width: 580px; }
 .team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; max-width: 1100px; margin: 0 auto; }
 .team-grid .face { aspect-ratio: 1/1; border-radius: 16px; overflow: hidden; position: relative; box-shadow: var(--mhn-shadow-sm); }
 .team-grid .face img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.team-grid .face .name { position: absolute; bottom: 12px; left: 12px; right: 12px; background: rgba(255,255,255,0.95); padding: 6px 10px; border-radius: 8px; font-size:13px; color: var(--mhn-purple-700); font-weight: 700; text-align: center; }
+.team-grid .face .name { position: absolute; bottom: 12px; left: 12px; right: 12px; background: rgba(255,255,255,0.95); padding: 6px 10px; border-radius: 8px; font-size:14px; color: var(--mhn-purple-700); font-weight: 700; text-align: center; }
 .team-strip .more-cta { display: inline-block; margin-top: 28px; color: var(--mhn-purple-700); font-weight: 700; font-size: 14px; text-decoration: underline; }
 @media (max-width: 700px) { .team-grid { grid-template-columns: repeat(2, 1fr); } }
 
@@ -568,21 +568,21 @@
   transition: background 0.2s;
 }
 .newsletter button:hover { background: var(--mhn-warm-500); }
-.newsletter .privacy { font-size:13px; color: var(--mhn-purple-300); margin-top: 14px; font-style: italic; }
+.newsletter .privacy { font-size:14px; color: var(--mhn-purple-300); margin-top: 14px; font-style: italic; }
 
 /* =========================================================
    FOOTER UPGRADE, newsletter, social, EIN
    ========================================================= */
 footer .foot-newsletter { background: rgba(255,255,255,0.06); padding: 22px 24px; border-radius: 14px; margin-bottom: 32px; }
 footer .foot-newsletter h5 { color: #fff; font-family: var(--mhn-font-serif); font-size: 16px; margin: 0 0 8px; font-weight: 700; letter-spacing: 0; text-transform: none; }
-footer .foot-newsletter p { color: var(--mhn-purple-200); font-size: 13px; margin: 0 0 12px; line-height: 1.5; }
+footer .foot-newsletter p { color: var(--mhn-purple-200); font-size: 14px; margin: 0 0 12px; line-height: 1.5; }
 footer .foot-newsletter form { display: flex; gap: 8px; }
-footer .foot-newsletter input { flex: 1; padding: 10px 14px; border-radius: 999px; border: none; font-size: 13px; }
-footer .foot-newsletter button { background: var(--mhn-warm-700); color: #fff; border: none; padding: 10px 16px; border-radius: 999px; font-size: 13px; font-weight: 700; cursor: pointer; }
+footer .foot-newsletter input { flex: 1; padding: 10px 14px; border-radius: 999px; border: none; font-size: 14px; }
+footer .foot-newsletter button { background: var(--mhn-warm-700); color: #fff; border: none; padding: 10px 16px; border-radius: 999px; font-size: 14px; font-weight: 700; cursor: pointer; }
 footer .social-row { display: flex; gap: 12px; margin-top: 14px; }
 footer .social-row a { width: 36px; height: 36px; border-radius: 999px; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; transition: background 0.2s; }
 footer .social-row a:hover { background: var(--mhn-warm-700); }
-footer .ein-line { font-size:13.5px; color: #845995; margin-top: 12px; letter-spacing: 0.04em; }
+footer .ein-line { font-size:14.5px; color: #845995; margin-top: 12px; letter-spacing: 0.04em; }
 
 /* =========================================================
    STICKY MOBILE BOTTOM CTA BAR
@@ -605,7 +605,7 @@ footer .ein-line { font-size:13.5px; color: #845995; margin-top: 12px; letter-sp
   padding: 12px 8px;
   border-radius: 999px;
   font-weight: 700;
-  font-size: 13px;
+  font-size: 14px;
   text-decoration: none;
 }
 .sticky-mobile-cta a.apply { background: var(--mhn-purple-700); color: #fff; }
@@ -661,7 +661,7 @@ footer .ein-line { font-size:13.5px; color: #845995; margin-top: 12px; letter-sp
   border-radius: 14px;
   max-width: 420px;
 }
-.photo-band .caption .lbl { font-size:13.5px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--mhn-purple-500); font-weight: 700; margin-bottom: 8px; }
+.photo-band .caption .lbl { font-size:14.5px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--mhn-purple-500); font-weight: 700; margin-bottom: 8px; }
 .photo-band .caption p { font-family: var(--mhn-font-serif); font-style: italic; color: var(--mhn-purple-700); font-size: 17px; margin: 0; line-height: 1.35; }
 @media (max-width: 700px) {
   .photo-band { height: 40vh; }
@@ -697,7 +697,7 @@ footer .ein-line { font-size:13.5px; color: #845995; margin-top: 12px; letter-sp
 .gallery-grid { gap:14px }
 .gallery-grid .photo img { aspect-ratio:4/5; max-height:380px }
 .gallery-grid .photo.wide img { aspect-ratio:4/3; max-height:340px }
-.gallery-grid .photo .cap { padding:8px 12px; font-size:13.5px; bottom:10px; left:10px; right:10px }
+.gallery-grid .photo .cap { padding:8px 12px; font-size:14.5px; bottom:10px; left:10px; right:10px }
 @media (min-width:1200px){
   .gallery-grid .photo img { max-height:340px }
   .gallery-grid .photo.wide img { max-height:300px }
@@ -711,7 +711,7 @@ footer .ein-line { font-size:13.5px; color: #845995; margin-top: 12px; letter-sp
 /* ----- Pull quote, refined with warm gold quote mark ----- */
 .pull-quote { position:relative; padding:24px 24px 24px 64px; margin:24px 0; font-family:var(--mhn-font-serif); font-style:italic; color:var(--mhn-purple-700); font-size:19px; line-height:1.5; background:var(--mhn-warm-50); border-radius:14px; border-left:4px solid var(--mhn-warm-700) }
 .pull-quote::before { content:"\201C"; position:absolute; top:8px; left:18px; font-size:64px; color:var(--mhn-warm-700); font-family:var(--mhn-font-serif); line-height:1; opacity:0.9 }
-.pull-quote cite { display:block; margin-top:14px; font-family:var(--mhn-font-sans); font-style:normal; font-size:13.5px; letter-spacing:0.18em; text-transform:uppercase; color:var(--mhn-ink-mute); font-weight:700 }
+.pull-quote cite { display:block; margin-top:14px; font-family:var(--mhn-font-sans); font-style:normal; font-size:14.5px; letter-spacing:0.18em; text-transform:uppercase; color:var(--mhn-ink-mute); font-weight:700 }
 
 /* ----- Card border warm accent (alternative to purple) ----- */
 .card-warm { background:#fff; border:1px solid var(--mhn-warm-300); border-radius:18px; padding:28px; box-shadow:0 4px 14px rgba(181,130,74,0.08) }
@@ -731,7 +731,7 @@ footer .ein-line { font-size:13.5px; color: #845995; margin-top: 12px; letter-sp
 @keyframes tabFade { from { opacity:0; transform:translateY(8px) } to { opacity:1; transform:translateY(0) } }
 
 /* ----- Accordion grouping under sub-headings ----- */
-.acc-section-head { font-family:var(--mhn-font-sans); font-size:13.5px; letter-spacing:0.22em; text-transform:uppercase; color:var(--mhn-warm-700); font-weight:700; margin:32px 0 14px; display:flex; align-items:center; gap:12px }
+.acc-section-head { font-family:var(--mhn-font-sans); font-size:14.5px; letter-spacing:0.22em; text-transform:uppercase; color:var(--mhn-warm-700); font-weight:700; margin:32px 0 14px; display:flex; align-items:center; gap:12px }
 .acc-section-head::before { content:""; width:24px; height:2px; background:var(--mhn-warm-700); display:inline-block }
 
 /* ----- Ornament between sections (decorative purple/gold motif) ----- */
@@ -790,7 +790,7 @@ footer .ein-line { font-size:13.5px; color: #845995; margin-top: 12px; letter-sp
 .mhn-frame figcaption {
   font-family: var(--mhn-font-serif);
   font-style: italic;
-  font-size:13.5px;
+  font-size:14.5px;
   color: var(--mhn-purple-700);
   text-align: center;
   padding: 8px 4px 4px;
@@ -837,7 +837,7 @@ footer .ein-line { font-size:13.5px; color: #845995; margin-top: 12px; letter-sp
 }
 .partner-card .partner-name {
   font-family: var(--mhn-font-serif);
-  font-size:13px;
+  font-size:14px;
   line-height: 1.3;
   color: var(--mhn-purple-700);
   font-weight: 600;
@@ -857,13 +857,13 @@ footer .ein-line { font-size:13.5px; color: #845995; margin-top: 12px; letter-sp
 @media (max-width: 560px) {
   .partners-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
   .partner-card { height: 80px; }
-  .partner-card .partner-name { font-size:13.5px; }
+  .partner-card .partner-name { font-size:14.5px; }
 }
 
 
 /* Larger framed photos for Real Moments and similar */
 .mhn-frame--lg img { aspect-ratio: 4/5; }
-.mhn-frame--lg figcaption { font-size: 13px; padding-top: 10px; }
+.mhn-frame--lg figcaption { font-size: 14px; padding-top: 10px; }
 
 
 /* ===== FOOT QUICK HELP ROW (above copyright on every page) ===== */
@@ -877,7 +877,7 @@ footer .ein-line { font-size:13.5px; color: #845995; margin-top: 12px; letter-sp
   margin: 0 0 12px;
   border-top: 1px solid rgba(212,186,221,0.18);
   border-bottom: 1px solid rgba(212,186,221,0.18);
-  font-size: 13px;
+  font-size: 14px;
 }
 .foot-quick-help .qh-label {
   font-family: var(--mhn-font-serif);
@@ -904,7 +904,7 @@ footer .ein-line { font-size:13.5px; color: #845995; margin-top: 12px; letter-sp
   transform: translateY(-1px);
 }
 @media (max-width: 700px) {
-  .foot-quick-help { gap: 10px 14px; padding: 14px 16px; font-size:13.5px; }
+  .foot-quick-help { gap: 10px 14px; padding: 14px 16px; font-size:14.5px; }
 }
 
 
@@ -1005,7 +1005,7 @@ footer .ein-line { font-size:13.5px; color: #845995; margin-top: 12px; letter-sp
   /* Foot quick help wraps properly with pill buttons */
   .foot-quick-help { padding: 14px 16px; gap: 10px 12px; }
   .foot-quick-help .qh-label { width: 100%; text-align: center; margin-bottom: 4px; }
-  .foot-quick-help a { font-size:13.5px; padding: 7px 14px; }
+  .foot-quick-help a { font-size:14.5px; padding: 7px 14px; }
 
   /* Sticky mobile CTA bar already shows up at <=700px from existing CSS */
   /* Make sure last footer content is visible above sticky bar */
@@ -1026,7 +1026,7 @@ footer .ein-line { font-size:13.5px; color: #845995; margin-top: 12px; letter-sp
   .partners-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; }
   .partner-card { height: 76px !important; }
   .partner-card img { max-height: 52px !important; }
-  .partner-card .partner-name { font-size:13.5px !important; line-height: 1.25 !important; }
+  .partner-card .partner-name { font-size:14.5px !important; line-height: 1.25 !important; }
 
   /* Field guide PDF viewer shorter on phone */
   .fg-viewer iframe { height: 320px !important; }
@@ -1126,7 +1126,7 @@ footer .ein-line { font-size:13.5px; color: #845995; margin-top: 12px; letter-sp
     border: 1px solid var(--mhn-line);
     border-radius: 999px;
     border-bottom: 1px solid var(--mhn-line) !important;
-    font-size: 13px !important;
+    font-size: 14px !important;
   }
 
   /* Donate button at the bottom of the drawer, full-width */
