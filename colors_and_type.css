@@ -376,7 +376,7 @@
 .now-strip .now-pill {
   background: var(--mhn-warm-700);
   color: #fff;
-  font-size:12.5px;
+  font-size:13.5px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   padding: 5px 12px;
@@ -521,7 +521,7 @@
   background: var(--mhn-cream);
   text-align: center;
 }
-.team-strip .eyebrow { font-size:12.5px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--mhn-purple-500); font-weight: 700; margin-bottom: 14px; }
+.team-strip .eyebrow { font-size:13.5px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--mhn-purple-500); font-weight: 700; margin-bottom: 14px; }
 .team-strip h2 { font-family: var(--mhn-font-serif); font-size: 32px; color: var(--mhn-purple-700); margin: 0 0 12px; letter-spacing: -0.01em; }
 .team-strip .sub { font-family: var(--mhn-font-serif); font-style: italic; color: var(--mhn-ink-soft); font-size: 16px; margin: 0 auto 32px; max-width: 580px; }
 .team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; max-width: 1100px; margin: 0 auto; }
@@ -582,7 +582,7 @@ footer .foot-newsletter button { background: var(--mhn-warm-700); color: #fff; b
 footer .social-row { display: flex; gap: 12px; margin-top: 14px; }
 footer .social-row a { width: 36px; height: 36px; border-radius: 999px; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; transition: background 0.2s; }
 footer .social-row a:hover { background: var(--mhn-warm-700); }
-footer .ein-line { font-size:12.5px; color: #845995; margin-top: 12px; letter-spacing: 0.04em; }
+footer .ein-line { font-size:13.5px; color: #845995; margin-top: 12px; letter-spacing: 0.04em; }
 
 /* =========================================================
    STICKY MOBILE BOTTOM CTA BAR
@@ -661,7 +661,7 @@ footer .ein-line { font-size:12.5px; color: #845995; margin-top: 12px; letter-sp
   border-radius: 14px;
   max-width: 420px;
 }
-.photo-band .caption .lbl { font-size:12.5px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--mhn-purple-500); font-weight: 700; margin-bottom: 8px; }
+.photo-band .caption .lbl { font-size:13.5px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--mhn-purple-500); font-weight: 700; margin-bottom: 8px; }
 .photo-band .caption p { font-family: var(--mhn-font-serif); font-style: italic; color: var(--mhn-purple-700); font-size: 17px; margin: 0; line-height: 1.35; }
 @media (max-width: 700px) {
   .photo-band { height: 40vh; }
@@ -697,7 +697,7 @@ footer .ein-line { font-size:12.5px; color: #845995; margin-top: 12px; letter-sp
 .gallery-grid { gap:14px }
 .gallery-grid .photo img { aspect-ratio:4/5; max-height:380px }
 .gallery-grid .photo.wide img { aspect-ratio:4/3; max-height:340px }
-.gallery-grid .photo .cap { padding:8px 12px; font-size:12.5px; bottom:10px; left:10px; right:10px }
+.gallery-grid .photo .cap { padding:8px 12px; font-size:13.5px; bottom:10px; left:10px; right:10px }
 @media (min-width:1200px){
   .gallery-grid .photo img { max-height:340px }
   .gallery-grid .photo.wide img { max-height:300px }
@@ -711,7 +711,7 @@ footer .ein-line { font-size:12.5px; color: #845995; margin-top: 12px; letter-sp
 /* ----- Pull quote, refined with warm gold quote mark ----- */
 .pull-quote { position:relative; padding:24px 24px 24px 64px; margin:24px 0; font-family:var(--mhn-font-serif); font-style:italic; color:var(--mhn-purple-700); font-size:19px; line-height:1.5; background:var(--mhn-warm-50); border-radius:14px; border-left:4px solid var(--mhn-warm-700) }
 .pull-quote::before { content:"\201C"; position:absolute; top:8px; left:18px; font-size:64px; color:var(--mhn-warm-700); font-family:var(--mhn-font-serif); line-height:1; opacity:0.9 }
-.pull-quote cite { display:block; margin-top:14px; font-family:var(--mhn-font-sans); font-style:normal; font-size:12.5px; letter-spacing:0.18em; text-transform:uppercase; color:var(--mhn-ink-mute); font-weight:700 }
+.pull-quote cite { display:block; margin-top:14px; font-family:var(--mhn-font-sans); font-style:normal; font-size:13.5px; letter-spacing:0.18em; text-transform:uppercase; color:var(--mhn-ink-mute); font-weight:700 }
 
 /* ----- Card border warm accent (alternative to purple) ----- */
 .card-warm { background:#fff; border:1px solid var(--mhn-warm-300); border-radius:18px; padding:28px; box-shadow:0 4px 14px rgba(181,130,74,0.08) }
@@ -731,7 +731,7 @@ footer .ein-line { font-size:12.5px; color: #845995; margin-top: 12px; letter-sp
 @keyframes tabFade { from { opacity:0; transform:translateY(8px) } to { opacity:1; transform:translateY(0) } }
 
 /* ----- Accordion grouping under sub-headings ----- */
-.acc-section-head { font-family:var(--mhn-font-sans); font-size:12.5px; letter-spacing:0.22em; text-transform:uppercase; color:var(--mhn-warm-700); font-weight:700; margin:32px 0 14px; display:flex; align-items:center; gap:12px }
+.acc-section-head { font-family:var(--mhn-font-sans); font-size:13.5px; letter-spacing:0.22em; text-transform:uppercase; color:var(--mhn-warm-700); font-weight:700; margin:32px 0 14px; display:flex; align-items:center; gap:12px }
 .acc-section-head::before { content:""; width:24px; height:2px; background:var(--mhn-warm-700); display:inline-block }
 
 /* ----- Ornament between sections (decorative purple/gold motif) ----- */
@@ -790,7 +790,7 @@ footer .ein-line { font-size:12.5px; color: #845995; margin-top: 12px; letter-sp
 .mhn-frame figcaption {
   font-family: var(--mhn-font-serif);
   font-style: italic;
-  font-size:12.5px;
+  font-size:13.5px;
   color: var(--mhn-purple-700);
   text-align: center;
   padding: 8px 4px 4px;
@@ -857,7 +857,7 @@ footer .ein-line { font-size:12.5px; color: #845995; margin-top: 12px; letter-sp
 @media (max-width: 560px) {
   .partners-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
   .partner-card { height: 80px; }
-  .partner-card .partner-name { font-size:12.5px; }
+  .partner-card .partner-name { font-size:13.5px; }
 }
 
 
@@ -1026,7 +1026,7 @@ footer .ein-line { font-size:12.5px; color: #845995; margin-top: 12px; letter-sp
   .partners-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; }
   .partner-card { height: 76px !important; }
   .partner-card img { max-height: 52px !important; }
-  .partner-card .partner-name { font-size:12.5px !important; line-height: 1.25 !important; }
+  .partner-card .partner-name { font-size:13.5px !important; line-height: 1.25 !important; }
 
   /* Field guide PDF viewer shorter on phone */
   .fg-viewer iframe { height: 320px !important; }
