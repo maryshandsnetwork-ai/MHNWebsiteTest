@@ -36,19 +36,64 @@
   h1.t em{font-style:italic;color:var(--mhn-purple-500)}
   .lede{font-family:var(--mhn-font-serif);font-style:italic;font-size:19px;line-height:1.55;color:var(--mhn-ink-soft);margin-bottom:0}
 
-  /* QUICK ACTIONS */
-  .actions{padding:8px 48px 36px;max-width:1200px;margin:0 auto}
+  /* PORTAL APP LAYOUT (sidebar + main) */
+  .portal-app{display:grid;grid-template-columns:240px 1fr;gap:0;max-width:1280px;margin:0 auto;align-items:start}
+  .portal-side{position:sticky;top:0;align-self:start;padding:36px 18px 36px 36px;border-right:1px solid var(--mhn-line-soft);height:100vh;overflow-y:auto}
+  .portal-side h4{font-size:14px;letter-spacing:0.22em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:700;margin:0 0 14px}
+  .portal-side nav a{display:flex;align-items:center;gap:11px;padding:10px 14px;border-radius:10px;text-decoration:none;color:var(--mhn-ink-soft);font-size:15px;font-weight:600;margin-bottom:3px;line-height:1.3;transition:background 0.12s,color 0.12s}
+  .portal-side nav a .ico{width:18px;height:18px;flex-shrink:0;color:var(--mhn-purple-500)}
+  .portal-side nav a:hover{background:var(--mhn-purple-50);color:var(--mhn-purple-700)}
+  .portal-side nav a.active{background:var(--mhn-purple-700);color:#fff}
+  .portal-side nav a.active .ico{color:#fff}
+  .portal-side .side-divider{height:1px;background:var(--mhn-line);margin:18px 0 16px}
+  .portal-side .side-signout{display:flex;align-items:center;gap:8px;padding:10px 14px;background:#FAEFE0;color:#85571F;border:1px solid #E8D5BD;border-radius:10px;font-size:14px;font-weight:700;text-decoration:none;margin-top:8px;cursor:pointer}
+  .portal-side .side-signout:hover{background:#F4E0C2}
+  .portal-main{padding:0;min-width:0}
+
+  /* QUICK ACTIONS — colored cards */
+  .actions{padding:8px 36px 36px;max-width:1100px;margin:0 auto}
   .acc-section-head{font-size:16px;letter-spacing:0.24em;color:var(--mhn-purple-700);margin:0 0 22px;font-weight:700;text-transform:uppercase}
   .acc-section-head span.line{display:inline-block;width:32px;height:2px;background:var(--mhn-purple-500);margin-right:12px;vertical-align:middle}
-  .agrid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-  @media(max-width:1080px){.agrid{grid-template-columns:repeat(2,1fr)}}
-  .acard{background:#fff;border:1px solid var(--mhn-line);border-radius:20px;padding:30px;display:flex;flex-direction:column;text-decoration:none;color:inherit;transition:transform 0.15s,box-shadow 0.15s,border-color 0.15s;position:relative;overflow:hidden}
-  .acard:hover{transform:translateY(-2px);box-shadow:var(--mhn-shadow-md);border-color:var(--mhn-purple-200)}
-  .acard .ico{width:36px;height:36px;color:var(--mhn-purple-700);margin-bottom:18px}
-  .acard h3{font-family:var(--mhn-font-serif);font-size:21px;color:var(--mhn-purple-700);margin:0 0 8px;font-weight:700;letter-spacing:-0.005em}
-  .acard p{font-size:16px;line-height:1.55;color:var(--mhn-ink-soft);margin:0 0 22px;flex:1}
-  .acard .go{display:inline-block;background:var(--mhn-purple-700);color:#fff;padding:10px 18px;border-radius:999px;font-weight:700;font-size:16px;letter-spacing:0.02em;text-align:center}
+  .agrid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  @media(max-width:1280px){.agrid{grid-template-columns:repeat(2,1fr)}}
+  .acard{border:1px solid transparent;border-radius:20px;padding:26px;display:flex;flex-direction:column;text-decoration:none;color:inherit;transition:transform 0.15s,box-shadow 0.15s;position:relative;overflow:hidden}
+  .acard:hover{transform:translateY(-2px);box-shadow:var(--mhn-shadow-md)}
+  .acard .ico-wrap{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;margin-bottom:16px}
+  .acard .ico{width:24px;height:24px}
+  .acard h3{font-family:var(--mhn-font-serif);font-size:20px;margin:0 0 8px;font-weight:700;letter-spacing:-0.005em}
+  .acard p{font-size:15.5px;line-height:1.5;color:var(--mhn-ink-soft);margin:0 0 18px;flex:1}
+  .acard .go{display:inline-block;padding:9px 16px;border-radius:999px;font-weight:700;font-size:15px;letter-spacing:0.02em;text-align:center;color:#fff}
+  /* Card color variants */
+  .acard.tone-purple{background:linear-gradient(135deg,#F4EAF7 0%,#E9DCEE 100%);border-color:#D4BADD}
+  .acard.tone-purple .ico-wrap{background:#fff;color:var(--mhn-purple-700)}
+  .acard.tone-purple h3{color:var(--mhn-purple-900)}
+  .acard.tone-purple .go{background:var(--mhn-purple-700)}
+  .acard.tone-purple .go:hover{background:var(--mhn-purple-900)}
+  .acard.tone-sage{background:linear-gradient(135deg,#EDF3E8 0%,#DCE7D2 100%);border-color:#C5D6B5}
+  .acard.tone-sage .ico-wrap{background:#fff;color:#3F5C2E}
+  .acard.tone-sage h3{color:#2E4321}
+  .acard.tone-sage .go{background:#4F7339}
+  .acard.tone-sage .go:hover{background:#3F5C2E}
+  .acard.tone-warm{background:linear-gradient(135deg,#FAF1E1 0%,#F2E2C5 100%);border-color:#E8D5BD}
+  .acard.tone-warm .ico-wrap{background:#fff;color:#85571F}
+  .acard.tone-warm h3{color:#5C3D15}
+  .acard.tone-warm .go{background:#85571F}
+  .acard.tone-warm .go:hover{background:#5C3D15}
+  .acard.tone-rose{background:linear-gradient(135deg,#F7E5E8 0%,#EDD0D5 100%);border-color:#E0B8C0}
+  .acard.tone-rose .ico-wrap{background:#fff;color:#9B3F4E}
+  .acard.tone-rose h3{color:#6E2D38}
+  .acard.tone-rose .go{background:#9B3F4E}
+  .acard.tone-rose .go:hover{background:#6E2D38}
   .acard.coming .go{background:#FAEFE0;color:#85571F;border:1px solid #E8D5BD}
+
+  /* EMBEDDED FORMS */
+  .form-section{padding:8px 36px 40px;max-width:1100px;margin:0 auto;scroll-margin-top:24px}
+  .form-frame-wrap{background:#fff;border:1px solid var(--mhn-line);border-radius:18px;padding:18px;box-shadow:var(--mhn-shadow-sm);overflow:hidden}
+  .form-frame-wrap iframe{width:100%;border:0;display:block;border-radius:10px}
+  .form-frame-meta{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:0 0 14px}
+  .form-frame-meta .lbl{font-size:14px;letter-spacing:0.18em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:700}
+  .form-frame-meta .open-new{display:inline-flex;align-items:center;gap:6px;font-size:14px;color:var(--mhn-purple-700);font-weight:700;text-decoration:none;background:var(--mhn-purple-50);padding:6px 12px;border-radius:999px;border:1px solid var(--mhn-purple-200)}
+  .form-frame-meta .open-new:hover{background:var(--mhn-purple-200)}
 
   /* RESOURCES */
   .resources{padding:24px 48px 36px;max-width:1200px;margin:0 auto}
@@ -105,7 +150,7 @@
     body, .page{max-width:100%;overflow-x:hidden}
     .nav{flex-direction:column;gap:14px;padding:14px 18px}
     .nav-links{flex-wrap:wrap;justify-content:center;gap:14px 18px;font-size:16px}
-    .hero,.actions,.resources,.contacts,.doula-gallery{padding:40px 20px !important}
+    .hero,.actions,.resources,.contacts,.doula-gallery,.form-section{padding:40px 20px !important}
     h1.t{font-size:25px !important;line-height:1.1 !important}
     .agrid,.rgrid,.cgrid,.pgrid{grid-template-columns:1fr !important;gap:16px !important}
     .general{flex-direction:column;align-items:flex-start;gap:8px}
@@ -113,6 +158,14 @@
     footer{padding:48px 20px 20px}
     .foot-grid{grid-template-columns:1fr !important;gap:32px !important}
     .foot-btm{flex-direction:column;gap:8px;text-align:center}
+    /* Collapse sidebar to horizontal scroll bar on mobile */
+    .portal-app{grid-template-columns:1fr}
+    .portal-side{position:static;height:auto;padding:14px 20px;border-right:0;border-bottom:1px solid var(--mhn-line-soft);overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch}
+    .portal-side h4{display:none}
+    .portal-side nav{display:flex;gap:8px;flex-wrap:nowrap;white-space:nowrap}
+    .portal-side nav a{flex-shrink:0;padding:8px 12px;font-size:14px;margin:0}
+    .portal-side .side-divider{display:none}
+    .portal-side .side-signout{flex-shrink:0;margin:0}
   }
   @media (max-width:560px){
     h1.t{font-size:25px !important}
@@ -248,37 +301,70 @@
 <!-- PROTECTED CONTENT -->
 <div id="portal-protected">
 
+<div class="portal-app">
+
+<!-- SIDEBAR -->
+<aside class="portal-side" aria-label="Portal navigation">
+  <h4>Portal</h4>
+  <nav id="portalSideNav">
+    <a href="#welcome" class="active"><i class="ico" data-lucide="home"></i>Welcome</a>
+    <a href="#client-update"><i class="ico" data-lucide="clipboard-edit"></i>Client Update</a>
+    <a href="#availability"><i class="ico" data-lucide="calendar-check"></i>Availability</a>
+    <a href="#quick-links"><i class="ico" data-lucide="layout-grid"></i>Course &amp; Directory</a>
+    <a href="#field-guide"><i class="ico" data-lucide="book-open"></i>Field Guide</a>
+    <a href="#pocket-doula"><i class="ico" data-lucide="layers"></i>Pocket Doula</a>
+    <a href="#contacts"><i class="ico" data-lucide="users"></i>Contacts</a>
+  </nav>
+  <div class="side-divider"></div>
+  <a href="#" class="side-signout" id="portalSideSignout"><i class="ico" data-lucide="log-out"></i>Sign out</a>
+</aside>
+
+<!-- MAIN -->
+<main class="portal-main">
+
 <!-- HERO -->
-<section class="hero">
+<section class="hero" id="welcome">
   <div class="eyebrow">For Active Doulas</div>
   <h1 class="t">Welcome back, <em>doula.</em></h1>
   <p class="lede">Forms, course access, resources, and the people you can call when you need backup. Everything an active MHN volunteer doula needs to do the work.</p>
 </section>
 
-<!-- QUICK ACTIONS -->
-<section class="actions">
-  <div class="acc-section-head"><span class="line"></span>Submit &amp; Access</div>
-  <div class="agrid">
-    <a class="acard" href="https://forms.monday.com/forms/eacf6323d18f393f8987437fa617bd62?r=use1" target="_blank" rel="noopener">
-      <i class="ico" data-lucide="clipboard-edit"></i>
-      <h3>Client update form</h3>
-      <p>Log a client visit, document a birth, or update prenatal/postpartum notes after every interaction.</p>
-      <span class="go">Open form &rarr;</span>
-    </a>
-    <a class="acard" href="https://wkf.ms/4oI6sdm" target="_blank" rel="noopener">
-      <i class="ico" data-lucide="calendar-check"></i>
-      <h3>Submit availability</h3>
-      <p>Update your monthly availability so your Volunteer Coordinator can match you to client teams that fit your schedule.</p>
-      <span class="go">Open form &rarr;</span>
-    </a>
-    <a class="acard" href="https://canvas.instructure.com/login/canvas" target="_blank" rel="noopener">
-      <i class="ico" data-lucide="graduation-cap"></i>
+<!-- CLIENT UPDATE FORM (embedded) -->
+<section class="form-section" id="client-update">
+  <div class="acc-section-head"><span class="line"></span>Client Update Form</div>
+  <div class="form-frame-wrap">
+    <div class="form-frame-meta">
+      <span class="lbl">Log a visit, birth, or postpartum update</span>
+      <a class="open-new" href="https://forms.monday.com/forms/eacf6323d18f393f8987437fa617bd62?r=use1" target="_blank" rel="noopener"><i data-lucide="external-link" style="width:14px;height:14px"></i>Open in new tab</a>
+    </div>
+    <iframe src="https://forms.monday.com/forms/embed/eacf6323d18f393f8987437fa617bd62?r=use1" height="700" title="Client Update Form" loading="lazy"></iframe>
+  </div>
+</section>
+
+<!-- AVAILABILITY FORM (embedded) -->
+<section class="form-section" id="availability">
+  <div class="acc-section-head"><span class="line"></span>Submit Your Availability</div>
+  <div class="form-frame-wrap">
+    <div class="form-frame-meta">
+      <span class="lbl">Update your monthly availability for client team matching</span>
+      <a class="open-new" href="https://wkf.ms/4oI6sdm" target="_blank" rel="noopener"><i data-lucide="external-link" style="width:14px;height:14px"></i>Open in new tab</a>
+    </div>
+    <iframe src="https://forms.ms/4oI6sdm" height="700" title="Availability Form" loading="lazy"></iframe>
+  </div>
+</section>
+
+<!-- QUICK LINKS -->
+<section class="actions" id="quick-links">
+  <div class="acc-section-head"><span class="line"></span>Course &amp; Directory</div>
+  <div class="agrid" style="grid-template-columns:repeat(2,1fr)">
+    <a class="acard tone-purple" href="https://canvas.instructure.com/login/canvas" target="_blank" rel="noopener">
+      <span class="ico-wrap"><i class="ico" data-lucide="graduation-cap"></i></span>
       <h3>Canvas course</h3>
       <p>Access your training modules, ICEA materials, and the always-updated curriculum library.</p>
-      <span class="go">Open course &rarr;</span>
+      <span class="go">Open course &nearr;</span>
     </a>
-    <a class="acard" href="directory.html">
-      <i class="ico" data-lucide="users"></i>
+    <a class="acard tone-sage" href="directory.html">
+      <span class="ico-wrap"><i class="ico" data-lucide="users"></i></span>
       <h3>Doula Directory</h3>
       <p>Search active doulas in the network by name or training cohort. View contact info, service areas, and status.</p>
       <span class="go">Open directory &rarr;</span>
@@ -287,7 +373,7 @@
 </section>
 
 <!-- RESOURCES -->
-<section class="resources">
+<section class="resources" id="field-guide">
   <div class="acc-section-head"><span class="line"></span>Field Guide</div>
   <div class="fg-card">
     <div class="fg-head">
@@ -325,7 +411,7 @@
 </section>
 
 <!-- POCKET DOULA DIGITAL VIEWER -->
-<section class="pocket-doula-section">
+<section class="pocket-doula-section" id="pocket-doula">
   <div class="acc-section-head"><span class="line"></span>Your Digital Pocket Doula</div>
   <div class="pd-head" style="margin-top:18px">
     <div class="pd-eyebrow">50 Comfort Cards &middot; In Your Pocket</div>
@@ -396,7 +482,7 @@
 </div>
 
 <!-- CONTACTS -->
-<section class="contacts">
+<section class="contacts" id="contacts">
   <div class="contacts-inner">
     <div class="eyebrow">Your team</div>
     <h2>Who to reach, when.</h2>
@@ -459,6 +545,8 @@
 </section>
 
 
+</main>
+</div><!-- /portal-app -->
 </div><!-- /portal-protected -->
 
 <!-- FOOTER -->
@@ -597,13 +685,51 @@
   function unlock(){
     if(gate) gate.style.display="none";
     if(prot) prot.style.display="block";
-    if(!document.getElementById("gate-signout-btn")){
-      var so=document.createElement("a");
-      so.href="#"; so.id="gate-signout-btn"; so.className="gate-signout"; so.textContent="Sign out";
-      so.addEventListener("click",function(e){e.preventDefault();try{localStorage.removeItem(KEY);}catch(_){}; location.reload();});
-      document.body.appendChild(so);
+    // Wire up sidebar sign-out
+    var sideOut = document.getElementById("portalSideSignout");
+    if (sideOut && !sideOut.__wired){
+      sideOut.__wired = true;
+      sideOut.addEventListener("click", function(e){
+        e.preventDefault();
+        try{localStorage.removeItem(KEY);}catch(_){}
+        location.reload();
+      });
     }
+    // Sidebar scroll-spy: highlight section in view
+    initPortalScrollSpy();
     if(window.lucide && window.lucide.createIcons) window.lucide.createIcons();
+  }
+  function initPortalScrollSpy(){
+    var navLinks = document.querySelectorAll("#portalSideNav a");
+    if (!navLinks.length) return;
+    var sections = [];
+    navLinks.forEach(function(a){
+      var id = a.getAttribute("href").slice(1);
+      var el = document.getElementById(id);
+      if (el) sections.push({ link: a, el: el });
+    });
+    function setActive(){
+      var fromTop = window.scrollY + 120;
+      var current = sections[0];
+      sections.forEach(function(s){
+        if (s.el.offsetTop <= fromTop) current = s;
+      });
+      navLinks.forEach(function(a){ a.classList.remove("active"); });
+      if (current) current.link.classList.add("active");
+    }
+    window.addEventListener("scroll", setActive, { passive: true });
+    setActive();
+    // Smooth scroll for sidebar links
+    navLinks.forEach(function(a){
+      a.addEventListener("click", function(e){
+        var id = a.getAttribute("href").slice(1);
+        var target = document.getElementById(id);
+        if (target){
+          e.preventDefault();
+          window.scrollTo({ top: target.offsetTop - 20, behavior: "smooth" });
+        }
+      });
+    });
   }
   try{
     if(localStorage.getItem(KEY)==="1"){ unlock(); return; }
