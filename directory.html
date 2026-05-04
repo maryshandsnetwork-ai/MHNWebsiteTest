@@ -239,6 +239,11 @@
 <script>lucide.createIcons();</script>
 
 <script>
+/* Directory state — declared FIRST so unlock() can populate it */
+var DOULAS = [];
+var SUGGEST_INDEX = []; // [{label, kind, value}] for autocomplete
+var SUGGEST_ACTIVE = -1;
+
 /* Access gate — same code/key as portal */
 (function(){
   var KEY="mhn_portal_access_v1";
@@ -258,7 +263,7 @@
       document.body.appendChild(so);
     }
     if(window.lucide && window.lucide.createIcons) window.lucide.createIcons();
-    initDirectory();
+    try { initDirectory(); } catch(e) { console.error("initDirectory error:", e); }
   }
   try{
     if(localStorage.getItem(KEY)==="1"){ unlock(); return; }
@@ -281,9 +286,6 @@
 })();
 
 /* Directory rendering + search */
-var DOULAS = [];
-var SUGGEST_INDEX = []; // [{label, kind, value}] for autocomplete
-var SUGGEST_ACTIVE = -1;
 
 function initDirectory(){
   if (DOULAS.length) { render(); return; }
