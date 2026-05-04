@@ -40,7 +40,10 @@
   .gate-signout:hover{background:var(--mhn-purple-200)}
 
   /* DIRECTORY */
-  .dir-hero{padding:48px 48px 24px;max-width:1200px;margin:0 auto}
+  .dir-back{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;background:var(--mhn-purple-50);color:var(--mhn-purple-700);border:1px solid var(--mhn-purple-200);border-radius:999px;font-size:15px;font-weight:700;text-decoration:none;margin:24px 48px 0;transition:background 0.15s}
+  .dir-back:hover{background:var(--mhn-purple-200)}
+  .dir-back .ico{width:16px;height:16px}
+  .dir-hero{padding:24px 48px 24px;max-width:1200px;margin:0 auto}
   .dir-hero .eyebrow{font-size:16px;letter-spacing:0.28em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:700;margin-bottom:14px}
   .dir-hero h1{font-family:var(--mhn-font-serif);font-size:34px;line-height:1.05;color:var(--mhn-purple-700);margin:0 0 12px;letter-spacing:-0.015em;font-weight:700}
   .dir-hero p{font-family:var(--mhn-font-serif);font-style:italic;font-size:18px;line-height:1.55;color:var(--mhn-ink-soft);margin:0;max-width:780px}
@@ -165,6 +168,11 @@
 
 <!-- PROTECTED -->
 <div id="portal-protected">
+
+<a href="portal.html" class="dir-back">
+  <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+  Back to Doula Portal
+</a>
 
 <section class="dir-hero">
   <div class="private-tag">Private &middot; For Active Doulas</div>
