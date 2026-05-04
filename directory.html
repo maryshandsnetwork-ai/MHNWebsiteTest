@@ -74,9 +74,9 @@
 
   /* GRID */
   .dir-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding:28px 48px 64px;max-width:1200px;margin:0 auto}
-  .dir-card{background:#fff;border:1px solid var(--mhn-line);border-radius:16px;padding:20px;display:grid;grid-template-columns:80px 1fr;gap:16px;transition:box-shadow 0.15s, transform 0.15s}
+  .dir-card{background:#fff;border:1px solid var(--mhn-line);border-radius:16px;padding:22px;display:grid;grid-template-columns:130px 1fr;gap:18px;transition:box-shadow 0.15s, transform 0.15s}
   .dir-card:hover{box-shadow:0 8px 28px rgba(94,55,108,0.10);transform:translateY(-2px)}
-  .dir-avatar{width:80px;height:80px;border-radius:999px;background:var(--mhn-purple-50);display:flex;align-items:center;justify-content:center;font-family:var(--mhn-font-serif);font-weight:700;font-size:26px;color:var(--mhn-purple-700);overflow:hidden;flex-shrink:0}
+  .dir-avatar{width:130px;height:130px;border-radius:999px;background:var(--mhn-purple-50);display:flex;align-items:center;justify-content:center;font-family:var(--mhn-font-serif);font-weight:700;font-size:42px;color:var(--mhn-purple-700);overflow:hidden;flex-shrink:0}
   .dir-avatar img{width:100%;height:100%;object-fit:cover}
   .dir-card .info{display:flex;flex-direction:column;gap:4px;min-width:0}
   .dir-card h3{font-family:var(--mhn-font-serif);font-size:18px;color:var(--mhn-purple-700);margin:0;font-weight:700;line-height:1.2;letter-spacing:-0.005em}
@@ -102,6 +102,8 @@
     .dir-controls-inner{grid-template-columns:1fr 1fr}
     .dir-controls-inner > .dir-search{grid-column:1/-1}
     .dir-count{grid-column:1/-1;text-align:left}
+    .dir-card{grid-template-columns:110px 1fr}
+    .dir-avatar{width:110px;height:110px;font-size:36px}
   }
   @media(max-width:600px){
     .dir-hero{padding:32px 24px 16px}
@@ -109,8 +111,8 @@
     .dir-controls{padding:14px 24px}
     .dir-controls-inner{grid-template-columns:1fr}
     .dir-grid{grid-template-columns:1fr;padding:20px 24px 60px}
-    .dir-card{grid-template-columns:64px 1fr;padding:16px}
-    .dir-avatar{width:64px;height:64px;font-size:22px}
+    .dir-card{grid-template-columns:96px 1fr;padding:16px;gap:14px}
+    .dir-avatar{width:96px;height:96px;font-size:30px}
     .dir-search-btn{padding:0 16px;font-size:14px}
     .dir-search-btn .ico{width:16px;height:16px}
     .dir-suggest{right:0}
