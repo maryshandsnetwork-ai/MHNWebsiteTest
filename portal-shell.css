@@ -149,6 +149,16 @@ footer{background:var(--mhn-purple-900);color:#D4BADD;padding:48px 48px 28px}
 .fg-head .dl:hover{background:var(--mhn-purple-900)}
 .fg-viewer{position:relative;background:var(--mhn-paper-alt);border:1px solid var(--mhn-line);border-radius:14px;overflow:hidden}
 .fg-viewer iframe{width:100%;height:560px;border:none;display:block}
+
+/* Full-page Field Guide viewer (one PDF page at a time) */
+.fg-section{padding:8px 36px 24px;max-width:1100px;margin:0 auto}
+.fg-card-fullpage{padding:18px 22px}
+.fg-card-fullpage .fg-head{margin-bottom:14px}
+.fg-viewer-fullpage iframe{height:calc(100vh - 220px);min-height:600px}
+@media(max-width:760px){
+  .fg-section{padding:8px 16px 20px}
+  .fg-viewer-fullpage iframe{height:calc(100vh - 180px);min-height:500px}
+}
 .fg-fallback{font-size:16px;font-style:italic;color:var(--mhn-ink-mute);text-align:center;padding:10px;margin:0;background:#fff;border-top:1px solid var(--mhn-line)}
 .fg-fallback a{color:var(--mhn-purple-700);font-weight:700;text-decoration:none}
 @media (max-width:760px){
