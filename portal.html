@@ -152,6 +152,37 @@
   .gate-signout:hover{background:var(--mhn-purple-200)}
   @media(max-width:600px){#portal-gate{padding:48px 24px 64px}#portal-gate h1{font-size:25px}}
 
+  /* POCKET DOULA DIGITAL VIEWER */
+  .pocket-doula-section{padding:32px 48px 56px;max-width:1200px;margin:0 auto}
+  .pd-head{text-align:center;margin-bottom:28px}
+  .pd-eyebrow{font-size:16px;letter-spacing:0.28em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:700;margin-bottom:14px}
+  .pd-head h2{font-family:var(--mhn-font-serif);font-size:30px;color:var(--mhn-purple-700);margin:0 0 12px;letter-spacing:-0.01em;line-height:1.1}
+  .pd-head p{font-family:var(--mhn-font-serif);font-style:italic;color:var(--mhn-ink-soft);font-size:18px;margin:0 auto;max-width:780px;line-height:1.55}
+  .pd-sizes{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:0 0 24px}
+  .pd-size-card{background:#fff;border:1px solid var(--mhn-line);border-radius:16px;padding:22px 24px}
+  .pd-size-card h3{font-family:var(--mhn-font-serif);font-size:21px;color:var(--mhn-purple-700);margin:0 0 4px;font-weight:700}
+  .pd-size-card .pd-size-meta{font-size:16px;color:var(--mhn-purple-500);font-weight:700;letter-spacing:0.04em;text-transform:uppercase;margin:0 0 10px}
+  .pd-size-card p{font-size:17px;line-height:1.55;color:var(--mhn-ink-soft);margin:0 0 14px}
+  .pd-size-card .pd-buy{display:inline-flex;align-items:center;gap:8px;background:var(--mhn-purple-700);color:#fff;text-decoration:none;padding:12px 22px;border-radius:999px;font-weight:700;font-size:16px;letter-spacing:0.02em;transition:background 0.15s}
+  .pd-size-card .pd-buy:hover{background:var(--mhn-purple-900)}
+  .pd-proceeds{background:#FAF1E1;border-left:4px solid #85571F;border-radius:10px;padding:18px 24px;margin:0 0 28px;font-family:var(--mhn-font-serif);font-style:italic;color:var(--mhn-ink-soft);font-size:16px;line-height:1.55}
+  .pd-viewer{background:var(--mhn-paper-alt);border:1px solid var(--mhn-line);border-radius:18px;padding:28px}
+  .pd-viewer-meta{text-align:center;font-family:var(--mhn-font-sans);font-size:16px;letter-spacing:0.16em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:700;margin-bottom:16px}
+  .pd-viewer-meta strong{color:var(--mhn-purple-700);font-size:18px}
+  .pd-pair-wrap{display:flex;align-items:center;justify-content:center;gap:18px}
+  .pd-nav-btn{background:#fff;border:1.5px solid var(--mhn-purple-300);color:var(--mhn-purple-700);border-radius:999px;width:48px;height:48px;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.15s, border-color 0.15s;flex-shrink:0;font-weight:700}
+  .pd-nav-btn:hover{background:var(--mhn-purple-50);border-color:var(--mhn-purple-700)}
+  .pd-pair{display:grid;grid-template-columns:1fr 1fr;gap:18px;flex:1;max-width:760px}
+  .pd-card-face{margin:0;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 6px 20px rgba(94,55,108,0.10);border:1px solid var(--mhn-line)}
+  .pd-card-face img{width:100%;height:auto;display:block;aspect-ratio:5/7;object-fit:contain;background:#fff}
+  .pd-card-face figcaption{padding:8px;text-align:center;font-family:var(--mhn-font-serif);font-style:italic;font-size:16px;color:var(--mhn-purple-500);background:var(--mhn-paper-alt);border-top:1px solid var(--mhn-line)}
+  .pd-hint{text-align:center;font-family:var(--mhn-font-serif);font-style:italic;color:var(--mhn-ink-mute);font-size:16px;margin:18px 0 0}
+  @media(max-width:760px){
+    .pd-sizes{grid-template-columns:1fr}
+    .pd-pair{grid-template-columns:1fr;gap:14px}
+    .pd-nav-btn{width:42px;height:42px;font-size:18px}
+  }
+
 </style>
 </head>
 <body data-screen-label="Doula Portal">
@@ -258,6 +289,53 @@
         <span class="pill">Coming soon</span>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- POCKET DOULA DIGITAL VIEWER -->
+<section class="pocket-doula-section">
+  <div class="acc-section-head"><span class="line"></span>Your Digital Pocket Doula</div>
+  <div class="pd-head" style="margin-top:18px">
+    <div class="pd-eyebrow">50 Comfort Cards &middot; In Your Pocket</div>
+    <h2>Flip through the deck.</h2>
+    <p>The full Pocket Doula deck, unlocked for active MHN doulas. 50 comfort cards covering positions, music and sound, walking, lunges, hands and knees, warmth, privacy, and more &mdash; the same cards that ship in the printed tin.</p>
+  </div>
+
+  <!-- TWO SIZES -->
+  <div class="pd-sizes">
+    <div class="pd-size-card">
+      <h3>Standard Edition</h3>
+      <div class="pd-size-meta">Poker size &middot; 2.5&Prime; &times; 3.5&Prime;</div>
+      <p>For parents and partners. Fits a hospital bag, a doula bag side pocket, or a coat pocket. Slim metal tin, 50 cards.</p>
+      <a class="pd-buy" href="https://www.paypal.com/ncp/payment/XCQZ8JHHY7842" target="_blank" rel="noopener">Buy Standard &mdash; $40 &nearr;</a>
+    </div>
+    <div class="pd-size-card">
+      <h3>Professional Edition</h3>
+      <div class="pd-size-meta">Tarot size &middot; 2.75&Prime; &times; 4.75&Prime;</div>
+      <p>For doulas and birth workers. Larger cards built for daily use through long shifts &mdash; easier to read across the room and hand to a partner. Sturdier tin, same 50 cards.</p>
+      <a class="pd-buy" href="https://www.paypal.com/ncp/payment/HPHRKSHEDGUUQ" target="_blank" rel="noopener">Buy Professional &mdash; $100 &nearr;</a>
+    </div>
+  </div>
+  <p class="pd-proceeds"><strong>Proceeds from Pocket Doula deck sales support free doula services for clients and doula training for community doulas through Mary&rsquo;s Hands Network.</strong></p>
+
+  <!-- VIEWER -->
+  <div class="pd-viewer">
+    <div class="pd-viewer-meta">Card <strong id="pdNum">1</strong> of 50</div>
+    <div class="pd-pair-wrap">
+      <button class="pd-nav-btn" id="pdPrev" aria-label="Previous card" type="button">&larr;</button>
+      <div class="pd-pair">
+        <figure class="pd-card-face">
+          <img id="pdFront" src="./assets/photos/deck/card-01-front.jpg" alt="Card 1 front">
+          <figcaption>Front</figcaption>
+        </figure>
+        <figure class="pd-card-face">
+          <img id="pdBack" src="./assets/photos/deck/card-01-back.jpg" alt="Card 1 back">
+          <figcaption>Back</figcaption>
+        </figure>
+      </div>
+      <button class="pd-nav-btn" id="pdNext" aria-label="Next card" type="button">&rarr;</button>
+    </div>
+    <p class="pd-hint">Use the &larr; and &rarr; arrows or your keyboard to flip through all 50 cards.</p>
   </div>
 </section>
 
@@ -371,6 +449,40 @@
 </footer>
 </div>
 <script>lucide.createIcons();</script>
+
+<script>
+/* Pocket Doula deck viewer — 50 cards, prev/next + keyboard nav */
+(function(){
+  var TOTAL = 50;
+  var idx = 1;
+  var num = document.getElementById("pdNum");
+  var front = document.getElementById("pdFront");
+  var back = document.getElementById("pdBack");
+  var prev = document.getElementById("pdPrev");
+  var next = document.getElementById("pdNext");
+  if (!num || !front || !back) return;
+  function pad(n){ return n < 10 ? "0" + n : "" + n; }
+  function update(){
+    var s = pad(idx);
+    front.src = "./assets/photos/deck/card-" + s + "-front.jpg";
+    back.src  = "./assets/photos/deck/card-" + s + "-back.jpg";
+    front.alt = "Card " + idx + " front";
+    back.alt  = "Card " + idx + " back";
+    num.textContent = idx;
+  }
+  function go(d){
+    idx = ((idx - 1 + d + TOTAL) % TOTAL) + 1;
+    update();
+  }
+  if (prev) prev.addEventListener("click", function(){ go(-1); });
+  if (next) next.addEventListener("click", function(){ go(+1); });
+  document.addEventListener("keydown", function(e){
+    if (e.target && /INPUT|TEXTAREA/.test(e.target.tagName)) return;
+    if (e.key === "ArrowLeft")  { go(-1); }
+    else if (e.key === "ArrowRight") { go(+1); }
+  });
+})();
+</script>
 
 <script>
 (function(){
