@@ -177,10 +177,35 @@
   .pd-card-face img{width:100%;height:auto;display:block;aspect-ratio:5/7;object-fit:contain;background:#fff}
   .pd-card-face figcaption{padding:8px;text-align:center;font-family:var(--mhn-font-serif);font-style:italic;font-size:16px;color:var(--mhn-purple-500);background:var(--mhn-paper-alt);border-top:1px solid var(--mhn-line)}
   .pd-hint{text-align:center;font-family:var(--mhn-font-serif);font-style:italic;color:var(--mhn-ink-mute);font-size:16px;margin:18px 0 0}
+  .pd-card-face img{cursor:zoom-in}
+  .pd-fs-btn{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1.5px solid var(--mhn-purple-300);color:var(--mhn-purple-700);border-radius:999px;padding:8px 16px;font-size:16px;font-weight:700;cursor:pointer;font-family:var(--mhn-font-sans);transition:background 0.15s,border-color 0.15s;margin:14px auto 0;display:block}
+  .pd-fs-btn:hover{background:var(--mhn-purple-50);border-color:var(--mhn-purple-700)}
+  /* Fullscreen overlay */
+  .pd-fs-viewer{position:fixed;inset:0;background:rgba(20,12,28,0.94);z-index:1000;display:flex;align-items:center;justify-content:center;padding:24px;animation:pdFsFade 0.18s ease-out}
+  @keyframes pdFsFade{from{opacity:0}to{opacity:1}}
+  .pd-fs-viewer[hidden]{display:none}
+  .pd-fs-close{position:absolute;top:18px;right:22px;background:rgba(255,255,255,0.12);color:#fff;border:1px solid rgba(255,255,255,0.25);border-radius:999px;width:46px;height:46px;font-size:24px;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;transition:background 0.15s;z-index:1002}
+  .pd-fs-close:hover{background:rgba(255,255,255,0.22)}
+  .pd-fs-inner{display:flex;align-items:center;justify-content:center;gap:24px;max-width:1280px;width:100%;height:100%}
+  .pd-fs-nav{background:rgba(255,255,255,0.12);color:#fff;border:1px solid rgba(255,255,255,0.25);border-radius:999px;width:56px;height:56px;font-size:24px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background 0.15s;font-weight:700}
+  .pd-fs-nav:hover{background:rgba(255,255,255,0.22)}
+  .pd-fs-stage{display:flex;flex-direction:column;align-items:center;gap:14px;flex:1;max-width:1100px}
+  .pd-fs-meta{font-family:var(--mhn-font-sans);font-size:16px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.85);font-weight:700;margin:0}
+  .pd-fs-pair{display:grid;grid-template-columns:1fr 1fr;gap:18px;width:100%;align-items:start}
+  .pd-fs-face{margin:0;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,0.4)}
+  .pd-fs-face img{width:100%;height:auto;max-height:78vh;object-fit:contain;display:block;background:#fff}
+  .pd-fs-face figcaption{padding:8px;text-align:center;font-family:var(--mhn-font-serif);font-style:italic;font-size:16px;color:var(--mhn-purple-500);background:var(--mhn-paper-alt)}
+  .pd-fs-hint{font-family:var(--mhn-font-serif);font-style:italic;color:rgba(255,255,255,0.7);font-size:16px;margin:0;text-align:center}
   @media(max-width:760px){
     .pd-sizes{grid-template-columns:1fr}
     .pd-pair{grid-template-columns:1fr;gap:14px}
     .pd-nav-btn{width:42px;height:42px;font-size:18px}
+    .pd-fs-pair{grid-template-columns:1fr;gap:10px}
+    .pd-fs-face img{max-height:38vh}
+    .pd-fs-nav{position:fixed;bottom:24px;width:52px;height:52px;font-size:22px;z-index:1001}
+    .pd-fs-nav.pd-fs-prev{left:16px}
+    .pd-fs-nav.pd-fs-next{right:16px}
+    .pd-fs-inner{padding:60px 12px 80px;flex-direction:column;gap:8px;height:auto;overflow:auto}
   }
 
 </style>
@@ -336,8 +361,32 @@
       <button class="pd-nav-btn" id="pdNext" aria-label="Next card" type="button">&rarr;</button>
     </div>
     <p class="pd-hint">Use the &larr; and &rarr; arrows or your keyboard to flip through all 50 cards.</p>
+    <button class="pd-fs-btn" id="pdFsOpen" type="button">View full screen &nearr;</button>
   </div>
 </section>
+
+<!-- POCKET DOULA FULLSCREEN VIEWER -->
+<div class="pd-fs-viewer" id="pdFsViewer" hidden role="dialog" aria-label="Pocket Doula card, full screen">
+  <button class="pd-fs-close" id="pdFsClose" type="button" aria-label="Close full screen">&times;</button>
+  <div class="pd-fs-inner">
+    <button class="pd-fs-nav pd-fs-prev" id="pdFsPrev" type="button" aria-label="Previous">&larr;</button>
+    <div class="pd-fs-stage">
+      <p class="pd-fs-meta">Card <span id="pdFsNum">1</span> of 50</p>
+      <div class="pd-fs-pair">
+        <figure class="pd-fs-face">
+          <img id="pdFsFront" src="" alt="">
+          <figcaption>Front</figcaption>
+        </figure>
+        <figure class="pd-fs-face">
+          <img id="pdFsBack" src="" alt="">
+          <figcaption>Back</figcaption>
+        </figure>
+      </div>
+      <p class="pd-fs-hint">Tap outside, press Esc, or click &times; to close. Use &larr; / &rarr; to change cards.</p>
+    </div>
+    <button class="pd-fs-nav pd-fs-next" id="pdFsNext" type="button" aria-label="Next">&rarr;</button>
+  </div>
+</div>
 
 <!-- CONTACTS -->
 <section class="contacts">
@@ -451,7 +500,7 @@
 <script>lucide.createIcons();</script>
 
 <script>
-/* Pocket Doula deck viewer — 50 cards, prev/next + keyboard nav */
+/* Pocket Doula deck viewer — 50 cards, prev/next + keyboard nav + fullscreen */
 (function(){
   var TOTAL = 50;
   var idx = 1;
@@ -460,24 +509,68 @@
   var back = document.getElementById("pdBack");
   var prev = document.getElementById("pdPrev");
   var next = document.getElementById("pdNext");
+  var fsOpen = document.getElementById("pdFsOpen");
+  var fsViewer = document.getElementById("pdFsViewer");
+  var fsClose = document.getElementById("pdFsClose");
+  var fsPrev = document.getElementById("pdFsPrev");
+  var fsNext = document.getElementById("pdFsNext");
+  var fsNum = document.getElementById("pdFsNum");
+  var fsFront = document.getElementById("pdFsFront");
+  var fsBack = document.getElementById("pdFsBack");
   if (!num || !front || !back) return;
   function pad(n){ return n < 10 ? "0" + n : "" + n; }
   function update(){
     var s = pad(idx);
-    front.src = "./assets/photos/deck/card-" + s + "-front.jpg";
-    back.src  = "./assets/photos/deck/card-" + s + "-back.jpg";
+    var f = "./assets/photos/deck/card-" + s + "-front.jpg";
+    var b = "./assets/photos/deck/card-" + s + "-back.jpg";
+    front.src = f; back.src = b;
     front.alt = "Card " + idx + " front";
     back.alt  = "Card " + idx + " back";
     num.textContent = idx;
+    if (fsViewer && !fsViewer.hidden){
+      fsFront.src = f; fsBack.src = b;
+      fsFront.alt = "Card " + idx + " front";
+      fsBack.alt  = "Card " + idx + " back";
+      if (fsNum) fsNum.textContent = idx;
+    }
   }
-  function go(d){
-    idx = ((idx - 1 + d + TOTAL) % TOTAL) + 1;
-    update();
-  }
+  function go(d){ idx = ((idx - 1 + d + TOTAL) % TOTAL) + 1; update(); }
   if (prev) prev.addEventListener("click", function(){ go(-1); });
   if (next) next.addEventListener("click", function(){ go(+1); });
+
+  /* Fullscreen */
+  function openFs(){
+    if (!fsViewer) return;
+    var s = pad(idx);
+    fsFront.src = "./assets/photos/deck/card-" + s + "-front.jpg";
+    fsBack.src  = "./assets/photos/deck/card-" + s + "-back.jpg";
+    fsFront.alt = "Card " + idx + " front";
+    fsBack.alt  = "Card " + idx + " back";
+    if (fsNum) fsNum.textContent = idx;
+    fsViewer.hidden = false;
+    document.body.style.overflow = "hidden";
+  }
+  function closeFs(){
+    if (!fsViewer) return;
+    fsViewer.hidden = true;
+    document.body.style.overflow = "";
+  }
+  if (fsOpen) fsOpen.addEventListener("click", openFs);
+  if (fsClose) fsClose.addEventListener("click", closeFs);
+  if (fsPrev) fsPrev.addEventListener("click", function(){ go(-1); });
+  if (fsNext) fsNext.addEventListener("click", function(){ go(+1); });
+  /* Click-card-to-open */
+  if (front) front.addEventListener("click", openFs);
+  if (back)  back.addEventListener("click", openFs);
+  /* Click-outside-to-close */
+  if (fsViewer) fsViewer.addEventListener("click", function(e){
+    if (e.target === fsViewer) closeFs();
+  });
+
+  /* Keyboard nav (works in or out of fullscreen) */
   document.addEventListener("keydown", function(e){
     if (e.target && /INPUT|TEXTAREA/.test(e.target.tagName)) return;
+    if (e.key === "Escape" && fsViewer && !fsViewer.hidden) { closeFs(); return; }
     if (e.key === "ArrowLeft")  { go(-1); }
     else if (e.key === "ArrowRight") { go(+1); }
   });
