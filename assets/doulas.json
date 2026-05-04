@@ -294,20 +294,6 @@
     "registry": "Applying"
   },
   {
-    "name": "Ciera Guillory",
-    "section": "active",
-    "status_label": "Active",
-    "phone": "3374183543",
-    "email": "cierasg2000@yahoo.com",
-    "photo": "./assets/doulas/ciera-guillory.jpg",
-    "service": "Baton Rouge",
-    "region": "Region 2 – Capital Area / Baton Rouge",
-    "cohort": "Xi",
-    "icea": "Pursing",
-    "languages": "English",
-    "registry": "Not on Registry"
-  },
-  {
     "name": "CiJii Dupont",
     "section": "active",
     "status_label": "Active",
@@ -320,6 +306,20 @@
     "icea": "Pursing",
     "languages": "English",
     "registry": "Applying"
+  },
+  {
+    "name": "Ciera Guillory",
+    "section": "active",
+    "status_label": "Active",
+    "phone": "3374183543",
+    "email": "cierasg2000@yahoo.com",
+    "photo": "./assets/doulas/ciera-guillory.jpg",
+    "service": "Baton Rouge",
+    "region": "Region 2 – Capital Area / Baton Rouge",
+    "cohort": "Xi",
+    "icea": "Pursing",
+    "languages": "English",
+    "registry": "Not on Registry"
   },
   {
     "name": "Courtney Sider",
@@ -373,20 +373,6 @@
     "service": "Baton Rouge",
     "region": "Region 2 – Capital Area / Baton Rouge",
     "cohort": "Xi",
-    "icea": "Pursing",
-    "languages": "English",
-    "registry": "Not on Registry"
-  },
-  {
-    "name": "Deja Stith",
-    "section": "active",
-    "status_label": "",
-    "phone": "16785229736",
-    "email": "d.stith96@gmail.com",
-    "photo": "./assets/doulas/deja-stith.jpg",
-    "service": "Baton Rouge",
-    "region": "",
-    "cohort": "",
     "icea": "Pursing",
     "languages": "English",
     "registry": "Not on Registry"
@@ -854,20 +840,6 @@
     "registry": "Not on Registry"
   },
   {
-    "name": "Lainey Harlow",
-    "section": "active",
-    "status_label": "Active",
-    "phone": "15045961563",
-    "email": "lehtutoringservices@gmail.com",
-    "photo": "./assets/doulas/lainey-harlow.jpg",
-    "service": "Covington, Mandeville",
-    "region": "Region 1 – New Orleans Area",
-    "cohort": "Lambda",
-    "icea": "Not Certified",
-    "languages": "English",
-    "registry": "Applying"
-  },
-  {
     "name": "LaShawn Vincent",
     "section": "active",
     "status_label": "Active",
@@ -880,6 +852,20 @@
     "icea": "Pursing",
     "languages": "",
     "registry": "Not on Registry"
+  },
+  {
+    "name": "Lainey Harlow",
+    "section": "active",
+    "status_label": "Active",
+    "phone": "15045961563",
+    "email": "lehtutoringservices@gmail.com",
+    "photo": "./assets/doulas/lainey-harlow.jpg",
+    "service": "Covington, Mandeville",
+    "region": "Region 1 – New Orleans Area",
+    "cohort": "Lambda",
+    "icea": "Not Certified",
+    "languages": "English",
+    "registry": "Applying"
   },
   {
     "name": "Latasha Boatner",
@@ -1017,20 +1003,6 @@
     "service": "Baton Rouge, Hammond, New Orleans, Gonzales, St. Francisville/Zachary/Baker, Jackson, Clinton",
     "region": "Region 2 – Capital Area / Baton Rouge, Region 4 – Acadiana / Lafayette Area, Region 1 – New Orleans Area",
     "cohort": "Eta",
-    "icea": "Not Certified",
-    "languages": "English",
-    "registry": "Not on Registry"
-  },
-  {
-    "name": "Nicole Carter",
-    "section": "active",
-    "status_label": "",
-    "phone": "12252478988",
-    "email": "nicole.r.carter@louisianahealthconnect.com",
-    "photo": "./assets/doulas/nicole-carter.jpg",
-    "service": "Baton Rouge, Hammond",
-    "region": "",
-    "cohort": "",
     "icea": "Not Certified",
     "languages": "English",
     "registry": "Not on Registry"
@@ -1428,7 +1400,7 @@
     "registry": ""
   },
   {
-    "name": "Aaron Brown (copy)",
+    "name": "Aaron Brown",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2257153230",
@@ -1442,7 +1414,7 @@
     "registry": ""
   },
   {
-    "name": "Abriella Mayon (copy)",
+    "name": "Abriella Mayon",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "8608199919",
@@ -1456,7 +1428,7 @@
     "registry": ""
   },
   {
-    "name": "Adrena Nguyen (copy)",
+    "name": "Adrena Nguyen",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2254282063",
@@ -1470,7 +1442,7 @@
     "registry": ""
   },
   {
-    "name": "Akia Richards (copy)",
+    "name": "Akia Richards",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2252293794",
@@ -1484,7 +1456,7 @@
     "registry": ""
   },
   {
-    "name": "Aleia Duhe (copy)",
+    "name": "Aleia Duhe",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "9856646489",
@@ -1498,7 +1470,7 @@
     "registry": ""
   },
   {
-    "name": "Aletha Taylor (copy)",
+    "name": "Aletha Taylor",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2252793344",
@@ -1512,7 +1484,7 @@
     "registry": ""
   },
   {
-    "name": "Alexxus Williams (copy)",
+    "name": "Alexxus Williams",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "5049949235",
@@ -1526,7 +1498,7 @@
     "registry": ""
   },
   {
-    "name": "Alicia Valdrine (copy)",
+    "name": "Alicia Valdrine",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2254054154",
@@ -1540,7 +1512,7 @@
     "registry": ""
   },
   {
-    "name": "Ally Thomas (copy)",
+    "name": "Ally Thomas",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "3373773660",
@@ -1554,7 +1526,7 @@
     "registry": ""
   },
   {
-    "name": "Alyssa Kinchen (copy)",
+    "name": "Alyssa Kinchen",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "3347914071",
@@ -1568,7 +1540,7 @@
     "registry": ""
   },
   {
-    "name": "Anthea Smith (copy)",
+    "name": "Anthea Smith",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "5043434739",
@@ -1582,7 +1554,7 @@
     "registry": ""
   },
   {
-    "name": "Ashley Franciol (copy)",
+    "name": "Ashley Franciol",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "3373511006",
@@ -1596,7 +1568,7 @@
     "registry": ""
   },
   {
-    "name": "Ashley Green (copy)",
+    "name": "Ashley Green",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2256630381",
@@ -1610,7 +1582,7 @@
     "registry": ""
   },
   {
-    "name": "Augusta Dunn (copy)",
+    "name": "Augusta Dunn",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2253297376",
@@ -1624,7 +1596,7 @@
     "registry": ""
   },
   {
-    "name": "Bobbie Walters (copy)",
+    "name": "Bobbie Walters",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "9852973667",
@@ -1638,7 +1610,7 @@
     "registry": ""
   },
   {
-    "name": "Brandi Paynes (copy)",
+    "name": "Brandi Paynes",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2288887560",
@@ -1652,7 +1624,7 @@
     "registry": ""
   },
   {
-    "name": "Bridgette Mouton (copy)",
+    "name": "Bridgette Mouton",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "3373445801",
@@ -1666,7 +1638,7 @@
     "registry": ""
   },
   {
-    "name": "Brittany Istre (copy)",
+    "name": "Brittany Istre",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2255737610",
@@ -1680,7 +1652,7 @@
     "registry": ""
   },
   {
-    "name": "Brittany Martin (copy)",
+    "name": "Brittany Martin",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "3378493554",
@@ -1694,21 +1666,7 @@
     "registry": ""
   },
   {
-    "name": "Carrin Arceneaux (copy)",
-    "section": "inactive",
-    "status_label": "Inactive",
-    "phone": "13374058631",
-    "email": "arceneauxcarrin@gmail.com",
-    "photo": "./assets/doulas/carrin-arceneaux.jpg",
-    "service": "Lake Charles, Lake Charles/SWLA",
-    "region": "Region 5 – Southwest Louisiana / Lake Charles Area",
-    "cohort": "Eta",
-    "icea": "Not Certified",
-    "languages": "",
-    "registry": "Applying"
-  },
-  {
-    "name": "Cathy Salinas (copy)",
+    "name": "Cathy Salinas",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2259381023",
@@ -1722,7 +1680,7 @@
     "registry": ""
   },
   {
-    "name": "Chauntey Carter (copy)",
+    "name": "Chauntey Carter",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2252745173",
@@ -1736,7 +1694,7 @@
     "registry": ""
   },
   {
-    "name": "Creola Jacques (copy)",
+    "name": "Creola Jacques",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2252477253",
@@ -1750,7 +1708,7 @@
     "registry": ""
   },
   {
-    "name": "Danielle Willson (copy)",
+    "name": "Danielle Willson",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2258039747",
@@ -1764,7 +1722,7 @@
     "registry": "Not on Registry"
   },
   {
-    "name": "Deanna Townsel (copy)",
+    "name": "Deanna Townsel",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2256203181",
@@ -1778,7 +1736,7 @@
     "registry": ""
   },
   {
-    "name": "Deborah Porterfield (copy)",
+    "name": "Deborah Porterfield",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2255901204",
@@ -1792,7 +1750,7 @@
     "registry": ""
   },
   {
-    "name": "Dena Christy (copy)",
+    "name": "Dena Christy",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2256030082",
@@ -1806,7 +1764,7 @@
     "registry": ""
   },
   {
-    "name": "Destiny Guthrie (copy)",
+    "name": "Destiny Guthrie",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "5049300124",
@@ -1820,7 +1778,7 @@
     "registry": ""
   },
   {
-    "name": "Devon McKnight (copy)",
+    "name": "Devon McKnight",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "5046660210",
@@ -1834,7 +1792,7 @@
     "registry": ""
   },
   {
-    "name": "Diana Mangrum (copy)",
+    "name": "Diana Mangrum",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2817968495",
@@ -1848,7 +1806,7 @@
     "registry": ""
   },
   {
-    "name": "Dominique Garner (copy)",
+    "name": "Dominique Garner",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "5047154845",
@@ -1862,7 +1820,7 @@
     "registry": ""
   },
   {
-    "name": "Dosha Banguel (copy)",
+    "name": "Dosha Banguel",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "5043340760",
@@ -1876,7 +1834,7 @@
     "registry": ""
   },
   {
-    "name": "Elizabeth Erickson (copy)",
+    "name": "Elizabeth Erickson",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "9376796608",
@@ -1890,7 +1848,7 @@
     "registry": ""
   },
   {
-    "name": "Emma Fontenot (copy)",
+    "name": "Emma Fontenot",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "",
@@ -1904,21 +1862,7 @@
     "registry": ""
   },
   {
-    "name": "Emma Fontenot (copy)",
-    "section": "inactive",
-    "status_label": "Inactive",
-    "phone": "",
-    "email": "",
-    "photo": "",
-    "service": "",
-    "region": "",
-    "cohort": "Alpha",
-    "icea": "Pursing",
-    "languages": "",
-    "registry": ""
-  },
-  {
-    "name": "Entisar Elshawarby (copy)",
+    "name": "Entisar Elshawarby",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2254935477",
@@ -1932,7 +1876,7 @@
     "registry": ""
   },
   {
-    "name": "Essence Dunn (copy)",
+    "name": "Essence Dunn",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2252416018",
@@ -1946,7 +1890,7 @@
     "registry": ""
   },
   {
-    "name": "Esther Brady (copy)",
+    "name": "Esther Brady",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2258928757",
@@ -1960,7 +1904,7 @@
     "registry": ""
   },
   {
-    "name": "Glenda White (copy)",
+    "name": "Glenda White",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2254395222",
@@ -1974,7 +1918,7 @@
     "registry": ""
   },
   {
-    "name": "Grover Harrison III (copy)",
+    "name": "Grover Harrison III",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2253546446",
@@ -1988,21 +1932,7 @@
     "registry": "Not on Registry"
   },
   {
-    "name": "Iesha Harris (copy)",
-    "section": "inactive",
-    "status_label": "Inactive",
-    "phone": "2254808471",
-    "email": "iharris2011@yahoo.com",
-    "photo": "./assets/doulas/iesha-harris.jpg",
-    "service": "Baton Rouge",
-    "region": "",
-    "cohort": "Theta",
-    "icea": "Not Certified",
-    "languages": "",
-    "registry": "Not on Registry"
-  },
-  {
-    "name": "Jasline BoBo (copy)",
+    "name": "Jasline BoBo",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "3185575300",
@@ -2016,7 +1946,7 @@
     "registry": ""
   },
   {
-    "name": "Jasmine Johnson (copy)",
+    "name": "Jasmine Johnson",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2253617281",
@@ -2030,7 +1960,7 @@
     "registry": ""
   },
   {
-    "name": "Jasmine Smith (copy)",
+    "name": "Jasmine Smith",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2254093668",
@@ -2044,7 +1974,7 @@
     "registry": ""
   },
   {
-    "name": "Jasmine Williams (copy)",
+    "name": "Jasmine Williams",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2259102693",
@@ -2058,21 +1988,7 @@
     "registry": ""
   },
   {
-    "name": "Jasmine Williams (copy)",
-    "section": "inactive",
-    "status_label": "Inactive",
-    "phone": "2259102693",
-    "email": "jasminemariahwilliams@gmail.com",
-    "photo": "",
-    "service": "",
-    "region": "",
-    "cohort": "Alpha",
-    "icea": "Pursing",
-    "languages": "",
-    "registry": ""
-  },
-  {
-    "name": "Jeanne Ard (copy)",
+    "name": "Jeanne Ard",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2254052518",
@@ -2086,7 +2002,7 @@
     "registry": ""
   },
   {
-    "name": "Jena' Dennis (copy)",
+    "name": "Jena' Dennis",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2252064064",
@@ -2100,7 +2016,7 @@
     "registry": ""
   },
   {
-    "name": "Jennifer Leonard (copy)",
+    "name": "Jennifer Leonard",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2256030816",
@@ -2114,7 +2030,7 @@
     "registry": ""
   },
   {
-    "name": "Jenny Thompson (copy)",
+    "name": "Jenny Thompson",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "3375915781",
@@ -2128,7 +2044,7 @@
     "registry": ""
   },
   {
-    "name": "Jeseka Holloway (copy)",
+    "name": "Jeseka Holloway",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "5624818752",
@@ -2142,7 +2058,7 @@
     "registry": ""
   },
   {
-    "name": "Kameron Ellis (copy)",
+    "name": "Kameron Ellis",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2254366617",
@@ -2156,7 +2072,7 @@
     "registry": ""
   },
   {
-    "name": "Kandake Wallace (copy)",
+    "name": "Kandake Wallace",
     "section": "inactive",
     "status_label": "Active",
     "phone": "8505093054",
@@ -2170,7 +2086,7 @@
     "registry": ""
   },
   {
-    "name": "Kaprisha Adikema (copy)",
+    "name": "Kaprisha Adikema",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2253123367",
@@ -2184,7 +2100,7 @@
     "registry": ""
   },
   {
-    "name": "Kara Hobbs (copy)",
+    "name": "Kara Hobbs",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "",
@@ -2198,21 +2114,7 @@
     "registry": ""
   },
   {
-    "name": "Karen Clark (copy)",
-    "section": "inactive",
-    "status_label": "Inactive",
-    "phone": "2258026136",
-    "email": "karen.clark@sus.edu",
-    "photo": "./assets/doulas/karen-clark.jpg",
-    "service": "",
-    "region": "",
-    "cohort": "Alpha",
-    "icea": "Not Certified",
-    "languages": "",
-    "registry": "Not on Registry"
-  },
-  {
-    "name": "Kayla Wolf (copy)",
+    "name": "Kayla Wolf",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2255714566",
@@ -2226,7 +2128,7 @@
     "registry": ""
   },
   {
-    "name": "Kendra Ross (copy)",
+    "name": "Kendra Ross",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2256145364",
@@ -2240,7 +2142,7 @@
     "registry": ""
   },
   {
-    "name": "Kendra Vessel (copy)",
+    "name": "Kendra Vessel",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2253942970",
@@ -2254,7 +2156,7 @@
     "registry": "Not on Registry"
   },
   {
-    "name": "Kniyielle Jones (copy)",
+    "name": "Kniyielle Jones",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2253168313",
@@ -2268,7 +2170,7 @@
     "registry": "Not on Registry"
   },
   {
-    "name": "Kyla Redditt (copy)",
+    "name": "Kyla Redditt",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2257162058",
@@ -2282,7 +2184,7 @@
     "registry": "Not on Registry"
   },
   {
-    "name": "Kyla Wilson (copy)",
+    "name": "Kyla Wilson",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "3373260544",
@@ -2296,7 +2198,7 @@
     "registry": ""
   },
   {
-    "name": "Lacey Rebollo (copy)",
+    "name": "Lacey Rebollo",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "3373562935",
@@ -2310,7 +2212,7 @@
     "registry": ""
   },
   {
-    "name": "Lara-Jeanna Kling (copy)",
+    "name": "Lara-Jeanna Kling",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "5042557855",
@@ -2324,7 +2226,7 @@
     "registry": ""
   },
   {
-    "name": "Lark Spears (copy)",
+    "name": "Lark Spears",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "5046717998",
@@ -2338,7 +2240,7 @@
     "registry": ""
   },
   {
-    "name": "Lauretta Mellein (copy)",
+    "name": "Lauretta Mellein",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "3372961630",
@@ -2352,7 +2254,7 @@
     "registry": ""
   },
   {
-    "name": "Lilliana Johnson (copy)",
+    "name": "Lilliana Johnson",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2257139907",
@@ -2366,7 +2268,7 @@
     "registry": ""
   },
   {
-    "name": "Linda Clopton (copy)",
+    "name": "Linda Clopton",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2252003211",
@@ -2380,7 +2282,7 @@
     "registry": ""
   },
   {
-    "name": "Lindsey Roussel (copy)",
+    "name": "Lindsey Roussel",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2252783889",
@@ -2394,7 +2296,7 @@
     "registry": ""
   },
   {
-    "name": "Lucinda Warren (copy)",
+    "name": "Lucinda Warren",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2256108054",
@@ -2408,7 +2310,7 @@
     "registry": ""
   },
   {
-    "name": "Lydia Haymond (copy)",
+    "name": "Lydia Haymond",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2259609597",
@@ -2422,7 +2324,7 @@
     "registry": ""
   },
   {
-    "name": "Lynn Agnew (copy)",
+    "name": "Lynn Agnew",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2254769045",
@@ -2436,7 +2338,7 @@
     "registry": ""
   },
   {
-    "name": "Lyric Johnson (copy)",
+    "name": "Lyric Johnson",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2255734949",
@@ -2450,7 +2352,7 @@
     "registry": ""
   },
   {
-    "name": "Malika McGee (copy)",
+    "name": "Malika McGee",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "9856180854",
@@ -2464,7 +2366,7 @@
     "registry": ""
   },
   {
-    "name": "Margaret Evans (copy)",
+    "name": "Margaret Evans",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2252419080",
@@ -2478,7 +2380,7 @@
     "registry": ""
   },
   {
-    "name": "Marilyn Benoit (copy)",
+    "name": "Marilyn Benoit",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "5046386125",
@@ -2492,7 +2394,7 @@
     "registry": ""
   },
   {
-    "name": "Marisa McCon (copy)",
+    "name": "Marisa McCon",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2257726537",
@@ -2506,7 +2408,7 @@
     "registry": ""
   },
   {
-    "name": "Mary Frances Church (copy)",
+    "name": "Mary Frances Church",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "3375775244",
@@ -2520,7 +2422,7 @@
     "registry": ""
   },
   {
-    "name": "Megan Upperman (copy)",
+    "name": "Megan Upperman",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2558885332",
@@ -2534,7 +2436,7 @@
     "registry": ""
   },
   {
-    "name": "Michaelyn McGinnis (copy)",
+    "name": "Michaelyn McGinnis",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2252812914",
@@ -2548,7 +2450,7 @@
     "registry": ""
   },
   {
-    "name": "Michelle Tate (copy)",
+    "name": "Michelle Tate",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "5049826003",
@@ -2562,7 +2464,7 @@
     "registry": ""
   },
   {
-    "name": "Monica Legard (copy)",
+    "name": "Monica Legard",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2256107524",
@@ -2576,7 +2478,7 @@
     "registry": ""
   },
   {
-    "name": "Myisha Morris (copy)",
+    "name": "Myisha Morris",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "12256230242",
@@ -2590,7 +2492,7 @@
     "registry": "Not on Registry"
   },
   {
-    "name": "Na'Tasia Bradshaw (copy)",
+    "name": "Na'Tasia Bradshaw",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "5103754590",
@@ -2604,7 +2506,7 @@
     "registry": ""
   },
   {
-    "name": "Naomi Peters (copy)",
+    "name": "Naomi Peters",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "9852320020",
@@ -2618,7 +2520,7 @@
     "registry": ""
   },
   {
-    "name": "Natasha James (copy)",
+    "name": "Natasha James",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "8326656330",
@@ -2632,7 +2534,7 @@
     "registry": "Not on Registry"
   },
   {
-    "name": "Nelda Hunt (copy)",
+    "name": "Nelda Hunt",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2256508073",
@@ -2646,7 +2548,7 @@
     "registry": ""
   },
   {
-    "name": "Pamela Adikema (copy) (copy)",
+    "name": "Pamela Adikema (copy)",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2254214128",
@@ -2660,7 +2562,7 @@
     "registry": ""
   },
   {
-    "name": "Patricia Brown (copy)",
+    "name": "Patricia Brown",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2259372642",
@@ -2674,21 +2576,7 @@
     "registry": ""
   },
   {
-    "name": "Phoebe Green (copy)",
-    "section": "inactive",
-    "status_label": "Inactive",
-    "phone": "3373667040",
-    "email": "phoebegreen30@gmail.com",
-    "photo": "./assets/doulas/phoebe-green.jpg",
-    "service": "Baton Rouge, Lafayette",
-    "region": "",
-    "cohort": "Theta",
-    "icea": "Pursing",
-    "languages": "",
-    "registry": "Not on Registry"
-  },
-  {
-    "name": "Qiao Xie (copy)",
+    "name": "Qiao Xie",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2253615213",
@@ -2702,7 +2590,7 @@
     "registry": ""
   },
   {
-    "name": "RaeVyon Jamison (copy)",
+    "name": "RaeVyon Jamison",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "6613412554",
@@ -2716,7 +2604,7 @@
     "registry": ""
   },
   {
-    "name": "Rashida McKnight (copy)",
+    "name": "Rashida McKnight",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2254099085",
@@ -2730,7 +2618,7 @@
     "registry": ""
   },
   {
-    "name": "Renietta Chatman (copy)",
+    "name": "Renietta Chatman",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2252887128",
@@ -2739,20 +2627,6 @@
     "service": "",
     "region": "",
     "cohort": "Gamma",
-    "icea": "Pursing",
-    "languages": "",
-    "registry": ""
-  },
-  {
-    "name": "Rhonda Chube (copy)",
-    "section": "inactive",
-    "status_label": "Inactive",
-    "phone": "2259337606",
-    "email": "tchube5044@yahoo.com",
-    "photo": "",
-    "service": "Baton Rouge",
-    "region": "",
-    "cohort": "Delta",
     "icea": "Pursing",
     "languages": "",
     "registry": ""
@@ -2772,7 +2646,7 @@
     "registry": ""
   },
   {
-    "name": "Sarah Offutt (copy)",
+    "name": "Sarah Offutt",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2257210655",
@@ -2786,7 +2660,7 @@
     "registry": ""
   },
   {
-    "name": "Sarah Salpietra (copy)",
+    "name": "Sarah Salpietra",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2256103106",
@@ -2800,7 +2674,7 @@
     "registry": ""
   },
   {
-    "name": "Sarah Tate (copy)",
+    "name": "Sarah Tate",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "3375772436",
@@ -2814,7 +2688,7 @@
     "registry": "Not on Registry"
   },
   {
-    "name": "Shameka Ewings (copy)",
+    "name": "Shameka Ewings",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "9035063971",
@@ -2828,7 +2702,7 @@
     "registry": ""
   },
   {
-    "name": "Sharron BoBo (copy)",
+    "name": "Sharron BoBo",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "3186803826",
@@ -2842,7 +2716,7 @@
     "registry": ""
   },
   {
-    "name": "Sheletha Hatch (copy)",
+    "name": "Sheletha Hatch",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2256109876",
@@ -2856,7 +2730,7 @@
     "registry": ""
   },
   {
-    "name": "Shelna Myers (copy)",
+    "name": "Shelna Myers",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "",
@@ -2870,7 +2744,7 @@
     "registry": ""
   },
   {
-    "name": "Sheran Duncan (copy)",
+    "name": "Sheran Duncan",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2256508551",
@@ -2884,7 +2758,7 @@
     "registry": "Not on Registry"
   },
   {
-    "name": "Sierah Jones (copy)",
+    "name": "Sierah Jones",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2255884824",
@@ -2898,7 +2772,7 @@
     "registry": ""
   },
   {
-    "name": "Stefan Johnson (copy)",
+    "name": "Stefan Johnson",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "3188013083",
@@ -2912,7 +2786,7 @@
     "registry": ""
   },
   {
-    "name": "Suzanne Authement (copy)",
+    "name": "Suzanne Authement",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "3377812262",
@@ -2926,7 +2800,7 @@
     "registry": ""
   },
   {
-    "name": "Tahja Miles (copy)",
+    "name": "Tahja Miles",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2259647565",
@@ -2940,7 +2814,7 @@
     "registry": ""
   },
   {
-    "name": "Talisha Davis (copy)",
+    "name": "Talisha Davis",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2259783459",
@@ -2954,7 +2828,7 @@
     "registry": ""
   },
   {
-    "name": "Taylor Broussard (copy)",
+    "name": "Taylor Broussard",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "",
@@ -2968,21 +2842,7 @@
     "registry": ""
   },
   {
-    "name": "Taylor Broussard (copy)",
-    "section": "inactive",
-    "status_label": "Inactive",
-    "phone": "",
-    "email": "",
-    "photo": "",
-    "service": "",
-    "region": "",
-    "cohort": "Kappa",
-    "icea": "",
-    "languages": "",
-    "registry": ""
-  },
-  {
-    "name": "Taylor Fontenot (copy)",
+    "name": "Taylor Fontenot",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "3372816029",
@@ -2996,7 +2856,7 @@
     "registry": ""
   },
   {
-    "name": "Teasa Rashadeen (copy)",
+    "name": "Teasa Rashadeen",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2256102259",
@@ -3010,7 +2870,7 @@
     "registry": ""
   },
   {
-    "name": "Terrie Hollins (copy)",
+    "name": "Terrie Hollins",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "",
@@ -3024,35 +2884,7 @@
     "registry": ""
   },
   {
-    "name": "Terrie Hollins (copy)",
-    "section": "inactive",
-    "status_label": "Inactive",
-    "phone": "",
-    "email": "",
-    "photo": "",
-    "service": "",
-    "region": "",
-    "cohort": "Gamma",
-    "icea": "Pursing",
-    "languages": "",
-    "registry": ""
-  },
-  {
-    "name": "test 01,20,29 (copy)",
-    "section": "inactive",
-    "status_label": "Inactive",
-    "phone": "",
-    "email": "klewis@mhndoula.com",
-    "photo": "",
-    "service": "",
-    "region": "",
-    "cohort": "Xi",
-    "icea": "Not Certified",
-    "languages": "",
-    "registry": ""
-  },
-  {
-    "name": "Tiara Ponton (copy)",
+    "name": "Tiara Ponton",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2255735546",
@@ -3066,7 +2898,7 @@
     "registry": ""
   },
   {
-    "name": "Tieka Jones (copy)",
+    "name": "Tieka Jones",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2257732908",
@@ -3080,7 +2912,7 @@
     "registry": ""
   },
   {
-    "name": "Tylea Davenport (copy)",
+    "name": "Tylea Davenport",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2253355342",
@@ -3094,7 +2926,7 @@
     "registry": ""
   },
   {
-    "name": "Vanessa Williams (copy)",
+    "name": "Vanessa Williams",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2254486444",
@@ -3108,7 +2940,7 @@
     "registry": ""
   },
   {
-    "name": "Yolanda Cardona (copy)",
+    "name": "Yolanda Cardona",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "5043031786",
@@ -3122,7 +2954,7 @@
     "registry": "Not on Registry"
   },
   {
-    "name": "Yolander Smith (copy)",
+    "name": "Yolander Smith",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "2256503629",
@@ -3136,7 +2968,7 @@
     "registry": ""
   },
   {
-    "name": "Zoe Thomas (copy)",
+    "name": "Zoe Thomas",
     "section": "inactive",
     "status_label": "Inactive",
     "phone": "3374004240",
@@ -3146,6 +2978,20 @@
     "region": "",
     "cohort": "Delta",
     "icea": "Pursing",
+    "languages": "",
+    "registry": ""
+  },
+  {
+    "name": "test 01,20,29",
+    "section": "inactive",
+    "status_label": "Inactive",
+    "phone": "",
+    "email": "klewis@mhndoula.com",
+    "photo": "",
+    "service": "",
+    "region": "",
+    "cohort": "Xi",
+    "icea": "Not Certified",
     "languages": "",
     "registry": ""
   }
