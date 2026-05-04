@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pocket Doula · Mary's Hands Network</title>
+<meta name="description" content="Private portal for active MHN volunteer doulas.">
+<link rel="icon" type="image/png" href="./assets/logo-seal.png">
+<link rel="apple-touch-icon" href="./assets/logo-seal.png">
+<link rel="canonical" href="https://maryshandsnetwork.org/portal-pocket-doula.html">
+<link rel="stylesheet" href="./colors_and_type.css">
+<link rel="stylesheet" href="./portal-shell.css">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script src="./mobile-nav.js" defer></script>
+</head>
+<body data-screen-label="Pocket Doula">
+<div class="page">
+
+<!-- TOP NAV -->
+<nav class="nav">
+  <a href="index.html" class="brand">
+    <div class="seal"><img src="./assets/logo-seal.png" alt="Mary's Hands Network logo"></div>
+    <div><div class="name">Mary's Hands Network</div></div>
+  </a>
+  <div class="nav-links">
+    <a href="about.html">About</a>
+    <a href="for-mom.html">For Families</a>
+    <a href="doula-training.html">Training</a>
+    <a href="store.html">Store</a>
+    <a href="inicio.html" class="lang-icon" title="Español" aria-label="Switch to Spanish"><i data-lucide="globe"></i></a>
+    <a href="donate.html" class="btn-donate">Donate</a>
+  </div>
+</nav>
+
+<!-- ACCESS GATE -->
+<section id="portal-gate">
+  <div class="eyebrow">For Active Doulas</div>
+  <h1>Members only.</h1>
+  <p class="lede">Enter your access code to view the doula portal. Forms, course materials, contacts, and the field guide.</p>
+  <form id="portal-gate-form" autocomplete="off" novalidate>
+    <input id="portal-code" type="text" placeholder="Access code" aria-label="Access code" autocapitalize="characters" spellcheck="false">
+    <button type="submit">Enter portal</button>
+    <p class="gate-error" id="portal-gate-error" role="alert" aria-live="polite"></p>
+  </form>
+  <p class="gate-help">Don't have a code? <a href="contact.html">Contact us</a> or ask your Volunteer Coordinator.</p>
+</section>
+
+<!-- PROTECTED CONTENT -->
+<div id="portal-protected">
+
+<div class="portal-app">
+
+<!-- SIDEBAR -->
+<aside class="portal-side" aria-label="Portal navigation">
+  <h4>Portal</h4>
+  <nav id="portalSideNav">
+    <a href="portal.html" data-id="hub" class=""><i class="ico" data-lucide="home"></i>Welcome</a>
+    <a href="portal-client-update.html" data-id="client-update" class=""><i class="ico" data-lucide="clipboard-edit"></i>Client Update</a>
+    <a href="portal-availability.html" data-id="availability" class=""><i class="ico" data-lucide="calendar-check"></i>Availability</a>
+    <a href="https://canvas.instructure.com/login/canvas" target="_blank" rel="noopener"><i class="ico" data-lucide="graduation-cap"></i>Canvas Course</a>
+    <a href="directory.html" data-id="directory" class=""><i class="ico" data-lucide="users"></i>Doula Directory</a>
+    <a href="portal-field-guide.html" data-id="field-guide" class=""><i class="ico" data-lucide="book-open"></i>Field Guide</a>
+    <a href="portal-pocket-doula.html" data-id="pocket-doula" class="active"><i class="ico" data-lucide="layers"></i>Pocket Doula</a>
+  </nav>
+  <div class="side-divider"></div>
+  <a href="#" class="side-signout" id="portalSideSignout"><i class="ico" data-lucide="log-out"></i>Sign out</a>
+</aside>
+
+<!-- MAIN -->
+<main class="portal-main">
+
+<section class="hero">
+  <div class="eyebrow">50 Comfort Cards</div>
+  <h1 class="t">Your Digital Pocket Doula.</h1>
+  <p class="lede">The full Pocket Doula deck, unlocked for active MHN doulas. 50 comfort cards covering positions, music and sound, walking, lunges, hands and knees, warmth, privacy, and more &mdash; the same cards that ship in the printed tin.</p>
+</section>
+
+<section class="pocket-doula-section">
+  <div class="pd-sizes">
+    <div class="pd-size-card">
+      <h3>Standard Edition</h3>
+      <div class="pd-size-meta">Poker size &middot; 2.5&Prime; &times; 3.5&Prime;</div>
+      <p>For parents and partners. Fits a hospital bag, a doula bag side pocket, or a coat pocket. Slim metal tin, 50 cards.</p>
+      <a class="pd-buy" href="https://www.paypal.com/ncp/payment/XCQZ8JHHY7842" target="_blank" rel="noopener">Buy Standard &mdash; $40 &nearr;</a>
+    </div>
+    <div class="pd-size-card">
+      <h3>Professional Edition</h3>
+      <div class="pd-size-meta">Tarot size &middot; 2.75&Prime; &times; 4.75&Prime;</div>
+      <p>For doulas and birth workers. Larger cards built for daily use through long shifts &mdash; easier to read across the room and hand to a partner. Sturdier tin, same 50 cards.</p>
+      <a class="pd-buy" href="https://www.paypal.com/ncp/payment/HPHRKSHEDGUUQ" target="_blank" rel="noopener">Buy Professional &mdash; $100 &nearr;</a>
+    </div>
+  </div>
+  <p class="pd-proceeds"><strong>Proceeds from Pocket Doula deck sales support free doula services for clients and doula training for community doulas through Mary&rsquo;s Hands Network.</strong></p>
+
+  <div class="pd-viewer">
+    <div class="pd-viewer-meta">Card <strong id="pdNum">1</strong> of 50</div>
+    <div class="pd-pair-wrap">
+      <button class="pd-nav-btn" id="pdPrev" aria-label="Previous card" type="button">&larr;</button>
+      <div class="pd-pair">
+        <figure class="pd-card-face">
+          <img id="pdFront" src="./assets/photos/deck/card-01-front.jpg" alt="Card 1 front">
+          <figcaption>Front</figcaption>
+        </figure>
+        <figure class="pd-card-face">
+          <img id="pdBack" src="./assets/photos/deck/card-01-back.jpg" alt="Card 1 back">
+          <figcaption>Back</figcaption>
+        </figure>
+      </div>
+      <button class="pd-nav-btn" id="pdNext" aria-label="Next card" type="button">&rarr;</button>
+    </div>
+    <p class="pd-hint">Use the &larr; and &rarr; arrows or your keyboard to flip through all 50 cards.</p>
+    <button class="pd-fs-btn" id="pdFsOpen" type="button">View full screen &nearr;</button>
+  </div>
+</section>
+
+<!-- POCKET DOULA FULLSCREEN VIEWER -->
+<div class="pd-fs-viewer" id="pdFsViewer" hidden role="dialog" aria-label="Pocket Doula card, full screen">
+  <button class="pd-fs-close" id="pdFsClose" type="button" aria-label="Close full screen">&times;</button>
+  <div class="pd-fs-inner">
+    <button class="pd-fs-nav pd-fs-prev" id="pdFsPrev" type="button" aria-label="Previous">&larr;</button>
+    <div class="pd-fs-stage">
+      <p class="pd-fs-meta">Card <span id="pdFsNum">1</span> of 50</p>
+      <div class="pd-fs-pair">
+        <figure class="pd-fs-face"><img id="pdFsFront" src="" alt=""><figcaption>Front</figcaption></figure>
+        <figure class="pd-fs-face"><img id="pdFsBack" src="" alt=""><figcaption>Back</figcaption></figure>
+      </div>
+      <p class="pd-fs-hint">Tap outside, press Esc, or click &times; to close. Use &larr; / &rarr; to change cards.</p>
+    </div>
+    <button class="pd-fs-nav pd-fs-next" id="pdFsNext" type="button" aria-label="Next">&rarr;</button>
+  </div>
+</div>
+
+</main>
+</div><!-- /portal-app -->
+</div><!-- /portal-protected -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <div class="logo">Mary's Hands Network</div>
+      <p>A Louisiana 501(c)(3) nonprofit &middot; EIN 92-2430838. 451 E. Airport Avenue, Ste. A, Baton Rouge, LA 70806.</p>
+      <p style="font-family:var(--mhn-font-serif);font-style:italic;color:#D4BADD">info@mhndoula.com &middot; (225) 424-7532</p>
+    </div>
+    <div class="foot-col">
+      <h5>For Families</h5>
+      <a href="for-mom.html">For Families</a>
+      <a href="hotline.html">Doula Hotline</a>
+      <a href="birth-vision.html">Birth Vision Guide</a>
+      <a href="bereavement.html">Loss &amp; Bereavement</a>
+      <a href="apoyo-de-doula.html">Apoyo en espa&ntilde;ol</a>
+    </div>
+    <div class="foot-col">
+      <h5>For Doulas</h5>
+      <a href="doula-training.html">Education &amp; Training</a>
+      <a href="cohort.html">Next Cohort</a>
+      <a href="volunteer.html">Volunteer with MHN</a>
+      <a href="portal.html">Doula Portal</a>
+    </div>
+    <div class="foot-col">
+      <h5>About</h5>
+      <a href="about.html">Our Mission</a>
+      <a href="store.html">Store</a>
+      <a href="community-partners.html">Community Partners</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="foot-btm">
+    <span>&copy; 2026 Mary's Hands Network &middot; All Rights Reserved</span>
+    <span>Every Birth Deserves a Doula.</span>
+  </div>
+</footer>
+</div>
+<script>lucide.createIcons();</script>
+
+
+<script>
+/* Pocket Doula deck viewer — 50 cards, prev/next + keyboard nav + fullscreen */
+function initPageContent(){
+  var TOTAL = 50;
+  var idx = 1;
+  var num = document.getElementById("pdNum");
+  var front = document.getElementById("pdFront");
+  var back = document.getElementById("pdBack");
+  var prevBtn = document.getElementById("pdPrev");
+  var nextBtn = document.getElementById("pdNext");
+  var fsOpen = document.getElementById("pdFsOpen");
+  var fsViewer = document.getElementById("pdFsViewer");
+  var fsClose = document.getElementById("pdFsClose");
+  var fsPrev = document.getElementById("pdFsPrev");
+  var fsNext = document.getElementById("pdFsNext");
+  var fsFront = document.getElementById("pdFsFront");
+  var fsBack = document.getElementById("pdFsBack");
+  var fsNum = document.getElementById("pdFsNum");
+  if (!front || !back || !num) return;
+  function pad(n){ return String(n).padStart(2,"0"); }
+  function setCard(n){
+    n = ((n - 1 + TOTAL) % TOTAL) + 1;
+    idx = n;
+    var p = pad(n);
+    front.src = "./assets/photos/deck/card-" + p + "-front.jpg";
+    front.alt = "Card " + n + " front";
+    back.src = "./assets/photos/deck/card-" + p + "-back.jpg";
+    back.alt = "Card " + n + " back";
+    num.textContent = n;
+    if (fsFront){ fsFront.src = front.src; fsFront.alt = front.alt; }
+    if (fsBack){ fsBack.src = back.src; fsBack.alt = back.alt; }
+    if (fsNum) fsNum.textContent = n;
+  }
+  function go(dir){ setCard(idx + dir); }
+  if (prevBtn) prevBtn.addEventListener("click", function(){ go(-1); });
+  if (nextBtn) nextBtn.addEventListener("click", function(){ go(+1); });
+  document.addEventListener("keydown", function(e){
+    if (fsViewer && !fsViewer.hidden){
+      if (e.key === "ArrowLeft")  { go(-1); }
+      else if (e.key === "ArrowRight") { go(+1); }
+      else if (e.key === "Escape") { fsViewer.hidden = true; }
+      return;
+    }
+    if (e.key === "ArrowLeft")  { go(-1); }
+    else if (e.key === "ArrowRight") { go(+1); }
+  });
+  // Fullscreen
+  function openFs(){ if (fsViewer){ fsViewer.hidden = false; setCard(idx); document.body.style.overflow="hidden"; } }
+  function closeFs(){ if (fsViewer){ fsViewer.hidden = true; document.body.style.overflow=""; } }
+  if (fsOpen) fsOpen.addEventListener("click", openFs);
+  if (fsClose) fsClose.addEventListener("click", closeFs);
+  if (fsPrev) fsPrev.addEventListener("click", function(){ go(-1); });
+  if (fsNext) fsNext.addEventListener("click", function(){ go(+1); });
+  if (fsViewer) fsViewer.addEventListener("click", function(e){
+    if (e.target === fsViewer) closeFs();
+  });
+  // Click images to open fullscreen
+  if (front) front.addEventListener("click", openFs);
+  if (back) back.addEventListener("click", openFs);
+}
+</script>
+
+
+<script>
+(function(){
+  var KEY="mhn_portal_access_v1";
+  var CODE="MHNDOULA2026";
+  var gate=document.getElementById("portal-gate");
+  var prot=document.getElementById("portal-protected");
+  var form=document.getElementById("portal-gate-form");
+  var input=document.getElementById("portal-code");
+  var err=document.getElementById("portal-gate-error");
+  function unlock(){
+    if(gate) gate.style.display="none";
+    if(prot) prot.style.display="block";
+    var sideOut = document.getElementById("portalSideSignout");
+    if (sideOut && !sideOut.__wired){
+      sideOut.__wired = true;
+      sideOut.addEventListener("click", function(e){
+        e.preventDefault();
+        try{localStorage.removeItem(KEY);}catch(_){}
+        location.reload();
+      });
+    }
+    if(window.lucide && window.lucide.createIcons) window.lucide.createIcons();
+    try { if (typeof initPageContent === "function") initPageContent(); } catch(e) { console.error("page init error:", e); }
+  }
+  try{
+    if(localStorage.getItem(KEY)==="1"){ unlock(); return; }
+  }catch(_){}
+  if(form){
+    form.addEventListener("submit",function(e){
+      e.preventDefault();
+      var v=(input.value||"").trim().toUpperCase().replace(/\s+/g,"");
+      if(v===CODE){
+        try{localStorage.setItem(KEY,"1");}catch(_){}
+        err.textContent="";
+        unlock();
+      } else {
+        err.textContent="That code didn't match. Please check with your Volunteer Coordinator.";
+        input.focus(); input.select();
+      }
+    });
+    setTimeout(function(){try{input.focus();}catch(_){}},200);
+  }
+})();
+</script>
+
+</body>
+</html>

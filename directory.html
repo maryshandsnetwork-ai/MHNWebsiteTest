@@ -9,6 +9,7 @@
 <link rel="apple-touch-icon" href="./assets/logo-seal.png">
 <link rel="canonical" href="https://maryshandsnetwork.org/directory.html">
 <link rel="stylesheet" href="./colors_and_type.css">
+<link rel="stylesheet" href="./portal-shell.css">
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 <script src="./mobile-nav.js" defer></script>
 <style>
@@ -169,10 +170,26 @@
 <!-- PROTECTED -->
 <div id="portal-protected">
 
-<a href="portal.html" class="dir-back">
-  <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
-  Back to Doula Portal
-</a>
+<div class="portal-app">
+
+<!-- SIDEBAR -->
+<aside class="portal-side" aria-label="Portal navigation">
+  <h4>Portal</h4>
+  <nav id="portalSideNav">
+    <a href="portal.html"><i class="ico" data-lucide="home"></i>Welcome</a>
+    <a href="portal-client-update.html"><i class="ico" data-lucide="clipboard-edit"></i>Client Update</a>
+    <a href="portal-availability.html"><i class="ico" data-lucide="calendar-check"></i>Availability</a>
+    <a href="https://canvas.instructure.com/login/canvas" target="_blank" rel="noopener"><i class="ico" data-lucide="graduation-cap"></i>Canvas Course</a>
+    <a href="directory.html" class="active"><i class="ico" data-lucide="users"></i>Doula Directory</a>
+    <a href="portal-field-guide.html"><i class="ico" data-lucide="book-open"></i>Field Guide</a>
+    <a href="portal-pocket-doula.html"><i class="ico" data-lucide="layers"></i>Pocket Doula</a>
+  </nav>
+  <div class="side-divider"></div>
+  <a href="#" class="side-signout" id="portalSideSignout"><i class="ico" data-lucide="log-out"></i>Sign out</a>
+</aside>
+
+<!-- MAIN -->
+<main class="portal-main">
 
 <section class="dir-hero">
   <div class="private-tag">Private &middot; For Active Doulas</div>
@@ -210,6 +227,8 @@
 
 <div class="dir-grid" id="dirGrid"></div>
 
+</main>
+</div><!-- /portal-app -->
 </div><!-- /portal-protected -->
 
 <!-- FOOTER -->
@@ -265,11 +284,14 @@ var SUGGEST_ACTIVE = -1;
   function unlock(){
     if(gate) gate.style.display="none";
     if(prot) prot.style.display="block";
-    if(!document.getElementById("gate-signout-btn")){
-      var so=document.createElement("a");
-      so.href="#"; so.id="gate-signout-btn"; so.className="gate-signout"; so.textContent="Sign out";
-      so.addEventListener("click",function(e){e.preventDefault();try{localStorage.removeItem(KEY);}catch(_){}; location.reload();});
-      document.body.appendChild(so);
+    var sideOut = document.getElementById("portalSideSignout");
+    if (sideOut && !sideOut.__wired){
+      sideOut.__wired = true;
+      sideOut.addEventListener("click", function(e){
+        e.preventDefault();
+        try{localStorage.removeItem(KEY);}catch(_){}
+        location.reload();
+      });
     }
     if(window.lucide && window.lucide.createIcons) window.lucide.createIcons();
     try { initDirectory(); } catch(e) { console.error("initDirectory error:", e); }

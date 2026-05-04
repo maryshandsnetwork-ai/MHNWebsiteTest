@@ -3,17 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Doula Portal · Mary's Hands Network</title>
+<title>Availability · Mary's Hands Network</title>
 <meta name="description" content="Private portal for active MHN volunteer doulas.">
 <link rel="icon" type="image/png" href="./assets/logo-seal.png">
 <link rel="apple-touch-icon" href="./assets/logo-seal.png">
-<link rel="canonical" href="https://maryshandsnetwork.org/portal.html">
+<link rel="canonical" href="https://maryshandsnetwork.org/portal-availability.html">
 <link rel="stylesheet" href="./colors_and_type.css">
 <link rel="stylesheet" href="./portal-shell.css">
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 <script src="./mobile-nav.js" defer></script>
 </head>
-<body data-screen-label="Doula Portal">
+<body data-screen-label="Availability">
 <div class="page">
 
 <!-- TOP NAV -->
@@ -54,9 +54,9 @@
 <aside class="portal-side" aria-label="Portal navigation">
   <h4>Portal</h4>
   <nav id="portalSideNav">
-    <a href="portal.html" data-id="hub" class="active"><i class="ico" data-lucide="home"></i>Welcome</a>
+    <a href="portal.html" data-id="hub" class=""><i class="ico" data-lucide="home"></i>Welcome</a>
     <a href="portal-client-update.html" data-id="client-update" class=""><i class="ico" data-lucide="clipboard-edit"></i>Client Update</a>
-    <a href="portal-availability.html" data-id="availability" class=""><i class="ico" data-lucide="calendar-check"></i>Availability</a>
+    <a href="portal-availability.html" data-id="availability" class="active"><i class="ico" data-lucide="calendar-check"></i>Availability</a>
     <a href="https://canvas.instructure.com/login/canvas" target="_blank" rel="noopener"><i class="ico" data-lucide="graduation-cap"></i>Canvas Course</a>
     <a href="directory.html" data-id="directory" class=""><i class="ico" data-lucide="users"></i>Doula Directory</a>
     <a href="portal-field-guide.html" data-id="field-guide" class=""><i class="ico" data-lucide="book-open"></i>Field Guide</a>
@@ -69,99 +69,19 @@
 <!-- MAIN -->
 <main class="portal-main">
 
-<!-- HERO -->
 <section class="hero">
   <div class="eyebrow">For Active Doulas</div>
-  <h1 class="t">Welcome back, <em>doula.</em></h1>
-  <p class="lede">Forms, course access, resources, and the people you can call when you need backup. Everything an active MHN volunteer doula needs to do the work.</p>
+  <h1 class="t">Submit Your Availability.</h1>
+  <p class="lede">Update your monthly availability so your Volunteer Coordinator can match you to client teams that fit your schedule.</p>
 </section>
 
-<!-- QUICK ACTIONS — 4 colored cards linking to leaf pages -->
-<section class="actions">
-  <div class="acc-section-head"><span class="line"></span>Quick Actions</div>
-  <div class="agrid">
-    <a class="acard tone-purple" href="portal-client-update.html">
-      <span class="ico-wrap"><i class="ico" data-lucide="clipboard-edit"></i></span>
-      <h3>Client Update</h3>
-      <p>Log a client visit, document a birth, or update prenatal/postpartum notes.</p>
-      <span class="go">Open form &rarr;</span>
-    </a>
-    <a class="acard tone-sage" href="portal-availability.html">
-      <span class="ico-wrap"><i class="ico" data-lucide="calendar-check"></i></span>
-      <h3>Availability</h3>
-      <p>Update your monthly availability so coordinators can match you to client teams.</p>
-      <span class="go">Open form &rarr;</span>
-    </a>
-    <a class="acard tone-warm" href="https://canvas.instructure.com/login/canvas" target="_blank" rel="noopener">
-      <span class="ico-wrap"><i class="ico" data-lucide="graduation-cap"></i></span>
-      <h3>Canvas Course</h3>
-      <p>Access training modules, ICEA materials, and the always-updated curriculum library.</p>
-      <span class="go">Open course &nearr;</span>
-    </a>
-    <a class="acard tone-rose" href="directory.html">
-      <span class="ico-wrap"><i class="ico" data-lucide="users"></i></span>
-      <h3>Doula Directory</h3>
-      <p>Search active doulas in the network by name, cohort, or service area.</p>
-      <span class="go">Open directory &rarr;</span>
-    </a>
-  </div>
-</section>
-
-<!-- SECONDARY ACTIONS -->
-<section class="actions">
-  <div class="acc-section-head"><span class="line"></span>Resources</div>
-  <div class="agrid" style="grid-template-columns:repeat(2,1fr)">
-    <a class="acard tone-purple" href="portal-field-guide.html">
-      <span class="ico-wrap"><i class="ico" data-lucide="book-open"></i></span>
-      <h3>Field Guide</h3>
-      <p>The MHN Field Guide 2026 PDF. Read it in browser or download for the labor room.</p>
-      <span class="go">Open guide &rarr;</span>
-    </a>
-    <a class="acard tone-sage" href="portal-pocket-doula.html">
-      <span class="ico-wrap"><i class="ico" data-lucide="layers"></i></span>
-      <h3>Pocket Doula deck</h3>
-      <p>Flip through all 50 comfort cards digitally. Standard ($40) and Professional ($100) editions also available.</p>
-      <span class="go">Open deck &rarr;</span>
-    </a>
-  </div>
-</section>
-
-<!-- CONTACTS -->
-<section class="contacts">
-  <div class="contacts-inner">
-    <div class="eyebrow">Your team</div>
-    <h2>Who to reach, when.</h2>
-    <p class="sub">When in doubt, start with your Volunteer Coordinator. They'll pull in whoever else needs to be in the loop.</p>
-    <div class="cgrid">
-      <div class="ccard">
-        <div class="role">Volunteer Coordinator</div>
-        <h3>Kerionne Lewis</h3>
-        <p class="title">Schedules, matches, escalations, day-to-day questions.</p>
-        <a class="email" href="mailto:klewis@mhndoula.com">klewis@mhndoula.com</a>
-      </div>
-      <div class="ccard">
-        <div class="role">Operations Director</div>
-        <h3>Breea Carter</h3>
-        <p class="title">Onboarding paperwork, hospital privileging, operations.</p>
-        <a class="email" href="mailto:bcarter@mhndoula.com">bcarter@mhndoula.com</a>
-      </div>
-      <div class="ccard">
-        <div class="role">Executive Director &amp; Lead Instructor</div>
-        <h3>Madeline LeBlanc</h3>
-        <p class="title">Strategy, partnerships, training escalations, anything else.</p>
-        <a class="email" href="mailto:mleblanc@mhndoula.com">mleblanc@mhndoula.com</a>
-      </div>
+<section class="form-section">
+  <div class="form-frame-wrap">
+    <div class="form-frame-meta">
+      <span class="lbl">Update your monthly availability below</span>
+      <a class="open-new" href="https://wkf.ms/4oI6sdm" target="_blank" rel="noopener"><i data-lucide="external-link" style="width:14px;height:14px"></i>Open in new tab</a>
     </div>
-    <div class="general">
-      <span class="label">General questions:</span>
-      <a href="mailto:info@maryshandsnetwork.org">info@maryshandsnetwork.org</a>
-      <span class="sep">&bull;</span>
-      <span class="label">Office:</span>
-      <a href="tel:2254247532">(225) 424-7532</a>
-      <span class="sep">&bull;</span>
-      <span class="label">Maddy direct:</span>
-      <a href="tel:2258934906">(225) 893-4906</a>
-    </div>
+    <iframe src="https://forms.monday.com/forms/embed/0e67effee202f49491d73efdb3fa6456?r=use1" height="900" title="Availability Form" loading="lazy"></iframe>
   </div>
 </section>
 
