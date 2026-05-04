@@ -40,7 +40,8 @@
   .actions{padding:8px 48px 36px;max-width:1200px;margin:0 auto}
   .acc-section-head{font-size:16px;letter-spacing:0.24em;color:var(--mhn-purple-700);margin:0 0 22px;font-weight:700;text-transform:uppercase}
   .acc-section-head span.line{display:inline-block;width:32px;height:2px;background:var(--mhn-purple-500);margin-right:12px;vertical-align:middle}
-  .agrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .agrid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  @media(max-width:1080px){.agrid{grid-template-columns:repeat(2,1fr)}}
   .acard{background:#fff;border:1px solid var(--mhn-line);border-radius:20px;padding:30px;display:flex;flex-direction:column;text-decoration:none;color:inherit;transition:transform 0.15s,box-shadow 0.15s,border-color 0.15s;position:relative;overflow:hidden}
   .acard:hover{transform:translateY(-2px);box-shadow:var(--mhn-shadow-md);border-color:var(--mhn-purple-200)}
   .acard .ico{width:36px;height:36px;color:var(--mhn-purple-700);margin-bottom:18px}
@@ -276,6 +277,12 @@
       <p>Access your training modules, ICEA materials, and the always-updated curriculum library.</p>
       <span class="go">Open course &rarr;</span>
     </a>
+    <a class="acard" href="directory.html">
+      <i class="ico" data-lucide="users"></i>
+      <h3>Doula Directory</h3>
+      <p>Search active doulas in the network by name or training cohort. View contact info, service areas, and status.</p>
+      <span class="go">Open directory &rarr;</span>
+    </a>
   </div>
 </section>
 
@@ -476,6 +483,7 @@
 <a href="cohort.html">Next Cohort</a>
       <a href="volunteer.html">Volunteer with MHN</a>
       <a href="portal.html">Doula Portal</a>
+      <a href="directory.html">Doula Directory</a>
     </div>
     <div class="foot-col">
       <h5>About</h5>

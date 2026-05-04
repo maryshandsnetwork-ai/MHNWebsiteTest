@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Doula Directory · Mary's Hands Network</title>
+<meta name="description" content="Private searchable directory for active MHN volunteer doulas. Members only.">
+<link rel="icon" type="image/png" href="./assets/logo-seal.png">
+<link rel="apple-touch-icon" href="./assets/logo-seal.png">
+<link rel="canonical" href="https://maryshandsnetwork.org/directory.html">
+<link rel="stylesheet" href="./colors_and_type.css">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script src="./mobile-nav.js" defer></script>
+<style>
+  html, body{margin:0;padding:0;background:var(--mhn-paper);font-family:var(--mhn-font-sans);color:var(--mhn-ink)}
+  .page{max-width:1280px;margin:0 auto}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:20px 48px;border-bottom:1px solid var(--mhn-line-soft)}
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
+  .brand .seal{width:44px;height:44px}
+  .brand .seal img{width:44px;height:44px;display:block}
+  .brand .name{font-family:var(--mhn-font-serif);font-weight:700;font-size:21px;color:var(--mhn-purple-700)}
+  .nav-links{display:flex;gap:28px}
+  .nav-links a{text-decoration:none;color:var(--mhn-ink-soft);font-size:18px;font-weight:700}
+
+  /* GATE — same as portal */
+  #portal-gate{padding:80px 48px 100px;max-width:540px;margin:0 auto;text-align:center}
+  #portal-gate .eyebrow{font-size:16px;letter-spacing:0.28em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:700;margin-bottom:14px}
+  #portal-gate h1{font-family:var(--mhn-font-serif);font-size:32px;line-height:1.1;color:var(--mhn-purple-700);margin:0 0 12px;letter-spacing:-0.01em;font-weight:700}
+  #portal-gate p.lede{font-family:var(--mhn-font-serif);font-style:italic;color:var(--mhn-ink-soft);font-size:18px;margin:0 0 28px;line-height:1.5}
+  #portal-gate form{display:flex;flex-direction:column;gap:12px;align-items:stretch;max-width:380px;margin:0 auto}
+  #portal-gate input{padding:14px 18px;border:2px solid var(--mhn-purple-200);border-radius:12px;font-size:18px;font-family:var(--mhn-font-sans);background:#fff;color:var(--mhn-ink);outline:none;letter-spacing:0.04em}
+  #portal-gate input:focus{border-color:var(--mhn-purple-500)}
+  #portal-gate button{background:var(--mhn-purple-700);color:#fff;border:0;border-radius:12px;padding:14px 22px;font-size:17px;font-weight:700;cursor:pointer;font-family:var(--mhn-font-sans)}
+  #portal-gate button:hover{background:var(--mhn-purple-500)}
+  #portal-gate .gate-error{color:#a83232;font-size:16px;font-weight:600;margin:6px 0 0;min-height:18px}
+  #portal-gate .gate-help{font-size:16px;color:var(--mhn-ink-soft);margin-top:18px;line-height:1.5}
+  #portal-gate .gate-help a{color:var(--mhn-purple-700);font-weight:600}
+  #portal-protected{display:none}
+  .gate-signout{position:fixed;top:14px;right:14px;background:var(--mhn-purple-50);color:var(--mhn-purple-700);border:1px solid var(--mhn-purple-200);border-radius:999px;padding:6px 14px;font-size:16px;font-weight:700;letter-spacing:0.04em;text-decoration:none;z-index:90}
+  .gate-signout:hover{background:var(--mhn-purple-200)}
+
+  /* DIRECTORY */
+  .dir-hero{padding:48px 48px 24px;max-width:1200px;margin:0 auto}
+  .dir-hero .eyebrow{font-size:16px;letter-spacing:0.28em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:700;margin-bottom:14px}
+  .dir-hero h1{font-family:var(--mhn-font-serif);font-size:34px;line-height:1.05;color:var(--mhn-purple-700);margin:0 0 12px;letter-spacing:-0.015em;font-weight:700}
+  .dir-hero p{font-family:var(--mhn-font-serif);font-style:italic;font-size:18px;line-height:1.55;color:var(--mhn-ink-soft);margin:0;max-width:780px}
+  .dir-hero .private-tag{display:inline-block;font-family:var(--mhn-font-sans);font-size:14px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--mhn-warm-700);background:#FAF1E1;padding:5px 12px;border-radius:999px;margin-bottom:14px}
+
+  /* CONTROLS BAR */
+  .dir-controls{position:sticky;top:0;background:var(--mhn-paper);padding:18px 48px;border-bottom:1px solid var(--mhn-line);max-width:1200px;margin:0 auto;z-index:20}
+  .dir-controls-inner{display:grid;grid-template-columns:1.6fr 1fr 1fr auto;gap:14px;align-items:center;max-width:1100px;margin:0 auto}
+  .dir-search{position:relative}
+  .dir-search input{width:100%;padding:12px 16px 12px 44px;border:1.5px solid var(--mhn-line);border-radius:12px;font-size:17px;font-family:var(--mhn-font-sans);background:#fff;outline:none;box-sizing:border-box}
+  .dir-search input:focus{border-color:var(--mhn-purple-500)}
+  .dir-search-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:20px;height:20px;color:var(--mhn-ink-mute)}
+  .dir-controls select{padding:12px 16px;border:1.5px solid var(--mhn-line);border-radius:12px;font-size:17px;font-family:var(--mhn-font-sans);background:#fff;color:var(--mhn-ink);cursor:pointer}
+  .dir-count{font-family:var(--mhn-font-sans);font-size:16px;color:var(--mhn-ink-soft);font-weight:700;text-align:right;white-space:nowrap}
+
+  /* GRID */
+  .dir-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding:28px 48px 64px;max-width:1200px;margin:0 auto}
+  .dir-card{background:#fff;border:1px solid var(--mhn-line);border-radius:16px;padding:20px;display:grid;grid-template-columns:80px 1fr;gap:16px;transition:box-shadow 0.15s, transform 0.15s}
+  .dir-card:hover{box-shadow:0 8px 28px rgba(94,55,108,0.10);transform:translateY(-2px)}
+  .dir-avatar{width:80px;height:80px;border-radius:999px;background:var(--mhn-purple-50);display:flex;align-items:center;justify-content:center;font-family:var(--mhn-font-serif);font-weight:700;font-size:26px;color:var(--mhn-purple-700);overflow:hidden;flex-shrink:0}
+  .dir-avatar img{width:100%;height:100%;object-fit:cover}
+  .dir-card .info{display:flex;flex-direction:column;gap:4px;min-width:0}
+  .dir-card h3{font-family:var(--mhn-font-serif);font-size:18px;color:var(--mhn-purple-700);margin:0;font-weight:700;line-height:1.2;letter-spacing:-0.005em}
+  .dir-badges{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 6px}
+  .dir-badge{display:inline-block;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;font-weight:700;padding:3px 10px;border-radius:999px;font-family:var(--mhn-font-sans)}
+  .dir-badge.staff{background:var(--mhn-purple-700);color:#fff}
+  .dir-badge.active{background:#EAF4EC;color:#1F6B33;border:1px solid #C9E3CF}
+  .dir-badge.break{background:#FAF1E1;color:#85571F;border:1px solid #E8D5BD}
+  .dir-badge.inactive{background:var(--mhn-line);color:var(--mhn-ink-mute)}
+  .dir-badge.cohort{background:var(--mhn-purple-50);color:var(--mhn-purple-700);border:1px solid var(--mhn-purple-200)}
+  .dir-meta{font-size:15px;line-height:1.5;color:var(--mhn-ink-soft);margin:4px 0 0;display:flex;flex-direction:column;gap:3px}
+  .dir-meta a{color:var(--mhn-purple-700);font-weight:700;text-decoration:none;word-break:break-word}
+  .dir-meta a:hover{color:var(--mhn-purple-900)}
+  .dir-meta .ico{display:inline-block;width:14px;height:14px;color:var(--mhn-purple-500);vertical-align:-2px;margin-right:4px}
+  .dir-empty{grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--mhn-ink-soft);font-family:var(--mhn-font-serif);font-style:italic;font-size:18px}
+
+  /* RESPONSIVE */
+  @media(max-width:1000px){
+    .dir-grid{grid-template-columns:repeat(2,1fr)}
+    .dir-controls-inner{grid-template-columns:1fr 1fr}
+    .dir-controls-inner > .dir-search{grid-column:1/-1}
+    .dir-count{grid-column:1/-1;text-align:left}
+  }
+  @media(max-width:600px){
+    .dir-hero{padding:32px 24px 16px}
+    .dir-hero h1{font-size:28px}
+    .dir-controls{padding:14px 24px}
+    .dir-controls-inner{grid-template-columns:1fr}
+    .dir-grid{grid-template-columns:1fr;padding:20px 24px 60px}
+    .dir-card{grid-template-columns:64px 1fr;padding:16px}
+    .dir-avatar{width:64px;height:64px;font-size:22px}
+  }
+
+  /* FOOTER same as other pages */
+  footer{background:var(--mhn-purple-900);color:#F1EDF3;padding:64px 48px 36px;margin-top:48px}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px;max-width:1280px;margin:0 auto}
+  .foot-brand .logo{font-family:var(--mhn-font-serif);font-size:22px;color:#fff;font-weight:700;margin-bottom:10px}
+  .foot-brand p{font-size:15px;line-height:1.55;margin:0 0 8px;color:#D4BADD}
+  .foot-col h5{font-size:13px;letter-spacing:0.18em;text-transform:uppercase;color:var(--mhn-purple-200);font-weight:700;margin:0 0 14px}
+  .foot-col a{display:block;text-decoration:none;color:#F1EDF3;font-size:15px;margin-bottom:8px}
+  .foot-col a:hover{color:#fff}
+  .foot-btm{max-width:1280px;margin:32px auto 0;padding-top:24px;border-top:1px solid rgba(255,255,255,0.1);display:flex;justify-content:space-between;font-size:13.5px;color:#D4BADD}
+  @media(max-width:900px){.foot-grid{grid-template-columns:1fr 1fr;gap:24px}.foot-btm{flex-direction:column;gap:8px}}
+</style>
+</head>
+
+<body data-screen-label="Doula Directory">
+<div class="page">
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html" class="brand">
+    <div class="seal"><img src="./assets/logo-seal.png" alt="Mary's Hands Network logo"></div>
+    <div><div class="name">Mary's Hands Network</div></div>
+  </a>
+  <div class="nav-links">
+    <a href="about.html">About</a>
+    <a href="for-mom.html">For Families</a>
+    <a href="doula-training.html">Training</a>
+    <a href="store.html">Store</a>
+    <a href="inicio.html" class="lang-icon" title="Español" aria-label="Switch to Spanish"><i data-lucide="globe"></i></a>
+    <a href="donate.html" class="btn-donate">Donate</a>
+  </div>
+</nav>
+
+<!-- ACCESS GATE -->
+<section id="portal-gate">
+  <div class="eyebrow">For Active Doulas</div>
+  <h1>Members only.</h1>
+  <p class="lede">Enter your access code to view the doula directory. Names, contacts, and service areas for your network.</p>
+  <form id="portal-gate-form" autocomplete="off" novalidate>
+    <input id="portal-code" type="text" placeholder="Access code" aria-label="Access code" autocapitalize="characters" spellcheck="false">
+    <button type="submit">Enter directory</button>
+    <p class="gate-error" id="portal-gate-error" role="alert" aria-live="polite"></p>
+  </form>
+  <p class="gate-help">Don't have a code? <a href="contact.html">Contact us</a> or ask your Volunteer Coordinator.</p>
+</section>
+
+<!-- PROTECTED -->
+<div id="portal-protected">
+
+<section class="dir-hero">
+  <div class="private-tag">Private &middot; For Active Doulas</div>
+  <h1>Doula Directory.</h1>
+  <p>Search by first name, last name, or training cohort. Use the filters to narrow by status. Information is for active MHN volunteer use only &mdash; please do not share publicly.</p>
+</section>
+
+<div class="dir-controls">
+  <div class="dir-controls-inner">
+    <div class="dir-search">
+      <svg class="dir-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="text" id="dirSearch" placeholder="Search name or cohort…" aria-label="Search">
+    </div>
+    <select id="dirCohort" aria-label="Filter by cohort">
+      <option value="">All cohorts</option>
+    </select>
+    <select id="dirStatus" aria-label="Filter by status">
+      <option value="">All statuses</option>
+      <option value="staff">Staff Doulas</option>
+      <option value="active">Active volunteers</option>
+      <option value="break">On break</option>
+      <option value="inactive">Inactive</option>
+    </select>
+    <div class="dir-count" id="dirCount">0 doulas</div>
+  </div>
+</div>
+
+<div class="dir-grid" id="dirGrid"></div>
+
+</div><!-- /portal-protected -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <div class="logo">Mary's Hands Network</div>
+      <p>A Louisiana 501(c)(3) nonprofit &middot; EIN 92-2430838.</p>
+      <p style="font-family:var(--mhn-font-serif);font-style:italic;color:#D4BADD">info@mhndoula.com &middot; (225) 424-7532</p>
+    </div>
+    <div class="foot-col">
+      <h5>For Doulas</h5>
+      <a href="portal.html">Doula Portal</a>
+      <a href="directory.html">Doula Directory</a>
+      <a href="doula-training.html">Education &amp; Training</a>
+    </div>
+    <div class="foot-col">
+      <h5>About</h5>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="donate.html">Donate</a>
+    </div>
+    <div class="foot-col">
+      <h5>For Families</h5>
+      <a href="for-mom.html">For Families</a>
+      <a href="hotline.html">Doula Hotline</a>
+      <a href="birth-vision.html">Birth Vision Guide</a>
+    </div>
+  </div>
+  <div class="foot-btm">
+    <span>&copy; 2026 Mary's Hands Network &middot; All Rights Reserved</span>
+    <span>Every Birth Deserves a Doula.</span>
+  </div>
+</footer>
+
+</div>
+<script>lucide.createIcons();</script>
+
+<script>
+/* Access gate — same code/key as portal */
+(function(){
+  var KEY="mhn_portal_access_v1";
+  var CODE="MHNDOULA2026";
+  var gate=document.getElementById("portal-gate");
+  var prot=document.getElementById("portal-protected");
+  var form=document.getElementById("portal-gate-form");
+  var input=document.getElementById("portal-code");
+  var err=document.getElementById("portal-gate-error");
+  function unlock(){
+    if(gate) gate.style.display="none";
+    if(prot) prot.style.display="block";
+    if(!document.getElementById("gate-signout-btn")){
+      var so=document.createElement("a");
+      so.href="#"; so.id="gate-signout-btn"; so.className="gate-signout"; so.textContent="Sign out";
+      so.addEventListener("click",function(e){e.preventDefault();try{localStorage.removeItem(KEY);}catch(_){}; location.reload();});
+      document.body.appendChild(so);
+    }
+    if(window.lucide && window.lucide.createIcons) window.lucide.createIcons();
+    initDirectory();
+  }
+  try{
+    if(localStorage.getItem(KEY)==="1"){ unlock(); return; }
+  }catch(_){}
+  if(form){
+    form.addEventListener("submit",function(e){
+      e.preventDefault();
+      var v=(input.value||"").trim().toUpperCase().replace(/\s+/g,"");
+      if(v===CODE){
+        try{localStorage.setItem(KEY,"1");}catch(_){}
+        err.textContent="";
+        unlock();
+      } else {
+        err.textContent="That code didn't match. Please check with your Volunteer Coordinator.";
+        input.focus(); input.select();
+      }
+    });
+    setTimeout(function(){try{input.focus();}catch(_){}},200);
+  }
+})();
+
+/* Directory rendering + search */
+var DOULAS = [];
+function initDirectory(){
+  if (DOULAS.length) { render(); return; }
+  fetch("./assets/doulas.json", { cache: "no-store" })
+    .then(r => r.json())
+    .then(data => { DOULAS = data; populateCohortFilter(); render(); })
+    .catch(e => {
+      var grid = document.getElementById("dirGrid");
+      if (grid) grid.innerHTML = '<div class="dir-empty">Could not load directory. Refresh and try again.</div>';
+      console.error(e);
+    });
+  // attach listeners once
+  ["dirSearch","dirCohort","dirStatus"].forEach(function(id){
+    var el = document.getElementById(id);
+    if (el) el.addEventListener("input", render);
+    if (el) el.addEventListener("change", render);
+  });
+}
+
+function populateCohortFilter(){
+  var select = document.getElementById("dirCohort");
+  if (!select) return;
+  // Greek-alphabet order — keeps dropdown sensible
+  var order = ["Alpha","Beta","Gamma","Delta","Epsilon","Zeta","Eta","Theta","Iota","Kappa","Lambda","Mu","Nu","Xi","Omicron","Pi","Rho","Sigma","Tau","Upsilon","Phi","Chi","Psi","Omega"];
+  var found = {};
+  DOULAS.forEach(function(d){ if (d.cohort) found[d.cohort] = true; });
+  var sorted = Object.keys(found).sort(function(a, b){
+    var ai = order.indexOf(a), bi = order.indexOf(b);
+    if (ai === -1 && bi === -1) return a.localeCompare(b);
+    if (ai === -1) return 1;
+    if (bi === -1) return -1;
+    return ai - bi;
+  });
+  sorted.forEach(function(c){
+    var opt = document.createElement("option");
+    opt.value = c; opt.textContent = c;
+    select.appendChild(opt);
+  });
+}
+
+function initials(name){
+  return name.split(/\s+/).map(function(p){ return p[0] || ""; }).slice(0, 2).join("").toUpperCase();
+}
+
+function formatPhone(p){
+  if (!p) return "";
+  var s = (p+"").replace(/\D/g, "");
+  if (s.length === 10) return "(" + s.slice(0,3) + ") " + s.slice(3,6) + "-" + s.slice(6);
+  return p;
+}
+
+function statusBadge(d){
+  if (d.section === "staff") return '<span class="dir-badge staff">Staff Doula</span>';
+  if (d.section === "active") return '<span class="dir-badge active">Active</span>';
+  if (d.section === "break") return '<span class="dir-badge break">On break</span>';
+  return '<span class="dir-badge inactive">Inactive</span>';
+}
+
+function renderCard(d){
+  var phone = formatPhone(d.phone);
+  var photo = d.photo ? '<img src="'+d.photo+'" alt="">' : initials(d.name);
+  var meta = [];
+  if (d.email) meta.push('<div>📧 <a href="mailto:'+d.email+'">'+d.email+'</a></div>');
+  if (phone)   meta.push('<div>📞 <a href="tel:'+(d.phone+"").replace(/\D/g,"")+'">'+phone+'</a></div>');
+  var loc = d.region || d.service;
+  if (loc)     meta.push('<div>📍 '+loc+'</div>');
+  var badges = [statusBadge(d)];
+  if (d.cohort) badges.push('<span class="dir-badge cohort">'+d.cohort+'</span>');
+  return '<div class="dir-card">'
+       +   '<div class="dir-avatar">'+photo+'</div>'
+       +   '<div class="info">'
+       +     '<h3>'+d.name+'</h3>'
+       +     '<div class="dir-badges">'+badges.join("")+'</div>'
+       +     '<div class="dir-meta">'+meta.join("")+'</div>'
+       +   '</div>'
+       + '</div>';
+}
+
+function render(){
+  var q = (document.getElementById("dirSearch").value || "").toLowerCase().trim();
+  var cohort = document.getElementById("dirCohort").value;
+  var status = document.getElementById("dirStatus").value;
+  var filtered = DOULAS.filter(function(d){
+    if (status && d.section !== status) return false;
+    if (cohort && d.cohort !== cohort) return false;
+    if (q){
+      var hay = (d.name + " " + (d.cohort || "") + " " + (d.email || "") + " " + (d.region || "") + " " + (d.service || "")).toLowerCase();
+      if (hay.indexOf(q) === -1) return false;
+    }
+    return true;
+  });
+  var grid = document.getElementById("dirGrid");
+  if (!filtered.length){
+    grid.innerHTML = '<div class="dir-empty">No doulas matched. Try a different search or clear the filters.</div>';
+  } else {
+    grid.innerHTML = filtered.map(renderCard).join("");
+  }
+  document.getElementById("dirCount").textContent = filtered.length + " of " + DOULAS.length + " doulas";
+}
+</script>
+</body></html>
