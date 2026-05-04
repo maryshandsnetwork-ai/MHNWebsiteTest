@@ -48,11 +48,27 @@
 
   /* CONTROLS BAR */
   .dir-controls{position:sticky;top:0;background:var(--mhn-paper);padding:18px 48px;border-bottom:1px solid var(--mhn-line);max-width:1200px;margin:0 auto;z-index:20}
-  .dir-controls-inner{display:grid;grid-template-columns:1.6fr 1fr 1fr auto;gap:14px;align-items:center;max-width:1100px;margin:0 auto}
-  .dir-search{position:relative}
-  .dir-search input{width:100%;padding:12px 16px 12px 44px;border:1.5px solid var(--mhn-line);border-radius:12px;font-size:17px;font-family:var(--mhn-font-sans);background:#fff;outline:none;box-sizing:border-box}
+  .dir-controls-inner{display:grid;grid-template-columns:1.8fr 1fr 1fr auto;gap:14px;align-items:center;max-width:1100px;margin:0 auto}
+  .dir-search{position:relative;display:flex;align-items:center}
+  .dir-search-input-wrap{position:relative;flex:1}
+  .dir-search input{width:100%;padding:12px 40px 12px 44px;border:1.5px solid var(--mhn-line);border-radius:12px 0 0 12px;font-size:17px;font-family:var(--mhn-font-sans);background:#fff;outline:none;box-sizing:border-box;border-right:0}
   .dir-search input:focus{border-color:var(--mhn-purple-500)}
-  .dir-search-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:20px;height:20px;color:var(--mhn-ink-mute)}
+  .dir-search-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:20px;height:20px;color:var(--mhn-ink-mute);pointer-events:none}
+  .dir-search-clear{position:absolute;right:8px;top:50%;transform:translateY(-50%);background:transparent;border:0;color:var(--mhn-ink-mute);cursor:pointer;padding:4px;display:none;width:26px;height:26px;border-radius:999px;align-items:center;justify-content:center;font-size:18px;line-height:1}
+  .dir-search-clear:hover{background:var(--mhn-purple-50);color:var(--mhn-purple-700)}
+  .dir-search-clear.show{display:flex}
+  .dir-search-btn{background:var(--mhn-purple-700);color:#fff;border:0;border-radius:0 12px 12px 0;padding:0 22px;height:46px;font-size:16px;font-weight:700;font-family:var(--mhn-font-sans);cursor:pointer;letter-spacing:0.02em;display:flex;align-items:center;gap:8px}
+  .dir-search-btn:hover{background:var(--mhn-purple-500)}
+  .dir-search-btn .ico{width:18px;height:18px}
+  /* Suggestions dropdown */
+  .dir-suggest{position:absolute;top:100%;left:0;right:0;background:#fff;border:1px solid var(--mhn-line);border-radius:0 0 12px 12px;border-top:0;max-height:320px;overflow-y:auto;display:none;box-shadow:0 8px 28px rgba(94,55,108,0.12);z-index:30;margin-top:-1px}
+  .dir-suggest.show{display:block}
+  .dir-suggest-item{padding:10px 16px;cursor:pointer;font-size:16px;color:var(--mhn-ink);display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--mhn-line-soft)}
+  .dir-suggest-item:last-child{border-bottom:0}
+  .dir-suggest-item:hover,.dir-suggest-item.active{background:var(--mhn-purple-50)}
+  .dir-suggest-item .label{flex:1}
+  .dir-suggest-item .kind{font-size:12px;color:var(--mhn-ink-mute);text-transform:uppercase;letter-spacing:0.08em;font-weight:700}
+  .dir-suggest-item mark{background:#FAEFE0;color:var(--mhn-warm-700);font-weight:700;padding:0}
   .dir-controls select{padding:12px 16px;border:1.5px solid var(--mhn-line);border-radius:12px;font-size:17px;font-family:var(--mhn-font-sans);background:#fff;color:var(--mhn-ink);cursor:pointer}
   .dir-count{font-family:var(--mhn-font-sans);font-size:16px;color:var(--mhn-ink-soft);font-weight:700;text-align:right;white-space:nowrap}
 
@@ -71,6 +87,9 @@
   .dir-badge.break{background:#FAF1E1;color:#85571F;border:1px solid #E8D5BD}
   .dir-badge.inactive{background:var(--mhn-line);color:var(--mhn-ink-mute)}
   .dir-badge.cohort{background:var(--mhn-purple-50);color:var(--mhn-purple-700);border:1px solid var(--mhn-purple-200)}
+  .dir-badge.icea{background:#EAF3FA;color:#1A4F73;border:1px solid #B8DCEF}
+  .dir-badge.registry{background:#FAF1E1;color:#85571F;border:1px solid #E8D5BD}
+  .dir-badge.icea .check,.dir-badge.registry .check{margin-right:4px;font-weight:900}
   .dir-meta{font-size:15px;line-height:1.5;color:var(--mhn-ink-soft);margin:4px 0 0;display:flex;flex-direction:column;gap:3px}
   .dir-meta a{color:var(--mhn-purple-700);font-weight:700;text-decoration:none;word-break:break-word}
   .dir-meta a:hover{color:var(--mhn-purple-900)}
@@ -92,6 +111,9 @@
     .dir-grid{grid-template-columns:1fr;padding:20px 24px 60px}
     .dir-card{grid-template-columns:64px 1fr;padding:16px}
     .dir-avatar{width:64px;height:64px;font-size:22px}
+    .dir-search-btn{padding:0 16px;font-size:14px}
+    .dir-search-btn .ico{width:16px;height:16px}
+    .dir-suggest{right:0}
   }
 
   /* FOOTER same as other pages */
@@ -150,10 +172,18 @@
 
 <div class="dir-controls">
   <div class="dir-controls-inner">
-    <div class="dir-search">
-      <svg class="dir-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-      <input type="text" id="dirSearch" placeholder="Search name or cohort…" aria-label="Search">
-    </div>
+    <form class="dir-search" id="dirSearchForm" autocomplete="off" role="search">
+      <div class="dir-search-input-wrap">
+        <svg class="dir-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="text" id="dirSearch" placeholder="Search by name, cohort, or location…" aria-label="Search doulas" autocomplete="off">
+        <button type="button" class="dir-search-clear" id="dirSearchClear" aria-label="Clear search">&times;</button>
+        <div class="dir-suggest" id="dirSuggest" role="listbox" aria-label="Suggestions"></div>
+      </div>
+      <button type="submit" class="dir-search-btn" aria-label="Search">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        Search
+      </button>
+    </form>
     <select id="dirCohort" aria-label="Filter by cohort">
       <option value="">All cohorts</option>
     </select>
@@ -252,22 +282,169 @@
 
 /* Directory rendering + search */
 var DOULAS = [];
+var SUGGEST_INDEX = []; // [{label, kind, value}] for autocomplete
+var SUGGEST_ACTIVE = -1;
+
 function initDirectory(){
   if (DOULAS.length) { render(); return; }
   fetch("./assets/doulas.json", { cache: "no-store" })
     .then(r => r.json())
-    .then(data => { DOULAS = data; populateCohortFilter(); render(); })
+    .then(data => {
+      DOULAS = data;
+      populateCohortFilter();
+      buildSuggestIndex();
+      render();
+    })
     .catch(e => {
       var grid = document.getElementById("dirGrid");
       if (grid) grid.innerHTML = '<div class="dir-empty">Could not load directory. Refresh and try again.</div>';
       console.error(e);
     });
-  // attach listeners once
-  ["dirSearch","dirCohort","dirStatus"].forEach(function(id){
-    var el = document.getElementById(id);
-    if (el) el.addEventListener("input", render);
-    if (el) el.addEventListener("change", render);
+  // Filter listeners
+  document.getElementById("dirCohort").addEventListener("change", render);
+  document.getElementById("dirStatus").addEventListener("change", render);
+  // Search input — live filter + autocomplete
+  var input = document.getElementById("dirSearch");
+  var clearBtn = document.getElementById("dirSearchClear");
+  input.addEventListener("input", function(){
+    toggleClearBtn();
+    showSuggestions();
+    render();
   });
+  input.addEventListener("focus", showSuggestions);
+  input.addEventListener("keydown", handleSuggestKey);
+  // Search form submit (Enter key or button click)
+  document.getElementById("dirSearchForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    hideSuggestions();
+    render();
+    // Scroll grid into view if hero pushes it down
+    var grid = document.getElementById("dirGrid");
+    if (grid) grid.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+  // Clear button
+  clearBtn.addEventListener("click", function(){
+    input.value = "";
+    toggleClearBtn();
+    hideSuggestions();
+    render();
+    input.focus();
+  });
+  // Hide suggestions when clicking outside
+  document.addEventListener("click", function(e){
+    if (!e.target.closest(".dir-search")) hideSuggestions();
+  });
+}
+
+function toggleClearBtn(){
+  var input = document.getElementById("dirSearch");
+  var btn = document.getElementById("dirSearchClear");
+  if (input.value.trim()) btn.classList.add("show"); else btn.classList.remove("show");
+}
+
+function buildSuggestIndex(){
+  var seen = {};
+  SUGGEST_INDEX = [];
+  // Doula names
+  DOULAS.forEach(function(d){
+    var nm = (d.name || "").trim();
+    if (!nm || seen["n:"+nm.toLowerCase()]) return;
+    seen["n:"+nm.toLowerCase()] = true;
+    SUGGEST_INDEX.push({ label: nm, kind: "doula", value: nm });
+  });
+  // Cohort names — Greek alphabet order
+  var order = ["Alpha","Beta","Gamma","Delta","Epsilon","Zeta","Eta","Theta","Iota","Kappa","Lambda","Mu","Nu","Xi","Omicron","Pi","Rho","Sigma","Tau","Upsilon","Phi","Chi","Psi","Omega"];
+  var cohorts = {};
+  DOULAS.forEach(function(d){ if (d.cohort) cohorts[d.cohort] = true; });
+  Object.keys(cohorts).sort(function(a,b){
+    var ai = order.indexOf(a), bi = order.indexOf(b);
+    if (ai === -1 && bi === -1) return a.localeCompare(b);
+    if (ai === -1) return 1;
+    if (bi === -1) return -1;
+    return ai - bi;
+  }).forEach(function(c){
+    SUGGEST_INDEX.push({ label: c + " cohort", kind: "cohort", value: c });
+  });
+}
+
+function escHTML(s){ return s.replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+
+function highlight(text, q){
+  if (!q) return escHTML(text);
+  var re = new RegExp("(" + q.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + ")", "ig");
+  return escHTML(text).replace(re, "<mark>$1</mark>");
+}
+
+function showSuggestions(){
+  var input = document.getElementById("dirSearch");
+  var box = document.getElementById("dirSuggest");
+  var q = input.value.trim().toLowerCase();
+  if (q.length < 1) { hideSuggestions(); return; }
+  var matches = SUGGEST_INDEX.filter(function(s){
+    return s.label.toLowerCase().indexOf(q) !== -1;
+  }).slice(0, 8);
+  if (!matches.length) { hideSuggestions(); return; }
+  SUGGEST_ACTIVE = -1;
+  box.innerHTML = matches.map(function(s, i){
+    var kindLabel = s.kind === "cohort" ? "Cohort" : "Doula";
+    return '<div class="dir-suggest-item" data-idx="' + i + '" data-value="' + escHTML(s.value) + '" data-kind="' + s.kind + '">'
+         +   '<span class="label">' + highlight(s.label, q) + '</span>'
+         +   '<span class="kind">' + kindLabel + '</span>'
+         + '</div>';
+  }).join("");
+  box.classList.add("show");
+  // Click handlers
+  Array.prototype.forEach.call(box.querySelectorAll(".dir-suggest-item"), function(el){
+    el.addEventListener("click", function(){
+      pickSuggestion(el.getAttribute("data-value"), el.getAttribute("data-kind"));
+    });
+  });
+}
+
+function hideSuggestions(){
+  var box = document.getElementById("dirSuggest");
+  box.classList.remove("show");
+  SUGGEST_ACTIVE = -1;
+}
+
+function pickSuggestion(value, kind){
+  if (kind === "cohort"){
+    document.getElementById("dirSearch").value = "";
+    document.getElementById("dirCohort").value = value;
+    toggleClearBtn();
+  } else {
+    document.getElementById("dirSearch").value = value;
+    toggleClearBtn();
+  }
+  hideSuggestions();
+  render();
+}
+
+function handleSuggestKey(e){
+  var box = document.getElementById("dirSuggest");
+  if (!box.classList.contains("show")) return;
+  var items = box.querySelectorAll(".dir-suggest-item");
+  if (e.key === "ArrowDown"){
+    e.preventDefault();
+    SUGGEST_ACTIVE = Math.min(items.length - 1, SUGGEST_ACTIVE + 1);
+    setActiveSuggest(items);
+  } else if (e.key === "ArrowUp"){
+    e.preventDefault();
+    SUGGEST_ACTIVE = Math.max(-1, SUGGEST_ACTIVE - 1);
+    setActiveSuggest(items);
+  } else if (e.key === "Enter" && SUGGEST_ACTIVE >= 0){
+    e.preventDefault();
+    var el = items[SUGGEST_ACTIVE];
+    pickSuggestion(el.getAttribute("data-value"), el.getAttribute("data-kind"));
+  } else if (e.key === "Escape"){
+    hideSuggestions();
+  }
+}
+function setActiveSuggest(items){
+  Array.prototype.forEach.call(items, function(el, i){
+    el.classList.toggle("active", i === SUGGEST_ACTIVE);
+  });
+  if (SUGGEST_ACTIVE >= 0 && items[SUGGEST_ACTIVE]) items[SUGGEST_ACTIVE].scrollIntoView({block: "nearest"});
 }
 
 function populateCohortFilter(){
@@ -319,6 +496,14 @@ function renderCard(d){
   if (loc)     meta.push('<div>📍 '+loc+'</div>');
   var badges = [statusBadge(d)];
   if (d.cohort) badges.push('<span class="dir-badge cohort">'+d.cohort+'</span>');
+  // ICEA Certified — show if Birth Doula or Postpartum
+  if (d.icea === "Birth Doula" || d.icea === "Postpartum"){
+    badges.push('<span class="dir-badge icea" title="ICEA-certified ' + d.icea + ' Doula"><span class="check">✓</span>ICEA ' + d.icea + '</span>');
+  }
+  // Doula Registry — show if Active on registry
+  if (d.registry === "Active"){
+    badges.push('<span class="dir-badge registry" title="On the Louisiana Doula Registry"><span class="check">✓</span>LA Registry</span>');
+  }
   return '<div class="dir-card">'
        +   '<div class="dir-avatar">'+photo+'</div>'
        +   '<div class="info">'
@@ -337,7 +522,7 @@ function render(){
     if (status && d.section !== status) return false;
     if (cohort && d.cohort !== cohort) return false;
     if (q){
-      var hay = (d.name + " " + (d.cohort || "") + " " + (d.email || "") + " " + (d.region || "") + " " + (d.service || "")).toLowerCase();
+      var hay = (d.name + " " + (d.cohort || "") + " " + (d.email || "") + " " + (d.region || "") + " " + (d.service || "") + " " + (d.icea || "") + " " + (d.registry || "")).toLowerCase();
       if (hay.indexOf(q) === -1) return false;
     }
     return true;
