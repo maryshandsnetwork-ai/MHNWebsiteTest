@@ -52,7 +52,7 @@
 
   /* CONTROLS BAR */
   .dir-controls{position:sticky;top:0;background:var(--mhn-paper);padding:18px 48px;border-bottom:1px solid var(--mhn-line);max-width:1200px;margin:0 auto;z-index:20}
-  .dir-controls-inner{display:grid;grid-template-columns:1.8fr 1fr 1fr auto;gap:14px;align-items:center;max-width:1100px;margin:0 auto}
+  .dir-controls-inner{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr auto;gap:14px;align-items:center;max-width:1100px;margin:0 auto}
   .dir-search{position:relative;display:flex;align-items:center}
   .dir-search-input-wrap{position:relative;flex:1}
   .dir-search input{width:100%;padding:12px 40px 12px 44px;border:1.5px solid var(--mhn-line);border-radius:12px 0 0 12px;font-size:17px;font-family:var(--mhn-font-sans);background:#fff;outline:none;box-sizing:border-box;border-right:0}
@@ -103,7 +103,7 @@
   /* RESPONSIVE */
   @media(max-width:1000px){
     .dir-grid{grid-template-columns:repeat(2,1fr)}
-    .dir-controls-inner{grid-template-columns:1fr 1fr}
+    .dir-controls-inner{grid-template-columns:1fr 1fr 1fr}
     .dir-controls-inner > .dir-search{grid-column:1/-1}
     .dir-count{grid-column:1/-1;text-align:left}
     .dir-card{grid-template-columns:110px 1fr}
@@ -214,6 +214,14 @@
     </form>
     <select id="dirCohort" aria-label="Filter by cohort">
       <option value="">All cohorts</option>
+    </select>
+    <select id="dirRegion" aria-label="Filter by region">
+      <option value="">All regions</option>
+      <option value="Region 1">Region 1 — New Orleans</option>
+      <option value="Region 2">Region 2 — Baton Rouge</option>
+      <option value="Region 3">Region 3 — Bayou</option>
+      <option value="Region 4">Region 4 — Acadiana / Lafayette</option>
+      <option value="Region 5">Region 5 — Southwest LA / Lake Charles</option>
     </select>
     <select id="dirStatus" aria-label="Filter by status">
       <option value="">All statuses</option>
@@ -336,6 +344,7 @@ function initDirectory(){
     });
   // Filter listeners
   document.getElementById("dirCohort").addEventListener("change", render);
+  document.getElementById("dirRegion").addEventListener("change", render);
   document.getElementById("dirStatus").addEventListener("change", render);
   // Search input — live filter + autocomplete
   var input = document.getElementById("dirSearch");
@@ -551,10 +560,12 @@ function renderCard(d){
 function render(){
   var q = (document.getElementById("dirSearch").value || "").toLowerCase().trim();
   var cohort = document.getElementById("dirCohort").value;
+  var region = document.getElementById("dirRegion").value;
   var status = document.getElementById("dirStatus").value;
   var filtered = DOULAS.filter(function(d){
     if (status && d.section !== status) return false;
     if (cohort && d.cohort !== cohort) return false;
+    if (region && (d.region || "").indexOf(region) === -1) return false;
     if (q){
       var hay = (d.name + " " + (d.cohort || "") + " " + (d.email || "") + " " + (d.region || "") + " " + (d.service || "") + " " + (d.icea || "") + " " + (d.registry || "")).toLowerCase();
       if (hay.indexOf(q) === -1) return false;
