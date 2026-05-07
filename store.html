@@ -198,6 +198,31 @@
   /* Small tax/shipping note under the price */
   .price-fine{font-family:var(--mhn-font-sans);font-style:italic;font-size:16px;color:var(--mhn-ink-mute);margin:-6px 0 14px;letter-spacing:0.01em}
 
+  /* DDD BUNDLE — featured card with two book covers side-by-side */
+  .ddd-bundle .photo{background:linear-gradient(135deg,#F4EAF7 0%,#E9DCEE 100%);padding:24px;display:flex;align-items:center;justify-content:center;position:relative}
+  .ddd-pair{display:grid;grid-template-columns:1fr 1fr;gap:14px;width:100%;max-width:420px}
+  .ddd-pair-img{width:100%;height:auto;display:block;border-radius:8px;box-shadow:0 8px 24px rgba(94,55,108,0.18);background:#fff;aspect-ratio:5/6;object-fit:cover}
+  .save-pill{position:absolute;top:18px;right:18px;background:#85571F;color:#fff;font-size:14px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:6px 14px;border-radius:999px;box-shadow:0 4px 12px rgba(0,0,0,0.15);z-index:2}
+
+  /* DDD INDIVIDUAL CARDS — smaller "or buy separately" row */
+  .ddd-individual-row{grid-column:1/-1;margin-top:12px}
+  .ddd-individual-head{font-family:var(--mhn-font-serif);font-style:italic;font-size:18px;color:var(--mhn-ink-soft);text-align:center;margin:8px 0 18px}
+  .ddd-individual-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:760px;margin:0 auto}
+  .product--small{background:#fff;border:1px solid var(--mhn-line);border-radius:16px;overflow:hidden;display:grid;grid-template-columns:140px 1fr;gap:0}
+  .product--small .photo{aspect-ratio:auto;background:linear-gradient(135deg,#F8F5FA 0%,#EDE0F2 100%);border-bottom:0;border-right:1px solid var(--mhn-line);padding:14px;display:flex;align-items:center;justify-content:center}
+  .product--small .photo img{width:100%;height:100%;object-fit:contain;position:static}
+  .product--small .body{padding:16px 18px}
+  .product--small h3{font-family:var(--mhn-font-serif);font-size:17px;color:var(--mhn-purple-700);margin:0 0 4px;font-weight:700}
+  .product--small .price{font-family:var(--mhn-font-serif);font-size:18px;color:var(--mhn-warm-700,#B5824A);margin:0 0 2px;font-weight:700}
+  .product--small .price-fine{font-size:13px;margin:-2px 0 8px}
+  .product--small .desc{font-size:14px;line-height:1.45;margin:0 0 10px}
+  .product--small .buy-btn{font-size:14px;padding:8px 14px}
+  @media(max-width:760px){
+    .ddd-individual-grid{grid-template-columns:1fr}
+    .product--small{grid-template-columns:110px 1fr}
+    .save-pill{font-size:12px;padding:4px 10px;top:12px;right:12px}
+  }
+
   /* TWO-SIZE OPTION ROWS (Pocket Doula instructor + standard) */
   .size-options{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:12px 0 4px}
   .size-option{background:var(--mhn-paper-alt);border:1px solid var(--mhn-line);border-radius:14px;padding:18px}
@@ -359,14 +384,48 @@
       </div>
     </div>
 
-    <div class="product">
-      <div class="photo"><img src="./assets/photos/data-driven-doula.jpg" alt="The Data-Driven Doula textbook cover"></div>
+    <!-- DATA-DRIVEN DOULA BUNDLE — FEATURED -->
+    <div class="product product--featured ddd-bundle">
+      <div class="photo">
+        <div class="ddd-pair">
+          <img src="./assets/photos/data-driven-doula.jpg" alt="The Data-Driven Doula textbook cover" class="ddd-pair-img">
+          <img src="./assets/photos/data-driven-doula-workbook.jpg" alt="The Data-Driven Doula Student Workbook cover" class="ddd-pair-img">
+        </div>
+        <span class="save-pill">Save $20</span>
+      </div>
       <div class="body">
-        <h3>The Data-Driven Doula</h3>
-        <p class="price">$120 <span style="font-size:16px;color:var(--mhn-ink-mute);font-weight:400;font-family:var(--mhn-font-sans);font-style:italic;letter-spacing:0">5 units, 21 chapters</span></p>
+        <h3>The Data-Driven Doula <span style="font-size:18px;color:var(--mhn-purple-500);font-style:italic;font-weight:400;display:block;margin-top:4px">Textbook + Student Workbook bundle</span></h3>
+        <p class="price">$150 <span style="font-size:16px;color:var(--mhn-ink-mute);font-weight:400;font-family:var(--mhn-font-sans);font-style:italic;letter-spacing:0">both books — best value</span></p>
         <p class="price-fine">+ tax · free shipping</p>
-        <p class="desc">Course materials for Mary's Hands Network's ICEA-approved doula training. Five units, twenty-one chapters of evidence-based curriculum: physiology of birth, comfort measures, scope of practice, postpartum mental health, and outcomes data.</p>
-        <div class="buy-row"><a class="buy-btn" href="https://www.paypal.com/ncp/payment/5HFVDZ4CDNP48" target="_blank" rel="noopener">Buy on PayPal<span class="ext" aria-hidden="true"></span></a><p class="bulk-note">Need more than 10? <a href="mailto:info@mhndoula.com?subject=Data-Driven%20Doula%20bulk%20pricing">Email for bulk pricing.</a></p></div>
+        <p class="desc">The complete training set for Mary's Hands Network's ICEA-approved doula curriculum. Five units and twenty-one chapters of evidence-based content paired with the companion workbook for reflection prompts, exercises, and exam prep. Buying together saves $20 over buying each separately.</p>
+        <div class="buy-row"><a class="buy-btn" href="https://www.paypal.com/ncp/payment/PMQ3U2H2EVQ2G" target="_blank" rel="noopener">Buy bundle on PayPal<span class="ext" aria-hidden="true"></span></a><p class="bulk-note">Need more than 10? <a href="mailto:info@mhndoula.com?subject=Data-Driven%20Doula%20Bundle%20bulk%20pricing">Email for bulk pricing.</a></p></div>
+      </div>
+    </div>
+
+    <!-- INDIVIDUAL PURCHASE CARDS (smaller) -->
+    <div class="ddd-individual-row">
+      <p class="ddd-individual-head">Or buy them separately</p>
+      <div class="ddd-individual-grid">
+        <div class="product product--small">
+          <div class="photo"><img src="./assets/photos/data-driven-doula.jpg" alt="The Data-Driven Doula textbook cover"></div>
+          <div class="body">
+            <h3>Textbook only</h3>
+            <p class="price">$120</p>
+            <p class="price-fine">+ tax · free shipping</p>
+            <p class="desc">5 units · 21 chapters · the full evidence-based curriculum.</p>
+            <div class="buy-row"><a class="buy-btn" href="https://www.paypal.com/ncp/payment/5HFVDZ4CDNP48" target="_blank" rel="noopener">Buy textbook<span class="ext" aria-hidden="true"></span></a></div>
+          </div>
+        </div>
+        <div class="product product--small">
+          <div class="photo"><img src="./assets/photos/data-driven-doula-workbook.jpg" alt="The Data-Driven Doula Student Workbook cover"></div>
+          <div class="body">
+            <h3>Workbook only</h3>
+            <p class="price">$50</p>
+            <p class="price-fine">+ tax · free shipping</p>
+            <p class="desc">Reflection prompts, exercises, and exam-prep pages designed to pair with the textbook.</p>
+            <div class="buy-row"><a class="buy-btn" href="https://www.paypal.com/ncp/payment/QNJKXYYU39NBA" target="_blank" rel="noopener">Buy workbook<span class="ext" aria-hidden="true"></span></a></div>
+          </div>
+        </div>
       </div>
     </div>
 
