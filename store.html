@@ -30,12 +30,26 @@
   .nav-links .active{color:var(--mhn-purple-700)}
   .nav-links .active::after{content:"";display:block;height:2px;background:var(--mhn-purple-200);margin-top:4px}
 
-  /* HERO */
-  .hero{padding:56px 48px 36px;max-width:880px}
-  .eyebrow{font-size:16px;letter-spacing:0.28em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:700;margin-bottom:18px}
-  h1.t{font-family:var(--mhn-font-serif);font-size:33px;line-height:1.05;color:var(--mhn-purple-700);margin:0 0 20px;letter-spacing:-0.015em;font-weight:700}
+  /* HERO — split text + photo collage */
+  .store-hero{display:grid;grid-template-columns:1.2fr 1fr;gap:56px;align-items:center;padding:56px 48px 56px;max-width:1200px;margin:0 auto;background:linear-gradient(135deg,#FAF6F0 0%,#F4EAF7 100%);border-bottom:1px solid var(--mhn-purple-200)}
+  .store-hero{max-width:none;padding:64px 48px}
+  .store-hero-text{max-width:580px}
+  .eyebrow{font-size:14px;letter-spacing:0.28em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:700;margin-bottom:14px}
+  h1.t{font-family:var(--mhn-font-serif);font-size:42px;line-height:1.05;color:var(--mhn-purple-700);margin:0 0 18px;letter-spacing:-0.015em;font-weight:700}
   h1.t em{font-style:italic;color:var(--mhn-purple-500)}
-  .lede{font-family:var(--mhn-font-serif);font-style:italic;font-size:19px;line-height:1.55;color:var(--mhn-ink-soft);margin:0;max-width:640px}
+  .lede{font-family:var(--mhn-font-serif);font-style:italic;font-size:19px;line-height:1.55;color:var(--mhn-ink-soft);margin:0 0 22px;max-width:640px}
+  .store-hero-stats{font-size:15px;color:var(--mhn-ink-soft);font-family:var(--mhn-font-sans);margin:0;letter-spacing:0.01em}
+  .store-hero-stats strong{color:var(--mhn-purple-700);font-weight:700;font-family:var(--mhn-font-sans)}
+  .store-hero-art{position:relative;height:360px}
+  .store-hero-img{position:absolute;border-radius:14px;box-shadow:0 14px 40px rgba(94,55,108,0.18);border:4px solid #fff;object-fit:cover;background:#fff}
+  .store-hero-img.a{width:60%;height:80%;top:0;left:0;z-index:3}
+  .store-hero-img.b{width:46%;height:62%;top:18%;right:0;z-index:2;transform:rotate(4deg)}
+  .store-hero-img.c{width:40%;height:55%;bottom:0;left:30%;z-index:1;transform:rotate(-3deg)}
+  @media(max-width:900px){
+    .store-hero{grid-template-columns:1fr;padding:40px 20px;gap:32px}
+    h1.t{font-size:32px}
+    .store-hero-art{height:260px;max-width:420px;margin:0 auto}
+  }
 
   /* PRODUCT GRID */
   .shop{padding:8px 48px 64px;max-width:1200px;margin:0 auto}
@@ -248,6 +262,54 @@
   .buy-btn .ext{font-size:16px;opacity:0.85}
   .buy-row .bulk-note{margin:4px 0 0;font-size:16px;color:var(--mhn-ink-soft);font-style:italic}
   .buy-row .bulk-note a{color:var(--mhn-purple-700);font-weight:600}
+
+  /* ===== UNIFIED STORE GRID — overrides legacy product styles ===== */
+  .shop-decks{padding:0;max-width:none;margin:0;background:#FAF6F0}
+  .shop-decks .shop-inner{max-width:1200px;margin:0 auto;padding:48px 48px 80px}
+
+  .section-divider{margin:0 0 32px;text-align:center;padding-top:8px;border-top:3px solid var(--mhn-purple-300);max-width:1200px}
+  .section-divider .sd-title{font-family:var(--mhn-font-serif);font-size:30px;color:var(--mhn-purple-700);margin:24px 0 8px;letter-spacing:-0.01em;font-weight:700}
+  .section-divider .sd-sub{font-family:var(--mhn-font-serif);font-style:italic;color:var(--mhn-ink-soft);font-size:17px;margin:0;line-height:1.5}
+
+  /* Unified product card — same shape for every item */
+  .shop-decks .pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch}
+  .shop-decks .product{background:#fff;border:1px solid var(--mhn-line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;transition:transform 0.18s,box-shadow 0.18s,border-color 0.18s;height:100%}
+  .shop-decks .product:hover{transform:translateY(-3px);box-shadow:0 14px 36px rgba(94,55,108,0.10);border-color:var(--mhn-purple-200)}
+  .shop-decks .product .photo{position:relative;aspect-ratio:1/1;background:linear-gradient(135deg,#F8F5FA,#EDE0F2);display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--mhn-line);overflow:hidden}
+  .shop-decks .product .photo .photo-main{width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0}
+  .shop-decks .product--bundle .photo{padding:18px}
+  .shop-decks .product--bundle .ddd-pair{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%;max-width:320px;align-items:center}
+  .shop-decks .product--bundle .ddd-pair-img{width:100%;height:auto;border-radius:6px;box-shadow:0 6px 16px rgba(94,55,108,0.18);background:#fff;aspect-ratio:5/6;object-fit:cover;position:static}
+  .shop-decks .product .body{padding:22px 22px 24px;display:flex;flex-direction:column;flex:1;gap:0}
+  .shop-decks .product h3{font-family:var(--mhn-font-serif);font-size:21px;color:var(--mhn-purple-700);margin:0 0 8px;font-weight:700;letter-spacing:-0.005em;line-height:1.2}
+  .shop-decks .product .desc{font-size:15px;line-height:1.55;color:var(--mhn-ink-soft);margin:0 0 16px;flex:1}
+  .shop-decks .product .price-line{margin:14px 0 12px;display:flex;align-items:baseline;flex-wrap:wrap;gap:8px}
+  .shop-decks .product .price-display{font-family:var(--mhn-font-serif);font-size:22px;font-weight:700;color:#85571F;letter-spacing:-0.005em}
+  .shop-decks .product .price-fine{font-family:var(--mhn-font-sans);font-style:italic;font-size:13px;color:var(--mhn-ink-mute);margin:0;letter-spacing:0.01em}
+  .shop-decks .product .buy-btn{display:inline-flex;align-items:center;justify-content:center;background:var(--mhn-purple-700);color:#fff;text-decoration:none;padding:11px 18px;border-radius:999px;font-weight:700;font-size:15px;letter-spacing:0.02em;font-family:var(--mhn-font-sans);transition:background 0.15s;width:100%;box-sizing:border-box}
+  .shop-decks .product .buy-btn:hover{background:var(--mhn-purple-900)}
+  .shop-decks .product .bulk-note{font-size:13px;color:var(--mhn-ink-mute);font-style:italic;margin:10px 0 0;font-family:var(--mhn-font-serif);text-align:center}
+  .shop-decks .product .bulk-note a{color:var(--mhn-purple-700);font-weight:700;text-decoration:none;font-style:normal;font-family:var(--mhn-font-sans)}
+
+  /* Variant dropdown */
+  .variant-row{display:flex;flex-direction:column;gap:6px;margin:0 0 8px}
+  .variant-label{font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:700}
+  .variant-select{appearance:none;-webkit-appearance:none;background:#fff url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path fill='%235E376C' d='M6 8L0 0h12z'/></svg>") right 14px center no-repeat;border:1.5px solid var(--mhn-purple-200);border-radius:10px;padding:10px 36px 10px 14px;font-size:14px;font-family:var(--mhn-font-sans);color:var(--mhn-ink);cursor:pointer;width:100%}
+  .variant-select:focus{outline:none;border-color:var(--mhn-purple-500)}
+
+  /* Ribbons */
+  .ribbon{position:absolute;top:14px;right:14px;font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:6px 12px;border-radius:999px;box-shadow:0 4px 14px rgba(0,0,0,0.18);z-index:5;font-family:var(--mhn-font-sans)}
+  .ribbon-warm{background:#85571F;color:#fff}
+  .ribbon-purple{background:var(--mhn-purple-700);color:#fff}
+
+  @media (max-width:1100px){
+    .shop-decks .pgrid{grid-template-columns:repeat(2,1fr)}
+  }
+  @media (max-width:680px){
+    .shop-decks .pgrid{grid-template-columns:1fr}
+    .shop-decks .shop-inner{padding:32px 20px 56px}
+    .section-divider .sd-title{font-size:25px}
+  }
 </style>
 </head>
 <body data-screen-label="Store">
@@ -272,172 +334,124 @@
 </nav>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="eyebrow">Mary's Hands Network · Store</div>
-  <h1 class="t">Read it, carry it, <em>support the work.</em></h1>
-  <p class="lede">Every purchase helps fund free volunteer doula care for Louisiana families. Shipping happens within five business days; orders go through PayPal's secure checkout.</p>
+<section class="store-hero">
+  <div class="store-hero-text">
+    <div class="eyebrow">Mary's Hands Network · Store</div>
+    <h1 class="t">Read it, carry it, <em>support the work.</em></h1>
+    <p class="lede">Every purchase helps fund free volunteer doula care for Louisiana families. Shipping happens within five business days; orders go through PayPal's secure checkout.</p>
+    <p class="store-hero-stats"><strong>254 doulas trained</strong> · <strong>450+ families served</strong> · 100% of proceeds fund free care</p>
+  </div>
+  <div class="store-hero-art">
+    <img src="./assets/photos/pocket-doula-pair.jpg" alt="MHN store products" class="store-hero-img a">
+    <img src="./assets/photos/bereavement-1.jpg" alt="" class="store-hero-img b">
+    <img src="./assets/photos/data-driven-doula.jpg" alt="" class="store-hero-img c">
+  </div>
 </section>
 
-<!-- PRODUCT GRID -->
-<section class="shop">
-
-  <!-- VIEW CART -->
-
-  <!-- AVAILABLE NOW -->
-  <div class="acc-section-head"><span class="line"></span>Available Now</div>
-  <div class="pgrid">
-
-    <div class="product product--featured">
-      <div class="photo">
-        <div class="photo-cycle">
-          <img src="./assets/photos/pocket-doula-hero.jpg" alt="The Pocket Doula tin front-facing on textured fabric">
-          <img src="./assets/photos/pocket-doula-cards.jpg" alt="A spread of cards from The Pocket Doula deck">
-          <img src="./assets/photos/pocket-doula-pair.jpg" alt="Two Pocket Doula tins, top-down">
-          <img src="./assets/photos/pocket-doula-angle.jpg" alt="The Pocket Doula tins at an angle">
-        </div>
-        <div class="photo-thumbs">
-          <span class="thumb" style="background-image:url('./assets/photos/pocket-doula-hero.jpg')"></span>
-          <span class="thumb" style="background-image:url('./assets/photos/pocket-doula-cards.jpg')"></span>
-          <span class="thumb" style="background-image:url('./assets/photos/pocket-doula-pair.jpg')"></span>
-          <span class="thumb" style="background-image:url('./assets/photos/pocket-doula-angle.jpg')"></span>
-        </div>
-      </div>
-      <div class="body">
-        <h3>The Pocket Doula</h3>
-        <p class="desc">50 illustrated cards for support and comfort during birth. Comfort measures, labor positions, and quick-reference cues, Music &amp; Sound, Walking, Lunges, Hands &amp; Knees, Warmth, Privacy, and more, packed into a slim purple tin built to slip into a doula bag. Available in two sizes.</p>
-
-        <div class="size-options">
-          <div class="size-option">
-            <h4>Standard Edition</h4>
-            <span class="size-meta">poker size</span>
-            <div class="size-price">$40</div>
-            <p class="price-fine">+ tax · free shipping</p>
-            <div class="buy-row"><a class="buy-btn" href="https://www.paypal.com/ncp/payment/XCQZ8JHHY7842" target="_blank" rel="noopener">Buy on PayPal<span class="ext" aria-hidden="true"></span></a></div>
-          </div>
-
-          <div class="size-option">
-            <h4>Professional Edition</h4>
-            <span class="size-meta">tarot size · larger, sturdier deck</span>
-            <div class="size-price">$100</div>
-            <p class="price-fine">+ tax · free shipping</p>
-            <div class="buy-row"><a class="buy-btn" href="https://www.paypal.com/ncp/payment/HPHRKSHEDGUUQ" target="_blank" rel="noopener">Buy on PayPal<span class="ext" aria-hidden="true"></span></a></div>
-          </div>
-        </div>
-
-        <p class="bulk-note">Need more than 10? <a href="mailto:info@mhndoula.com?subject=Pocket%20Doula%20bulk%20pricing">Email for bulk pricing.</a></p>
-      </div>
+<!-- PRODUCT GRID — UNIFIED -->
+<section class="shop shop-decks">
+  <div class="shop-inner">
+    <div class="section-divider">
+      <h2 class="sd-title">Decks &amp; Books</h2>
+      <p class="sd-sub">For doulas, parents, partners, and birth workers — every order ships in 5 business days.</p>
     </div>
 
+    <div class="pgrid">
+      <!-- POCKET DOULA — variant dropdown -->
+      <div class="product" data-variants="pocket">
+        <div class="photo">
+          <img src="./assets/photos/pocket-doula-hero.jpg" alt="The Pocket Doula tin front-facing on textured fabric" class="photo-main">
+        </div>
+        <div class="body">
+          <h3>The Pocket Doula</h3>
+          <p class="desc">50 illustrated comfort cards in a slim purple tin built to slip into a doula bag. Available in two sizes.</p>
+          <div class="variant-row">
+            <label class="variant-label" for="var-pocket">Size</label>
+            <select id="var-pocket" class="variant-select"
+                    data-prices='{"std":"$40","pro":"$100"}'
+                    data-urls='{"std":"https://www.paypal.com/ncp/payment/XCQZ8JHHY7842","pro":"https://www.paypal.com/ncp/payment/HPHRKSHEDGUUQ"}'>
+              <option value="std">Standard Edition · poker size · $40</option>
+              <option value="pro">Professional Edition · tarot size · $100</option>
+            </select>
+          </div>
+          <p class="price-line"><span class="price-display" data-default="$40">$40</span> <span class="price-fine">+ tax · free shipping</span></p>
+          <a class="buy-btn buy-cta" data-default="https://www.paypal.com/ncp/payment/XCQZ8JHHY7842" href="https://www.paypal.com/ncp/payment/XCQZ8JHHY7842" target="_blank" rel="noopener">Buy on PayPal</a>
+          <p class="bulk-note">Need more than 10? <a href="mailto:info@mhndoula.com?subject=Pocket%20Doula%20bulk%20pricing">Email for bulk pricing</a></p>
+        </div>
+      </div>
+
+      <!-- DATA-DRIVEN DOULA — variant dropdown with bundle as default -->
+      <div class="product product--bundle" data-variants="ddd">
+        <div class="photo">
+          <div class="ddd-pair">
+            <img src="./assets/photos/data-driven-doula.jpg" alt="The Data-Driven Doula textbook cover" class="ddd-pair-img">
+            <img src="./assets/photos/data-driven-doula-workbook.jpg" alt="The Data-Driven Doula Student Workbook cover" class="ddd-pair-img">
+          </div>
+          <span class="ribbon ribbon-warm">Best Value · Save $20</span>
+        </div>
+        <div class="body">
+          <h3>The Data-Driven Doula</h3>
+          <p class="desc">The full ICEA-approved doula curriculum. 5 units, 21 chapters of evidence-based content + a companion workbook for reflection, exercises, and exam prep.</p>
+          <div class="variant-row">
+            <label class="variant-label" for="var-ddd">Format</label>
+            <select id="var-ddd" class="variant-select"
+                    data-prices='{"bundle":"$150","textbook":"$120","workbook":"$50"}'
+                    data-urls='{"bundle":"https://www.paypal.com/ncp/payment/PMQ3U2H2EVQ2G","textbook":"https://www.paypal.com/ncp/payment/5HFVDZ4CDNP48","workbook":"https://www.paypal.com/ncp/payment/QNJKXYYU39NBA"}'>
+              <option value="bundle">Bundle · textbook + workbook · $150 (Save $20)</option>
+              <option value="textbook">Textbook only · $120</option>
+              <option value="workbook">Workbook only · $50</option>
+            </select>
+          </div>
+          <p class="price-line"><span class="price-display" data-default="$150">$150</span> <span class="price-fine">+ tax · free shipping</span></p>
+          <a class="buy-btn buy-cta" data-default="https://www.paypal.com/ncp/payment/PMQ3U2H2EVQ2G" href="https://www.paypal.com/ncp/payment/PMQ3U2H2EVQ2G" target="_blank" rel="noopener">Buy on PayPal</a>
+          <p class="bulk-note">Need more than 10? <a href="mailto:info@mhndoula.com?subject=Data-Driven%20Doula%20bulk%20pricing">Email for bulk pricing</a></p>
+        </div>
+      </div>
+
+      <!-- BEREAVEMENT BUNDLE -->
+      <div class="product">
+        <div class="photo">
+          <img src="./assets/photos/bereavement-1.jpg" alt="The Bereavement Doula textbook front cover" class="photo-main">
+        </div>
+        <div class="body">
+          <h3>Bereavement Doula Bundle</h3>
+          <p class="desc">Course materials for MHN's ICEA-approved Bereavement Doula training. Hardcover textbook paired with the reflective workbook for doulas, nurses, and birth workers supporting families through pregnancy and infant loss.</p>
+          <p class="price-line"><span class="price-display">$50</span> <span class="price-fine">textbook + workbook · + tax · free shipping</span></p>
+          <a class="buy-btn" href="https://www.paypal.com/ncp/payment/SGL8R9MLKEFQW" target="_blank" rel="noopener">Buy on PayPal</a>
+          <p class="bulk-note">Need more than 10? <a href="mailto:info@mhndoula.com?subject=Bereavement%20Bundle%20bulk%20pricing">Email for bulk pricing</a></p>
+        </div>
+      </div>
+
+      <!-- THE EVERYTHING GUIDE -->
+      <div class="product">
+        <div class="photo">
+          <img src="./assets/photos/everything-guide-1.jpg" alt="The Everything Guide front cover" class="photo-main">
+        </div>
+        <div class="body">
+          <h3>The Everything Guide</h3>
+          <p class="desc">A parent-facing guide to the whole journey — early pregnancy through postpartum. The book MHN doulas reach for first when families want to read alongside their care.</p>
+          <p class="price-line"><span class="price-display">$50</span> <span class="price-fine">to Pregnancy, Childbirth and Postpartum · + tax · free shipping</span></p>
+          <a class="buy-btn" href="https://www.paypal.com/ncp/payment/ZPCZG6BPBD5YE" target="_blank" rel="noopener">Buy on PayPal</a>
+          <p class="bulk-note">Need more than 10? <a href="mailto:info@mhndoula.com?subject=Everything%20Guide%20bulk%20pricing">Email for bulk pricing</a></p>
+        </div>
+      </div>
+
+      <!-- BEREAVEMENT COURSE -->
+      <div class="product product--course">
+        <div class="photo">
+          <img src="./assets/photos/bereavement-3.jpg" alt="The Bereavement Doula course materials" class="photo-main">
+          <span class="ribbon ribbon-purple">16 ICEA CEUs</span>
+        </div>
+        <div class="body">
+          <h3>Bereavement Doula Course</h3>
+          <p class="desc">The full online course. 16 ICEA CEUs, 6 months of online access, and includes the textbook and workbook shipped to you.</p>
+          <p class="price-line"><span class="price-display">$450</span> <span class="price-fine">course + books · + tax · free shipping</span></p>
+          <a class="buy-btn" href="https://www.paypal.com/ncp/payment/SUV4QJA8V7E36" target="_blank" rel="noopener">Buy course on PayPal</a>
+          <p class="bulk-note">Questions? <a href="mailto:info@mhndoula.com?subject=Bereavement%20Doula%20Course">Email us</a></p>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <!-- BOOKS + TRAINING MATERIALS -->
-  <div class="acc-section-head" style="margin-top:48px"><span class="line"></span>Books &amp; Training Materials</div>
-  <div class="pgrid">
-
-    <div class="product placeholder">
-      <div class="photo">
-        <div class="photo-cycle">
-          <img src="./assets/photos/bereavement-1.jpg" alt="The Bereavement Doula textbook front cover">
-          <img src="./assets/photos/bereavement-2.jpg" alt="The Bereavement Doula textbook held outside">
-          <img src="./assets/photos/bereavement-3.jpg" alt="The Bereavement Doula textbook angled view">
-          <img src="./assets/photos/bereavement-4.jpg" alt="The Bereavement Doula textbook open inside">
-        </div>
-        <div class="photo-thumbs">
-          <span class="thumb" style="background-image:url('./assets/photos/bereavement-1.jpg')"></span>
-          <span class="thumb" style="background-image:url('./assets/photos/bereavement-2.jpg')"></span>
-          <span class="thumb" style="background-image:url('./assets/photos/bereavement-3.jpg')"></span>
-          <span class="thumb" style="background-image:url('./assets/photos/bereavement-4.jpg')"></span>
-        </div>
-      </div>
-      <div class="body">
-        <h3>Bereavement Doula Bundle</h3>
-        <p class="price">$50 <span style="font-size:16px;color:var(--mhn-ink-mute);font-weight:400;font-family:var(--mhn-font-sans);font-style:italic;letter-spacing:0">textbook + workbook</span></p>
-        <p class="price-fine">+ tax · free shipping</p>
-        <p class="desc">Course materials for Mary's Hands Network's ICEA-approved Bereavement Doula training. The hardcover student training manual paired with the reflective workbook, for doulas, nurses, and birth workers who want to bear witness to families through pregnancy and infant loss.</p>
-        <div class="buy-row"><a class="buy-btn" href="https://www.paypal.com/ncp/payment/SGL8R9MLKEFQW" target="_blank" rel="noopener">Buy on PayPal<span class="ext" aria-hidden="true"></span></a><p class="bulk-note">Need more than 10? <a href="mailto:info@mhndoula.com?subject=Bereavement%20Bundle%20bulk%20pricing">Email for bulk pricing.</a></p></div>
-      </div>
-    </div>
-
-    
-
-    <div class="product">
-      <div class="photo">
-        <div class="photo-cycle">
-          <img src="./assets/photos/everything-guide-1.jpg" alt="The Everything Guide front cover">
-          <img src="./assets/photos/everything-guide-2.jpg" alt="The Everything Guide angled view">
-          <img src="./assets/photos/everything-guide-3.jpg" alt="The Everything Guide on a wooden surface">
-          <img src="./assets/photos/everything-guide-4.jpg" alt="The Everything Guide cover detail">
-        </div>
-        <div class="photo-thumbs">
-          <span class="thumb" style="background-image:url('./assets/photos/everything-guide-1.jpg')"></span>
-          <span class="thumb" style="background-image:url('./assets/photos/everything-guide-2.jpg')"></span>
-          <span class="thumb" style="background-image:url('./assets/photos/everything-guide-3.jpg')"></span>
-          <span class="thumb" style="background-image:url('./assets/photos/everything-guide-4.jpg')"></span>
-        </div>
-      </div>
-      <div class="body">
-        <h3>The Everything Guide</h3>
-        <p class="price">$50 <span style="font-size:16px;color:var(--mhn-ink-mute);font-weight:400;font-family:var(--mhn-font-sans);font-style:italic;letter-spacing:0">to Pregnancy, Childbirth and Postpartum</span></p>
-        <p class="price-fine">+ tax · free shipping</p>
-        <p class="desc">A parent-facing guide to the whole journey, from early pregnancy through the postpartum weeks. The book MHN doulas reach for first when families want to read alongside their care.</p>
-        <div class="buy-row"><a class="buy-btn" href="https://www.paypal.com/ncp/payment/ZPCZG6BPBD5YE" target="_blank" rel="noopener">Buy on PayPal<span class="ext" aria-hidden="true"></span></a><p class="bulk-note">Need more than 10? <a href="mailto:info@mhndoula.com?subject=Everything%20Guide%20bulk%20pricing">Email for bulk pricing.</a></p></div>
-      </div>
-    </div>
-
-    <!-- DATA-DRIVEN DOULA BUNDLE — FEATURED -->
-    <div class="product product--featured ddd-bundle">
-      <div class="photo">
-        <div class="ddd-pair">
-          <img src="./assets/photos/data-driven-doula.jpg" alt="The Data-Driven Doula textbook cover" class="ddd-pair-img">
-          <img src="./assets/photos/data-driven-doula-workbook.jpg" alt="The Data-Driven Doula Student Workbook cover" class="ddd-pair-img">
-        </div>
-        <span class="save-pill">Save $20</span>
-      </div>
-      <div class="body">
-        <h3>The Data-Driven Doula <span style="font-size:18px;color:var(--mhn-purple-500);font-style:italic;font-weight:400;display:block;margin-top:4px">Textbook + Student Workbook bundle</span></h3>
-        <p class="price">$150 <span style="font-size:16px;color:var(--mhn-ink-mute);font-weight:400;font-family:var(--mhn-font-sans);font-style:italic;letter-spacing:0">both books — best value</span></p>
-        <p class="price-fine">+ tax · free shipping</p>
-        <p class="desc">The complete training set for Mary's Hands Network's ICEA-approved doula curriculum. Five units and twenty-one chapters of evidence-based content paired with the companion workbook for reflection prompts, exercises, and exam prep. Buying together saves $20 over buying each separately.</p>
-        <div class="buy-row"><a class="buy-btn" href="https://www.paypal.com/ncp/payment/PMQ3U2H2EVQ2G" target="_blank" rel="noopener">Buy bundle on PayPal<span class="ext" aria-hidden="true"></span></a><p class="bulk-note">Need more than 10? <a href="mailto:info@mhndoula.com?subject=Data-Driven%20Doula%20Bundle%20bulk%20pricing">Email for bulk pricing.</a></p></div>
-      </div>
-    </div>
-
-    <!-- INDIVIDUAL PURCHASE CARDS (smaller) -->
-    <div class="ddd-individual-row">
-      <p class="ddd-individual-head">Or buy them separately</p>
-      <div class="ddd-individual-grid">
-        <div class="product product--small">
-          <div class="photo"><img src="./assets/photos/data-driven-doula.jpg" alt="The Data-Driven Doula textbook cover"></div>
-          <div class="body">
-            <h3>Textbook only</h3>
-            <p class="price">$120</p>
-            <p class="price-fine">+ tax · free shipping</p>
-            <p class="desc">5 units · 21 chapters · the full evidence-based curriculum.</p>
-            <div class="buy-row"><a class="buy-btn" href="https://www.paypal.com/ncp/payment/5HFVDZ4CDNP48" target="_blank" rel="noopener">Buy textbook<span class="ext" aria-hidden="true"></span></a></div>
-          </div>
-        </div>
-        <div class="product product--small">
-          <div class="photo"><img src="./assets/photos/data-driven-doula-workbook.jpg" alt="The Data-Driven Doula Student Workbook cover"></div>
-          <div class="body">
-            <h3>Workbook only</h3>
-            <p class="price">$50</p>
-            <p class="price-fine">+ tax · free shipping</p>
-            <p class="desc">Reflection prompts, exercises, and exam-prep pages designed to pair with the textbook.</p>
-            <div class="buy-row"><a class="buy-btn" href="https://www.paypal.com/ncp/payment/QNJKXYYU39NBA" target="_blank" rel="noopener">Buy workbook<span class="ext" aria-hidden="true"></span></a></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="course-note">
-      <div class="copy">
-        <strong>Want the full course?</strong> The online <em>Bereavement Doula</em> course is approved for <strong>16 ICEA CEUs</strong>, includes <strong>6 months of online access</strong>, and costs <strong>$450</strong> (includes the textbook and the workbook). <em>+ tax · free shipping.</em> Questions? Email <a class="email" href="mailto:info@mhndoula.com?subject=Bereavement%20Doula%20Course">info@mhndoula.com</a>.
-      </div>
-      <div class="buy-row"><a class="buy-btn" href="https://www.paypal.com/ncp/payment/SUV4QJA8V7E36" target="_blank" rel="noopener">Buy course on PayPal<span class="ext" aria-hidden="true"></span></a></div>
-    </div>
-
-  </div>
-
 </section>
 
 <!-- SUPPORT NOTE -->
@@ -491,5 +505,29 @@
 </footer>
 </div>
 <script>lucide.createIcons();</script>
+
+<script>
+/* Variant dropdowns: update price + buy button URL when user picks a variant */
+(function(){
+  document.querySelectorAll('.product[data-variants]').forEach(function(card){
+    var sel = card.querySelector('.variant-select');
+    var priceEl = card.querySelector('.price-display');
+    var btn = card.querySelector('.buy-cta');
+    if (!sel || !priceEl || !btn) return;
+    var prices = {};
+    var urls = {};
+    try { prices = JSON.parse(sel.getAttribute('data-prices') || '{}'); } catch(e){}
+    try { urls = JSON.parse(sel.getAttribute('data-urls') || '{}'); } catch(e){}
+    function update(){
+      var v = sel.value;
+      if (prices[v]) priceEl.textContent = prices[v];
+      if (urls[v]) btn.href = urls[v];
+    }
+    sel.addEventListener('change', update);
+    update();
+  });
+})();
+</script>
+
 </body>
 </html>
