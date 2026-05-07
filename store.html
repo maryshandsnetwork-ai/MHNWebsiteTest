@@ -46,9 +46,12 @@
   .store-hero-img.b{width:46%;height:62%;top:18%;right:0;z-index:2;transform:rotate(4deg)}
   .store-hero-img.c{width:40%;height:55%;bottom:0;left:30%;z-index:1;transform:rotate(-3deg)}
   @media(max-width:900px){
-    .store-hero{grid-template-columns:1fr;padding:40px 20px;gap:32px}
+    .store-hero{grid-template-columns:1fr;padding:40px 20px;gap:24px}
     h1.t{font-size:32px}
-    .store-hero-art{height:260px;max-width:420px;margin:0 auto}
+    /* Switch from absolute-positioned collage to a simple 3-up row on mobile */
+    .store-hero-art{position:relative;height:auto;max-width:420px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+    .store-hero-img{position:static;width:100%;height:auto;aspect-ratio:3/4;border-radius:10px;border:3px solid #fff;box-shadow:0 8px 22px rgba(94,55,108,0.16);transform:none !important}
+    .store-hero-img.a, .store-hero-img.b, .store-hero-img.c{width:100%;height:auto}
   }
 
   /* PRODUCT GRID */
@@ -271,8 +274,8 @@
   .section-divider .sd-title{font-family:var(--mhn-font-serif);font-size:30px;color:var(--mhn-purple-700);margin:24px 0 8px;letter-spacing:-0.01em;font-weight:700}
   .section-divider .sd-sub{font-family:var(--mhn-font-serif);font-style:italic;color:var(--mhn-ink-soft);font-size:17px;margin:0;line-height:1.5}
 
-  /* Unified product card — same shape for every item */
-  .shop-decks .pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch}
+  /* Unified product card — same shape for every item (2x2 on desktop) */
+  .shop-decks .pgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;align-items:stretch;max-width:980px;margin:0 auto}
   .shop-decks .product{background:#fff;border:1px solid var(--mhn-line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;transition:transform 0.18s,box-shadow 0.18s,border-color 0.18s;height:100%}
   .shop-decks .product:hover{transform:translateY(-3px);box-shadow:0 14px 36px rgba(94,55,108,0.10);border-color:var(--mhn-purple-200)}
   .shop-decks .product .photo{position:relative;aspect-ratio:1/1;background:linear-gradient(135deg,#F8F5FA,#EDE0F2);display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--mhn-line);overflow:hidden}
@@ -302,11 +305,8 @@
   .ribbon-warm{background:#85571F;color:#fff}
   .ribbon-purple{background:var(--mhn-purple-700);color:#fff}
 
-  @media (max-width:1100px){
-    .shop-decks .pgrid{grid-template-columns:repeat(2,1fr)}
-  }
   @media (max-width:680px){
-    .shop-decks .pgrid{grid-template-columns:1fr}
+    .shop-decks .pgrid{grid-template-columns:1fr;gap:20px}
     .shop-decks .shop-inner{padding:32px 20px 56px}
     .section-divider .sd-title{font-size:25px}
   }
@@ -408,17 +408,27 @@
         </div>
       </div>
 
-      <!-- BEREAVEMENT BUNDLE -->
-      <div class="product">
+      <!-- BEREAVEMENT DOULA — variant dropdown (textbook bundle / full course) -->
+      <div class="product" data-variants="bereavement">
         <div class="photo">
           <img src="./assets/photos/bereavement-1.jpg" alt="The Bereavement Doula textbook front cover" class="photo-main">
+          <span class="ribbon ribbon-purple">16 ICEA CEUs</span>
         </div>
         <div class="body">
-          <h3>Bereavement Doula Bundle</h3>
-          <p class="desc">Course materials for MHN's ICEA-approved Bereavement Doula training. Hardcover textbook paired with the reflective workbook for doulas, nurses, and birth workers supporting families through pregnancy and infant loss.</p>
-          <p class="price-line"><span class="price-display">$50</span> <span class="price-fine">textbook + workbook · + tax · free shipping</span></p>
-          <a class="buy-btn" href="https://www.paypal.com/ncp/payment/SGL8R9MLKEFQW" target="_blank" rel="noopener">Buy on PayPal</a>
-          <p class="bulk-note">Need more than 10? <a href="mailto:info@mhndoula.com?subject=Bereavement%20Bundle%20bulk%20pricing">Email for bulk pricing</a></p>
+          <h3>The Bereavement Doula</h3>
+          <p class="desc">ICEA-approved training to support families through pregnancy and infant loss. Choose the textbook bundle (textbook + workbook) or the full online course with 6 months of access and 16 ICEA CEUs.</p>
+          <div class="variant-row">
+            <label class="variant-label" for="var-bereavement">Format</label>
+            <select id="var-bereavement" class="variant-select"
+                    data-prices='{"bundle":"$50","course":"$450"}'
+                    data-urls='{"bundle":"https://www.paypal.com/ncp/payment/SGL8R9MLKEFQW","course":"https://www.paypal.com/ncp/payment/SUV4QJA8V7E36"}'>
+              <option value="bundle">Textbook Bundle · textbook + workbook · $50</option>
+              <option value="course">Full Course · online + books + 16 CEUs · $450</option>
+            </select>
+          </div>
+          <p class="price-line"><span class="price-display" data-default="$50">$50</span> <span class="price-fine">+ tax · free shipping</span></p>
+          <a class="buy-btn buy-cta" data-default="https://www.paypal.com/ncp/payment/SGL8R9MLKEFQW" href="https://www.paypal.com/ncp/payment/SGL8R9MLKEFQW" target="_blank" rel="noopener">Buy on PayPal</a>
+          <p class="bulk-note">Need more than 10? <a href="mailto:info@mhndoula.com?subject=Bereavement%20Doula%20bulk%20pricing">Email for bulk pricing</a></p>
         </div>
       </div>
 
@@ -433,21 +443,6 @@
           <p class="price-line"><span class="price-display">$50</span> <span class="price-fine">to Pregnancy, Childbirth and Postpartum · + tax · free shipping</span></p>
           <a class="buy-btn" href="https://www.paypal.com/ncp/payment/ZPCZG6BPBD5YE" target="_blank" rel="noopener">Buy on PayPal</a>
           <p class="bulk-note">Need more than 10? <a href="mailto:info@mhndoula.com?subject=Everything%20Guide%20bulk%20pricing">Email for bulk pricing</a></p>
-        </div>
-      </div>
-
-      <!-- BEREAVEMENT COURSE -->
-      <div class="product product--course">
-        <div class="photo">
-          <img src="./assets/photos/bereavement-3.jpg" alt="The Bereavement Doula course materials" class="photo-main">
-          <span class="ribbon ribbon-purple">16 ICEA CEUs</span>
-        </div>
-        <div class="body">
-          <h3>Bereavement Doula Course</h3>
-          <p class="desc">The full online course. 16 ICEA CEUs, 6 months of online access, and includes the textbook and workbook shipped to you.</p>
-          <p class="price-line"><span class="price-display">$450</span> <span class="price-fine">course + books · + tax · free shipping</span></p>
-          <a class="buy-btn" href="https://www.paypal.com/ncp/payment/SUV4QJA8V7E36" target="_blank" rel="noopener">Buy course on PayPal</a>
-          <p class="bulk-note">Questions? <a href="mailto:info@mhndoula.com?subject=Bereavement%20Doula%20Course">Email us</a></p>
         </div>
       </div>
     </div>
