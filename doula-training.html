@@ -58,7 +58,14 @@
   .pcard ul li{margin-bottom:5px}
   .pcard a.more{color:var(--mhn-purple-700);font-weight:700;font-size:16px;text-decoration:none;border-bottom:1.5px solid var(--mhn-purple-200);padding-bottom:1px;transition:border-color 0.15s}
   .pcard a.more:hover{border-color:var(--mhn-purple-700)}
-  @media(max-width:680px){.pgrid{grid-template-columns:1fr}}
+  /* Wide card spans the full grid row (used for Customized Curriculum) */
+  .pcard--wide{grid-column:1 / -1;background:linear-gradient(135deg,#FAF1E1 0%,#F2E2C5 100%);border-color:#E8D5BD}
+  .pcard--wide .ico-w{background:#fff}
+  .pcard--wide .ico-w i,.pcard--wide .ico-w svg{color:#85571F}
+  .pcard--wide .badge{background:#fff;color:#85571F}
+  .pcard--wide ul{column-count:2;column-gap:36px}
+  .pcard--wide ul li{break-inside:avoid}
+  @media(max-width:680px){.pgrid{grid-template-columns:1fr} .pcard--wide ul{column-count:1}}
 
   /* FORMATS */
   .formats{padding:56px 48px;background:var(--mhn-paper-alt)}
@@ -243,7 +250,7 @@
     <a class="more" href="contact.html">Get notified when it opens</a>
   </div>
 
-  <div class="pcard">
+  <div class="pcard pcard--wide">
     <div class="ico-w"><i data-lucide="building-2"></i></div>
     <span class="badge">Custom &amp; Contract</span>
     <h3>Customized Curriculum</h3>
