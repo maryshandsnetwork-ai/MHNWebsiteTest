@@ -308,7 +308,7 @@ a:hover { text-decoration: none; }
 .flip-front .ico{width:36px;height:36px;color:var(--mhn-purple-700);margin-bottom:14px}
 .flip-front h3{font-family:var(--mhn-font-serif);font-size:21px;color:var(--mhn-purple-700);margin:0 0 8px;font-weight:700;line-height:1.2}
 .flip-front .hint{font-family:var(--mhn-font-serif);font-style:italic;color:var(--mhn-purple-500);font-size:16px;margin-top:14px;letter-spacing:0.05em}
-.flip-back{background:linear-gradient(135deg,var(--mhn-purple-700),var(--mhn-purple-900));color:#fff;transform:rotateY(180deg);justify-content:flex-start;padding-top:22px}
+.flip-back{background:linear-gradient(135deg,var(--mhn-purple-700),var(--mhn-purple-900));color:#fff;transform:rotateY(180deg);justify-content:flex-start;padding-top:22px;text-align:left;align-items:flex-start}
 .flip-back h4{font-family:var(--mhn-font-serif);font-size:19px;color:#fff;margin:0 0 10px;font-weight:700;flex-shrink:0}
 .flip-back p,.flip-back li{font-size:16px;line-height:1.5;color:#F1EDF3;margin:0 0 6px}
 .flip-back ul{padding-left:18px;margin:0;align-self:flex-start;width:100%}
