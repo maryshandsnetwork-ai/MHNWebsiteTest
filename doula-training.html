@@ -33,7 +33,7 @@
   .lede{font-family:var(--mhn-font-serif);font-style:italic;font-size:19px;line-height:1.55;color:var(--mhn-ink-soft);margin:0;max-width:780px}
 
   /* COHORT CALLOUT (top of page) */
-  .cohort-callout{margin:24px 48px 36px;background:linear-gradient(135deg,var(--mhn-purple-700),var(--mhn-purple-900));color:#fff;border-radius:20px;padding:28px 32px;display:grid;grid-template-columns:1.2fr auto;gap:24px;align-items:center}
+  .cohort-callout{margin:8px 48px 28px;background:linear-gradient(135deg,var(--mhn-purple-700),var(--mhn-purple-900));color:#fff;border-radius:20px;padding:24px 32px;display:grid;grid-template-columns:1.2fr auto;gap:24px;align-items:center}
   .cohort-callout .label{font-size:16px;letter-spacing:0.22em;text-transform:uppercase;color:var(--mhn-purple-200);font-weight:700;margin-bottom:8px}
   .cohort-callout h3{font-family:var(--mhn-font-serif);font-size:21px;color:#fff;margin:0 0 6px;font-weight:700;letter-spacing:-0.01em}
   .cohort-callout p{margin:0;color:#F1EDF3;font-size:16px;line-height:1.55}
@@ -170,18 +170,36 @@
 </nav>
 
 <!-- HERO -->
-<section class="hero hero-with-photo" style="display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:center;max-width:1200px;margin:0 auto;padding:48px 48px">
+<section class="hero hero-with-photo" style="display:grid;grid-template-columns:1.15fr 1fr;gap:40px;align-items:center;max-width:1200px;margin:0 auto;padding:32px 48px 24px">
 <div>
 <div class="eyebrow">Education &amp; Training</div>
-<h1 class="t">We educate the <em>maternal health workforce.</em></h1>
-<p class="lede">ICEA-affiliated curriculum, adaptable formats, and a Louisiana-rooted commitment to expanding who has access to skilled birth support. Our flagship is birth doula training; we also train bereavement specialists, breastfeeding educators, and contract-customize for hospitals and partner organizations.</p>
+<h1 class="t" style="margin:10px 0 16px">We educate the <em>maternal health workforce.</em></h1>
+<p class="lede" style="margin:0 0 22px">ICEA-affiliated curriculum, adaptable formats, and a Louisiana-rooted commitment to expanding who has access to skilled birth support. Our flagship is birth doula training; we also train bereavement specialists, breastfeeding educators, and contract-customize for hospitals and partner organizations.</p>
+<div class="hero-stats" style="display:flex;gap:24px;flex-wrap:wrap;padding-top:18px;border-top:1px solid var(--mhn-purple-200)">
+  <div><div style="font-family:var(--mhn-font-serif);font-size:25px;font-weight:700;color:var(--mhn-purple-700);line-height:1">5</div><div style="font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:var(--mhn-ink-mute);font-weight:700;margin-top:4px">Programs</div></div>
+  <div><div style="font-family:var(--mhn-font-serif);font-size:25px;font-weight:700;color:var(--mhn-purple-700);line-height:1">254</div><div style="font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:var(--mhn-ink-mute);font-weight:700;margin-top:4px">Doulas trained</div></div>
+  <div><div style="font-family:var(--mhn-font-serif);font-size:25px;font-weight:700;color:var(--mhn-purple-700);line-height:1">ICEA</div><div style="font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:var(--mhn-ink-mute);font-weight:700;margin-top:4px">Approved</div></div>
 </div>
-<div class="hero-photo-wrap" style="position:relative">
-<img src="./assets/photos/training-doulas-joyful.jpg" alt="Two MHN doulas in training, joyful on the practice mat" style="width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:18px;box-shadow:0 14px 40px rgba(94,55,108,0.18);border:5px solid #fff">
-<div style="position:absolute;bottom:18px;left:18px;background:rgba(255,255,255,0.95);backdrop-filter:blur(8px);padding:8px 14px;border-radius:10px;font-family:var(--mhn-font-serif);font-style:italic;font-size:15px;color:var(--mhn-purple-700)">In training, on the mat</div>
+</div>
+<div class="hero-photo-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+  <figure style="margin:0;position:relative;grid-row:span 2">
+    <img src="./assets/photos/training-doulas-joyful.jpg" alt="Two MHN doulas in training, joyful on the practice mat" style="width:100%;aspect-ratio:3/5;object-fit:cover;border-radius:14px;box-shadow:0 10px 28px rgba(94,55,108,0.16);border:4px solid #fff;display:block">
+    <figcaption style="position:absolute;bottom:14px;left:14px;background:rgba(255,255,255,0.95);backdrop-filter:blur(8px);padding:6px 10px;border-radius:8px;font-family:var(--mhn-font-serif);font-style:italic;font-size:13px;color:var(--mhn-purple-700)">In training</figcaption>
+  </figure>
+  <figure style="margin:0;position:relative">
+    <img src="./assets/photos/birth-meeting-newborn.jpg" alt="A doula with parents meeting their newborn at birth" style="width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:14px;box-shadow:0 10px 28px rgba(94,55,108,0.16);border:4px solid #fff;display:block">
+    <figcaption style="position:absolute;bottom:10px;left:10px;background:rgba(255,255,255,0.95);backdrop-filter:blur(8px);padding:5px 9px;border-radius:8px;font-family:var(--mhn-font-serif);font-style:italic;font-size:12px;color:var(--mhn-purple-700)">In the room</figcaption>
+  </figure>
+  <figure style="margin:0;position:relative">
+    <img src="./assets/photos/cohort-graduation-2025.jpg" alt="An MHN graduating cohort with their certificates" style="width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:14px;box-shadow:0 10px 28px rgba(94,55,108,0.16);border:4px solid #fff;display:block">
+    <figcaption style="position:absolute;bottom:10px;left:10px;background:rgba(255,255,255,0.95);backdrop-filter:blur(8px);padding:5px 9px;border-radius:8px;font-family:var(--mhn-font-serif);font-style:italic;font-size:12px;color:var(--mhn-purple-700)">Graduated</figcaption>
+  </figure>
 </div>
 </section>
-<style>@media(max-width:760px){.hero-with-photo{grid-template-columns:1fr !important;padding:32px 20px !important;gap:24px !important}.hero-with-photo .hero-photo-wrap img{aspect-ratio:4/3 !important}}</style>
+<style>
+  @media(max-width:900px){.hero-with-photo{grid-template-columns:1fr !important;padding:24px 20px !important;gap:24px !important}.hero-with-photo .hero-photo-grid figure:first-child{grid-row:auto !important}.hero-with-photo .hero-photo-grid figure:first-child img{aspect-ratio:4/5 !important}}
+  @media(max-width:560px){.hero-with-photo .hero-photo-grid{grid-template-columns:1fr !important}.hero-with-photo .hero-photo-grid figure:first-child img,.hero-with-photo .hero-photo-grid figure img{aspect-ratio:3/2 !important}}
+</style>
 
 <!-- COHORT CALLOUT -->
 <div class="cohort-callout">
