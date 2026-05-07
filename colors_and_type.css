@@ -682,9 +682,8 @@ footer .ein-line { font-size:16px; color: #845995; margin-top: 12px; letter-spac
 .gold-rule .line { flex:1; height:1px; background:linear-gradient(90deg, transparent, var(--mhn-warm-500) 30%, var(--mhn-warm-500) 70%, transparent) }
 .gold-rule .ornament { color:var(--mhn-warm-700); font-family:var(--mhn-font-serif); font-size:19px; line-height:1; flex-shrink:0; opacity:0.85 }
 
-/* ----- H2 gold underline accent ----- */
-.h2-warm { display:inline-block; position:relative; padding-bottom:8px }
-.h2-warm::after { content:""; position:absolute; left:0; bottom:0; width:48px; height:3px; background:var(--mhn-warm-700); border-radius:2px }
+/* ----- H2 (gold underline accent removed per design pass) ----- */
+.h2-warm { display:inline-block; position:relative }
 
 /* ----- Hero image sizing fix ----- */
 .hero-split { padding:48px 48px 56px; max-height:none }
