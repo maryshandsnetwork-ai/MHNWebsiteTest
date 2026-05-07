@@ -203,7 +203,7 @@
   </div>
 </nav>
 <!-- HERO -->
-<section class="hero hero-with-photo" style="display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:center;max-width:1200px;margin:0 auto;padding:48px 48px">
+<section class="hero hero-with-photo" style="display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:center;max-width:1200px;margin:0 auto;padding:36px 48px 24px">
 <div>
 <div class="eyebrow">About Mary's Hands Network</div>
 <h1 class="t">A maternal health organization, <em>Louisiana-rooted.</em></h1>
@@ -216,8 +216,19 @@
 </section>
 <style>@media(max-width:760px){.hero-with-photo{grid-template-columns:1fr !important;padding:32px 20px !important;gap:24px !important}.hero-with-photo .hero-photo-wrap img{aspect-ratio:3/2 !important}}</style>
 
+<!-- IMPACT STAT BAND (tightens hero -> Our Story transition) -->
+<section class="about-stats-band" style="padding:28px 48px;background:linear-gradient(135deg,var(--mhn-purple-700),var(--mhn-purple-900));color:#fff">
+<div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:32px;text-align:center">
+  <div><div style="font-family:var(--mhn-font-serif);font-size:38px;font-weight:700;line-height:1;letter-spacing:-0.02em">254</div><div style="font-size:13px;letter-spacing:0.18em;text-transform:uppercase;color:var(--mhn-purple-200);font-weight:700;margin-top:8px">Doulas trained</div></div>
+  <div><div style="font-family:var(--mhn-font-serif);font-size:38px;font-weight:700;line-height:1;letter-spacing:-0.02em">450+</div><div style="font-size:13px;letter-spacing:0.18em;text-transform:uppercase;color:var(--mhn-purple-200);font-weight:700;margin-top:8px">Families served</div></div>
+  <div><div style="font-family:var(--mhn-font-serif);font-size:38px;font-weight:700;line-height:1;letter-spacing:-0.02em">15</div><div style="font-size:13px;letter-spacing:0.18em;text-transform:uppercase;color:var(--mhn-purple-200);font-weight:700;margin-top:8px">Cohorts since 2023</div></div>
+  <div><div style="font-family:var(--mhn-font-serif);font-size:38px;font-weight:700;line-height:1;letter-spacing:-0.02em">5</div><div style="font-size:13px;letter-spacing:0.18em;text-transform:uppercase;color:var(--mhn-purple-200);font-weight:700;margin-top:8px">LA regions served</div></div>
+</div>
+</section>
+<style>@media(max-width:760px){.about-stats-band > div{grid-template-columns:repeat(2,1fr) !important;gap:20px !important}.about-stats-band > div > div > div:first-child{font-size:30px !important}}</style>
+
 <!-- OUR STORY (TWO-COLUMN PROSE) -->
-<section style="padding:56px 48px 64px;background:#fff">
+<section style="padding:40px 48px 56px;background:#fff">
 <div style="max-width:1100px;margin:0 auto">
 <div style="text-align:center;margin-bottom:30px">
 <div class="eyebrow" style="font-size:16px;letter-spacing:0.28em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:700;margin-bottom:14px">Our Story</div>
