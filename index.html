@@ -260,23 +260,39 @@
   <a href="doula-training.html">See the training</a>
 </div>
 
-<!-- HERO -->
-<section class="hero-split fade-in">
-  <div class="hero-text">
-    <div class="eyebrow" style="font-size:16px;letter-spacing:0.22em;text-transform:uppercase;color:var(--mhn-purple-700);font-weight:700;margin-bottom:18px">Louisiana-rooted maternal health · Est. 2023</div>
-    <h1 class="h1">Every birth deserves <em>a doula.</em></h1>
-    <p class="lede" style="font-size:19px;line-height:1.55;margin-top:18px">Our mission is to <strong>empower families, promote birth excellence, and bridge the health equity gap</strong> in our community.</p>
-    <div style="display:flex;gap:14px;margin-top:30px;flex-wrap:wrap">
-      <a href="tel:2254247532" class="mhn-btn mhn-btn--primary" style="padding:16px 28px;font-size:17px">Doula Hotline</a>
-      <a href="contact.html" class="mhn-btn mhn-btn--secondary" style="padding:16px 28px;font-size:17px">Contact us</a>
-      <a href="donate.html" class="btn-donate">Donate</a>
+<!-- HERO (full-bleed photo with overlaid frosted-glass text card) -->
+<section class="hero-full fade-in">
+  <img class="hero-bg" src="./assets/photos/mom-newborn-selfie.jpg" alt="An MHN client mother holding her newborn baby">
+  <div class="hero-shade"></div>
+  <div class="hero-inner">
+    <div class="hero-card">
+      <div class="eyebrow" style="font-size:15px;letter-spacing:0.22em;text-transform:uppercase;color:var(--mhn-purple-700);font-weight:700;margin-bottom:14px">Louisiana-rooted maternal health &middot; Est. 2023</div>
+      <h1 class="h1" style="margin:0">Every birth deserves <em>a doula.</em></h1>
+      <p class="lede" style="font-size:18px;line-height:1.5;margin:16px 0 0">Our mission is to <strong>empower families, promote birth excellence, and bridge the health equity gap</strong> in our community.</p>
+      <div class="hero-actions">
+        <a href="tel:2254247532" class="mhn-btn mhn-btn--primary" style="padding:14px 24px;font-size:16px">Doula Hotline</a>
+        <a href="contact.html" class="mhn-btn mhn-btn--secondary" style="padding:14px 24px;font-size:16px">Contact us</a>
+        <a href="donate.html" class="btn-donate">Donate</a>
+      </div>
     </div>
   </div>
-  <div class="hero-img" style="aspect-ratio:5/6;max-height:520px">
-    <span class="badge">An MHN family · 2025</span>
-    <img src="./assets/photos/mom-newborn-selfie.jpg" alt="An MHN client mother holding her newborn baby">
-  </div>
 </section>
+<style>
+.hero-full{position:relative;width:100%;min-height:560px;max-height:680px;overflow:hidden;display:flex;align-items:stretch}
+.hero-full .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 28%;z-index:0}
+.hero-full .hero-shade{position:absolute;inset:0;background:linear-gradient(95deg,rgba(94,55,108,0.55) 0%,rgba(94,55,108,0.30) 42%,rgba(94,55,108,0.05) 75%,rgba(94,55,108,0) 100%);z-index:1}
+.hero-full .hero-inner{position:relative;z-index:2;width:100%;max-width:1280px;margin:0 auto;padding:60px 48px;display:flex;align-items:center}
+.hero-full .hero-card{max-width:560px;background:rgba(255,255,255,0.78);backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);border:1px solid rgba(255,255,255,0.6);border-radius:22px;padding:34px 36px;box-shadow:0 20px 60px rgba(94,55,108,0.30)}
+.hero-full .hero-card .h1{font-size:42px;line-height:1.05;letter-spacing:-0.02em}
+.hero-full .hero-actions{display:flex;gap:12px;margin-top:24px;flex-wrap:wrap}
+@media (max-width:900px){
+  .hero-full{min-height:520px}
+  .hero-full .hero-inner{padding:36px 20px}
+  .hero-full .hero-card{padding:24px 22px;max-width:100%}
+  .hero-full .hero-card .h1{font-size:30px}
+  .hero-full .hero-shade{background:linear-gradient(180deg,rgba(94,55,108,0.10) 0%,rgba(94,55,108,0.45) 100%)}
+}
+</style>
 
 
 <!-- AUDIENCE ROUTES -->
@@ -381,10 +397,10 @@
 
 <!-- SERVICES (FLIP CARDS) -->
 <section class="services bg-warm-cream" style="padding:40px 48px 48px">
-  <div style="max-width:1280px;margin:0 auto">
+  <div style="max-width:1280px;margin:0 auto;text-align:center">
     <div class="eyebrow" style="font-size:16px;letter-spacing:0.28em;text-transform:uppercase;color:var(--mhn-warm-700);font-weight:700;margin-bottom:14px">What We Do</div>
-    <h2 class="h2-warm" style="font-family:var(--mhn-font-serif);font-size:25px;color:var(--mhn-purple-700);margin:0 0 14px;letter-spacing:-0.01em;line-height:1.1">Three pillars, one mission.</h2>
-    <p style="font-family:var(--mhn-font-serif);font-style:italic;color:var(--mhn-ink-soft);margin:0 0 32px;max-width:720px">Tap any card to see what&rsquo;s inside.</p>
+    <h2 class="h2-warm" style="font-family:var(--mhn-font-serif);font-size:38px;color:var(--mhn-purple-700);margin:0 0 14px;letter-spacing:-0.015em;line-height:1.1">Three pillars, one mission.</h2>
+    <p style="font-family:var(--mhn-font-serif);font-style:italic;color:var(--mhn-ink-soft);margin:0 auto 32px;max-width:720px;font-size:18px">Tap any card to see what&rsquo;s inside.</p>
     <div class="flip-grid">
 
       <div class="flip-card" onclick="this.classList.toggle('flipped')">
