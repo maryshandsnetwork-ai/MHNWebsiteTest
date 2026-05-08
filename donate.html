@@ -171,19 +171,50 @@
   </div>
 </nav>
 
-<!-- DONATE HERO IMPACT -->
-<section class="hero-split fade-in" style="padding:48px 48px 32px">
-  <div class="hero-text">
-    <div class="eyebrow" style="font-size:16px;letter-spacing:0.22em;text-transform:uppercase;color:var(--mhn-warm-700);font-weight:700;margin-bottom:18px">A Tax-Deductible Gift</div>
-    <h1 class="h1">Your gift becomes someone's <em>safest birth.</em></h1>
-    <p class="lede" style="font-size:18px;line-height:1.55;margin-top:18px">Every dollar moves through our 501(c)(3) and lands as a doula at a hospital bedside, a scholarship for a future trainee, or a birth kit in a mother's hands. <strong>We will show you exactly what your gift funded.</strong></p>
-    <div style="margin-top:24px;padding:20px 24px;background:var(--mhn-warm-50);border-radius:14px;border-left:4px solid var(--mhn-warm-700)">
-      <div style="font-family:var(--mhn-font-serif);font-style:italic;color:var(--mhn-purple-700);font-size:17px;line-height:1.5">"65% fewer cesareans. 84% fewer preterm births. These outcomes don't happen without donors."</div>
+<!-- DONATE HERO (full-bleed photo + frosted card) -->
+<section class="donate-hero fade-in">
+  <img class="dh-bg" src="./assets/photos/mom-doula-newborn.jpg" alt="An MHN volunteer doula in lavender with a mother and her newborn">
+  <div class="dh-shade"></div>
+  <div class="dh-inner">
+    <div class="dh-card">
+      <div class="eyebrow" style="font-size:15px;letter-spacing:0.22em;text-transform:uppercase;color:var(--mhn-warm-700);font-weight:700;margin-bottom:14px">A Tax-Deductible Gift</div>
+      <h1 class="h1" style="margin:0;font-family:var(--mhn-font-serif);color:var(--mhn-purple-700);font-size:38px;line-height:1.05;letter-spacing:-0.02em">Your gift becomes someone&rsquo;s <em style="color:var(--mhn-warm-700);font-style:italic">safest birth.</em></h1>
+      <p class="lede" style="font-family:var(--mhn-font-sans);font-size:18px;line-height:1.5;color:var(--mhn-ink);margin:16px 0 0">Every dollar moves through our 501(c)(3) and lands as a doula at a hospital bedside, a scholarship for a future trainee, or a birth kit in a mother&rsquo;s hands. <strong style="color:var(--mhn-purple-700)">We will show you exactly what your gift funded.</strong></p>
     </div>
   </div>
-  <div class="hero-img">
-    <span class="badge">$50 = 1 birth kit</span>
-    <img src="./assets/photos/mom-doula-newborn.jpg" alt="An MHN volunteer doula in lavender with a mother and her newborn">
+</section>
+<style>
+.donate-hero{position:relative;width:100%;min-height:440px;max-height:520px;overflow:hidden;display:flex;align-items:stretch}
+.donate-hero .dh-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;z-index:0}
+.donate-hero .dh-shade{position:absolute;inset:0;background:linear-gradient(95deg,rgba(94,55,108,0.55) 0%,rgba(94,55,108,0.30) 42%,rgba(94,55,108,0.05) 75%,rgba(94,55,108,0) 100%);z-index:1}
+.donate-hero .dh-inner{position:relative;z-index:2;width:100%;max-width:1280px;margin:0 auto;padding:36px 48px;display:flex;align-items:center}
+.donate-hero .dh-card{max-width:600px;background:rgba(255,255,255,0.82);backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);border:1px solid rgba(255,255,255,0.6);border-radius:22px;padding:30px 34px;box-shadow:0 20px 60px rgba(94,55,108,0.30)}
+@media (max-width:900px){
+  .donate-hero{min-height:420px}
+  .donate-hero .dh-inner{padding:24px 20px}
+  .donate-hero .dh-card{padding:22px 20px;max-width:100%}
+  .donate-hero .dh-card .h1{font-size:28px}
+  .donate-hero .dh-shade{background:linear-gradient(180deg,rgba(94,55,108,0.10) 0%,rgba(94,55,108,0.45) 100%)}
+}
+</style>
+
+<!-- FEATURED MONTHLY GIVING (moved up per design pass) -->
+<section style="padding:40px 48px;background:linear-gradient(135deg, var(--mhn-warm-50), var(--mhn-cream))">
+  <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:center;background:#fff;border:2px solid var(--mhn-warm-300);border-radius:24px;padding:36px 40px;box-shadow:0 8px 28px rgba(181,130,74,0.12)">
+    <div>
+      <div class="eyebrow" style="font-size:16px;letter-spacing:0.28em;text-transform:uppercase;color:var(--mhn-warm-700);font-weight:700;margin-bottom:10px">Recurring Impact</div>
+      <h2 class="h2-warm" style="font-family:var(--mhn-font-serif);font-size:27px;color:var(--mhn-purple-700);margin:0 0 14px;letter-spacing:-0.01em;line-height:1.15">Become a Sustainer, $25/month.</h2>
+      <p style="font-size:17px;line-height:1.65;color:var(--mhn-ink-soft);margin:0 0 8px">$25 a month funds a birth kit every other month and keeps the lights on year-round. Recurring donors give five times more lifetime value than one-time donors, but more importantly, sustainers let us plan ahead, train more cohorts, and never turn a mother away.</p>
+      <p style="font-size:16px;color:var(--mhn-ink-mute);font-style:italic;margin:0 0 18px">Cancel anytime. Tax-deductible. Real-time impact reports.</p>
+      <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SWNSJ66NKCW2N" target="_blank" rel="noopener" class="btn-donate" style="font-size:17px;padding:16px 28px">Start monthly giving</a>
+    </div>
+    <div style="text-align:center">
+      <div style="background:var(--mhn-warm-700);color:#fff;border-radius:18px;padding:32px 24px">
+        <div style="font-family:var(--mhn-font-serif);font-size:16px;letter-spacing:0.18em;text-transform:uppercase;opacity:0.85;margin-bottom:8px">Annual impact at $25/mo</div>
+        <div style="font-family:var(--mhn-font-serif);font-size:35px;font-weight:700;line-height:1;margin:8px 0">$300</div>
+        <div style="font-family:var(--mhn-font-serif);font-style:italic;font-size:17px;margin-top:8px;opacity:0.95">Six birth kits + a postpartum visit cycle</div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -247,88 +278,46 @@
 </div>
 </section>
 
-<!-- FEATURED MONTHLY GIVING -->
-<section style="padding:48px 48px;background:linear-gradient(135deg, var(--mhn-warm-50), var(--mhn-cream))">
-  <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:center;background:#fff;border:2px solid var(--mhn-warm-300);border-radius:24px;padding:40px 44px;box-shadow:0 8px 28px rgba(181,130,74,0.12)">
-    <div>
-      <div class="eyebrow" style="font-size:16px;letter-spacing:0.28em;text-transform:uppercase;color:var(--mhn-warm-700);font-weight:700;margin-bottom:10px">Recurring Impact</div>
-      <h2 class="h2-warm" style="font-family:var(--mhn-font-serif);font-size:27px;color:var(--mhn-purple-700);margin:0 0 14px;letter-spacing:-0.01em;line-height:1.15">Become a Sustainer, $25/month.</h2>
-      <p style="font-size:17px;line-height:1.65;color:var(--mhn-ink-soft);margin:0 0 8px">$25 a month funds a birth kit every other month and keeps the lights on year-round. Recurring donors give five times more lifetime value than one-time donors, but more importantly, sustainers let us plan ahead, train more cohorts, and never turn a mother away.</p>
-      <p style="font-size:16px;color:var(--mhn-ink-mute);font-style:italic;margin:0 0 18px">Cancel anytime. Tax-deductible. Real-time impact reports.</p>
-      <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SWNSJ66NKCW2N" target="_blank" rel="noopener" class="btn-donate" style="font-size:17px;padding:16px 28px">Start monthly giving</a>
-    </div>
-    <div style="text-align:center">
-      <div style="background:var(--mhn-warm-700);color:#fff;border-radius:18px;padding:32px 24px">
-        <div style="font-family:var(--mhn-font-serif);font-size:16px;letter-spacing:0.18em;text-transform:uppercase;opacity:0.85;margin-bottom:8px">Annual impact at $25/mo</div>
-        <div style="font-family:var(--mhn-font-serif);font-size:35px;font-weight:700;line-height:1;margin:8px 0">$300</div>
-        <div style="font-family:var(--mhn-font-serif);font-style:italic;font-size:17px;margin-top:8px;opacity:0.95">Six birth kits + a postpartum visit cycle</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="ways">
-  <div class="ways-head">
+<section class="ways" style="padding:36px 48px 40px">
+  <div class="ways-head" style="margin-bottom:24px">
     <div class="eyebrow">Other Ways to Give</div>
-    <h2 class="h2-warm">Beyond one-time gifts.</h2>
+    <h2 class="h2-warm" style="font-size:22px;margin-top:6px">Beyond one-time gifts.</h2>
   </div>
-  <div class="wgrid">
-    
-    <div class="way">
-      <i class="ico" data-lucide="briefcase"></i>
-      <h4>Employer match</h4>
-      <p>Most Louisiana employers will match charitable gifts. Ask your HR about their program and we'll send the paperwork.</p>
-      <a href="mailto:info@mhndoula.com?subject=Employer%20Match">Request match info</a>
-    </div>
-    <div class="way">
-      <i class="ico" data-lucide="gift"></i>
-      <h4>In-kind gifts</h4>
-      <p>Donate supplies (postpartum kits, newborn essentials), professional services, venue space, or photography time with families.</p>
-      <a href="mailto:info@mhndoula.com?subject=In-kind%20Gift">Offer a gift in-kind</a>
-    </div>
-    <div class="way">
-      <i class="ico" data-lucide="building-2"></i>
-      <h4>Corporate sponsorship</h4>
-      <p>Underwrite a cohort, sponsor a birth kit run, or support our community events. Recognition packages available.</p>
-      <a href="mailto:info@mhndoula.com?subject=Corporate%20Sponsorship">Talk to us</a>
-    </div>
-    <div class="way">
-      <i class="ico" data-lucide="landmark"></i>
-      <h4>Foundation grants</h4>
-      <p>We work with public and private foundations across Louisiana and nationally. Request our grants package and IRB outcomes report.</p>
-      <a href="mailto:info@mhndoula.com?subject=Grants%20Package">Request our grants package</a>
-    </div>
-    <div class="way">
-      <i class="ico" data-lucide="book-heart"></i>
-      <h4>Planned giving</h4>
-      <p>Include MHN in your estate plan. Bequests, retirement plan beneficiary designations, and charitable trusts welcome.</p>
-      <a href="mailto:info@mhndoula.com?subject=Planned%20Giving">Talk with us</a>
-    </div>
-  </div>
-</section>
+  <div class="wgrid" style="grid-template-columns:repeat(5,1fr);gap:16px">
 
-<section class="impact">
-  <div class="label">Why It Matters</div>
-  <h2 class="h2-warm">Louisiana's maternal outcomes are among the worst in the country. We are changing them.</h2>
-  <p>MHN families, most low-income and majority Black, experience outcomes that outperform the national average. These reductions were achieved with trained volunteer doulas, not paid clinicians.</p>
-  <div class="igrid">
-    <div class="istat">
-      <div class="n">65%</div>
-      <div class="sub">Fewer Cesareans</div>
-      <p>MHN clients had a 12.6% C-section rate vs. Louisiana's 36.1% baseline. Statistically significant (p&lt;0.001).</p>
+    <div class="way" style="padding:18px 18px">
+      <i class="ico" data-lucide="briefcase" style="width:22px;height:22px;margin-bottom:10px"></i>
+      <h4 style="font-size:17px;margin:0 0 6px">Employer match</h4>
+      <p style="font-size:14.5px;line-height:1.5;margin:0 0 10px">Many employers match charitable gifts. Ask HR; we&rsquo;ll send the paperwork.</p>
+      <a href="mailto:info@mhndoula.com?subject=Employer%20Match" style="font-size:14px">Request match info</a>
     </div>
-    <div class="istat">
-      <div class="n">84%</div>
-      <div class="sub">Fewer Preterm Births</div>
-      <p>MHN clients had a 2.1% preterm rate vs. Louisiana's 13.4% baseline. 86% reduction for Black women specifically.</p>
+    <div class="way" style="padding:18px 18px">
+      <i class="ico" data-lucide="gift" style="width:22px;height:22px;margin-bottom:10px"></i>
+      <h4 style="font-size:17px;margin:0 0 6px">In-kind gifts</h4>
+      <p style="font-size:14.5px;line-height:1.5;margin:0 0 10px">Supplies, professional services, venue space, or photography time with families.</p>
+      <a href="mailto:info@mhndoula.com?subject=In-kind%20Gift" style="font-size:14px">Offer a gift in-kind</a>
     </div>
-    <div class="istat">
-      <div class="n">$400M+</div>
-      <div class="sub">Annual Savings if Scaled</div>
-      <p>Applied to all 60,000 Louisiana births, MHN outcomes would prevent 13,662 cesareans and 6,708 preterm births a year.</p>
+    <div class="way" style="padding:18px 18px">
+      <i class="ico" data-lucide="building-2" style="width:22px;height:22px;margin-bottom:10px"></i>
+      <h4 style="font-size:17px;margin:0 0 6px">Corporate sponsorship</h4>
+      <p style="font-size:14.5px;line-height:1.5;margin:0 0 10px">Underwrite a cohort, sponsor a birth kit run, or support community events.</p>
+      <a href="mailto:info@mhndoula.com?subject=Corporate%20Sponsorship" style="font-size:14px">Talk to us</a>
+    </div>
+    <div class="way" style="padding:18px 18px">
+      <i class="ico" data-lucide="landmark" style="width:22px;height:22px;margin-bottom:10px"></i>
+      <h4 style="font-size:17px;margin:0 0 6px">Foundation grants</h4>
+      <p style="font-size:14.5px;line-height:1.5;margin:0 0 10px">Public and private foundations welcome. Request our grants package and outcomes report.</p>
+      <a href="mailto:info@mhndoula.com?subject=Grants%20Package" style="font-size:14px">Request package</a>
+    </div>
+    <div class="way" style="padding:18px 18px">
+      <i class="ico" data-lucide="book-heart" style="width:22px;height:22px;margin-bottom:10px"></i>
+      <h4 style="font-size:17px;margin:0 0 6px">Planned giving</h4>
+      <p style="font-size:14.5px;line-height:1.5;margin:0 0 10px">Include MHN in your estate plan. Bequests, beneficiary designations, charitable trusts.</p>
+      <a href="mailto:info@mhndoula.com?subject=Planned%20Giving" style="font-size:14px">Talk with us</a>
     </div>
   </div>
 </section>
+<style>@media (max-width:1000px){.ways .wgrid{grid-template-columns:repeat(2,1fr) !important}}@media (max-width:560px){.ways .wgrid{grid-template-columns:1fr !important}}</style>
 
 
 <!-- MAJOR GIFTS / FOUNDATION PARTNERSHIPS -->
