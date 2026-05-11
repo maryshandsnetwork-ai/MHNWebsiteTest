@@ -63,6 +63,31 @@
   .d1-section-divider .eyebrow{font-size:13px;letter-spacing:0.22em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:700;margin-bottom:6px}
   .d1-section-divider h2{font-family:var(--mhn-font-serif);font-size:22px;color:var(--mhn-purple-700);margin:0;letter-spacing:-0.01em}
   .d1-section-divider p{font-family:var(--mhn-font-serif);font-style:italic;color:var(--mhn-ink-soft);font-size:15px;margin:6px 0 0}
+  .slides-toggle{margin:22px 0 0;background:#fff;border:1px solid var(--mhn-line);border-radius:14px;overflow:hidden;transition:box-shadow .15s}
+  .slides-toggle[open]{box-shadow:0 8px 24px rgba(94,55,108,0.10)}
+  .slides-toggle summary{list-style:none;cursor:pointer;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;gap:14px;background:var(--mhn-purple-50);transition:background .15s}
+  .slides-toggle summary::-webkit-details-marker{display:none}
+  .slides-toggle summary:hover{background:#EEDFEF}
+  .slides-toggle .st-text{display:flex;align-items:center;gap:14px;flex:1}
+  .slides-toggle .st-icon{width:40px;height:40px;border-radius:10px;background:#fff;display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--mhn-purple-200)}
+  .slides-toggle .st-icon .ico{width:20px;height:20px;color:var(--mhn-purple-700)}
+  .slides-toggle .st-label{display:block;font-family:var(--mhn-font-sans);font-size:15px;font-weight:700;color:var(--mhn-purple-700);letter-spacing:0.01em}
+  .slides-toggle .st-sub{display:block;font-family:var(--mhn-font-serif);font-size:13px;font-style:italic;color:var(--mhn-ink-soft);margin-top:2px}
+  .slides-toggle .st-chevron{width:32px;height:32px;border-radius:50%;background:#fff;display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--mhn-purple-200);transition:transform .2s, background .15s}
+  .slides-toggle .st-chevron .ico{width:18px;height:18px;color:var(--mhn-purple-700)}
+  .slides-toggle[open] .st-chevron{transform:rotate(180deg);background:var(--mhn-purple-700)}
+  .slides-toggle[open] .st-chevron .ico{color:#fff}
+  .slides-toggle .st-body{padding:14px 14px 14px}
+  .slides-toggle .st-body iframe{width:100%;height:75vh;min-height:560px;border:0;display:block;border-radius:10px;background:#f6f3f8}
+  .slides-toggle .st-fallback{font-family:var(--mhn-font-sans);font-size:13px;color:var(--mhn-ink-soft);margin:10px 4px 0}
+  .slides-toggle .st-fallback a{color:var(--mhn-purple-700);font-weight:700;text-decoration:none}
+  @media (max-width:600px){
+    .slides-toggle summary{padding:14px 16px}
+    .slides-toggle .st-icon{width:36px;height:36px}
+    .slides-toggle .st-label{font-size:14px}
+    .slides-toggle .st-sub{font-size:12px}
+    .slides-toggle .st-body iframe{height:65vh;min-height:420px}
+  }
   @media (max-width:720px){
     .d1-hero{padding:14px 20px 0}
     .d1-hero h1{font-size:24px}
@@ -156,6 +181,24 @@
     <a class="btn-ghost" href="./assets/training/mhn-icbd-night-1.pptx" download><i class="ico" data-lucide="presentation"></i>Download PowerPoint</a>
     <a class="btn-ghost" href="./assets/training/mhn-icbd-night-1.pdf" target="_blank" rel="noopener"><i class="ico" data-lucide="external-link"></i>Open in new tab</a>
   </div>
+
+  <!-- COLLAPSIBLE: Inline slide viewer (closed by default, expands to show the PDF) -->
+  <details class="slides-toggle">
+    <summary>
+      <span class="st-text">
+        <span class="st-icon"><i class="ico" data-lucide="presentation"></i></span>
+        <span>
+          <span class="st-label">View Lecture Slides Inline</span>
+          <span class="st-sub">54 slides &middot; click to expand the deck in your browser</span>
+        </span>
+      </span>
+      <span class="st-chevron"><i class="ico" data-lucide="chevron-down"></i></span>
+    </summary>
+    <div class="st-body">
+      <iframe src="./assets/training/mhn-icbd-night-1.pdf#view=FitH&toolbar=1&navpanes=0&pagemode=none" title="MHN ICBD Night 1 deck"></iframe>
+      <p class="st-fallback">PDF preview not loading? <a href="./assets/training/mhn-icbd-night-1.pdf" target="_blank" rel="noopener">Open it in a new tab</a> or <a href="./assets/training/mhn-icbd-night-1.pdf" download>download the PDF</a>.</p>
+    </div>
+  </details>
 </section>
 
 <!-- COURSE CONTENT (Canvas HTML page rendered inline) -->
@@ -550,20 +593,6 @@
 </div>
 
 </div><!-- /day-content -->
-
-<!-- LECTURE SLIDES VIEWER (kept available below the curriculum overview) -->
-<div class="d1-section-divider">
-  <div class="eyebrow">Lecture Slides</div>
-  <h2>Browse the Night 1 deck inline</h2>
-  <p>Same deck as the download buttons above. Scroll to flip through.</p>
-</div>
-
-<section class="d1-viewer">
-  <div class="frame">
-    <iframe src="./assets/training/mhn-icbd-night-1.pdf#view=FitH&toolbar=1&navpanes=0&pagemode=none" title="MHN ICBD Night 1 deck"></iframe>
-    <p class="fallback">PDF preview not loading? <a href="./assets/training/mhn-icbd-night-1.pdf" target="_blank" rel="noopener">Open it in a new tab</a> or <a href="./assets/training/mhn-icbd-night-1.pdf" download>download the PDF</a>.</p>
-  </div>
-</section>
 
 </main>
 </div><!-- /portal-app -->
