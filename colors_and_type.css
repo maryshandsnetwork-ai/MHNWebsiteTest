@@ -354,9 +354,9 @@ a:hover { text-decoration: none; }
 .btn-donate:hover { background: var(--mhn-warm-500); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(181,130,74,0.35); }
 
 /* Doula Portal button — purple companion to Donate (warm). */
-.btn-portal, a.btn-portal {
+.btn-portal, a.btn-portal, .nav-links a.btn-portal {
   background: var(--mhn-purple-700);
-  color: #fff;
+  color: #ffffff !important;
   text-decoration: none;
   padding: 14px 22px;
   border-radius: 999px;
@@ -371,8 +371,8 @@ a:hover { text-decoration: none; }
   border: none;
   cursor: pointer;
 }
-.btn-portal:hover { background: var(--mhn-purple-900); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(94,55,108,0.4); color: #fff; }
-.btn-portal .ico { width: 16px; height: 16px; }
+.btn-portal:hover, a.btn-portal:hover, .nav-links a.btn-portal:hover { background: var(--mhn-purple-900); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(94,55,108,0.4); color: #ffffff !important; }
+.btn-portal .ico { width: 16px; height: 16px; color: #ffffff; }
 
 .btn-donate-outline {
   background: transparent;
