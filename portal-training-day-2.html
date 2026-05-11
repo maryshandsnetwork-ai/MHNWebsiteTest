@@ -58,6 +58,36 @@
   .d1-viewer iframe{width:100%;height:80vh;min-height:600px;border:0;display:block}
   .d1-viewer .fallback{font-family:var(--mhn-font-sans);font-size:14px;color:var(--mhn-ink-soft);padding:10px 16px;background:var(--mhn-paper-alt);border-top:1px solid var(--mhn-line)}
   .d1-viewer .fallback a{color:var(--mhn-purple-700);font-weight:700;text-decoration:none}
+  .day-content{padding:0 16px 32px;max-width:1100px;margin:0 auto}
+  .d1-section-divider{max-width:1100px;margin:32px auto 24px;padding:0 36px}
+  .d1-section-divider .eyebrow{font-size:13px;letter-spacing:0.22em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:700;margin-bottom:6px}
+  .d1-section-divider h2{font-family:var(--mhn-font-serif);font-size:22px;color:var(--mhn-purple-700);margin:0;letter-spacing:-0.01em}
+  .d1-section-divider p{font-family:var(--mhn-font-serif);font-style:italic;color:var(--mhn-ink-soft);font-size:15px;margin:6px 0 0}
+  .slides-toggle{margin:22px 0 0;background:#fff;border:1px solid var(--mhn-line);border-radius:14px;overflow:hidden;transition:box-shadow .15s}
+  .slides-toggle[open]{box-shadow:0 8px 24px rgba(94,55,108,0.10)}
+  .slides-toggle summary{list-style:none;cursor:pointer;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;gap:14px;background:var(--mhn-purple-50);transition:background .15s}
+  .slides-toggle summary::-webkit-details-marker{display:none}
+  .slides-toggle summary:hover{background:#EEDFEF}
+  .slides-toggle .st-text{display:flex;align-items:center;gap:14px;flex:1}
+  .slides-toggle .st-icon{width:40px;height:40px;border-radius:10px;background:#fff;display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--mhn-purple-200)}
+  .slides-toggle .st-icon .ico{width:20px;height:20px;color:var(--mhn-purple-700)}
+  .slides-toggle .st-label{display:block;font-family:var(--mhn-font-sans);font-size:15px;font-weight:700;color:var(--mhn-purple-700);letter-spacing:0.01em}
+  .slides-toggle .st-sub{display:block;font-family:var(--mhn-font-serif);font-size:13px;font-style:italic;color:var(--mhn-ink-soft);margin-top:2px}
+  .slides-toggle .st-chevron{width:32px;height:32px;border-radius:50%;background:#fff;display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--mhn-purple-200);transition:transform .2s, background .15s}
+  .slides-toggle .st-chevron .ico{width:18px;height:18px;color:var(--mhn-purple-700)}
+  .slides-toggle[open] .st-chevron{transform:rotate(180deg);background:var(--mhn-purple-700)}
+  .slides-toggle[open] .st-chevron .ico{color:#fff}
+  .slides-toggle .st-body{padding:14px 14px 14px}
+  .slides-toggle .st-body iframe{width:100%;height:75vh;min-height:560px;border:0;display:block;border-radius:10px;background:#f6f3f8}
+  .slides-toggle .st-fallback{font-family:var(--mhn-font-sans);font-size:13px;color:var(--mhn-ink-soft);margin:10px 4px 0}
+  .slides-toggle .st-fallback a{color:var(--mhn-purple-700);font-weight:700;text-decoration:none}
+  @media (max-width:600px){
+    .slides-toggle summary{padding:14px 16px}
+    .slides-toggle .st-icon{width:36px;height:36px}
+    .slides-toggle .st-label{font-size:14px}
+    .slides-toggle .st-sub{font-size:12px}
+    .slides-toggle .st-body iframe{height:65vh;min-height:420px}
+  }
   @media (max-width:720px){
     .d1-hero{padding:14px 20px 0}
     .d1-hero h1{font-size:24px}
@@ -151,14 +181,396 @@
     <a class="btn-ghost" href="./assets/training/mhn-icbd-night-2.pptx" download><i class="ico" data-lucide="presentation"></i>Download PowerPoint</a>
     <a class="btn-ghost" href="./assets/training/mhn-icbd-night-2.pdf" target="_blank" rel="noopener"><i class="ico" data-lucide="external-link"></i>Open in new tab</a>
   </div>
+
+  <!-- COLLAPSIBLE: Inline slide viewer (closed by default, expands to show the PDF) -->
+  <details class="slides-toggle">
+    <summary>
+      <span class="st-text">
+        <span class="st-icon"><i class="ico" data-lucide="presentation"></i></span>
+        <span>
+          <span class="st-label">View Lecture Slides Inline</span>
+          <span class="st-sub">Night 2 deck &middot; click to expand the slides in your browser</span>
+        </span>
+      </span>
+      <span class="st-chevron"><i class="ico" data-lucide="chevron-down"></i></span>
+    </summary>
+    <div class="st-body">
+      <iframe src="./assets/training/mhn-icbd-night-2.pdf#view=FitH&toolbar=1&navpanes=0&pagemode=none" title="MHN ICBD Night 2 deck"></iframe>
+      <p class="st-fallback">PDF preview not loading? <a href="./assets/training/mhn-icbd-night-2.pdf" target="_blank" rel="noopener">Open it in a new tab</a> or <a href="./assets/training/mhn-icbd-night-2.pdf" download>download the PDF</a>.</p>
+    </div>
+  </details>
 </section>
 
-<section class="d1-viewer">
-  <div class="frame">
-    <iframe src="./assets/training/mhn-icbd-night-2.pdf#view=FitH&toolbar=1&navpanes=0&pagemode=none" title="MHN ICBD Night 2 deck"></iframe>
-    <p class="fallback">PDF preview not loading? <a href="./assets/training/mhn-icbd-night-2.pdf" target="_blank" rel="noopener">Open it in a new tab</a> or <a href="./assets/training/mhn-icbd-night-2.pdf" download>download the PDF</a>.</p>
+<!-- COURSE CONTENT (Canvas HTML page rendered inline) -->
+<div class="d1-section-divider">
+  <div class="eyebrow">Course Content &amp; Reference</div>
+  <h2>Night 2 curriculum overview</h2>
+  <p>Tonight we move from pregnancy to the labor room. Read through the stages of labor, the hormonal symphony, induction, pain relief options, and what to do when birth gets complicated.</p>
+</div>
+
+<div class="day-content">
+
+<!-- ============================================================
+     MHN ICBD — ONLINE NIGHT 2 CANVAS PAGE
+     Labor, Birth, Induction, Medications & Loss
+     ============================================================ -->
+<!-- HERO -->
+<div style="background-color:#5E376C;background-image:linear-gradient(135deg,#5E376C 0%,#3D1F48 100%);padding:44px 48px 36px;margin:0 -16px 0 -16px;">
+  <div style="max-width:860px;margin:0 auto;">
+    <p style="font-family:Arial,Helvetica,sans-serif;font-size:9.5pt;letter-spacing:0.15em;text-transform:uppercase;color:#D4BADD;margin:0 0 10px 0;padding:0;">Online Night 2 &nbsp;&middot;&nbsp; 5:30 PM to 8:00 PM CST &nbsp;&middot;&nbsp; Microsoft Teams</p>
+    <h1 style="font-family:Georgia,'Times New Roman',serif;font-size:30pt;font-weight:bold;color:#FFFFFF;line-height:1.15;margin:0 0 6px 0;padding:0;">Labor, Birth, &amp; When</h1>
+    <h1 style="font-family:Georgia,'Times New Roman',serif;font-size:30pt;font-weight:normal;font-style:italic;color:#D4BADD;line-height:1.15;margin:0 0 20px 0;padding:0;">Things Get Complex</h1>
+    <p style="font-family:Arial,Helvetica,sans-serif;font-size:11pt;color:rgba(255,255,255,0.80);margin:0;padding:0;line-height:1.6;">Tonight you learn what labor actually looks like, hour by hour, hormone by hormone. You learn how to support a person through unmedicated labor, an epidural, an induction, a cesarean &mdash; and through the kind of loss that no one prepares you for.</p>
   </div>
-</section>
+</div>
+
+<!-- LEARNING OBJECTIVES -->
+<div style="max-width:860px;margin:28px auto 0;padding:0 48px;">
+  <div style="background-color:#F8F5FA;border-left:5px solid #5E376C;border-radius:6px;padding:22px 26px;margin-bottom:32px;">
+    <p style="font-family:Georgia,'Times New Roman',serif;font-size:12pt;font-weight:bold;color:#5E376C;margin:0 0 12px 0;padding:0;letter-spacing:0.04em;text-transform:uppercase;">By the End of Tonight, You Will Be Able To</p>
+    <ul style="font-family:Arial,Helvetica,sans-serif;font-size:11pt;color:#2D2D2D;line-height:1.75;margin:0;padding:0 0 0 20px;">
+      <li style="margin-bottom:5px;">Describe the four stages of labor and the phases within each stage</li>
+      <li style="margin-bottom:5px;">Explain the hormonal symphony of labor and how the environment supports or disrupts it</li>
+      <li style="margin-bottom:5px;">Identify the Six P's that influence the course of labor</li>
+      <li style="margin-bottom:5px;">Describe common induction and augmentation methods and the doula's supportive role</li>
+      <li style="margin-bottom:5px;">Compare pain-relief options &mdash; non-pharmacologic, nitrous, IV meds, epidural, spinal &mdash; and use the BRAIN framework with clients</li>
+      <li style="margin-bottom:5px;">Recognize complications including OP position, prolonged labor, shoulder dystocia, and unplanned cesarean</li>
+      <li style="margin-bottom:0;">Hold space with families through perinatal loss with cultural humility and clinical awareness</li>
+    </ul>
+  </div>
+
+  <!-- NIGHT AT A GLANCE -->
+  <p style="font-family:Georgia,'Times New Roman',serif;font-size:13pt;font-weight:bold;color:#5E376C;margin:0 0 14px 0;padding:0;letter-spacing:0.03em;text-transform:uppercase;border-bottom:2px solid #D4BADD;padding-bottom:8px;">Tonight at a Glance</p>
+  <table style="width:100%;border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;font-size:10.5pt;margin-bottom:36px;">
+    <tbody>
+      <tr style="background-color:#5E376C;color:#FFFFFF;">
+        <td style="padding:10px 14px;font-weight:bold;width:22%;">5:30 PM</td>
+        <td style="padding:10px 14px;">Welcome &amp; Recap of Night 1</td>
+        <td style="padding:10px 14px;text-align:right;color:#D4BADD;">10 min</td>
+      </tr>
+      <tr style="background-color:#F8F5FA;">
+        <td style="padding:10px 14px;font-weight:bold;color:#5E376C;">5:40 PM</td>
+        <td style="padding:10px 14px;color:#2D2D2D;">Stages &amp; Phases of Labor</td>
+        <td style="padding:10px 14px;text-align:right;color:#6B6B6B;">35 min</td>
+      </tr>
+      <tr style="background-color:#FFFFFF;">
+        <td style="padding:10px 14px;font-weight:bold;color:#5E376C;">6:15 PM</td>
+        <td style="padding:10px 14px;color:#2D2D2D;">The Hormonal Symphony &amp; the Six P's</td>
+        <td style="padding:10px 14px;text-align:right;color:#6B6B6B;">25 min</td>
+      </tr>
+      <tr style="background-color:#F8F5FA;">
+        <td style="padding:10px 14px;font-weight:bold;color:#5E376C;">6:40 PM</td>
+        <td style="padding:10px 14px;color:#2D2D2D;font-style:italic;">Break</td>
+        <td style="padding:10px 14px;text-align:right;color:#6B6B6B;">15 min</td>
+      </tr>
+      <tr style="background-color:#FFFFFF;">
+        <td style="padding:10px 14px;font-weight:bold;color:#5E376C;">6:55 PM</td>
+        <td style="padding:10px 14px;color:#2D2D2D;">Induction, Augmentation &amp; Pain Relief Options</td>
+        <td style="padding:10px 14px;text-align:right;color:#6B6B6B;">40 min</td>
+      </tr>
+      <tr style="background-color:#F8F5FA;">
+        <td style="padding:10px 14px;font-weight:bold;color:#5E376C;">7:35 PM</td>
+        <td style="padding:10px 14px;color:#2D2D2D;">When Birth Needs Help: Complications &amp; Cesarean</td>
+        <td style="padding:10px 14px;text-align:right;color:#6B6B6B;">15 min</td>
+      </tr>
+      <tr style="background-color:#FFFFFF;">
+        <td style="padding:10px 14px;font-weight:bold;color:#5E376C;">7:50 PM</td>
+        <td style="padding:10px 14px;color:#2D2D2D;">Perinatal Loss &amp; Holding Space</td>
+        <td style="padding:10px 14px;text-align:right;color:#6B6B6B;">15 min</td>
+      </tr>
+      <tr style="background-color:#5E376C;color:#FFFFFF;">
+        <td style="padding:10px 14px;font-weight:bold;">8:05 PM</td>
+        <td style="padding:10px 14px;">Key Takeaways &amp; Closing</td>
+        <td style="padding:10px 14px;text-align:right;color:#D4BADD;">10 min</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- SECTION 1: STAGES & PHASES OF LABOR -->
+  <p style="font-family:Georgia,'Times New Roman',serif;font-size:14pt;font-weight:bold;color:#5E376C;margin:0 0 6px 0;padding:0;">Section 1 &mdash; Stages &amp; Phases of Labor</p>
+  <p style="font-family:Arial,Helvetica,sans-serif;font-size:10.5pt;color:#6B6B6B;font-style:italic;margin:0 0 18px 0;padding:0;line-height:1.55;">Labor is not one long stretch. It is four distinct stages with predictable physical and emotional landmarks. Knowing where a person is helps you know how to support them.</p>
+
+  <!-- EARLY / LATENT -->
+  <div style="background-color:#FFFFFF;border:1px solid #D4BADD;border-radius:8px;padding:18px 22px;margin-bottom:14px;">
+    <p style="font-family:Georgia,'Times New Roman',serif;font-size:12pt;font-weight:bold;color:#5E376C;margin:0 0 6px 0;padding:0;">Stage 1, Early/Latent &mdash; 0 to 6 cm</p>
+    <p style="font-family:Arial,Helvetica,sans-serif;font-size:10.5pt;color:#2D2D2D;margin:0 0 8px 0;padding:0;line-height:1.6;"><strong>What's happening:</strong> Cervix is softening, thinning, and slowly dilating. Contractions are mild to moderate, irregular, typically 5&ndash;20 minutes apart.</p>
+    <p style="font-family:Arial,Helvetica,sans-serif;font-size:10.5pt;color:#2D2D2D;margin:0 0 8px 0;padding:0;line-height:1.6;"><strong>Doula focus:</strong> Rest, hydrate, normal-life distractions. Bath, walk, snack, sleep if it's nighttime. Do NOT exhaust her here.</p>
+    <p style="font-family:Arial,Helvetica,sans-serif;font-size:10.5pt;color:#5E376C;margin:0;padding:0;line-height:1.6;font-style:italic;"><strong>Length:</strong> Hours to days. Highly variable.</p>
+  </div>
+
+  <!-- PRODROMAL -->
+  <div style="background-color:#F8F5FA;border:1px solid #D4BADD;border-radius:8px;padding:18px 22px;margin-bottom:14px;">
+    <p style="font-family:Georgia,'Times New Roman',serif;font-size:12pt;font-weight:bold;color:#5E376C;margin:0 0 6px 0;padding:0;">Prodromal Labor &mdash; "False" labor that's real</p>
+    <p style="font-family:Arial,Helvetica,sans-serif;font-size:10.5pt;color:#2D2D2D;margin:0 0 8px 0;padding:0;line-height:1.6;">Contractions that start and stop over days, with little to no cervical change. Emotionally exhausting. Validate the experience &mdash; this IS labor doing prep work, not "nothing."</p>
+    <p style="font-family:Arial,Helvetica,sans-serif;font-size:10.5pt;color:#2D2D2D;margin:0;padding:0;line-height:1.6;"><strong>Doula focus:</strong> Sleep, calories, reassurance. Position changes (Spinning Babies). Remind her: every contraction is doing something.</p>
+  </div>
+
+  <!-- ACTIVE -->
+  <div style="background-color:#FFFFFF;border:1px solid #D4BADD;border-radius:8px;padding:18px 22px;margin-bottom:14px;">
+    <p style="font-family:Georgia,'Times New Roman',serif;font-size:12pt;font-weight:bold;color:#5E376C;margin:0 0 6px 0;padding:0;">Stage 1, Active &mdash; 6 to 8 cm</p>
+    <p style="font-family:Arial,Helvetica,sans-serif;font-size:10.5pt;color:#2D2D2D;margin:0 0 8px 0;padding:0;line-height:1.6;"><strong>What's happening:</strong> Contractions stronger, longer, closer &mdash; usually 3&ndash;5 minutes apart, 45&ndash;60 seconds long. Talking through contractions becomes hard. She's IN it now.</p>
+    <p style="font-family:Arial,Helvetica,sans-serif;font-size:10.5pt;color:#2D2D2D;margin:0 0 8px 0;padding:0;line-height:1.6;"><strong>Doula focus:</strong> Continuous physical support. Hip squeezes, counter-pressure, hands-and-knees, shower, tub. Slow breath. Quiet voice. Low lighting.</p>
+    <p style="font-family:Arial,Helvetica,sans-serif;font-size:10.5pt;color:#5E376C;margin:0;padding:0;line-height:1.6;font-style:italic;"><strong>Hospital tip:</strong> This is typically when admission happens (5-1-1 rule, or 4-1-1 for second-time parents).</p>
+  </div>
+
+  <!-- TRANSITION -->
+  <div style="background-color:#F8F5FA;border:1px solid #D4BADD;border-radius:8px;padding:18px 22px;margin-bottom:14px;">
+    <p style="font-family:Georgia,'Times New Roman',serif;font-size:12pt;font-weight:bold;color:#5E376C;margin:0 0 6px 0;padding:0;">Stage 1, Transition &mdash; 8 to 10 cm</p>
+    <p style="font-family:Arial,Helvetica,sans-serif;font-size:10.5pt;color:#2D2D2D;margin:0 0 8px 0;padding:0;line-height:1.6;"><strong>What's happening:</strong> The shortest, most intense phase. Contractions every 2&ndash;3 minutes, 60&ndash;90 seconds. Shaking, nausea, "I can't do this," self-doubt &mdash; these are SIGNS, not problems.</p>
+    <p style="font-family:Arial,Helvetica,sans-serif;font-size:10.5pt;color:#2D2D2D;margin:0;padding:0;line-height:1.6;"><strong>Doula focus:</strong> "You ARE doing it. You're almost there." Stay close. One contraction at a time. Don't introduce new ideas now.</p>
+  </div>
+
+  <!-- STAGE 2 -->
+  <div style="background-color:#FFFFFF;border:1px solid #D4BADD;border-radius:8px;padding:18px 22px;margin-bottom:14px;">
+    <p style="font-family:Georgia,'Times New Roman',serif;font-size:12pt;font-weight:bold;color:#5E376C;margin:0 0 6px 0;padding:0;">Stage 2 &mdash; Pushing &amp; Birth</p>
+    <p style="font-family:Arial,Helvetica,sans-serif;font-size:10.5pt;color:#2D2D2D;margin:0 0 8px 0;padding:0;line-height:1.6;"><strong>What's happening:</strong> Complete dilation through baby's birth. Can last minutes to several hours. "Rest and be thankful" pause is normal &mdash; contractions sometimes space out before the urge to push kicks in.</p>
+    <p style="font-family:Arial,Helvetica,sans-serif;font-size:10.5pt;color:#2D2D2D;margin:0;padding:0;line-height:1.6;"><strong>Doula focus:</strong> Encourage upright, gravity-friendly positions if possible. Mother-led pushing over directed pushing whenever the care team allows it. Cool cloths. Affirmations. Mirror &mdash; offer, never push.</p>
+  </div>
+
+  <!-- STAGE 3 -->
+  <div style="background-color:#F8F5FA;border:1px solid #D4BADD;border-radius:8px;padding:18px 22px;margin-bottom:14px;">
+    <p style="font-family:Georgia,'Times New Roman',serif;font-size:12pt;font-weight:bold;color:#5E376C;margin:0 0 6px 0;padding:0;">Stage 3 &mdash; Birth of the Placenta</p>
+    <p style="font-family:Arial,Helvetica,sans-serif;font-size:10.5pt;color:#2D2D2D;margin:0 0 8px 0;padding:0;line-height:1.6;"><strong>What's happening:</strong> 5&ndash;30 minutes after baby is born. Mild contractions, gentle pushes, placenta delivered. Active management (Pitocin) is now standard in U.S. hospitals to reduce hemorrhage risk.</p>
+    <p style="font-family:Arial,Helvetica,sans-serif;font-size:10.5pt;color:#2D2D2D;margin:0;padding:0;line-height:1.6;"><strong>Doula focus:</strong> Skin-to-skin with baby, support breastfeeding within the first hour, watch for the "magical hour" hormone surge.</p>
+  </div>
+
+  <!-- STAGE 4 / GOLDEN HOUR -->
+  <div style="background-color:#FFFFFF;border:1px solid #D4BADD;border-radius:8px;padding:18px 22px;margin-bottom:30px;">
+    <p style="font-family:Georgia,'Times New Roman',serif;font-size:12pt;font-weight:bold;color:#5E376C;margin:0 0 6px 0;padding:0;">Stage 4 &mdash; The Golden Hour</p>
+    <p style="font-family:Arial,Helvetica,sans-serif;font-size:10.5pt;color:#2D2D2D;margin:0 0 8px 0;padding:0;line-height:1.6;"><strong>What's happening:</strong> The first 1&ndash;2 hours postpartum. Oxytocin and prolactin peak. Bonding window. Body begins involution. Vitals monitored closely.</p>
+    <p style="font-family:Arial,Helvetica,sans-serif;font-size:10.5pt;color:#2D2D2D;margin:0;padding:0;line-height:1.6;"><strong>Doula focus:</strong> Protect the bubble. Dim lights, fewer voices, skin-to-skin, latch within the first hour if breastfeeding. Hold space &mdash; let her process out loud.</p>
+  </div>
+
+  <!-- SECTION 2: HORMONAL SYMPHONY -->
+  <p style="font-family:Georgia,'Times New Roman',serif;font-size:14pt;font-weight:bold;color:#5E376C;margin:0 0 6px 0;padding:0;">Section 2 &mdash; The Hormonal Symphony</p>
+  <p style="font-family:Arial,Helvetica,sans-serif;font-size:10.5pt;color:#6B6B6B;font-style:italic;margin:0 0 18px 0;padding:0;line-height:1.55;">Labor runs on hormones, not willpower. Your job is to protect the environment so the body can do what it already knows how to do.</p>
+
+  <table style="width:100%;border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;font-size:10.5pt;margin-bottom:36px;">
+    <thead>
+      <tr style="background-color:#5E376C;color:#FFFFFF;">
+        <th style="padding:10px 14px;text-align:left;font-weight:bold;width:22%;">Hormone</th>
+        <th style="padding:10px 14px;text-align:left;font-weight:bold;">Role &amp; Doula Implications</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color:#F8F5FA;">
+        <td style="padding:10px 14px;font-weight:bold;color:#5E376C;vertical-align:top;">Oxytocin</td>
+        <td style="padding:10px 14px;color:#2D2D2D;line-height:1.55;">Drives contractions, bonding, milk let-down. Released best when she feels SAFE and PRIVATE. Bright lights, strangers, questions all suppress it. Keep the room dim and quiet.</td>
+      </tr>
+      <tr style="background-color:#FFFFFF;">
+        <td style="padding:10px 14px;font-weight:bold;color:#5E376C;vertical-align:top;">Endorphins</td>
+        <td style="padding:10px 14px;color:#2D2D2D;line-height:1.55;">Body's own opioids. Rise gradually through labor. Suppressed by interventions and stress. This is why an unmedicated transition feels distant and dreamlike when it's working.</td>
+      </tr>
+      <tr style="background-color:#F8F5FA;">
+        <td style="padding:10px 14px;font-weight:bold;color:#5E376C;vertical-align:top;">Adrenaline</td>
+        <td style="padding:10px 14px;color:#2D2D2D;line-height:1.55;">Fight-or-flight hormone. Stalls labor in stage 1 (the body refuses to deliver when it feels threatened). Surges helpfully in stage 2 to give her the energy to push.</td>
+      </tr>
+      <tr style="background-color:#FFFFFF;">
+        <td style="padding:10px 14px;font-weight:bold;color:#5E376C;vertical-align:top;">Prolactin</td>
+        <td style="padding:10px 14px;color:#2D2D2D;line-height:1.55;">The "mothering" hormone. Drives milk production and the deep instinct to nest with baby. Peaks during skin-to-skin and early breastfeeding.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- SECTION 3: SIX P'S -->
+  <p style="font-family:Georgia,'Times New Roman',serif;font-size:14pt;font-weight:bold;color:#5E376C;margin:0 0 6px 0;padding:0;">Section 3 &mdash; The Six P's of Labor</p>
+  <p style="font-family:Arial,Helvetica,sans-serif;font-size:10.5pt;color:#6B6B6B;font-style:italic;margin:0 0 18px 0;padding:0;line-height:1.55;">When labor stalls or struggles, providers troubleshoot through these six factors. Knowing them helps you ask better questions in the room.</p>
+
+  <div style="background-color:#F8F5FA;border-radius:8px;padding:22px 26px;margin-bottom:36px;">
+    <ol style="font-family:Arial,Helvetica,sans-serif;font-size:10.5pt;color:#2D2D2D;line-height:1.75;margin:0;padding:0 0 0 20px;">
+      <li style="margin-bottom:8px;"><strong style="color:#5E376C;">Powers</strong> &mdash; strength, frequency, and effectiveness of contractions</li>
+      <li style="margin-bottom:8px;"><strong style="color:#5E376C;">Passenger</strong> &mdash; baby's size, position, presentation, and number</li>
+      <li style="margin-bottom:8px;"><strong style="color:#5E376C;">Passage</strong> &mdash; shape and capacity of the pelvis and soft tissues</li>
+      <li style="margin-bottom:8px;"><strong style="color:#5E376C;">Psyche</strong> &mdash; emotional state, fear, trauma history, environment</li>
+      <li style="margin-bottom:8px;"><strong style="color:#5E376C;">Position</strong> &mdash; how she's holding her body; mobility supports labor</li>
+      <li style="margin-bottom:0;"><strong style="color:#5E376C;">Provider</strong> &mdash; trust, communication, and continuity of care</li>
+    </ol>
+  </div>
+
+  <!-- SECTION 4: INDUCTION & AUGMENTATION -->
+  <p style="font-family:Georgia,'Times New Roman',serif;font-size:14pt;font-weight:bold;color:#5E376C;margin:0 0 6px 0;padding:0;">Section 4 &mdash; Induction &amp; Augmentation</p>
+  <p style="font-family:Arial,Helvetica,sans-serif;font-size:10.5pt;color:#6B6B6B;font-style:italic;margin:0 0 18px 0;padding:0;line-height:1.55;">Induction means starting labor before it has begun on its own. Augmentation means speeding up labor that has already started. Both are increasingly common in U.S. hospital settings.</p>
+
+  <!-- COMMON INDUCTION METHODS -->
+  <table style="width:100%;border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;font-size:10.5pt;margin-bottom:20px;">
+    <thead>
+      <tr style="background-color:#5E376C;color:#FFFFFF;">
+        <th style="padding:10px 14px;text-align:left;font-weight:bold;width:32%;">Method</th>
+        <th style="padding:10px 14px;text-align:left;font-weight:bold;">How it works</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color:#F8F5FA;">
+        <td style="padding:10px 14px;font-weight:bold;color:#5E376C;vertical-align:top;">Cervical ripening (Cervidil, Cytotec)</td>
+        <td style="padding:10px 14px;color:#2D2D2D;line-height:1.55;">Prostaglandin gel or pill softens the cervix to prepare for labor</td>
+      </tr>
+      <tr style="background-color:#FFFFFF;">
+        <td style="padding:10px 14px;font-weight:bold;color:#5E376C;vertical-align:top;">Foley balloon / Cook catheter</td>
+        <td style="padding:10px 14px;color:#2D2D2D;line-height:1.55;">Mechanical dilation of the cervix using a saline-filled balloon</td>
+      </tr>
+      <tr style="background-color:#F8F5FA;">
+        <td style="padding:10px 14px;font-weight:bold;color:#5E376C;vertical-align:top;">Membrane sweep / stripping</td>
+        <td style="padding:10px 14px;color:#2D2D2D;line-height:1.55;">Provider separates the membranes from the cervix to release prostaglandins</td>
+      </tr>
+      <tr style="background-color:#FFFFFF;">
+        <td style="padding:10px 14px;font-weight:bold;color:#5E376C;vertical-align:top;">AROM (artificial rupture of membranes)</td>
+        <td style="padding:10px 14px;color:#2D2D2D;line-height:1.55;">Manually breaking the water with an amnihook to intensify contractions</td>
+      </tr>
+      <tr style="background-color:#F8F5FA;">
+        <td style="padding:10px 14px;font-weight:bold;color:#5E376C;vertical-align:top;">Pitocin (synthetic oxytocin)</td>
+        <td style="padding:10px 14px;color:#2D2D2D;line-height:1.55;">IV drip that creates strong, regular contractions; titrated up over time</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ARRIVE TRIAL CALLOUT -->
+  <div style="background-color:#FFFFFF;border:2px solid #5E376C;border-radius:8px;padding:18px 22px;margin-bottom:22px;">
+    <p style="font-family:Georgia,'Times New Roman',serif;font-size:12pt;font-weight:bold;color:#5E376C;margin:0 0 8px 0;padding:0;">The ARRIVE Trial &mdash; what doulas should know</p>
+    <p style="font-family:Arial,Helvetica,sans-serif;font-size:10.5pt;color:#2D2D2D;margin:0 0 8px 0;padding:0;line-height:1.6;">Published in 2018, the ARRIVE trial influenced many U.S. providers to offer elective induction at 39 weeks for low-risk first-time parents. The study showed a small reduction in cesarean rates for participants, but the population studied was narrow (low-risk, first baby, willing to be randomized).</p>
+    <p style="font-family:Arial,Helvetica,sans-serif;font-size:10.5pt;color:#2D2D2D;margin:0;padding:0;line-height:1.6;"><strong>Doula role:</strong> Make sure your client knows induction at 39 weeks is an OFFER, not a requirement. Help her ask: What's my Bishop score? What's the failure rate if my body isn't ready? What happens if I wait?</p>
+  </div>
+
+  <!-- BRAIN -->
+  <div style="background-color:#F8F5FA;border-left:5px solid #B5824A;border-radius:6px;padding:22px 26px;margin-bottom:36px;">
+    <p style="font-family:Georgia,'Times New Roman',serif;font-size:12pt;font-weight:bold;color:#5E376C;margin:0 0 10px 0;padding:0;letter-spacing:0.04em;text-transform:uppercase;">BRAIN &mdash; The Decision Framework</p>
+    <p style="font-family:Arial,Helvetica,sans-serif;font-size:10.5pt;color:#2D2D2D;margin:0 0 10px 0;padding:0;line-height:1.6;">Teach this to your clients in pregnancy so they have it ready when a decision lands at 3 AM in the labor room:</p>
+    <ul style="font-family:Arial,Helvetica,sans-serif;font-size:10.5pt;color:#2D2D2D;line-height:1.75;margin:0;padding:0 0 0 20px;">
+      <li style="margin-bottom:5px;"><strong style="color:#5E376C;">B &mdash; Benefits.</strong> What are the benefits of this option?</li>
+      <li style="margin-bottom:5px;"><strong style="color:#5E376C;">R &mdash; Risks.</strong> What are the risks?</li>
+      <li style="margin-bottom:5px;"><strong style="color:#5E376C;">A &mdash; Alternatives.</strong> What else could we try?</li>
+      <li style="margin-bottom:5px;"><strong style="color:#5E376C;">I &mdash; Intuition.</strong> What does my gut say?</li>
+      <li style="margin-bottom:0;"><strong style="color:#5E376C;">N &mdash; Nothing / Not Now.</strong> What if we wait an hour, or don't do this at all?</li>
+    </ul>
+  </div>
+
+  <!-- SECTION 5: PAIN RELIEF -->
+  <p style="font-family:Georgia,'Times New Roman',serif;font-size:14pt;font-weight:bold;color:#5E376C;margin:0 0 6px 0;padding:0;">Section 5 &mdash; Pain Relief Options</p>
+  <p style="font-family:Arial,Helvetica,sans-serif;font-size:10.5pt;color:#6B6B6B;font-style:italic;margin:0 0 18px 0;padding:0;line-height:1.55;">There is no medal for going unmedicated and no shame in choosing relief. Your job is to support the choice she makes &mdash; and to keep supporting her after.</p>
+
+  <table style="width:100%;border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;font-size:10.5pt;margin-bottom:22px;">
+    <thead>
+      <tr style="background-color:#5E376C;color:#FFFFFF;">
+        <th style="padding:10px 14px;text-align:left;font-weight:bold;width:28%;">Option</th>
+        <th style="padding:10px 14px;text-align:left;font-weight:bold;">What it does &amp; trade-offs</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color:#F8F5FA;">
+        <td style="padding:10px 14px;font-weight:bold;color:#5E376C;vertical-align:top;">Non-pharmacologic (comfort measures)</td>
+        <td style="padding:10px 14px;color:#2D2D2D;line-height:1.55;">Movement, hydrotherapy, counter-pressure, breath, heat/cold, position changes. No side effects to baby. Requires continuous support &mdash; your bread and butter.</td>
+      </tr>
+      <tr style="background-color:#FFFFFF;">
+        <td style="padding:10px 14px;font-weight:bold;color:#5E376C;vertical-align:top;">Nitrous oxide (laughing gas)</td>
+        <td style="padding:10px 14px;color:#2D2D2D;line-height:1.55;">Inhaled, self-administered between contractions. Takes the edge off without numbing. No effect on labor progress. Can cause nausea or lightheadedness.</td>
+      </tr>
+      <tr style="background-color:#F8F5FA;">
+        <td style="padding:10px 14px;font-weight:bold;color:#5E376C;vertical-align:top;">IV narcotics (Stadol, fentanyl, nubain)</td>
+        <td style="padding:10px 14px;color:#2D2D2D;line-height:1.55;">Short-acting. Take the edge off but cross the placenta. Best used in early labor &mdash; not within an hour of pushing because of newborn respiratory depression risk.</td>
+      </tr>
+      <tr style="background-color:#FFFFFF;">
+        <td style="padding:10px 14px;font-weight:bold;color:#5E376C;vertical-align:top;">Epidural</td>
+        <td style="padding:10px 14px;color:#2D2D2D;line-height:1.55;">Continuous regional anesthetic via catheter in the lower back. Numbs from waist down. Excellent pain relief; trade-offs include limited mobility, possible BP drop, longer pushing stage, and increased need for assisted delivery.</td>
+      </tr>
+      <tr style="background-color:#F8F5FA;">
+        <td style="padding:10px 14px;font-weight:bold;color:#5E376C;vertical-align:top;">Spinal / CSE (combined spinal-epidural)</td>
+        <td style="padding:10px 14px;color:#2D2D2D;line-height:1.55;">Single dose spinal for fast relief, paired with an epidural catheter. Often used in late labor or for planned cesareans. Faster onset than a standard epidural.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- PEANUT BALL -->
+  <div style="background-color:#FFFFFF;border:1px solid #D4BADD;border-radius:8px;padding:18px 22px;margin-bottom:36px;">
+    <p style="font-family:Georgia,'Times New Roman',serif;font-size:12pt;font-weight:bold;color:#5E376C;margin:0 0 6px 0;padding:0;">The Peanut Ball: your best friend after an epidural</p>
+    <p style="font-family:Arial,Helvetica,sans-serif;font-size:10.5pt;color:#2D2D2D;margin:0;padding:0;line-height:1.6;">Place between the knees while side-lying to open the pelvis when she can't move freely. Switch sides every 30&ndash;60 minutes. Evidence shows it shortens labor and reduces cesarean rates in epiduralized parents. Ask the nurse for one &mdash; most U.S. hospitals stock them.</p>
+  </div>
+
+  <!-- SECTION 6: WHEN BIRTH NEEDS HELP -->
+  <p style="font-family:Georgia,'Times New Roman',serif;font-size:14pt;font-weight:bold;color:#5E376C;margin:0 0 6px 0;padding:0;">Section 6 &mdash; When Birth Needs Help</p>
+  <p style="font-family:Arial,Helvetica,sans-serif;font-size:10.5pt;color:#6B6B6B;font-style:italic;margin:0 0 18px 0;padding:0;line-height:1.55;">Not every labor follows the textbook. These are the complications you're most likely to encounter.</p>
+
+  <!-- OP POSITION -->
+  <div style="background-color:#F8F5FA;border:1px solid #D4BADD;border-radius:8px;padding:18px 22px;margin-bottom:14px;">
+    <p style="font-family:Georgia,'Times New Roman',serif;font-size:12pt;font-weight:bold;color:#5E376C;margin:0 0 6px 0;padding:0;">OP (Occiput Posterior) Position &mdash; "Back labor"</p>
+    <p style="font-family:Arial,Helvetica,sans-serif;font-size:10.5pt;color:#2D2D2D;margin:0 0 8px 0;padding:0;line-height:1.6;">Baby is head-down but facing the wrong way (sunny-side up). Intense, unrelenting back pain between contractions. Longer labor.</p>
+    <p style="font-family:Arial,Helvetica,sans-serif;font-size:10.5pt;color:#2D2D2D;margin:0;padding:0;line-height:1.6;"><strong>Doula tools:</strong> Hands-and-knees, open-knee chest, abdominal lifting, Spinning Babies sidelying release, rebozo sifting, counter-pressure on the sacrum.</p>
+  </div>
+
+  <!-- PROLONGED LABOR -->
+  <div style="background-color:#FFFFFF;border:1px solid #D4BADD;border-radius:8px;padding:18px 22px;margin-bottom:14px;">
+    <p style="font-family:Georgia,'Times New Roman',serif;font-size:12pt;font-weight:bold;color:#5E376C;margin:0 0 6px 0;padding:0;">Prolonged Labor / Failure to Progress</p>
+    <p style="font-family:Arial,Helvetica,sans-serif;font-size:10.5pt;color:#2D2D2D;margin:0 0 8px 0;padding:0;line-height:1.6;">Friedman's curve is outdated &mdash; the modern standard (Zhang) allows much longer normal labors, especially in first-time parents. "Stalled" doesn't always mean intervention.</p>
+    <p style="font-family:Arial,Helvetica,sans-serif;font-size:10.5pt;color:#2D2D2D;margin:0;padding:0;line-height:1.6;"><strong>Doula tools:</strong> Position changes every 30&ndash;45 minutes. Rest if she's exhausted. Empty the bladder. Move from bed to ball to toilet to walking. Address fear and tension &mdash; psyche is one of the six P's.</p>
+  </div>
+
+  <!-- SHOULDER DYSTOCIA -->
+  <div style="background-color:#F8F5FA;border:1px solid #D4BADD;border-radius:8px;padding:18px 22px;margin-bottom:14px;">
+    <p style="font-family:Georgia,'Times New Roman',serif;font-size:12pt;font-weight:bold;color:#5E376C;margin:0 0 6px 0;padding:0;">Shoulder Dystocia</p>
+    <p style="font-family:Arial,Helvetica,sans-serif;font-size:10.5pt;color:#2D2D2D;margin:0 0 8px 0;padding:0;line-height:1.6;">Baby's head delivers but the shoulder gets stuck behind the pubic bone. An emergency. The room will suddenly fill with people and the team will move fast.</p>
+    <p style="font-family:Arial,Helvetica,sans-serif;font-size:10.5pt;color:#2D2D2D;margin:0;padding:0;line-height:1.6;"><strong>Doula role:</strong> Step back. Stay calm and present. The team may call for McRoberts position or suprapubic pressure &mdash; help if asked, otherwise let them work. Debrief and reassure afterward.</p>
+  </div>
+
+  <!-- CESAREAN -->
+  <div style="background-color:#FFFFFF;border:1px solid #D4BADD;border-radius:8px;padding:18px 22px;margin-bottom:14px;">
+    <p style="font-family:Georgia,'Times New Roman',serif;font-size:12pt;font-weight:bold;color:#5E376C;margin:0 0 6px 0;padding:0;">Cesarean Birth</p>
+    <p style="font-family:Arial,Helvetica,sans-serif;font-size:10.5pt;color:#2D2D2D;margin:0 0 8px 0;padding:0;line-height:1.6;">About 1 in 3 U.S. births. Planned, unplanned, or emergency. Major abdominal surgery with a longer recovery.</p>
+    <p style="font-family:Arial,Helvetica,sans-serif;font-size:10.5pt;color:#2D2D2D;margin:0;padding:0;line-height:1.6;"><strong>Doula role:</strong> Advocate for family-centered cesarean when possible &mdash; clear drape, immediate skin-to-skin, delayed cord clamping, partner in the OR, narrating the moment. Stay with the partner if you can't enter. Be there for the recovery room transition.</p>
+  </div>
+
+  <!-- VBAC -->
+  <div style="background-color:#F8F5FA;border:1px solid #D4BADD;border-radius:8px;padding:18px 22px;margin-bottom:36px;">
+    <p style="font-family:Georgia,'Times New Roman',serif;font-size:12pt;font-weight:bold;color:#5E376C;margin:0 0 6px 0;padding:0;">VBAC &mdash; Vaginal Birth After Cesarean</p>
+    <p style="font-family:Arial,Helvetica,sans-serif;font-size:10.5pt;color:#2D2D2D;margin:0 0 8px 0;padding:0;line-height:1.6;">A safe option for most people with one prior low-transverse cesarean. Success rates are 60&ndash;80%. Not every Louisiana hospital supports VBAC &mdash; provider choice and hospital policy matter enormously.</p>
+    <p style="font-family:Arial,Helvetica,sans-serif;font-size:10.5pt;color:#2D2D2D;margin:0;padding:0;line-height:1.6;"><strong>Doula role:</strong> Continuous support is associated with higher VBAC success. Help her find a VBAC-supportive provider in pregnancy. Validate the emotional weight &mdash; this birth is rarely just about this birth.</p>
+  </div>
+
+  <!-- SECTION 7: PERINATAL LOSS -->
+  <p style="font-family:Georgia,'Times New Roman',serif;font-size:14pt;font-weight:bold;color:#5E376C;margin:0 0 6px 0;padding:0;">Section 7 &mdash; Perinatal Loss</p>
+  <p style="font-family:Arial,Helvetica,sans-serif;font-size:10.5pt;color:#6B6B6B;font-style:italic;margin:0 0 18px 0;padding:0;line-height:1.55;">Some of the births you attend will not bring a living baby home. You do not have to fix this. You have to be present with it.</p>
+
+  <div style="background-color:#FFFFFF;border:2px solid #5E376C;border-radius:8px;padding:22px 26px;margin-bottom:18px;">
+    <p style="font-family:Georgia,'Times New Roman',serif;font-size:12pt;font-weight:bold;color:#5E376C;margin:0 0 10px 0;padding:0;">The doula's role in loss</p>
+    <ul style="font-family:Arial,Helvetica,sans-serif;font-size:10.5pt;color:#2D2D2D;line-height:1.75;margin:0;padding:0 0 0 20px;">
+      <li style="margin-bottom:5px;">Use the baby's name. Speak of the baby as a baby.</li>
+      <li style="margin-bottom:5px;">Honor every choice: holding, not holding, photos, no photos, naming, not naming.</li>
+      <li style="margin-bottom:5px;">Slow down the room. Loss births do not need to be efficient.</li>
+      <li style="margin-bottom:5px;">Help create keepsakes only if she wants them &mdash; handprints, footprints, locks of hair, photos through Now I Lay Me Down to Sleep.</li>
+      <li style="margin-bottom:5px;">Coordinate with the bereavement coordinator if the hospital has one.</li>
+      <li style="margin-bottom:0;">Follow up &mdash; loss support doesn't end at discharge.</li>
+    </ul>
+  </div>
+
+  <div style="background-color:#F8F5FA;border-left:5px solid #5E376C;border-radius:6px;padding:18px 22px;margin-bottom:36px;">
+    <p style="font-family:Arial,Helvetica,sans-serif;font-size:10.5pt;color:#2D2D2D;margin:0;padding:0;line-height:1.6;font-style:italic;">If this work calls you specifically toward bereavement support, MHN offers a deeper Loss &amp; Bereavement track. Talk to Maddy after Night 4 if you want to walk that path.</p>
+  </div>
+
+  <!-- KEY TAKEAWAYS -->
+  <p style="font-family:Georgia,'Times New Roman',serif;font-size:13pt;font-weight:bold;color:#5E376C;margin:0 0 14px 0;padding:0;letter-spacing:0.03em;text-transform:uppercase;border-bottom:2px solid #D4BADD;padding-bottom:8px;">Key Takeaways</p>
+  <ol style="font-family:Arial,Helvetica,sans-serif;font-size:11pt;color:#2D2D2D;line-height:1.75;margin:0 0 36px 0;padding:0 0 0 20px;">
+    <li style="margin-bottom:8px;">Labor is four stages, and knowing where she is tells you how to support her.</li>
+    <li style="margin-bottom:8px;">Protect the hormonal environment &mdash; dim, quiet, private &mdash; especially in active labor and transition.</li>
+    <li style="margin-bottom:8px;">Every intervention has trade-offs. Use BRAIN to help her decide, never to decide for her.</li>
+    <li style="margin-bottom:8px;">An unmedicated birth and a birth with an epidural are both valid. Your support doesn't change.</li>
+    <li style="margin-bottom:8px;">When a cesarean is needed, your job changes shape &mdash; not value.</li>
+    <li style="margin-bottom:0;">When a baby doesn't go home with the family, presence is the work.</li>
+  </ol>
+
+  <!-- BEFORE IN-PERSON DAY 1 -->
+  <p style="font-family:Georgia,'Times New Roman',serif;font-size:13pt;font-weight:bold;color:#5E376C;margin:0 0 14px 0;padding:0;letter-spacing:0.03em;text-transform:uppercase;border-bottom:2px solid #D4BADD;padding-bottom:8px;">Before In-Person Day 1</p>
+  <div style="background-color:#F8F5FA;border-left:5px solid #B5824A;border-radius:6px;padding:22px 26px;margin-bottom:40px;">
+    <p style="font-family:Arial,Helvetica,sans-serif;font-size:11pt;color:#2D2D2D;margin:0 0 14px 0;padding:0;line-height:1.6;">Come to the in-person weekend rested, fed, and dressed to move on the floor. We will be doing comfort measures, position practice, and hands-on labor support all day.</p>
+    <ul style="font-family:Arial,Helvetica,sans-serif;font-size:11pt;color:#2D2D2D;line-height:1.75;margin:0;padding:0 0 0 20px;">
+      <li style="margin-bottom:5px;">Read Field Guide pages 14&ndash;28 (Stages of Labor &amp; Comfort Measures).</li>
+      <li style="margin-bottom:5px;">Watch the Spinning Babies "Three Sisters of Balance" video (link in your cohort packet).</li>
+      <li style="margin-bottom:5px;">Bring: yoga mat, water bottle, snacks, and a partner to practice on if you have one available. We will pair you up if not.</li>
+      <li style="margin-bottom:0;">Reflect: of everything tonight, what scared you most? Bring that question to the weekend.</li>
+    </ul>
+  </div>
+
+  <!-- FOOTER -->
+  <p style="font-family:Georgia,'Times New Roman',serif;font-size:10pt;font-style:italic;color:#6B6B6B;text-align:center;margin:24px 0 0;padding:0;border-top:1px solid #D4BADD;padding-top:14px;">Mary's Hands Network &middot; ICEA-Approved Birth Doula Training &middot; Online Night 2</p>
+</div>
+
+</div><!-- /day-content -->
 
 </main>
 </div><!-- /portal-app -->
