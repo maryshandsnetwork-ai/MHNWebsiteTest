@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Day 1 Materials · Mary's Hands Network</title>
+<meta name="description" content="Day 1 materials for the MHN ICEA Birth Doula Training Program — Online Night 1 deck.">
+<link rel="icon" type="image/png" href="./assets/logo-seal.png">
+<link rel="apple-touch-icon" href="./assets/logo-seal.png">
+<link rel="canonical" href="https://maryshandsnetwork.org/portal-training-day-1.html">
+<link rel="stylesheet" href="./colors_and_type.css">
+<link rel="stylesheet" href="./portal-shell.css">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script src="./mobile-nav.js" defer></script>
+<style>
+  .day-back{display:inline-flex;align-items:center;gap:6px;font-family:var(--mhn-font-sans);font-size:14px;font-weight:700;color:var(--mhn-purple-700);text-decoration:none;padding:8px 0;margin:8px 36px 0}
+  .day-back:hover{color:var(--mhn-purple-900)}
+  .day-back .ico{width:16px;height:16px}
+  .d1-hero{padding:20px 36px 0;max-width:1100px;margin:0 auto}
+  .d1-hero .eyebrow{font-size:13px;letter-spacing:0.22em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:700;margin-bottom:8px}
+  .d1-hero h1{font-family:var(--mhn-font-serif);font-size:30px;color:var(--mhn-purple-700);margin:0 0 8px;letter-spacing:-0.015em;line-height:1.1}
+  .d1-hero h1 em{font-style:italic;color:var(--mhn-purple-500);font-weight:400}
+  .d1-hero p{font-family:var(--mhn-font-serif);font-style:italic;color:var(--mhn-ink-soft);font-size:16px;margin:0 0 12px;line-height:1.55;max-width:780px}
+  .d1-meta{display:flex;gap:18px;flex-wrap:wrap;font-size:14px;color:var(--mhn-ink);margin:6px 0 16px;font-weight:600}
+  .d1-meta .row{display:inline-flex;align-items:center;gap:6px}
+  .d1-meta .row .ico{width:16px;height:16px;color:var(--mhn-purple-500)}
+  .d1-actions{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 18px}
+  .d1-actions a{display:inline-flex;align-items:center;gap:6px;padding:10px 18px;border-radius:999px;font-family:var(--mhn-font-sans);font-size:14px;font-weight:700;text-decoration:none;letter-spacing:0.02em;transition:background .15s, color .15s}
+  .d1-actions .btn-primary{background:var(--mhn-purple-700);color:#fff}
+  .d1-actions .btn-primary:hover{background:var(--mhn-purple-900)}
+  .d1-actions .btn-ghost{background:#fff;color:var(--mhn-purple-700);border:1px solid var(--mhn-purple-200)}
+  .d1-actions .btn-ghost:hover{background:var(--mhn-purple-50)}
+  .d1-actions a .ico{width:14px;height:14px}
+  .d1-viewer{max-width:1100px;margin:0 auto;padding:0 36px 32px}
+  .d1-viewer .frame{background:#fff;border:1px solid var(--mhn-line);border-radius:14px;overflow:hidden;box-shadow:0 6px 20px rgba(94,55,108,0.08)}
+  .d1-viewer iframe{width:100%;height:80vh;min-height:600px;border:0;display:block}
+  .d1-viewer .fallback{font-family:var(--mhn-font-sans);font-size:14px;color:var(--mhn-ink-soft);padding:10px 16px;background:var(--mhn-paper-alt);border-top:1px solid var(--mhn-line)}
+  .d1-viewer .fallback a{color:var(--mhn-purple-700);font-weight:700;text-decoration:none}
+  @media (max-width:720px){
+    .d1-hero{padding:14px 20px 0}
+    .d1-hero h1{font-size:24px}
+    .d1-viewer{padding:0 12px 24px}
+    .d1-viewer iframe{height:70vh;min-height:480px}
+  }
+</style>
+</head>
+<body data-screen-label="Day 1 Materials">
+<div class="page">
+
+<!-- TOP NAV -->
+<nav class="nav">
+  <a href="index.html" class="brand">
+    <div class="seal"><img src="./assets/logo-seal.png" alt="Mary's Hands Network logo"></div>
+    <div><div class="name">Mary's Hands Network</div></div>
+  </a>
+  <div class="nav-links">
+    <a href="about.html">About</a>
+    <a href="for-mom.html">For Families</a>
+    <a href="doula-training.html">Training</a>
+    <a href="store.html">Store</a>
+    <a href="inicio.html" class="lang-toggle" title="Español" aria-label="Switch to Spanish"><span class="lang-active">ENG</span><span class="lang-sep">/</span><span class="lang-other">ESP</span></a>
+    <a href="donate.html" class="btn-donate">Donate</a>
+  </div>
+</nav>
+
+<!-- ACCESS GATE -->
+<section id="portal-gate">
+  <div class="eyebrow">For Active Doulas</div>
+  <h1>Members only.</h1>
+  <p class="lede">Enter your access code to view the doula portal. Forms, course materials, contacts, and the field guide.</p>
+  <form id="portal-gate-form" autocomplete="off" novalidate>
+    <input id="portal-code" type="text" placeholder="Access code" aria-label="Access code" autocapitalize="characters" spellcheck="false">
+    <button type="submit">Enter portal</button>
+    <p class="gate-error" id="portal-gate-error" role="alert" aria-live="polite"></p>
+  </form>
+  <p class="gate-help">Don't have a code? <a href="contact.html">Contact us</a> or ask your Volunteer Coordinator.</p>
+</section>
+
+<!-- PROTECTED CONTENT -->
+<div id="portal-protected">
+
+<div class="portal-app">
+
+<!-- SIDEBAR -->
+<aside class="portal-side" aria-label="Portal navigation">
+  <h4>Portal</h4>
+  <nav id="portalSideNav">
+    <a href="portal.html" data-id="hub" class=""><i class="ico" data-lucide="home"></i>Welcome</a>
+    <a href="portal-client-update.html" data-id="client-update" class=""><i class="ico" data-lucide="clipboard-edit"></i>Client Update</a>
+    <a href="portal-availability.html" data-id="availability" class=""><i class="ico" data-lucide="calendar-check"></i>Availability</a>
+    <a href="portal-training-materials.html" data-id="training-materials" class="active"><i class="ico" data-lucide="book-marked"></i>Training Materials</a>
+    <a href="directory.html" data-id="directory" class=""><i class="ico" data-lucide="users"></i>Doula Directory</a>
+    <a href="portal-field-guide.html" data-id="field-guide" class=""><i class="ico" data-lucide="book-open"></i>Field Guide</a>
+    <a href="portal-pocket-doula.html" data-id="pocket-doula" class=""><i class="ico" data-lucide="layers"></i>Pocket Doula</a>
+    <a href="portal-contacts.html" data-id="contacts" class=""><i class="ico" data-lucide="phone"></i>Contacts</a>
+  </nav>
+  <div class="side-divider"></div>
+  <a href="#" class="side-signout" id="portalSideSignout"><i class="ico" data-lucide="log-out"></i>Sign out</a>
+</aside>
+
+<!-- MAIN -->
+<main class="portal-main">
+
+<a href="portal-training-materials.html" class="day-back"><i class="ico" data-lucide="arrow-left"></i>Back to all training days</a>
+
+<section class="d1-hero">
+  <div class="eyebrow">Online Night 1 &middot; Teams &middot; 5:30 &ndash; 8:00 PM</div>
+  <h1>Pregnancy Physiology &amp; <em>When Pregnancy Goes Wrong</em></h1>
+  <p>The Night 1 lecture deck. Use the inline viewer below or download to your device for offline review.</p>
+  <div class="d1-meta">
+    <span class="row"><i class="ico" data-lucide="monitor"></i>Teams &middot; Online</span>
+    <span class="row"><i class="ico" data-lucide="clock"></i>5:30 &ndash; 8:00 PM CST</span>
+    <span class="row"><i class="ico" data-lucide="file-text"></i>MHN ICBD Night 1 deck</span>
+  </div>
+  <div class="d1-actions">
+    <a class="btn-primary" href="./assets/training/mhn-icbd-night-1.pdf" download><i class="ico" data-lucide="download"></i>Download PDF</a>
+    <a class="btn-ghost" href="./assets/training/mhn-icbd-night-1.pptx" download><i class="ico" data-lucide="presentation"></i>Download PowerPoint</a>
+    <a class="btn-ghost" href="./assets/training/mhn-icbd-night-1.pdf" target="_blank" rel="noopener"><i class="ico" data-lucide="external-link"></i>Open in new tab</a>
+  </div>
+</section>
+
+<section class="d1-viewer">
+  <div class="frame">
+    <iframe src="./assets/training/mhn-icbd-night-1.pdf#view=FitH&toolbar=1&navpanes=0&pagemode=none" title="MHN ICBD Night 1 deck"></iframe>
+    <p class="fallback">PDF preview not loading? <a href="./assets/training/mhn-icbd-night-1.pdf" target="_blank" rel="noopener">Open it in a new tab</a> or <a href="./assets/training/mhn-icbd-night-1.pdf" download>download the PDF</a>.</p>
+  </div>
+</section>
+
+</main>
+</div><!-- /portal-app -->
+</div><!-- /portal-protected -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <div class="logo">Mary's Hands Network</div>
+      <p>A Louisiana 501(c)(3) nonprofit &middot; EIN 92-2430838. 451 E. Airport Avenue, Ste. A, Baton Rouge, LA 70806.</p>
+      <p style="font-family:var(--mhn-font-serif);font-style:italic;color:#D4BADD">info@mhndoula.com &middot; (225) 424-7532</p>
+    </div>
+    <div class="foot-col"><h5>For Families</h5><a href="for-mom.html">For Families</a><a href="hotline.html">Doula Hotline</a><a href="birth-vision.html">Birth Vision Guide</a><a href="bereavement.html">Loss &amp; Bereavement</a><a href="apoyo-de-doula.html">Apoyo en espa&ntilde;ol</a></div>
+    <div class="foot-col"><h5>For Doulas</h5><a href="doula-training.html">Education &amp; Training</a><a href="cohort.html">Next Cohort</a><a href="volunteer.html">Volunteer with MHN</a><a href="portal.html">Doula Portal</a></div>
+    <div class="foot-col"><h5>About</h5><a href="about.html">Our Mission</a><a href="store.html">Store</a><a href="community-partners.html">Community Partners</a><a href="contact.html">Contact</a></div>
+  </div>
+  <div class="foot-btm">
+    <span>&copy; 2026 Mary's Hands Network &middot; All Rights Reserved</span>
+    <span>Every Birth Deserves a Doula.</span>
+  </div>
+</footer>
+</div>
+<script>lucide.createIcons();</script>
+
+<script>
+(function(){
+  var KEY="mhn_portal_access_v1";
+  var CODE="MHNDOULA2026";
+  var gate=document.getElementById("portal-gate");
+  var prot=document.getElementById("portal-protected");
+  var form=document.getElementById("portal-gate-form");
+  var input=document.getElementById("portal-code");
+  var err=document.getElementById("portal-gate-error");
+  function unlock(){
+    if(gate) gate.style.display="none";
+    if(prot) prot.style.display="block";
+    var sideOut = document.getElementById("portalSideSignout");
+    if (sideOut && !sideOut.__wired){
+      sideOut.__wired = true;
+      sideOut.addEventListener("click", function(e){
+        e.preventDefault();
+        try{localStorage.removeItem(KEY);}catch(_){}
+        location.reload();
+      });
+    }
+    if(window.lucide && window.lucide.createIcons) window.lucide.createIcons();
+  }
+  try{
+    if(localStorage.getItem(KEY)==="1"){ unlock(); }
+  }catch(_){}
+  if(form){
+    form.addEventListener("submit", function(e){
+      e.preventDefault();
+      var val = (input.value||"").trim().toUpperCase();
+      if(val===CODE){
+        try{localStorage.setItem(KEY,"1");}catch(_){}
+        if(err) err.textContent="";
+        unlock();
+      } else {
+        if(err) err.textContent="That code isn't right. Try again or contact us.";
+        input.focus();
+        input.select();
+      }
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
