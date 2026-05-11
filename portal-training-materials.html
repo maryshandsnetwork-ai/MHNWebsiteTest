@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Training Materials · Mary's Hands Network</title>
+<meta name="description" content="Private portal for active MHN volunteer doulas. Access your birth doula course materials by day.">
+<link rel="icon" type="image/png" href="./assets/logo-seal.png">
+<link rel="apple-touch-icon" href="./assets/logo-seal.png">
+<link rel="canonical" href="https://maryshandsnetwork.org/portal-training-materials.html">
+<link rel="stylesheet" href="./colors_and_type.css">
+<link rel="stylesheet" href="./portal-shell.css">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script src="./mobile-nav.js" defer></script>
+<style>
+.tm-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;padding:8px 36px 36px;max-width:1100px;margin:0 auto}
+.tm-card{position:relative;border-radius:20px;padding:28px 28px 24px;border:1px solid var(--mhn-line);background:#fff;display:flex;flex-direction:column;gap:14px;transition:transform .15s, box-shadow .15s}
+.tm-card:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(94,55,108,0.10)}
+.tm-card .tm-day{font-family:var(--mhn-font-sans);font-size:13px;letter-spacing:0.22em;text-transform:uppercase;font-weight:700;color:var(--mhn-purple-500)}
+.tm-card .tm-title{font-family:var(--mhn-font-serif);font-size:24px;color:var(--mhn-purple-700);margin:0;font-weight:700;letter-spacing:-0.01em}
+.tm-card .tm-row{display:flex;align-items:center;gap:10px;font-size:15.5px;color:var(--mhn-ink);font-weight:600}
+.tm-card .tm-row .ico{width:18px;height:18px;color:var(--mhn-purple-500);flex-shrink:0}
+.tm-card .tm-meta{font-family:var(--mhn-font-serif);font-style:italic;color:var(--mhn-ink-soft);font-size:15.5px;margin:0;line-height:1.5}
+.tm-card .tm-btn{display:inline-flex;align-items:center;gap:6px;align-self:flex-start;background:var(--mhn-purple-700);color:#fff;padding:11px 22px;border-radius:999px;font-family:var(--mhn-font-sans);font-size:15px;font-weight:700;letter-spacing:0.02em;text-decoration:none;margin-top:6px;transition:background .15s, transform .12s}
+.tm-card .tm-btn:hover{background:var(--mhn-purple-900)}
+.tm-card .tm-btn:active{transform:scale(0.98)}
+.tm-card .tm-btn .ico{width:16px;height:16px;color:#fff}
+.tm-card.virtual{background:linear-gradient(135deg,#F4EAF7 0%,#F8F5FA 100%);border-color:#D4BADD}
+.tm-card.inperson{background:linear-gradient(135deg,#FAF1E1 0%,#FBF5ED 100%);border-color:#E8D5BD}
+.tm-card.inperson .tm-day{color:var(--mhn-warm-700)}
+.tm-card.inperson .tm-btn{background:var(--mhn-warm-700)}
+.tm-card.inperson .tm-btn:hover{background:#85571F}
+.tm-card.inperson .tm-row .ico{color:var(--mhn-warm-700)}
+@media (max-width:760px){.tm-grid{grid-template-columns:1fr;padding:8px 20px 28px}}
+</style>
+</head>
+<body data-screen-label="Training Materials">
+<div class="page">
+
+<!-- TOP NAV -->
+<nav class="nav">
+  <a href="index.html" class="brand">
+    <div class="seal"><img src="./assets/logo-seal.png" alt="Mary's Hands Network logo"></div>
+    <div><div class="name">Mary's Hands Network</div></div>
+  </a>
+  <div class="nav-links">
+    <a href="about.html">About</a>
+    <a href="for-mom.html">For Families</a>
+    <a href="doula-training.html">Training</a>
+    <a href="store.html">Store</a>
+    <a href="inicio.html" class="lang-toggle" title="Español" aria-label="Switch to Spanish"><span class="lang-active">ENG</span><span class="lang-sep">/</span><span class="lang-other">ESP</span></a>
+    <a href="donate.html" class="btn-donate">Donate</a>
+  </div>
+</nav>
+
+<!-- ACCESS GATE -->
+<section id="portal-gate">
+  <div class="eyebrow">For Active Doulas</div>
+  <h1>Members only.</h1>
+  <p class="lede">Enter your access code to view the doula portal. Forms, course materials, contacts, and the field guide.</p>
+  <form id="portal-gate-form" autocomplete="off" novalidate>
+    <input id="portal-code" type="text" placeholder="Access code" aria-label="Access code" autocapitalize="characters" spellcheck="false">
+    <button type="submit">Enter portal</button>
+    <p class="gate-error" id="portal-gate-error" role="alert" aria-live="polite"></p>
+  </form>
+  <p class="gate-help">Don't have a code? <a href="contact.html">Contact us</a> or ask your Volunteer Coordinator.</p>
+</section>
+
+<!-- PROTECTED CONTENT -->
+<div id="portal-protected">
+
+<div class="portal-app">
+
+<!-- SIDEBAR -->
+<aside class="portal-side" aria-label="Portal navigation">
+  <h4>Portal</h4>
+  <nav id="portalSideNav">
+    <a href="portal.html" data-id="hub" class=""><i class="ico" data-lucide="home"></i>Welcome</a>
+    <a href="portal-client-update.html" data-id="client-update" class=""><i class="ico" data-lucide="clipboard-edit"></i>Client Update</a>
+    <a href="portal-availability.html" data-id="availability" class=""><i class="ico" data-lucide="calendar-check"></i>Availability</a>
+    <a href="portal-training-materials.html" data-id="training-materials" class="active"><i class="ico" data-lucide="book-marked"></i>Training Materials</a>
+    <a href="https://canvas.instructure.com/login/canvas" target="_blank" rel="noopener"><i class="ico" data-lucide="graduation-cap"></i>Canvas Course</a>
+    <a href="directory.html" data-id="directory" class=""><i class="ico" data-lucide="users"></i>Doula Directory</a>
+    <a href="portal-field-guide.html" data-id="field-guide" class=""><i class="ico" data-lucide="book-open"></i>Field Guide</a>
+    <a href="portal-pocket-doula.html" data-id="pocket-doula" class=""><i class="ico" data-lucide="layers"></i>Pocket Doula</a>
+    <a href="portal-contacts.html" data-id="contacts" class=""><i class="ico" data-lucide="phone"></i>Contacts</a>
+  </nav>
+  <div class="side-divider"></div>
+  <a href="#" class="side-signout" id="portalSideSignout"><i class="ico" data-lucide="log-out"></i>Sign out</a>
+</aside>
+
+<!-- MAIN -->
+<main class="portal-main">
+
+<section class="hero">
+  <div class="eyebrow">Birth Doula Course Materials</div>
+  <h1 class="t">Your training, <em>day by day.</em></h1>
+  <p class="lede">Click any day below to open that session&rsquo;s slides, handouts, and supporting materials. Days 1 and 2 are virtual on Teams; days 3 and 4 are in person at the YWCA Empowerment Center.</p>
+</section>
+
+<div class="tm-grid">
+
+  <article class="tm-card virtual">
+    <div class="tm-day">Day 01</div>
+    <h2 class="tm-title">Foundations &amp; the Doula Role</h2>
+    <div class="tm-row"><i class="ico" data-lucide="monitor"></i><span>Teams &middot; Online</span></div>
+    <div class="tm-row"><i class="ico" data-lucide="clock"></i><span>5:30 &ndash; 8:00 PM</span></div>
+    <p class="tm-meta">Join us virtually on Microsoft Teams. Course materials and lecture slides linked below.</p>
+    <a href="#day-1-materials" class="tm-btn">View materials <i class="ico" data-lucide="arrow-right"></i></a>
+  </article>
+
+  <article class="tm-card virtual">
+    <div class="tm-day">Day 02</div>
+    <h2 class="tm-title">Anatomy, Physiology &amp; Labor Stages</h2>
+    <div class="tm-row"><i class="ico" data-lucide="monitor"></i><span>Teams &middot; Online</span></div>
+    <div class="tm-row"><i class="ico" data-lucide="clock"></i><span>5:30 &ndash; 8:00 PM</span></div>
+    <p class="tm-meta">Join us virtually on Microsoft Teams. Course materials and lecture slides linked below.</p>
+    <a href="#day-2-materials" class="tm-btn">View materials <i class="ico" data-lucide="arrow-right"></i></a>
+  </article>
+
+  <article class="tm-card inperson">
+    <div class="tm-day">Day 03</div>
+    <h2 class="tm-title">Comfort Measures &amp; Hands-On Practice</h2>
+    <div class="tm-row"><i class="ico" data-lucide="map-pin"></i><span>In Person &middot; YWCA Empowerment Center</span></div>
+    <div class="tm-row"><i class="ico" data-lucide="clock"></i><span>8:30 AM &ndash; 4:30 PM</span></div>
+    <p class="tm-meta">Bring your textbook, Field Guide, and a water bottle. Lunch provided.</p>
+    <a href="#day-3-materials" class="tm-btn">View materials <i class="ico" data-lucide="arrow-right"></i></a>
+  </article>
+
+  <article class="tm-card inperson">
+    <div class="tm-day">Day 04</div>
+    <h2 class="tm-title">Postpartum, Documentation &amp; Practicum</h2>
+    <div class="tm-row"><i class="ico" data-lucide="map-pin"></i><span>In Person &middot; YWCA Empowerment Center</span></div>
+    <div class="tm-row"><i class="ico" data-lucide="clock"></i><span>8:30 AM &ndash; 4:30 PM</span></div>
+    <p class="tm-meta">Final practical assessments, certificate distribution, and next-step onboarding.</p>
+    <a href="#day-4-materials" class="tm-btn">View materials <i class="ico" data-lucide="arrow-right"></i></a>
+  </article>
+
+</div>
+
+</main>
+</div><!-- /portal-app -->
+</div><!-- /portal-protected -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <div class="logo">Mary's Hands Network</div>
+      <p>A Louisiana 501(c)(3) nonprofit &middot; EIN 92-2430838. 451 E. Airport Avenue, Ste. A, Baton Rouge, LA 70806.</p>
+      <p style="font-family:var(--mhn-font-serif);font-style:italic;color:#D4BADD">info@mhndoula.com &middot; (225) 424-7532</p>
+    </div>
+    <div class="foot-col">
+      <h5>For Families</h5>
+      <a href="for-mom.html">For Families</a>
+      <a href="hotline.html">Doula Hotline</a>
+      <a href="birth-vision.html">Birth Vision Guide</a>
+      <a href="bereavement.html">Loss &amp; Bereavement</a>
+      <a href="apoyo-de-doula.html">Apoyo en espa&ntilde;ol</a>
+    </div>
+    <div class="foot-col">
+      <h5>For Doulas</h5>
+      <a href="doula-training.html">Education &amp; Training</a>
+      <a href="cohort.html">Next Cohort</a>
+      <a href="volunteer.html">Volunteer with MHN</a>
+      <a href="portal.html">Doula Portal</a>
+    </div>
+    <div class="foot-col">
+      <h5>About</h5>
+      <a href="about.html">Our Mission</a>
+      <a href="store.html">Store</a>
+      <a href="community-partners.html">Community Partners</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="foot-btm">
+    <span>&copy; 2026 Mary's Hands Network &middot; All Rights Reserved</span>
+    <span>Every Birth Deserves a Doula.</span>
+  </div>
+</footer>
+</div>
+<script>lucide.createIcons();</script>
+
+<script>
+(function(){
+  var KEY="mhn_portal_access_v1";
+  var CODE="MHNDOULA2026";
+  var gate=document.getElementById("portal-gate");
+  var prot=document.getElementById("portal-protected");
+  var form=document.getElementById("portal-gate-form");
+  var input=document.getElementById("portal-code");
+  var err=document.getElementById("portal-gate-error");
+  function unlock(){
+    if(gate) gate.style.display="none";
+    if(prot) prot.style.display="block";
+    var sideOut = document.getElementById("portalSideSignout");
+    if (sideOut && !sideOut.__wired){
+      sideOut.__wired = true;
+      sideOut.addEventListener("click", function(e){
+        e.preventDefault();
+        try{localStorage.removeItem(KEY);}catch(_){}
+        location.reload();
+      });
+    }
+    if(window.lucide && window.lucide.createIcons) window.lucide.createIcons();
+  }
+  try{
+    if(localStorage.getItem(KEY)==="1"){ unlock(); }
+  }catch(_){}
+  if(form){
+    form.addEventListener("submit", function(e){
+      e.preventDefault();
+      var val = (input.value||"").trim().toUpperCase();
+      if(val===CODE){
+        try{localStorage.setItem(KEY,"1");}catch(_){}
+        if(err) err.textContent="";
+        unlock();
+      } else {
+        if(err) err.textContent="That code isn't right. Try again or contact us.";
+        input.focus();
+        input.select();
+      }
+    });
+  }
+})();
+</script>
+
+</body>
+</html>

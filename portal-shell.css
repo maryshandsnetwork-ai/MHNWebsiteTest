@@ -66,6 +66,11 @@ h1.t em{font-style:italic;color:var(--mhn-purple-500)}
 .acard.tone-rose h3{color:#6E2D38}
 .acard.tone-rose .go{background:#9B3F4E}
 .acard.tone-rose .go:hover{background:#6E2D38}
+.acard.tone-teal{background:linear-gradient(135deg,#E3F0EF 0%,#CCDEDC 100%);border-color:#A8C5C2}
+.acard.tone-teal .ico-wrap{background:#fff;color:#1D5F58}
+.acard.tone-teal h3{color:#103E39}
+.acard.tone-teal .go{background:#1D5F58}
+.acard.tone-teal .go:hover{background:#103E39}
 
 /* EMBEDDED FORMS */
 .form-section{padding:8px 36px 40px;max-width:1100px;margin:0 auto}
