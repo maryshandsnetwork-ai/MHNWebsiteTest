@@ -30,9 +30,29 @@
   .d1-actions .btn-primary:hover{background:var(--mhn-purple-900)}
   .d1-actions .btn-ghost{background:#fff;color:var(--mhn-purple-700);border:1px solid var(--mhn-purple-200)}
   .d1-actions .btn-ghost:hover{background:var(--mhn-purple-50)}
-  .d1-actions .btn-teams{background:#4B53BC;color:#fff;box-shadow:0 4px 12px rgba(75,83,188,0.25)}
-  .d1-actions .btn-teams:hover{background:#3B43A8}
   .d1-actions a .ico{width:14px;height:14px}
+  .teams-cta{display:block;margin:18px 0 22px;padding:22px 26px;background:linear-gradient(135deg,#4B53BC 0%,#3B43A8 100%);border-radius:18px;box-shadow:0 12px 32px rgba(75,83,188,0.32);text-decoration:none;color:#fff;transition:transform .15s, box-shadow .15s;position:relative;overflow:hidden}
+  .teams-cta:hover{transform:translateY(-2px);box-shadow:0 18px 40px rgba(75,83,188,0.42);color:#fff}
+  .teams-cta:active{transform:translateY(0)}
+  .teams-cta::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 90% 30%, rgba(255,255,255,0.15), transparent 50%);pointer-events:none}
+  .teams-cta .tc-inner{display:flex;align-items:center;gap:20px;position:relative}
+  .teams-cta .tc-icon{flex-shrink:0;width:54px;height:54px;border-radius:14px;background:rgba(255,255,255,0.15);display:inline-flex;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
+  .teams-cta .tc-icon .ico{width:28px;height:28px;color:#fff}
+  .teams-cta .tc-text{flex:1;min-width:0}
+  .teams-cta .tc-label{font-family:var(--mhn-font-sans);font-size:11px;letter-spacing:0.24em;text-transform:uppercase;font-weight:800;color:rgba(255,255,255,0.78);margin-bottom:2px}
+  .teams-cta .tc-title{font-family:var(--mhn-font-serif);font-size:24px;font-weight:700;color:#fff;line-height:1.2;letter-spacing:-0.01em;margin:0}
+  .teams-cta .tc-sub{font-family:var(--mhn-font-sans);font-size:14px;color:rgba(255,255,255,0.86);margin:4px 0 0;font-weight:500}
+  .teams-cta .tc-arrow{flex-shrink:0;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,0.18);display:inline-flex;align-items:center;justify-content:center;transition:background .15s, transform .15s}
+  .teams-cta:hover .tc-arrow{background:rgba(255,255,255,0.28);transform:translateX(3px)}
+  .teams-cta .tc-arrow .ico{width:16px;height:16px;color:#fff}
+  @media (max-width:560px){
+    .teams-cta{padding:18px 20px}
+    .teams-cta .tc-inner{gap:14px}
+    .teams-cta .tc-icon{width:44px;height:44px}
+    .teams-cta .tc-icon .ico{width:22px;height:22px}
+    .teams-cta .tc-title{font-size:19px}
+    .teams-cta .tc-arrow{width:28px;height:28px}
+  }
   .d1-viewer{max-width:1100px;margin:0 auto;padding:0 36px 32px}
   .d1-viewer .frame{background:#fff;border:1px solid var(--mhn-line);border-radius:14px;overflow:hidden;box-shadow:0 6px 20px rgba(94,55,108,0.08)}
   .d1-viewer iframe{width:100%;height:80vh;min-height:600px;border:0;display:block}
@@ -114,8 +134,19 @@
     <span class="row"><i class="ico" data-lucide="clock"></i>5:30 &ndash; 8:00 PM CST</span>
     <span class="row"><i class="ico" data-lucide="file-text"></i>MHN ICBD Night 2 deck</span>
   </div>
+  <a class="teams-cta" href="https://teams.microsoft.com/meet/24308149477280?p=WmUMumYPqOD5A5ZXzr" target="_blank" rel="noopener">
+    <span class="tc-inner">
+      <span class="tc-icon"><i class="ico" data-lucide="video"></i></span>
+      <span class="tc-text">
+        <div class="tc-label">Live Session</div>
+        <p class="tc-title">Join the Night 2 Teams Meeting</p>
+        <p class="tc-sub">Opens Microsoft Teams in a new tab &middot; 5:30 &ndash; 8:00 PM CST</p>
+      </span>
+      <span class="tc-arrow"><i class="ico" data-lucide="arrow-right"></i></span>
+    </span>
+  </a>
+
   <div class="d1-actions">
-    <a class="btn-teams" href="https://teams.microsoft.com/meet/24308149477280?p=WmUMumYPqOD5A5ZXzr" target="_blank" rel="noopener"><i class="ico" data-lucide="video"></i>Join Teams Meeting</a>
     <a class="btn-primary" href="./assets/training/mhn-icbd-night-2.pdf" download><i class="ico" data-lucide="download"></i>Download PDF</a>
     <a class="btn-ghost" href="./assets/training/mhn-icbd-night-2.pptx" download><i class="ico" data-lucide="presentation"></i>Download PowerPoint</a>
     <a class="btn-ghost" href="./assets/training/mhn-icbd-night-2.pdf" target="_blank" rel="noopener"><i class="ico" data-lucide="external-link"></i>Open in new tab</a>
