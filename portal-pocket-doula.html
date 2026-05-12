@@ -96,6 +96,7 @@
     </div>
     <p class="pd-hint">Use the prev/next buttons or your keyboard arrow keys to flip through all 50 cards.</p>
     <button class="pd-fs-btn" id="pdFsOpen" type="button">View full screen</button>
+    <button class="pd-fav-btn" id="pdFavOpen" type="button" aria-label="Open your favorites"><i class="ico" data-lucide="heart"></i><span>Review your favorites</span><span class="count" id="pdFavCount">0</span></button>
   </div>
 
   <div class="pd-sizes" style="margin-top:32px">
@@ -115,21 +116,46 @@
   <p class="pd-proceeds"><strong>Proceeds from Pocket Doula deck sales support free doula services for clients and doula training for community doulas through Mary&rsquo;s Hands Network.</strong></p>
 </section>
 
-<!-- POCKET DOULA FULLSCREEN VIEWER -->
+<!-- POCKET DOULA FULLSCREEN VIEWER — single card, click-to-flip, swipe, thumbnails, favorites -->
 <div class="pd-fs-viewer" id="pdFsViewer" hidden role="dialog" aria-label="Pocket Doula card, full screen">
-  <button class="pd-fs-close" id="pdFsClose" type="button" aria-label="Close full screen">&times;</button>
-  <div class="pd-fs-inner">
-    <button class="pd-fs-nav pd-fs-prev" id="pdFsPrev" type="button" aria-label="Previous"></button>
-    <div class="pd-fs-stage">
-      <p class="pd-fs-meta">Card <span id="pdFsNum">1</span> of 50</p>
-      <div class="pd-fs-pair">
-        <figure class="pd-fs-face"><img id="pdFsFront" src="" alt=""><figcaption>Front</figcaption></figure>
-        <figure class="pd-fs-face"><img id="pdFsBack" src="" alt=""><figcaption>Back</figcaption></figure>
-      </div>
-      <p class="pd-fs-hint">Tap outside, press Esc, or click &times; to close. Use / to change cards.</p>
+
+  <!-- Top toolbar -->
+  <div class="pd-fs-top">
+    <div class="pd-fs-top-left">
+      <button class="pd-fs-close" id="pdFsClose" type="button" aria-label="Close full screen">&times;</button>
+      <p class="pd-fs-meta">Card <strong id="pdFsNum">1</strong> of <span id="pdFsTotal">50</span></p>
     </div>
-    <button class="pd-fs-nav pd-fs-next" id="pdFsNext" type="button" aria-label="Next"></button>
+    <div class="pd-fs-top-right">
+      <button class="pd-fs-tool heart" id="pdFsHeart" type="button" aria-label="Favorite this card" aria-pressed="false"><i class="ico" data-lucide="heart"></i></button>
+      <button class="pd-fs-tool" id="pdFsFavToggle" type="button" aria-pressed="false"><i class="ico" data-lucide="heart"></i><span>Favorites</span><span class="pd-fs-fav-count" id="pdFsFavCount">0</span></button>
+    </div>
   </div>
+
+  <!-- Center stage: prev — card — next -->
+  <div class="pd-fs-stage">
+    <button class="pd-fs-nav" id="pdFsPrev" type="button" aria-label="Previous card">&lsaquo;</button>
+    <div class="pd-fs-card" id="pdFsCard" role="button" aria-label="Tap card to flip">
+      <div class="pd-fs-card-inner">
+        <figure class="pd-fs-face pd-fs-face-front">
+          <img id="pdFsFront" src="" alt="">
+          <span class="pd-fs-side-badge">Front</span>
+        </figure>
+        <figure class="pd-fs-face pd-fs-face-back">
+          <img id="pdFsBack" src="" alt="">
+          <span class="pd-fs-side-badge">Back</span>
+        </figure>
+      </div>
+    </div>
+    <button class="pd-fs-nav" id="pdFsNext" type="button" aria-label="Next card">&rsaquo;</button>
+  </div>
+
+  <p class="pd-fs-hint">Tap the card to flip &middot; swipe or use <kbd>&larr;</kbd>/<kbd>&rarr;</kbd> for next card &middot; <kbd>F</kbd> favorite &middot; <kbd>Esc</kbd> close</p>
+
+  <!-- Thumbnail strip -->
+  <div class="pd-fs-thumbs-wrap">
+    <div class="pd-fs-thumbs" id="pdFsThumbs" role="listbox" aria-label="Jump to card"></div>
+  </div>
+
 </div>
 
 </main>
@@ -176,9 +202,14 @@
 
 
 <script>
-/* Pocket Doula deck viewer — 50 cards, prev/next + keyboard nav + fullscreen */
+/* Pocket Doula deck viewer — 50 cards
+   In-page (small) view: keeps the front+back side-by-side pair so doulas can scan quickly.
+   Full-screen view: single card, click-to-flip, swipe/arrow nav, thumbnail strip, favorites. */
 function initPageContent(){
   var TOTAL = 50;
+  var FAV_KEY = "mhn_pocket_doula_favs_v1";
+
+  // Small (in-page) viewer
   var idx = 1;
   var num = document.getElementById("pdNum");
   var front = document.getElementById("pdFront");
@@ -186,6 +217,10 @@ function initPageContent(){
   var prevBtn = document.getElementById("pdPrev");
   var nextBtn = document.getElementById("pdNext");
   var fsOpen = document.getElementById("pdFsOpen");
+  var favOpen = document.getElementById("pdFavOpen");
+  var favCount = document.getElementById("pdFavCount");
+
+  // Full-screen viewer
   var fsViewer = document.getElementById("pdFsViewer");
   var fsClose = document.getElementById("pdFsClose");
   var fsPrev = document.getElementById("pdFsPrev");
@@ -193,47 +228,218 @@ function initPageContent(){
   var fsFront = document.getElementById("pdFsFront");
   var fsBack = document.getElementById("pdFsBack");
   var fsNum = document.getElementById("pdFsNum");
+  var fsTotal = document.getElementById("pdFsTotal");
+  var fsCard = document.getElementById("pdFsCard");
+  var fsHeart = document.getElementById("pdFsHeart");
+  var fsFavToggle = document.getElementById("pdFsFavToggle");
+  var fsFavCount = document.getElementById("pdFsFavCount");
+  var fsThumbs = document.getElementById("pdFsThumbs");
+
   if (!front || !back || !num) return;
   function pad(n){ return String(n).padStart(2,"0"); }
-  function setCard(n){
+  function frontSrc(n){ return "./assets/photos/deck/card-" + pad(n) + "-front.jpg"; }
+  function backSrc(n){ return "./assets/photos/deck/card-" + pad(n) + "-back.jpg"; }
+
+  // ---------- Favorites (localStorage) ----------
+  function loadFavs(){
+    try { var raw = localStorage.getItem(FAV_KEY); if (!raw) return []; var arr = JSON.parse(raw); return Array.isArray(arr) ? arr.filter(function(n){ return typeof n === "number" && n >= 1 && n <= TOTAL; }) : []; }
+    catch(e){ return []; }
+  }
+  function saveFavs(arr){ try { localStorage.setItem(FAV_KEY, JSON.stringify(arr)); } catch(e){} }
+  var favs = loadFavs();
+  function isFav(n){ return favs.indexOf(n) !== -1; }
+  function toggleFav(n){
+    var i = favs.indexOf(n);
+    if (i === -1) favs.push(n); else favs.splice(i, 1);
+    favs.sort(function(a,b){ return a-b; });
+    saveFavs(favs);
+    refreshFavUI();
+  }
+  function refreshFavUI(){
+    if (favCount) favCount.textContent = favs.length;
+    if (fsFavCount) fsFavCount.textContent = favs.length;
+    if (favOpen) favOpen.classList.toggle("visible", favs.length > 0);
+    // Re-render thumbs if fullscreen open (active filter may have just changed counts)
+    if (fsViewer && !fsViewer.hidden) renderThumbs();
+    // Heart state for current card
+    if (fsHeart){
+      var on = isFav(idx);
+      fsHeart.classList.toggle("favorited", on);
+      fsHeart.setAttribute("aria-pressed", on ? "true" : "false");
+    }
+  }
+
+  // ---------- Card display ----------
+  function setSmallCard(n){
     n = ((n - 1 + TOTAL) % TOTAL) + 1;
     idx = n;
-    var p = pad(n);
-    front.src = "./assets/photos/deck/card-" + p + "-front.jpg";
-    front.alt = "Card " + n + " front";
-    back.src = "./assets/photos/deck/card-" + p + "-back.jpg";
-    back.alt = "Card " + n + " back";
+    front.src = frontSrc(n); front.alt = "Card " + n + " front";
+    back.src  = backSrc(n);  back.alt  = "Card " + n + " back";
     num.textContent = n;
-    if (fsFront){ fsFront.src = front.src; fsFront.alt = front.alt; }
-    if (fsBack){ fsBack.src = back.src; fsBack.alt = back.alt; }
-    if (fsNum) fsNum.textContent = n;
   }
-  function go(dir){ setCard(idx + dir); }
-  if (prevBtn) prevBtn.addEventListener("click", function(){ go(-1); });
-  if (nextBtn) nextBtn.addEventListener("click", function(){ go(+1); });
-  document.addEventListener("keydown", function(e){
-    if (fsViewer && !fsViewer.hidden){
-      if (e.key === "ArrowLeft")  { go(-1); }
-      else if (e.key === "ArrowRight") { go(+1); }
-      else if (e.key === "Escape") { fsViewer.hidden = true; }
+
+  // ---------- Full-screen logic ----------
+  var favOnly = false;
+  function visibleList(){
+    return favOnly ? favs.slice() : (function(){ var a = []; for (var i = 1; i <= TOTAL; i++) a.push(i); return a; })();
+  }
+  function setFsCard(n, opts){
+    opts = opts || {};
+    var list = visibleList();
+    if (list.length === 0){
+      // No favorites — turn off filter quietly
+      favOnly = false;
+      if (fsFavToggle){ fsFavToggle.classList.remove("active"); fsFavToggle.setAttribute("aria-pressed","false"); }
+      list = visibleList();
+    }
+    // If current n is not in the visible list, snap to nearest member (first ≥ n, else first)
+    if (list.indexOf(n) === -1){
+      var pick = list.find(function(x){ return x >= n; });
+      n = (pick != null) ? pick : list[0];
+    }
+    idx = n;
+    setSmallCard(n); // keep small viewer in sync
+    if (fsFront){ fsFront.src = frontSrc(n); fsFront.alt = "Card " + n + " front"; }
+    if (fsBack){  fsBack.src  = backSrc(n);  fsBack.alt  = "Card " + n + " back"; }
+    if (fsNum)   fsNum.textContent = n;
+    if (fsTotal) fsTotal.textContent = list.length;
+    if (fsCard && !opts.keepFlip) fsCard.classList.remove("flipped");
+    refreshFavUI();
+    highlightActiveThumb();
+  }
+  function goFs(dir){
+    var list = visibleList();
+    if (list.length === 0) return;
+    var pos = list.indexOf(idx);
+    if (pos === -1) pos = 0;
+    var nextPos = (pos + dir + list.length) % list.length;
+    setFsCard(list[nextPos]);
+  }
+  function renderThumbs(){
+    if (!fsThumbs) return;
+    var list = visibleList();
+    if (list.length === 0){
+      fsThumbs.innerHTML = '<div class="pd-fs-empty">No favorites yet. Tap the <strong>heart</strong> on a card to add it.</div>';
       return;
     }
-    if (e.key === "ArrowLeft")  { go(-1); }
-    else if (e.key === "ArrowRight") { go(+1); }
-  });
-  // Fullscreen
-  function openFs(){ if (fsViewer){ fsViewer.hidden = false; setCard(idx); document.body.style.overflow="hidden"; } }
-  function closeFs(){ if (fsViewer){ fsViewer.hidden = true; document.body.style.overflow=""; } }
-  if (fsOpen) fsOpen.addEventListener("click", openFs);
+    var html = "";
+    for (var i = 0; i < list.length; i++){
+      var n = list[i];
+      html += '<button class="pd-fs-thumb' + (n === idx ? " active" : "") + (isFav(n) ? " favorited" : "") + '" type="button" data-card="' + n + '" aria-label="Go to card ' + n + '">'
+            +   '<img src="' + frontSrc(n) + '" alt="Card ' + n + '" loading="lazy">'
+            +   '<span class="pd-fs-thumb-num">' + n + '</span>'
+            +   '<svg class="pd-fs-thumb-heart" viewBox="0 0 24 24" fill="#C73666" stroke="#fff" stroke-width="2" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>'
+            + '</button>';
+    }
+    fsThumbs.innerHTML = html;
+  }
+  function highlightActiveThumb(){
+    if (!fsThumbs) return;
+    var thumbs = fsThumbs.querySelectorAll(".pd-fs-thumb");
+    for (var i = 0; i < thumbs.length; i++){
+      var n = parseInt(thumbs[i].getAttribute("data-card"), 10);
+      thumbs[i].classList.toggle("active", n === idx);
+      thumbs[i].classList.toggle("favorited", isFav(n));
+    }
+    var active = fsThumbs.querySelector(".pd-fs-thumb.active");
+    if (active && active.scrollIntoView) active.scrollIntoView({behavior:"smooth", inline:"center", block:"nearest"});
+  }
+
+  // ---------- Open/close fullscreen ----------
+  function openFs(opts){
+    opts = opts || {};
+    if (!fsViewer) return;
+    favOnly = !!opts.favOnly && favs.length > 0;
+    if (fsFavToggle){ fsFavToggle.classList.toggle("active", favOnly); fsFavToggle.setAttribute("aria-pressed", favOnly ? "true" : "false"); }
+    fsViewer.hidden = false;
+    document.body.style.overflow = "hidden";
+    renderThumbs();
+    setFsCard(opts.favOnly ? (favs[0] || idx) : idx);
+  }
+  function closeFs(){ if (fsViewer){ fsViewer.hidden = true; document.body.style.overflow = ""; } }
+
+  // ---------- Wire up small viewer ----------
+  if (prevBtn) prevBtn.addEventListener("click", function(){ setSmallCard(idx - 1); });
+  if (nextBtn) nextBtn.addEventListener("click", function(){ setSmallCard(idx + 1); });
+  if (fsOpen)  fsOpen.addEventListener("click",  function(){ openFs(); });
+  if (favOpen) favOpen.addEventListener("click", function(){ openFs({favOnly:true}); });
+
+  // ---------- Wire up fullscreen viewer ----------
   if (fsClose) fsClose.addEventListener("click", closeFs);
-  if (fsPrev) fsPrev.addEventListener("click", function(){ go(-1); });
-  if (fsNext) fsNext.addEventListener("click", function(){ go(+1); });
-  if (fsViewer) fsViewer.addEventListener("click", function(e){
-    if (e.target === fsViewer) closeFs();
+  if (fsPrev)  fsPrev.addEventListener("click",  function(e){ e.stopPropagation(); goFs(-1); });
+  if (fsNext)  fsNext.addEventListener("click",  function(e){ e.stopPropagation(); goFs(+1); });
+
+  // Click big card to flip
+  if (fsCard) fsCard.addEventListener("click", function(){ fsCard.classList.toggle("flipped"); });
+
+  // Heart button — favorite current card
+  if (fsHeart) fsHeart.addEventListener("click", function(e){ e.stopPropagation(); toggleFav(idx); });
+
+  // Favorites filter toggle
+  if (fsFavToggle) fsFavToggle.addEventListener("click", function(e){
+    e.stopPropagation();
+    if (favs.length === 0){ favOnly = false; return; }
+    favOnly = !favOnly;
+    fsFavToggle.classList.toggle("active", favOnly);
+    fsFavToggle.setAttribute("aria-pressed", favOnly ? "true" : "false");
+    renderThumbs();
+    setFsCard(favOnly ? (favs[0] || idx) : idx);
   });
-  // Click images to open fullscreen
-  if (front) front.addEventListener("click", openFs);
-  if (back) back.addEventListener("click", openFs);
+
+  // Thumbnail clicks
+  if (fsThumbs) fsThumbs.addEventListener("click", function(e){
+    var t = e.target.closest(".pd-fs-thumb");
+    if (!t) return;
+    var n = parseInt(t.getAttribute("data-card"), 10);
+    if (!isNaN(n)) setFsCard(n);
+  });
+
+  // ---------- Swipe (touch) on big card ----------
+  var touchStartX = 0, touchStartY = 0, touchMoved = false;
+  if (fsCard){
+    fsCard.addEventListener("touchstart", function(e){
+      var t = e.touches[0]; touchStartX = t.clientX; touchStartY = t.clientY; touchMoved = false;
+    }, {passive:true});
+    fsCard.addEventListener("touchmove", function(e){
+      var t = e.touches[0];
+      var dx = t.clientX - touchStartX, dy = t.clientY - touchStartY;
+      if (Math.abs(dx) > 10 || Math.abs(dy) > 10) touchMoved = true;
+    }, {passive:true});
+    fsCard.addEventListener("touchend", function(e){
+      var t = e.changedTouches[0];
+      var dx = t.clientX - touchStartX, dy = t.clientY - touchStartY;
+      // If it's a tap (no significant movement), flip — let the click handler do it
+      if (!touchMoved) return;
+      // If horizontal swipe is meaningful and dominant, change card
+      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.3){
+        if (dx < 0) goFs(+1); else goFs(-1);
+        // Prevent the upcoming click event from flipping
+        e.preventDefault && e.preventDefault();
+        var swallow = function(ev){ ev.stopPropagation(); fsCard.removeEventListener("click", swallow, true); };
+        fsCard.addEventListener("click", swallow, true);
+      }
+    });
+  }
+
+  // ---------- Keyboard ----------
+  document.addEventListener("keydown", function(e){
+    var inFs = fsViewer && !fsViewer.hidden;
+    if (inFs){
+      if (e.key === "ArrowLeft")  { goFs(-1); }
+      else if (e.key === "ArrowRight") { goFs(+1); }
+      else if (e.key === " " || e.key === "Spacebar") { if (fsCard){ fsCard.classList.toggle("flipped"); e.preventDefault(); } }
+      else if (e.key === "f" || e.key === "F") { toggleFav(idx); }
+      else if (e.key === "Escape") { closeFs(); }
+      return;
+    }
+    if (e.key === "ArrowLeft")  { setSmallCard(idx - 1); }
+    else if (e.key === "ArrowRight") { setSmallCard(idx + 1); }
+  });
+
+  // ---------- First paint ----------
+  setSmallCard(idx);
+  refreshFavUI();
+  if (window.lucide && window.lucide.createIcons) window.lucide.createIcons();
 }
 </script>
 
