@@ -32,14 +32,28 @@
   h1.t em{font-style:italic;color:var(--mhn-purple-500)}
   .lede{font-family:var(--mhn-font-serif);font-style:italic;font-size:19px;line-height:1.55;color:var(--mhn-ink-soft);margin:0;max-width:780px}
 
-  /* COHORT CALLOUT (top of page) */
-  .cohort-callout{margin:8px 48px 28px;background:linear-gradient(135deg,var(--mhn-purple-700),var(--mhn-purple-900));color:#fff;border-radius:20px;padding:24px 32px;display:grid;grid-template-columns:1.2fr auto;gap:24px;align-items:center}
+  /* COHORT CALLOUT (top of page) — animated to draw attention */
+  .cohort-callout{position:relative;margin:8px 48px 28px;background:linear-gradient(135deg,var(--mhn-purple-700),var(--mhn-purple-900));color:#fff;border-radius:20px;padding:24px 32px;display:grid;grid-template-columns:1.2fr auto;gap:24px;align-items:center;box-shadow:0 12px 36px rgba(94,55,108,0.32),0 0 0 0 rgba(212,186,221,0.65);animation:cohortGlow 2.6s ease-in-out infinite}
+  .cohort-callout::before{content:"";position:absolute;inset:-3px;border-radius:22px;background:linear-gradient(135deg,var(--mhn-purple-200),var(--mhn-warm-700),var(--mhn-purple-200));z-index:-1;opacity:0.55;filter:blur(8px);animation:cohortShimmer 4s linear infinite}
+  @keyframes cohortGlow{
+    0%,100%{box-shadow:0 12px 36px rgba(94,55,108,0.32),0 0 0 0 rgba(212,186,221,0.65)}
+    50%{box-shadow:0 16px 44px rgba(94,55,108,0.42),0 0 0 12px rgba(212,186,221,0.0)}
+  }
+  @keyframes cohortShimmer{
+    0%{filter:blur(8px);opacity:0.4}
+    50%{filter:blur(14px);opacity:0.7}
+    100%{filter:blur(8px);opacity:0.4}
+  }
   .cohort-callout .label{font-size:16px;letter-spacing:0.22em;text-transform:uppercase;color:var(--mhn-purple-200);font-weight:700;margin-bottom:8px}
   .cohort-callout h3{font-family:var(--mhn-font-serif);font-size:21px;color:#fff;margin:0 0 6px;font-weight:700;letter-spacing:-0.01em}
   .cohort-callout p{margin:0;color:#F1EDF3;font-size:16px;line-height:1.55}
-  .cohort-callout a.btn{background:#fff;color:var(--mhn-purple-700);text-decoration:none;padding:14px 26px;border-radius:999px;font-weight:700;font-size:16px;letter-spacing:0.02em;display:inline-block;transition:transform 0.1s}
-  .cohort-callout a.btn:hover{transform:translateY(-1px)}
+  .cohort-callout a.btn{background:#fff;color:var(--mhn-purple-700);text-decoration:none;padding:14px 26px;border-radius:999px;font-weight:700;font-size:16px;letter-spacing:0.02em;display:inline-block;transition:transform 0.15s, box-shadow 0.15s;box-shadow:0 4px 14px rgba(0,0,0,0.18)}
+  .cohort-callout a.btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,0.28)}
   @media(max-width:680px){.cohort-callout{grid-template-columns:1fr}}
+  @media (prefers-reduced-motion: reduce){
+    .cohort-callout{animation:none}
+    .cohort-callout::before{animation:none}
+  }
 
   /* PROGRAMS GRID */
   .programs{padding:24px 48px 48px;max-width:1200px;margin:0 auto}
@@ -205,11 +219,11 @@
 <!-- COHORT CALLOUT -->
 <div class="cohort-callout">
   <div>
-    <div class="label">Next Cohort</div>
+    <div class="label">Next Birth Doula Training</div>
     <h3>Rho Cohort &middot; July 28&ndash;31, 2026 &middot; Baton Rouge</h3>
     <p>Schedule, tuition, what&rsquo;s included, scholarships, attendance requirements, and the application.</p>
   </div>
-  <a class="btn" href="cohort.html">View cohort details</a>
+  <a class="btn" href="cohort.html">View Class Details</a>
 </div>
 
 <!-- PROGRAMS -->
@@ -294,7 +308,7 @@
 </section>
 
 <!-- Birth-doula-specific transitional note (slim) -->
-<div style="text-align:center;padding:24px 48px 0;font-family:var(--mhn-font-serif);font-style:italic;color:var(--mhn-purple-500);font-size:15px;max-width:760px;margin:0 auto;letter-spacing:0.02em">The next two sections are specific to our flagship Birth Doula Training. Other specialties (postpartum, bereavement, breastfeeding) have their own structure.</div>
+<div style="text-align:center;padding:24px 48px 0;font-family:var(--mhn-font-serif);font-style:italic;color:var(--mhn-purple-500);font-size:15px;max-width:760px;margin:0 auto;letter-spacing:0.02em">The next section is specific to our flagship Birth Doula Training. Other specialties (postpartum, bereavement, breastfeeding) have their own structure. The full ICEA certification pathway lives on the <a href="cohort.html#certification-pathway" style="color:var(--mhn-purple-700);font-weight:700;text-decoration:none;border-bottom:1.5px solid var(--mhn-purple-200)">class details page</a>.</div>
 
 <!-- FORMATS -->
 <section class="formats">
@@ -322,20 +336,8 @@
 </div>
 </section>
 
-<!-- ICEA CERTIFICATION PATHWAY -->
-<section class="pathway" id="certification-pathway">
-<div class="pathway-head">
-  <div class="eyebrow">Birth Doula &middot; Route to ICEA Certification</div>
-  <h2>Your route to ICEA Certified Birth Doula.</h2>
-  <p>Specific to our birth doula training. Our trainees follow ICEA&rsquo;s traditional Birth Doula Pathway. Active MHN volunteers receive free exam-prep support. (The Bereavement specialty has its own ICEA CEU pathway built into the online course.)</p>
-</div>
-<div class="steps-grid">
-  <div class="step-box"><div class="n">01</div><h4>Complete coursework</h4><p>Pre-work, all live sessions, and skills check-offs.</p></div>
-  <div class="step-box"><div class="n">02</div><h4>Earn three births</h4><p>Attend a minimum of three births of at least six hours each.</p></div>
-  <div class="step-box"><div class="n">03</div><h4>Submit to ICEA</h4><p>Package your evidence and submit through ICEA&rsquo;s pathway.</p></div>
-  <div class="step-box"><div class="n">04</div><h4>Pass the exam</h4><p>Sit for the proctored ICEA exam (separate fee, paid to ICEA).</p></div>
-</div>
-</section>
+<!-- ICEA Certification Pathway lives on the cohort.html (class details) page. -->
+
 
 <!-- INSURANCE + REGISTRY (folded into a "For Graduates" disclosure to keep the page focused on enrollment) -->
 <section id="practicing-in-louisiana" style="padding:24px 48px 8px;max-width:1100px;margin:0 auto">
