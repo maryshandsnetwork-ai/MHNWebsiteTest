@@ -116,46 +116,54 @@
   <p class="pd-proceeds"><strong>Proceeds from Pocket Doula deck sales support free doula services for clients and doula training for community doulas through Mary&rsquo;s Hands Network.</strong></p>
 </section>
 
-<!-- POCKET DOULA FULLSCREEN VIEWER — single card, click-to-flip, swipe, thumbnails, favorites -->
-<div class="pd-fs-viewer" id="pdFsViewer" hidden role="dialog" aria-label="Pocket Doula card, full screen">
+<!-- POCKET DOULA POPUP VIEWER — big card on the left, full deck grid on the right -->
+<div class="pd-fs-viewer" id="pdFsViewer" hidden role="dialog" aria-label="Pocket Doula card viewer">
+  <div class="pd-fs-modal" id="pdFsModal" role="document">
 
-  <!-- Top toolbar -->
-  <div class="pd-fs-top">
-    <div class="pd-fs-top-left">
-      <button class="pd-fs-close" id="pdFsClose" type="button" aria-label="Close full screen">&times;</button>
-      <p class="pd-fs-meta">Card <strong id="pdFsNum">1</strong> of <span id="pdFsTotal">50</span></p>
-    </div>
-    <div class="pd-fs-top-right">
-      <button class="pd-fs-tool heart" id="pdFsHeart" type="button" aria-label="Favorite this card" aria-pressed="false"><i class="ico" data-lucide="heart"></i></button>
-      <button class="pd-fs-tool" id="pdFsFavToggle" type="button" aria-pressed="false"><i class="ico" data-lucide="heart"></i><span>Favorites</span><span class="pd-fs-fav-count" id="pdFsFavCount">0</span></button>
-    </div>
-  </div>
-
-  <!-- Center stage: prev — card — next -->
-  <div class="pd-fs-stage">
-    <button class="pd-fs-nav" id="pdFsPrev" type="button" aria-label="Previous card">&lsaquo;</button>
-    <div class="pd-fs-card" id="pdFsCard" role="button" aria-label="Tap card to flip">
-      <div class="pd-fs-card-inner">
-        <figure class="pd-fs-face pd-fs-face-front">
-          <img id="pdFsFront" src="" alt="">
-          <span class="pd-fs-side-badge">Front</span>
-        </figure>
-        <figure class="pd-fs-face pd-fs-face-back">
-          <img id="pdFsBack" src="" alt="">
-          <span class="pd-fs-side-badge">Back</span>
-        </figure>
+    <!-- Top toolbar -->
+    <div class="pd-fs-top">
+      <div class="pd-fs-top-left">
+        <button class="pd-fs-close" id="pdFsClose" type="button" aria-label="Close viewer">&times;</button>
+        <p class="pd-fs-meta">Card <strong id="pdFsNum">1</strong> of <span id="pdFsTotal">50</span></p>
+      </div>
+      <div class="pd-fs-top-right">
+        <button class="pd-fs-tool heart" id="pdFsHeart" type="button" aria-label="Favorite this card" aria-pressed="false"><i class="ico" data-lucide="heart"></i></button>
+        <button class="pd-fs-tool" id="pdFsFavToggle" type="button" aria-pressed="false"><i class="ico" data-lucide="heart"></i><span class="label-long">Favorites</span><span class="pd-fs-fav-count" id="pdFsFavCount">0</span></button>
       </div>
     </div>
-    <button class="pd-fs-nav" id="pdFsNext" type="button" aria-label="Next card">&rsaquo;</button>
+
+    <!-- Body: card stage + thumbnail grid -->
+    <div class="pd-fs-body">
+
+      <!-- Card stage -->
+      <div class="pd-fs-stage">
+        <button class="pd-fs-nav" id="pdFsPrev" type="button" aria-label="Previous card">&lsaquo;</button>
+        <div class="pd-fs-card" id="pdFsCard" role="button" aria-label="Tap card to flip">
+          <div class="pd-fs-card-inner">
+            <figure class="pd-fs-face pd-fs-face-front">
+              <img id="pdFsFront" src="" alt="">
+              <span class="pd-fs-side-badge">Front</span>
+            </figure>
+            <figure class="pd-fs-face pd-fs-face-back">
+              <img id="pdFsBack" src="" alt="">
+              <span class="pd-fs-side-badge">Back</span>
+            </figure>
+          </div>
+        </div>
+        <button class="pd-fs-nav" id="pdFsNext" type="button" aria-label="Next card">&rsaquo;</button>
+      </div>
+
+      <!-- Thumbnail grid -->
+      <div class="pd-fs-grid-wrap">
+        <div class="pd-fs-grid-head" id="pdFsGridHead">All 50 cards</div>
+        <div class="pd-fs-thumbs" id="pdFsThumbs" role="listbox" aria-label="Jump to card"></div>
+      </div>
+
+    </div>
+
+    <p class="pd-fs-hint">Tap the card to flip &middot; click any thumbnail to jump &middot; <kbd>&larr;</kbd>/<kbd>&rarr;</kbd> arrows &middot; <kbd>F</kbd> favorite &middot; <kbd>Esc</kbd> close</p>
+
   </div>
-
-  <p class="pd-fs-hint">Tap the card to flip &middot; swipe or use <kbd>&larr;</kbd>/<kbd>&rarr;</kbd> for next card &middot; <kbd>F</kbd> favorite &middot; <kbd>Esc</kbd> close</p>
-
-  <!-- Thumbnail strip -->
-  <div class="pd-fs-thumbs-wrap">
-    <div class="pd-fs-thumbs" id="pdFsThumbs" role="listbox" aria-label="Jump to card"></div>
-  </div>
-
 </div>
 
 </main>
@@ -222,6 +230,7 @@ function initPageContent(){
 
   // Full-screen viewer
   var fsViewer = document.getElementById("pdFsViewer");
+  var fsModal = document.getElementById("pdFsModal");
   var fsClose = document.getElementById("pdFsClose");
   var fsPrev = document.getElementById("pdFsPrev");
   var fsNext = document.getElementById("pdFsNext");
@@ -234,6 +243,7 @@ function initPageContent(){
   var fsFavToggle = document.getElementById("pdFsFavToggle");
   var fsFavCount = document.getElementById("pdFsFavCount");
   var fsThumbs = document.getElementById("pdFsThumbs");
+  var fsGridHead = document.getElementById("pdFsGridHead");
 
   if (!front || !back || !num) return;
   function pad(n){ return String(n).padStart(2,"0"); }
@@ -318,8 +328,9 @@ function initPageContent(){
   function renderThumbs(){
     if (!fsThumbs) return;
     var list = visibleList();
+    if (fsGridHead) fsGridHead.textContent = favOnly ? ("Your favorites · " + list.length) : ("All " + TOTAL + " cards");
     if (list.length === 0){
-      fsThumbs.innerHTML = '<div class="pd-fs-empty">No favorites yet. Tap the <strong>heart</strong> on a card to add it.</div>';
+      fsThumbs.innerHTML = '<div class="pd-fs-empty">No favorites yet.<br>Tap the <strong>heart</strong> on a card to add it to your favorites.</div>';
       return;
     }
     var html = "";
@@ -368,6 +379,10 @@ function initPageContent(){
   if (fsClose) fsClose.addEventListener("click", closeFs);
   if (fsPrev)  fsPrev.addEventListener("click",  function(e){ e.stopPropagation(); goFs(-1); });
   if (fsNext)  fsNext.addEventListener("click",  function(e){ e.stopPropagation(); goFs(+1); });
+  // Click on the dark backdrop (outside the white modal) closes the viewer
+  if (fsViewer) fsViewer.addEventListener("click", function(e){
+    if (e.target === fsViewer) closeFs();
+  });
 
   // Click big card to flip
   if (fsCard) fsCard.addEventListener("click", function(){ fsCard.classList.toggle("flipped"); });
