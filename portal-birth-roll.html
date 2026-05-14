@@ -207,6 +207,36 @@
   .br-nav-row .btn-primary:disabled{opacity:0.45;cursor:not-allowed;box-shadow:none}
   .br-nav-row .btn-primary .ico{width:16px;height:16px}
 
+  /* ---------------- LIVE STORY SIDEBAR ---------------- */
+  .br-game-layout{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:24px;align-items:start;grid-template-areas:"main side"}
+  .br-main{grid-area:main;min-width:0}
+  .br-story-side{grid-area:side;position:sticky;top:16px;background:linear-gradient(160deg,#FAF1E1 0%,#FFF8EC 100%);border:1px solid #E8D5BD;border-radius:18px;padding:22px;max-height:calc(100vh - 32px);overflow-y:auto;box-shadow:0 6px 20px rgba(133,87,31,0.08)}
+  .br-story-side .ss-head{padding-bottom:12px;border-bottom:2px solid #E8D5BD;margin-bottom:14px}
+  .br-story-side .ss-eyebrow-top{font-family:var(--mhn-font-sans);font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:#B5824A;font-weight:800;margin-bottom:4px;display:flex;align-items:center;gap:6px}
+  .br-story-side .ss-eyebrow-top .ico{width:12px;height:12px}
+  .br-story-side .ss-title{font-family:var(--mhn-font-serif);font-size:18px;color:#85571F;font-weight:700;margin:0;letter-spacing:-0.005em;line-height:1.2}
+  .br-story-side .ss-progress{font-family:var(--mhn-font-sans);font-size:11px;color:#B5824A;font-weight:700;margin-top:4px;letter-spacing:0.04em}
+  .ss-section{margin-bottom:14px;animation:ssFadeIn 0.5s cubic-bezier(0.22,1,0.36,1)}
+  .ss-section:last-child{margin-bottom:0}
+  @keyframes ssFadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+  .ss-section .ss-eyebrow{font-family:var(--mhn-font-sans);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:#85571F;font-weight:800;margin-bottom:5px;display:flex;align-items:center;gap:6px}
+  .ss-section .ss-eyebrow .ico{width:11px;height:11px}
+  .ss-section p{margin:0;font-size:13.5px;line-height:1.6;color:var(--mhn-ink);font-family:var(--mhn-font-serif)}
+  .ss-section p strong{color:#85571F;font-weight:700}
+  .ss-empty{font-family:var(--mhn-font-serif);font-style:italic;font-size:13.5px;line-height:1.6;color:var(--mhn-ink-soft);text-align:center;padding:24px 8px}
+  .ss-empty .ss-empty-ico{font-size:30px;margin-bottom:10px;opacity:0.5;display:block}
+  .ss-decisions{padding-top:10px;border-top:1px dashed #E8D5BD}
+  .ss-decision{display:inline-flex;align-items:center;gap:5px;padding:3px 8px;background:#fff;border-radius:999px;font-family:var(--mhn-font-sans);font-size:10.5px;font-weight:800;letter-spacing:0.04em;margin:2px 4px 2px 0}
+  .ss-decision .ico{width:11px;height:11px}
+  .ss-decision.q-best{color:#5B8E4E;border:1px solid #C9E1C0}
+  .ss-decision.q-good{color:#8FA854;border:1px solid #DFE6C7}
+  .ss-decision.q-poor{color:#B5824A;border:1px solid #E8D5BD}
+  .ss-decision.q-worst{color:#A04545;border:1px solid #E8C7C7}
+  @media(max-width:980px){
+    .br-game-layout{grid-template-columns:1fr;grid-template-areas:"side" "main";gap:18px}
+    .br-story-side{position:relative;top:auto;max-height:none}
+  }
+
   /* ---------------- WELCOME PANEL ---------------- */
   #stage-welcome .welcome-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0 28px}
   #stage-welcome .w-card{background:#fff;border:1px solid var(--mhn-purple-200);border-radius:14px;padding:18px;text-align:center}
@@ -284,7 +314,8 @@
 
   @media print{
     body{background:#fff !important}
-    .nav, .br-back, .portal-side, .br-stepper, .br-nav-row, .summary-actions, .sticky-mobile-cta, footer, .mode-toggle, .br-decision-card .d-options, .d-skip{display:none !important}
+    .nav, .br-back, .portal-side, .br-stepper, .br-nav-row, .summary-actions, .sticky-mobile-cta, footer, .mode-toggle, .br-decision-card .d-options, .d-skip, .br-story-side{display:none !important}
+    .br-game-layout{display:block !important}
     .portal-main{padding:0 !important}
     .br-stage{display:block !important}
     .br-stage:not(#stage-story){display:none !important}
@@ -380,6 +411,10 @@
   <div class="br-step" data-step="postpartum"><span class="step-n">5</span><span class="step-l">Postpartum</span></div>
 </div>
 
+<!-- ====================== 2-COLUMN GAME LAYOUT ====================== -->
+<div class="br-game-layout">
+<div class="br-main">
+
 <!-- ====================== STAGE: WELCOME ====================== -->
 <section class="br-stage active" id="stage-welcome">
   <div class="br-stage-head">
@@ -434,6 +469,20 @@
 </section>
 
 <div id="stageHost"></div>
+
+</div><!-- /.br-main -->
+
+<!-- LIVE STORY SIDEBAR -->
+<aside class="br-story-side" id="storySidebar">
+  <div class="ss-head">
+    <div class="ss-eyebrow-top"><i class="ico" data-lucide="book-open"></i>Live Story</div>
+    <h4 class="ss-title">The story so far</h4>
+    <div class="ss-progress" id="storyProgress">0 of 11 rolls</div>
+  </div>
+  <div id="storySideContent"></div>
+</aside>
+
+</div><!-- /.br-game-layout -->
 
 </div><!-- /.br-wrap -->
 
@@ -1227,6 +1276,9 @@ function completeRoll(card, sum, dice, isPick){
   `;
   if(window.lucide) window.lucide.createIcons();
 
+  // Update live story sidebar
+  renderStorySidebar();
+
   // Check for decision point
   const decisionMaybe = maybeInsertDecision(card, rollId, result);
 
@@ -1298,6 +1350,7 @@ function buildDecisionCard(rollId, decision){
         quality: picked.quality,
         feedback: picked.feedback
       };
+      renderStorySidebar();
       const qualityIcon = { best:"check-circle", good:"thumbs-up", poor:"alert-circle", worst:"x-circle" }[picked.quality];
       const qualityLabel = { best:"Best in scope", good:"Solid choice", poor:"Outside scope or off-target", worst:"Outside scope" }[picked.quality];
       const fbHost = card.querySelector("[data-feedback-host]");
@@ -1403,18 +1456,29 @@ function renderStage(stageIdx){
       stage.rolls.forEach(rid => { delete state.results[rid]; delete state.decisions[rid]; });
       renderStage(stageIdx - 1);
       setStepperActive(STAGES[stageIdx - 1].id);
+      renderStorySidebar();
     }
   });
   wrap.querySelector("[data-advance]").addEventListener("click", () => {
     if(stage.id === "create"){
       const ni = document.getElementById("clientNameInput");
       if(ni) state.clientName = ni.value.trim() || "Your client";
+      renderStorySidebar();
     }
     if(stageIdx + 1 <= STAGES.length){
       renderStage(stageIdx + 1);
       setStepperActive(stageIdx + 1 === STAGES.length ? "story" : STAGES[stageIdx+1].id);
     }
   });
+
+  // Live-update sidebar as name is typed
+  const nameInput = wrap.querySelector("#clientNameInput");
+  if(nameInput){
+    nameInput.addEventListener("input", () => {
+      state.clientName = nameInput.value.trim();
+      renderStorySidebar();
+    });
+  }
 
   setStepperActive(stage.id);
   if(window.lucide) window.lucide.createIcons();
@@ -1570,11 +1634,113 @@ function escapeHTML(s){
   return String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 }
 
+function capitalizeFirst(s){
+  if(!s) return s;
+  return s.charAt(0).toUpperCase() + s.slice(1);
+}
+
+/* ============================================================
+   LIVE STORY SIDEBAR — rebuilds as rolls/decisions land
+   ============================================================ */
+function renderStorySidebar(){
+  const host = document.getElementById("storySideContent");
+  const progressEl = document.getElementById("storyProgress");
+  if(!host) return;
+
+  const totalRolls = 11;
+  const rollsDone = Object.keys(state.results).length;
+  if(progressEl){
+    progressEl.textContent = `${rollsDone} of ${totalRolls} rolls`;
+  }
+
+  // Empty state
+  if(rollsDone === 0){
+    host.innerHTML = `
+      <div class="ss-empty">
+        <span class="ss-empty-ico">&#x1F3B2;</span>
+        Roll your first die and the story will build here, sentence by sentence.
+      </div>
+    `;
+    return;
+  }
+
+  const name = escapeHTML(state.clientName || "Your client");
+  const get = (id) => state.results[id] && state.results[id].summary;
+
+  let html = "";
+
+  // SETUP — Who she is
+  const hasSetup = ["age","parity","context","partner","provider"].some(id => state.results[id]);
+  if(hasSetup){
+    let para = `<strong>${name}</strong>`;
+    if(state.results.age) para += ` ${state.results.age.summary}`;
+    if(state.results.parity) para += state.results.age ? `, ${state.results.parity.summary}` : ` ${state.results.parity.summary}`;
+    if(state.results.context) para += `. She ${state.results.context.summary}`;
+    if(state.results.partner) para += `. She ${state.results.partner.summary}`;
+    if(state.results.provider) para += (state.results.partner ? `, and she ${state.results.provider.summary}` : `. She ${state.results.provider.summary}`);
+    para += ".";
+    html += `<div class="ss-section"><div class="ss-eyebrow"><i class="ico" data-lucide="user"></i>Who she is</div><p>${para}</p></div>`;
+  }
+
+  // PREGNANCY
+  const hasPreg = ["maternal","babyUtero","pregnancyWellness"].some(id => state.results[id]);
+  if(hasPreg){
+    let para = "";
+    if(state.results.maternal) para += `She ${state.results.maternal.summary}. `;
+    if(state.results.babyUtero) para += `Clinically, ${state.results.babyUtero.summary}. `;
+    if(state.results.pregnancyWellness) para += `${capitalizeFirst(name)} ${state.results.pregnancyWellness.summary}.`;
+    html += `<div class="ss-section"><div class="ss-eyebrow"><i class="ico" data-lucide="heart-pulse"></i>Pregnancy</div><p>${para.trim()}</p></div>`;
+  }
+
+  // LABOR
+  const hasLabor = ["laborStart","laborProgress"].some(id => state.results[id]);
+  if(hasLabor){
+    let para = "";
+    if(state.results.laborStart) para += `When the time came, ${state.results.laborStart.summary}. `;
+    if(state.results.laborProgress) para += `From there, ${state.results.laborProgress.summary}.`;
+    html += `<div class="ss-section"><div class="ss-eyebrow"><i class="ico" data-lucide="play-circle"></i>Labor</div><p>${para.trim()}</p></div>`;
+  }
+
+  // BIRTH
+  if(state.results.birth){
+    const para = `${capitalizeFirst(state.results.birth.summary)}.`;
+    html += `<div class="ss-section"><div class="ss-eyebrow"><i class="ico" data-lucide="sparkles"></i>Birth</div><p>${para}</p></div>`;
+  }
+
+  // POSTPARTUM
+  const hasPP = ["newborn","postpartum"].some(id => state.results[id]);
+  if(hasPP){
+    let para = "";
+    if(state.results.newborn) para += `After birth, ${state.results.newborn.summary}. `;
+    if(state.results.postpartum) para += `For ${name}, ${state.results.postpartum.summary}.`;
+    html += `<div class="ss-section"><div class="ss-eyebrow"><i class="ico" data-lucide="moon"></i>Postpartum</div><p>${para.trim()}</p></div>`;
+  }
+
+  // DECISIONS — show quality pills
+  const decisionKeys = Object.keys(state.decisions);
+  if(decisionKeys.length > 0){
+    const qualityIcons = { best:"check-circle", good:"thumbs-up", poor:"alert-circle", worst:"x-circle" };
+    const qualityLabels = { best:"Best", good:"Solid", poor:"Off-target", worst:"Out of scope" };
+    let pills = "";
+    decisionKeys.forEach(rid => {
+      const dec = state.decisions[rid];
+      pills += `<span class="ss-decision q-${dec.quality}"><i class="ico" data-lucide="${qualityIcons[dec.quality]}"></i>${qualityLabels[dec.quality]}</span>`;
+    });
+    html += `<div class="ss-section ss-decisions"><div class="ss-eyebrow"><i class="ico" data-lucide="message-circle"></i>Your doula choices (${decisionKeys.length})</div><div>${pills}</div></div>`;
+  }
+
+  host.innerHTML = html;
+  if(window.lucide) window.lucide.createIcons();
+}
+
 /* ============================================================
    BOOT
    ============================================================ */
 document.addEventListener("DOMContentLoaded", () => {
   if(window.lucide) window.lucide.createIcons();
+
+  // Initialize live story sidebar with empty state
+  renderStorySidebar();
 
   // Difficulty selection
   document.querySelectorAll("#diffGrid .diff-card").forEach(card => {
