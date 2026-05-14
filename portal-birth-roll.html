@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Birth Roll · Mary's Hands Network</title>
-<meta name="description" content="A doula-training simulation: roll the dice and walk a client through pregnancy, labor, birth, and postpartum. Practice your BRAIN responses, comfort measures, and emotional presence.">
+<meta name="description" content="A doula-training simulation: roll the dice and walk a client through pregnancy, labor, birth, and postpartum. Practice BRAIN, comfort measures, and emotional presence.">
 <link rel="icon" type="image/png" href="./assets/logo-seal.png">
 <link rel="apple-touch-icon" href="./assets/logo-seal.png">
 <link rel="canonical" href="https://maryshandsnetwork.org/portal-birth-roll.html">
@@ -47,21 +47,68 @@
   .br-stage-head h2{font-family:var(--mhn-font-serif);font-size:26px;color:var(--mhn-purple-700);margin:0 0 6px;letter-spacing:-0.015em;line-height:1.1}
   .br-stage-head p{margin:0;color:var(--mhn-ink-soft);font-size:15px;line-height:1.55;font-family:var(--mhn-font-serif);font-style:italic;max-width:780px}
 
-  /* ---------------- ROLL CARD (the centerpiece) ---------------- */
-  .br-roll-card{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:start;background:#fff;border:1px solid var(--mhn-purple-200);border-radius:20px;padding:24px;margin-bottom:14px;box-shadow:0 6px 20px rgba(94,55,108,0.06);transition:border-color .2s, box-shadow .2s}
+  /* ---------------- DIFFICULTY PICKER ---------------- */
+  .diff-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0}
+  .diff-card{background:#fff;border:2px solid var(--mhn-purple-200);border-radius:18px;padding:18px;cursor:pointer;transition:all .2s;text-align:left}
+  .diff-card:hover{border-color:var(--mhn-purple-500);transform:translateY(-2px);box-shadow:0 8px 20px rgba(94,55,108,0.12)}
+  .diff-card.selected{border-color:var(--mhn-purple-700);background:linear-gradient(135deg,var(--mhn-purple-50) 0%,#fff 100%);box-shadow:0 10px 28px rgba(94,55,108,0.2)}
+  .diff-card .diff-emoji{font-size:30px;line-height:1;margin-bottom:8px}
+  .diff-card h4{font-family:var(--mhn-font-serif);font-size:18px;color:var(--mhn-purple-700);margin:0 0 4px;font-weight:700}
+  .diff-card p{margin:0;font-size:13.5px;line-height:1.55;color:var(--mhn-ink-soft)}
+  @media(max-width:680px){.diff-grid{grid-template-columns:1fr}}
+
+  .loss-toggle{margin:14px 0 6px;padding:16px 20px;background:linear-gradient(135deg,#FAF1E1 0%,#F2E2C5 100%);border-left:4px solid var(--mhn-warm-700);border-radius:12px;display:none}
+  .loss-toggle.visible{display:block;animation:stageIn 0.3s}
+  .loss-toggle label{display:flex;gap:12px;align-items:flex-start;cursor:pointer}
+  .loss-toggle input{margin-top:3px;flex-shrink:0;width:18px;height:18px;cursor:pointer;accent-color:var(--mhn-warm-700)}
+  .loss-toggle .lt-text{flex:1}
+  .loss-toggle .lt-title{font-family:var(--mhn-font-sans);font-size:13px;font-weight:800;color:#85571F;letter-spacing:0.04em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .loss-toggle .lt-desc{font-size:14px;color:var(--mhn-ink);line-height:1.55;margin:0}
+
+  /* ---------------- ROLL CARD ---------------- */
+  .br-roll-card{background:#fff;border:1px solid var(--mhn-purple-200);border-radius:20px;padding:24px;margin-bottom:14px;box-shadow:0 6px 20px rgba(94,55,108,0.06);transition:border-color .2s, box-shadow .2s}
   .br-roll-card.is-current{border-color:var(--mhn-purple-700);box-shadow:0 12px 36px rgba(94,55,108,0.18)}
   .br-roll-card.is-done{background:var(--mhn-purple-50)}
-  .br-roll-card .roll-meta{min-width:0}
-  .br-roll-card .roll-label{font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:800;margin-bottom:4px}
-  .br-roll-card .roll-title{font-family:var(--mhn-font-serif);font-size:21px;color:var(--mhn-purple-700);margin:0 0 4px;font-weight:700;letter-spacing:-0.01em;line-height:1.15}
-  .br-roll-card .roll-hint{margin:0;font-size:14px;color:var(--mhn-ink-soft);line-height:1.55;font-family:var(--mhn-font-serif);font-style:italic}
 
+  .roll-header{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:start;margin-bottom:14px}
+  .roll-label{font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:800;margin-bottom:4px}
+  .roll-title{font-family:var(--mhn-font-serif);font-size:21px;color:var(--mhn-purple-700);margin:0 0 4px;font-weight:700;letter-spacing:-0.01em;line-height:1.15}
+  .roll-hint{margin:0;font-size:14px;color:var(--mhn-ink-soft);line-height:1.55;font-family:var(--mhn-font-serif);font-style:italic}
+
+  .mode-toggle{display:inline-flex;background:var(--mhn-purple-50);border:1px solid var(--mhn-purple-200);border-radius:999px;padding:3px;flex-shrink:0}
+  .mode-toggle button{background:transparent;border:none;padding:6px 14px;font-family:var(--mhn-font-sans);font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:var(--mhn-purple-500);cursor:pointer;border-radius:999px;display:inline-flex;align-items:center;gap:4px;transition:all .15s}
+  .mode-toggle button.is-active{background:var(--mhn-purple-700);color:#fff;box-shadow:0 2px 6px rgba(94,55,108,0.3)}
+  .mode-toggle button .ico{width:12px;height:12px}
+
+  /* Roll mode body */
+  .roll-mode-body{display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center;padding-top:6px}
+  .pick-mode-body{padding-top:6px;display:none}
+  .br-roll-card.mode-pick .roll-mode-body{display:none}
+  .br-roll-card.mode-pick .pick-mode-body{display:block}
+
+  .pick-grid{display:grid;grid-template-columns:1fr;gap:8px;margin-bottom:8px}
+  .pick-option{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start;padding:12px 16px;background:#fff;border:1.5px solid var(--mhn-line);border-radius:12px;cursor:pointer;transition:all .15s;text-align:left;font-family:inherit}
+  .pick-option:hover{border-color:var(--mhn-purple-500);background:var(--mhn-purple-50)}
+  .pick-option .pn{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;width:30px;height:30px;background:var(--mhn-purple-700);color:#fff;border-radius:8px;font-family:var(--mhn-font-serif);font-weight:800;font-size:15px}
+  .pick-option .pt{font-size:14px;line-height:1.55;color:var(--mhn-ink);font-family:var(--mhn-font-sans)}
+  .pick-option .pt strong{color:var(--mhn-purple-700)}
+
+  /* Result */
   .br-roll-result{margin-top:14px;padding:16px 18px;background:linear-gradient(135deg,var(--mhn-purple-50) 0%,#fff 100%);border-left:4px solid var(--mhn-purple-700);border-radius:10px;animation:resultIn 0.5s cubic-bezier(0.22,1,0.36,1)}
   @keyframes resultIn{from{opacity:0;transform:translateX(-8px)}to{opacity:1;transform:translateX(0)}}
   .br-roll-result .r-tag{display:inline-flex;align-items:center;gap:8px;font-family:var(--mhn-font-sans);font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--mhn-purple-700);font-weight:800;margin-bottom:6px}
   .br-roll-result .r-tag .r-num{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;background:var(--mhn-purple-700);color:#fff;border-radius:6px;font-family:var(--mhn-font-serif);font-size:14px;letter-spacing:0;font-weight:800}
+  .br-roll-result .r-tag .r-chose{background:var(--mhn-warm-700)}
+  .br-roll-result .r-tag .r-chose .r-num{background:var(--mhn-warm-700)}
   .br-roll-result p{margin:0;font-size:15.5px;line-height:1.6;color:var(--mhn-ink)}
   .br-roll-result p strong{color:var(--mhn-purple-700)}
+
+  /* Learn more pills */
+  .learn-more{margin-top:12px;display:flex;flex-wrap:wrap;gap:8px}
+  .learn-more .lm-label{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:800;margin-right:4px;align-self:center}
+  .learn-more a{display:inline-flex;align-items:center;gap:5px;padding:5px 12px;background:#fff;border:1.5px solid var(--mhn-purple-200);border-radius:999px;font-family:var(--mhn-font-sans);font-size:11.5px;font-weight:700;letter-spacing:0.04em;color:var(--mhn-purple-700);text-decoration:none;transition:all .15s}
+  .learn-more a:hover{background:var(--mhn-purple-700);color:#fff;border-color:var(--mhn-purple-700)}
+  .learn-more a .ico{width:11px;height:11px}
 
   /* ---------------- DICE (3D CUBE) ---------------- */
   .dice-stage{display:flex;flex-direction:column;align-items:center;gap:12px;padding:8px;min-width:200px}
@@ -78,7 +125,6 @@
   .dice-face.f4{transform:rotateY(-90deg) translateZ(50px)}
   .dice-face.f5{transform:rotateX(90deg) translateZ(50px)}
   .dice-face.f6{transform:rotateX(-90deg) translateZ(50px)}
-  /* Pip layouts */
   .dice-face.f1 .pip{grid-area:2 / 2}
   .dice-face.f2 .pip:nth-child(1){grid-area:1 / 1}
   .dice-face.f2 .pip:nth-child(2){grid-area:3 / 3}
@@ -118,6 +164,32 @@
   .roll-btn .ico{width:16px;height:16px}
   .dice-helper{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:800;text-align:center}
 
+  /* ---------------- DECISION CARD ---------------- */
+  .br-decision-card{background:linear-gradient(135deg,#FAF1E1 0%,#FFF8EC 100%);border:2px solid #E8D5BD;border-radius:18px;padding:24px;margin:8px 0 14px;box-shadow:0 8px 24px rgba(133,87,31,0.12);animation:resultIn 0.5s}
+  .br-decision-card .d-eyebrow{display:inline-flex;align-items:center;gap:6px;font-family:var(--mhn-font-sans);font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:#85571F;font-weight:800;margin-bottom:8px}
+  .br-decision-card .d-eyebrow .ico{width:14px;height:14px}
+  .br-decision-card h4{font-family:var(--mhn-font-serif);font-size:19px;color:#85571F;margin:0 0 8px;font-weight:700;letter-spacing:-0.005em;line-height:1.25}
+  .br-decision-card .d-scene{font-size:15px;line-height:1.6;color:var(--mhn-ink);margin:0 0 16px;font-family:var(--mhn-font-serif);font-style:italic}
+  .br-decision-card .d-question{margin:0 0 12px;font-size:15px;line-height:1.55;color:var(--mhn-ink);font-weight:700}
+  .d-options{display:grid;grid-template-columns:1fr;gap:8px}
+  .d-option{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start;padding:14px 18px;background:#fff;border:1.5px solid #E8D5BD;border-radius:12px;cursor:pointer;transition:all .15s;text-align:left;font-family:inherit;color:var(--mhn-ink);font-size:14.5px;line-height:1.55}
+  .d-option:hover{border-color:#85571F;background:#FFFCF6;transform:translateY(-1px)}
+  .d-option .dn{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;width:28px;height:28px;background:#85571F;color:#fff;border-radius:8px;font-family:var(--mhn-font-sans);font-weight:800;font-size:13px;align-self:center}
+  .d-feedback{margin-top:14px;padding:14px 18px;border-radius:10px;animation:resultIn 0.4s}
+  .d-feedback.q-best{background:linear-gradient(135deg,#EAF7E8 0%,#FFFFFF 100%);border-left:4px solid #5B8E4E}
+  .d-feedback.q-good{background:linear-gradient(135deg,#F0F3E8 0%,#FFFFFF 100%);border-left:4px solid #8FA854}
+  .d-feedback.q-poor{background:linear-gradient(135deg,#FBEFE2 0%,#FFFFFF 100%);border-left:4px solid #B5824A}
+  .d-feedback.q-worst{background:linear-gradient(135deg,#FBE6E6 0%,#FFFFFF 100%);border-left:4px solid #A04545}
+  .d-feedback .fb-label{display:inline-flex;align-items:center;gap:6px;font-family:var(--mhn-font-sans);font-size:11px;letter-spacing:0.2em;text-transform:uppercase;font-weight:800;margin-bottom:6px}
+  .d-feedback.q-best .fb-label{color:#5B8E4E}
+  .d-feedback.q-good .fb-label{color:#8FA854}
+  .d-feedback.q-poor .fb-label{color:#B5824A}
+  .d-feedback.q-worst .fb-label{color:#A04545}
+  .d-feedback .fb-label .ico{width:14px;height:14px}
+  .d-feedback p{margin:0;font-size:14.5px;line-height:1.6;color:var(--mhn-ink)}
+  .d-skip{display:inline-flex;align-items:center;gap:6px;background:transparent;border:none;color:#85571F;font-family:var(--mhn-font-sans);font-size:12px;font-weight:700;cursor:pointer;text-decoration:underline;padding:0;margin-top:12px}
+  .d-skip:hover{color:#B5824A}
+
   /* ---------------- CHARACTER NAME INPUT ---------------- */
   .name-card{background:linear-gradient(135deg,var(--mhn-purple-50) 0%,#fff 100%);border:1px solid var(--mhn-purple-200);border-radius:18px;padding:24px;margin-bottom:18px}
   .name-card label{display:block;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:800;margin-bottom:8px}
@@ -149,6 +221,12 @@
   .story-banner h2 em{font-style:italic;color:#D4BADD;font-weight:400}
   .story-banner p{margin:0;font-family:var(--mhn-font-serif);font-style:italic;font-size:15px;line-height:1.6;color:rgba(255,255,255,0.92)}
 
+  .narrative-card{background:linear-gradient(135deg,#FAF1E1 0%,#FFF8EC 100%);border:1px solid #E8D5BD;border-radius:18px;padding:26px 30px;margin-bottom:18px;box-shadow:0 6px 18px rgba(133,87,31,0.08)}
+  .narrative-card .e{font-size:12px;letter-spacing:0.22em;text-transform:uppercase;color:#85571F;font-weight:800;margin-bottom:10px}
+  .narrative-card p{margin:0 0 12px;font-family:var(--mhn-font-serif);font-size:16.5px;line-height:1.75;color:var(--mhn-ink)}
+  .narrative-card p:last-child{margin-bottom:0}
+  .narrative-card p strong{color:#85571F}
+
   .story-section{background:#fff;border:1px solid var(--mhn-line);border-radius:16px;padding:22px 26px;margin-bottom:16px}
   .story-section h3{font-family:var(--mhn-font-serif);font-size:18px;color:var(--mhn-purple-700);margin:0 0 12px;letter-spacing:-0.005em;padding-bottom:8px;border-bottom:2px solid var(--mhn-purple-200);display:flex;align-items:center;gap:10px}
   .story-section h3 .ico{width:18px;height:18px;color:var(--mhn-purple-500)}
@@ -156,6 +234,7 @@
   .story-row:last-child{border-bottom:none}
   .story-row .r-lbl{display:inline-flex;align-items:center;gap:8px;font-family:var(--mhn-font-sans);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:800;margin-bottom:4px}
   .story-row .r-lbl .r-num{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;background:var(--mhn-purple-700);color:#fff;border-radius:5px;font-family:var(--mhn-font-serif);font-size:12px;letter-spacing:0;font-weight:800}
+  .story-row .r-lbl .r-chose{background:var(--mhn-warm-700)}
   .story-row p{margin:0;font-size:15px;line-height:1.6;color:var(--mhn-ink)}
 
   .reflection-box{background:linear-gradient(135deg,#FAF1E1 0%,#F2E2C5 100%);border-left:4px solid var(--mhn-warm-700);border-radius:12px;padding:20px 24px;margin-top:18px}
@@ -165,13 +244,17 @@
   .reflection-box ul li{margin-bottom:8px}
   .reflection-box ul li::marker{color:var(--mhn-warm-700)}
 
-  .summary-actions{display:flex;gap:12px;justify-content:center;margin:24px 0;flex-wrap:wrap}
-  .summary-actions button, .summary-actions a{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:999px;font-family:var(--mhn-font-sans);font-size:14px;font-weight:800;letter-spacing:0.04em;cursor:pointer;text-decoration:none;border:none;transition:all .15s}
-  .summary-actions .btn-restart{background:var(--mhn-purple-700);color:#fff;box-shadow:0 6px 16px rgba(94,55,108,0.22)}
-  .summary-actions .btn-restart:hover{background:var(--mhn-purple-900);transform:translateY(-1px)}
-  .summary-actions .btn-print{background:#fff;border:1.5px solid var(--mhn-purple-200);color:var(--mhn-purple-700)}
-  .summary-actions .btn-print:hover{background:var(--mhn-purple-50);border-color:var(--mhn-purple-700)}
-  .summary-actions .ico{width:16px;height:16px}
+  .summary-actions{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:24px 0}
+  .summary-actions .sa-btn{display:flex;flex-direction:column;align-items:center;gap:8px;padding:18px 16px;border-radius:14px;font-family:var(--mhn-font-sans);font-size:13px;font-weight:800;letter-spacing:0.04em;cursor:pointer;text-decoration:none;border:none;transition:all .15s;text-align:center;line-height:1.3}
+  .summary-actions .sa-btn .ico{width:24px;height:24px}
+  .summary-actions .sa-btn .sa-sub{font-size:11px;font-weight:600;letter-spacing:0;text-transform:none;color:inherit;opacity:0.8;margin-top:2px}
+  .summary-actions .sa-restart{background:var(--mhn-purple-700);color:#fff;box-shadow:0 6px 16px rgba(94,55,108,0.22)}
+  .summary-actions .sa-restart:hover{background:var(--mhn-purple-900);transform:translateY(-1px)}
+  .summary-actions .sa-same{background:#fff;border:2px solid var(--mhn-purple-200);color:var(--mhn-purple-700)}
+  .summary-actions .sa-same:hover{background:var(--mhn-purple-50);border-color:var(--mhn-purple-700);transform:translateY(-1px)}
+  .summary-actions .sa-print{background:linear-gradient(135deg,#85571F 0%,#B5824A 100%);color:#fff;box-shadow:0 6px 16px rgba(133,87,31,0.22)}
+  .summary-actions .sa-print:hover{transform:translateY(-1px)}
+  @media(max-width:680px){.summary-actions{grid-template-columns:1fr}}
 
   /* ---------------- RESPONSIVE ---------------- */
   @media(max-width:760px){
@@ -179,7 +262,9 @@
     .br-wrap{padding:14px 20px 40px}
     .br-hero{grid-template-columns:1fr;padding:20px}
     .br-hero h1{font-size:26px}
-    .br-roll-card{grid-template-columns:1fr;gap:16px;padding:18px}
+    .roll-header{grid-template-columns:1fr;gap:8px}
+    .br-roll-card{padding:18px}
+    .roll-mode-body{grid-template-columns:1fr;gap:16px}
     .dice-stage{min-width:auto}
     .dice-scene{width:140px;height:140px}
     .dice-cube{width:88px;height:88px}
@@ -194,12 +279,12 @@
     .br-stage-head h2{font-size:22px}
     .story-banner{padding:20px 22px}
     .story-banner h2{font-size:22px}
-    .story-section{padding:18px}
+    .story-section, .narrative-card{padding:18px}
   }
 
   @media print{
     body{background:#fff !important}
-    .nav, .br-back, .portal-side, .br-stepper, .br-nav-row, .summary-actions, .sticky-mobile-cta, footer{display:none !important}
+    .nav, .br-back, .portal-side, .br-stepper, .br-nav-row, .summary-actions, .sticky-mobile-cta, footer, .mode-toggle, .br-decision-card .d-options, .d-skip{display:none !important}
     .portal-main{padding:0 !important}
     .br-stage{display:block !important}
     .br-stage:not(#stage-story){display:none !important}
@@ -277,7 +362,7 @@
   <div>
     <div class="br-eyebrow">Doula Training Simulator</div>
     <h1>The <em>Birth Roll.</em></h1>
-    <p>Roll the dice and walk a client through pregnancy, labor, birth, and postpartum. Practice your BRAIN responses, comfort measures, and emotional presence against every kind of birth story.</p>
+    <p>Roll the dice (or pick your own) and walk a client through pregnancy, labor, birth, and postpartum. Practice BRAIN, comfort measures, and emotional presence against every kind of birth story.</p>
   </div>
   <div class="hero-meta">
     <div class="num">11</div>
@@ -300,20 +385,54 @@
   <div class="br-stage-head">
     <div class="e">How it works</div>
     <h2>One client. Eleven rolls. A complete birth story.</h2>
-    <p>You'll name your client, then roll for her health, her baby, her partner, and her provider. From there you'll walk through pregnancy, labor, birth, and postpartum. Use each scenario to practice what you would say and do as her doula.</p>
+    <p>You'll name your client, then roll for who she is and who's with her. From there you'll walk through pregnancy, labor, birth, and postpartum. Along the way you'll face doula decision moments and practice BRAIN responses. Roll the dice, or pick the scenario you want to practice.</p>
   </div>
   <div class="welcome-grid">
     <div class="w-card"><div class="w-num">5</div><div class="w-lbl">Setup rolls<br>(age, parity, context, partner, provider)</div></div>
     <div class="w-card"><div class="w-num">3</div><div class="w-lbl">Pregnancy rolls<br>(maternal, baby, prenatal care)</div></div>
     <div class="w-card"><div class="w-num">3</div><div class="w-lbl">Labor + birth rolls<br>(start, progression, outcome)</div></div>
   </div>
-  <p style="text-align:center;font-family:var(--mhn-font-serif);font-style:italic;color:var(--mhn-ink-soft);font-size:14.5px;margin:0 0 18px">After the postpartum roll, you'll see your full birth story plus reflection prompts to debrief with your peer or coordinator.</p>
+
+  <div class="br-stage-head" style="margin-top:8px">
+    <div class="e">Step Zero</div>
+    <h2 style="font-size:22px">Choose your difficulty.</h2>
+    <p>Difficulty weights how often hard scenarios appear. Cascades are on at every level: rolls influence later rolls so the story stays internally consistent.</p>
+  </div>
+
+  <div class="diff-grid" id="diffGrid">
+    <button class="diff-card" data-diff="easy" type="button">
+      <div class="diff-emoji">&#x1F33F;</div>
+      <h4>Easy</h4>
+      <p>Mostly low-risk, well-supported births. Good for early-cohort trainees building confidence with normal physiologic birth.</p>
+    </button>
+    <button class="diff-card selected" data-diff="medium" type="button">
+      <div class="diff-emoji">&#x2696;&#xFE0F;</div>
+      <h4>Medium</h4>
+      <p>Realistic spread across the full range. Recommended default &mdash; matches the variety you'll encounter at MHN.</p>
+    </button>
+    <button class="diff-card" data-diff="hard" type="button">
+      <div class="diff-emoji">&#x26A1;</div>
+      <h4>Hard</h4>
+      <p>Higher chance of hemorrhage, NICU stays, emergency C-section, and intervention cascades. For advanced practice and debrief work.</p>
+    </button>
+  </div>
+
+  <div class="loss-toggle" id="lossToggle">
+    <label>
+      <input type="checkbox" id="lossCheckbox">
+      <span class="lt-text">
+        <span class="lt-title">Include perinatal loss scenarios (Hard mode)</span>
+        <p class="lt-desc">When enabled, this simulation can roll outcomes that involve stillbirth, severe neonatal loss, or maternal mortality. Loss is part of the work, but only practice this when you have the capacity for it and a debrief partner available.</p>
+      </span>
+    </label>
+  </div>
+
+  <p style="text-align:center;font-family:var(--mhn-font-serif);font-style:italic;color:var(--mhn-ink-soft);font-size:14.5px;margin:18px 0">After your final roll you'll see a written summary of the birth story, your doula choices, and reflection prompts you can take to debrief.</p>
   <div class="br-nav-row" style="justify-content:center">
     <button class="btn-primary" id="startGameBtn"><i class="ico" data-lucide="dice-5"></i>Begin the simulation</button>
   </div>
 </section>
 
-<!-- Stages will be injected here by JS -->
 <div id="stageHost"></div>
 
 </div><!-- /.br-wrap -->
@@ -324,7 +443,7 @@
 
 </div><!-- /.page -->
 
-<!-- PORTAL ACCESS GATE (matches other portal pages) -->
+<!-- PORTAL ACCESS GATE -->
 <script>
 (function(){
   var KEY="mhn_portal_access_v1";
@@ -368,248 +487,206 @@
   }
 })();
 </script>
+
+<!-- ====================== GAME LOGIC ====================== -->
 <script>
 /* =============================================================
-   THE BIRTH ROLL — game state + outcome tables
+   THE BIRTH ROLL
+   - Roll OR Pick per roll
+   - Difficulty (Easy/Medium/Hard) + optional perinatal loss
+   - Cascade weighting between rolls
+   - 5 conditional decision points (BRAIN + "what would you say?")
+   - Learn-more links to Field Guide / Pocket Doula / Course Materials
+   - Narrative summary + replay options
    ============================================================= */
 
+/* Learn-more link presets used across many outcomes */
+const LM = {
+  fieldGuide:    { href: "portal-field-guide.html",       label: "Field Guide",    icon: "book-open" },
+  pocketDoula:   { href: "portal-pocket-doula.html",      label: "Pocket Doula",   icon: "layers"    },
+  courseMaterials:{href: "portal-training-materials.html",label: "Course Materials",icon: "book-marked"},
+  resources:     { href: "portal-training-resources.html",label: "ICEA Papers",    icon: "file-text" }
+};
+
+/* Outcome tables. Each outcome is { text, summary, learn } */
 const ROLL_DATA = {
-  /* ---------- SETUP (5 rolls) ---------- */
-  age: {
-    label: "Client age",
-    title: "Roll for age",
-    hint: "Age sets the clinical-risk frame she'll be walked into the moment her chart is opened.",
-    dice: 1,
-    icon: "calendar",
+  /* ---------- SETUP ---------- */
+  age: { label: "Client age", title: "Roll for age", hint: "Age sets the clinical-risk frame she'll be walked into.", dice: 1,
     outcomes: [
-      "<strong>Teen birth (17 or younger).</strong> She may be alone or with family in clinical settings; she'll need a doula who can advocate without taking over.",
-      "<strong>Young adult (18&ndash;21).</strong> Often in school or starting work; financial, housing, and childcare pressures sit alongside the pregnancy.",
-      "<strong>Mid-twenties (22&ndash;27).</strong> Frequently a first baby; some support network in place but still learning what she needs.",
-      "<strong>Late twenties / early thirties (28&ndash;33).</strong> Pregnancy is often pre-planned; established work, partner, or both.",
-      "<strong>Mid to late thirties (34&ndash;39).</strong> Advanced maternal age flag in the chart; more ultrasounds and surveillance throughout pregnancy.",
-      "<strong>Forty plus (40+).</strong> High-risk flag in most systems; extra testing, more frequent provider visits, and elevated counseling about risk."
+      { text: "<strong>Teen birth (17 or younger).</strong> May be alone or with family in clinical settings; needs a doula who advocates without taking over.", summary: "is a teenager (17 or younger)", learn:["fieldGuide","courseMaterials"] },
+      { text: "<strong>Young adult (18&ndash;21).</strong> Often in school or starting work; financial, housing, and childcare pressures sit alongside the pregnancy.", summary: "is in her late teens or early twenties", learn:["fieldGuide","courseMaterials"] },
+      { text: "<strong>Mid-twenties (22&ndash;27).</strong> Frequently a first baby; some support network in place but still learning what she needs.", summary: "is in her mid-twenties", learn:["fieldGuide"] },
+      { text: "<strong>Late twenties / early thirties (28&ndash;33).</strong> Pregnancy is often pre-planned; established work, partner, or both.", summary: "is in her late twenties or early thirties", learn:["fieldGuide"] },
+      { text: "<strong>Mid to late thirties (34&ndash;39).</strong> Advanced maternal age flag; more ultrasounds and surveillance throughout pregnancy.", summary: "is in her mid-to-late thirties (advanced maternal age)", learn:["fieldGuide","resources"] },
+      { text: "<strong>Forty plus (40+).</strong> High-risk flag in most systems; extra testing, more frequent provider visits, and elevated counseling about risk.", summary: "is forty-plus (high-risk classification)", learn:["fieldGuide","resources"] }
     ]
   },
-  parity: {
-    label: "Pregnancy history",
-    title: "Roll for parity",
-    hint: "How many babies she's carried and how many she's brought home shapes her body, her fears, and her labor pattern.",
-    dice: 1,
-    icon: "users",
+  parity: { label: "Pregnancy history", title: "Roll for parity", hint: "How many babies she's carried shapes her body, her fears, and her labor pattern.", dice: 1,
     outcomes: [
-      "<strong>First pregnancy (G1P0).</strong> Everything is new. Labor is often longer; she'll lean on her doula for what to expect at every stage.",
-      "<strong>First baby after a prior loss (G2P0).</strong> Carrying grief into this pregnancy. Anxiety will spike around milestones &mdash; especially anatomy scan and viability.",
-      "<strong>Second baby (G2P1).</strong> Knows her body in labor. Often a shorter labor and faster pushing stage.",
-      "<strong>Third baby (G3P2).</strong> Experienced birther. Precipitous labor is possible; the doula should be ready to move fast.",
-      "<strong>Fourth or more baby (G4+).</strong> Body is well-practiced. Risk of postpartum hemorrhage rises with each subsequent birth.",
-      "<strong>Carrying multiples this pregnancy (twins or more).</strong> Higher surveillance, higher chance of preterm labor and operative birth."
+      { text: "<strong>First pregnancy (G1P0).</strong> Everything is new. Labor is often longer; she'll lean on her doula for what to expect at every stage.", summary: "expecting her first baby", learn:["fieldGuide","pocketDoula"] },
+      { text: "<strong>First baby after a prior loss (G2P0).</strong> Carrying grief into this pregnancy. Anxiety will spike around milestones &mdash; especially anatomy scan and viability.", summary: "expecting her first living baby after a prior loss", learn:["fieldGuide","courseMaterials"] },
+      { text: "<strong>Second baby (G2P1).</strong> Knows her body in labor. Often a shorter labor and faster pushing stage.", summary: "expecting her second baby", learn:["fieldGuide"] },
+      { text: "<strong>Third baby (G3P2).</strong> Experienced birther. Precipitous labor is possible; the doula should be ready to move fast.", summary: "expecting her third baby", learn:["fieldGuide","pocketDoula"] },
+      { text: "<strong>Fourth or more baby (G4+).</strong> Body is well-practiced. Risk of postpartum hemorrhage rises with each subsequent birth.", summary: "expecting her fourth or more baby", learn:["fieldGuide","resources"] },
+      { text: "<strong>Carrying multiples this pregnancy (twins or more).</strong> Higher surveillance, higher chance of preterm labor and operative birth.", summary: "carrying multiples this pregnancy", learn:["fieldGuide","resources"] }
     ]
   },
-  context: {
-    label: "Life context",
-    title: "Roll for life context",
-    hint: "Income, language, immigration status, and social support shape what she walks into the room with.",
-    dice: 1,
-    icon: "globe",
+  context: { label: "Life context", title: "Roll for life context", hint: "Income, language, immigration, and social support shape what she walks in with.", dice: 1,
     outcomes: [
-      "<strong>Recent immigrant.</strong> Primary language is not English; limited local support network; may not trust hospital systems or know what questions she can ask.",
-      "<strong>Established immigrant family.</strong> Bilingual; strong community ties through church, extended family, or cultural community.",
-      "<strong>Generational Louisianan, low income.</strong> Public insurance; juggling multiple jobs and childcare for older children; transportation is a recurring barrier.",
-      "<strong>Generational Louisianan, working class.</strong> Employer insurance; reliable partner support; one stable income source.",
-      "<strong>Middle income, partnered.</strong> Stable housing, childcare plan in place, room in the budget for some extras (prenatal yoga, a doula she paid for, postpartum help).",
-      "<strong>Higher income, abundant support.</strong> Flexible work, doulas, postpartum help, lactation consultants &mdash; she has everything she needs already secured."
+      { text: "<strong>Recent immigrant.</strong> Primary language is not English; limited local support network; may not trust hospital systems or know what questions she can ask.", summary: "is a recent immigrant navigating a system in her second language", learn:["fieldGuide","courseMaterials"] },
+      { text: "<strong>Established immigrant family.</strong> Bilingual; strong community ties through church, extended family, or cultural community.", summary: "comes from an established immigrant family with strong community", learn:["fieldGuide"] },
+      { text: "<strong>Generational Louisianan, low income.</strong> Public insurance; juggling multiple jobs and childcare; transportation is a recurring barrier.", summary: "is a low-income generational Louisianan juggling jobs and childcare", learn:["fieldGuide","courseMaterials"] },
+      { text: "<strong>Generational Louisianan, working class.</strong> Employer insurance; reliable partner support; one stable income source.", summary: "is working-class with stable income and employer insurance", learn:["fieldGuide"] },
+      { text: "<strong>Middle income, partnered.</strong> Stable housing, childcare plan in place, room in the budget for some extras.", summary: "is middle-income with a stable household", learn:["fieldGuide"] },
+      { text: "<strong>Higher income, abundant support.</strong> Flexible work, doulas, postpartum help, lactation consultants &mdash; she has everything she needs already secured.", summary: "has higher income and abundant support already secured", learn:["fieldGuide"] }
     ]
   },
-  partner: {
-    label: "Partner",
-    title: "Roll for partner",
-    hint: "Who is in the room with her, and how much can they hold?",
-    dice: 1,
-    icon: "heart-handshake",
+  partner: { label: "Partner", title: "Roll for partner", hint: "Who is in the room with her, and how much can they hold?", dice: 1,
     outcomes: [
-      "<strong>Absent or unavailable.</strong> Deployed, working out of state, incarcerated, or not in the picture. The doula is the steady, primary presence.",
-      "<strong>Overwhelmed and shut down.</strong> Physically present but anxious, scared of hospitals, may leave the room during hard moments. Coach gently.",
-      "<strong>Eager but uninformed.</strong> Excited and wants to help but has no roadmap. Live coaching from the doula throughout labor.",
-      "<strong>Engaged and learning.</strong> Attended a class or two, read a book, leans on the doula for cues but a solid teammate.",
-      "<strong>Strong, calm, prepared.</strong> Took childbirth education, knows the birth plan, advocates with staff. A co-leader with the doula.",
-      "<strong>Birth-team MVP.</strong> Partner is a nurse, midwife, or has supported births before. Anchored and steady in the room."
+      { text: "<strong>Absent or unavailable.</strong> Deployed, working out of state, incarcerated, or not in the picture. The doula is the steady, primary presence.", summary: "is doing this without a partner present", learn:["fieldGuide","courseMaterials"] },
+      { text: "<strong>Overwhelmed and shut down.</strong> Physically present but anxious, scared of hospitals, may leave the room during hard moments. Coach gently.", summary: "has a partner who is present but overwhelmed", learn:["fieldGuide","pocketDoula"] },
+      { text: "<strong>Eager but uninformed.</strong> Excited and wants to help but has no roadmap. Live coaching from the doula throughout labor.", summary: "has an eager partner who needs real-time coaching", learn:["fieldGuide","pocketDoula"] },
+      { text: "<strong>Engaged and learning.</strong> Attended a class or two, read a book, leans on the doula for cues but a solid teammate.", summary: "has an engaged partner who's done some prep", learn:["fieldGuide"] },
+      { text: "<strong>Strong, calm, prepared.</strong> Took childbirth education, knows the birth plan, advocates with staff. A co-leader with the doula.", summary: "has a prepared partner who's a co-leader in the room", learn:["fieldGuide"] },
+      { text: "<strong>Birth-team MVP.</strong> Partner is a nurse, midwife, or has supported births before. Anchored and steady.", summary: "has a partner with birth-work experience", learn:["fieldGuide"] }
     ]
   },
-  provider: {
-    label: "Provider",
-    title: "Roll for provider",
-    hint: "Who's catching this baby, and how do they practice?",
-    dice: 1,
-    icon: "stethoscope",
+  provider: { label: "Provider", title: "Roll for provider", hint: "Who's catching this baby, and how do they practice?", dice: 1,
     outcomes: [
-      "<strong>Intervention-heavy OB on a tight clock.</strong> Pushes for induction, Pitocin, and hospital-flow policies. Doula advocacy and BRAIN coaching are essential.",
-      "<strong>New or inexperienced provider.</strong> Kind, but defaults to textbook protocols and may need prompting from the charge nurse. Doula helps client ask the right questions.",
-      "<strong>Hospital-based CNM (certified nurse-midwife).</strong> Evidence-based and supportive of physiologic birth within hospital walls, but constrained by hospital policy.",
-      "<strong>Supportive OB.</strong> Experienced, respects birth plans, discusses options before intervening unless it's an emergency. Doula and provider work in tandem.",
-      "<strong>Home-birth or birth-center midwife.</strong> Full continuity of care, knows the client well, low-intervention practice.",
-      "<strong>Dream team.</strong> Provider is the client's first choice and has cared for her throughout pregnancy. Deeply trusted; birth feels safe from the start."
+      { text: "<strong>Intervention-heavy OB on a tight clock.</strong> Pushes for induction, Pitocin, and hospital-flow policies. Doula advocacy and BRAIN coaching are essential.", summary: "is being cared for by an intervention-heavy OB", learn:["fieldGuide","resources","courseMaterials"] },
+      { text: "<strong>New or inexperienced provider.</strong> Kind, but defaults to textbook protocols and may need prompting from the charge nurse. Doula helps client ask the right questions.", summary: "is being cared for by a new, textbook-default provider", learn:["fieldGuide","courseMaterials"] },
+      { text: "<strong>Hospital-based CNM (certified nurse-midwife).</strong> Evidence-based and supportive of physiologic birth within hospital walls, but constrained by hospital policy.", summary: "has a hospital-based certified nurse-midwife", learn:["fieldGuide","resources"] },
+      { text: "<strong>Supportive OB.</strong> Experienced, respects birth plans, discusses options before intervening unless emergency. Doula and provider work in tandem.", summary: "has a supportive OB who respects her birth plan", learn:["fieldGuide"] },
+      { text: "<strong>Home-birth or birth-center midwife.</strong> Full continuity of care, knows the client well, low-intervention practice.", summary: "is planning with a home-birth or birth-center midwife", learn:["fieldGuide","resources"] },
+      { text: "<strong>Dream team.</strong> Provider is the client's first choice and has cared for her throughout pregnancy. Deeply trusted; birth feels safe from the start.", summary: "has a deeply trusted dream-team provider", learn:["fieldGuide"] }
     ]
   },
 
-  /* ---------- PREGNANCY (3 rolls) ---------- */
-  maternal: {
-    label: "Maternal health",
-    title: "Roll for maternal health",
-    hint: "Two dice. The big picture of what her pregnancy looks like clinically &mdash; from high-risk to ideal.",
-    dice: 2,
-    icon: "heart-pulse",
+  /* ---------- PREGNANCY ---------- */
+  maternal: { label: "Maternal health", title: "Roll for maternal health (2d6)", hint: "The big picture of what her pregnancy looks like clinically &mdash; from high-risk to ideal.", dice: 2,
     outcomes: [
-      /* 2 */ "<strong>High-risk pregnancy.</strong> Type 1 diabetes, severe preeclampsia, and a congenital heart defect. Requires intensive medical management throughout.",
-      /* 3 */ "<strong>Recurrent loss history + placenta previa.</strong> Placenta is covering the cervix. Potential for preterm birth or C-section.",
-      /* 4 */ "<strong>Autoimmune disease.</strong> Lupus or rheumatoid arthritis with increased monitoring. Baby may be at risk for growth restriction.",
-      /* 5 */ "<strong>Bicornuate uterus.</strong> Heart-shaped uterus creates risk for breech positioning, preterm labor, or labor complications.",
-      /* 6 */ "<strong>VBAC attempt.</strong> Previous cesarean birth attempting a vaginal birth after cesarean. Careful monitoring required, but good success chances.",
-      /* 7 */ "<strong>Mild gestational hypertension.</strong> Blood-pressure management needed but likely a healthy birth outcome.",
-      /* 8 */ "<strong>Twin pregnancy.</strong> Normal-progressing twins. Higher risk of preterm labor, but both babies are growing well.",
-      /* 9 */ "<strong>Gestational diabetes, diet-controlled.</strong> Baby is slightly larger than average but expected to do well.",
-      /* 10 */ "<strong>Low-risk pregnancy.</strong> Minor discomforts (nausea, back pain, swelling) but no major complications.",
-      /* 11 */ "<strong>Water-birth candidate.</strong> Healthy, low-risk, well-informed, and planning an unmedicated delivery in a birth center. Strong and prepared.",
-      /* 12 */ "<strong>Ideal pregnancy.</strong> No complications, excellent nutrition and exercise, supportive birth team. Perfect candidate for home birth if she wants it."
+      { text: "<strong>High-risk pregnancy.</strong> Type 1 diabetes, severe preeclampsia, and a congenital heart defect. Requires intensive medical management throughout.", summary: "is navigating a high-risk pregnancy (Type 1 diabetes + severe preeclampsia + congenital heart defect)", learn:["resources","fieldGuide","courseMaterials"] },
+      { text: "<strong>Recurrent loss history + placenta previa.</strong> Placenta is covering the cervix. Potential for preterm birth or C-section.", summary: "is carrying a placenta previa pregnancy after a history of recurrent loss", learn:["resources","fieldGuide"] },
+      { text: "<strong>Autoimmune disease.</strong> Lupus or rheumatoid arthritis with increased monitoring. Baby may be at risk for growth restriction.", summary: "is managing an autoimmune disease with extra monitoring", learn:["resources","fieldGuide"] },
+      { text: "<strong>Bicornuate uterus.</strong> Heart-shaped uterus creates risk for breech positioning, preterm labor, or labor complications.", summary: "has a bicornuate (heart-shaped) uterus", learn:["resources","fieldGuide"] },
+      { text: "<strong>VBAC attempt.</strong> Previous cesarean birth attempting a vaginal birth after cesarean. Careful monitoring required, but good success chances.", summary: "is attempting a VBAC after a prior cesarean", learn:["resources","fieldGuide"] },
+      { text: "<strong>Mild gestational hypertension.</strong> Blood-pressure management needed but likely a healthy birth outcome.", summary: "has mild gestational hypertension being managed", learn:["resources","fieldGuide"] },
+      { text: "<strong>Twin pregnancy.</strong> Normal-progressing twins. Higher risk of preterm labor, but both babies are growing well.", summary: "is carrying healthy twins", learn:["resources","fieldGuide"] },
+      { text: "<strong>Gestational diabetes, diet-controlled.</strong> Baby is slightly larger than average but expected to do well.", summary: "has gestational diabetes that is well-controlled with diet", learn:["resources","fieldGuide"] },
+      { text: "<strong>Low-risk pregnancy.</strong> Minor discomforts (nausea, back pain, swelling) but no major complications.", summary: "has a low-risk pregnancy with only minor discomforts", learn:["fieldGuide"] },
+      { text: "<strong>Water-birth candidate.</strong> Healthy, low-risk, well-informed, and planning an unmedicated delivery in a birth center. Strong and prepared.", summary: "is a strong, low-risk water-birth candidate", learn:["fieldGuide","resources"] },
+      { text: "<strong>Ideal pregnancy.</strong> No complications, excellent nutrition and exercise, supportive birth team. Perfect candidate for home birth if she wants it.", summary: "is having an ideal, low-intervention pregnancy", learn:["fieldGuide"] }
     ]
   },
-  babyUtero: {
-    label: "Baby in utero",
-    title: "Roll for baby's condition",
-    hint: "What we know about baby before labor starts.",
-    dice: 1,
-    icon: "baby",
+  babyUtero: { label: "Baby in utero", title: "Roll for baby's condition", hint: "What we know about baby before labor starts.", dice: 1,
     outcomes: [
-      "<strong>Fetal anomaly requiring specialized care.</strong> Serious heart defect or spina bifida. A NICU team will be at birth and early delivery is possible.",
-      "<strong>Significant fetal growth restriction (IUGR).</strong> Baby measures very small for gestational age. Frequent monitoring and possible early induction.",
-      "<strong>Malpositioned baby.</strong> Breech, transverse, or compound presentation. May lead to positioning techniques, external version, or C-section discussion.",
-      "<strong>Twins or multiples.</strong> Twin pregnancy progressing well, with extra monitoring. One twin may be smaller, but overall outlook is good.",
-      "<strong>Mild prenatal concern.</strong> Slightly low fluid levels, marginal cord insertion, or mild growth variation &mdash; not concerning enough to change birth plans.",
-      "<strong>Perfectly healthy baby.</strong> Well-positioned, strong fetal movements, normal growth, excellent prenatal health."
+      { text: "<strong>Fetal anomaly requiring specialized care.</strong> Serious heart defect or spina bifida. A NICU team will be at birth and early delivery is possible.", summary: "her baby has a fetal anomaly that will need NICU support at birth", learn:["resources","fieldGuide","courseMaterials"] },
+      { text: "<strong>Significant fetal growth restriction (IUGR).</strong> Baby measures very small for gestational age. Frequent monitoring and possible early induction.", summary: "her baby has significant growth restriction (IUGR)", learn:["resources","fieldGuide"] },
+      { text: "<strong>Malpositioned baby.</strong> Breech, transverse, or compound presentation. May lead to positioning techniques, external version, or C-section discussion.", summary: "her baby is malpositioned (breech, transverse, or compound)", learn:["resources","fieldGuide","pocketDoula"] },
+      { text: "<strong>Twins or multiples.</strong> Twin pregnancy progressing well, with extra monitoring. One twin may be smaller, but overall outlook is good.", summary: "her twins are progressing well", learn:["fieldGuide","resources"] },
+      { text: "<strong>Mild prenatal concern.</strong> Slightly low fluid levels, marginal cord insertion, or mild growth variation &mdash; not concerning enough to change birth plans.", summary: "her baby has a mild prenatal concern but no change to the birth plan", learn:["fieldGuide"] },
+      { text: "<strong>Perfectly healthy baby.</strong> Well-positioned, strong fetal movements, normal growth, excellent prenatal health.", summary: "her baby is perfectly healthy and well-positioned", learn:["fieldGuide"] }
     ]
   },
-  pregnancyWellness: {
-    label: "Prenatal care",
-    title: "Roll for prenatal care",
-    hint: "How engaged has she been with her prenatal care and childbirth prep?",
-    dice: 1,
-    icon: "clipboard-check",
+  pregnancyWellness: { label: "Prenatal care", title: "Roll for prenatal care", hint: "How engaged has she been with her prenatal care and childbirth prep?", dice: 1,
     outcomes: [
-      "<strong>No prenatal care.</strong> First walked into a clinic in the third trimester, or arrives at L&amp;D with no records. Big unknowns for the team.",
-      "<strong>Sporadic prenatal care.</strong> Missed appointments due to transportation, work, or insurance gaps. Some labs and ultrasounds incomplete.",
-      "<strong>Consistent prenatal care, minimal childbirth education.</strong> Keeps every appointment but hasn't taken a class or read about birth. The doula fills the gap.",
-      "<strong>Engaged and educated.</strong> Read books, took an MHN class, prepped a birth vision. Comes into labor informed and ready.",
-      "<strong>Excellent nutrition + chiropractic + Spinning Babies.</strong> Body-aware, partnered with a wellness team, doing the work to optimize positioning and stamina.",
-      "<strong>Holistic and fully prepared.</strong> Strong support village, clear postpartum plan, freezer meals stocked, lactation help lined up. Ready in every way."
+      { text: "<strong>No prenatal care.</strong> First walked into a clinic in the third trimester, or arrives at L&amp;D with no records. Big unknowns for the team.", summary: "had no prenatal care until the third trimester", learn:["fieldGuide","courseMaterials"] },
+      { text: "<strong>Sporadic prenatal care.</strong> Missed appointments due to transportation, work, or insurance gaps. Some labs and ultrasounds incomplete.", summary: "had sporadic prenatal care with gaps", learn:["fieldGuide","courseMaterials"] },
+      { text: "<strong>Consistent prenatal care, minimal childbirth education.</strong> Keeps every appointment but hasn't taken a class or read about birth. The doula fills the gap.", summary: "had consistent prenatal care but no childbirth education", learn:["fieldGuide","pocketDoula"] },
+      { text: "<strong>Engaged and educated.</strong> Read books, took an MHN class, prepped a birth vision. Comes into labor informed and ready.", summary: "is engaged, educated, and has a written birth vision", learn:["fieldGuide","pocketDoula"] },
+      { text: "<strong>Excellent nutrition + chiropractic + Spinning Babies.</strong> Body-aware, partnered with a wellness team, doing the work to optimize positioning and stamina.", summary: "is body-aware and partnered with a full wellness team", learn:["fieldGuide","pocketDoula"] },
+      { text: "<strong>Holistic and fully prepared.</strong> Strong support village, clear postpartum plan, freezer meals stocked, lactation help lined up.", summary: "is holistically prepared with a postpartum village in place", learn:["fieldGuide"] }
     ]
   },
 
-  /* ---------- LABOR (2 rolls) ---------- */
-  laborStart: {
-    label: "Labor start",
-    title: "Roll for how labor starts",
-    hint: "Where does the story begin?",
-    dice: 1,
-    icon: "play-circle",
+  /* ---------- LABOR ---------- */
+  laborStart: { label: "Labor start", title: "Roll for how labor starts", hint: "Where does the story begin?", dice: 1,
     outcomes: [
-      "<strong>Preterm labor (before 37 weeks).</strong> Labor begins unexpectedly. Hospital intervention is required and NICU support is likely.",
-      "<strong>Induction of labor.</strong> Medical induction needed (hypertension, IUGR, post-dates). Pitocin, cervical ripening, or membrane sweep is used.",
-      "<strong>Water breaks first.</strong> Spontaneous rupture of membranes (SROM) with no immediate contractions. Movement or intervention may be needed to get labor going.",
-      "<strong>Slow, gradual early labor.</strong> Contractions begin mildly and increase over 24+ hours. Requires patience, position changes, and comfort techniques.",
-      "<strong>Spontaneous, well-paced labor.</strong> Contractions start naturally, increasing in strength and frequency on a steady timeline.",
-      "<strong>Fast labor (precipitous birth).</strong> Contractions start suddenly and intensely; birth in under three hours. Rapid adjustments and focused support."
+      { text: "<strong>Preterm labor (before 37 weeks).</strong> Labor begins unexpectedly. Hospital intervention is required and NICU support is likely.", summary: "labor began preterm, before 37 weeks", learn:["resources","fieldGuide","courseMaterials"] },
+      { text: "<strong>Induction of labor.</strong> Medical induction needed (hypertension, IUGR, post-dates). Pitocin, cervical ripening, or membrane sweep is used.", summary: "labor was medically induced", learn:["resources","fieldGuide","courseMaterials"] },
+      { text: "<strong>Water breaks first.</strong> Spontaneous rupture of membranes (SROM) with no immediate contractions. Movement or intervention may be needed to get labor going.", summary: "her water broke first, before contractions started", learn:["fieldGuide","pocketDoula"] },
+      { text: "<strong>Slow, gradual early labor.</strong> Contractions begin mildly and increase over 24+ hours. Requires patience, position changes, and comfort techniques.", summary: "labor came on slowly over more than a day", learn:["fieldGuide","pocketDoula"] },
+      { text: "<strong>Spontaneous, well-paced labor.</strong> Contractions start naturally, increasing in strength and frequency on a steady timeline.", summary: "labor started spontaneously and progressed steadily", learn:["fieldGuide","pocketDoula"] },
+      { text: "<strong>Fast labor (precipitous birth).</strong> Contractions start suddenly and intensely; birth in under three hours. Rapid adjustments and focused support.", summary: "labor was precipitous, under three hours from start to birth", learn:["fieldGuide","pocketDoula"] }
     ]
   },
-  laborProgress: {
-    label: "Labor progression",
-    title: "Roll for labor progression",
-    hint: "What happens between labor onset and pushing.",
-    dice: 1,
-    icon: "trending-up",
+  laborProgress: { label: "Labor progression", title: "Roll for labor progression", hint: "What happens between labor onset and pushing.", dice: 1,
     outcomes: [
-      "<strong>Labor stalls (failure to progress).</strong> Despite strong contractions, dilation slows or stops. Provider recommends Pitocin, breaking the water, or a C-section.",
-      "<strong>Maternal exhaustion leads to epidural or IV pain relief.</strong> Labor is progressing but she becomes too fatigued or overwhelmed; opts for pain management.",
-      "<strong>Unexpected fetal distress.</strong> Baby's heart rate shows decelerations. Frequent position changes, oxygen, and possible interventions. May result in emergency C-section.",
-      "<strong>Textbook labor progression.</strong> Labor continues steadily with no interventions needed. Mom copes well with comfort techniques; pushing is smooth.",
-      "<strong>Water birth or unmedicated delivery.</strong> Labor progresses without complications and she successfully delivers in her planned setting with minimal intervention.",
-      "<strong>Unplanned but necessary intervention.</strong> Baby is large (macrosomia) or positioned awkwardly. Forceps, vacuum extraction, or an episiotomy are needed. Recovery may be challenging."
+      { text: "<strong>Labor stalls (failure to progress).</strong> Despite strong contractions, dilation slows or stops. Provider recommends Pitocin, breaking the water, or a C-section.", summary: "labor stalled and the provider recommended augmentation", learn:["resources","fieldGuide","pocketDoula"] },
+      { text: "<strong>Maternal exhaustion leads to epidural or IV pain relief.</strong> Labor is progressing but she becomes too fatigued or overwhelmed; opts for pain management.", summary: "she became exhausted and chose pharmacological pain relief", learn:["resources","fieldGuide","pocketDoula"] },
+      { text: "<strong>Unexpected fetal distress.</strong> Baby's heart rate shows decelerations. Frequent position changes, oxygen, and possible interventions. May result in emergency C-section.", summary: "fetal distress emerged during labor", learn:["resources","fieldGuide","pocketDoula"] },
+      { text: "<strong>Textbook labor progression.</strong> Labor continues steadily with no interventions needed. Mom copes well with comfort techniques; pushing is smooth.", summary: "labor progressed by the textbook with no interventions", learn:["fieldGuide","pocketDoula"] },
+      { text: "<strong>Water birth or unmedicated delivery.</strong> Labor progresses without complications and she successfully delivers in her planned setting with minimal intervention.", summary: "she had an unmedicated delivery in her planned setting", learn:["fieldGuide","pocketDoula","resources"] },
+      { text: "<strong>Unplanned but necessary intervention.</strong> Baby is large (macrosomia) or positioned awkwardly. Forceps, vacuum extraction, or an episiotomy are needed. Recovery may be challenging.", summary: "an unplanned but necessary intervention was used (forceps, vacuum, or episiotomy)", learn:["resources","fieldGuide"] }
     ]
   },
 
-  /* ---------- BIRTH (1 roll) ---------- */
-  birth: {
-    label: "Birth outcome",
-    title: "Roll for the birth itself",
-    hint: "How does this baby come out?",
-    dice: 1,
-    icon: "sparkles",
+  /* ---------- BIRTH ---------- */
+  birth: { label: "Birth outcome", title: "Roll for the birth itself", hint: "How does this baby come out?", dice: 1,
     outcomes: [
-      "<strong>Emergency C-section.</strong> Despite best efforts, complications (fetal distress, cord prolapse, uterine rupture) require an urgent C-section. Emotional support is critical.",
-      "<strong>Assisted vaginal delivery.</strong> Maternal exhaustion or fetal positioning means forceps or vacuum extraction is used. Recovery may be more complex.",
-      "<strong>Minor tearing requiring stitches.</strong> Birth is successful but results in a 2nd-degree perineal tear. Postpartum healing support and education are important.",
-      "<strong>Smooth vaginal birth with no complications.</strong> Baby is delivered safely. Mom feels strong and empowered.",
-      "<strong>Precipitous birth (unexpected fast labor).</strong> Baby arrives so quickly there's little time for preparation. Mom and baby are both well, but emotional processing may be needed.",
-      "<strong>Ideal birth experience.</strong> Birth aligns with her vision. She feels supported and strong; baby transitions well. A dream birth."
-    ]
+      { text: "<strong>Emergency C-section.</strong> Despite best efforts, complications (fetal distress, cord prolapse, uterine rupture) require an urgent C-section. Emotional support is critical.", summary: "the baby was born by emergency C-section", learn:["resources","fieldGuide","pocketDoula"] },
+      { text: "<strong>Assisted vaginal delivery.</strong> Maternal exhaustion or fetal positioning means forceps or vacuum extraction is used. Recovery may be more complex.", summary: "the baby was born by assisted vaginal delivery (forceps or vacuum)", learn:["resources","fieldGuide"] },
+      { text: "<strong>Minor tearing requiring stitches.</strong> Birth is successful but results in a 2nd-degree perineal tear. Postpartum healing support and education are important.", summary: "she had a successful vaginal birth with a 2nd-degree tear", learn:["resources","fieldGuide"] },
+      { text: "<strong>Smooth vaginal birth with no complications.</strong> Baby is delivered safely. Mom feels strong and empowered.", summary: "she had a smooth, uncomplicated vaginal birth", learn:["fieldGuide","pocketDoula"] },
+      { text: "<strong>Precipitous birth (unexpected fast labor).</strong> Baby arrives so quickly there's little time for preparation. Mom and baby are both well, but emotional processing may be needed.", summary: "the baby arrived precipitously, faster than expected", learn:["fieldGuide","pocketDoula"] },
+      { text: "<strong>Ideal birth experience.</strong> Birth aligns with her vision. She feels supported and strong; baby transitions well. A dream birth.", summary: "she had the ideal birth that aligned with her vision", learn:["fieldGuide"] }
+    ],
+    /* Loss variants (only used if difficulty=hard AND allowLoss=true) */
+    lossVariants: {
+      0: { text: "<strong>Stillbirth at term.</strong> Despite emergency intervention, the baby did not survive. The team holds space for the parents in shock and grief; the doula's role is presence, not problem-solving. Bereavement support and trauma-informed care are critical.", summary: "their baby was stillborn at term", learn:["resources","fieldGuide","courseMaterials"] }
+    }
   },
 
-  /* ---------- POSTPARTUM (2 rolls) ---------- */
-  newborn: {
-    label: "Newborn after birth",
-    title: "Roll for newborn",
-    hint: "Baby's first hours and days outside the womb.",
-    dice: 1,
-    icon: "baby",
+  /* ---------- POSTPARTUM ---------- */
+  newborn: { label: "Newborn after birth", title: "Roll for newborn", hint: "Baby's first hours and days outside the womb.", dice: 1,
     outcomes: [
-      "<strong>NICU admission.</strong> Respiratory distress, prematurity, or feeding difficulty requires a NICU stay. Parents are separated from baby; doula bridges the gap.",
-      "<strong>Brief observation in the nursery.</strong> Short-term oxygen, blood-sugar checks, or jaundice phototherapy. Baby returns to mom within 24 hours.",
-      "<strong>Latch and feeding struggles.</strong> Baby is healthy but feeding is rough. Tongue-tie evaluation, lactation consult, and patience needed.",
-      "<strong>Healthy but jittery transition.</strong> Apgars are good but the first hour is bumpy. Skin-to-skin and a calm room help settle baby.",
-      "<strong>Strong, alert, latching well.</strong> Baby transitions smoothly, latches in the first hour, and parents feel confident.",
-      "<strong>Picture-perfect newborn.</strong> High Apgars, immediate latch, calm and alert. The textbook hour of power."
-    ]
+      { text: "<strong>NICU admission.</strong> Respiratory distress, prematurity, or feeding difficulty requires a NICU stay. Parents are separated from baby; doula bridges the gap.", summary: "the baby was admitted to the NICU", learn:["resources","fieldGuide","courseMaterials"] },
+      { text: "<strong>Brief observation in the nursery.</strong> Short-term oxygen, blood-sugar checks, or jaundice phototherapy. Baby returns to mom within 24 hours.", summary: "the baby went to the nursery for brief observation", learn:["fieldGuide","pocketDoula"] },
+      { text: "<strong>Latch and feeding struggles.</strong> Baby is healthy but feeding is rough. Tongue-tie evaluation, lactation consult, and patience needed.", summary: "the baby had latch and feeding struggles", learn:["resources","fieldGuide","pocketDoula"] },
+      { text: "<strong>Healthy but jittery transition.</strong> Apgars are good but the first hour is bumpy. Skin-to-skin and a calm room help settle baby.", summary: "the baby had a healthy but jittery first hour", learn:["fieldGuide","pocketDoula"] },
+      { text: "<strong>Strong, alert, latching well.</strong> Baby transitions smoothly, latches in the first hour, and parents feel confident.", summary: "the baby was strong, alert, and latching well from the first hour", learn:["fieldGuide","pocketDoula"] },
+      { text: "<strong>Picture-perfect newborn.</strong> High Apgars, immediate latch, calm and alert. The textbook hour of power.", summary: "the baby was textbook-perfect, with high Apgars and an immediate latch", learn:["fieldGuide"] }
+    ],
+    lossVariants: {
+      0: { text: "<strong>Severe NICU complication.</strong> The baby was admitted to the NICU and did not survive the first 72 hours. The parents are devastated; the doula's role is to be a steady, present, non-fixing companion. Bereavement support and trauma-informed care are critical.", summary: "the baby did not survive the NICU stay", learn:["resources","fieldGuide","courseMaterials"] }
+    }
   },
-  postpartum: {
-    label: "Postpartum recovery",
-    title: "Roll for postpartum recovery",
-    hint: "How does mom's body and heart come through this birth?",
-    dice: 1,
-    icon: "moon",
+  postpartum: { label: "Postpartum recovery", title: "Roll for postpartum recovery", hint: "How does mom's body and heart come through this birth?", dice: 1,
     outcomes: [
-      "<strong>Postpartum hemorrhage.</strong> Excessive bleeding after birth requires medical intervention, transfusion, and an extended hospital stay. Emotional and physical support are key.",
-      "<strong>Severe breastfeeding challenges.</strong> Latch issues, tongue-tie, or low milk supply create feeding difficulties. Lactation support and emotional reassurance are needed.",
-      "<strong>NICU stay required.</strong> Baby has mild respiratory distress or feeding difficulties and spends a few days in the NICU. Parents need extra emotional support.",
-      "<strong>Mild postpartum complications.</strong> Minor healing concerns (discomfort from stitches, mild baby blues). Early-recovery support is essential.",
-      "<strong>Smooth recovery with breastfeeding success.</strong> Some discomfort, but overall healing is going well. Breastfeeding is off to a strong start; baby is thriving.",
-      "<strong>Optimal recovery and bonding.</strong> Mom feels physically and emotionally strong; baby is feeding well. A smooth transition into postpartum life."
-    ]
+      { text: "<strong>Postpartum hemorrhage.</strong> Excessive bleeding after birth requires medical intervention, transfusion, and an extended hospital stay. Emotional and physical support are key.", summary: "she had a postpartum hemorrhage requiring transfusion", learn:["resources","fieldGuide","courseMaterials"] },
+      { text: "<strong>Severe breastfeeding challenges.</strong> Latch issues, tongue-tie, or low milk supply create feeding difficulties. Lactation support and emotional reassurance are needed.", summary: "she struggled significantly with breastfeeding", learn:["resources","fieldGuide","pocketDoula"] },
+      { text: "<strong>NICU stay required.</strong> Baby has mild respiratory distress or feeding difficulties and spends a few days in the NICU. Parents need extra emotional support.", summary: "the baby's NICU stay shaped her postpartum recovery", learn:["resources","fieldGuide","courseMaterials"] },
+      { text: "<strong>Mild postpartum complications.</strong> Minor healing concerns (discomfort from stitches, mild baby blues). Early-recovery support is essential.", summary: "she had mild postpartum complications and baby blues", learn:["fieldGuide","pocketDoula"] },
+      { text: "<strong>Smooth recovery with breastfeeding success.</strong> Some discomfort, but overall healing is going well. Breastfeeding is off to a strong start; baby is thriving.", summary: "she had a smooth recovery with breastfeeding success", learn:["fieldGuide","pocketDoula"] },
+      { text: "<strong>Optimal recovery and bonding.</strong> Mom feels physically and emotionally strong; baby is feeding well. A smooth transition into postpartum life.", summary: "she had an optimal recovery and seamless bonding", learn:["fieldGuide","pocketDoula"] }
+    ],
+    lossVariants: {
+      0: { text: "<strong>Maternal mortality risk: severe hemorrhage and ICU admission.</strong> Postpartum hemorrhage progressed to ICU-level intervention. She survived but the recovery is long, traumatic, and involves bereavement of the birth experience she imagined. Trauma-informed follow-up is non-negotiable.", summary: "she nearly died from postpartum hemorrhage and required ICU care", learn:["resources","fieldGuide","courseMaterials"] }
+    }
   }
 };
 
-/* Stage definitions in order */
+/* ============================================================
+   STAGES
+   ============================================================ */
 const STAGES = [
-  { id: "create",      title: "Create your client",
-    eyebrow: "Step 1",
-    sub: "Give her a name, then roll for who she is and who's with her. These five rolls set the world she'll labor in.",
-    rolls: ["age","parity","context","partner","provider"] },
-  { id: "pregnancy",   title: "Pregnancy",
-    eyebrow: "Step 2",
-    sub: "Now roll for the body, the baby, and the prenatal care that shaped this pregnancy.",
-    rolls: ["maternal","babyUtero","pregnancyWellness"] },
-  { id: "labor",       title: "Labor",
-    eyebrow: "Step 3",
-    sub: "How does labor begin, and how does it progress before the baby crowns?",
-    rolls: ["laborStart","laborProgress"] },
-  { id: "birth",       title: "Birth",
-    eyebrow: "Step 4",
-    sub: "The big moment. Roll for how this baby comes earthside.",
-    rolls: ["birth"] },
-  { id: "postpartum",  title: "Postpartum",
-    eyebrow: "Step 5",
-    sub: "Two rolls left &mdash; one for baby, one for mom. How does this birth story end?",
-    rolls: ["newborn","postpartum"] }
+  { id:"create", title:"Create your client", eyebrow:"Step 1",
+    sub:"Give her a name, then roll &mdash; or pick &mdash; for who she is and who's with her. These five choices set the world she'll labor in.",
+    rolls:["age","parity","context","partner","provider"] },
+  { id:"pregnancy", title:"Pregnancy", eyebrow:"Step 2",
+    sub:"Now decide the body, the baby, and the prenatal care that shaped this pregnancy.",
+    rolls:["maternal","babyUtero","pregnancyWellness"] },
+  { id:"labor", title:"Labor", eyebrow:"Step 3",
+    sub:"How does labor begin, and how does it progress before the baby crowns?",
+    rolls:["laborStart","laborProgress"] },
+  { id:"birth", title:"Birth", eyebrow:"Step 4",
+    sub:"The big moment. The baby comes earthside.",
+    rolls:["birth"] },
+  { id:"postpartum", title:"Postpartum", eyebrow:"Step 5",
+    sub:"Two rolls left &mdash; one for baby, one for mom. How does this birth story end?",
+    rolls:["newborn","postpartum"] }
 ];
 
-/* Reflection prompts by stage */
 const REFLECTIONS = {
   create: [
     "What is this client most likely to be worried about walking into her first prenatal visit?",
@@ -638,7 +715,246 @@ const REFLECTIONS = {
   ]
 };
 
-/* ---------- Dice animation logic ---------- */
+/* ============================================================
+   DECISION POINTS (conditional on what was rolled)
+   Each decision is { triggerOnIndex: idx, prompt, scene, question, options:[{text, quality, feedback}] }
+   quality: "best" | "good" | "poor" | "worst"
+   ============================================================ */
+const DECISIONS = {
+  pregnancyWellness: {
+    /* No or sporadic PNC: practice your first-meeting opener */
+    "0|1": {
+      type: "wtys",
+      heading: "Doula moment: First meeting",
+      scene: "It's your first prenatal visit with {name}. She has limited or sporadic prenatal care up to this point, and she's wary of the medical system. She's holding her bag and won't quite sit down.",
+      question: "What do you open with?",
+      options: [
+        { text: "<strong>Tell me your story.</strong> How did you get to this appointment today?", quality: "best",
+          feedback: "Opens space for her to lead. You learn her history, her barriers, and what she's already navigating &mdash; all before you offer a single piece of advice. This is core trauma-informed doula practice." },
+        { text: "<strong>Let me explain what a doula does</strong> and how I'll support you.", quality: "poor",
+          feedback: "Centers your role before you understand hers. Save this for later in the visit, after she's been heard. Right now, she needs presence, not a job description." },
+        { text: "<strong>What's your birth plan?</strong>", quality: "worst",
+          feedback: "Too far ahead. She's not ready for birth-plan conversations &mdash; she's still figuring out if she can trust you. A birth plan without trust is just paper." },
+        { text: "<strong>What are you most worried about?</strong>", quality: "good",
+          feedback: "Good open-ended question that meets her where she is. Slightly more directive than option A; you're naming the anxiety. Use this if she seems stuck or shut down." }
+      ]
+    }
+  },
+  laborStart: {
+    /* Induction */
+    "1": {
+      type: "brain",
+      heading: "Doula moment: BRAIN the induction",
+      scene: "{name}'s provider just walked in and said: \"You're 39 weeks. Let's get this baby out today. We'll start Pitocin at noon.\" {name} turns to you with wide eyes.",
+      question: "What's your move?",
+      options: [
+        { text: "<strong>Pause and walk her through BRAIN</strong> &mdash; \"Let's slow down. Before we say yes, can we talk through Benefits, Risks, Alternatives, your Intuition, and what happens if we do Nothing?\"", quality: "best",
+          feedback: "Textbook doula coaching. BRAIN is the framework MHN teaches because it puts the client back in the driver's seat without pulling you outside your scope. You're not refusing the induction &mdash; you're slowing down the decision." },
+        { text: "<strong>Acknowledge the moment first.</strong> \"I can see that caught you off guard. Take a breath. What do you want to ask him?\"", quality: "good",
+          feedback: "Strong emotional check-in. Use this if she seems flooded. Pair it with BRAIN as the next step once she's grounded again." },
+        { text: "<strong>Tell her not to do the induction.</strong> \"Pitocin is risky &mdash; refuse it.\"", quality: "worst",
+          feedback: "Outside doula scope. You're giving medical advice and overriding her autonomy. Even if you have concerns, your job is to surface her questions, not to make her decision for her." },
+        { text: "<strong>Reassure her the doctor knows best</strong> and she should agree.", quality: "worst",
+          feedback: "Also outside scope &mdash; in the opposite direction. You're stripping her agency and treating the provider as the authority on her body. Informed consent requires her voice in the room." }
+      ]
+    },
+    /* Preterm labor */
+    "0": {
+      type: "wtys",
+      heading: "Doula moment: Preterm",
+      scene: "{name}'s water just broke at 33 weeks. She's gripping your arm and crying that it's too early. The L&D nurse is checking vitals on the other side of the bed.",
+      question: "What do you say first?",
+      options: [
+        { text: "<strong>You are not alone in this.</strong> I am right here. We are going to take this one breath at a time.", quality: "best",
+          feedback: "Presence first. You name what's true &mdash; she's not alone &mdash; without making promises about outcomes. This is the steady, doula-anchored language that grounds a panicked client." },
+        { text: "<strong>Everything is going to be fine.</strong> Don't worry, the doctors will handle it.", quality: "worst",
+          feedback: "False reassurance you cannot guarantee. At 33 weeks the baby may need NICU; you don't know yet. Promises like this break trust if the outcome is hard." },
+        { text: "<strong>Tell me what you're feeling in your body right now.</strong>", quality: "good",
+          feedback: "Grounding through somatic awareness. Useful if she's dissociating, but in an acute moment, she may not be able to answer. Better as a second-round prompt after the first reassurance lands." },
+        { text: "<strong>Stay quiet</strong> and let the medical team work.", quality: "poor",
+          feedback: "Stepping back is appropriate during medical procedures, but in this moment she's actively reaching for you. Withholding presence reads as abandonment. Be the steady voice while the team works." }
+      ]
+    }
+  },
+  laborProgress: {
+    /* Labor stalls */
+    "0": {
+      type: "brain",
+      heading: "Doula moment: BRAIN the augmentation",
+      scene: "{name} is at 6 cm. Dilation has been stalled for three hours. The provider is in the hall saying \"We need to start Pitocin to get things moving.\"",
+      question: "Before {name} decides, what do you do?",
+      options: [
+        { text: "<strong>Run BRAIN with her</strong> on the Pitocin recommendation, and gently surface position changes (side-lying release, walking, Spinning Babies) as an alternative to ask the provider about.", quality: "best",
+          feedback: "You're staying in scope by not refusing for her, but surfacing real alternatives is fair game. The doula's job is to make sure she walks into the decision with options on the table." },
+        { text: "<strong>Encourage her to keep laboring naturally</strong> and refuse the Pitocin.", quality: "worst",
+          feedback: "Decision-making for her. Even if you suspect she'd benefit from more time, the choice belongs to her and her provider. Surface, don't decide." },
+        { text: "<strong>Stay quiet</strong> &mdash; this is the provider's call.", quality: "poor",
+          feedback: "Disengaging. The provider's recommendation isn't the end of the conversation; it's the start. Your job is to make sure {name} has a chance to ask questions before consenting." },
+        { text: "<strong>Tell her Pitocin is fine</strong> and she should agree.", quality: "worst",
+          feedback: "Outside scope. You don't know her full chart, you can't predict baby's response to augmentation, and you're stripping her informed consent. Coach the conversation, don't make the call." }
+      ]
+    },
+    /* Fetal distress */
+    "2": {
+      type: "wtys",
+      heading: "Doula moment: Fetal distress",
+      scene: "{name}'s baby is showing decelerations on the monitor. The nurse is calling for the provider. The room temperature just changed.",
+      question: "What do you do in this 30-second window?",
+      options: [
+        { text: "<strong>Help her change positions</strong> (hands and knees, left side) and put a hand on her shoulder so she knows where you are.", quality: "best",
+          feedback: "Position changes are first-line for fetal heart rate concerns and are within doula scope. Pairing the physical with a grounding hand gives her information through touch when words are too much." },
+        { text: "<strong>Tell her not to panic</strong> &mdash; it's probably nothing.", quality: "worst",
+          feedback: "Dismisses what's real in the room and breaks trust when the team starts moving fast. Even if it resolves, she felt the temperature change and needs you to acknowledge it." },
+        { text: "<strong>Step back</strong> and let the medical team work.", quality: "good",
+          feedback: "Appropriate in some emergent moments, but here you can stay close without interfering. Position changes are still doula scope &mdash; suggest them before stepping back fully." },
+        { text: "<strong>Try to comfort her partner</strong> who is also panicking.", quality: "good",
+          feedback: "Helpful if she has support staff who will stay with her body. If you're her primary presence, prioritize her first. You can coach the partner in the next breath." }
+      ]
+    }
+  },
+  birth: {
+    /* Emergency C-section */
+    "0": {
+      type: "wtys",
+      heading: "Doula moment: Emergency C-section",
+      scene: "The team is moving {name} to the OR. They have about 60 seconds before they wheel her away. Her partner is asking what's happening.",
+      question: "What do you say to her in this window?",
+      options: [
+        { text: "<strong>Name what's happening, plainly.</strong> \"Your baby needs help right now. The team is doing a C-section to bring baby out quickly. You are going to be okay. I'll be here when you come back.\"", quality: "best",
+          feedback: "You give her language for what's real. You don't promise the baby will be fine &mdash; you don't know that. But you anchor her body (\"you are going to be okay\") and you tell her where you'll be." },
+        { text: "<strong>Promise everything will be fine.</strong>", quality: "poor",
+          feedback: "False reassurance. You don't know the outcome. If something goes wrong, your promise breaks the trust you'll need to support her postpartum." },
+        { text: "<strong>Coach her partner</strong> to advocate to be present in the OR if the situation allows.", quality: "good",
+          feedback: "If the partner is the one staying back and {name}'s teammate, this is the right move. Hospital policy varies, but partners can often scrub in for a non-general-anesthesia C-section." },
+        { text: "<strong>Stay quiet</strong> and let the medical team work.", quality: "poor",
+          feedback: "She needs words in this moment, not silence. Plain, calm language is the doula contribution even when the medical team is in motion." }
+      ]
+    },
+    /* Ideal birth */
+    "5": {
+      type: "wtys",
+      heading: "Doula moment: After the dream birth",
+      scene: "{name} just had the birth she pictured. Baby is on her chest. The room is quiet. The provider is finishing up.",
+      question: "What do you do in the next hour?",
+      options: [
+        { text: "<strong>Stay close, stay quiet.</strong> Protect the golden hour &mdash; lights low, voices low, baby skin-to-skin, nothing rushed.", quality: "best",
+          feedback: "Sometimes the doula's best move is to disappear into the background and let the moment unfold. Holding space without filling it is a skill." },
+        { text: "<strong>Start a long conversation</strong> about how the birth felt.", quality: "poor",
+          feedback: "Processing comes later. Right now her oxytocin is flooding, baby is meeting her for the first time. Don't interrupt with reflection &mdash; the debrief can wait." },
+        { text: "<strong>Help with the first latch</strong> if she's ready.", quality: "good",
+          feedback: "Right call if baby is alert and rooting. Be guided by her cues, not yours; don't push if mom and baby are just being together." },
+        { text: "<strong>Text her family the news</strong> so she doesn't have to.", quality: "good",
+          feedback: "Practical help that keeps her in the bubble. Ask first &mdash; some families want to share themselves. But offering is generous." }
+      ]
+    }
+  },
+  postpartum: {
+    /* Hemorrhage */
+    "0": {
+      type: "wtys",
+      heading: "Doula moment: Postpartum hemorrhage",
+      scene: "Right after birth, {name} starts hemorrhaging. The room shifts. Nurses are pushing meds and calling for blood products.",
+      question: "What's your role right now?",
+      options: [
+        { text: "<strong>Stay close, take baby</strong> if appropriate and keep talking to {name} in a steady voice so she knows where her baby is and where you are.", quality: "best",
+          feedback: "You're the continuity in a chaotic room. Holding baby (with consent) so the team can work freely, while narrating presence to {name}, is exactly the doula's lane in a medical emergency." },
+        { text: "<strong>Try to assist the medical team</strong> with the hemorrhage protocol.", quality: "worst",
+          feedback: "Outside scope. You'll get in the way, even with good intent. The team needs clear space; your value is to mom and baby, not to the medical procedure." },
+        { text: "<strong>Step out of the room</strong> to give the team space.", quality: "poor",
+          feedback: "She needs you more right now, not less. Step to the side, not out the door. You can move to the head of the bed and stay with her face." },
+        { text: "<strong>Comfort the partner</strong> who is now in shock.", quality: "good",
+          feedback: "Important if the partner is overwhelmed. Triage who needs you most &mdash; usually {name} comes first, then partner. Coach a nurse to update the partner if you can't be in both places." }
+      ]
+    },
+    /* Severe breastfeeding challenges */
+    "1": {
+      type: "wtys",
+      heading: "Doula moment: Breastfeeding tears",
+      scene: "It's the 4-day postpartum visit. Baby has lost 9% of birth weight. The pediatrician suggested formula supplementation. {name} is in tears, telling you she feels like a failure.",
+      question: "What do you say first?",
+      options: [
+        { text: "<strong>This is so hard. You are not failing.</strong> Let's look at what's actually happening with the latch.", quality: "best",
+          feedback: "Validate the emotion before introducing the technical conversation. Naming what's real (\"this is so hard\") and naming what's not (\"you are not failing\") lets her hear the practical help that comes next." },
+        { text: "<strong>Formula is totally fine.</strong> Don't worry about it.", quality: "poor",
+          feedback: "Dismisses her goal. Even if formula is the right call clinically, jumping there bypasses her grief about a feeding plan she had hoped would work. Sit with the feeling first." },
+        { text: "<strong>You have to keep breastfeeding.</strong> Don't give up.", quality: "worst",
+          feedback: "Pressures her in a moment of pain. Outside doula scope to direct feeding decisions. Your role is to support her, not to set her feeding goals." },
+        { text: "<strong>Let's call the lactation consultant right now</strong> before saying anything else.", quality: "poor",
+          feedback: "Action is good, but you skipped the moment. Validate first, refer second. The lactation referral is right; the timing should follow the emotional acknowledgment." }
+      ]
+    }
+  }
+};
+
+/* ============================================================
+   CASCADES — outcomes influence later rolls
+   biasMap[rollId] adds to the biasScore for that future roll.
+   Positive bias = shift toward worse outcomes (low end of dice).
+   Negative bias = shift toward better outcomes (high end).
+   ============================================================ */
+function getCascadeBias(targetRollId){
+  let bias = 0;
+
+  // Difficulty
+  if(state.difficulty === "easy") bias -= 1;
+  if(state.difficulty === "hard") bias += 1;
+
+  // Maternal health cascades
+  const mat = state.results.maternal;
+  if(mat){
+    // sums 2-4 are high-risk; 11-12 are ideal
+    if(mat.sum <= 4 && (targetRollId === "birth" || targetRollId === "newborn" || targetRollId === "postpartum")) bias += 2;
+    if(mat.sum >= 11 && (targetRollId === "birth" || targetRollId === "postpartum")) bias -= 1;
+  }
+
+  // Baby in-utero cascades
+  const bu = state.results.babyUtero;
+  if(bu){
+    if(bu.sum === 1 && (targetRollId === "newborn" || targetRollId === "birth")) bias += 2;
+    if(bu.sum === 6 && targetRollId === "newborn") bias -= 1;
+  }
+
+  // Prenatal care cascades
+  const pw = state.results.pregnancyWellness;
+  if(pw){
+    if(pw.sum <= 2 && (targetRollId === "laborStart" || targetRollId === "postpartum")) bias += 1;
+    if(pw.sum >= 5 && (targetRollId === "postpartum" || targetRollId === "newborn")) bias -= 1;
+  }
+
+  // Provider cascades
+  const pr = state.results.provider;
+  if(pr){
+    if(pr.sum === 1 && (targetRollId === "laborStart" || targetRollId === "laborProgress" || targetRollId === "birth")) bias += 1;
+    if(pr.sum >= 5 && (targetRollId === "laborProgress" || targetRollId === "birth")) bias -= 1;
+  }
+
+  // Partner cascades
+  const pa = state.results.partner;
+  if(pa){
+    if(pa.sum === 1 && targetRollId === "postpartum") bias += 1;
+    if(pa.sum >= 5 && targetRollId === "postpartum") bias -= 1;
+  }
+
+  // Labor start cascades
+  const ls = state.results.laborStart;
+  if(ls){
+    if(ls.sum === 1 && (targetRollId === "laborProgress" || targetRollId === "birth" || targetRollId === "newborn")) bias += 1;
+    if(ls.sum === 2 && targetRollId === "laborProgress") bias += 1;
+  }
+
+  // Labor progress cascades
+  const lp = state.results.laborProgress;
+  if(lp){
+    if((lp.sum === 1 || lp.sum === 3) && targetRollId === "birth") bias += 1;
+    if(lp.sum === 4 && targetRollId === "birth") bias -= 1;
+  }
+
+  return bias;
+}
+
+/* ============================================================
+   DICE ANIMATION
+   ============================================================ */
 const FACE_ROTATIONS = {
   1: { x: 0,   y: 0   },
   2: { x: 0,   y: 180 },
@@ -649,8 +965,6 @@ const FACE_ROTATIONS = {
 };
 
 function makeDieFacesHTML(){
-  // Each face is a div with the right number of pips. Pip counts:
-  // f1: 1, f2: 2, f3: 3, f4: 4, f5: 5, f6: 6.
   let html = "";
   for(let f = 1; f <= 6; f++){
     let pips = "";
@@ -667,41 +981,57 @@ function buildCube(){
   return cube;
 }
 
-function rollCube(cube){
-  // returns a Promise resolving with the die's face value
+/* Weighted die given a bias score. Positive = lean low; negative = lean high. */
+function biasedDie(biasScore){
+  const weights = [];
+  for(let face = 1; face <= 6; face++){
+    // Each unit of bias shifts weight: positive bias pulls weight to low faces
+    // (3.5 - face) is positive for faces 1-3 (low) and negative for 4-6 (high)
+    const lean = (3.5 - face) * biasScore * 0.35; // gentle multiplier
+    weights.push(Math.max(0.15, 1 + lean));
+  }
+  const total = weights.reduce((a,b)=>a+b, 0);
+  let r = Math.random() * total;
+  for(let i = 0; i < 6; i++){
+    r -= weights[i];
+    if(r <= 0) return i + 1;
+  }
+  return 6;
+}
+
+function spinCube(cube, targetFace){
   return new Promise((resolve) => {
-    const result = Math.floor(Math.random() * 6) + 1;
-    const target = FACE_ROTATIONS[result];
-    // Reset transition to none and snap to identity
+    const target = FACE_ROTATIONS[targetFace];
     cube.style.transition = "none";
     cube.style.transform = "rotateX(-15deg) rotateY(25deg)";
-    // Force reflow so the snap actually applies before we re-add transition
     void cube.offsetHeight;
     cube.style.transition = "";
-    // Apply target rotation with extra spins
-    const spinX = target.x + 1080; // 3 spins
-    const spinY = target.y + 1440; // 4 spins
+    const spinX = target.x + 1080;
+    const spinY = target.y + 1440;
     cube.style.transform = `rotateX(${spinX}deg) rotateY(${spinY}deg)`;
     cube.classList.add("rolling");
-    setTimeout(() => {
-      cube.classList.remove("rolling");
-      resolve(result);
-    }, 1550);
+    setTimeout(() => { cube.classList.remove("rolling"); resolve(); }, 1550);
   });
 }
 
-/* ---------- Game state ---------- */
+/* ============================================================
+   GAME STATE
+   ============================================================ */
 const state = {
+  difficulty: "medium",
+  allowLoss: false,
   clientName: "",
-  results: {},           // rollId -> { roll: number(s), text: html }
-  currentStageIdx: -1,   // -1 = welcome
-  currentRollIdx: 0
+  results: {},   // rollId -> { sum, dice:[...], text, summary, isPick, lossVariant }
+  decisions: {}, // rollId -> { question, options, picked, quality, feedback }
+  currentStageIdx: 0
 };
 
+/* ============================================================
+   RENDERING
+   ============================================================ */
+
 function setStepperActive(stageId){
-  document.querySelectorAll("#brStepper .br-step").forEach(el => {
-    el.classList.remove("active","done");
-  });
+  document.querySelectorAll("#brStepper .br-step").forEach(el => el.classList.remove("active","done"));
   if(stageId === "welcome"){
     document.querySelector('#brStepper .br-step[data-step="welcome"]').classList.add("active");
     return;
@@ -718,82 +1048,300 @@ function setStepperActive(stageId){
   });
 }
 
+function maybeApplyLossVariant(rollId, outcomeIdx){
+  if(!(state.difficulty === "hard" && state.allowLoss)) return null;
+  const r = ROLL_DATA[rollId];
+  if(r.lossVariants && r.lossVariants[outcomeIdx]) {
+    return r.lossVariants[outcomeIdx];
+  }
+  return null;
+}
+
+function recordOutcome(rollId, sum, dice, isPick){
+  const r = ROLL_DATA[rollId];
+  const outcomeIdx = r.dice === 2 ? (sum - 2) : (sum - 1);
+  let outcome = r.outcomes[outcomeIdx];
+  let lossVariant = null;
+  // For loss-eligible single-die rolls, sometimes swap based on randomness
+  if(r.dice === 1 && outcomeIdx === 0){
+    const swap = maybeApplyLossVariant(rollId, outcomeIdx);
+    if(swap && Math.random() < 0.4){ // 40% chance to invoke loss variant if eligible
+      outcome = swap;
+      lossVariant = true;
+    }
+  }
+  state.results[rollId] = {
+    sum, dice, isPick: !!isPick,
+    text: outcome.text,
+    summary: outcome.summary,
+    learn: outcome.learn || [],
+    lossVariant
+  };
+  return state.results[rollId];
+}
+
+function renderLearnMore(learnKeys){
+  if(!learnKeys || !learnKeys.length) return "";
+  const pills = learnKeys.map(k => {
+    const lm = LM[k]; if(!lm) return "";
+    return `<a href="${lm.href}"><i class="ico" data-lucide="${lm.icon}"></i>${lm.label}</a>`;
+  }).join("");
+  return `<div class="learn-more"><span class="lm-label">Learn more</span>${pills}</div>`;
+}
+
 function buildRollCard(rollId, isFirst){
   const r = ROLL_DATA[rollId];
   const isTwoDice = r.dice === 2;
   const card = document.createElement("div");
-  card.className = "br-roll-card" + (isFirst ? " is-current" : "");
+  card.className = "br-roll-card mode-roll" + (isFirst ? " is-current" : "");
   card.dataset.rollId = rollId;
   card.innerHTML = `
-    <div class="dice-stage">
-      <div class="dice-scene ${isTwoDice ? 'is-two-dice' : ''}">
-        <div class="dice-pair" data-pair></div>
+    <div class="roll-header">
+      <div>
+        <div class="roll-label">${r.label}</div>
+        <h3 class="roll-title">${r.title}</h3>
+        <p class="roll-hint">${r.hint}</p>
       </div>
-      <button class="roll-btn" data-roll-btn type="button">
-        <i class="ico" data-lucide="dice-${isTwoDice ? '5' : Math.min(r.dice * 3, 6)}"></i>
-        Roll ${isTwoDice ? '2 dice' : 'the die'}
-      </button>
-      <div class="dice-helper">${isTwoDice ? '2d6 · sum determines outcome' : '1d6'}</div>
+      <div class="mode-toggle" role="tablist" aria-label="Roll or pick">
+        <button type="button" class="is-active" data-mode="roll"><i class="ico" data-lucide="dices"></i>Roll</button>
+        <button type="button" data-mode="pick"><i class="ico" data-lucide="edit-3"></i>Pick</button>
+      </div>
     </div>
-    <div class="roll-meta">
-      <div class="roll-label">${r.label}</div>
-      <h3 class="roll-title">${r.title}</h3>
-      <p class="roll-hint">${r.hint}</p>
-      <div data-result-host></div>
+    <div class="roll-mode-body">
+      <div class="dice-stage">
+        <div class="dice-scene ${isTwoDice ? 'is-two-dice' : ''}">
+          <div class="dice-pair" data-pair></div>
+        </div>
+        <button class="roll-btn" data-roll-btn type="button">
+          <i class="ico" data-lucide="dices"></i>
+          Roll ${isTwoDice ? '2 dice' : 'the die'}
+        </button>
+        <div class="dice-helper">${isTwoDice ? '2d6 · sum determines outcome' : '1d6'}</div>
+      </div>
+      <div data-roll-extra></div>
     </div>
+    <div class="pick-mode-body">
+      <p style="margin:0 0 12px;font-size:13.5px;color:var(--mhn-ink-soft);font-family:var(--mhn-font-serif);font-style:italic">Pick the scenario you want to practice. Cascades still apply to later rolls.</p>
+      <div class="pick-grid" data-pick-grid></div>
+    </div>
+    <div data-result-host></div>
   `;
 
-  // Inject the cube(s) into the pair container
+  // Build dice cubes
   const pair = card.querySelector("[data-pair]");
-  const cube1 = buildCube();
-  pair.appendChild(cube1);
+  const cube1 = buildCube(); pair.appendChild(cube1);
   let cube2 = null;
+  if(isTwoDice){ cube2 = buildCube(); pair.appendChild(cube2); }
+
+  // Build pick grid
+  const pickGrid = card.querySelector("[data-pick-grid]");
   if(isTwoDice){
-    cube2 = buildCube();
-    pair.appendChild(cube2);
+    // Pick from sums 2-12; render compact rows
+    for(let sum = 2; sum <= 12; sum++){
+      const idx = sum - 2;
+      const o = r.outcomes[idx];
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "pick-option";
+      btn.innerHTML = `<span class="pn">${sum}</span><span class="pt">${o.text}</span>`;
+      btn.addEventListener("click", () => completeRoll(card, sum, [sum], true));
+      pickGrid.appendChild(btn);
+    }
+  } else {
+    for(let face = 1; face <= 6; face++){
+      const idx = face - 1;
+      const o = r.outcomes[idx];
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "pick-option";
+      btn.innerHTML = `<span class="pn">${face}</span><span class="pt">${o.text}</span>`;
+      btn.addEventListener("click", () => completeRoll(card, face, [face], true));
+      pickGrid.appendChild(btn);
+    }
   }
 
-  const btn = card.querySelector("[data-roll-btn]");
-  btn.addEventListener("click", async () => {
+  // Wire mode toggle
+  card.querySelectorAll(".mode-toggle button").forEach(btn => {
+    btn.addEventListener("click", () => {
+      if(card.classList.contains("is-done")) return;
+      card.querySelectorAll(".mode-toggle button").forEach(b => b.classList.remove("is-active"));
+      btn.classList.add("is-active");
+      card.classList.remove("mode-roll","mode-pick");
+      card.classList.add("mode-" + btn.dataset.mode);
+    });
+  });
+
+  // Wire roll button
+  card.querySelector("[data-roll-btn]").addEventListener("click", async () => {
     if(card.classList.contains("is-done")) return;
+    const btn = card.querySelector("[data-roll-btn]");
     btn.disabled = true;
     btn.textContent = "Rolling…";
-    const dicePromises = [rollCube(cube1)];
-    if(cube2) dicePromises.push(rollCube(cube2));
-    const dieValues = await Promise.all(dicePromises);
-    const sum = dieValues.reduce((a,b) => a+b, 0);
-    const outcomeIdx = isTwoDice ? (sum - 2) : (sum - 1);
-    const outcomeText = r.outcomes[outcomeIdx];
 
-    state.results[rollId] = { roll: dieValues, sum, text: outcomeText };
-
-    const resultHost = card.querySelector("[data-result-host]");
-    resultHost.innerHTML = `
-      <div class="br-roll-result">
-        <div class="r-tag">You rolled <span class="r-num">${sum}</span></div>
-        <p>${outcomeText}</p>
-      </div>
-    `;
-    card.classList.remove("is-current");
-    card.classList.add("is-done");
-    btn.style.display = "none";
-    card.querySelector(".dice-helper").textContent = "Result locked in";
-    // Reveal next roll card if exists
-    const next = card.nextElementSibling;
-    if(next && next.classList.contains("br-roll-card")){
-      next.classList.add("is-current");
-      // Smooth scroll
-      next.scrollIntoView({behavior:"smooth", block:"center"});
+    // Compute biased dice values
+    const bias = getCascadeBias(rollId);
+    let dieValues;
+    if(isTwoDice){
+      // For 2d6, roll two biased dice
+      dieValues = [biasedDie(bias), biasedDie(bias)];
     } else {
-      // No more rolls in stage; enable advance button
-      const advance = card.closest(".br-stage").querySelector("[data-advance]");
-      if(advance) advance.disabled = false;
-      advance.scrollIntoView({behavior:"smooth", block:"center"});
+      dieValues = [biasedDie(bias)];
     }
-    if(window.lucide) window.lucide.createIcons();
+
+    // Animate cubes to land on those values
+    const anims = [spinCube(cube1, dieValues[0])];
+    if(cube2) anims.push(spinCube(cube2, dieValues[1]));
+    await Promise.all(anims);
+
+    const sum = dieValues.reduce((a,b)=>a+b, 0);
+    completeRoll(card, sum, dieValues, false);
   });
 
   return card;
+}
+
+function completeRoll(card, sum, dice, isPick){
+  const rollId = card.dataset.rollId;
+  const result = recordOutcome(rollId, sum, dice, isPick);
+
+  // Hide controls
+  card.classList.remove("is-current");
+  card.classList.add("is-done");
+  const rollBtn = card.querySelector("[data-roll-btn]");
+  if(rollBtn) rollBtn.style.display = "none";
+  const helper = card.querySelector(".dice-helper");
+  if(helper) helper.textContent = "Locked in";
+  const modeToggle = card.querySelector(".mode-toggle");
+  if(modeToggle) modeToggle.style.opacity = "0.5";
+
+  // Render result
+  const resultHost = card.querySelector("[data-result-host]");
+  const tagClass = isPick ? "r-chose" : "";
+  const tagLabel = isPick ? "You chose" : "You rolled";
+  resultHost.innerHTML = `
+    <div class="br-roll-result">
+      <div class="r-tag ${tagClass}">${tagLabel} <span class="r-num">${sum}</span>${result.lossVariant ? " &middot; Loss variant" : ""}</div>
+      <p>${result.text}</p>
+      ${renderLearnMore(result.learn)}
+    </div>
+  `;
+  if(window.lucide) window.lucide.createIcons();
+
+  // Check for decision point
+  const decisionMaybe = maybeInsertDecision(card, rollId, result);
+
+  // If no decision card was inserted, fall through to next roll / advance
+  if(!decisionMaybe){
+    proceedAfterRoll(card);
+  }
+}
+
+function maybeInsertDecision(card, rollId, result){
+  const decisionsForRoll = DECISIONS[rollId];
+  if(!decisionsForRoll) return false;
+
+  // outcomeIdx: for 1d6, sum-1. For 2d6, sum-2. Use as key.
+  const r = ROLL_DATA[rollId];
+  const outcomeIdx = r.dice === 2 ? (result.sum - 2) : (result.sum - 1);
+
+  // Find a matching decision (key may be exact or pipe-separated)
+  let decision = null;
+  for(const key in decisionsForRoll){
+    const keys = key.split("|").map(k => parseInt(k, 10));
+    if(keys.includes(outcomeIdx)){
+      decision = decisionsForRoll[key];
+      break;
+    }
+  }
+  if(!decision) return false;
+
+  const card2 = buildDecisionCard(rollId, decision);
+  card.parentNode.insertBefore(card2, card.nextSibling);
+  card2.scrollIntoView({behavior:"smooth", block:"center"});
+  if(window.lucide) window.lucide.createIcons();
+  return true;
+}
+
+function buildDecisionCard(rollId, decision){
+  const card = document.createElement("div");
+  card.className = "br-decision-card";
+  card.dataset.decisionFor = rollId;
+
+  const sceneFilled = decision.scene.replace(/\{name\}/g, escapeHTML(state.clientName || "your client"));
+
+  const optionsHTML = decision.options.map((opt, i) => `
+    <button type="button" class="d-option" data-idx="${i}">
+      <span class="dn">${"ABCD".charAt(i)}</span>
+      <span>${opt.text}</span>
+    </button>
+  `).join("");
+
+  card.innerHTML = `
+    <div class="d-eyebrow"><i class="ico" data-lucide="${decision.type === 'brain' ? 'brain' : 'message-circle'}"></i>${decision.type === 'brain' ? 'BRAIN Decision' : 'What would you say?'}</div>
+    <h4>${decision.heading}</h4>
+    <p class="d-scene">${sceneFilled}</p>
+    <p class="d-question">${decision.question}</p>
+    <div class="d-options">${optionsHTML}</div>
+    <button type="button" class="d-skip" data-skip>Skip this decision &rarr;</button>
+    <div data-feedback-host></div>
+  `;
+
+  card.querySelectorAll(".d-option").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const idx = parseInt(btn.dataset.idx, 10);
+      const picked = decision.options[idx];
+      state.decisions[rollId] = {
+        heading: decision.heading,
+        question: decision.question,
+        scene: sceneFilled,
+        pickedText: picked.text,
+        quality: picked.quality,
+        feedback: picked.feedback
+      };
+      const qualityIcon = { best:"check-circle", good:"thumbs-up", poor:"alert-circle", worst:"x-circle" }[picked.quality];
+      const qualityLabel = { best:"Best in scope", good:"Solid choice", poor:"Outside scope or off-target", worst:"Outside scope" }[picked.quality];
+      const fbHost = card.querySelector("[data-feedback-host]");
+      fbHost.innerHTML = `
+        <div class="d-feedback q-${picked.quality}">
+          <div class="fb-label"><i class="ico" data-lucide="${qualityIcon}"></i>${qualityLabel}</div>
+          <p>${picked.feedback}</p>
+        </div>
+      `;
+      // Disable other options visually
+      card.querySelectorAll(".d-option").forEach(b => { b.disabled = true; b.style.opacity = b === btn ? "1" : "0.5"; b.style.cursor = "default"; });
+      btn.style.borderColor = "#85571F";
+      btn.style.background = "#FFFCF6";
+      const skip = card.querySelector("[data-skip]");
+      if(skip) skip.style.display = "none";
+      if(window.lucide) window.lucide.createIcons();
+      // After 800ms, proceed
+      setTimeout(() => {
+        const originalRollCard = card.previousElementSibling;
+        proceedAfterRoll(originalRollCard);
+      }, 900);
+    });
+  });
+
+  card.querySelector("[data-skip]").addEventListener("click", () => {
+    card.remove();
+    const originalRollCard = document.querySelector(`.br-roll-card[data-roll-id="${rollId}"]`);
+    proceedAfterRoll(originalRollCard);
+  });
+
+  return card;
+}
+
+function proceedAfterRoll(card){
+  // Look for next roll card (skip past any decision cards)
+  let next = card.nextElementSibling;
+  while(next && !next.classList.contains("br-roll-card")) next = next.nextElementSibling;
+  if(next){
+    next.classList.add("is-current");
+    next.scrollIntoView({behavior:"smooth", block:"center"});
+  } else {
+    const advance = card.closest(".br-stage").querySelector("[data-advance]");
+    if(advance){ advance.disabled = false; advance.scrollIntoView({behavior:"smooth", block:"center"}); }
+  }
 }
 
 function renderStage(stageIdx){
@@ -809,20 +1357,18 @@ function renderStage(stageIdx){
   const stage = STAGES[stageIdx];
   state.currentStageIdx = stageIdx;
 
-  // Hide the welcome panel
   document.getElementById("stage-welcome").classList.remove("active");
 
   const wrap = document.createElement("section");
   wrap.className = "br-stage active";
   wrap.id = `stage-${stage.id}`;
 
-  // For first stage, prepend the name input
   let nameCardHTML = "";
   if(stage.id === "create"){
     nameCardHTML = `
       <div class="name-card">
         <label for="clientNameInput">Your client's name</label>
-        <input id="clientNameInput" type="text" placeholder="e.g. Tanya, Marisol, Sarah, Aleah" value="${state.clientName || ''}" maxlength="40">
+        <input id="clientNameInput" type="text" placeholder="e.g. Tanya, Marisol, Sarah, Aleah" value="${escapeHTML(state.clientName || '')}" maxlength="40">
         <p class="hint">A first name is enough &mdash; this is for your reflection and birth story summary.</p>
       </div>
     `;
@@ -847,25 +1393,19 @@ function renderStage(stageIdx){
 
   host.appendChild(wrap);
 
-  // Insert roll cards
   const rollHost = wrap.querySelector("[data-roll-host]");
-  stage.rolls.forEach((rid, i) => {
-    rollHost.appendChild(buildRollCard(rid, i === 0));
-  });
+  stage.rolls.forEach((rid, i) => rollHost.appendChild(buildRollCard(rid, i === 0)));
 
-  // Wire the back & advance buttons
   wrap.querySelector("[data-back]").addEventListener("click", () => {
     if(stageIdx === 0){
       if(confirm("Start over with a new client? This will reset all your rolls.")) location.reload();
     } else {
-      // Strip results for rolls in this stage so they re-roll
-      stage.rolls.forEach(rid => delete state.results[rid]);
+      stage.rolls.forEach(rid => { delete state.results[rid]; delete state.decisions[rid]; });
       renderStage(stageIdx - 1);
       setStepperActive(STAGES[stageIdx - 1].id);
     }
   });
   wrap.querySelector("[data-advance]").addEventListener("click", () => {
-    // Capture client name if we're on stage create
     if(stage.id === "create"){
       const ni = document.getElementById("clientNameInput");
       if(ni) state.clientName = ni.value.trim() || "Your client";
@@ -881,22 +1421,68 @@ function renderStage(stageIdx){
   window.scrollTo({top:0, behavior:"smooth"});
 }
 
+/* ============================================================
+   NARRATIVE GENERATION
+   ============================================================ */
+function generateNarrative(){
+  const name = escapeHTML(state.clientName || "Your client");
+  const get = (id) => state.results[id] && state.results[id].summary;
+  const age = get("age") || "";
+  const parity = get("parity") || "";
+  const context = get("context") || "";
+  const partner = get("partner") || "";
+  const provider = get("provider") || "";
+  const maternal = get("maternal") || "";
+  const baby = get("babyUtero") || "";
+  const pnc = get("pregnancyWellness") || "";
+  const ls = get("laborStart") || "";
+  const lp = get("laborProgress") || "";
+  const birth = get("birth") || "";
+  const newborn = get("newborn") || "";
+  const pp = get("postpartum") || "";
+
+  // P1: client + setup
+  const p1 = `<p><strong>${name}</strong> ${age}, ${parity}. She ${context}. She ${partner}, and she ${provider}.</p>`;
+
+  // P2: pregnancy
+  let p2 = "<p>This pregnancy: ";
+  p2 += `she ${maternal}. Clinically, ${baby}. She ${pnc}.</p>`;
+
+  // P3: labor + birth
+  let p3 = "<p>";
+  p3 += `When the time came, ${ls}. From there, ${lp}, and ${birth}.`;
+  p3 += "</p>";
+
+  // P4: postpartum
+  let p4 = "<p>";
+  p4 += `After birth, ${newborn}. For ${name}, ${pp}.`;
+  p4 += "</p>";
+
+  return p1 + p2 + p3 + p4;
+}
+
 function renderStory(){
   const host = document.getElementById("stageHost");
   host.innerHTML = "";
+  document.getElementById("stage-welcome").classList.remove("active");
 
   const wrap = document.createElement("section");
   wrap.className = "br-stage active";
   wrap.id = "stage-story";
 
-  const clientName = state.clientName || "Your client";
+  const clientName = escapeHTML(state.clientName || "Your client");
+  const diffLabel = { easy: "Easy", medium: "Medium", hard: "Hard" }[state.difficulty];
+  const diffNote = state.difficulty === "hard" && state.allowLoss ? " · Perinatal loss enabled" : "";
 
-  // Build summary HTML
   let storyHTML = `
     <div class="story-banner">
-      <div class="e">Your Birth Story</div>
-      <h2>${escapeHTML(clientName)}'s <em>birth story.</em></h2>
-      <p>Eleven rolls, one complete birth. Use the reflection prompts below to debrief with a peer or your coordinator.</p>
+      <div class="e">Your Birth Story &middot; ${diffLabel} mode${diffNote}</div>
+      <h2>${clientName}'s <em>birth story.</em></h2>
+      <p>Eleven rolls, ${Object.keys(state.decisions).length} doula decisions, one complete birth. Read the narrative, review your choices, and use the reflection prompts to debrief.</p>
+    </div>
+    <div class="narrative-card">
+      <div class="e">The Story</div>
+      ${generateNarrative()}
     </div>
   `;
 
@@ -906,10 +1492,26 @@ function renderStory(){
       const r = ROLL_DATA[rid];
       const result = state.results[rid];
       if(!result) return;
+      const tagClass = result.isPick ? "r-chose" : "";
+      const tagLabel = result.isPick ? "Chose" : "Rolled";
       rows += `
         <div class="story-row">
-          <div class="r-lbl"><span class="r-num">${result.sum}</span> ${r.label}</div>
+          <div class="r-lbl"><span class="r-num ${tagClass}">${result.sum}</span> ${r.label} &middot; ${tagLabel}</div>
           <p>${result.text}</p>
+        </div>
+      `;
+    });
+    // If a decision was made on any roll in this stage, include it
+    let decisionRow = "";
+    stage.rolls.forEach(rid => {
+      const dec = state.decisions[rid];
+      if(!dec) return;
+      const qualityLabel = { best:"Best in scope", good:"Solid choice", poor:"Outside scope or off-target", worst:"Outside scope" }[dec.quality];
+      decisionRow += `
+        <div class="story-row" style="background:#FFFCF6;padding:14px 16px;margin:10px 0;border-radius:10px;border:1px solid #E8D5BD;border-bottom:none">
+          <div class="r-lbl" style="color:#85571F"><i class="ico" data-lucide="message-circle" style="width:14px;height:14px"></i>Your doula choice &middot; ${qualityLabel}</div>
+          <p style="margin-top:6px"><em style="color:#85571F;font-style:italic">"${dec.pickedText.replace(/<[^>]+>/g, '')}"</em></p>
+          <p style="margin-top:6px;font-size:13.5px;color:var(--mhn-ink-soft)">${dec.feedback}</p>
         </div>
       `;
     });
@@ -917,6 +1519,7 @@ function renderStory(){
       <div class="story-section">
         <h3><i class="ico" data-lucide="bookmark"></i> ${stage.title}</h3>
         ${rows}
+        ${decisionRow}
       </div>
     `;
     if(REFLECTIONS[stage.id]){
@@ -924,9 +1527,7 @@ function renderStory(){
         <div class="reflection-box">
           <div class="e">Doula Reflection &middot; ${stage.title}</div>
           <h3>Walk these through with your peer:</h3>
-          <ul>
-            ${REFLECTIONS[stage.id].map(q => `<li>${q}</li>`).join("")}
-          </ul>
+          <ul>${REFLECTIONS[stage.id].map(q => `<li>${q}</li>`).join("")}</ul>
         </div>
       `;
     }
@@ -934,8 +1535,9 @@ function renderStory(){
 
   storyHTML += `
     <div class="summary-actions">
-      <button class="btn-restart" id="restartBtn"><i class="ico" data-lucide="refresh-cw"></i>Roll a new birth story</button>
-      <button class="btn-print" id="printBtn"><i class="ico" data-lucide="printer"></i>Print or save this story</button>
+      <button class="sa-btn sa-restart" id="restartBtn"><i class="ico" data-lucide="user-plus"></i>New client<span class="sa-sub">Brand-new birth story</span></button>
+      <button class="sa-btn sa-same" id="sameClientBtn"><i class="ico" data-lucide="refresh-cw"></i>Same client, different birth<span class="sa-sub">Keep setup, re-roll labor onward</span></button>
+      <button class="sa-btn sa-print" id="printBtn"><i class="ico" data-lucide="printer"></i>Print or save<span class="sa-sub">Take this to debrief</span></button>
     </div>
   `;
 
@@ -943,7 +1545,20 @@ function renderStory(){
   host.appendChild(wrap);
 
   document.getElementById("restartBtn").addEventListener("click", () => {
-    if(confirm("Roll a new birth story? This will reset everything.")) location.reload();
+    if(confirm("Roll a brand-new birth story? This will reset everything.")) location.reload();
+  });
+  document.getElementById("sameClientBtn").addEventListener("click", () => {
+    // Keep setup rolls (age, parity, context, partner, provider) + maternal/babyUtero/pregnancyWellness
+    // Re-roll labor onward
+    delete state.results.laborStart;
+    delete state.results.laborProgress;
+    delete state.results.birth;
+    delete state.results.newborn;
+    delete state.results.postpartum;
+    state.decisions = {};
+    // Jump to labor stage
+    renderStage(2);
+    setStepperActive("labor");
   });
   document.getElementById("printBtn").addEventListener("click", () => window.print());
 
@@ -955,14 +1570,36 @@ function escapeHTML(s){
   return String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 }
 
-/* ---------- Boot ---------- */
+/* ============================================================
+   BOOT
+   ============================================================ */
 document.addEventListener("DOMContentLoaded", () => {
   if(window.lucide) window.lucide.createIcons();
+
+  // Difficulty selection
+  document.querySelectorAll("#diffGrid .diff-card").forEach(card => {
+    card.addEventListener("click", () => {
+      document.querySelectorAll("#diffGrid .diff-card").forEach(c => c.classList.remove("selected"));
+      card.classList.add("selected");
+      state.difficulty = card.dataset.diff;
+      const lossToggle = document.getElementById("lossToggle");
+      if(state.difficulty === "hard"){
+        lossToggle.classList.add("visible");
+      } else {
+        lossToggle.classList.remove("visible");
+        document.getElementById("lossCheckbox").checked = false;
+        state.allowLoss = false;
+      }
+    });
+  });
+
+  document.getElementById("lossCheckbox").addEventListener("change", (e) => {
+    state.allowLoss = e.target.checked;
+  });
+
   const startBtn = document.getElementById("startGameBtn");
   if(startBtn){
-    startBtn.addEventListener("click", () => {
-      renderStage(0);
-    });
+    startBtn.addEventListener("click", () => renderStage(0));
   }
 });
 </script>
