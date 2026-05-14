@@ -816,6 +816,8 @@ const REFLECTIONS = {
    Each decision is { triggerOnIndex: idx, prompt, scene, question, options:[{text, quality, feedback}] }
    quality: "best" | "good" | "poor" | "worst"
    ============================================================ */
+/* Each decision option is balanced to ~16-23 words so length doesn't telegraph the best answer.
+   Quality keys: best | good | poor | worst. */
 const DECISIONS = {
 
   /* =========== SETUP ROLLS =========== */
@@ -826,13 +828,13 @@ const DECISIONS = {
       scene: "{name} is 16. The medical assistant just looked at her and said, \"You're awfully young to be doing this on your own.\"",
       question: "What do you do?",
       options: [
-        { text: "<strong>Step in gently.</strong> \"I'm her doula. I'm here to support her today. Can we focus on her appointment?\"", quality: "best",
+        { text: "<strong>Step in gently.</strong> Redirect the comment: \"I'm here as her doula. Can we focus on what {name} came in for today?\"", quality: "best",
           feedback: "You redirect without escalating and re-center {name}. You also model for her that she's allowed to shut down comments like that." },
-        { text: "<strong>Stay silent</strong> and let {name} handle it.", quality: "poor",
+        { text: "<strong>Stay silent</strong> and let {name} handle the comment alone &mdash; she's the patient, after all.", quality: "poor",
           feedback: "She's 16 in a power-imbalanced room. Doula presence sometimes means being the social cover she doesn't yet know how to ask for." },
-        { text: "<strong>Confront the MA</strong> and demand an apology.", quality: "poor",
+        { text: "<strong>Confront the MA directly</strong> and demand an apology in front of {name} before the visit moves forward.", quality: "poor",
           feedback: "Right impulse, wrong timing. Address it after the visit with the clinic manager if it warrants it &mdash; don't put {name} in the middle of conflict." },
-        { text: "<strong>Agree</strong> and ask {name} if she's considered adoption.", quality: "worst",
+        { text: "<strong>Quietly agree</strong> with the MA and ask {name} later, privately, whether she has considered adoption.", quality: "worst",
           feedback: "Catastrophic projection and a scope violation. {name} chose to keep this pregnancy; your job is to honor that, not interrogate it." }
       ]
     },
@@ -842,13 +844,13 @@ const DECISIONS = {
       scene: "{name} is 41. Her OB used the words \"geriatric pregnancy\" three times today. She's in your car saying she feels like a problem.",
       question: "What do you say?",
       options: [
-        { text: "<strong>Name what hurt.</strong> \"It's clinical language, but it lands hard. You are not a problem &mdash; you're a healthy woman who happens to be 41.\"", quality: "best",
+        { text: "<strong>Name what hurt.</strong> \"That language is clinical, but it lands hard. You are not a problem &mdash; you're healthy and pregnant.\"", quality: "best",
           feedback: "You validate the wound first. The clinical word is real, but it doesn't define her." },
-        { text: "<strong>You're not old.</strong> \"Forty is the new thirty.\"", quality: "poor",
+        { text: "<strong>Brush past it.</strong> \"You're not old &mdash; forty is the new thirty these days. Don't worry about what he said.\"", quality: "poor",
           feedback: "Dismissive. Validate first, reassure second." },
-        { text: "<strong>The doctor was right.</strong> \"Forty-plus is high-risk &mdash; you should be prepared.\"", quality: "worst",
+        { text: "<strong>Side with the framing.</strong> \"He's right &mdash; forty-plus really is high risk. You should prepare for what comes.\"", quality: "worst",
           feedback: "You sided with the language that hurt her. Even if the risk is real, this is not a teaching moment about risk." },
-        { text: "<strong>Offer to advocate</strong> at the next appointment for different language.", quality: "good",
+        { text: "<strong>Offer to advocate</strong> at the next visit and help her ask the provider to use different language.", quality: "good",
           feedback: "Practical and supportive. Pair it with emotional acknowledgment first, then move to the plan." }
       ]
     }
@@ -861,13 +863,13 @@ const DECISIONS = {
       scene: "{name} is heading into her 20-week scan. Her last pregnancy ended at 19 weeks. She's gripping the armrests and won't talk.",
       question: "What do you say or do?",
       options: [
-        { text: "<strong>Sit close, don't fill the silence.</strong> \"I'm here. We'll walk in together.\"", quality: "best",
+        { text: "<strong>Sit close, don't fill the silence.</strong> A hand on hers if she wants it. \"I'm here. We'll walk in together.\"", quality: "best",
           feedback: "Presence without pressure. Her grip on the chair tells you she wants someone close." },
-        { text: "<strong>Try to distract her</strong> with small talk.", quality: "poor",
+        { text: "<strong>Try to distract her</strong> with small talk about her older kids or how the week is going.", quality: "poor",
           feedback: "Distraction feels dismissive when grief is this close. She's not avoiding her feelings &mdash; she's bracing for them." },
-        { text: "<strong>Remind her</strong> this is a different pregnancy and the odds are good.", quality: "worst",
+        { text: "<strong>Remind her gently</strong> that this is a different pregnancy and statistically the odds of another loss are low.", quality: "worst",
           feedback: "Logical, emotionally tone-deaf. Statistics don't soothe loss anxiety." },
-        { text: "<strong>Offer to leave</strong> if she wants privacy.", quality: "poor",
+        { text: "<strong>Offer to leave the room</strong> and give her privacy until they call her name for the appointment.", quality: "poor",
           feedback: "Reading her well, but her body language says she wants someone near. Stay until she asks you to step away." }
       ]
     },
@@ -877,13 +879,13 @@ const DECISIONS = {
       scene: "{name}'s last baby came in 90 minutes. She lives 35 minutes from the hospital. She just texted: contractions started 20 minutes ago, 4 minutes apart.",
       question: "What do you tell her right now?",
       options: [
-        { text: "<strong>Leave for the hospital now.</strong> \"Call your provider on the way. I'll meet you there.\"", quality: "best",
+        { text: "<strong>Tell her to leave now.</strong> \"Head to the hospital. Call your provider on the way. I'll meet you there.\"", quality: "best",
           feedback: "Decisive and scope-appropriate. You're naming the logistical reality of her birth history, not making a medical call." },
-        { text: "<strong>Time them for another hour</strong> and see if they get closer.", quality: "worst",
+        { text: "<strong>Have her time them</strong> for another hour and see if they get closer before doing anything else.", quality: "worst",
           feedback: "She doesn't have another hour. Waiting on the 4-1-1 rule here could mean a roadside birth." },
-        { text: "<strong>Call her provider first</strong> and let them decide.", quality: "good",
+        { text: "<strong>Tell her to call her provider</strong> first and let them decide whether she should head in right now.", quality: "good",
           feedback: "Reasonable, but encourage her to leave WHILE she's on the phone. Time is the issue." },
-        { text: "<strong>Drive to her house</strong> and labor at home as long as you can.", quality: "worst",
+        { text: "<strong>Drive to her house yourself</strong> and labor at home as long as you can before transferring in.", quality: "worst",
           feedback: "Outside doula scope unless this is a planned home birth. You're not the safety net her provider is." }
       ]
     }
@@ -898,11 +900,11 @@ const DECISIONS = {
       options: [
         { text: "<strong>Interrupt politely.</strong> \"Can we slow down and get a translator on the phone? I want {name} to have every word.\"", quality: "best",
           feedback: "You advocate for her right to language access without speaking for her. Medical translator services are her right under federal law." },
-        { text: "<strong>Translate yourself</strong> if you speak some of her language.", quality: "poor",
+        { text: "<strong>Quietly translate yourself</strong> if you speak some of her language, even though you're not medically credentialed.", quality: "poor",
           feedback: "Even if you're conversational, medical translation requires precision you may not have. Use the certified service unless you're medically credentialed." },
-        { text: "<strong>Stay quiet</strong> and translate later from notes.", quality: "poor",
+        { text: "<strong>Stay quiet now</strong> and translate the instructions for her later from notes you took during the visit.", quality: "poor",
           feedback: "She has the right to understand in the moment, not retroactively." },
-        { text: "<strong>Tell {name}</strong> she needs to learn more English.", quality: "worst",
+        { text: "<strong>Tell {name} privately</strong> that she needs to learn more English if she's going to keep using this clinic.", quality: "worst",
           feedback: "Out of scope, racist, and factually wrong. Federal law guarantees translator access." }
       ]
     },
@@ -912,13 +914,13 @@ const DECISIONS = {
       scene: "{name} just lost her ride to her 36-week appointment. No PTO left from work. The bus would take 90 minutes each way.",
       question: "What do you offer?",
       options: [
-        { text: "<strong>Problem-solve together.</strong> \"Can we look at the MHN ride list, or check if your clinic has telehealth for this visit? I can call with you.\"", quality: "best",
+        { text: "<strong>Problem-solve with her.</strong> \"Can we check the MHN ride list, or ask your clinic about a telehealth option for this visit?\"", quality: "best",
           feedback: "You name the resources without taking over. You also validate that this is a real barrier, not a personal failing." },
-        { text: "<strong>Drive her yourself.</strong>", quality: "good",
+        { text: "<strong>Offer to drive her yourself,</strong> after checking with MHN about insurance and liability for volunteer transport.", quality: "good",
           feedback: "Generous, sometimes the right call. Check with MHN about insurance/liability first. Try systemic options before your own car." },
-        { text: "<strong>Tell her</strong> to skip the appointment.", quality: "worst",
+        { text: "<strong>Tell her to skip it</strong> and catch the next appointment when she has childcare and transportation lined up.", quality: "worst",
           feedback: "At 36 weeks, weekly visits matter. Skipping creates real clinical risk. Help her get there." },
-        { text: "<strong>Lecture her</strong> about the importance of prenatal care.", quality: "poor",
+        { text: "<strong>Lecture her gently</strong> about how important these prenatal appointments are at this stage of the pregnancy.", quality: "poor",
           feedback: "She knows. She's trying to get there. Lecturing adds shame to a barrier that's already exhausting." }
       ]
     }
@@ -931,13 +933,13 @@ const DECISIONS = {
       scene: "{name} breaks down at 32 weeks. She tells you she didn't think she'd be doing this without him.",
       question: "What do you say?",
       options: [
-        { text: "<strong>Sit with her in it.</strong> \"Tell me what 'alone' means to you right now. Who do you wish was here?\"", quality: "best",
+        { text: "<strong>Sit with her in it.</strong> \"Tell me what 'alone' means to you right now. Who do you wish was here today?\"", quality: "best",
           feedback: "You open space for the grief without rushing to fix it. Naming who's missing helps her process; it doesn't deepen the loneliness." },
-        { text: "<strong>You're not alone.</strong> \"You have me, and your sister, and your mom.\"", quality: "poor",
+        { text: "<strong>Reframe quickly.</strong> \"You're not alone. You have me, your sister, your mom &mdash; look at your village.\"", quality: "poor",
           feedback: "Well-meaning, but it skips her feelings. She knows she has a village &mdash; she's grieving the one person who isn't in it." },
-        { text: "<strong>Try to find her a new partner.</strong> \"Have you thought about meeting someone?\"", quality: "worst",
+        { text: "<strong>Suggest she think</strong> about meeting someone new before the baby comes so she has more support around her.", quality: "worst",
           feedback: "Catastrophically out of scope. Her grief about an absent partner is not a dating problem to solve. Step way back." },
-        { text: "<strong>Make a plan.</strong> \"Who do you want with you at the birth? Let's call them this week.\"", quality: "good",
+        { text: "<strong>Move to planning.</strong> \"Who do you want with you at the birth? Let's call them together this week.\"", quality: "good",
           feedback: "Practical and grounding. Use this AFTER she's had a chance to feel what she's feeling. Don't jump to action while the tears are still falling." }
       ]
     },
@@ -947,13 +949,13 @@ const DECISIONS = {
       scene: "{name}'s partner just stepped out of the labor room for the third time in an hour. {name} doesn't say anything but her face changes every time the door closes.",
       question: "What do you do?",
       options: [
-        { text: "<strong>Coach the partner.</strong> Step into the hall: \"It's a lot. Want me to walk you through what's coming next so it feels less scary?\"", quality: "best",
+        { text: "<strong>Coach the partner.</strong> Step into the hall: \"It's a lot. Want me to walk you through what's coming so it feels less scary?\"", quality: "best",
           feedback: "You meet the partner where they are. Their fear is the issue, not their commitment. A doula who coaches partners protects them AND her." },
-        { text: "<strong>Tell the partner</strong> they need to stay in the room.", quality: "poor",
+        { text: "<strong>Tell the partner firmly</strong> that they need to stay in the room and stop walking out on {name}.", quality: "poor",
           feedback: "Shaming a scared partner backfires. They'll freeze or leave and feel worse. Coach, don't command." },
-        { text: "<strong>Stay focused on {name}</strong> and let the partner figure it out.", quality: "poor",
+        { text: "<strong>Stay focused on {name}</strong> and let the partner figure out their own discomfort in their own time.", quality: "poor",
           feedback: "The partner IS part of your work, in a sense. Their state affects hers. A quick coaching moment helps both." },
-        { text: "<strong>Tell {name}</strong> her partner is being selfish.", quality: "worst",
+        { text: "<strong>Tell {name} privately</strong> that her partner is being selfish and not pulling their weight during her labor.", quality: "worst",
           feedback: "Projecting. You don't know what's happening for them. Your job isn't to grade her partner; it's to keep the team functional." }
       ]
     }
@@ -966,13 +968,13 @@ const DECISIONS = {
       scene: "At her 38-week visit the OB says, \"Let's schedule your induction for next Tuesday.\" {name} looks at you.",
       question: "What's your role right here?",
       options: [
-        { text: "<strong>Witness, take notes, quietly ask</strong> if she has questions. Debrief and prep for the next visit afterward.", quality: "best",
+        { text: "<strong>Witness and take notes.</strong> Quietly ask {name} if she has questions, then debrief and prep for the next visit afterward.", quality: "best",
           feedback: "You stay in scope, preserve her agency, and give her a teammate to debrief with. Don't make the call for her in the room." },
-        { text: "<strong>Speak up immediately</strong> for her.", quality: "worst",
+        { text: "<strong>Speak up immediately</strong> for her: \"She doesn't want an induction. We've talked about this in our prep work together.\"", quality: "worst",
           feedback: "You bypassed her voice. Even if you know her preferences, putting words in her mouth in front of her provider takes her agency." },
-        { text: "<strong>Stay silent</strong> &mdash; this is medical.", quality: "poor",
+        { text: "<strong>Stay silent</strong> &mdash; this is a medical recommendation and not really a doula's place to weigh in on.", quality: "poor",
           feedback: "Withholding presence reads as abandonment. You can stay in scope while still being a visible support." },
-        { text: "<strong>Hand her a printed list</strong> of induction risks.", quality: "poor",
+        { text: "<strong>Hand her a printed list</strong> of induction risks to show the provider right there in front of him.", quality: "poor",
           feedback: "Too directive and too late. Coach her to ask; don't argue for her with a flyer." }
       ]
     },
@@ -982,13 +984,13 @@ const DECISIONS = {
       scene: "At {name}'s visit, her supportive OB turns to you and asks, \"What do you think about her birth plan?\"",
       question: "How do you respond?",
       options: [
-        { text: "<strong>Redirect to {name}.</strong> \"Thank you for asking &mdash; but {name} is the one with the answers. {name}, tell us what feels most important to you.\"", quality: "best",
+        { text: "<strong>Redirect to {name}.</strong> \"Thank you for asking, but {name} is the one with the answers. What feels most important to you?\"", quality: "best",
           feedback: "Beautiful scope-preservation. You don't take the spotlight; you put it back where it belongs." },
-        { text: "<strong>Give your professional opinion</strong> about her birth preferences.", quality: "worst",
+        { text: "<strong>Give your professional opinion</strong> to the provider about {name}'s birth preferences and any clinical concerns you're tracking.", quality: "worst",
           feedback: "You just stepped between {name} and her provider. Even from a good provider, this question is a trap. Don't take it." },
         { text: "<strong>Decline politely.</strong> \"That's really {name}'s call. I'm here to support her in whatever she decides.\"", quality: "good",
           feedback: "Solid and in-scope. A little more inviting language toward {name} would be even better." },
-        { text: "<strong>Say you don't have one</strong> and change the subject.", quality: "poor",
+        { text: "<strong>Say you don't have an opinion</strong> to share with the provider and quickly change the subject of the visit.", quality: "poor",
           feedback: "Avoidant. The redirect doesn't have to be uncomfortable; you can simply put {name} back in the center." }
       ]
     }
@@ -1002,13 +1004,13 @@ const DECISIONS = {
       scene: "{name}'s BP just spiked at her 34-week visit. The MFM specialist is recommending induction at 37 weeks. She wanted a vaginal birth at term.",
       question: "What's your role?",
       options: [
-        { text: "<strong>BRAIN the recommendation.</strong> Help her understand Benefits, Risks, Alternatives, her Intuition, and what \"nothing\" looks like in her clinical picture.", quality: "best",
+        { text: "<strong>BRAIN the recommendation</strong> with her: Benefits, Risks, Alternatives, her Intuition, and what \"nothing\" looks like in her clinical picture.", quality: "best",
           feedback: "BRAIN works even when the recommendation is clinically sound. It helps her walk into it informed instead of swept up." },
-        { text: "<strong>Reassure her</strong> 37 weeks is full-term enough.", quality: "poor",
+        { text: "<strong>Reassure her quickly</strong> that 37 weeks is full-term enough and her baby will be fine to deliver then.", quality: "poor",
           feedback: "Not your call to make. Clinically 37 weeks is early-term; emotionally it's a loss of the birth she planned." },
-        { text: "<strong>Tell her</strong> to refuse the induction.", quality: "worst",
+        { text: "<strong>Tell her to refuse</strong> the induction and ask for more monitoring and time at term instead.", quality: "worst",
           feedback: "She has severe-range BP and an MFM team. Discouraging induction here could endanger her. Coach, don't decide." },
-        { text: "<strong>Validate first.</strong> \"This wasn't the plan, and it's okay to grieve that, even while you make a safe choice.\"", quality: "good",
+        { text: "<strong>Validate first.</strong> \"This wasn't the plan, and it's okay to grieve that even while you make a safe choice.\"", quality: "good",
           feedback: "Wise emotional opener. Pair with BRAIN in the next breath so she has both the heart and the framework." }
       ]
     },
@@ -1018,13 +1020,13 @@ const DECISIONS = {
       scene: "{name} is attempting a VBAC. At her 36-week visit, her provider hints \"maybe a repeat C-section would just be safer.\" {name} doesn't respond.",
       question: "What do you do?",
       options: [
-        { text: "<strong>Prep her for next time.</strong> After the visit: \"You went quiet in there. Let's BRAIN the recommendation and write down questions for next week.\"", quality: "best",
+        { text: "<strong>Debrief after the visit.</strong> \"You went quiet in there. Let's BRAIN it and write down questions for next week's appointment.\"", quality: "best",
           feedback: "You don't argue with the provider in the room. You arm {name} with questions for the next round, where she has time and voice back." },
-        { text: "<strong>Tell {name}</strong> the provider is wrong and she should switch.", quality: "worst",
+        { text: "<strong>Tell {name}</strong> the provider is wrong and she should switch to a more VBAC-supportive practice now.", quality: "worst",
           feedback: "Switching providers at 36 weeks is a huge call you can't make for her. Surface options, don't pick them." },
-        { text: "<strong>Speak up in the room.</strong> \"She's planning a VBAC and would like to continue.\"", quality: "poor",
+        { text: "<strong>Speak up in the room.</strong> \"She's planning a VBAC and would like to continue with that plan.\"", quality: "poor",
           feedback: "Well-intentioned, but you spoke for her. Help her find her voice for next time, not borrow yours." },
-        { text: "<strong>Validate the silence.</strong> \"That was a hard moment. Want to talk about what came up?\"", quality: "good",
+        { text: "<strong>Validate the silence.</strong> \"That was a hard moment in there. Want to talk about what came up for you?\"", quality: "good",
           feedback: "Good emotional check-in. Combine with the BRAIN prep so she has both processing and a plan." }
       ]
     }
@@ -1037,13 +1039,13 @@ const DECISIONS = {
       scene: "At {name}'s 20-week scan, the radiologist tells her the baby has a serious heart defect. {name} is frozen in the chair.",
       question: "What do you say in the next 30 seconds?",
       options: [
-        { text: "<strong>Stay close, no words.</strong> A hand on hers if she wants it. \"I'm here.\"", quality: "best",
+        { text: "<strong>Stay close, no words.</strong> A hand on hers if she wants it. \"I'm here with you. We don't have to talk yet.\"", quality: "best",
           feedback: "In acute trauma, words are too much. Presence is the medicine. Processing comes later." },
-        { text: "<strong>Tell her</strong> babies with heart defects can have great outcomes now.", quality: "poor",
+        { text: "<strong>Reassure her</strong> that babies with heart defects often have great outcomes now thanks to advances in pediatric surgery.", quality: "poor",
           feedback: "True, but premature. She hasn't integrated the news. Information without acknowledgment lands as dismissal." },
-        { text: "<strong>Pull out your phone</strong> and research the condition.", quality: "worst",
+        { text: "<strong>Pull out your phone</strong> and start researching the specific condition so you can give her information right away.", quality: "worst",
           feedback: "Be with her, not your screen. Research is for later. Your job is to be a steady human, not a search engine." },
-        { text: "<strong>Suggest she pray</strong> or call her pastor.", quality: "poor",
+        { text: "<strong>Suggest gently</strong> that she pray, call her pastor, or sit with whatever faith tradition brings her comfort.", quality: "poor",
           feedback: "Maybe right for some clients later, but projecting your framework now is wrong. Sit silent unless she opens the door." }
       ]
     },
@@ -1053,13 +1055,13 @@ const DECISIONS = {
       scene: "{name}'s baby is breech at 36 weeks. Her provider is recommending an external cephalic version (ECV) next week. {name} is scared.",
       question: "What do you offer?",
       options: [
-        { text: "<strong>BRAIN the ECV,</strong> and surface Spinning Babies and chiropractic as physiologic options to ask the provider about.", quality: "best",
+        { text: "<strong>BRAIN the ECV with her,</strong> and surface Spinning Babies and chiropractic as physiologic alternatives to ask the provider about.", quality: "best",
           feedback: "You're not refusing the ECV, but you're naming there's a physiologic conversation worth having before she consents." },
-        { text: "<strong>Reassure her</strong> ECVs are quick and almost always work.", quality: "poor",
+        { text: "<strong>Reassure her broadly</strong> that ECVs are quick, mostly painless, and almost always succeed without any complications.", quality: "poor",
           feedback: "Success rate is closer to 50-60%, and \"quick\" isn't always the experience. False reassurance breaks trust." },
-        { text: "<strong>Tell her</strong> to refuse the ECV and try Spinning Babies first.", quality: "worst",
+        { text: "<strong>Tell her to refuse</strong> the ECV and try Spinning Babies and chiropractic exclusively for the next two weeks.", quality: "worst",
           feedback: "Decision-making for her. Spinning Babies is real; the choice belongs to her and her provider. Surface, don't decide." },
-        { text: "<strong>Just listen.</strong> \"What's the part that's scariest?\"", quality: "good",
+        { text: "<strong>Just listen first.</strong> \"What's the part that's scariest for you about the ECV right now?\"", quality: "good",
           feedback: "Strong emotional opener. Combine with the BRAIN walk-through for both feeling and framework." }
       ]
     }
@@ -1072,13 +1074,13 @@ const DECISIONS = {
       scene: "It's your first prenatal visit with {name}. She has limited or sporadic prenatal care so far, and she's wary. She's holding her bag and won't quite sit down.",
       question: "What do you open with?",
       options: [
-        { text: "<strong>Tell me your story.</strong> \"How did you get to this appointment today?\"", quality: "best",
+        { text: "<strong>Open with curiosity.</strong> \"Tell me your story, {name}. How did you get to this appointment today?\"", quality: "best",
           feedback: "Opens space for her to lead. You learn her history, her barriers, and what she's already navigating before you offer advice." },
-        { text: "<strong>Let me explain what a doula does</strong> and how I'll support you.", quality: "poor",
+        { text: "<strong>Lead with your value.</strong> \"Let me explain what a doula does and how I'll support you through this.\"", quality: "poor",
           feedback: "Centers your role before you understand hers. Save this for later, after she's been heard." },
-        { text: "<strong>What's your birth plan?</strong>", quality: "worst",
+        { text: "<strong>Jump to the future.</strong> \"So what's your birth plan? Have you started thinking about what you want?\"", quality: "worst",
           feedback: "Too far ahead. A birth plan without trust is just paper." },
-        { text: "<strong>What are you most worried about?</strong>", quality: "good",
+        { text: "<strong>Ask what she's carrying.</strong> \"What are you most worried about as you head into this pregnancy?\"", quality: "good",
           feedback: "Good open-ended question. Slightly more directive than A; you're naming the anxiety. Use this if she seems stuck." }
       ]
     },
@@ -1088,13 +1090,13 @@ const DECISIONS = {
       scene: "{name} has a 12-page birth plan. At L&D triage, the nurse just rolled her eyes at it. {name} saw.",
       question: "What do you do?",
       options: [
-        { text: "<strong>Note it, work the room now.</strong> Stay focused on {name}'s coping. Once labor is established, debrief with her on how she wants it handled.", quality: "best",
+        { text: "<strong>Note it, work the room now.</strong> Stay focused on {name}'s coping. Debrief later about how she wants it handled.", quality: "best",
           feedback: "Don't escalate in active triage. Note it, name it later. Your loyalty is to her labor first." },
-        { text: "<strong>Confront the nurse</strong> on the spot.", quality: "poor",
+        { text: "<strong>Confront the nurse</strong> on the spot and tell her the birth plan deserves to be taken seriously.", quality: "poor",
           feedback: "You'll alienate the team she'll need for 12 hours. Channel that energy into advocating for the actual plan." },
-        { text: "<strong>Tell {name}</strong> her birth plan is too long.", quality: "worst",
+        { text: "<strong>Tell {name} quietly</strong> that her birth plan might be a little too long for the labor and delivery staff.", quality: "worst",
           feedback: "She spent months on it. This is not the moment for editing notes. Honor it." },
-        { text: "<strong>Hand the plan</strong> to a friendlier nurse if a shift change is near.", quality: "good",
+        { text: "<strong>Hand the plan</strong> to a different, friendlier nurse if a shift change is happening anytime soon.", quality: "good",
           feedback: "Pragmatic. Quietly find an ally. Don't make this {name}'s problem to solve mid-contraction." }
       ]
     }
@@ -1108,13 +1110,13 @@ const DECISIONS = {
       scene: "{name}'s water just broke at 33 weeks. She's gripping your arm and crying that it's too early.",
       question: "What do you say first?",
       options: [
-        { text: "<strong>You are not alone.</strong> \"I am right here. We are going to take this one breath at a time.\"", quality: "best",
+        { text: "<strong>Anchor her.</strong> \"You are not alone. I am right here. We are going to take this one breath at a time.\"", quality: "best",
           feedback: "Presence first. You name what's true without making promises about outcomes." },
-        { text: "<strong>Everything is going to be fine.</strong>", quality: "worst",
+        { text: "<strong>Reassure broadly.</strong> \"Everything is going to be fine. Don't worry. The doctors will handle all of this.\"", quality: "worst",
           feedback: "False reassurance you cannot guarantee. At 33 weeks the baby may need NICU. Promises like this break trust." },
-        { text: "<strong>Tell me what you feel in your body.</strong>", quality: "good",
+        { text: "<strong>Ground her body.</strong> \"Tell me what you feel in your body right now. Where do you feel the most?\"", quality: "good",
           feedback: "Somatic grounding. Useful, but in acute panic she may not answer. Better as a second-round prompt." },
-        { text: "<strong>Stay quiet</strong> and let the medical team work.", quality: "poor",
+        { text: "<strong>Step back quietly</strong> so the medical team has room to do their assessment and start treatment.", quality: "poor",
           feedback: "She's reaching for you. Be the steady voice while the team works." }
       ]
     },
@@ -1124,13 +1126,13 @@ const DECISIONS = {
       scene: "{name}'s provider just said: \"You're 39 weeks. Let's get this baby out today. We'll start Pitocin at noon.\" She turns to you wide-eyed.",
       question: "What's your move?",
       options: [
-        { text: "<strong>Walk her through BRAIN.</strong> \"Before we say yes, can we talk Benefits, Risks, Alternatives, your Intuition, and what happens if we do Nothing?\"", quality: "best",
+        { text: "<strong>Walk her through BRAIN.</strong> \"Before we say yes, can we talk Benefits, Risks, Alternatives, your Intuition, and Nothing?\"", quality: "best",
           feedback: "Textbook doula coaching. You're not refusing the induction &mdash; you're slowing down the decision." },
         { text: "<strong>Acknowledge first.</strong> \"That caught you off guard. Take a breath. What do you want to ask him?\"", quality: "good",
           feedback: "Strong emotional check-in. Pair with BRAIN as the next step." },
-        { text: "<strong>Tell her not to do it.</strong>", quality: "worst",
+        { text: "<strong>Tell her not to do it.</strong> \"Pitocin is risky &mdash; you should refuse and ask to wait it out.\"", quality: "worst",
           feedback: "Outside scope. You're giving medical advice and overriding her autonomy." },
-        { text: "<strong>Reassure her</strong> the doctor knows best.", quality: "worst",
+        { text: "<strong>Reassure her quickly</strong> that the doctor knows best and she should agree to whatever he is recommending today.", quality: "worst",
           feedback: "Strips her agency the other way. Informed consent requires her voice." }
       ]
     },
@@ -1140,13 +1142,13 @@ const DECISIONS = {
       scene: "{name}'s water broke at 39+5. No contractions yet. She's asking whether to call her provider or wait.",
       question: "What do you tell her?",
       options: [
-        { text: "<strong>Call your provider now.</strong> \"They'll want to know. Then you and they decide together about timing.\"", quality: "best",
+        { text: "<strong>Direct her clearly.</strong> \"Call your provider now. They'll want to know, and then you can decide together about timing.\"", quality: "best",
           feedback: "Name the protocol (call the provider), don't make the clinical call yourself." },
-        { text: "<strong>Don't worry, wait it out.</strong>", quality: "worst",
+        { text: "<strong>Tell her not to worry</strong> and to wait it out at home until contractions start naturally on their own.", quality: "worst",
           feedback: "PROM has time-sensitive protocols. The provider needs to know." },
-        { text: "<strong>Try nipple stimulation</strong> to start contractions.", quality: "poor",
+        { text: "<strong>Suggest nipple stimulation</strong> to try to start contractions before her provider has been consulted about it.", quality: "poor",
           feedback: "Maybe okay eventually, but only after the provider has been consulted. Don't skip the phone call." },
-        { text: "<strong>Drive straight to L&D.</strong>", quality: "good",
+        { text: "<strong>Tell her to drive</strong> straight to L&D without calling first so they can triage her in person.", quality: "good",
           feedback: "Often the right destination, but call her provider first so she's not just walking in cold." }
       ]
     },
@@ -1156,13 +1158,13 @@ const DECISIONS = {
       scene: "{name}'s contractions started 30 minutes ago and are 2 minutes apart, hard. She's not sure she can make it to the hospital.",
       question: "What do you do?",
       options: [
-        { text: "<strong>Leave for the hospital now.</strong> Call her provider on the way.", quality: "best",
+        { text: "<strong>Tell her to leave now</strong> for the hospital and call her provider on the way there in the car.", quality: "best",
           feedback: "Don't overthink it. Get her toward medical care while it's still possible." },
-        { text: "<strong>Stay home and call 911.</strong>", quality: "good",
+        { text: "<strong>Tell her to stay home</strong> and call 911 if labor seems clearly imminent &mdash; head visible, urge to push.", quality: "good",
           feedback: "Only if labor is clearly imminent (head visible, urge to push). Otherwise, get in the car." },
-        { text: "<strong>Time them for another 15 minutes.</strong>", quality: "worst",
+        { text: "<strong>Have her time them</strong> for another fifteen minutes to see if they really are that fast.", quality: "worst",
           feedback: "She doesn't have 15 minutes. Precipitous birth is the signal &mdash; act." },
-        { text: "<strong>Catch the baby at home yourself.</strong>", quality: "worst",
+        { text: "<strong>Tell her you'll come</strong> catch the baby at home so she doesn't have to risk the drive.", quality: "worst",
           feedback: "Outside scope unless this is a planned home birth with a midwife." }
       ]
     }
@@ -1175,13 +1177,13 @@ const DECISIONS = {
       scene: "{name} is at 6 cm. Dilation has been stalled for three hours. Provider is in the hall saying \"We need Pitocin.\"",
       question: "Before {name} decides, what do you do?",
       options: [
-        { text: "<strong>Run BRAIN with her,</strong> and surface position changes (side-lying release, walking, Spinning Babies) as alternatives.", quality: "best",
+        { text: "<strong>Run BRAIN with her</strong> and surface position changes &mdash; Spinning Babies, walking, side-lying release &mdash; as alternatives.", quality: "best",
           feedback: "You're not refusing for her, but real alternatives are fair game. Surface options before she consents." },
-        { text: "<strong>Tell her</strong> to refuse the Pitocin.", quality: "worst",
+        { text: "<strong>Tell her to refuse</strong> the Pitocin and keep laboring naturally until her body is ready for it on its own.", quality: "worst",
           feedback: "Decision-making for her. Surface, don't decide." },
-        { text: "<strong>Stay quiet</strong> &mdash; this is the provider's call.", quality: "poor",
+        { text: "<strong>Stay quiet in the room</strong> &mdash; the augmentation decision is the provider's call, not the doula's place to weigh in.", quality: "poor",
           feedback: "Disengaging. The recommendation isn't the end of the conversation." },
-        { text: "<strong>Tell her</strong> Pitocin is fine and she should agree.", quality: "worst",
+        { text: "<strong>Tell her Pitocin is fine</strong> and she should just agree so labor can finally move forward at this point.", quality: "worst",
           feedback: "Outside scope. Coach the conversation; don't make the call." }
       ]
     },
@@ -1191,13 +1193,13 @@ const DECISIONS = {
       scene: "{name} has been in labor 18 hours, refusing the epidural she said she wanted. She's crying that she can't do this anymore.",
       question: "What do you say?",
       options: [
-        { text: "<strong>Reflect her own words back.</strong> \"You told me you wanted an epidural. Is that still what you want, or do you want to try a different position first?\"", quality: "best",
+        { text: "<strong>Reflect her own words.</strong> \"You told me you wanted an epidural. Is that still what you want, or try a different position first?\"", quality: "best",
           feedback: "You bring her own plan back without pushing. Choice is hers; you remind her she made one." },
-        { text: "<strong>Tell her</strong> to get the epidural now.", quality: "poor",
+        { text: "<strong>Tell her</strong> to get the epidural now &mdash; she's clearly suffering and pushing through isn't working for her anymore.", quality: "poor",
           feedback: "Decision-making for her. She may be in transition, where people say \"I can't\" minutes before pushing. Reflect, don't push." },
-        { text: "<strong>Tell her</strong> she can do it &mdash; she's strong.", quality: "poor",
+        { text: "<strong>Tell her she can do it</strong> &mdash; she's strong, she's almost there, just a little longer and the baby will be here.", quality: "poor",
           feedback: "Well-meaning, but it overrides her stated experience. \"I can't\" deserves to be heard, not contradicted." },
-        { text: "<strong>Try one comfort measure first</strong> &mdash; hip squeezes, water, position change &mdash; then re-ask.", quality: "good",
+        { text: "<strong>Try one comfort measure first</strong> &mdash; hip squeezes, water, a position change &mdash; then check back in and re-ask.", quality: "good",
           feedback: "Solid. Try one tool, then check in. Don't stack 5 interventions on a person saying she's done." }
       ]
     },
@@ -1207,17 +1209,17 @@ const DECISIONS = {
       scene: "{name}'s baby is showing decelerations on the monitor. The nurse is calling for the provider. The room temperature just changed.",
       question: "What do you do in this 30-second window?",
       options: [
-        { text: "<strong>Help her change positions</strong> (hands and knees, left side) and put a hand on her shoulder.", quality: "best",
+        { text: "<strong>Help her change positions</strong> &mdash; hands and knees or left side &mdash; and put a hand on her shoulder.", quality: "best",
           feedback: "Position changes are first-line for FHR concerns and within scope. Touch gives information when words are too much." },
-        { text: "<strong>Tell her not to panic</strong> &mdash; it's probably nothing.", quality: "worst",
+        { text: "<strong>Tell her not to panic</strong> about the monitor &mdash; it's probably nothing, and the team will let her know.", quality: "worst",
           feedback: "Dismisses what's real. Even if it resolves, she felt the room change." },
-        { text: "<strong>Step back</strong> and let the medical team work.", quality: "good",
+        { text: "<strong>Step back quietly</strong> and let the medical team work without your interference for the next few minutes.", quality: "good",
           feedback: "Appropriate sometimes, but you can stay close without interfering. Position changes are still scope." },
-        { text: "<strong>Comfort the panicking partner</strong> first.", quality: "good",
+        { text: "<strong>Comfort the panicking partner</strong> so they don't melt down while the medical team is moving fast.", quality: "good",
           feedback: "{name}'s body comes first; coach the partner in the next breath.",
           replaceIf: {
             noPartner: {
-              text: "<strong>Comfort her support person</strong> (her mom, sister, or whoever's with her) first.",
+              text: "<strong>Comfort her support person</strong> &mdash; mom, sister, friend &mdash; so they don't melt down while the team is moving fast.",
               feedback: "When the partner is out of the picture, the support person fills that role. {name}'s body still comes first; coach the support person in the next breath."
             }
           }
@@ -1232,11 +1234,11 @@ const DECISIONS = {
       options: [
         { text: "<strong>Name what's happening.</strong> \"They're using forceps to help baby out. Look at me. Keep pushing with the next contraction.\"", quality: "best",
           feedback: "Information plus instruction. You give her something to do (push) and a steady gaze." },
-        { text: "<strong>Tell her</strong> to refuse the forceps.", quality: "worst",
+        { text: "<strong>Tell her to refuse</strong> the forceps and ask for more time and position changes instead of using them.", quality: "worst",
           feedback: "Out of scope. Forceps may be the safest option right now. Don't override the medical decision." },
-        { text: "<strong>Stay quiet</strong> while they work.", quality: "poor",
+        { text: "<strong>Stay quiet</strong> while they work &mdash; she's already pushing and doesn't need additional voices in her ear.", quality: "poor",
           feedback: "She needs words. Plain language steadies her body." },
-        { text: "<strong>Tell her</strong> everything will be fine.", quality: "poor",
+        { text: "<strong>Tell her everything will be fine</strong> and that the forceps don't really hurt babies most of the time.", quality: "poor",
           feedback: "You don't know that. Stay with what's true: \"They're helping baby. Keep pushing.\"" }
       ]
     }
@@ -1250,20 +1252,20 @@ const DECISIONS = {
       scene: "The team is moving {name} to the OR. They have 60 seconds before they wheel her away. Her partner is asking what's happening.",
       question: "What do you say to her?",
       options: [
-        { text: "<strong>Name what's happening, plainly.</strong> \"Your baby needs help right now. The team is doing a C-section. You are going to be okay. I'll be here when you come back.\"", quality: "best",
+        { text: "<strong>Name it plainly.</strong> \"Your baby needs help. The team is doing a C-section. You're going to be okay. I'll be here when you come back.\"", quality: "best",
           feedback: "Plain language anchors her body. You don't promise outcomes &mdash; you tell her where you'll be." },
-        { text: "<strong>Promise everything will be fine.</strong>", quality: "poor",
+        { text: "<strong>Promise her</strong> that everything is going to be fine and she'll be holding her healthy baby very soon.", quality: "poor",
           feedback: "False reassurance. Breaks trust if something goes wrong." },
-        { text: "<strong>Coach her partner</strong> to be in the OR if possible.", quality: "good",
+        { text: "<strong>Coach her partner</strong> to advocate to be present in the OR for the non-general C-section if possible.", quality: "good",
           feedback: "Right move if partner is her teammate. Many hospitals allow partners in for non-general C-sections.",
           replaceIf: {
             noPartner: {
-              text: "<strong>Coach her support person</strong> (her mom, sister, or chaplain) to stay close so {name} has continuity when she wakes up in recovery.",
+              text: "<strong>Coach her support person</strong> &mdash; mom, sister, chaplain &mdash; to stay close so {name} has continuity in recovery.",
               feedback: "Even without a partner, someone needs to be the steady face she sees coming out of anesthesia. The doula is the bridge between the OR and her support."
             }
           }
         },
-        { text: "<strong>Stay quiet</strong> and let the team work.", quality: "poor",
+        { text: "<strong>Stay quiet</strong> and let the medical team do their work &mdash; she'll be back from the OR before long.", quality: "poor",
           feedback: "She needs words now, not silence." }
       ]
     },
@@ -1273,13 +1275,13 @@ const DECISIONS = {
       scene: "Baby's heart rate is dropping. Provider is reaching for the vacuum. {name} is pushing hard and starting to panic.",
       question: "What do you do?",
       options: [
-        { text: "<strong>Anchor her.</strong> Eye contact, one hand on her shoulder: \"They're using a vacuum to help baby out faster. Keep pushing with me.\"", quality: "best",
+        { text: "<strong>Anchor her.</strong> Eye contact, hand on shoulder: \"They're using a vacuum to help baby out faster. Keep pushing with me.\"", quality: "best",
           feedback: "Information plus presence plus instruction. Three doula moves in one breath." },
-        { text: "<strong>Tell her</strong> to stop pushing while the vacuum is used.", quality: "worst",
+        { text: "<strong>Tell her to stop pushing</strong> while the vacuum is being used so the provider can do their work uninterrupted.", quality: "worst",
           feedback: "Wrong. With vacuum or forceps, providers usually want her to push WITH the assist. Don't contradict." },
-        { text: "<strong>Step back</strong> and let the team work.", quality: "poor",
+        { text: "<strong>Step back from the bed</strong> and let the medical team work without your voice or presence in her ear.", quality: "poor",
           feedback: "Stay at her head and keep her grounded." },
-        { text: "<strong>Tell her</strong> it's almost over &mdash; one more push.", quality: "good",
+        { text: "<strong>Tell her it's almost over.</strong> \"One more push, baby will be here. You're doing it. Stay with me.\"", quality: "good",
           feedback: "Useful, just make sure it's true. Don't say \"one more push\" five times in a row." }
       ]
     },
@@ -1291,11 +1293,11 @@ const DECISIONS = {
       options: [
         { text: "<strong>Acknowledge the tears.</strong> \"You did it. The hard part is done. The crying is okay &mdash; you can feel all of it.\"", quality: "best",
           feedback: "You give permission to feel the full range. Joy, relief, and shock often arrive together. Don't make her pick one." },
-        { text: "<strong>Distract her with baby.</strong> \"Look at your beautiful baby!\"", quality: "poor",
+        { text: "<strong>Distract her with baby.</strong> \"Look at your beautiful baby! Forget the stitches and just be with her right now.\"", quality: "poor",
           feedback: "Well-meant but bypasses what she's feeling. Baby IS there &mdash; acknowledge the tears too." },
-        { text: "<strong>Stay quiet</strong> and let her have the moment.", quality: "good",
+        { text: "<strong>Stay quiet</strong> and let her have the moment in whatever way her body needs to release the tension.", quality: "good",
           feedback: "Reasonable if her tears feel like release. Read the room &mdash; if she looks at you, meet her eyes." },
-        { text: "<strong>Tell her</strong> the tear isn't a big deal.", quality: "worst",
+        { text: "<strong>Tell her</strong> the tear isn't a big deal &mdash; most women have one, and they heal quickly afterward.", quality: "worst",
           feedback: "Minimizing. Her body just opened in a way she can't reverse. It's a big deal. Name it." }
       ]
     },
@@ -1305,13 +1307,13 @@ const DECISIONS = {
       scene: "{name} just gave birth. Baby is latching. She turns to you and says, \"I did it.\"",
       question: "What do you say?",
       options: [
-        { text: "<strong>You did.</strong> Three words. Eye contact. Stay close.", quality: "best",
+        { text: "<strong>Mirror her.</strong> \"You did.\" Three words. Eye contact. Stay close, no speeches, just presence in the moment.", quality: "best",
           feedback: "She doesn't need a speech. She needs witness. \"You did\" is the entire response." },
-        { text: "<strong>Launch into</strong> how proud you are and how amazing she was.", quality: "poor",
+        { text: "<strong>Launch into a speech</strong> about how proud you are and how amazing she was through every single contraction.", quality: "poor",
           feedback: "Well-meant but it makes the moment about your feelings. Mirror her words back; let her own the moment." },
-        { text: "<strong>Take a photo</strong> right away.", quality: "good",
+        { text: "<strong>Take a photo right away,</strong> after asking quickly, so the moment is captured for her to look at later.", quality: "good",
           feedback: "Photos are great. Ask first, and don't pull the phone before she's landed in her body." },
-        { text: "<strong>Start narrating</strong> what just happened (\"You were 8 cm at...\").", quality: "poor",
+        { text: "<strong>Start narrating</strong> what just happened (\"You were 8 cm at midnight...\") so she has a timeline to remember.", quality: "poor",
           feedback: "The birth story comes later. Right now she's still in the moment. Be in it with her." }
       ]
     },
@@ -1321,13 +1323,13 @@ const DECISIONS = {
       scene: "{name} just had the birth she pictured. Baby is on her chest. The room is quiet.",
       question: "What do you do in the next hour?",
       options: [
-        { text: "<strong>Stay close, stay quiet.</strong> Lights low, voices low, baby skin-to-skin. Nothing rushed.", quality: "best",
+        { text: "<strong>Stay close, stay quiet.</strong> Protect the golden hour &mdash; lights low, voices low, baby skin-to-skin, nothing rushed.", quality: "best",
           feedback: "Sometimes the best doula move is to disappear and let the moment unfold." },
-        { text: "<strong>Start a long conversation</strong> about how the birth felt.", quality: "poor",
+        { text: "<strong>Start a long conversation</strong> about how the birth felt and what surprised her along the way through labor today.", quality: "poor",
           feedback: "Processing comes later. Oxytocin is flooding. Don't interrupt." },
-        { text: "<strong>Help with the first latch</strong> if she's ready.", quality: "good",
+        { text: "<strong>Help with the first latch</strong> if baby is rooting and she signals she's ready to try it together.", quality: "good",
           feedback: "Right call if baby is rooting. Be guided by her cues." },
-        { text: "<strong>Text her family</strong> so she doesn't have to.", quality: "good",
+        { text: "<strong>Text her family the news</strong>, after asking first, so she doesn't have to make all the calls right now.", quality: "good",
           feedback: "Practical. Ask first &mdash; some families want to share themselves." }
       ]
     }
@@ -1341,13 +1343,13 @@ const DECISIONS = {
       scene: "Baby is being whisked to NICU. {name} is being held back to be sutured. She's asking, \"Where are they taking my baby?\"",
       question: "What do you do?",
       options: [
-        { text: "<strong>Stay with {name}.</strong> \"They're taking baby to a team that can help right now. I'm staying with you. Your partner can go with baby; we'll get updates.\"", quality: "best",
+        { text: "<strong>Stay with {name}.</strong> \"They're taking baby to a team that can help. I'm with you. Your partner can go; we'll get updates.\"", quality: "best",
           feedback: "Plain language, clear plan, and you protected her continuity by staying. NICU separation is disorienting &mdash; she needs an anchor." },
-        { text: "<strong>Follow the baby</strong> to NICU.", quality: "poor",
+        { text: "<strong>Follow the baby</strong> to the NICU so you can witness what's happening and report back to {name} afterward.", quality: "poor",
           feedback: "If the partner can go, your job is with {name}. Don't leave her body alone while she's being sutured." },
-        { text: "<strong>Tell her</strong> baby will be fine.", quality: "worst",
+        { text: "<strong>Reassure her quickly</strong> that baby will be totally fine &mdash; she doesn't need to worry about the NICU.", quality: "worst",
           feedback: "You don't know. False reassurance breaks trust if NICU goes badly." },
-        { text: "<strong>Stay quiet</strong> and let the team work.", quality: "poor",
+        { text: "<strong>Stay quiet</strong> and let the team work without speaking &mdash; she just needs space right now.", quality: "poor",
           feedback: "She just asked you a question. Answer it. Plain language matters now more than silence." }
       ]
     },
@@ -1358,13 +1360,13 @@ const DECISIONS = {
       scene: "Baby is healthy and alert at home, but {name} is panicking at every sound baby makes. She's barely slept.",
       question: "What do you say?",
       options: [
-        { text: "<strong>Normalize and educate.</strong> \"Newborns make a LOT of sounds. Most are digestion or sleep cycles. Let me walk you through 'call the pediatrician' vs. 'totally normal.'\"", quality: "best",
+        { text: "<strong>Normalize and categorize.</strong> \"Newborns make a LOT of sounds. Let me walk you through call-the-pediatrician versus totally-normal so you can tell.\"", quality: "best",
           feedback: "You give her categories. Without them, every sound feels equally alarming. With them, she can sleep." },
-        { text: "<strong>Tell her</strong> she's being overprotective.", quality: "worst",
+        { text: "<strong>Tell her she's being</strong> overprotective and needs to relax &mdash; the baby is fine right now in this moment.", quality: "worst",
           feedback: "Shaming a first-time parent for caring. Don't." },
-        { text: "<strong>Suggest she sleep when baby sleeps.</strong>", quality: "poor",
+        { text: "<strong>Suggest she sleep</strong> when baby sleeps &mdash; that's the classic advice and it should help her with rest.", quality: "poor",
           feedback: "Classic advice that misses the issue. She can't sleep because every sound wakes her. Address the cause." },
-        { text: "<strong>Ask if anyone else can take night shifts</strong> so she can get a stretch of sleep.", quality: "good",
+        { text: "<strong>Ask if anyone else</strong> can take a night shift so she can get a stretch of real, uninterrupted sleep.", quality: "good",
           feedback: "Practical. Combine with the normalization in option A." }
       ]
     }
@@ -1377,17 +1379,17 @@ const DECISIONS = {
       scene: "Right after birth, {name} starts hemorrhaging. The room shifts. Nurses are pushing meds and calling for blood products.",
       question: "What's your role right now?",
       options: [
-        { text: "<strong>Stay close, take baby</strong> (with consent) so the team can work. Keep talking to {name} in a steady voice so she knows where you and baby are.", quality: "best",
+        { text: "<strong>Stay close, take baby</strong> with consent so the team can work. Keep talking to {name} so she knows where you and baby are.", quality: "best",
           feedback: "You're continuity in chaos. Holding baby while narrating presence to {name} is exactly the doula's lane in an emergency." },
-        { text: "<strong>Try to help</strong> with the hemorrhage protocol.", quality: "worst",
+        { text: "<strong>Try to help the medical team</strong> with the hemorrhage protocol so the work gets done faster and she stabilizes sooner.", quality: "worst",
           feedback: "Outside scope. You'll get in the way. The team needs clear space." },
-        { text: "<strong>Step out of the room</strong> to give space.", quality: "poor",
+        { text: "<strong>Step out of the room</strong> to give the team space to manage the emergency without you in the way.", quality: "poor",
           feedback: "She needs you more, not less. Move to her head, not out the door." },
-        { text: "<strong>Comfort the partner</strong> who's in shock.", quality: "good",
+        { text: "<strong>Comfort the partner</strong> who's in shock and needs someone steady while the team is working on {name}.", quality: "good",
           feedback: "Important if partner is overwhelmed. {name} usually comes first.",
           replaceIf: {
             noPartner: {
-              text: "<strong>Comfort her support person</strong> who's in shock.",
+              text: "<strong>Comfort her support person</strong> who's in shock and needs someone steady while the team is working on {name}.",
               feedback: "Important if her support person is overwhelmed. {name} still comes first; coach the support person in the next breath."
             }
           }
@@ -1400,13 +1402,13 @@ const DECISIONS = {
       scene: "Day 4 postpartum. Baby has lost 9% birth weight. The pediatrician suggested formula. {name} is in tears, telling you she feels like a failure.",
       question: "What do you say first?",
       options: [
-        { text: "<strong>Validate, then assess.</strong> \"This is so hard. You are not failing. Let's look at what's happening with the latch.\"", quality: "best",
+        { text: "<strong>Validate first, then assess.</strong> \"This is so hard. You are not failing. Let's look at what's actually happening with the latch.\"", quality: "best",
           feedback: "Validation first, technical second. Lets her hear the practical help that follows." },
-        { text: "<strong>Formula is fine.</strong> \"Don't worry about it.\"", quality: "poor",
+        { text: "<strong>Tell her formula is fine</strong> and to stop worrying about whether breastfeeding is working out the way she had hoped.", quality: "poor",
           feedback: "Dismisses her goal. Sit with the feeling first." },
-        { text: "<strong>You have to keep breastfeeding.</strong>", quality: "worst",
+        { text: "<strong>Tell her she has to keep breastfeeding</strong> and not give up just because of this one rough patch with feeding.", quality: "worst",
           feedback: "Pressures her at a vulnerable moment. Out of scope to set her feeding goals." },
-        { text: "<strong>Call the lactation consultant</strong> right now.", quality: "poor",
+        { text: "<strong>Call the lactation consultant</strong> right now, before saying anything else, so professional help is on the way to her.", quality: "poor",
           feedback: "Right referral, wrong timing. Acknowledge feelings first, then refer." }
       ]
     },
@@ -1416,13 +1418,13 @@ const DECISIONS = {
       scene: "At day 8, {name} is crying and tells you she doesn't feel anything for the baby.",
       question: "What do you say?",
       options: [
-        { text: "<strong>Take her seriously.</strong> \"Thank you for telling me. Let's talk about what 'nothing' feels like, and when we should call your provider.\"", quality: "best",
+        { text: "<strong>Take her seriously.</strong> \"Thank you for telling me. Let's talk about what 'nothing' feels like, and when to call your provider.\"", quality: "best",
           feedback: "Day 8 numbness is a red flag for PPD or PPP. Don't dismiss, don't catastrophize. Listen, assess, screen for safety, refer." },
-        { text: "<strong>Reassure her</strong> baby blues are normal at this stage.", quality: "poor",
+        { text: "<strong>Reassure her quickly</strong> that baby blues are normal at this stage and the feeling will pass within a few weeks.", quality: "poor",
           feedback: "Could be baby blues, could be something more. Don't normalize before you've assessed." },
-        { text: "<strong>Tell her</strong> she'll love the baby eventually.", quality: "worst",
+        { text: "<strong>Tell her she'll love the baby</strong> eventually &mdash; the feelings will come once she gets more sleep and recovers.", quality: "worst",
           feedback: "Dismissive and potentially harmful. What matters is care, not feeling." },
-        { text: "<strong>Offer the Edinburgh (EPDS) screening tool</strong> and walk through it together.", quality: "good",
+        { text: "<strong>Offer the Edinburgh (EPDS)</strong> screening tool and walk through it with her right now together, gently.", quality: "good",
           feedback: "Right instinct. Validate first, then screen. Don't skip the emotional acknowledgment." }
       ]
     },
@@ -1432,13 +1434,13 @@ const DECISIONS = {
       scene: "At her 2-week postpartum visit, everything is going perfectly. {name} asks you to come to every pediatric appointment with her, for years.",
       question: "What do you say?",
       options: [
-        { text: "<strong>Honor the bond, name the boundary.</strong> \"I'm so glad this felt good. Our work together wraps at six weeks postpartum, but I'm always a text away if something big comes up.\"", quality: "best",
+        { text: "<strong>Honor it, name the boundary.</strong> \"I'm so glad this felt good. Our work wraps at six weeks, but I'm always a text away.\"", quality: "best",
           feedback: "You don't reject her affection; you honor it AND model healthy professional boundaries. That itself is a postpartum teaching moment." },
-        { text: "<strong>Say yes</strong> to keep her happy.", quality: "worst",
+        { text: "<strong>Say yes</strong> to keep her happy &mdash; she's so attached and you don't want to disappoint her after such a sweet birth.", quality: "worst",
           feedback: "Out of scope and unsustainable. You'll burn out, the boundary will collapse, and she'll feel rejected when it does." },
-        { text: "<strong>Say no</strong> firmly and move on.", quality: "poor",
+        { text: "<strong>Decline firmly</strong> and move on without making her feel bad about asking for more time and support.", quality: "poor",
           feedback: "The boundary is right, but the warmth matters. Name what you appreciate about her ask before declining." },
-        { text: "<strong>Refer her to MHN</strong> for postpartum doula services or peer support.", quality: "good",
+        { text: "<strong>Refer her to MHN</strong> for postpartum doula services or peer support so the bond continues with someone else.", quality: "good",
           feedback: "Practical. Pair with option A's warmth so she doesn't feel rejected." }
       ]
     }
@@ -1594,6 +1596,11 @@ const state = {
   },
   currentStageIdx: 0
 };
+
+/* Replace {name} tokens with the actual client name throughout decisions */
+function fillName(s){
+  return String(s == null ? "" : s).replace(/\{name\}/g, escapeHTML(state.clientName || "your client"));
+}
 
 /* Fisher-Yates shuffle (used for randomizing decision option order) */
 function shuffleArr(a){
@@ -1930,10 +1937,11 @@ function buildDecisionCard(rollId, decision){
   card.className = "br-decision-card";
   card.dataset.decisionFor = rollId;
 
-  const sceneFilled = decision.scene.replace(/\{name\}/g, escapeHTML(state.clientName || "your client"));
+  const sceneFilled    = fillName(decision.scene);
+  const questionFilled = fillName(decision.question);
 
   /* Resolve replaceIf, then filter showIf, then shuffle so the best answer
-     isn't always option A. Click handlers index into `renderOptions`, not the original. */
+     isn't always option A. Click handlers index into `renderOptions`. */
   const renderOptions = shuffleArr(
     decision.options.map(resolveOption).filter(passShowIf)
   );
@@ -1941,7 +1949,7 @@ function buildDecisionCard(rollId, decision){
   const optionsHTML = renderOptions.map((opt, i) => `
     <button type="button" class="d-option" data-idx="${i}">
       <span class="dn">${"ABCD".charAt(i)}</span>
-      <span>${opt.text}</span>
+      <span>${fillName(opt.text)}</span>
     </button>
   `).join("");
 
@@ -1949,7 +1957,7 @@ function buildDecisionCard(rollId, decision){
     <div class="d-eyebrow"><i class="ico" data-lucide="${decision.type === 'brain' ? 'brain' : 'message-circle'}"></i>${decision.type === 'brain' ? 'BRAIN Decision' : 'What would you say?'}</div>
     <h4>${decision.heading}</h4>
     <p class="d-scene">${sceneFilled}</p>
-    <p class="d-question">${decision.question}</p>
+    <p class="d-question">${questionFilled}</p>
     <div class="d-options">${optionsHTML}</div>
     <button type="button" class="d-skip" data-skip>Skip this decision &rarr;</button>
     <div data-feedback-host></div>
@@ -1961,11 +1969,11 @@ function buildDecisionCard(rollId, decision){
       const picked = renderOptions[idx];
       state.decisions[rollId] = {
         heading: decision.heading,
-        question: decision.question,
+        question: questionFilled,
         scene: sceneFilled,
-        pickedText: picked.text,
+        pickedText: fillName(picked.text),
         quality: picked.quality,
-        feedback: picked.feedback
+        feedback: fillName(picked.feedback)
       };
       renderStorySidebar();
       const qualityIcon = { best:"check-circle", good:"thumbs-up", poor:"alert-circle", worst:"x-circle" }[picked.quality];
@@ -1974,7 +1982,7 @@ function buildDecisionCard(rollId, decision){
       fbHost.innerHTML = `
         <div class="d-feedback q-${picked.quality}">
           <div class="fb-label"><i class="ico" data-lucide="${qualityIcon}"></i>${qualityLabel}</div>
-          <p>${picked.feedback}</p>
+          <p>${fillName(picked.feedback)}</p>
         </div>
       `;
       // Disable other options visually
