@@ -805,166 +805,607 @@ const REFLECTIONS = {
    quality: "best" | "good" | "poor" | "worst"
    ============================================================ */
 const DECISIONS = {
+
+  /* =========== SETUP ROLLS =========== */
+  age: {
+    "0": { /* teen */
+      type: "wtys",
+      heading: "Doula moment: \"You're awfully young\"",
+      scene: "{name} is 16. The medical assistant just looked at her and said, \"You're awfully young to be doing this on your own.\"",
+      question: "What do you do?",
+      options: [
+        { text: "<strong>Step in gently.</strong> \"I'm her doula. I'm here to support her today. Can we focus on her appointment?\"", quality: "best",
+          feedback: "You redirect without escalating and re-center {name}. You also model for her that she's allowed to shut down comments like that." },
+        { text: "<strong>Stay silent</strong> and let {name} handle it.", quality: "poor",
+          feedback: "She's 16 in a power-imbalanced room. Doula presence sometimes means being the social cover she doesn't yet know how to ask for." },
+        { text: "<strong>Confront the MA</strong> and demand an apology.", quality: "poor",
+          feedback: "Right impulse, wrong timing. Address it after the visit with the clinic manager if it warrants it &mdash; don't put {name} in the middle of conflict." },
+        { text: "<strong>Agree</strong> and ask {name} if she's considered adoption.", quality: "worst",
+          feedback: "Catastrophic projection and a scope violation. {name} chose to keep this pregnancy; your job is to honor that, not interrogate it." }
+      ]
+    },
+    "5": { /* 40+ */
+      type: "wtys",
+      heading: "Doula moment: \"Geriatric pregnancy\"",
+      scene: "{name} is 41. Her OB used the words \"geriatric pregnancy\" three times today. She's in your car saying she feels like a problem.",
+      question: "What do you say?",
+      options: [
+        { text: "<strong>Name what hurt.</strong> \"It's clinical language, but it lands hard. You are not a problem &mdash; you're a healthy woman who happens to be 41.\"", quality: "best",
+          feedback: "You validate the wound first. The clinical word is real, but it doesn't define her." },
+        { text: "<strong>You're not old.</strong> \"Forty is the new thirty.\"", quality: "poor",
+          feedback: "Dismissive. Validate first, reassure second." },
+        { text: "<strong>The doctor was right.</strong> \"Forty-plus is high-risk &mdash; you should be prepared.\"", quality: "worst",
+          feedback: "You sided with the language that hurt her. Even if the risk is real, this is not a teaching moment about risk." },
+        { text: "<strong>Offer to advocate</strong> at the next appointment for different language.", quality: "good",
+          feedback: "Practical and supportive. Pair it with emotional acknowledgment first, then move to the plan." }
+      ]
+    }
+  },
+
+  parity: {
+    "1": { /* prior loss */
+      type: "wtys",
+      heading: "Doula moment: Anatomy scan after loss",
+      scene: "{name} is heading into her 20-week scan. Her last pregnancy ended at 19 weeks. She's gripping the armrests and won't talk.",
+      question: "What do you say or do?",
+      options: [
+        { text: "<strong>Sit close, don't fill the silence.</strong> \"I'm here. We'll walk in together.\"", quality: "best",
+          feedback: "Presence without pressure. Her grip on the chair tells you she wants someone close." },
+        { text: "<strong>Try to distract her</strong> with small talk.", quality: "poor",
+          feedback: "Distraction feels dismissive when grief is this close. She's not avoiding her feelings &mdash; she's bracing for them." },
+        { text: "<strong>Remind her</strong> this is a different pregnancy and the odds are good.", quality: "worst",
+          feedback: "Logical, emotionally tone-deaf. Statistics don't soothe loss anxiety." },
+        { text: "<strong>Offer to leave</strong> if she wants privacy.", quality: "poor",
+          feedback: "Reading her well, but her body language says she wants someone near. Stay until she asks you to step away." }
+      ]
+    },
+    "3|4": { /* third+ baby, fast labor risk */
+      type: "brain",
+      heading: "Doula moment: Multip with fast labor history",
+      scene: "{name}'s last baby came in 90 minutes. She lives 35 minutes from the hospital. She just texted: contractions started 20 minutes ago, 4 minutes apart.",
+      question: "What do you tell her right now?",
+      options: [
+        { text: "<strong>Leave for the hospital now.</strong> \"Call your provider on the way. I'll meet you there.\"", quality: "best",
+          feedback: "Decisive and scope-appropriate. You're naming the logistical reality of her birth history, not making a medical call." },
+        { text: "<strong>Time them for another hour</strong> and see if they get closer.", quality: "worst",
+          feedback: "She doesn't have another hour. Waiting on the 4-1-1 rule here could mean a roadside birth." },
+        { text: "<strong>Call her provider first</strong> and let them decide.", quality: "good",
+          feedback: "Reasonable, but encourage her to leave WHILE she's on the phone. Time is the issue." },
+        { text: "<strong>Drive to her house</strong> and labor at home as long as you can.", quality: "worst",
+          feedback: "Outside doula scope unless this is a planned home birth. You're not the safety net her provider is." }
+      ]
+    }
+  },
+
+  context: {
+    "0": { /* recent immigrant */
+      type: "wtys",
+      heading: "Doula moment: Language access",
+      scene: "At L&D the nurse is rattling off discharge instructions in fast English. {name}'s first language isn't English. She's nodding, but she's not following.",
+      question: "What do you do?",
+      options: [
+        { text: "<strong>Interrupt politely.</strong> \"Can we slow down and get a translator on the phone? I want {name} to have every word.\"", quality: "best",
+          feedback: "You advocate for her right to language access without speaking for her. Medical translator services are her right under federal law." },
+        { text: "<strong>Translate yourself</strong> if you speak some of her language.", quality: "poor",
+          feedback: "Even if you're conversational, medical translation requires precision you may not have. Use the certified service unless you're medically credentialed." },
+        { text: "<strong>Stay quiet</strong> and translate later from notes.", quality: "poor",
+          feedback: "She has the right to understand in the moment, not retroactively." },
+        { text: "<strong>Tell {name}</strong> she needs to learn more English.", quality: "worst",
+          feedback: "Out of scope, racist, and factually wrong. Federal law guarantees translator access." }
+      ]
+    },
+    "2": { /* low income / transportation */
+      type: "wtys",
+      heading: "Doula moment: Transportation crisis",
+      scene: "{name} just lost her ride to her 36-week appointment. No PTO left from work. The bus would take 90 minutes each way.",
+      question: "What do you offer?",
+      options: [
+        { text: "<strong>Problem-solve together.</strong> \"Can we look at the MHN ride list, or check if your clinic has telehealth for this visit? I can call with you.\"", quality: "best",
+          feedback: "You name the resources without taking over. You also validate that this is a real barrier, not a personal failing." },
+        { text: "<strong>Drive her yourself.</strong>", quality: "good",
+          feedback: "Generous, sometimes the right call. Check with MHN about insurance/liability first. Try systemic options before your own car." },
+        { text: "<strong>Tell her</strong> to skip the appointment.", quality: "worst",
+          feedback: "At 36 weeks, weekly visits matter. Skipping creates real clinical risk. Help her get there." },
+        { text: "<strong>Lecture her</strong> about the importance of prenatal care.", quality: "poor",
+          feedback: "She knows. She's trying to get there. Lecturing adds shame to a barrier that's already exhausting." }
+      ]
+    }
+  },
+
+  partner: {
+    "0": { /* absent */
+      type: "wtys",
+      heading: "Doula moment: \"I'm doing this alone\"",
+      scene: "{name} breaks down at 32 weeks. She tells you she didn't think she'd be doing this without him.",
+      question: "What do you say?",
+      options: [
+        { text: "<strong>Sit with her in it.</strong> \"Tell me what 'alone' means to you right now. Who do you wish was here?\"", quality: "best",
+          feedback: "You open space for the grief without rushing to fix it. Naming who's missing helps her process; it doesn't deepen the loneliness." },
+        { text: "<strong>You're not alone.</strong> \"You have me, and your sister, and your mom.\"", quality: "poor",
+          feedback: "Well-meaning, but it skips her feelings. She knows she has a village &mdash; she's grieving the one person who isn't in it." },
+        { text: "<strong>Try to find her a new partner.</strong> \"Have you thought about meeting someone?\"", quality: "worst",
+          feedback: "Catastrophically out of scope. Her grief about an absent partner is not a dating problem to solve. Step way back." },
+        { text: "<strong>Make a plan.</strong> \"Who do you want with you at the birth? Let's call them this week.\"", quality: "good",
+          feedback: "Practical and grounding. Use this AFTER she's had a chance to feel what she's feeling. Don't jump to action while the tears are still falling." }
+      ]
+    },
+    "1": { /* overwhelmed partner */
+      type: "wtys",
+      heading: "Doula moment: Partner keeps leaving",
+      scene: "{name}'s partner just stepped out of the labor room for the third time in an hour. {name} doesn't say anything but her face changes every time the door closes.",
+      question: "What do you do?",
+      options: [
+        { text: "<strong>Coach the partner.</strong> Step into the hall: \"It's a lot. Want me to walk you through what's coming next so it feels less scary?\"", quality: "best",
+          feedback: "You meet the partner where they are. Their fear is the issue, not their commitment. A doula who coaches partners protects them AND her." },
+        { text: "<strong>Tell the partner</strong> they need to stay in the room.", quality: "poor",
+          feedback: "Shaming a scared partner backfires. They'll freeze or leave and feel worse. Coach, don't command." },
+        { text: "<strong>Stay focused on {name}</strong> and let the partner figure it out.", quality: "poor",
+          feedback: "The partner IS part of your work, in a sense. Their state affects hers. A quick coaching moment helps both." },
+        { text: "<strong>Tell {name}</strong> her partner is being selfish.", quality: "worst",
+          feedback: "Projecting. You don't know what's happening for them. Your job isn't to grade her partner; it's to keep the team functional." }
+      ]
+    }
+  },
+
+  provider: {
+    "0": { /* intervention-heavy OB */
+      type: "brain",
+      heading: "Doula moment: Scheduling induction at 38 weeks",
+      scene: "At her 38-week visit the OB says, \"Let's schedule your induction for next Tuesday.\" {name} looks at you.",
+      question: "What's your role right here?",
+      options: [
+        { text: "<strong>Witness, take notes, quietly ask</strong> if she has questions. Debrief and prep for the next visit afterward.", quality: "best",
+          feedback: "You stay in scope, preserve her agency, and give her a teammate to debrief with. Don't make the call for her in the room." },
+        { text: "<strong>Speak up immediately</strong> for her.", quality: "worst",
+          feedback: "You bypassed her voice. Even if you know her preferences, putting words in her mouth in front of her provider takes her agency." },
+        { text: "<strong>Stay silent</strong> &mdash; this is medical.", quality: "poor",
+          feedback: "Withholding presence reads as abandonment. You can stay in scope while still being a visible support." },
+        { text: "<strong>Hand her a printed list</strong> of induction risks.", quality: "poor",
+          feedback: "Too directive and too late. Coach her to ask; don't argue for her with a flyer." }
+      ]
+    },
+    "3": { /* supportive OB asks doula's opinion */
+      type: "wtys",
+      heading: "Doula moment: Provider asks YOUR opinion",
+      scene: "At {name}'s visit, her supportive OB turns to you and asks, \"What do you think about her birth plan?\"",
+      question: "How do you respond?",
+      options: [
+        { text: "<strong>Redirect to {name}.</strong> \"Thank you for asking &mdash; but {name} is the one with the answers. {name}, tell us what feels most important to you.\"", quality: "best",
+          feedback: "Beautiful scope-preservation. You don't take the spotlight; you put it back where it belongs." },
+        { text: "<strong>Give your professional opinion</strong> about her birth preferences.", quality: "worst",
+          feedback: "You just stepped between {name} and her provider. Even from a good provider, this question is a trap. Don't take it." },
+        { text: "<strong>Decline politely.</strong> \"That's really {name}'s call. I'm here to support her in whatever she decides.\"", quality: "good",
+          feedback: "Solid and in-scope. A little more inviting language toward {name} would be even better." },
+        { text: "<strong>Say you don't have one</strong> and change the subject.", quality: "poor",
+          feedback: "Avoidant. The redirect doesn't have to be uncomfortable; you can simply put {name} back in the center." }
+      ]
+    }
+  },
+
+  /* =========== PREGNANCY ROLLS =========== */
+  maternal: {
+    "0": { /* high-risk preeclampsia (sum=2) */
+      type: "brain",
+      heading: "Doula moment: BP spike at 34 weeks",
+      scene: "{name}'s BP just spiked at her 34-week visit. The MFM specialist is recommending induction at 37 weeks. She wanted a vaginal birth at term.",
+      question: "What's your role?",
+      options: [
+        { text: "<strong>BRAIN the recommendation.</strong> Help her understand Benefits, Risks, Alternatives, her Intuition, and what \"nothing\" looks like in her clinical picture.", quality: "best",
+          feedback: "BRAIN works even when the recommendation is clinically sound. It helps her walk into it informed instead of swept up." },
+        { text: "<strong>Reassure her</strong> 37 weeks is full-term enough.", quality: "poor",
+          feedback: "Not your call to make. Clinically 37 weeks is early-term; emotionally it's a loss of the birth she planned." },
+        { text: "<strong>Tell her</strong> to refuse the induction.", quality: "worst",
+          feedback: "She has severe-range BP and an MFM team. Discouraging induction here could endanger her. Coach, don't decide." },
+        { text: "<strong>Validate first.</strong> \"This wasn't the plan, and it's okay to grieve that, even while you make a safe choice.\"", quality: "good",
+          feedback: "Wise emotional opener. Pair with BRAIN in the next breath so she has both the heart and the framework." }
+      ]
+    },
+    "4": { /* VBAC (sum=6), provider pressure */
+      type: "brain",
+      heading: "Doula moment: VBAC under pressure",
+      scene: "{name} is attempting a VBAC. At her 36-week visit, her provider hints \"maybe a repeat C-section would just be safer.\" {name} doesn't respond.",
+      question: "What do you do?",
+      options: [
+        { text: "<strong>Prep her for next time.</strong> After the visit: \"You went quiet in there. Let's BRAIN the recommendation and write down questions for next week.\"", quality: "best",
+          feedback: "You don't argue with the provider in the room. You arm {name} with questions for the next round, where she has time and voice back." },
+        { text: "<strong>Tell {name}</strong> the provider is wrong and she should switch.", quality: "worst",
+          feedback: "Switching providers at 36 weeks is a huge call you can't make for her. Surface options, don't pick them." },
+        { text: "<strong>Speak up in the room.</strong> \"She's planning a VBAC and would like to continue.\"", quality: "poor",
+          feedback: "Well-intentioned, but you spoke for her. Help her find her voice for next time, not borrow yours." },
+        { text: "<strong>Validate the silence.</strong> \"That was a hard moment. Want to talk about what came up?\"", quality: "good",
+          feedback: "Good emotional check-in. Combine with the BRAIN prep so she has both processing and a plan." }
+      ]
+    }
+  },
+
+  babyUtero: {
+    "0": { /* fetal anomaly */
+      type: "wtys",
+      heading: "Doula moment: Bad news at the scan",
+      scene: "At {name}'s 20-week scan, the radiologist tells her the baby has a serious heart defect. {name} is frozen in the chair.",
+      question: "What do you say in the next 30 seconds?",
+      options: [
+        { text: "<strong>Stay close, no words.</strong> A hand on hers if she wants it. \"I'm here.\"", quality: "best",
+          feedback: "In acute trauma, words are too much. Presence is the medicine. Processing comes later." },
+        { text: "<strong>Tell her</strong> babies with heart defects can have great outcomes now.", quality: "poor",
+          feedback: "True, but premature. She hasn't integrated the news. Information without acknowledgment lands as dismissal." },
+        { text: "<strong>Pull out your phone</strong> and research the condition.", quality: "worst",
+          feedback: "Be with her, not your screen. Research is for later. Your job is to be a steady human, not a search engine." },
+        { text: "<strong>Suggest she pray</strong> or call her pastor.", quality: "poor",
+          feedback: "Maybe right for some clients later, but projecting your framework now is wrong. Sit silent unless she opens the door." }
+      ]
+    },
+    "2": { /* breech */
+      type: "brain",
+      heading: "Doula moment: Breech and ECV",
+      scene: "{name}'s baby is breech at 36 weeks. Her provider is recommending an external cephalic version (ECV) next week. {name} is scared.",
+      question: "What do you offer?",
+      options: [
+        { text: "<strong>BRAIN the ECV,</strong> and surface Spinning Babies and chiropractic as physiologic options to ask the provider about.", quality: "best",
+          feedback: "You're not refusing the ECV, but you're naming there's a physiologic conversation worth having before she consents." },
+        { text: "<strong>Reassure her</strong> ECVs are quick and almost always work.", quality: "poor",
+          feedback: "Success rate is closer to 50-60%, and \"quick\" isn't always the experience. False reassurance breaks trust." },
+        { text: "<strong>Tell her</strong> to refuse the ECV and try Spinning Babies first.", quality: "worst",
+          feedback: "Decision-making for her. Spinning Babies is real; the choice belongs to her and her provider. Surface, don't decide." },
+        { text: "<strong>Just listen.</strong> \"What's the part that's scariest?\"", quality: "good",
+          feedback: "Strong emotional opener. Combine with the BRAIN walk-through for both feeling and framework." }
+      ]
+    }
+  },
+
   pregnancyWellness: {
-    /* No or sporadic PNC: practice your first-meeting opener */
-    "0|1": {
+    "0|1": { /* no/sporadic PNC */
       type: "wtys",
       heading: "Doula moment: First meeting",
-      scene: "It's your first prenatal visit with {name}. She has limited or sporadic prenatal care up to this point, and she's wary of the medical system. She's holding her bag and won't quite sit down.",
+      scene: "It's your first prenatal visit with {name}. She has limited or sporadic prenatal care so far, and she's wary. She's holding her bag and won't quite sit down.",
       question: "What do you open with?",
       options: [
-        { text: "<strong>Tell me your story.</strong> How did you get to this appointment today?", quality: "best",
-          feedback: "Opens space for her to lead. You learn her history, her barriers, and what she's already navigating &mdash; all before you offer a single piece of advice. This is core trauma-informed doula practice." },
+        { text: "<strong>Tell me your story.</strong> \"How did you get to this appointment today?\"", quality: "best",
+          feedback: "Opens space for her to lead. You learn her history, her barriers, and what she's already navigating before you offer advice." },
         { text: "<strong>Let me explain what a doula does</strong> and how I'll support you.", quality: "poor",
-          feedback: "Centers your role before you understand hers. Save this for later in the visit, after she's been heard. Right now, she needs presence, not a job description." },
+          feedback: "Centers your role before you understand hers. Save this for later, after she's been heard." },
         { text: "<strong>What's your birth plan?</strong>", quality: "worst",
-          feedback: "Too far ahead. She's not ready for birth-plan conversations &mdash; she's still figuring out if she can trust you. A birth plan without trust is just paper." },
+          feedback: "Too far ahead. A birth plan without trust is just paper." },
         { text: "<strong>What are you most worried about?</strong>", quality: "good",
-          feedback: "Good open-ended question that meets her where she is. Slightly more directive than option A; you're naming the anxiety. Use this if she seems stuck or shut down." }
+          feedback: "Good open-ended question. Slightly more directive than A; you're naming the anxiety. Use this if she seems stuck." }
+      ]
+    },
+    "5": { /* holistic, 12-page birth plan */
+      type: "wtys",
+      heading: "Doula moment: Eye-rolling at the birth plan",
+      scene: "{name} has a 12-page birth plan. At L&D triage, the nurse just rolled her eyes at it. {name} saw.",
+      question: "What do you do?",
+      options: [
+        { text: "<strong>Note it, work the room now.</strong> Stay focused on {name}'s coping. Once labor is established, debrief with her on how she wants it handled.", quality: "best",
+          feedback: "Don't escalate in active triage. Note it, name it later. Your loyalty is to her labor first." },
+        { text: "<strong>Confront the nurse</strong> on the spot.", quality: "poor",
+          feedback: "You'll alienate the team she'll need for 12 hours. Channel that energy into advocating for the actual plan." },
+        { text: "<strong>Tell {name}</strong> her birth plan is too long.", quality: "worst",
+          feedback: "She spent months on it. This is not the moment for editing notes. Honor it." },
+        { text: "<strong>Hand the plan</strong> to a friendlier nurse if a shift change is near.", quality: "good",
+          feedback: "Pragmatic. Quietly find an ally. Don't make this {name}'s problem to solve mid-contraction." }
       ]
     }
   },
+
+  /* =========== LABOR ROLLS =========== */
   laborStart: {
-    /* Induction */
-    "1": {
-      type: "brain",
-      heading: "Doula moment: BRAIN the induction",
-      scene: "{name}'s provider just walked in and said: \"You're 39 weeks. Let's get this baby out today. We'll start Pitocin at noon.\" {name} turns to you with wide eyes.",
-      question: "What's your move?",
-      options: [
-        { text: "<strong>Pause and walk her through BRAIN</strong> &mdash; \"Let's slow down. Before we say yes, can we talk through Benefits, Risks, Alternatives, your Intuition, and what happens if we do Nothing?\"", quality: "best",
-          feedback: "Textbook doula coaching. BRAIN is the framework MHN teaches because it puts the client back in the driver's seat without pulling you outside your scope. You're not refusing the induction &mdash; you're slowing down the decision." },
-        { text: "<strong>Acknowledge the moment first.</strong> \"I can see that caught you off guard. Take a breath. What do you want to ask him?\"", quality: "good",
-          feedback: "Strong emotional check-in. Use this if she seems flooded. Pair it with BRAIN as the next step once she's grounded again." },
-        { text: "<strong>Tell her not to do the induction.</strong> \"Pitocin is risky &mdash; refuse it.\"", quality: "worst",
-          feedback: "Outside doula scope. You're giving medical advice and overriding her autonomy. Even if you have concerns, your job is to surface her questions, not to make her decision for her." },
-        { text: "<strong>Reassure her the doctor knows best</strong> and she should agree.", quality: "worst",
-          feedback: "Also outside scope &mdash; in the opposite direction. You're stripping her agency and treating the provider as the authority on her body. Informed consent requires her voice in the room." }
-      ]
-    },
-    /* Preterm labor */
-    "0": {
+    "0": { /* preterm */
       type: "wtys",
       heading: "Doula moment: Preterm",
-      scene: "{name}'s water just broke at 33 weeks. She's gripping your arm and crying that it's too early. The L&D nurse is checking vitals on the other side of the bed.",
+      scene: "{name}'s water just broke at 33 weeks. She's gripping your arm and crying that it's too early.",
       question: "What do you say first?",
       options: [
-        { text: "<strong>You are not alone in this.</strong> I am right here. We are going to take this one breath at a time.", quality: "best",
-          feedback: "Presence first. You name what's true &mdash; she's not alone &mdash; without making promises about outcomes. This is the steady, doula-anchored language that grounds a panicked client." },
-        { text: "<strong>Everything is going to be fine.</strong> Don't worry, the doctors will handle it.", quality: "worst",
-          feedback: "False reassurance you cannot guarantee. At 33 weeks the baby may need NICU; you don't know yet. Promises like this break trust if the outcome is hard." },
-        { text: "<strong>Tell me what you're feeling in your body right now.</strong>", quality: "good",
-          feedback: "Grounding through somatic awareness. Useful if she's dissociating, but in an acute moment, she may not be able to answer. Better as a second-round prompt after the first reassurance lands." },
+        { text: "<strong>You are not alone.</strong> \"I am right here. We are going to take this one breath at a time.\"", quality: "best",
+          feedback: "Presence first. You name what's true without making promises about outcomes." },
+        { text: "<strong>Everything is going to be fine.</strong>", quality: "worst",
+          feedback: "False reassurance you cannot guarantee. At 33 weeks the baby may need NICU. Promises like this break trust." },
+        { text: "<strong>Tell me what you feel in your body.</strong>", quality: "good",
+          feedback: "Somatic grounding. Useful, but in acute panic she may not answer. Better as a second-round prompt." },
         { text: "<strong>Stay quiet</strong> and let the medical team work.", quality: "poor",
-          feedback: "Stepping back is appropriate during medical procedures, but in this moment she's actively reaching for you. Withholding presence reads as abandonment. Be the steady voice while the team works." }
+          feedback: "She's reaching for you. Be the steady voice while the team works." }
+      ]
+    },
+    "1": { /* induction */
+      type: "brain",
+      heading: "Doula moment: BRAIN the induction",
+      scene: "{name}'s provider just said: \"You're 39 weeks. Let's get this baby out today. We'll start Pitocin at noon.\" She turns to you wide-eyed.",
+      question: "What's your move?",
+      options: [
+        { text: "<strong>Walk her through BRAIN.</strong> \"Before we say yes, can we talk Benefits, Risks, Alternatives, your Intuition, and what happens if we do Nothing?\"", quality: "best",
+          feedback: "Textbook doula coaching. You're not refusing the induction &mdash; you're slowing down the decision." },
+        { text: "<strong>Acknowledge first.</strong> \"That caught you off guard. Take a breath. What do you want to ask him?\"", quality: "good",
+          feedback: "Strong emotional check-in. Pair with BRAIN as the next step." },
+        { text: "<strong>Tell her not to do it.</strong>", quality: "worst",
+          feedback: "Outside scope. You're giving medical advice and overriding her autonomy." },
+        { text: "<strong>Reassure her</strong> the doctor knows best.", quality: "worst",
+          feedback: "Strips her agency the other way. Informed consent requires her voice." }
+      ]
+    },
+    "2": { /* water breaks first */
+      type: "brain",
+      heading: "Doula moment: Water broke, no contractions",
+      scene: "{name}'s water broke at 39+5. No contractions yet. She's asking whether to call her provider or wait.",
+      question: "What do you tell her?",
+      options: [
+        { text: "<strong>Call your provider now.</strong> \"They'll want to know. Then you and they decide together about timing.\"", quality: "best",
+          feedback: "Name the protocol (call the provider), don't make the clinical call yourself." },
+        { text: "<strong>Don't worry, wait it out.</strong>", quality: "worst",
+          feedback: "PROM has time-sensitive protocols. The provider needs to know." },
+        { text: "<strong>Try nipple stimulation</strong> to start contractions.", quality: "poor",
+          feedback: "Maybe okay eventually, but only after the provider has been consulted. Don't skip the phone call." },
+        { text: "<strong>Drive straight to L&D.</strong>", quality: "good",
+          feedback: "Often the right destination, but call her provider first so she's not just walking in cold." }
+      ]
+    },
+    "5": { /* precipitous */
+      type: "wtys",
+      heading: "Doula moment: Precipitous labor",
+      scene: "{name}'s contractions started 30 minutes ago and are 2 minutes apart, hard. She's not sure she can make it to the hospital.",
+      question: "What do you do?",
+      options: [
+        { text: "<strong>Leave for the hospital now.</strong> Call her provider on the way.", quality: "best",
+          feedback: "Don't overthink it. Get her toward medical care while it's still possible." },
+        { text: "<strong>Stay home and call 911.</strong>", quality: "good",
+          feedback: "Only if labor is clearly imminent (head visible, urge to push). Otherwise, get in the car." },
+        { text: "<strong>Time them for another 15 minutes.</strong>", quality: "worst",
+          feedback: "She doesn't have 15 minutes. Precipitous birth is the signal &mdash; act." },
+        { text: "<strong>Catch the baby at home yourself.</strong>", quality: "worst",
+          feedback: "Outside scope unless this is a planned home birth with a midwife." }
       ]
     }
   },
+
   laborProgress: {
-    /* Labor stalls */
-    "0": {
+    "0": { /* labor stalls */
       type: "brain",
       heading: "Doula moment: BRAIN the augmentation",
-      scene: "{name} is at 6 cm. Dilation has been stalled for three hours. The provider is in the hall saying \"We need to start Pitocin to get things moving.\"",
+      scene: "{name} is at 6 cm. Dilation has been stalled for three hours. Provider is in the hall saying \"We need Pitocin.\"",
       question: "Before {name} decides, what do you do?",
       options: [
-        { text: "<strong>Run BRAIN with her</strong> on the Pitocin recommendation, and gently surface position changes (side-lying release, walking, Spinning Babies) as an alternative to ask the provider about.", quality: "best",
-          feedback: "You're staying in scope by not refusing for her, but surfacing real alternatives is fair game. The doula's job is to make sure she walks into the decision with options on the table." },
-        { text: "<strong>Encourage her to keep laboring naturally</strong> and refuse the Pitocin.", quality: "worst",
-          feedback: "Decision-making for her. Even if you suspect she'd benefit from more time, the choice belongs to her and her provider. Surface, don't decide." },
+        { text: "<strong>Run BRAIN with her,</strong> and surface position changes (side-lying release, walking, Spinning Babies) as alternatives.", quality: "best",
+          feedback: "You're not refusing for her, but real alternatives are fair game. Surface options before she consents." },
+        { text: "<strong>Tell her</strong> to refuse the Pitocin.", quality: "worst",
+          feedback: "Decision-making for her. Surface, don't decide." },
         { text: "<strong>Stay quiet</strong> &mdash; this is the provider's call.", quality: "poor",
-          feedback: "Disengaging. The provider's recommendation isn't the end of the conversation; it's the start. Your job is to make sure {name} has a chance to ask questions before consenting." },
-        { text: "<strong>Tell her Pitocin is fine</strong> and she should agree.", quality: "worst",
-          feedback: "Outside scope. You don't know her full chart, you can't predict baby's response to augmentation, and you're stripping her informed consent. Coach the conversation, don't make the call." }
+          feedback: "Disengaging. The recommendation isn't the end of the conversation." },
+        { text: "<strong>Tell her</strong> Pitocin is fine and she should agree.", quality: "worst",
+          feedback: "Outside scope. Coach the conversation; don't make the call." }
       ]
     },
-    /* Fetal distress */
-    "2": {
+    "1": { /* maternal exhaustion */
+      type: "wtys",
+      heading: "Doula moment: \"I can't do this anymore\"",
+      scene: "{name} has been in labor 18 hours, refusing the epidural she said she wanted. She's crying that she can't do this anymore.",
+      question: "What do you say?",
+      options: [
+        { text: "<strong>Reflect her own words back.</strong> \"You told me you wanted an epidural. Is that still what you want, or do you want to try a different position first?\"", quality: "best",
+          feedback: "You bring her own plan back without pushing. Choice is hers; you remind her she made one." },
+        { text: "<strong>Tell her</strong> to get the epidural now.", quality: "poor",
+          feedback: "Decision-making for her. She may be in transition, where people say \"I can't\" minutes before pushing. Reflect, don't push." },
+        { text: "<strong>Tell her</strong> she can do it &mdash; she's strong.", quality: "poor",
+          feedback: "Well-meaning, but it overrides her stated experience. \"I can't\" deserves to be heard, not contradicted." },
+        { text: "<strong>Try one comfort measure first</strong> &mdash; hip squeezes, water, position change &mdash; then re-ask.", quality: "good",
+          feedback: "Solid. Try one tool, then check in. Don't stack 5 interventions on a person saying she's done." }
+      ]
+    },
+    "2": { /* fetal distress */
       type: "wtys",
       heading: "Doula moment: Fetal distress",
       scene: "{name}'s baby is showing decelerations on the monitor. The nurse is calling for the provider. The room temperature just changed.",
       question: "What do you do in this 30-second window?",
       options: [
-        { text: "<strong>Help her change positions</strong> (hands and knees, left side) and put a hand on her shoulder so she knows where you are.", quality: "best",
-          feedback: "Position changes are first-line for fetal heart rate concerns and are within doula scope. Pairing the physical with a grounding hand gives her information through touch when words are too much." },
+        { text: "<strong>Help her change positions</strong> (hands and knees, left side) and put a hand on her shoulder.", quality: "best",
+          feedback: "Position changes are first-line for FHR concerns and within scope. Touch gives information when words are too much." },
         { text: "<strong>Tell her not to panic</strong> &mdash; it's probably nothing.", quality: "worst",
-          feedback: "Dismisses what's real in the room and breaks trust when the team starts moving fast. Even if it resolves, she felt the temperature change and needs you to acknowledge it." },
+          feedback: "Dismisses what's real. Even if it resolves, she felt the room change." },
         { text: "<strong>Step back</strong> and let the medical team work.", quality: "good",
-          feedback: "Appropriate in some emergent moments, but here you can stay close without interfering. Position changes are still doula scope &mdash; suggest them before stepping back fully." },
-        { text: "<strong>Try to comfort her partner</strong> who is also panicking.", quality: "good",
-          feedback: "Helpful if she has support staff who will stay with her body. If you're her primary presence, prioritize her first. You can coach the partner in the next breath." }
-      ]
-    }
-  },
-  birth: {
-    /* Emergency C-section */
-    "0": {
-      type: "wtys",
-      heading: "Doula moment: Emergency C-section",
-      scene: "The team is moving {name} to the OR. They have about 60 seconds before they wheel her away. Her partner is asking what's happening.",
-      question: "What do you say to her in this window?",
-      options: [
-        { text: "<strong>Name what's happening, plainly.</strong> \"Your baby needs help right now. The team is doing a C-section to bring baby out quickly. You are going to be okay. I'll be here when you come back.\"", quality: "best",
-          feedback: "You give her language for what's real. You don't promise the baby will be fine &mdash; you don't know that. But you anchor her body (\"you are going to be okay\") and you tell her where you'll be." },
-        { text: "<strong>Promise everything will be fine.</strong>", quality: "poor",
-          feedback: "False reassurance. You don't know the outcome. If something goes wrong, your promise breaks the trust you'll need to support her postpartum." },
-        { text: "<strong>Coach her partner</strong> to advocate to be present in the OR if the situation allows.", quality: "good",
-          feedback: "If the partner is the one staying back and {name}'s teammate, this is the right move. Hospital policy varies, but partners can often scrub in for a non-general-anesthesia C-section." },
-        { text: "<strong>Stay quiet</strong> and let the medical team work.", quality: "poor",
-          feedback: "She needs words in this moment, not silence. Plain, calm language is the doula contribution even when the medical team is in motion." }
+          feedback: "Appropriate sometimes, but you can stay close without interfering. Position changes are still scope." },
+        { text: "<strong>Comfort the panicking partner</strong> first.", quality: "good",
+          feedback: "{name}'s body comes first; coach the partner in the next breath." }
       ]
     },
-    /* Ideal birth */
-    "5": {
+    "5": { /* forceps / vacuum */
       type: "wtys",
-      heading: "Doula moment: After the dream birth",
-      scene: "{name} just had the birth she pictured. Baby is on her chest. The room is quiet. The provider is finishing up.",
-      question: "What do you do in the next hour?",
+      heading: "Doula moment: \"They're reaching for forceps\"",
+      scene: "Provider is reaching for forceps. {name} is panicking. You have about 20 seconds.",
+      question: "What do you say?",
       options: [
-        { text: "<strong>Stay close, stay quiet.</strong> Protect the golden hour &mdash; lights low, voices low, baby skin-to-skin, nothing rushed.", quality: "best",
-          feedback: "Sometimes the doula's best move is to disappear into the background and let the moment unfold. Holding space without filling it is a skill." },
-        { text: "<strong>Start a long conversation</strong> about how the birth felt.", quality: "poor",
-          feedback: "Processing comes later. Right now her oxytocin is flooding, baby is meeting her for the first time. Don't interrupt with reflection &mdash; the debrief can wait." },
-        { text: "<strong>Help with the first latch</strong> if she's ready.", quality: "good",
-          feedback: "Right call if baby is alert and rooting. Be guided by her cues, not yours; don't push if mom and baby are just being together." },
-        { text: "<strong>Text her family the news</strong> so she doesn't have to.", quality: "good",
-          feedback: "Practical help that keeps her in the bubble. Ask first &mdash; some families want to share themselves. But offering is generous." }
+        { text: "<strong>Name what's happening.</strong> \"They're using forceps to help baby out. Look at me. Keep pushing with the next contraction.\"", quality: "best",
+          feedback: "Information plus instruction. You give her something to do (push) and a steady gaze." },
+        { text: "<strong>Tell her</strong> to refuse the forceps.", quality: "worst",
+          feedback: "Out of scope. Forceps may be the safest option right now. Don't override the medical decision." },
+        { text: "<strong>Stay quiet</strong> while they work.", quality: "poor",
+          feedback: "She needs words. Plain language steadies her body." },
+        { text: "<strong>Tell her</strong> everything will be fine.", quality: "poor",
+          feedback: "You don't know that. Stay with what's true: \"They're helping baby. Keep pushing.\"" }
       ]
     }
   },
+
+  /* =========== BIRTH ROLL =========== */
+  birth: {
+    "0": { /* emergency C-section */
+      type: "wtys",
+      heading: "Doula moment: Emergency C-section",
+      scene: "The team is moving {name} to the OR. They have 60 seconds before they wheel her away. Her partner is asking what's happening.",
+      question: "What do you say to her?",
+      options: [
+        { text: "<strong>Name what's happening, plainly.</strong> \"Your baby needs help right now. The team is doing a C-section. You are going to be okay. I'll be here when you come back.\"", quality: "best",
+          feedback: "Plain language anchors her body. You don't promise outcomes &mdash; you tell her where you'll be." },
+        { text: "<strong>Promise everything will be fine.</strong>", quality: "poor",
+          feedback: "False reassurance. Breaks trust if something goes wrong." },
+        { text: "<strong>Coach her partner</strong> to be in the OR if possible.", quality: "good",
+          feedback: "Right move if partner is her teammate. Many hospitals allow partners in for non-general C-sections." },
+        { text: "<strong>Stay quiet</strong> and let the team work.", quality: "poor",
+          feedback: "She needs words now, not silence." }
+      ]
+    },
+    "1": { /* assisted vaginal (vacuum) */
+      type: "wtys",
+      heading: "Doula moment: Vacuum extraction",
+      scene: "Baby's heart rate is dropping. Provider is reaching for the vacuum. {name} is pushing hard and starting to panic.",
+      question: "What do you do?",
+      options: [
+        { text: "<strong>Anchor her.</strong> Eye contact, one hand on her shoulder: \"They're using a vacuum to help baby out faster. Keep pushing with me.\"", quality: "best",
+          feedback: "Information plus presence plus instruction. Three doula moves in one breath." },
+        { text: "<strong>Tell her</strong> to stop pushing while the vacuum is used.", quality: "worst",
+          feedback: "Wrong. With vacuum or forceps, providers usually want her to push WITH the assist. Don't contradict." },
+        { text: "<strong>Step back</strong> and let the team work.", quality: "poor",
+          feedback: "Stay at her head and keep her grounded." },
+        { text: "<strong>Tell her</strong> it's almost over &mdash; one more push.", quality: "good",
+          feedback: "Useful, just make sure it's true. Don't say \"one more push\" five times in a row." }
+      ]
+    },
+    "2": { /* minor tearing, suturing */
+      type: "wtys",
+      heading: "Doula moment: Tears during suturing",
+      scene: "Provider is suturing a 2nd-degree tear. {name} is crying, but baby is on her chest and latching.",
+      question: "What do you say?",
+      options: [
+        { text: "<strong>Acknowledge the tears.</strong> \"You did it. The hard part is done. The crying is okay &mdash; you can feel all of it.\"", quality: "best",
+          feedback: "You give permission to feel the full range. Joy, relief, and shock often arrive together. Don't make her pick one." },
+        { text: "<strong>Distract her with baby.</strong> \"Look at your beautiful baby!\"", quality: "poor",
+          feedback: "Well-meant but bypasses what she's feeling. Baby IS there &mdash; acknowledge the tears too." },
+        { text: "<strong>Stay quiet</strong> and let her have the moment.", quality: "good",
+          feedback: "Reasonable if her tears feel like release. Read the room &mdash; if she looks at you, meet her eyes." },
+        { text: "<strong>Tell her</strong> the tear isn't a big deal.", quality: "worst",
+          feedback: "Minimizing. Her body just opened in a way she can't reverse. It's a big deal. Name it." }
+      ]
+    },
+    "3": { /* smooth vaginal birth */
+      type: "wtys",
+      heading: "Doula moment: \"I did it\"",
+      scene: "{name} just gave birth. Baby is latching. She turns to you and says, \"I did it.\"",
+      question: "What do you say?",
+      options: [
+        { text: "<strong>You did.</strong> Three words. Eye contact. Stay close.", quality: "best",
+          feedback: "She doesn't need a speech. She needs witness. \"You did\" is the entire response." },
+        { text: "<strong>Launch into</strong> how proud you are and how amazing she was.", quality: "poor",
+          feedback: "Well-meant but it makes the moment about your feelings. Mirror her words back; let her own the moment." },
+        { text: "<strong>Take a photo</strong> right away.", quality: "good",
+          feedback: "Photos are great. Ask first, and don't pull the phone before she's landed in her body." },
+        { text: "<strong>Start narrating</strong> what just happened (\"You were 8 cm at...\").", quality: "poor",
+          feedback: "The birth story comes later. Right now she's still in the moment. Be in it with her." }
+      ]
+    },
+    "5": { /* ideal birth, golden hour */
+      type: "wtys",
+      heading: "Doula moment: Golden hour",
+      scene: "{name} just had the birth she pictured. Baby is on her chest. The room is quiet.",
+      question: "What do you do in the next hour?",
+      options: [
+        { text: "<strong>Stay close, stay quiet.</strong> Lights low, voices low, baby skin-to-skin. Nothing rushed.", quality: "best",
+          feedback: "Sometimes the best doula move is to disappear and let the moment unfold." },
+        { text: "<strong>Start a long conversation</strong> about how the birth felt.", quality: "poor",
+          feedback: "Processing comes later. Oxytocin is flooding. Don't interrupt." },
+        { text: "<strong>Help with the first latch</strong> if she's ready.", quality: "good",
+          feedback: "Right call if baby is rooting. Be guided by her cues." },
+        { text: "<strong>Text her family</strong> so she doesn't have to.", quality: "good",
+          feedback: "Practical. Ask first &mdash; some families want to share themselves." }
+      ]
+    }
+  },
+
+  /* =========== POSTPARTUM ROLLS =========== */
+  newborn: {
+    "0": { /* NICU separation */
+      type: "wtys",
+      heading: "Doula moment: NICU separation",
+      scene: "Baby is being whisked to NICU. {name} is being held back to be sutured. She's asking, \"Where are they taking my baby?\"",
+      question: "What do you do?",
+      options: [
+        { text: "<strong>Stay with {name}.</strong> \"They're taking baby to a team that can help right now. I'm staying with you. Your partner can go with baby; we'll get updates.\"", quality: "best",
+          feedback: "Plain language, clear plan, and you protected her continuity by staying. NICU separation is disorienting &mdash; she needs an anchor." },
+        { text: "<strong>Follow the baby</strong> to NICU.", quality: "poor",
+          feedback: "If the partner can go, your job is with {name}. Don't leave her body alone while she's being sutured." },
+        { text: "<strong>Tell her</strong> baby will be fine.", quality: "worst",
+          feedback: "You don't know. False reassurance breaks trust if NICU goes badly." },
+        { text: "<strong>Stay quiet</strong> and let the team work.", quality: "poor",
+          feedback: "She just asked you a question. Answer it. Plain language matters now more than silence." }
+      ]
+    },
+    "4": { /* alert / jittery parent */
+      type: "wtys",
+      heading: "Doula moment: Jittery first-time parent",
+      scene: "Baby is healthy and alert at home, but {name} is panicking at every sound baby makes. She's barely slept.",
+      question: "What do you say?",
+      options: [
+        { text: "<strong>Normalize and educate.</strong> \"Newborns make a LOT of sounds. Most are digestion or sleep cycles. Let me walk you through 'call the pediatrician' vs. 'totally normal.'\"", quality: "best",
+          feedback: "You give her categories. Without them, every sound feels equally alarming. With them, she can sleep." },
+        { text: "<strong>Tell her</strong> she's being overprotective.", quality: "worst",
+          feedback: "Shaming a first-time parent for caring. Don't." },
+        { text: "<strong>Suggest she sleep when baby sleeps.</strong>", quality: "poor",
+          feedback: "Classic advice that misses the issue. She can't sleep because every sound wakes her. Address the cause." },
+        { text: "<strong>Ask if anyone else can take night shifts</strong> so she can get a stretch of sleep.", quality: "good",
+          feedback: "Practical. Combine with the normalization in option A." }
+      ]
+    }
+  },
+
   postpartum: {
-    /* Hemorrhage */
-    "0": {
+    "0": { /* hemorrhage */
       type: "wtys",
       heading: "Doula moment: Postpartum hemorrhage",
       scene: "Right after birth, {name} starts hemorrhaging. The room shifts. Nurses are pushing meds and calling for blood products.",
       question: "What's your role right now?",
       options: [
-        { text: "<strong>Stay close, take baby</strong> if appropriate and keep talking to {name} in a steady voice so she knows where her baby is and where you are.", quality: "best",
-          feedback: "You're the continuity in a chaotic room. Holding baby (with consent) so the team can work freely, while narrating presence to {name}, is exactly the doula's lane in a medical emergency." },
-        { text: "<strong>Try to assist the medical team</strong> with the hemorrhage protocol.", quality: "worst",
-          feedback: "Outside scope. You'll get in the way, even with good intent. The team needs clear space; your value is to mom and baby, not to the medical procedure." },
-        { text: "<strong>Step out of the room</strong> to give the team space.", quality: "poor",
-          feedback: "She needs you more right now, not less. Step to the side, not out the door. You can move to the head of the bed and stay with her face." },
-        { text: "<strong>Comfort the partner</strong> who is now in shock.", quality: "good",
-          feedback: "Important if the partner is overwhelmed. Triage who needs you most &mdash; usually {name} comes first, then partner. Coach a nurse to update the partner if you can't be in both places." }
+        { text: "<strong>Stay close, take baby</strong> (with consent) so the team can work. Keep talking to {name} in a steady voice so she knows where you and baby are.", quality: "best",
+          feedback: "You're continuity in chaos. Holding baby while narrating presence to {name} is exactly the doula's lane in an emergency." },
+        { text: "<strong>Try to help</strong> with the hemorrhage protocol.", quality: "worst",
+          feedback: "Outside scope. You'll get in the way. The team needs clear space." },
+        { text: "<strong>Step out of the room</strong> to give space.", quality: "poor",
+          feedback: "She needs you more, not less. Move to her head, not out the door." },
+        { text: "<strong>Comfort the partner</strong> who's in shock.", quality: "good",
+          feedback: "Important if partner is overwhelmed. {name} usually comes first." }
       ]
     },
-    /* Severe breastfeeding challenges */
-    "1": {
+    "1": { /* BF challenges */
       type: "wtys",
       heading: "Doula moment: Breastfeeding tears",
-      scene: "It's the 4-day postpartum visit. Baby has lost 9% of birth weight. The pediatrician suggested formula supplementation. {name} is in tears, telling you she feels like a failure.",
+      scene: "Day 4 postpartum. Baby has lost 9% birth weight. The pediatrician suggested formula. {name} is in tears, telling you she feels like a failure.",
       question: "What do you say first?",
       options: [
-        { text: "<strong>This is so hard. You are not failing.</strong> Let's look at what's actually happening with the latch.", quality: "best",
-          feedback: "Validate the emotion before introducing the technical conversation. Naming what's real (\"this is so hard\") and naming what's not (\"you are not failing\") lets her hear the practical help that comes next." },
-        { text: "<strong>Formula is totally fine.</strong> Don't worry about it.", quality: "poor",
-          feedback: "Dismisses her goal. Even if formula is the right call clinically, jumping there bypasses her grief about a feeding plan she had hoped would work. Sit with the feeling first." },
-        { text: "<strong>You have to keep breastfeeding.</strong> Don't give up.", quality: "worst",
-          feedback: "Pressures her in a moment of pain. Outside doula scope to direct feeding decisions. Your role is to support her, not to set her feeding goals." },
-        { text: "<strong>Let's call the lactation consultant right now</strong> before saying anything else.", quality: "poor",
-          feedback: "Action is good, but you skipped the moment. Validate first, refer second. The lactation referral is right; the timing should follow the emotional acknowledgment." }
+        { text: "<strong>Validate, then assess.</strong> \"This is so hard. You are not failing. Let's look at what's happening with the latch.\"", quality: "best",
+          feedback: "Validation first, technical second. Lets her hear the practical help that follows." },
+        { text: "<strong>Formula is fine.</strong> \"Don't worry about it.\"", quality: "poor",
+          feedback: "Dismisses her goal. Sit with the feeling first." },
+        { text: "<strong>You have to keep breastfeeding.</strong>", quality: "worst",
+          feedback: "Pressures her at a vulnerable moment. Out of scope to set her feeding goals." },
+        { text: "<strong>Call the lactation consultant</strong> right now.", quality: "poor",
+          feedback: "Right referral, wrong timing. Acknowledge feelings first, then refer." }
+      ]
+    },
+    "3": { /* mild complications, baby blues */
+      type: "wtys",
+      heading: "Doula moment: Day 8 dissociation",
+      scene: "At day 8, {name} is crying and tells you she doesn't feel anything for the baby.",
+      question: "What do you say?",
+      options: [
+        { text: "<strong>Take her seriously.</strong> \"Thank you for telling me. Let's talk about what 'nothing' feels like, and when we should call your provider.\"", quality: "best",
+          feedback: "Day 8 numbness is a red flag for PPD or PPP. Don't dismiss, don't catastrophize. Listen, assess, screen for safety, refer." },
+        { text: "<strong>Reassure her</strong> baby blues are normal at this stage.", quality: "poor",
+          feedback: "Could be baby blues, could be something more. Don't normalize before you've assessed." },
+        { text: "<strong>Tell her</strong> she'll love the baby eventually.", quality: "worst",
+          feedback: "Dismissive and potentially harmful. What matters is care, not feeling." },
+        { text: "<strong>Offer the Edinburgh (EPDS) screening tool</strong> and walk through it together.", quality: "good",
+          feedback: "Right instinct. Validate first, then screen. Don't skip the emotional acknowledgment." }
+      ]
+    },
+    "5": { /* optimal, attachment to doula */
+      type: "wtys",
+      heading: "Doula moment: \"Can you come to every appointment?\"",
+      scene: "At her 2-week postpartum visit, everything is going perfectly. {name} asks you to come to every pediatric appointment with her, for years.",
+      question: "What do you say?",
+      options: [
+        { text: "<strong>Honor the bond, name the boundary.</strong> \"I'm so glad this felt good. Our work together wraps at six weeks postpartum, but I'm always a text away if something big comes up.\"", quality: "best",
+          feedback: "You don't reject her affection; you honor it AND model healthy professional boundaries. That itself is a postpartum teaching moment." },
+        { text: "<strong>Say yes</strong> to keep her happy.", quality: "worst",
+          feedback: "Out of scope and unsustainable. You'll burn out, the boundary will collapse, and she'll feel rejected when it does." },
+        { text: "<strong>Say no</strong> firmly and move on.", quality: "poor",
+          feedback: "The boundary is right, but the warmth matters. Name what you appreciate about her ask before declining." },
+        { text: "<strong>Refer her to MHN</strong> for postpartum doula services or peer support.", quality: "good",
+          feedback: "Practical. Pair with option A's warmth so she doesn't feel rejected." }
       ]
     }
   }
