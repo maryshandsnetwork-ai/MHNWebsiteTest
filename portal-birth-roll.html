@@ -708,12 +708,18 @@ const ROLL_DATA = {
   /* ---------- BIRTH ---------- */
   birth: { label: "Birth outcome", title: "Roll for the birth itself", hint: "How does this baby come out?", dice: 1,
     outcomes: [
-      { text: "<strong>Emergency C-section.</strong> Despite best efforts, complications (fetal distress, cord prolapse, uterine rupture) require an urgent C-section. Emotional support is critical.", summary: "the baby was born by emergency C-section", learn:["resources","fieldGuide","pocketDoula"] },
-      { text: "<strong>Assisted vaginal delivery.</strong> Maternal exhaustion or fetal positioning means forceps or vacuum extraction is used. Recovery may be more complex.", summary: "the baby was born by assisted vaginal delivery (forceps or vacuum)", learn:["resources","fieldGuide"] },
-      { text: "<strong>Minor tearing requiring stitches.</strong> Birth is successful but results in a 2nd-degree perineal tear. Postpartum healing support and education are important.", summary: "she had a successful vaginal birth with a 2nd-degree tear", learn:["resources","fieldGuide"] },
-      { text: "<strong>Smooth vaginal birth with no complications.</strong> Baby is delivered safely. Mom feels strong and empowered.", summary: "she had a smooth, uncomplicated vaginal birth", learn:["fieldGuide","pocketDoula"] },
-      { text: "<strong>Precipitous birth (unexpected fast labor).</strong> Baby arrives so quickly there's little time for preparation. Mom and baby are both well, but emotional processing may be needed.", summary: "the baby arrived precipitously, faster than expected", learn:["fieldGuide","pocketDoula"] },
-      { text: "<strong>Ideal birth experience.</strong> Birth aligns with her vision. She feels supported and strong; baby transitions well. A dream birth.", summary: "she had the ideal birth that aligned with her vision", learn:["fieldGuide"] }
+      { text: "<strong>Emergency C-section.</strong> Despite best efforts, complications (fetal distress, cord prolapse, uterine rupture) require an urgent C-section. Emotional support is critical.", summary: "the baby was born by emergency C-section", learn:["resources","fieldGuide","pocketDoula"],
+        variants: { twins: { text: "<strong>Emergency C-section for both babies.</strong> Complications during labor (fetal distress, cord prolapse, or position changes between twins) require an urgent C-section. Twin A and Twin B are born back-to-back. Emotional support is critical.", summary: "both babies were born by emergency C-section" } } },
+      { text: "<strong>Assisted vaginal delivery.</strong> Maternal exhaustion or fetal positioning means forceps or vacuum extraction is used. Recovery may be more complex.", summary: "the baby was born by assisted vaginal delivery (forceps or vacuum)", learn:["resources","fieldGuide"],
+        variants: { twins: { text: "<strong>Assisted vaginal delivery of Twin A; Twin B unassisted.</strong> Forceps or vacuum extraction is used for the first twin due to positioning. Twin B is born without assistance shortly after. Recovery may be more complex.", summary: "Twin A needed forceps or vacuum; Twin B was born unassisted" } } },
+      { text: "<strong>Minor tearing requiring stitches.</strong> Birth is successful but results in a 2nd-degree perineal tear. Postpartum healing support and education are important.", summary: "she had a successful vaginal birth with a 2nd-degree tear", learn:["resources","fieldGuide"],
+        variants: { twins: { text: "<strong>Successful vaginal twin birth with minor tearing.</strong> Both twins are born vaginally with a 2nd-degree tear from the back-to-back delivery. Postpartum healing support is important.", summary: "she had a successful vaginal twin birth with a 2nd-degree tear" } } },
+      { text: "<strong>Smooth vaginal birth with no complications.</strong> Baby is delivered safely. Mom feels strong and empowered.", summary: "she had a smooth, uncomplicated vaginal birth", learn:["fieldGuide","pocketDoula"],
+        variants: { twins: { text: "<strong>Smooth vaginal twin birth with no complications.</strong> Both babies are delivered safely. Mom feels strong and empowered.", summary: "she had a smooth, uncomplicated vaginal twin birth" } } },
+      { text: "<strong>Precipitous birth (unexpected fast labor).</strong> Baby arrives so quickly there's little time for preparation. Mom and baby are both well, but emotional processing may be needed.", summary: "the baby arrived precipitously, faster than expected", learn:["fieldGuide","pocketDoula"],
+        variants: { twins: { text: "<strong>Precipitous twin birth.</strong> Both babies arrive faster than expected, with little time for preparation. Mom and both babies are doing well, but emotional processing may be needed.", summary: "her twin birth was precipitous, faster than expected" } } },
+      { text: "<strong>Ideal birth experience.</strong> Birth aligns with her vision. She feels supported and strong; baby transitions well. A dream birth.", summary: "she had the ideal birth that aligned with her vision", learn:["fieldGuide"],
+        variants: { twins: { text: "<strong>Ideal twin birth experience.</strong> The birth aligns with her vision. She feels supported and strong; both babies transition well. A dream birth.", summary: "she had the ideal twin birth that aligned with her vision" } } }
     ],
     /* Loss variants (only used if difficulty=hard AND allowLoss=true) */
     lossVariants: {
@@ -724,12 +730,18 @@ const ROLL_DATA = {
   /* ---------- POSTPARTUM ---------- */
   newborn: { label: "Newborn after birth", title: "Roll for newborn", hint: "Baby's first hours and days outside the womb.", dice: 1,
     outcomes: [
-      { text: "<strong>NICU admission.</strong> Respiratory distress, prematurity, or feeding difficulty requires a NICU stay. Parents are separated from baby; doula bridges the gap.", summary: "the baby was admitted to the NICU", learn:["resources","fieldGuide","courseMaterials"] },
-      { text: "<strong>Brief observation in the nursery.</strong> Short-term oxygen, blood-sugar checks, or jaundice phototherapy. Baby returns to mom within 24 hours.", summary: "the baby went to the nursery for brief observation", learn:["fieldGuide","pocketDoula"] },
-      { text: "<strong>Latch and feeding struggles.</strong> Baby is healthy but feeding is rough. Tongue-tie evaluation, lactation consult, and patience needed.", summary: "the baby had latch and feeding struggles", learn:["resources","fieldGuide","pocketDoula"] },
-      { text: "<strong>Healthy but jittery transition.</strong> Apgars are good but the first hour is bumpy. Skin-to-skin and a calm room help settle baby.", summary: "the baby had a healthy but jittery first hour", learn:["fieldGuide","pocketDoula"] },
-      { text: "<strong>Strong, alert, latching well.</strong> Baby transitions smoothly, latches in the first hour, and parents feel confident.", summary: "the baby was strong, alert, and latching well from the first hour", learn:["fieldGuide","pocketDoula"] },
-      { text: "<strong>Picture-perfect newborn.</strong> High Apgars, immediate latch, calm and alert. The textbook hour of power.", summary: "the baby was textbook-perfect, with high Apgars and an immediate latch", learn:["fieldGuide"] }
+      { text: "<strong>NICU admission.</strong> Respiratory distress, prematurity, or feeding difficulty requires a NICU stay. Parents are separated from baby; doula bridges the gap.", summary: "the baby was admitted to the NICU", learn:["resources","fieldGuide","courseMaterials"],
+        variants: { twins: { text: "<strong>NICU admission for one or both twins.</strong> One or both babies need respiratory support or feeding help. Parents are separated from babies; doula bridges the gap.", summary: "one or both babies were admitted to the NICU" } } },
+      { text: "<strong>Brief observation in the nursery.</strong> Short-term oxygen, blood-sugar checks, or jaundice phototherapy. Baby returns to mom within 24 hours.", summary: "the baby went to the nursery for brief observation", learn:["fieldGuide","pocketDoula"],
+        variants: { twins: { text: "<strong>Brief observation for both twins.</strong> Short-term oxygen, blood-sugar checks, or jaundice phototherapy. Both babies return to mom within 24 hours.", summary: "both babies went to the nursery for brief observation" } } },
+      { text: "<strong>Latch and feeding struggles.</strong> Baby is healthy but feeding is rough. Tongue-tie evaluation, lactation consult, and patience needed.", summary: "the baby had latch and feeding struggles", learn:["resources","fieldGuide","pocketDoula"],
+        variants: { twins: { text: "<strong>Latch and feeding struggles with twins.</strong> Both babies are healthy but feeding is rough. Tandem-feeding evaluation, lactation consult, and patience needed.", summary: "the twins had latch and feeding struggles" } } },
+      { text: "<strong>Healthy but jittery transition.</strong> Apgars are good but the first hour is bumpy. Skin-to-skin and a calm room help settle baby.", summary: "the baby had a healthy but jittery first hour", learn:["fieldGuide","pocketDoula"],
+        variants: { twins: { text: "<strong>Healthy but jittery transition for both twins.</strong> Apgars are good for both, but the first hour is bumpy. Skin-to-skin and a calm room help settle the babies.", summary: "both babies had a healthy but jittery first hour" } } },
+      { text: "<strong>Strong, alert, latching well.</strong> Baby transitions smoothly, latches in the first hour, and parents feel confident.", summary: "the baby was strong, alert, and latching well from the first hour", learn:["fieldGuide","pocketDoula"],
+        variants: { twins: { text: "<strong>Both twins are strong, alert, and latching well.</strong> Smooth transitions, latches in the first hour for each, and parents feel confident.", summary: "both babies were strong, alert, and latching well from the first hour" } } },
+      { text: "<strong>Picture-perfect newborn.</strong> High Apgars, immediate latch, calm and alert. The textbook hour of power.", summary: "the baby was textbook-perfect, with high Apgars and an immediate latch", learn:["fieldGuide"],
+        variants: { twins: { text: "<strong>Picture-perfect twins.</strong> High Apgars for both, immediate latches, calm and alert. The textbook hour of power.", summary: "both babies were textbook-perfect, with high Apgars and immediate latches" } } }
     ],
     lossVariants: {
       0: { text: "<strong>Severe NICU complication.</strong> The baby was admitted to the NICU and did not survive the first 72 hours. The parents are devastated; the doula's role is to be a steady, present, non-fixing companion. Bereavement support and trauma-informed care are critical.", summary: "the baby did not survive the NICU stay", learn:["resources","fieldGuide","courseMaterials"] }
@@ -1202,7 +1214,14 @@ const DECISIONS = {
         { text: "<strong>Step back</strong> and let the medical team work.", quality: "good",
           feedback: "Appropriate sometimes, but you can stay close without interfering. Position changes are still scope." },
         { text: "<strong>Comfort the panicking partner</strong> first.", quality: "good",
-          feedback: "{name}'s body comes first; coach the partner in the next breath." }
+          feedback: "{name}'s body comes first; coach the partner in the next breath.",
+          replaceIf: {
+            noPartner: {
+              text: "<strong>Comfort her support person</strong> (her mom, sister, or whoever's with her) first.",
+              feedback: "When the partner is out of the picture, the support person fills that role. {name}'s body still comes first; coach the support person in the next breath."
+            }
+          }
+        }
       ]
     },
     "5": { /* forceps / vacuum */
@@ -1236,7 +1255,14 @@ const DECISIONS = {
         { text: "<strong>Promise everything will be fine.</strong>", quality: "poor",
           feedback: "False reassurance. Breaks trust if something goes wrong." },
         { text: "<strong>Coach her partner</strong> to be in the OR if possible.", quality: "good",
-          feedback: "Right move if partner is her teammate. Many hospitals allow partners in for non-general C-sections." },
+          feedback: "Right move if partner is her teammate. Many hospitals allow partners in for non-general C-sections.",
+          replaceIf: {
+            noPartner: {
+              text: "<strong>Coach her support person</strong> (her mom, sister, or chaplain) to stay close so {name} has continuity when she wakes up in recovery.",
+              feedback: "Even without a partner, someone needs to be the steady face she sees coming out of anesthesia. The doula is the bridge between the OR and her support."
+            }
+          }
+        },
         { text: "<strong>Stay quiet</strong> and let the team work.", quality: "poor",
           feedback: "She needs words now, not silence." }
       ]
@@ -1325,9 +1351,10 @@ const DECISIONS = {
           feedback: "She just asked you a question. Answer it. Plain language matters now more than silence." }
       ]
     },
-    "4": { /* alert / jittery parent */
+    "4": { /* alert / jittery parent — only fires for first-time parents */
       type: "wtys",
       heading: "Doula moment: Jittery first-time parent",
+      requireFlag: "firstTimer",
       scene: "Baby is healthy and alert at home, but {name} is panicking at every sound baby makes. She's barely slept.",
       question: "What do you say?",
       options: [
@@ -1357,7 +1384,14 @@ const DECISIONS = {
         { text: "<strong>Step out of the room</strong> to give space.", quality: "poor",
           feedback: "She needs you more, not less. Move to her head, not out the door." },
         { text: "<strong>Comfort the partner</strong> who's in shock.", quality: "good",
-          feedback: "Important if partner is overwhelmed. {name} usually comes first." }
+          feedback: "Important if partner is overwhelmed. {name} usually comes first.",
+          replaceIf: {
+            noPartner: {
+              text: "<strong>Comfort her support person</strong> who's in shock.",
+              feedback: "Important if her support person is overwhelmed. {name} still comes first; coach the support person in the next breath."
+            }
+          }
+        }
       ]
     },
     "1": { /* BF challenges */
@@ -1548,8 +1582,97 @@ const state = {
   clientName: "",
   results: {},   // rollId -> { sum, dice:[...], text, summary, isPick, lossVariant }
   decisions: {}, // rollId -> { question, options, picked, quality, feedback }
+  /* Narrative consistency flags — set automatically as rolls land.
+     Used to apply outcome variants and filter decision options so the story stays coherent. */
+  flags: {
+    twins: false,
+    noPartner: false,
+    firstTimer: false,    // set true if first pregnancy or first living baby
+    priorLoss: false,
+    fetalAnomaly: false,
+    multipara: false      // 3rd+ baby
+  },
   currentStageIdx: 0
 };
+
+/* Fisher-Yates shuffle (used for randomizing decision option order) */
+function shuffleArr(a){
+  const r = [...a];
+  for(let i = r.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [r[i], r[j]] = [r[j], r[i]];
+  }
+  return r;
+}
+
+/* Reset flags and re-derive them from current state.results.
+   Called when the user goes back a stage so stale flags don't leak forward. */
+function rebuildFlags(){
+  state.flags = {
+    twins: false, noPartner: false, firstTimer: false,
+    priorLoss: false, fetalAnomaly: false, multipara: false
+  };
+  Object.keys(state.results).forEach(rid => {
+    const r = ROLL_DATA[rid];
+    if(!r) return;
+    const sum = state.results[rid].sum;
+    const idx = r.dice === 2 ? (sum - 2) : (sum - 1);
+    updateFlags(rid, idx);
+  });
+}
+
+/* Update consistency flags based on what was just rolled */
+function updateFlags(rollId, outcomeIdx){
+  if(rollId === "parity"){
+    state.flags.firstTimer = (outcomeIdx === 0 || outcomeIdx === 1);
+    state.flags.priorLoss  = (outcomeIdx === 1);
+    state.flags.multipara  = (outcomeIdx === 3 || outcomeIdx === 4);
+    if(outcomeIdx === 5) state.flags.twins = true;
+  }
+  if(rollId === "partner" && outcomeIdx === 0) state.flags.noPartner = true;
+  /* maternal sum=8 corresponds to index 6 (sum - 2). That's the twin-pregnancy outcome. */
+  if(rollId === "maternal" && outcomeIdx === 6) state.flags.twins = true;
+  if(rollId === "babyUtero" && outcomeIdx === 3) state.flags.twins = true;
+  if(rollId === "babyUtero" && outcomeIdx === 0) state.flags.fetalAnomaly = true;
+}
+
+/* Resolve an outcome by checking variants against state flags.
+   Returns the variant outcome if any flag matches, else the base. */
+function resolveOutcome(rollData, outcomeIdx){
+  const base = rollData.outcomes[outcomeIdx];
+  if(!base || !base.variants) return base;
+  /* Priority order: twins > noPartner > others. Single flag match wins. */
+  const priority = ["twins","noPartner","fetalAnomaly","firstTimer","multipara","priorLoss"];
+  for(const flag of priority){
+    if(base.variants[flag] && state.flags[flag]){
+      return { ...base, ...base.variants[flag] };
+    }
+  }
+  return base;
+}
+
+/* Resolve a single decision option (replaceIf swaps text/feedback under a flag) */
+function resolveOption(opt){
+  if(!opt.replaceIf) return opt;
+  for(const flag in opt.replaceIf){
+    if(state.flags[flag]){
+      return { ...opt, ...opt.replaceIf[flag] };
+    }
+  }
+  return opt;
+}
+
+/* Filter decision options by showIf gate */
+function passShowIf(opt){
+  if(!opt.showIf) return true;
+  const c = opt.showIf;
+  if(c === "hasPartner")  return !state.flags.noPartner;
+  if(c === "noPartner")   return state.flags.noPartner;
+  if(c === "firstTimer")  return state.flags.firstTimer;
+  if(c === "multipara")   return state.flags.multipara;
+  if(c === "twins")       return state.flags.twins;
+  return true;
+}
 
 /* ============================================================
    RENDERING
@@ -1585,16 +1708,21 @@ function maybeApplyLossVariant(rollId, outcomeIdx){
 function recordOutcome(rollId, sum, dice, isPick){
   const r = ROLL_DATA[rollId];
   const outcomeIdx = r.dice === 2 ? (sum - 2) : (sum - 1);
-  let outcome = r.outcomes[outcomeIdx];
+
+  /* IMPORTANT: update flags FIRST so the variant resolver sees them.
+     But twin/etc variants on the rolling outcome itself should apply only
+     if the flag was set by a PRIOR roll. So we set flags after resolving. */
+  let outcome = resolveOutcome(r, outcomeIdx);
+
   let lossVariant = null;
-  // For loss-eligible single-die rolls, sometimes swap based on randomness
   if(r.dice === 1 && outcomeIdx === 0){
     const swap = maybeApplyLossVariant(rollId, outcomeIdx);
-    if(swap && Math.random() < 0.4){ // 40% chance to invoke loss variant if eligible
+    if(swap && Math.random() < 0.4){
       outcome = swap;
       lossVariant = true;
     }
   }
+
   state.results[rollId] = {
     sum, dice, isPick: !!isPick,
     text: outcome.text,
@@ -1602,6 +1730,10 @@ function recordOutcome(rollId, sum, dice, isPick){
     learn: outcome.learn || [],
     lossVariant
   };
+
+  /* Now update flags based on what this roll established. Later rolls will use them. */
+  updateFlags(rollId, outcomeIdx);
+
   return state.results[rollId];
 }
 
@@ -1782,6 +1914,10 @@ function maybeInsertDecision(card, rollId, result){
   }
   if(!decision) return false;
 
+  /* Honor decision-level flag gates so scenes that contradict state are skipped */
+  if(decision.requireFlag && !state.flags[decision.requireFlag]) return false;
+  if(decision.skipIfFlag && state.flags[decision.skipIfFlag]) return false;
+
   const card2 = buildDecisionCard(rollId, decision);
   card.parentNode.insertBefore(card2, card.nextSibling);
   card2.scrollIntoView({behavior:"smooth", block:"center"});
@@ -1796,7 +1932,13 @@ function buildDecisionCard(rollId, decision){
 
   const sceneFilled = decision.scene.replace(/\{name\}/g, escapeHTML(state.clientName || "your client"));
 
-  const optionsHTML = decision.options.map((opt, i) => `
+  /* Resolve replaceIf, then filter showIf, then shuffle so the best answer
+     isn't always option A. Click handlers index into `renderOptions`, not the original. */
+  const renderOptions = shuffleArr(
+    decision.options.map(resolveOption).filter(passShowIf)
+  );
+
+  const optionsHTML = renderOptions.map((opt, i) => `
     <button type="button" class="d-option" data-idx="${i}">
       <span class="dn">${"ABCD".charAt(i)}</span>
       <span>${opt.text}</span>
@@ -1816,7 +1958,7 @@ function buildDecisionCard(rollId, decision){
   card.querySelectorAll(".d-option").forEach(btn => {
     btn.addEventListener("click", () => {
       const idx = parseInt(btn.dataset.idx, 10);
-      const picked = decision.options[idx];
+      const picked = renderOptions[idx];
       state.decisions[rollId] = {
         heading: decision.heading,
         question: decision.question,
@@ -1929,6 +2071,7 @@ function renderStage(stageIdx){
       if(confirm("Start over with a new client? This will reset all your rolls.")) location.reload();
     } else {
       stage.rolls.forEach(rid => { delete state.results[rid]; delete state.decisions[rid]; });
+      rebuildFlags();
       renderStage(stageIdx - 1);
       setStepperActive(STAGES[stageIdx - 1].id);
       renderStorySidebar();
@@ -2095,6 +2238,7 @@ function renderStory(){
     delete state.results.newborn;
     delete state.results.postpartum;
     state.decisions = {};
+    rebuildFlags();
     // Jump to labor stage
     renderStage(2);
     setStepperActive("labor");
