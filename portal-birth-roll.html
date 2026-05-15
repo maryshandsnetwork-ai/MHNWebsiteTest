@@ -196,6 +196,14 @@
   .name-card input{display:block;width:100%;max-width:480px;padding:14px 18px;font-family:var(--mhn-font-serif);font-size:22px;color:var(--mhn-purple-700);background:#fff;border:2px solid var(--mhn-purple-200);border-radius:12px;font-weight:700;letter-spacing:-0.005em;box-sizing:border-box}
   .name-card input:focus{outline:none;border-color:var(--mhn-purple-700);box-shadow:0 0 0 4px rgba(94,55,108,0.12)}
   .name-card .hint{margin:8px 0 0;font-size:13px;color:var(--mhn-ink-soft);font-style:italic;font-family:var(--mhn-font-serif)}
+  .name-card.is-required{border-color:var(--mhn-warm-700);background:linear-gradient(135deg,#FAEFE0 0%,#FFF8EC 100%);box-shadow:0 6px 18px rgba(133,87,31,0.18)}
+  .name-card.is-required label{color:#85571F}
+  .name-card.is-required input{border-color:var(--mhn-warm-700)}
+  .name-card.is-required .hint{color:#85571F;font-weight:700;font-style:normal;display:flex;align-items:center;gap:6px}
+  .name-card.is-required .hint::before{content:"⚠"}
+  .br-roll-card.is-locked{opacity:0.55;pointer-events:none}
+  .br-roll-card.is-locked::after{content:"Type a name above to roll";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:#85571F;color:#fff;padding:8px 16px;border-radius:999px;font-family:var(--mhn-font-sans);font-size:12px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;white-space:nowrap;pointer-events:none;box-shadow:0 6px 18px rgba(0,0,0,0.18)}
+  .br-roll-card{position:relative}
 
   /* ---------------- NAV BUTTONS ---------------- */
   .br-nav-row{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-top:22px;flex-wrap:wrap}
@@ -2043,11 +2051,12 @@ function renderStage(stageIdx){
 
   let nameCardHTML = "";
   if(stage.id === "create"){
+    const startsRequired = !(state.clientName && state.clientName.length >= 2);
     nameCardHTML = `
-      <div class="name-card">
-        <label for="clientNameInput">Your client's name</label>
-        <input id="clientNameInput" type="text" placeholder="e.g. Tanya, Marisol, Sarah, Aleah" value="${escapeHTML(state.clientName || '')}" maxlength="40">
-        <p class="hint">A first name is enough &mdash; this is for your reflection and birth story summary.</p>
+      <div class="name-card${startsRequired ? ' is-required' : ''}" id="nameCard">
+        <label for="clientNameInput">Your client's name (required)</label>
+        <input id="clientNameInput" type="text" placeholder="e.g. Tanya, Marisol, Sarah, Aleah" value="${escapeHTML(state.clientName || '')}" maxlength="40" autofocus>
+        <p class="hint" id="nameHint">${startsRequired ? "Type your client's name to unlock rolling" : "A first name is enough — this is for your reflection and birth story summary."}</p>
       </div>
     `;
   }
@@ -2088,7 +2097,24 @@ function renderStage(stageIdx){
   wrap.querySelector("[data-advance]").addEventListener("click", () => {
     if(stage.id === "create"){
       const ni = document.getElementById("clientNameInput");
-      if(ni) state.clientName = ni.value.trim() || "Your client";
+      const entered = ni ? ni.value.trim() : "";
+      if(!entered || entered.length < 2){
+        // Refuse to advance without a name; flash the name card
+        if(ni){
+          ni.focus();
+          const nameCard = wrap.querySelector("#nameCard");
+          if(nameCard){
+            nameCard.classList.add("is-required");
+            nameCard.scrollIntoView({behavior:"smooth", block:"center"});
+            nameCard.animate(
+              [{transform:"translateX(0)"},{transform:"translateX(-6px)"},{transform:"translateX(6px)"},{transform:"translateX(-4px)"},{transform:"translateX(0)"}],
+              {duration:380, easing:"ease-in-out"}
+            );
+          }
+        }
+        return;
+      }
+      state.clientName = entered;
       renderStorySidebar();
     }
     if(stageIdx + 1 <= STAGES.length){
@@ -2097,13 +2123,36 @@ function renderStage(stageIdx){
     }
   });
 
-  // Live-update sidebar as name is typed
+  // Live-update sidebar as name is typed; lock/unlock rolls on stage 1
   const nameInput = wrap.querySelector("#clientNameInput");
   if(nameInput){
+    const nameCard = wrap.querySelector("#nameCard");
+    const nameHint = wrap.querySelector("#nameHint");
+    const refreshNameLock = () => {
+      if(stage.id !== "create") return;
+      const hasName = (state.clientName && state.clientName.length >= 2);
+      // Toggle the name-card warning styling
+      if(nameCard){
+        nameCard.classList.toggle("is-required", !hasName);
+      }
+      if(nameHint){
+        nameHint.textContent = hasName
+          ? "A first name is enough — this is for your reflection and birth story summary."
+          : "Type your client's name to unlock rolling";
+      }
+      // Lock the roll cards
+      wrap.querySelectorAll(".br-roll-card").forEach(card => {
+        if(card.classList.contains("is-done")) return; // already-completed cards stay visible
+        card.classList.toggle("is-locked", !hasName);
+      });
+    };
     nameInput.addEventListener("input", () => {
       state.clientName = nameInput.value.trim();
       renderStorySidebar();
+      refreshNameLock();
     });
+    // Initial state
+    refreshNameLock();
   }
 
   setStepperActive(stage.id);
