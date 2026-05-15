@@ -630,8 +630,8 @@ const ROLL_DATA = {
     outcomes: [
       { text: "<strong>Recent immigrant.</strong> Primary language is not English; limited local support network; may not trust hospital systems or know what questions she can ask.", summary: "is a recent immigrant navigating a system in her second language", learn:["fieldGuide","courseMaterials"] },
       { text: "<strong>Established immigrant family.</strong> Bilingual; strong community ties through church, extended family, or cultural community.", summary: "comes from an established immigrant family with strong community", learn:["fieldGuide"] },
-      { text: "<strong>Generational Louisianan, low income.</strong> Public insurance; juggling multiple jobs and childcare; transportation is a recurring barrier.", summary: "is a low-income generational Louisianan juggling jobs and childcare", learn:["fieldGuide","courseMaterials"] },
-      { text: "<strong>Generational Louisianan, working class.</strong> Employer insurance; reliable partner support; one stable income source.", summary: "is working-class with stable income and employer insurance", learn:["fieldGuide"] },
+      { text: "<strong>Long-time local resident, low income.</strong> Public insurance; juggling multiple jobs and childcare; transportation is a recurring barrier.", summary: "is a low-income long-time local resident juggling jobs and childcare", learn:["fieldGuide","courseMaterials"] },
+      { text: "<strong>Long-time local resident, working class.</strong> Employer insurance; reliable partner support; one stable income source.", summary: "is working-class with stable income and employer insurance", learn:["fieldGuide"] },
       { text: "<strong>Middle income, partnered.</strong> Stable housing, childcare plan in place, room in the budget for some extras.", summary: "is middle-income with a stable household", learn:["fieldGuide"] },
       { text: "<strong>Higher income, abundant support.</strong> Flexible work, doulas, postpartum help, lactation consultants &mdash; she has everything she needs already secured.", summary: "has higher income and abundant support already secured", learn:["fieldGuide"] }
     ]
@@ -688,7 +688,7 @@ const ROLL_DATA = {
       { text: "<strong>No prenatal care.</strong> First walked into a clinic in the third trimester, or arrives at L&amp;D with no records. Big unknowns for the team.", summary: "had no prenatal care until the third trimester", learn:["fieldGuide","courseMaterials"] },
       { text: "<strong>Sporadic prenatal care.</strong> Missed appointments due to transportation, work, or insurance gaps. Some labs and ultrasounds incomplete.", summary: "had sporadic prenatal care with gaps", learn:["fieldGuide","courseMaterials"] },
       { text: "<strong>Consistent prenatal care, minimal childbirth education.</strong> Keeps every appointment but hasn't taken a class or read about birth. The doula fills the gap.", summary: "had consistent prenatal care but no childbirth education", learn:["fieldGuide","pocketDoula"] },
-      { text: "<strong>Engaged and educated.</strong> Read books, took an MHN class, prepped a birth vision. Comes into labor informed and ready.", summary: "is engaged, educated, and has a written birth vision", learn:["fieldGuide","pocketDoula"] },
+      { text: "<strong>Engaged and educated.</strong> Read books, took a childbirth class, prepped a birth vision. Comes into labor informed and ready.", summary: "is engaged, educated, and has a written birth vision", learn:["fieldGuide","pocketDoula"] },
       { text: "<strong>Excellent nutrition + chiropractic + Spinning Babies.</strong> Body-aware, partnered with a wellness team, doing the work to optimize positioning and stamina.", summary: "is body-aware and partnered with a full wellness team", learn:["fieldGuide","pocketDoula"] },
       { text: "<strong>Holistic and fully prepared.</strong> Strong support village, clear postpartum plan, freezer meals stocked, lactation help lined up.", summary: "is holistically prepared with a postpartum village in place", learn:["fieldGuide"] }
     ]
@@ -925,7 +925,7 @@ const DECISIONS = {
       scene: "{name} just lost her ride to her 36-week appointment. No PTO left from work. The bus would take 90 minutes each way.",
       question: "What do you offer?",
       options: [
-        { text: "<strong>Problem-solve with her.</strong> \"Can we check the MHN ride list, or ask your clinic about a telehealth option for this visit?\"", quality: "best",
+        { text: "<strong>Problem-solve with her.</strong> \"Can we check the volunteer-doula ride list, or ask your clinic about a telehealth option for this visit?\"", quality: "best",
           feedback: "You name the resources without taking over. You also validate that this is a real barrier, not a personal failing." },
         { text: "<strong>Offer to drive her yourself,</strong> after checking with MHN about insurance and liability for volunteer transport.", quality: "good",
           feedback: "Generous, sometimes the right call. Check with MHN about insurance/liability first. Try systemic options before your own car." },
@@ -1451,7 +1451,7 @@ const DECISIONS = {
           feedback: "Out of scope and unsustainable. You'll burn out, the boundary will collapse, and she'll feel rejected when it does." },
         { text: "<strong>Decline firmly</strong> and move on without making her feel bad about asking for more time and support.", quality: "poor",
           feedback: "The boundary is right, but the warmth matters. Name what you appreciate about her ask before declining." },
-        { text: "<strong>Refer her to MHN</strong> for postpartum doula services or peer support so the bond continues with someone else.", quality: "good",
+        { text: "<strong>Refer her</strong> to a postpartum doula or peer-support group so the bond can continue with someone else.", quality: "good",
           feedback: "Practical. Pair with option A's warmth so she doesn't feel rejected." }
       ]
     }
