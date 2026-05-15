@@ -63,12 +63,27 @@
 
   /* ---------------- DIFFICULTY PICKER ---------------- */
   .diff-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0}
-  .diff-card{background:#fff;border:2px solid var(--mhn-purple-200);border-radius:18px;padding:18px;cursor:pointer;transition:all .2s;text-align:left}
-  .diff-card:hover{border-color:var(--mhn-purple-500);transform:translateY(-2px);box-shadow:0 8px 20px rgba(94,55,108,0.12)}
-  .diff-card.selected{border-color:var(--mhn-purple-700);background:linear-gradient(135deg,var(--mhn-purple-50) 0%,#fff 100%);box-shadow:0 10px 28px rgba(94,55,108,0.2)}
-  .diff-card .diff-emoji{font-size:30px;line-height:1;margin-bottom:8px}
-  .diff-card h4{font-family:var(--mhn-font-serif);font-size:18px;color:var(--mhn-purple-700);margin:0 0 4px;font-weight:700}
+  .diff-card{position:relative;background:#fff;border:2px solid var(--mhn-line);border-left-width:6px;border-radius:14px;padding:16px 18px 16px 22px;cursor:pointer;transition:all .2s;text-align:left}
+  .diff-card:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,0.08)}
+  .diff-card h4{font-family:var(--mhn-font-serif);font-size:19px;margin:0 0 4px;font-weight:700;display:flex;align-items:center;gap:10px}
+  .diff-card h4::before{content:"";display:inline-block;width:10px;height:10px;border-radius:50%}
   .diff-card p{margin:0;font-size:13.5px;line-height:1.55;color:var(--mhn-ink-soft)}
+  /* Per-difficulty color coding */
+  .diff-card[data-diff="easy"]{border-left-color:#5B8E4E}
+  .diff-card[data-diff="easy"] h4{color:#3F6635}
+  .diff-card[data-diff="easy"] h4::before{background:#5B8E4E}
+  .diff-card[data-diff="easy"]:hover{border-color:#5B8E4E}
+  .diff-card[data-diff="easy"].selected{background:linear-gradient(135deg,#EAF7E8 0%,#fff 100%);border-color:#5B8E4E;box-shadow:0 10px 28px rgba(91,142,78,0.22)}
+  .diff-card[data-diff="medium"]{border-left-color:#D4A040}
+  .diff-card[data-diff="medium"] h4{color:#85571F}
+  .diff-card[data-diff="medium"] h4::before{background:#D4A040}
+  .diff-card[data-diff="medium"]:hover{border-color:#D4A040}
+  .diff-card[data-diff="medium"].selected{background:linear-gradient(135deg,#FFF8E5 0%,#fff 100%);border-color:#D4A040;box-shadow:0 10px 28px rgba(212,160,64,0.24)}
+  .diff-card[data-diff="hard"]{border-left-color:#C45656}
+  .diff-card[data-diff="hard"] h4{color:#9A3D3D}
+  .diff-card[data-diff="hard"] h4::before{background:#C45656}
+  .diff-card[data-diff="hard"]:hover{border-color:#C45656}
+  .diff-card[data-diff="hard"].selected{background:linear-gradient(135deg,#FBEBEB 0%,#fff 100%);border-color:#C45656;box-shadow:0 10px 28px rgba(196,86,86,0.22)}
   @media(max-width:680px){.diff-grid{grid-template-columns:1fr}}
 
   .loss-toggle{margin:14px 0 6px;padding:16px 20px;background:linear-gradient(135deg,#FAF1E1 0%,#F2E2C5 100%);border-left:4px solid var(--mhn-warm-700);border-radius:12px;display:none}
@@ -272,9 +287,7 @@
   .ss-section .ss-eyebrow .ico{width:11px;height:11px}
   .ss-section p{margin:0;font-size:13.5px;line-height:1.6;color:var(--mhn-ink);font-family:var(--mhn-font-serif)}
   .ss-section p strong{color:#85571F;font-weight:700}
-  .ss-empty{font-family:var(--mhn-font-serif);font-style:italic;font-size:14px;line-height:1.6;color:var(--mhn-ink-soft);text-align:center;padding:28px 12px}
-  .ss-empty .ss-empty-ico{font-size:72px;line-height:1;margin-bottom:14px;display:block;filter:drop-shadow(0 4px 10px rgba(133,87,31,0.22));animation:dicePulse 2.4s ease-in-out infinite}
-  @keyframes dicePulse{0%,100%{transform:rotate(-6deg) scale(1)}50%{transform:rotate(6deg) scale(1.05)}}
+  .ss-empty{font-family:var(--mhn-font-serif);font-style:italic;font-size:14px;line-height:1.6;color:var(--mhn-ink-soft);text-align:center;padding:24px 12px}
   .ss-decisions{padding-top:10px;border-top:1px dashed #E8D5BD}
   .ss-decision{display:inline-flex;align-items:center;gap:5px;padding:3px 8px;background:#fff;border-radius:999px;font-family:var(--mhn-font-sans);font-size:10.5px;font-weight:800;letter-spacing:0.04em;margin:2px 4px 2px 0}
   .ss-decision .ico{width:11px;height:11px}
@@ -292,11 +305,11 @@
   }
 
   /* ---------------- WELCOME PANEL ---------------- */
-  #stage-welcome .welcome-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0 28px}
-  #stage-welcome .w-card{background:#fff;border:1px solid var(--mhn-purple-200);border-radius:14px;padding:18px;text-align:center}
-  #stage-welcome .w-card .w-num{font-family:var(--mhn-font-serif);font-size:36px;font-weight:700;color:var(--mhn-purple-700);line-height:1;margin-bottom:6px}
-  #stage-welcome .w-card .w-lbl{font-family:var(--mhn-font-sans);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:800;line-height:1.3}
-  @media(max-width:680px){#stage-welcome .welcome-grid{grid-template-columns:1fr 1fr}}
+  #stage-welcome .welcome-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:14px 0 22px}
+  #stage-welcome .w-card{background:#fff;border:1px solid var(--mhn-purple-200);border-radius:10px;padding:10px 12px;display:flex;align-items:center;gap:10px;text-align:left}
+  #stage-welcome .w-card .w-num{font-family:var(--mhn-font-serif);font-size:24px;font-weight:700;color:var(--mhn-purple-700);line-height:1;flex-shrink:0}
+  #stage-welcome .w-card .w-lbl{font-family:var(--mhn-font-sans);font-size:10px;letter-spacing:0.11em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:800;line-height:1.25}
+  @media(max-width:680px){#stage-welcome .welcome-grid{grid-template-columns:1fr 1fr;gap:8px}}
 
   /* ---------------- BIRTH STORY SUMMARY ---------------- */
   .story-banner{padding:26px 30px;border-radius:20px;background:linear-gradient(135deg,#5E376C 0%,#3D1F48 100%);color:#fff;margin-bottom:20px;box-shadow:0 12px 36px rgba(94,55,108,0.28)}
@@ -477,6 +490,12 @@
     <h2>One client. Thirteen rolls. A complete birth story.</h2>
     <p>You'll name your client, then roll for who she is and who's with her. From there you'll walk through pregnancy, labor, birth, the first weeks, and her 8-week check-in. Along the way you'll face doula decision moments and practice BRAIN responses.</p>
   </div>
+  <div class="welcome-grid">
+    <div class="w-card"><div class="w-num">5</div><div class="w-lbl">Client setup rolls</div></div>
+    <div class="w-card"><div class="w-num">3</div><div class="w-lbl">Pregnancy rolls</div></div>
+    <div class="w-card"><div class="w-num">3</div><div class="w-lbl">Labor + birth rolls</div></div>
+    <div class="w-card"><div class="w-num">3</div><div class="w-lbl">Postpartum rolls</div></div>
+  </div>
 
   <div class="br-stage-head" style="margin-top:8px">
     <div class="e">Step Zero</div>
@@ -486,17 +505,14 @@
 
   <div class="diff-grid" id="diffGrid">
     <button class="diff-card" data-diff="easy" type="button">
-      <div class="diff-emoji">&#x1F33F;</div>
       <h4>Easy</h4>
       <p>Mostly low-risk, well-supported births. Good for early-cohort trainees building confidence with normal physiologic birth.</p>
     </button>
     <button class="diff-card selected" data-diff="medium" type="button">
-      <div class="diff-emoji">&#x2696;&#xFE0F;</div>
       <h4>Medium</h4>
-      <p>Realistic spread across the full range. Recommended default, matches the variety you'll encounter at MHN.</p>
+      <p>Realistic spread across the full range. Recommended default, matches the variety you'll encounter as a doula.</p>
     </button>
     <button class="diff-card" data-diff="hard" type="button">
-      <div class="diff-emoji">&#x26A1;</div>
       <h4>Hard</h4>
       <p>Higher chance of hemorrhage, NICU stays, emergency C-section, and intervention cascades. For advanced practice and debrief work.</p>
     </button>
@@ -2662,7 +2678,6 @@ function renderStorySidebar(){
   if(rollsDone === 0){
     host.innerHTML = `
       <div class="ss-empty">
-        <span class="ss-empty-ico">&#x1F3B2;</span>
         Roll your first die and the story will build here, sentence by sentence.
       </div>
     `;
