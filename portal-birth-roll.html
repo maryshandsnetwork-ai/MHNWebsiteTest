@@ -29,13 +29,13 @@
   .br-hero .hero-meta .lbl{font-family:var(--mhn-font-sans);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:#D4BADD;font-weight:800;line-height:1.2}
 
   /* ---------------- PROGRESS STEPPER ---------------- */
-  .br-stepper{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-bottom:20px}
+  .br-stepper{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-bottom:20px}
   .br-step{padding:10px 12px;background:#fff;border:1px solid var(--mhn-line);border-radius:12px;text-align:center;transition:all .2s}
   .br-step.active{background:var(--mhn-purple-700);color:#fff;border-color:var(--mhn-purple-700);box-shadow:0 6px 16px rgba(94,55,108,0.22)}
   .br-step.done{background:var(--mhn-purple-50);color:var(--mhn-purple-700);border-color:var(--mhn-purple-200)}
   .br-step .step-n{font-family:var(--mhn-font-serif);font-size:18px;font-weight:700;line-height:1;display:block;margin-bottom:4px}
   .br-step .step-l{font-family:var(--mhn-font-sans);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;font-weight:700;line-height:1.2;display:block}
-  @media(max-width:760px){.br-stepper{grid-template-columns:repeat(3,1fr)}.br-step .step-l{font-size:10px;letter-spacing:0.06em}}
+  @media(max-width:760px){.br-stepper{grid-template-columns:repeat(4,1fr)}.br-step{padding:8px 6px}.br-step .step-l{font-size:9.5px;letter-spacing:0.04em}.br-step .step-n{font-size:15px}}
 
   /* ---------------- STAGE CARDS ---------------- */
   .br-stage{display:none;animation:stageIn 0.35s cubic-bezier(0.22,1,0.36,1)}
@@ -79,6 +79,15 @@
   .mode-toggle button{background:transparent;border:none;padding:6px 14px;font-family:var(--mhn-font-sans);font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:var(--mhn-purple-500);cursor:pointer;border-radius:999px;display:inline-flex;align-items:center;gap:4px;transition:all .15s}
   .mode-toggle button.is-active{background:var(--mhn-purple-700);color:#fff;box-shadow:0 2px 6px rgba(94,55,108,0.3)}
   .mode-toggle button .ico{width:12px;height:12px}
+
+  /* Feeding plan picker (special UI for feeding roll) */
+  .feeding-plan-picker{padding:16px 18px;background:var(--mhn-purple-50);border:1px solid var(--mhn-purple-200);border-radius:14px;margin-bottom:14px}
+  .feeding-plan-picker .fpp-label{font-family:var(--mhn-font-sans);font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--mhn-purple-700);font-weight:800;margin-bottom:10px}
+  .feeding-plan-picker .fpp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+  .feeding-plan-picker .fpp-btn{background:#fff;border:1.5px solid var(--mhn-purple-200);color:var(--mhn-purple-700);padding:10px 14px;border-radius:10px;font-family:var(--mhn-font-sans);font-size:13px;font-weight:700;cursor:pointer;text-align:left;transition:all .15s}
+  .feeding-plan-picker .fpp-btn:hover{background:#FFFFFF;border-color:var(--mhn-purple-700);transform:translateY(-1px);box-shadow:0 4px 12px rgba(94,55,108,0.12)}
+  .feeding-plan-picker .fpp-btn.is-active{background:var(--mhn-purple-700);color:#fff;border-color:var(--mhn-purple-700);box-shadow:0 4px 12px rgba(94,55,108,0.28)}
+  @media(max-width:560px){.feeding-plan-picker .fpp-grid{grid-template-columns:1fr}}
 
   /* Roll mode body */
   .roll-mode-body{display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center;padding-top:6px}
@@ -426,7 +435,7 @@
     <p>Roll the dice (or pick your own) and walk a client through pregnancy, labor, birth, and postpartum. Practice BRAIN, comfort measures, and emotional presence against every kind of birth story.</p>
   </div>
   <div class="hero-meta">
-    <div class="num">11</div>
+    <div class="num">13</div>
     <div class="lbl">Rolls<br>per birth</div>
   </div>
 </section>
@@ -439,6 +448,7 @@
   <div class="br-step" data-step="labor"><span class="step-n">3</span><span class="step-l">Labor</span></div>
   <div class="br-step" data-step="birth"><span class="step-n">4</span><span class="step-l">Birth</span></div>
   <div class="br-step" data-step="postpartum"><span class="step-n">5</span><span class="step-l">Postpartum</span></div>
+  <div class="br-step" data-step="latePP"><span class="step-n">6</span><span class="step-l">6 Weeks</span></div>
 </div>
 
 <!-- ====================== 2-COLUMN GAME LAYOUT ====================== -->
@@ -449,13 +459,14 @@
 <section class="br-stage active" id="stage-welcome">
   <div class="br-stage-head">
     <div class="e">How it works</div>
-    <h2>One client. Eleven rolls. A complete birth story.</h2>
-    <p>You'll name your client, then roll for who she is and who's with her. From there you'll walk through pregnancy, labor, birth, and postpartum. Along the way you'll face doula decision moments and practice BRAIN responses. Roll the dice, or pick the scenario you want to practice.</p>
+    <h2>One client. Thirteen rolls. A complete birth story.</h2>
+    <p>You'll name your client, then roll for who she is and who's with her. From there you'll walk through pregnancy, labor, birth, the first weeks, and her 6-week check-in. Along the way you'll face doula decision moments and practice BRAIN responses.</p>
   </div>
   <div class="welcome-grid">
     <div class="w-card"><div class="w-num">5</div><div class="w-lbl">Setup rolls<br>(age, parity, context, partner, provider)</div></div>
     <div class="w-card"><div class="w-num">3</div><div class="w-lbl">Pregnancy rolls<br>(maternal, baby, prenatal care)</div></div>
     <div class="w-card"><div class="w-num">3</div><div class="w-lbl">Labor + birth rolls<br>(start, progression, outcome)</div></div>
+    <div class="w-card"><div class="w-num">3</div><div class="w-lbl">Postpartum rolls<br>(newborn, feeding, mom + 6-week check)</div></div>
   </div>
 
   <div class="br-stage-head" style="margin-top:8px">
@@ -758,6 +769,75 @@ const ROLL_DATA = {
       0: { text: "<strong>Severe NICU complication.</strong> The baby was admitted to the NICU and did not survive the first 72 hours. The parents are devastated; the doula's role is to be a steady, present, non-fixing companion. Bereavement support and trauma-informed care are critical.", summary: "the baby did not survive the NICU stay", learn:["resources","fieldGuide","courseMaterials"] }
     }
   },
+  feeding: {
+    label: "Feeding journey",
+    title: "Pick her plan, then roll for how it went",
+    hint: "First choose what she wanted to do, then roll to see how it unfolded.",
+    dice: 1,
+    isFeedingRoll: true,
+    plans: {
+      ebf: {
+        label: "Exclusive breastfeeding",
+        outcomes: [
+          { text: "<strong>Severe latch issues + tongue tie.</strong> Painful latch, baby losing weight, lactation consultant identified a posterior tongue tie. Frenectomy scheduled; supplementation recommended in the meantime.", summary: "wanted to exclusively breastfeed but ran into severe latch issues and a tongue tie", learn:["resources","fieldGuide","pocketDoula"] },
+          { text: "<strong>Persistent low supply.</strong> Triple-feeding (nurse, pump, bottle) is exhausting her. Supply isn't building despite herbal support and frequent pumping.", summary: "wanted to exclusively breastfeed but is fighting persistent low supply", learn:["resources","fieldGuide","pocketDoula"] },
+          { text: "<strong>Painful latch, mastitis at 3 weeks.</strong> Cracked nipples, fever, antibiotics. She's pushing through but emotionally fraying.", summary: "is exclusively breastfeeding through painful latch issues and mastitis", learn:["resources","fieldGuide","pocketDoula"] },
+          { text: "<strong>Slow start, recovering well.</strong> First 10 days were rough &mdash; weight dipped &mdash; but with lactation support and frequent feeds, baby is back to birth weight and gaining.", summary: "had a rough breastfeeding start but is recovering well with lactation support", learn:["fieldGuide","pocketDoula"] },
+          { text: "<strong>Strong latch from day 1.</strong> Brief initial soreness, but milk transferred efficiently. Supply established by week 2.", summary: "got a strong breastfeeding latch from day one", learn:["fieldGuide","pocketDoula"] },
+          { text: "<strong>Textbook breastfeeding.</strong> Strong latch, abundant supply, baby thriving on the curve. Feeding is the easy part of postpartum.", summary: "had a textbook breastfeeding experience", learn:["fieldGuide","pocketDoula"] }
+        ]
+      },
+      combo: {
+        label: "Combo feeding (breast + formula)",
+        outcomes: [
+          { text: "<strong>Combo by force.</strong> EBF wasn't working and supplementation was medically needed. She's grieving the all-breastmilk plan she wanted.", summary: "moved to combo feeding reluctantly when breastfeeding wasn't working", learn:["resources","fieldGuide","pocketDoula"] },
+          { text: "<strong>Supply dropping.</strong> Each week, the formula portion grows. She's anxious about losing breastfeeding altogether.", summary: "is on a combo plan that's slowly tipping toward more formula", learn:["resources","fieldGuide","pocketDoula"] },
+          { text: "<strong>Steady rhythm, internal conflict.</strong> Combo is working on paper but she's stressed about whether she's \"doing it right\" or doing enough.", summary: "is comboing successfully but stressed about whether it's enough", learn:["fieldGuide","pocketDoula"] },
+          { text: "<strong>Combo by choice, finding rhythm.</strong> Some breast, some formula. Partner can take a night feed. She feels balanced.", summary: "chose combo feeding and is finding her rhythm with it", learn:["fieldGuide","pocketDoula"] },
+          { text: "<strong>Combo as flexibility.</strong> Pumping at work, formula for daycare, breast at home. The plan was designed for her life.", summary: "is using combo feeding as flexible coverage across work and home", learn:["fieldGuide","pocketDoula"] },
+          { text: "<strong>Combo without stress.</strong> No anxiety about ratios; baby thriving on both; she's relaxed about the whole thing.", summary: "is comboing peacefully with no anxiety about ratios", learn:["fieldGuide","pocketDoula"] }
+        ]
+      },
+      ep: {
+        label: "Exclusive pumping",
+        outcomes: [
+          { text: "<strong>Pumping around the clock, supply still dropping.</strong> Despite pumping every 2-3 hours, output is decreasing. She's exhausted and questioning whether to switch to formula.", summary: "is exclusively pumping and watching her supply drop despite trying everything", learn:["resources","fieldGuide","pocketDoula"] },
+          { text: "<strong>Output okay, time commitment destroying her.</strong> Spending 4-5 hours a day attached to the pump. Recovery and sleep are suffering.", summary: "is exclusively pumping and the time commitment is wearing her down", learn:["resources","fieldGuide","pocketDoula"] },
+          { text: "<strong>Rhythm at home, dreading return to work.</strong> Schedule works at home, but no plan for pumping at work and the deadline is approaching.", summary: "is exclusively pumping at home but worried about her return-to-work plan", learn:["fieldGuide","pocketDoula"] },
+          { text: "<strong>Pumping fits her life.</strong> Found a rhythm with a hospital-grade pump rental and a flexible schedule. It's working.", summary: "is exclusively pumping and has found a rhythm that works for her life", learn:["fieldGuide","pocketDoula"] },
+          { text: "<strong>Strong supply, considering donation.</strong> Her freezer is full; she's looking into milk donation through a local milk bank.", summary: "is exclusively pumping with abundant supply and looking into milk donation", learn:["fieldGuide","pocketDoula"] },
+          { text: "<strong>Lactation success.</strong> Abundant pumped milk, baby thriving on bottles, partner fully participates. EP was the right call.", summary: "is thriving on exclusive pumping with abundant supply and shared feedings", learn:["fieldGuide","pocketDoula"] }
+        ]
+      },
+      formula: {
+        label: "Exclusive formula",
+        outcomes: [
+          { text: "<strong>Insurance won't cover preferred formula.</strong> Scrambling for alternatives. Financial stress and formula-shortage concerns.", summary: "is formula feeding but battling insurance and supply access for the right formula", learn:["resources","fieldGuide","pocketDoula"] },
+          { text: "<strong>Allergies discovered.</strong> Baby has cow's-milk protein intolerance or reflux. Switching formulas multiple times to find the right one.", summary: "is formula feeding through a process of switching brands to manage baby's allergies", learn:["resources","fieldGuide","pocketDoula"] },
+          { text: "<strong>Right formula found, but family judgment is heavy.</strong> Her mother or in-laws are pressuring her about not breastfeeding. She's defending her choice constantly.", summary: "settled on formula but is dealing with heavy family judgment about the choice", learn:["fieldGuide","pocketDoula"] },
+          { text: "<strong>Formula by choice, settled fast.</strong> Found the right brand quickly. Partner is fully involved in feeds.", summary: "chose formula and found her brand quickly, with partner sharing feeds", learn:["fieldGuide","pocketDoula"] },
+          { text: "<strong>Confidence in the decision.</strong> Baby thriving, family supportive, no second-guessing. Formula feeding is going beautifully.", summary: "is formula feeding confidently with full family support", learn:["fieldGuide","pocketDoula"] },
+          { text: "<strong>Effortless formula journey.</strong> Baby thriving, both parents feeding, peace with the choice. The right plan for her family.", summary: "is having an effortless formula-feeding journey", learn:["fieldGuide","pocketDoula"] }
+        ]
+      }
+    }
+  },
+
+  latePostpartum: {
+    label: "Late postpartum (6 weeks)",
+    title: "Roll for her 6-week postpartum check-in",
+    hint: "Mom's mental, physical, and emotional state weeks 4-6 postpartum.",
+    dice: 1,
+    outcomes: [
+      { text: "<strong>Postpartum depression developing.</strong> At 4 weeks: withdrawal, intrusive thoughts, low energy, not connecting with baby. EPDS above threshold. Needs urgent provider referral and mental-health support.", summary: "is showing signs of postpartum depression at her 4-week check-in", learn:["resources","fieldGuide","courseMaterials"] },
+      { text: "<strong>Diastasis recti + pelvic floor pain.</strong> Burning with urination, leaking with movement, visible abdominal separation. Pelvic floor PT referral overdue.", summary: "is dealing with diastasis recti and pelvic floor dysfunction in late postpartum", learn:["resources","fieldGuide","pocketDoula"] },
+      { text: "<strong>Anxiety + sleep deprivation hitting hard.</strong> Crying easily, racing thoughts at night, but recognizing it and asking for help. Building a support plan.", summary: "is grappling with postpartum anxiety and sleep deprivation but reaching out for help", learn:["resources","fieldGuide","pocketDoula"] },
+      { text: "<strong>Mixed bag.</strong> Body healing well, emotions going up and down. Typical 4th-trimester wobble. Riding it out.", summary: "is in a typical 4th-trimester wobble &mdash; body healing, emotions uneven", learn:["fieldGuide","pocketDoula"] },
+      { text: "<strong>Steady recovery.</strong> Body healing well, mood stable, rebuilding routines. Pelvic floor work going well. Returning to gentle movement.", summary: "is in steady recovery &mdash; body, mood, and routines all coming back online", learn:["fieldGuide","pocketDoula"] },
+      { text: "<strong>Thriving at 6 weeks.</strong> Physically recovered, emotionally strong, postpartum visit cleared her for everything. Found her new rhythm.", summary: "is thriving at 6 weeks postpartum &mdash; cleared, strong, and finding her new rhythm", learn:["fieldGuide","pocketDoula"] }
+    ]
+  },
+
   postpartum: { label: "Postpartum recovery", title: "Roll for postpartum recovery", hint: "How does mom's body and heart come through this birth?", dice: 1,
     outcomes: [
       { text: "<strong>Postpartum hemorrhage.</strong> Excessive bleeding after birth requires medical intervention, transfusion, and an extended hospital stay. Emotional and physical support are key.", summary: "she had a postpartum hemorrhage requiring transfusion", learn:["resources","fieldGuide","courseMaterials"] },
@@ -790,8 +870,11 @@ const STAGES = [
     sub:"The big moment. The baby comes earthside.",
     rolls:["birth"] },
   { id:"postpartum", title:"Postpartum", eyebrow:"Step 5",
-    sub:"Two rolls left &mdash; one for baby, one for mom. How does this birth story end?",
-    rolls:["newborn","postpartum"] }
+    sub:"Three rolls for the immediate postpartum: baby's first hours, the feeding journey, and mom's recovery.",
+    rolls:["newborn","feeding","postpartum"] },
+  { id:"latePP", title:"Six Weeks Out", eyebrow:"Step 6",
+    sub:"One final roll for her late-postpartum check-in &mdash; mental, physical, and emotional state at 4-6 weeks.",
+    rolls:["latePostpartum"] }
 ];
 
 const REFLECTIONS = {
@@ -888,14 +971,14 @@ const DECISIONS = {
       type: "brain",
       heading: "Doula moment: Multip with fast labor history",
       scene: "{name}'s last baby came in 90 minutes. She lives 35 minutes from the hospital. She just texted: contractions started 20 minutes ago, 4 minutes apart.",
-      question: "What do you tell her right now?",
+      question: "What do you tell her?",
       options: [
-        { text: "<strong>Tell her to leave now.</strong> \"Head to the hospital. Call your provider on the way. I'll meet you there.\"", quality: "best",
-          feedback: "Decisive and scope-appropriate. You're naming the logistical reality of her birth history, not making a medical call." },
-        { text: "<strong>Have her time them</strong> for another hour and see if they get closer before doing anything else.", quality: "worst",
-          feedback: "She doesn't have another hour. Waiting on the 4-1-1 rule here could mean a roadside birth." },
-        { text: "<strong>Tell her to call her provider</strong> first and let them decide whether she should head in right now.", quality: "good",
-          feedback: "Reasonable, but encourage her to leave WHILE she's on the phone. Time is the issue." },
+        { text: "<strong>Ask her preference.</strong> \"Knowing your last labor was fast, do you want to head to the hospital now or labor at home? Either way, let's call your provider together.\"", quality: "best",
+          feedback: "You honor her agency and surface the clinical reality of her birth history without deciding for her. Calling the provider is the next move regardless of which path she picks." },
+        { text: "<strong>Tell her to call her provider</strong> right now and let them help decide on timing &mdash; they know her chart.", quality: "good",
+          feedback: "Solid and in scope. Just make sure she's getting ready to move while she's on the phone &mdash; her birth history doesn't fit a 4-1-1 wait-and-see pattern." },
+        { text: "<strong>Have her time them</strong> using the 4-1-1 rule for another hour before doing anything &mdash; that's the standard guidance.", quality: "worst",
+          feedback: "The 4-1-1 rule is for first-time moms and well-paced labors. Her history of a 90-minute birth makes 4-1-1 timing dangerous here &mdash; she could birth in the car." },
         { text: "<strong>Drive to her house yourself</strong> and labor at home as long as you can before transferring in.", quality: "worst",
           feedback: "Outside doula scope unless this is a planned home birth. You're not the safety net her provider is." }
       ]
@@ -979,14 +1062,14 @@ const DECISIONS = {
       scene: "At her 38-week visit the OB says, \"Let's schedule your induction for next Tuesday.\" {name} looks at you.",
       question: "What's your role right here?",
       options: [
-        { text: "<strong>Witness and take notes.</strong> Quietly ask {name} if she has questions, then debrief and prep for the next visit afterward.", quality: "best",
-          feedback: "You stay in scope, preserve her agency, and give her a teammate to debrief with. Don't make the call for her in the room." },
+        { text: "<strong>Coach her in the moment.</strong> \"You have to consent to anything that happens. Want to take a minute to walk through BRAIN before deciding?\"", quality: "best",
+          feedback: "You name her right to informed consent and offer the framework she needs to ask questions right now. Stays in scope by giving her tools, not opinions." },
+        { text: "<strong>Witness and take notes</strong>, ask quietly if she has questions, and prep BRAIN questions for the next visit if she seems shut down.", quality: "good",
+          feedback: "Solid and in scope, especially if she can't speak up in the room. Pair with a follow-up call before her next visit to debrief." },
         { text: "<strong>Speak up immediately</strong> for her: \"She doesn't want an induction. We've talked about this in our prep work together.\"", quality: "worst",
           feedback: "You bypassed her voice. Even if you know her preferences, putting words in her mouth in front of her provider takes her agency." },
-        { text: "<strong>Stay silent</strong> &mdash; this is a medical recommendation and not really a doula's place to weigh in on.", quality: "poor",
-          feedback: "Withholding presence reads as abandonment. You can stay in scope while still being a visible support." },
-        { text: "<strong>Hand her a printed list</strong> of induction risks to show the provider right there in front of him.", quality: "poor",
-          feedback: "Too directive and too late. Coach her to ask; don't argue for her with a flyer." }
+        { text: "<strong>Stay silent</strong> &mdash; this is a medical recommendation and not really a doula's place to weigh in on at all.", quality: "poor",
+          feedback: "Withholding presence reads as abandonment. You can stay in scope while still being a visible support and surfacing BRAIN." }
       ]
     },
     "3": { /* supportive OB asks doula's opinion */
@@ -1163,6 +1246,22 @@ const DECISIONS = {
           feedback: "Often the right destination, but call her provider first so she's not just walking in cold." }
       ]
     },
+    "3": { /* slow gradual labor + backup provider walks in */
+      type: "brain",
+      heading: "Doula moment: Backup provider, different style",
+      scene: "{name}'s labor has been slow for 18 hours. Her trusted provider just called &mdash; they can't make it. The on-call backup is in the room within minutes, already saying they want to start Pitocin to \"speed things along.\"",
+      question: "What do you do?",
+      options: [
+        { text: "<strong>Remind her of her consent.</strong> \"Anything that happens needs your yes. Let's take a moment to walk through BRAIN before you decide.\"", quality: "best",
+          feedback: "You re-center her agency in a high-pressure provider switch. Her birth plan was built with her primary; the backup doesn't get to override her consent." },
+        { text: "<strong>Surface alternatives</strong> she can ask about: \"Could we ask about position changes, movement, or hydration first before starting Pitocin?\"", quality: "good",
+          feedback: "Real alternatives to augmentation. Within scope to surface options for {name} to bring up. Pair with BRAIN coaching to walk her through the decision." },
+        { text: "<strong>Tell her to refuse the Pitocin</strong> and demand her primary provider be called back in to discuss it directly with her now.", quality: "worst",
+          feedback: "Decision-making for her, and unrealistic &mdash; her primary isn't available. Coach her through THIS provider; don't refuse on her behalf." },
+        { text: "<strong>Reassure her the backup</strong> knows what they're doing and she should just go along with the recommendation right now.", quality: "poor",
+          feedback: "Strips her agency and overrides her birth plan. Even if the backup is competent, she gets a say in what happens to her body." }
+      ]
+    },
     "5": { /* precipitous */
       type: "wtys",
       heading: "Doula moment: Precipitous labor",
@@ -1243,14 +1342,14 @@ const DECISIONS = {
       scene: "Provider is reaching for forceps. {name} is panicking. You have about 20 seconds.",
       question: "What do you say?",
       options: [
-        { text: "<strong>Name what's happening.</strong> \"They're using forceps to help baby out. Look at me. Keep pushing with the next contraction.\"", quality: "best",
-          feedback: "Information plus instruction. You give her something to do (push) and a steady gaze." },
+        { text: "<strong>Pause for consent.</strong> \"They're using forceps to help baby. Do you have any questions? Is this okay with you?\"", quality: "best",
+          feedback: "Even in a fast moment, her consent matters. Naming the intervention and pausing to check in is the doula's lane." },
+        { text: "<strong>Name and ground her</strong>: \"They're helping baby out. Look at me. Stay with me. You're doing it.\"", quality: "good",
+          feedback: "Useful if she's panicking and can't process consent in this 20-second window. Pair with consent-coaching if there's any room for it." },
         { text: "<strong>Tell her to refuse</strong> the forceps and ask for more time and position changes instead of using them.", quality: "worst",
-          feedback: "Out of scope. Forceps may be the safest option right now. Don't override the medical decision." },
-        { text: "<strong>Stay quiet</strong> while they work &mdash; she's already pushing and doesn't need additional voices in her ear.", quality: "poor",
-          feedback: "She needs words. Plain language steadies her body." },
+          feedback: "Out of scope. Forceps may be the safest option right now. Don't override the medical decision for her." },
         { text: "<strong>Tell her everything will be fine</strong> and that the forceps don't really hurt babies most of the time.", quality: "poor",
-          feedback: "You don't know that. Stay with what's true: \"They're helping baby. Keep pushing.\"" }
+          feedback: "False reassurance. You don't know that. Stay with what's true and let her ask the team her own questions." }
       ]
     }
   },
@@ -1286,14 +1385,14 @@ const DECISIONS = {
       scene: "Baby's heart rate is dropping. Provider is reaching for the vacuum. {name} is pushing hard and starting to panic.",
       question: "What do you do?",
       options: [
-        { text: "<strong>Anchor her.</strong> Eye contact, hand on shoulder: \"They're using a vacuum to help baby out faster. Keep pushing with me.\"", quality: "best",
-          feedback: "Information plus presence plus instruction. Three doula moves in one breath." },
+        { text: "<strong>Coach her consent.</strong> \"They're using a vacuum to help baby. Do you have any questions? Is this okay with you?\"", quality: "best",
+          feedback: "You preserve informed consent in a high-pressure moment. Even when the team is moving fast, she still gets to ask and say yes before they proceed." },
+        { text: "<strong>Anchor and stay close.</strong> Eye contact, hand on shoulder: \"They're helping baby. Stay with me. You're doing it.\"", quality: "good",
+          feedback: "Presence and grounding are right. Pair this with surfacing consent so she knows she can ask the team to wait or explain first." },
         { text: "<strong>Tell her to stop pushing</strong> while the vacuum is being used so the provider can do their work uninterrupted.", quality: "worst",
-          feedback: "Wrong. With vacuum or forceps, providers usually want her to push WITH the assist. Don't contradict." },
+          feedback: "Wrong. With vacuum or forceps, providers usually want her to push WITH the assist. Don't contradict the team mid-procedure." },
         { text: "<strong>Step back from the bed</strong> and let the medical team work without your voice or presence in her ear.", quality: "poor",
-          feedback: "Stay at her head and keep her grounded." },
-        { text: "<strong>Tell her it's almost over.</strong> \"One more push, baby will be here. You're doing it. Stay with me.\"", quality: "good",
-          feedback: "Useful, just make sure it's true. Don't say \"one more push\" five times in a row." }
+          feedback: "Stay at her head and keep her grounded. Stepping back is appropriate during the procedure, but you can still be present." }
       ]
     },
     "2": { /* minor tearing, suturing */
@@ -1727,13 +1826,20 @@ function recordOutcome(rollId, sum, dice, isPick){
   const r = ROLL_DATA[rollId];
   const outcomeIdx = r.dice === 2 ? (sum - 2) : (sum - 1);
 
-  /* IMPORTANT: update flags FIRST so the variant resolver sees them.
-     But twin/etc variants on the rolling outcome itself should apply only
-     if the flag was set by a PRIOR roll. So we set flags after resolving. */
-  let outcome = resolveOutcome(r, outcomeIdx);
+  let outcome;
+  let feedingPlan = null;
+  if(r.isFeedingRoll){
+    // Feeding rolls have plan-specific outcomes; pull from the chosen plan.
+    const card = document.querySelector(`.br-roll-card[data-roll-id="${rollId}"]`);
+    feedingPlan = card && card.dataset.feedingPlan;
+    if(!feedingPlan || !r.plans[feedingPlan]) return null;
+    outcome = r.plans[feedingPlan].outcomes[outcomeIdx];
+  } else {
+    outcome = resolveOutcome(r, outcomeIdx);
+  }
 
   let lossVariant = null;
-  if(r.dice === 1 && outcomeIdx === 0){
+  if(!r.isFeedingRoll && r.dice === 1 && outcomeIdx === 0){
     const swap = maybeApplyLossVariant(rollId, outcomeIdx);
     if(swap && Math.random() < 0.4){
       outcome = swap;
@@ -1746,7 +1852,8 @@ function recordOutcome(rollId, sum, dice, isPick){
     text: outcome.text,
     summary: outcome.summary,
     learn: outcome.learn || [],
-    lossVariant
+    lossVariant,
+    feedingPlan
   };
 
   /* Now update flags based on what this roll established. Later rolls will use them. */
@@ -1766,6 +1873,7 @@ function renderLearnMore(learnKeys){
 
 function buildRollCard(rollId, isFirst){
   const r = ROLL_DATA[rollId];
+  if(r.isFeedingRoll) return buildFeedingCard(rollId, isFirst);
   const isTwoDice = r.dice === 2;
   const card = document.createElement("div");
   card.className = "br-roll-card mode-roll" + (isFirst ? " is-current" : "");
@@ -1870,6 +1978,112 @@ function buildRollCard(rollId, isFirst){
 
     const sum = dieValues.reduce((a,b)=>a+b, 0);
     completeRoll(card, sum, dieValues, false);
+  });
+
+  return card;
+}
+
+/* Special-case roll card for feeding journey: requires plan-pick before rolling */
+function buildFeedingCard(rollId, isFirst){
+  const r = ROLL_DATA[rollId];
+  const card = document.createElement("div");
+  card.className = "br-roll-card mode-roll" + (isFirst ? " is-current" : "");
+  card.dataset.rollId = rollId;
+  card.innerHTML = `
+    <div class="roll-header">
+      <div>
+        <div class="roll-label">${r.label}</div>
+        <h3 class="roll-title">${r.title}</h3>
+        <p class="roll-hint">${r.hint}</p>
+      </div>
+      <div class="mode-toggle" role="tablist" aria-label="Roll or pick">
+        <button type="button" class="is-active" data-mode="roll"><i class="ico" data-lucide="dices"></i>Roll</button>
+        <button type="button" data-mode="pick"><i class="ico" data-lucide="edit-3"></i>Pick</button>
+      </div>
+    </div>
+    <div class="feeding-plan-picker">
+      <div class="fpp-label">What did she want to do?</div>
+      <div class="fpp-grid">
+        ${Object.entries(r.plans).map(([id, plan]) => `<button type="button" class="fpp-btn" data-plan="${id}">${plan.label}</button>`).join("")}
+      </div>
+    </div>
+    <div class="roll-mode-body" style="opacity:0.5;pointer-events:none" data-needs-plan>
+      <div class="dice-stage">
+        <div class="dice-scene"><div class="dice-pair" data-pair></div></div>
+        <button class="roll-btn" data-roll-btn type="button" disabled>
+          <i class="ico" data-lucide="dices"></i>Roll the die
+        </button>
+        <div class="dice-helper">Pick a plan first</div>
+      </div>
+      <div data-roll-extra></div>
+    </div>
+    <div class="pick-mode-body" data-needs-plan style="opacity:0.5;pointer-events:none">
+      <p style="margin:0 0 12px;font-size:13.5px;color:var(--mhn-ink-soft);font-family:var(--mhn-font-serif);font-style:italic">Pick a plan above, then choose how it went.</p>
+      <div class="pick-grid" data-pick-grid></div>
+    </div>
+    <div data-result-host></div>
+  `;
+
+  const pair = card.querySelector("[data-pair]");
+  const cube1 = buildCube(); pair.appendChild(cube1);
+  const pickGrid = card.querySelector("[data-pick-grid]");
+
+  function populateForPlan(planId){
+    const plan = r.plans[planId];
+    pickGrid.innerHTML = "";
+    for(let face = 1; face <= 6; face++){
+      const o = plan.outcomes[face - 1];
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "pick-option";
+      btn.innerHTML = `<span class="pn">${face}</span><span class="pt">${o.text}</span>`;
+      btn.addEventListener("click", () => completeRoll(card, face, [face], true));
+      pickGrid.appendChild(btn);
+    }
+  }
+
+  // Plan picker buttons
+  card.querySelectorAll(".fpp-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      if(card.classList.contains("is-done")) return;
+      card.querySelectorAll(".fpp-btn").forEach(b => b.classList.remove("is-active"));
+      btn.classList.add("is-active");
+      card.dataset.feedingPlan = btn.dataset.plan;
+      card.querySelectorAll("[data-needs-plan]").forEach(el => { el.style.opacity = ""; el.style.pointerEvents = ""; });
+      const rollBtn = card.querySelector("[data-roll-btn]");
+      if(rollBtn){
+        rollBtn.disabled = false;
+        rollBtn.innerHTML = `<i class="ico" data-lucide="dices"></i>Roll the die`;
+      }
+      const helper = card.querySelector(".dice-helper");
+      if(helper) helper.textContent = "1d6";
+      populateForPlan(btn.dataset.plan);
+      if(window.lucide) window.lucide.createIcons();
+    });
+  });
+
+  // Mode toggle
+  card.querySelectorAll(".mode-toggle button").forEach(btn => {
+    btn.addEventListener("click", () => {
+      if(card.classList.contains("is-done")) return;
+      card.querySelectorAll(".mode-toggle button").forEach(b => b.classList.remove("is-active"));
+      btn.classList.add("is-active");
+      card.classList.remove("mode-roll","mode-pick");
+      card.classList.add("mode-" + btn.dataset.mode);
+    });
+  });
+
+  // Roll button
+  card.querySelector("[data-roll-btn]").addEventListener("click", async () => {
+    if(card.classList.contains("is-done")) return;
+    if(!card.dataset.feedingPlan) return;
+    const btn = card.querySelector("[data-roll-btn]");
+    btn.disabled = true;
+    btn.textContent = "Rolling…";
+    const bias = getCascadeBias(rollId);
+    const dieValues = [biasedDie(bias)];
+    await spinCube(cube1, dieValues[0]);
+    completeRoll(card, dieValues[0], dieValues, false);
   });
 
   return card;
@@ -2272,7 +2486,9 @@ function generateNarrative(){
   const lp = get("laborProgress") || "";
   const birth = get("birth") || "";
   const newborn = get("newborn") || "";
+  const feeding = get("feeding") || "";
   const pp = get("postpartum") || "";
+  const latePP = get("latePostpartum") || "";
 
   // P1: client + setup
   const p1 = `<p><strong>${name}</strong> ${age}, ${parity}. She ${context}. She ${partner}, and she ${provider}.</p>`;
@@ -2286,12 +2502,20 @@ function generateNarrative(){
   p3 += `When the time came, ${ls}. From there, ${lp}, and ${birth}.`;
   p3 += "</p>";
 
-  // P4: postpartum
+  // P4: postpartum (with feeding mid-sentence if present)
   let p4 = "<p>";
-  p4 += `After birth, ${newborn}. For ${name}, ${pp}.`;
+  p4 += `After birth, ${newborn}.`;
+  if(feeding) p4 += ` On feeding, she ${feeding}.`;
+  if(pp) p4 += ` For ${name}, ${pp}.`;
   p4 += "</p>";
 
-  return p1 + p2 + p3 + p4;
+  // P5: late postpartum
+  let p5 = "";
+  if(latePP){
+    p5 = `<p>At her six-week check-in, ${latePP}</p>`;
+  }
+
+  return p1 + p2 + p3 + p4 + p5;
 }
 
 function renderStory(){
@@ -2387,7 +2611,9 @@ function renderStory(){
     delete state.results.laborProgress;
     delete state.results.birth;
     delete state.results.newborn;
+    delete state.results.feeding;
     delete state.results.postpartum;
+    delete state.results.latePostpartum;
     state.decisions = {};
     rebuildFlags();
     // Jump to labor stage
@@ -2417,7 +2643,7 @@ function renderStorySidebar(){
   const progressEl = document.getElementById("storyProgress");
   if(!host) return;
 
-  const totalRolls = 11;
+  const totalRolls = 13;
   const rollsDone = Object.keys(state.results).length;
   if(progressEl){
     progressEl.textContent = `${rollsDone} of ${totalRolls} rolls`;
@@ -2478,12 +2704,18 @@ function renderStorySidebar(){
   }
 
   // POSTPARTUM
-  const hasPP = ["newborn","postpartum"].some(id => state.results[id]);
+  const hasPP = ["newborn","feeding","postpartum"].some(id => state.results[id]);
   if(hasPP){
     let para = "";
     if(state.results.newborn) para += `After birth, ${state.results.newborn.summary}. `;
+    if(state.results.feeding) para += `On feeding, she ${state.results.feeding.summary}. `;
     if(state.results.postpartum) para += `For ${name}, ${state.results.postpartum.summary}.`;
     html += `<div class="ss-section"><div class="ss-eyebrow"><i class="ico" data-lucide="moon"></i>Postpartum</div><p>${para.trim()}</p></div>`;
+  }
+
+  // LATE POSTPARTUM
+  if(state.results.latePostpartum){
+    html += `<div class="ss-section"><div class="ss-eyebrow"><i class="ico" data-lucide="calendar-days"></i>Six Weeks Out</div><p>At her 6-week check-in, ${state.results.latePostpartum.summary}.</p></div>`;
   }
 
   // DECISIONS — show quality pills
