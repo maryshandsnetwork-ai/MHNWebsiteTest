@@ -28,13 +28,27 @@
   .br-hero .hero-meta .num{font-family:var(--mhn-font-serif);font-size:44px;font-weight:700;line-height:1;color:#fff;letter-spacing:-0.02em}
   .br-hero .hero-meta .lbl{font-family:var(--mhn-font-sans);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:#D4BADD;font-weight:800;line-height:1.2}
 
-  /* ---------------- PROGRESS STEPPER ---------------- */
+  /* ---------------- PROGRESS STEPPER (colorized journey) ---------------- */
   .br-stepper{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-bottom:20px}
-  .br-step{padding:10px 12px;background:#fff;border:1px solid var(--mhn-line);border-radius:12px;text-align:center;transition:all .2s}
-  .br-step.active{background:var(--mhn-purple-700);color:#fff;border-color:var(--mhn-purple-700);box-shadow:0 6px 16px rgba(94,55,108,0.22)}
-  .br-step.done{background:var(--mhn-purple-50);color:var(--mhn-purple-700);border-color:var(--mhn-purple-200)}
+  .br-step{padding:10px 12px;background:#fff;border:1px solid var(--mhn-line);border-radius:12px;text-align:center;transition:all .25s}
   .br-step .step-n{font-family:var(--mhn-font-serif);font-size:18px;font-weight:700;line-height:1;display:block;margin-bottom:4px}
   .br-step .step-l{font-family:var(--mhn-font-sans);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;font-weight:700;line-height:1.2;display:block}
+  /* Active state: each stage gets its own vibrant color across a purple-to-gold journey */
+  .br-step[data-step="welcome"].active{background:#D4BADD;color:#3F2449;border-color:#D4BADD;box-shadow:0 6px 16px rgba(132,89,149,0.22)}
+  .br-step[data-step="create"].active{background:#A77FB6;color:#fff;border-color:#A77FB6;box-shadow:0 6px 16px rgba(132,89,149,0.32)}
+  .br-step[data-step="pregnancy"].active{background:#845995;color:#fff;border-color:#845995;box-shadow:0 6px 16px rgba(132,89,149,0.36)}
+  .br-step[data-step="labor"].active{background:#5E376C;color:#fff;border-color:#5E376C;box-shadow:0 6px 16px rgba(94,55,108,0.36)}
+  .br-step[data-step="birth"].active{background:#9C5A45;color:#fff;border-color:#9C5A45;box-shadow:0 6px 16px rgba(156,90,69,0.36)}
+  .br-step[data-step="postpartum"].active{background:#B5824A;color:#fff;border-color:#B5824A;box-shadow:0 6px 16px rgba(181,130,74,0.36)}
+  .br-step[data-step="latePP"].active{background:#D4A040;color:#3F2449;border-color:#D4A040;box-shadow:0 6px 16px rgba(212,160,64,0.36)}
+  /* Done states: tinted version of each stage color */
+  .br-step[data-step="welcome"].done{background:#F5EDF8;color:#5E376C;border-color:#E8D5EE}
+  .br-step[data-step="create"].done{background:#EBDDF0;color:#5E376C;border-color:#D4BADD}
+  .br-step[data-step="pregnancy"].done{background:#E0CFE6;color:#5E376C;border-color:#D4BADD}
+  .br-step[data-step="labor"].done{background:#D4BADD;color:#3F2449;border-color:#A77FB6}
+  .br-step[data-step="birth"].done{background:#F0DDD3;color:#9C5A45;border-color:#E8C5B5}
+  .br-step[data-step="postpartum"].done{background:#FAEFE0;color:#85571F;border-color:#E8D5BD}
+  .br-step[data-step="latePP"].done{background:#FFF8E5;color:#85571F;border-color:#F0DBA5}
   @media(max-width:760px){.br-stepper{grid-template-columns:repeat(4,1fr)}.br-step{padding:8px 6px}.br-step .step-l{font-size:9.5px;letter-spacing:0.04em}.br-step .step-n{font-size:15px}}
 
   /* ---------------- STAGE CARDS ---------------- */
@@ -258,8 +272,9 @@
   .ss-section .ss-eyebrow .ico{width:11px;height:11px}
   .ss-section p{margin:0;font-size:13.5px;line-height:1.6;color:var(--mhn-ink);font-family:var(--mhn-font-serif)}
   .ss-section p strong{color:#85571F;font-weight:700}
-  .ss-empty{font-family:var(--mhn-font-serif);font-style:italic;font-size:13.5px;line-height:1.6;color:var(--mhn-ink-soft);text-align:center;padding:24px 8px}
-  .ss-empty .ss-empty-ico{font-size:30px;margin-bottom:10px;opacity:0.5;display:block}
+  .ss-empty{font-family:var(--mhn-font-serif);font-style:italic;font-size:14px;line-height:1.6;color:var(--mhn-ink-soft);text-align:center;padding:28px 12px}
+  .ss-empty .ss-empty-ico{font-size:72px;line-height:1;margin-bottom:14px;display:block;filter:drop-shadow(0 4px 10px rgba(133,87,31,0.22));animation:dicePulse 2.4s ease-in-out infinite}
+  @keyframes dicePulse{0%,100%{transform:rotate(-6deg) scale(1)}50%{transform:rotate(6deg) scale(1.05)}}
   .ss-decisions{padding-top:10px;border-top:1px dashed #E8D5BD}
   .ss-decision{display:inline-flex;align-items:center;gap:5px;padding:3px 8px;background:#fff;border-radius:999px;font-family:var(--mhn-font-sans);font-size:10.5px;font-weight:800;letter-spacing:0.04em;margin:2px 4px 2px 0}
   .ss-decision .ico{width:11px;height:11px}
@@ -448,7 +463,7 @@
   <div class="br-step" data-step="labor"><span class="step-n">3</span><span class="step-l">Labor</span></div>
   <div class="br-step" data-step="birth"><span class="step-n">4</span><span class="step-l">Birth</span></div>
   <div class="br-step" data-step="postpartum"><span class="step-n">5</span><span class="step-l">Postpartum</span></div>
-  <div class="br-step" data-step="latePP"><span class="step-n">6</span><span class="step-l">6 Weeks</span></div>
+  <div class="br-step" data-step="latePP"><span class="step-n">6</span><span class="step-l">8 Weeks</span></div>
 </div>
 
 <!-- ====================== 2-COLUMN GAME LAYOUT ====================== -->
@@ -460,13 +475,7 @@
   <div class="br-stage-head">
     <div class="e">How it works</div>
     <h2>One client. Thirteen rolls. A complete birth story.</h2>
-    <p>You'll name your client, then roll for who she is and who's with her. From there you'll walk through pregnancy, labor, birth, the first weeks, and her 6-week check-in. Along the way you'll face doula decision moments and practice BRAIN responses.</p>
-  </div>
-  <div class="welcome-grid">
-    <div class="w-card"><div class="w-num">5</div><div class="w-lbl">Setup rolls<br>(age, parity, context, partner, provider)</div></div>
-    <div class="w-card"><div class="w-num">3</div><div class="w-lbl">Pregnancy rolls<br>(maternal, baby, prenatal care)</div></div>
-    <div class="w-card"><div class="w-num">3</div><div class="w-lbl">Labor + birth rolls<br>(start, progression, outcome)</div></div>
-    <div class="w-card"><div class="w-num">3</div><div class="w-lbl">Postpartum rolls<br>(newborn, feeding, mom + 6-week check)</div></div>
+    <p>You'll name your client, then roll for who she is and who's with her. From there you'll walk through pregnancy, labor, birth, the first weeks, and her 8-week check-in. Along the way you'll face doula decision moments and practice BRAIN responses.</p>
   </div>
 
   <div class="br-stage-head" style="margin-top:8px">
@@ -484,7 +493,7 @@
     <button class="diff-card selected" data-diff="medium" type="button">
       <div class="diff-emoji">&#x2696;&#xFE0F;</div>
       <h4>Medium</h4>
-      <p>Realistic spread across the full range. Recommended default &mdash; matches the variety you'll encounter at MHN.</p>
+      <p>Realistic spread across the full range. Recommended default, matches the variety you'll encounter at MHN.</p>
     </button>
     <button class="diff-card" data-diff="hard" type="button">
       <div class="diff-emoji">&#x26A1;</div>
@@ -630,7 +639,7 @@ const ROLL_DATA = {
   parity: { label: "Pregnancy history", title: "Roll for parity", hint: "How many babies she's carried shapes her body, her fears, and her labor pattern.", dice: 1,
     outcomes: [
       { text: "<strong>First pregnancy (G1P0).</strong> Everything is new. Labor is often longer; she'll lean on her doula for what to expect at every stage.", summary: "expecting her first baby", learn:["fieldGuide","pocketDoula"] },
-      { text: "<strong>First baby after a prior loss (G2P0).</strong> Carrying grief into this pregnancy. Anxiety will spike around milestones &mdash; especially anatomy scan and viability.", summary: "expecting her first living baby after a prior loss", learn:["fieldGuide","courseMaterials"] },
+      { text: "<strong>First baby after a prior loss (G2P0).</strong> Carrying grief into this pregnancy. Anxiety will spike around milestones, especially anatomy scan and viability.", summary: "expecting her first living baby after a prior loss", learn:["fieldGuide","courseMaterials"] },
       { text: "<strong>Second baby (G2P1).</strong> Knows her body in labor. Often a shorter labor and faster pushing stage.", summary: "expecting her second baby", learn:["fieldGuide"] },
       { text: "<strong>Third baby (G3P2).</strong> Experienced birther. Precipitous labor is possible; the doula should be ready to move fast.", summary: "expecting her third baby", learn:["fieldGuide","pocketDoula"] },
       { text: "<strong>Fourth or more baby (G4+).</strong> Body is well-practiced. Risk of postpartum hemorrhage rises with each subsequent birth.", summary: "expecting her fourth or more baby", learn:["fieldGuide","resources"] },
@@ -644,7 +653,7 @@ const ROLL_DATA = {
       { text: "<strong>Long-time local resident, low income.</strong> Public insurance; juggling multiple jobs and childcare; transportation is a recurring barrier.", summary: "is a low-income long-time local resident juggling jobs and childcare", learn:["fieldGuide","courseMaterials"] },
       { text: "<strong>Long-time local resident, working class.</strong> Employer insurance; reliable partner support; one stable income source.", summary: "is working-class with stable income and employer insurance", learn:["fieldGuide"] },
       { text: "<strong>Middle income, partnered.</strong> Stable housing, childcare plan in place, room in the budget for some extras.", summary: "is middle-income with a stable household", learn:["fieldGuide"] },
-      { text: "<strong>Higher income, abundant support.</strong> Flexible work, doulas, postpartum help, lactation consultants &mdash; she has everything she needs already secured.", summary: "has higher income and abundant support already secured", learn:["fieldGuide"] }
+      { text: "<strong>Higher income, abundant support.</strong> Flexible work, doulas, postpartum help, lactation consultants, she has everything she needs already secured.", summary: "has higher income and abundant support already secured", learn:["fieldGuide"] }
     ]
   },
   partner: { label: "Partner", title: "Roll for partner", hint: "Who is in the room with her, and how much can they hold?", dice: 1,
@@ -669,7 +678,7 @@ const ROLL_DATA = {
   },
 
   /* ---------- PREGNANCY ---------- */
-  maternal: { label: "Maternal health", title: "Roll for maternal health (2d6)", hint: "The big picture of what her pregnancy looks like clinically &mdash; from high-risk to ideal.", dice: 2,
+  maternal: { label: "Maternal health", title: "Roll for maternal health (2d6)", hint: "The big picture of what her pregnancy looks like clinically, from high-risk to ideal.", dice: 2,
     outcomes: [
       { text: "<strong>High-risk pregnancy.</strong> Type 1 diabetes, severe preeclampsia, and a congenital heart defect. Requires intensive medical management throughout.", summary: "is navigating a high-risk pregnancy (Type 1 diabetes + severe preeclampsia + congenital heart defect)", learn:["resources","fieldGuide","courseMaterials"] },
       { text: "<strong>Recurrent loss history + placenta previa.</strong> Placenta is covering the cervix. Potential for preterm birth or C-section.", summary: "is carrying a placenta previa pregnancy after a history of recurrent loss", learn:["resources","fieldGuide"] },
@@ -690,7 +699,7 @@ const ROLL_DATA = {
       { text: "<strong>Significant fetal growth restriction (IUGR).</strong> Baby measures very small for gestational age. Frequent monitoring and possible early induction.", summary: "her baby has significant growth restriction (IUGR)", learn:["resources","fieldGuide"] },
       { text: "<strong>Malpositioned baby.</strong> Breech, transverse, or compound presentation. May lead to positioning techniques, external version, or C-section discussion.", summary: "her baby is malpositioned (breech, transverse, or compound)", learn:["resources","fieldGuide","pocketDoula"] },
       { text: "<strong>Twins or multiples.</strong> Twin pregnancy progressing well, with extra monitoring. One twin may be smaller, but overall outlook is good.", summary: "her twins are progressing well", learn:["fieldGuide","resources"] },
-      { text: "<strong>Mild prenatal concern.</strong> Slightly low fluid levels, marginal cord insertion, or mild growth variation &mdash; not concerning enough to change birth plans.", summary: "her baby has a mild prenatal concern but no change to the birth plan", learn:["fieldGuide"] },
+      { text: "<strong>Mild prenatal concern.</strong> Slightly low fluid levels, marginal cord insertion, or mild growth variation, not concerning enough to change birth plans.", summary: "her baby has a mild prenatal concern but no change to the birth plan", learn:["fieldGuide"] },
       { text: "<strong>Perfectly healthy baby.</strong> Well-positioned, strong fetal movements, normal growth, excellent prenatal health.", summary: "her baby is perfectly healthy and well-positioned", learn:["fieldGuide"] }
     ]
   },
@@ -782,7 +791,7 @@ const ROLL_DATA = {
           { text: "<strong>Severe latch issues + tongue tie.</strong> Painful latch, baby losing weight, lactation consultant identified a posterior tongue tie. Frenectomy scheduled; supplementation recommended in the meantime.", summary: "wanted to exclusively breastfeed but ran into severe latch issues and a tongue tie", learn:["resources","fieldGuide","pocketDoula"] },
           { text: "<strong>Persistent low supply.</strong> Triple-feeding (nurse, pump, bottle) is exhausting her. Supply isn't building despite herbal support and frequent pumping.", summary: "wanted to exclusively breastfeed but is fighting persistent low supply", learn:["resources","fieldGuide","pocketDoula"] },
           { text: "<strong>Painful latch, mastitis at 3 weeks.</strong> Cracked nipples, fever, antibiotics. She's pushing through but emotionally fraying.", summary: "is exclusively breastfeeding through painful latch issues and mastitis", learn:["resources","fieldGuide","pocketDoula"] },
-          { text: "<strong>Slow start, recovering well.</strong> First 10 days were rough &mdash; weight dipped &mdash; but with lactation support and frequent feeds, baby is back to birth weight and gaining.", summary: "had a rough breastfeeding start but is recovering well with lactation support", learn:["fieldGuide","pocketDoula"] },
+          { text: "<strong>Slow start, recovering well.</strong> First 10 days were rough, weight dipped, but with lactation support and frequent feeds, baby is back to birth weight and gaining.", summary: "had a rough breastfeeding start but is recovering well with lactation support", learn:["fieldGuide","pocketDoula"] },
           { text: "<strong>Strong latch from day 1.</strong> Brief initial soreness, but milk transferred efficiently. Supply established by week 2.", summary: "got a strong breastfeeding latch from day one", learn:["fieldGuide","pocketDoula"] },
           { text: "<strong>Textbook breastfeeding.</strong> Strong latch, abundant supply, baby thriving on the curve. Feeding is the easy part of postpartum.", summary: "had a textbook breastfeeding experience", learn:["fieldGuide","pocketDoula"] }
         ]
@@ -824,17 +833,17 @@ const ROLL_DATA = {
   },
 
   latePostpartum: {
-    label: "Late postpartum (6 weeks)",
-    title: "Roll for her 6-week postpartum check-in",
-    hint: "Mom's mental, physical, and emotional state weeks 4-6 postpartum.",
+    label: "Late postpartum (8 weeks)",
+    title: "Roll for her 8-week postpartum check-in",
+    hint: "Mom's mental, physical, and emotional state weeks 4-8 postpartum.",
     dice: 1,
     outcomes: [
-      { text: "<strong>Postpartum depression developing.</strong> At 4 weeks: withdrawal, intrusive thoughts, low energy, not connecting with baby. EPDS above threshold. Needs urgent provider referral and mental-health support.", summary: "is showing signs of postpartum depression at her 4-week check-in", learn:["resources","fieldGuide","courseMaterials"] },
+      { text: "<strong>Postpartum depression developing.</strong> At 4-6 weeks: withdrawal, intrusive thoughts, low energy, not connecting with baby. EPDS above threshold. Needs urgent provider referral and mental-health support.", summary: "is showing signs of postpartum depression at her 4-6-week check-in", learn:["resources","fieldGuide","courseMaterials"] },
       { text: "<strong>Diastasis recti + pelvic floor pain.</strong> Burning with urination, leaking with movement, visible abdominal separation. Pelvic floor PT referral overdue.", summary: "is dealing with diastasis recti and pelvic floor dysfunction in late postpartum", learn:["resources","fieldGuide","pocketDoula"] },
       { text: "<strong>Anxiety + sleep deprivation hitting hard.</strong> Crying easily, racing thoughts at night, but recognizing it and asking for help. Building a support plan.", summary: "is grappling with postpartum anxiety and sleep deprivation but reaching out for help", learn:["resources","fieldGuide","pocketDoula"] },
-      { text: "<strong>Mixed bag.</strong> Body healing well, emotions going up and down. Typical 4th-trimester wobble. Riding it out.", summary: "is in a typical 4th-trimester wobble &mdash; body healing, emotions uneven", learn:["fieldGuide","pocketDoula"] },
-      { text: "<strong>Steady recovery.</strong> Body healing well, mood stable, rebuilding routines. Pelvic floor work going well. Returning to gentle movement.", summary: "is in steady recovery &mdash; body, mood, and routines all coming back online", learn:["fieldGuide","pocketDoula"] },
-      { text: "<strong>Thriving at 6 weeks.</strong> Physically recovered, emotionally strong, postpartum visit cleared her for everything. Found her new rhythm.", summary: "is thriving at 6 weeks postpartum &mdash; cleared, strong, and finding her new rhythm", learn:["fieldGuide","pocketDoula"] }
+      { text: "<strong>Mixed bag.</strong> Body healing well, emotions going up and down. Typical 4th-trimester wobble. Riding it out.", summary: "is in a typical 4th-trimester wobble, body healing, emotions uneven", learn:["fieldGuide","pocketDoula"] },
+      { text: "<strong>Steady recovery.</strong> Body healing well, mood stable, rebuilding routines. Pelvic floor work going well. Returning to gentle movement.", summary: "is in steady recovery, body, mood, and routines all coming back online", learn:["fieldGuide","pocketDoula"] },
+      { text: "<strong>Thriving at 8 weeks.</strong> Physically recovered, emotionally strong, postpartum visit cleared her for everything. Found her new rhythm.", summary: "is thriving at 8 weeks postpartum, cleared, strong, and finding her new rhythm", learn:["fieldGuide","pocketDoula"] }
     ]
   },
 
@@ -858,7 +867,7 @@ const ROLL_DATA = {
    ============================================================ */
 const STAGES = [
   { id:"create", title:"Create your client", eyebrow:"Step 1",
-    sub:"Give her a name, then roll &mdash; or pick &mdash; for who she is and who's with her. These five choices set the world she'll labor in.",
+    sub:"Give her a name, then roll, or pick, for who she is and who's with her. These five choices set the world she'll labor in.",
     rolls:["age","parity","context","partner","provider"] },
   { id:"pregnancy", title:"Pregnancy", eyebrow:"Step 2",
     sub:"Now decide the body, the baby, and the prenatal care that shaped this pregnancy.",
@@ -872,8 +881,8 @@ const STAGES = [
   { id:"postpartum", title:"Postpartum", eyebrow:"Step 5",
     sub:"Three rolls for the immediate postpartum: baby's first hours, the feeding journey, and mom's recovery.",
     rolls:["newborn","feeding","postpartum"] },
-  { id:"latePP", title:"Six Weeks Out", eyebrow:"Step 6",
-    sub:"One final roll for her late-postpartum check-in &mdash; mental, physical, and emotional state at 4-6 weeks.",
+  { id:"latePP", title:"Eight Weeks Out", eyebrow:"Step 6",
+    sub:"One final roll for her late-postpartum check-in, mental, physical, and emotional state at 4-8 weeks.",
     rolls:["latePostpartum"] }
 ];
 
@@ -923,8 +932,8 @@ const DECISIONS = {
       question: "What do you do?",
       options: [
         { text: "<strong>Check with {name} first.</strong> Catch her eye: \"Do you want me to redirect that, or do you want to handle it?\" Follow her lead.", quality: "best",
-          feedback: "Scope: speaking to staff WITHOUT her direction is out of scope. Asking first preserves her agency and lets you model how to redirect comments &mdash; only when she says yes." },
-        { text: "<strong>Stay quiet</strong> and let {name} handle the comment alone &mdash; she's the patient, after all.", quality: "poor",
+          feedback: "Scope: speaking to staff WITHOUT her direction is out of scope. Asking first preserves her agency and lets you model how to redirect comments, only when she says yes." },
+        { text: "<strong>Stay quiet</strong> and let {name} handle the comment alone, she's the patient, after all.", quality: "poor",
           feedback: "She's 16 in a power-imbalanced room. Presence without offering to help reads as abandonment. At minimum, signal that you're with her." },
         { text: "<strong>Confront the MA directly</strong> and demand an apology in front of {name} before the visit moves forward.", quality: "worst",
           feedback: "Speaking on her behalf without her direction is outside scope. You're also putting {name} in the middle of conflict. Raise it with the clinic manager later if warranted." },
@@ -938,11 +947,11 @@ const DECISIONS = {
       scene: "{name} is 41. Her OB used the words \"geriatric pregnancy\" three times today. She's in your car saying she feels like a problem.",
       question: "What do you say?",
       options: [
-        { text: "<strong>Name what hurt.</strong> \"That language is clinical, but it lands hard. You are not a problem &mdash; you're healthy and pregnant.\"", quality: "best",
+        { text: "<strong>Name what hurt.</strong> \"That language is clinical, but it lands hard. You are not a problem, you're healthy and pregnant.\"", quality: "best",
           feedback: "You validate the wound first. The clinical word is real, but it doesn't define her." },
-        { text: "<strong>Brush past it.</strong> \"You're not old &mdash; forty is the new thirty these days. Don't worry about what he said.\"", quality: "poor",
+        { text: "<strong>Brush past it.</strong> \"You're not old, forty is the new thirty these days. Don't worry about what he said.\"", quality: "poor",
           feedback: "Dismissive. Validate first, reassure second." },
-        { text: "<strong>Side with the framing.</strong> \"He's right &mdash; forty-plus really is high risk. You should prepare for what comes.\"", quality: "worst",
+        { text: "<strong>Side with the framing.</strong> \"He's right, forty-plus really is high risk. You should prepare for what comes.\"", quality: "worst",
           feedback: "You sided with the language that hurt her. Even if the risk is real, this is not a teaching moment about risk." },
         { text: "<strong>Offer to advocate</strong> at the next visit and help her ask the provider to use different language.", quality: "good",
           feedback: "Practical and supportive. Pair it with emotional acknowledgment first, then move to the plan." }
@@ -960,7 +969,7 @@ const DECISIONS = {
         { text: "<strong>Sit close, don't fill the silence.</strong> A hand on hers if she wants it. \"I'm here. We'll walk in together.\"", quality: "best",
           feedback: "Presence without pressure. Her grip on the chair tells you she wants someone close." },
         { text: "<strong>Try to distract her</strong> with small talk about her older kids or how the week is going.", quality: "poor",
-          feedback: "Distraction feels dismissive when grief is this close. She's not avoiding her feelings &mdash; she's bracing for them." },
+          feedback: "Distraction feels dismissive when grief is this close. She's not avoiding her feelings, she's bracing for them." },
         { text: "<strong>Remind her gently</strong> that this is a different pregnancy and statistically the odds of another loss are low.", quality: "worst",
           feedback: "Logical, emotionally tone-deaf. Statistics don't soothe loss anxiety." },
         { text: "<strong>Offer to leave the room</strong> and give her privacy until they call her name for the appointment.", quality: "poor",
@@ -975,10 +984,10 @@ const DECISIONS = {
       options: [
         { text: "<strong>Ask her preference.</strong> \"Knowing your last labor was fast, do you want to head to the hospital now or labor at home? Either way, let's call your provider together.\"", quality: "best",
           feedback: "You honor her agency and surface the clinical reality of her birth history without deciding for her. Calling the provider is the next move regardless of which path she picks." },
-        { text: "<strong>Tell her to call her provider</strong> right now and let them help decide on timing &mdash; they know her chart.", quality: "good",
-          feedback: "Solid and in scope. Just make sure she's getting ready to move while she's on the phone &mdash; her birth history doesn't fit a 4-1-1 wait-and-see pattern." },
-        { text: "<strong>Have her time them</strong> using the 4-1-1 rule for another hour before doing anything &mdash; that's the standard guidance.", quality: "worst",
-          feedback: "The 4-1-1 rule is for first-time moms and well-paced labors. Her history of a 90-minute birth makes 4-1-1 timing dangerous here &mdash; she could birth in the car." },
+        { text: "<strong>Tell her to call her provider</strong> right now and let them help decide on timing, they know her chart.", quality: "good",
+          feedback: "Solid and in scope. Just make sure she's getting ready to move while she's on the phone, her birth history doesn't fit a 4-1-1 wait-and-see pattern." },
+        { text: "<strong>Have her time them</strong> using the 4-1-1 rule for another hour before doing anything, that's the standard guidance.", quality: "worst",
+          feedback: "The 4-1-1 rule is for first-time moms and well-paced labors. Her history of a 90-minute birth makes 4-1-1 timing dangerous here, she could birth in the car." },
         { text: "<strong>Drive to her house yourself</strong> and labor at home as long as you can before transferring in.", quality: "worst",
           feedback: "Outside doula scope unless this is a planned home birth. You're not the safety net her provider is." }
       ]
@@ -993,7 +1002,7 @@ const DECISIONS = {
       question: "What do you do?",
       options: [
         { text: "<strong>Catch her eye and check.</strong> \"{name}, do you want me to ask them to slow down and get a translator on the phone?\" Then follow her lead.", quality: "best",
-          feedback: "Scope: you advocate WITH her direction, not for her. Asking first lets her say yes and gives her language for self-advocacy next time. Federal law guarantees translator access &mdash; she just may not know that." },
+          feedback: "Scope: you advocate WITH her direction, not for her. Asking first lets her say yes and gives her language for self-advocacy next time. Federal law guarantees translator access, she just may not know that." },
         { text: "<strong>Quietly translate yourself</strong> if you speak some of her language, even though you're not medically credentialed.", quality: "poor",
           feedback: "Medical translation requires precision you may not have, plus it's the clinic's legal obligation. Even with good intent, this puts liability on you and accuracy at risk." },
         { text: "<strong>Stay quiet now</strong> and translate the instructions for her later from notes you took during the visit.", quality: "poor",
@@ -1009,11 +1018,11 @@ const DECISIONS = {
       question: "What do you offer?",
       options: [
         { text: "<strong>Help her use her benefits.</strong> \"Most Medicaid plans and many commercial insurers cover non-emergency medical transport. Let's call your insurance and your clinic's social worker together.\"", quality: "best",
-          feedback: "You point her to real resources (NEMT benefits, social work) and offer to navigate the call with her. Doula scope is connecting clients to systems &mdash; not providing the service yourself." },
+          feedback: "You point her to real resources (NEMT benefits, social work) and offer to navigate the call with her. Doula scope is connecting clients to systems, not providing the service yourself." },
         { text: "<strong>Ask her clinic</strong> if telehealth is an option for this visit so she doesn't lose the appointment if transport falls through.", quality: "good",
           feedback: "Practical. Many clinics offer telehealth for non-clinical visits (medication checks, mental-health, education). Pair with the insurance call for visits that need to be in person." },
         { text: "<strong>Offer to drive her yourself</strong> in your own car so she doesn't miss the appointment at 36 weeks.", quality: "worst",
-          feedback: "Outside doula scope. Liability, insurance, and boundary issues. Your role is to surface resources and advocate &mdash; not to provide the transportation service." },
+          feedback: "Outside doula scope. Liability, insurance, and boundary issues. Your role is to surface resources and advocate, not to provide the transportation service." },
         { text: "<strong>Lecture her gently</strong> about how important these prenatal appointments are at 36 weeks of pregnancy.", quality: "poor",
           feedback: "She knows. She's trying to get there. Lecturing adds shame to a barrier that's already exhausting." }
       ]
@@ -1029,8 +1038,8 @@ const DECISIONS = {
       options: [
         { text: "<strong>Sit with her in it.</strong> \"Tell me what 'alone' means to you right now. Who do you wish was here today?\"", quality: "best",
           feedback: "You open space for the grief without rushing to fix it. Naming who's missing helps her process; it doesn't deepen the loneliness." },
-        { text: "<strong>Reframe quickly.</strong> \"You're not alone. You have me, your sister, your mom &mdash; look at your village.\"", quality: "poor",
-          feedback: "Well-meaning, but it skips her feelings. She knows she has a village &mdash; she's grieving the one person who isn't in it." },
+        { text: "<strong>Reframe quickly.</strong> \"You're not alone. You have me, your sister, your mom, look at your village.\"", quality: "poor",
+          feedback: "Well-meaning, but it skips her feelings. She knows she has a village, she's grieving the one person who isn't in it." },
         { text: "<strong>Suggest she think</strong> about meeting someone new before the baby comes so she has more support around her.", quality: "worst",
           feedback: "Catastrophically out of scope. Her grief about an absent partner is not a dating problem to solve. Step way back." },
         { text: "<strong>Move to planning.</strong> \"Who do you want with you at the birth? Let's call them together this week.\"", quality: "good",
@@ -1068,7 +1077,7 @@ const DECISIONS = {
           feedback: "Solid and in scope, especially if she can't speak up in the room. Pair with a follow-up call before her next visit to debrief." },
         { text: "<strong>Speak up immediately</strong> for her: \"She doesn't want an induction. We've talked about this in our prep work together.\"", quality: "worst",
           feedback: "You bypassed her voice. Even if you know her preferences, putting words in her mouth in front of her provider takes her agency." },
-        { text: "<strong>Stay silent</strong> &mdash; this is a medical recommendation and not really a doula's place to weigh in on at all.", quality: "poor",
+        { text: "<strong>Stay silent</strong>, this is a medical recommendation and not really a doula's place to weigh in on at all.", quality: "poor",
           feedback: "Withholding presence reads as abandonment. You can stay in scope while still being a visible support and surfacing BRAIN." }
       ]
     },
@@ -1221,10 +1230,10 @@ const DECISIONS = {
       question: "What's your move?",
       options: [
         { text: "<strong>Walk her through BRAIN.</strong> \"Before we say yes, can we talk Benefits, Risks, Alternatives, your Intuition, and Nothing?\"", quality: "best",
-          feedback: "Textbook doula coaching. You're not refusing the induction &mdash; you're slowing down the decision." },
+          feedback: "Textbook doula coaching. You're not refusing the induction, you're slowing down the decision." },
         { text: "<strong>Acknowledge first.</strong> \"That caught you off guard. Take a breath. What do you want to ask him?\"", quality: "good",
           feedback: "Strong emotional check-in. Pair with BRAIN as the next step." },
-        { text: "<strong>Tell her not to do it.</strong> \"Pitocin is risky &mdash; you should refuse and ask to wait it out.\"", quality: "worst",
+        { text: "<strong>Tell her not to do it.</strong> \"Pitocin is risky, you should refuse and ask to wait it out.\"", quality: "worst",
           feedback: "Outside scope. You're giving medical advice and overriding her autonomy." },
         { text: "<strong>Reassure her quickly</strong> that the doctor knows best and she should agree to whatever he is recommending today.", quality: "worst",
           feedback: "Strips her agency the other way. Informed consent requires her voice." }
@@ -1249,7 +1258,7 @@ const DECISIONS = {
     "3": { /* slow gradual labor + backup provider walks in */
       type: "brain",
       heading: "Doula moment: Backup provider, different style",
-      scene: "{name}'s labor has been slow for 18 hours. Her trusted provider just called &mdash; they can't make it. The on-call backup is in the room within minutes, already saying they want to start Pitocin to \"speed things along.\"",
+      scene: "{name}'s labor has been slow for 18 hours. Her trusted provider just called, they can't make it. The on-call backup is in the room within minutes, already saying they want to start Pitocin to \"speed things along.\"",
       question: "What do you do?",
       options: [
         { text: "<strong>Remind her of her consent.</strong> \"Anything that happens needs your yes. Let's take a moment to walk through BRAIN before you decide.\"", quality: "best",
@@ -1257,7 +1266,7 @@ const DECISIONS = {
         { text: "<strong>Surface alternatives</strong> she can ask about: \"Could we ask about position changes, movement, or hydration first before starting Pitocin?\"", quality: "good",
           feedback: "Real alternatives to augmentation. Within scope to surface options for {name} to bring up. Pair with BRAIN coaching to walk her through the decision." },
         { text: "<strong>Tell her to refuse the Pitocin</strong> and demand her primary provider be called back in to discuss it directly with her now.", quality: "worst",
-          feedback: "Decision-making for her, and unrealistic &mdash; her primary isn't available. Coach her through THIS provider; don't refuse on her behalf." },
+          feedback: "Decision-making for her, and unrealistic, her primary isn't available. Coach her through THIS provider; don't refuse on her behalf." },
         { text: "<strong>Reassure her the backup</strong> knows what they're doing and she should just go along with the recommendation right now.", quality: "poor",
           feedback: "Strips her agency and overrides her birth plan. Even if the backup is competent, she gets a say in what happens to her body." }
       ]
@@ -1270,10 +1279,10 @@ const DECISIONS = {
       options: [
         { text: "<strong>Tell her to leave now</strong> for the hospital and call her provider on the way there in the car.", quality: "best",
           feedback: "Don't overthink it. Get her toward medical care while it's still possible." },
-        { text: "<strong>Tell her to stay home</strong> and call 911 if labor seems clearly imminent &mdash; head visible, urge to push.", quality: "good",
+        { text: "<strong>Tell her to stay home</strong> and call 911 if labor seems clearly imminent, head visible, urge to push.", quality: "good",
           feedback: "Only if labor is clearly imminent (head visible, urge to push). Otherwise, get in the car." },
         { text: "<strong>Have her time them</strong> for another fifteen minutes to see if they really are that fast.", quality: "worst",
-          feedback: "She doesn't have 15 minutes. Precipitous birth is the signal &mdash; act." },
+          feedback: "She doesn't have 15 minutes. Precipitous birth is the signal, act." },
         { text: "<strong>Tell her you'll come</strong> catch the baby at home so she doesn't have to risk the drive.", quality: "worst",
           feedback: "Outside scope unless this is a planned home birth with a midwife." }
       ]
@@ -1287,11 +1296,11 @@ const DECISIONS = {
       scene: "{name} is at 6 cm. Dilation has been stalled for three hours. Provider is in the hall saying \"We need Pitocin.\"",
       question: "Before {name} decides, what do you do?",
       options: [
-        { text: "<strong>Run BRAIN with her</strong> and surface position changes &mdash; Spinning Babies, walking, side-lying release &mdash; as alternatives.", quality: "best",
+        { text: "<strong>Run BRAIN with her</strong> and surface position changes, Spinning Babies, walking, side-lying release, as alternatives.", quality: "best",
           feedback: "You're not refusing for her, but real alternatives are fair game. Surface options before she consents." },
         { text: "<strong>Tell her to refuse</strong> the Pitocin and keep laboring naturally until her body is ready for it on its own.", quality: "worst",
           feedback: "Decision-making for her. Surface, don't decide." },
-        { text: "<strong>Stay quiet in the room</strong> &mdash; the augmentation decision is the provider's call, not the doula's place to weigh in.", quality: "poor",
+        { text: "<strong>Stay quiet in the room</strong>, the augmentation decision is the provider's call, not the doula's place to weigh in.", quality: "poor",
           feedback: "Disengaging. The recommendation isn't the end of the conversation." },
         { text: "<strong>Tell her Pitocin is fine</strong> and she should just agree so labor can finally move forward at this point.", quality: "worst",
           feedback: "Outside scope. Coach the conversation; don't make the call." }
@@ -1305,11 +1314,11 @@ const DECISIONS = {
       options: [
         { text: "<strong>Reflect her own words.</strong> \"You told me you wanted an epidural. Is that still what you want, or try a different position first?\"", quality: "best",
           feedback: "You bring her own plan back without pushing. Choice is hers; you remind her she made one." },
-        { text: "<strong>Tell her</strong> to get the epidural now &mdash; she's clearly suffering and pushing through isn't working for her anymore.", quality: "poor",
+        { text: "<strong>Tell her</strong> to get the epidural now, she's clearly suffering and pushing through isn't working for her anymore.", quality: "poor",
           feedback: "Decision-making for her. She may be in transition, where people say \"I can't\" minutes before pushing. Reflect, don't push." },
-        { text: "<strong>Tell her she can do it</strong> &mdash; she's strong, she's almost there, just a little longer and the baby will be here.", quality: "poor",
+        { text: "<strong>Tell her she can do it</strong>, she's strong, she's almost there, just a little longer and the baby will be here.", quality: "poor",
           feedback: "Well-meaning, but it overrides her stated experience. \"I can't\" deserves to be heard, not contradicted." },
-        { text: "<strong>Try one comfort measure first</strong> &mdash; hip squeezes, water, a position change &mdash; then check back in and re-ask.", quality: "good",
+        { text: "<strong>Try one comfort measure first</strong>, hip squeezes, water, a position change, then check back in and re-ask.", quality: "good",
           feedback: "Solid. Try one tool, then check in. Don't stack 5 interventions on a person saying she's done." }
       ]
     },
@@ -1319,9 +1328,9 @@ const DECISIONS = {
       scene: "{name}'s baby is showing decelerations on the monitor. The nurse is calling for the provider. The room temperature just changed.",
       question: "What do you do in this 30-second window?",
       options: [
-        { text: "<strong>Help her change positions</strong> &mdash; hands and knees or left side &mdash; and put a hand on her shoulder.", quality: "best",
+        { text: "<strong>Help her change positions</strong>, hands and knees or left side, and put a hand on her shoulder.", quality: "best",
           feedback: "Position changes are first-line for FHR concerns and within scope. Touch gives information when words are too much." },
-        { text: "<strong>Tell her not to panic</strong> about the monitor &mdash; it's probably nothing, and the team will let her know.", quality: "worst",
+        { text: "<strong>Tell her not to panic</strong> about the monitor, it's probably nothing, and the team will let her know.", quality: "worst",
           feedback: "Dismisses what's real. Even if it resolves, she felt the room change." },
         { text: "<strong>Step back quietly</strong> and let the medical team work without your interference for the next few minutes.", quality: "good",
           feedback: "Appropriate sometimes, but you can stay close without interfering. Position changes are still scope." },
@@ -1329,7 +1338,7 @@ const DECISIONS = {
           feedback: "{name}'s body comes first; coach the partner in the next breath.",
           replaceIf: {
             noPartner: {
-              text: "<strong>Comfort her support person</strong> &mdash; mom, sister, friend &mdash; so they don't melt down while the team is moving fast.",
+              text: "<strong>Comfort her support person</strong>, mom, sister, friend, so they don't melt down while the team is moving fast.",
               feedback: "When the partner is out of the picture, the support person fills that role. {name}'s body still comes first; coach the support person in the next breath."
             }
           }
@@ -1363,19 +1372,19 @@ const DECISIONS = {
       question: "What do you say to her?",
       options: [
         { text: "<strong>Name it plainly.</strong> \"Your baby needs help. The team is doing a C-section. I'm here with you, and I'll be here when you come back.\"", quality: "best",
-          feedback: "Plain language anchors her body without promising a medical outcome. You name what's happening and tell her where you'll be &mdash; the doula's lane mid-emergency." },
+          feedback: "Plain language anchors her body without promising a medical outcome. You name what's happening and tell her where you'll be, the doula's lane mid-emergency." },
         { text: "<strong>Promise her</strong> that everything is going to be fine and she'll be holding her healthy baby very soon.", quality: "poor",
           feedback: "False reassurance. Breaks trust if something goes wrong." },
         { text: "<strong>Coach her partner</strong> to advocate to be present in the OR for the non-general C-section if possible.", quality: "good",
           feedback: "Right move if partner is her teammate. Many hospitals allow partners in for non-general C-sections.",
           replaceIf: {
             noPartner: {
-              text: "<strong>Coach her support person</strong> &mdash; mom, sister, chaplain &mdash; to stay close so {name} has continuity in recovery.",
+              text: "<strong>Coach her support person</strong>, mom, sister, chaplain, to stay close so {name} has continuity in recovery.",
               feedback: "Even without a partner, someone needs to be the steady face she sees coming out of anesthesia. The doula is the bridge between the OR and her support."
             }
           }
         },
-        { text: "<strong>Stay quiet</strong> and let the medical team do their work &mdash; she'll be back from the OR before long.", quality: "poor",
+        { text: "<strong>Stay quiet</strong> and let the medical team do their work, she'll be back from the OR before long.", quality: "poor",
           feedback: "She needs words now, not silence." }
       ]
     },
@@ -1401,13 +1410,13 @@ const DECISIONS = {
       scene: "Provider is suturing a 2nd-degree tear. {name} is crying, but baby is on her chest and latching.",
       question: "What do you say?",
       options: [
-        { text: "<strong>Acknowledge the tears.</strong> \"You did it. The hard part is done. The crying is okay &mdash; you can feel all of it.\"", quality: "best",
+        { text: "<strong>Acknowledge the tears.</strong> \"You did it. The hard part is done. The crying is okay, you can feel all of it.\"", quality: "best",
           feedback: "You give permission to feel the full range. Joy, relief, and shock often arrive together. Don't make her pick one." },
         { text: "<strong>Distract her with baby.</strong> \"Look at your beautiful baby! Forget the stitches and just be with her right now.\"", quality: "poor",
-          feedback: "Well-meant but bypasses what she's feeling. Baby IS there &mdash; acknowledge the tears too." },
+          feedback: "Well-meant but bypasses what she's feeling. Baby IS there, acknowledge the tears too." },
         { text: "<strong>Stay quiet</strong> and let her have the moment in whatever way her body needs to release the tension.", quality: "good",
-          feedback: "Reasonable if her tears feel like release. Read the room &mdash; if she looks at you, meet her eyes." },
-        { text: "<strong>Tell her</strong> the tear isn't a big deal &mdash; most women have one, and they heal quickly afterward.", quality: "worst",
+          feedback: "Reasonable if her tears feel like release. Read the room, if she looks at you, meet her eyes." },
+        { text: "<strong>Tell her</strong> the tear isn't a big deal, most women have one, and they heal quickly afterward.", quality: "worst",
           feedback: "Minimizing. Her body just opened in a way she can't reverse. It's a big deal. Name it." }
       ]
     },
@@ -1433,14 +1442,14 @@ const DECISIONS = {
       scene: "{name} just had the birth she pictured. Baby is on her chest. The room is quiet.",
       question: "What do you do in the next hour?",
       options: [
-        { text: "<strong>Stay close, stay quiet.</strong> Protect the golden hour &mdash; lights low, voices low, baby skin-to-skin, nothing rushed.", quality: "best",
+        { text: "<strong>Stay close, stay quiet.</strong> Protect the golden hour, lights low, voices low, baby skin-to-skin, nothing rushed.", quality: "best",
           feedback: "Sometimes the best doula move is to disappear and let the moment unfold." },
         { text: "<strong>Start a long conversation</strong> about how the birth felt and what surprised her along the way through labor today.", quality: "poor",
           feedback: "Processing comes later. Oxytocin is flooding. Don't interrupt." },
         { text: "<strong>Help with the first latch</strong> if baby is rooting and she signals she's ready to try it together.", quality: "good",
           feedback: "Right call if baby is rooting. Be guided by her cues." },
         { text: "<strong>Text her family the news</strong>, after asking first, so she doesn't have to make all the calls right now.", quality: "good",
-          feedback: "Practical. Ask first &mdash; some families want to share themselves." }
+          feedback: "Practical. Ask first, some families want to share themselves." }
       ]
     }
   },
@@ -1454,27 +1463,27 @@ const DECISIONS = {
       question: "What do you do?",
       options: [
         { text: "<strong>Stay with {name}.</strong> \"They're taking baby to a team that can help. I'm with you. Your partner can go; we'll get updates.\"", quality: "best",
-          feedback: "Plain language, clear plan, and you protected her continuity by staying. NICU separation is disorienting &mdash; she needs an anchor." },
+          feedback: "Plain language, clear plan, and you protected her continuity by staying. NICU separation is disorienting, she needs an anchor." },
         { text: "<strong>Follow the baby</strong> to the NICU so you can witness what's happening and report back to {name} afterward.", quality: "poor",
           feedback: "If the partner can go, your job is with {name}. Don't leave her body alone while she's being sutured." },
-        { text: "<strong>Reassure her quickly</strong> that baby will be totally fine &mdash; she doesn't need to worry about the NICU.", quality: "worst",
+        { text: "<strong>Reassure her quickly</strong> that baby will be totally fine, she doesn't need to worry about the NICU.", quality: "worst",
           feedback: "You don't know. False reassurance breaks trust if NICU goes badly." },
-        { text: "<strong>Stay quiet</strong> and let the team work without speaking &mdash; she just needs space right now.", quality: "poor",
+        { text: "<strong>Stay quiet</strong> and let the team work without speaking, she just needs space right now.", quality: "poor",
           feedback: "She just asked you a question. Answer it. Plain language matters now more than silence." }
       ]
     },
-    "4": { /* alert / jittery parent — only fires for first-time parents */
+    "4": { /* alert / jittery parent, only fires for first-time parents */
       type: "wtys",
       heading: "Doula moment: Jittery first-time parent",
       requireFlag: "firstTimer",
       scene: "Baby is healthy and alert at home, but {name} is panicking at every sound baby makes. She's barely slept.",
       question: "What do you say?",
       options: [
-        { text: "<strong>Validate and refer.</strong> \"Newborns make a LOT of sounds &mdash; you're not crazy. Let's save your pediatrician's nurse line in your phone right now so you can call when you're unsure.\"", quality: "best",
+        { text: "<strong>Validate and refer.</strong> \"Newborns make a LOT of sounds, you're not crazy. Let's save your pediatrician's nurse line in your phone right now so you can call when you're unsure.\"", quality: "best",
           feedback: "Scope: assessing which sounds are clinically concerning is the pediatrician's job, not yours. Validating her feeling AND connecting her to the right resource is exactly the doula's lane." },
-        { text: "<strong>Tell her she's being</strong> overprotective and needs to relax &mdash; the baby is fine right now in this moment.", quality: "worst",
+        { text: "<strong>Tell her she's being</strong> overprotective and needs to relax, the baby is fine right now in this moment.", quality: "worst",
           feedback: "Shaming a first-time parent for caring. Don't." },
-        { text: "<strong>Suggest she sleep</strong> when baby sleeps &mdash; that's the classic advice and it should help her with rest.", quality: "poor",
+        { text: "<strong>Suggest she sleep</strong> when baby sleeps, that's the classic advice and it should help her with rest.", quality: "poor",
           feedback: "Classic advice that misses the issue. She can't sleep because every sound wakes her. Address the cause." },
         { text: "<strong>Ask if anyone else</strong> can take a night shift so she can get a stretch of real, uninterrupted sleep.", quality: "good",
           feedback: "Practical. Combine with the normalization in option A." }
@@ -1528,11 +1537,11 @@ const DECISIONS = {
       scene: "At day 8, {name} is crying and tells you she doesn't feel anything for the baby.",
       question: "What do you say?",
       options: [
-        { text: "<strong>Take her seriously, then refer.</strong> \"Thank you for telling me. This is important. Let's call your provider today &mdash; I'll stay on the line with you.\"", quality: "best",
+        { text: "<strong>Take her seriously, then refer.</strong> \"Thank you for telling me. This is important. Let's call your provider today, I'll stay on the line with you.\"", quality: "best",
           feedback: "Day 8 numbness is a red flag for PPD or PPP. Per ICEA/MHN scope, mental-health screening is OUTSIDE the doula's lane. Your move is to validate and refer immediately to her provider." },
         { text: "<strong>Reassure her quickly</strong> that baby blues are normal at this stage and the feeling will pass within a few weeks.", quality: "worst",
           feedback: "Day 8 numbness can be baby blues OR something more serious. Normalizing without referring delays care she may urgently need. Refer first." },
-        { text: "<strong>Tell her she'll love the baby</strong> eventually &mdash; the feelings will come once she gets more sleep and recovers.", quality: "worst",
+        { text: "<strong>Tell her she'll love the baby</strong> eventually, the feelings will come once she gets more sleep and recovers.", quality: "worst",
           feedback: "Dismissive and potentially harmful. PPD is a medical condition that needs clinical assessment, not a wait-and-see from you." },
         { text: "<strong>Listen for a few minutes</strong> and offer to text her provider's after-hours line together if she wants to.", quality: "good",
           feedback: "Solid presence + referral. Slightly slower path than option A, which jumps straight to the call. Pair the listening with a clear next step before the visit ends." }
@@ -1544,9 +1553,9 @@ const DECISIONS = {
       scene: "At her 2-week postpartum visit, everything is going perfectly. {name} asks you to come to every pediatric appointment with her, for years.",
       question: "What do you say?",
       options: [
-        { text: "<strong>Honor it, name the boundary.</strong> \"I'm so glad this felt good. Our work wraps at six weeks, but I'm always a text away.\"", quality: "best",
+        { text: "<strong>Honor it, name the boundary.</strong> \"I'm so glad this felt good. Our work wraps at eight weeks, but I'm always a text away.\"", quality: "best",
           feedback: "You don't reject her affection; you honor it AND model healthy professional boundaries. That itself is a postpartum teaching moment." },
-        { text: "<strong>Say yes</strong> to keep her happy &mdash; she's so attached and you don't want to disappoint her after such a sweet birth.", quality: "worst",
+        { text: "<strong>Say yes</strong> to keep her happy, she's so attached and you don't want to disappoint her after such a sweet birth.", quality: "worst",
           feedback: "Out of scope and unsustainable. You'll burn out, the boundary will collapse, and she'll feel rejected when it does." },
         { text: "<strong>Decline firmly</strong> and move on without making her feel bad about asking for more time and support.", quality: "poor",
           feedback: "The boundary is right, but the warmth matters. Name what you appreciate about her ask before declining." },
@@ -1558,7 +1567,7 @@ const DECISIONS = {
 };
 
 /* ============================================================
-   CASCADES — outcomes influence later rolls
+   CASCADES, outcomes influence later rolls
    biasMap[rollId] adds to the biasScore for that future roll.
    Positive bias = shift toward worse outcomes (low end of dice).
    Negative bias = shift toward better outcomes (high end).
@@ -1694,7 +1703,7 @@ const state = {
   clientName: "",
   results: {},   // rollId -> { sum, dice:[...], text, summary, isPick, lossVariant }
   decisions: {}, // rollId -> { question, options, picked, quality, feedback }
-  /* Narrative consistency flags — set automatically as rolls land.
+  /* Narrative consistency flags, set automatically as rolls land.
      Used to apply outcome variants and filter decision options so the story stays coherent. */
   flags: {
     twins: false,
@@ -2364,7 +2373,7 @@ function renderStage(stageIdx){
       <div class="name-card${startsRequired ? ' is-required' : ''}" id="nameCard">
         <label for="clientNameInput">Your client's name (required)</label>
         <input id="clientNameInput" type="text" placeholder="e.g. Tanya, Marisol, Sarah, Aleah" value="${escapeHTML(state.clientName || '')}" maxlength="40" autofocus>
-        <p class="hint" id="nameHint">${startsRequired ? "Type your client's name to unlock rolling" : "A first name is enough — this is for your reflection and birth story summary."}</p>
+        <p class="hint" id="nameHint">${startsRequired ? "Type your client's name to unlock rolling" : "A first name is enough, this is for your reflection and birth story summary."}</p>
       </div>
     `;
   }
@@ -2445,7 +2454,7 @@ function renderStage(stageIdx){
       }
       if(nameHint){
         nameHint.textContent = hasName
-          ? "A first name is enough — this is for your reflection and birth story summary."
+          ? "A first name is enough, this is for your reflection and birth story summary."
           : "Type your client's name to unlock rolling";
       }
       // Lock the roll cards
@@ -2512,7 +2521,7 @@ function generateNarrative(){
   // P5: late postpartum
   let p5 = "";
   if(latePP){
-    p5 = `<p>At her six-week check-in, ${latePP}</p>`;
+    p5 = `<p>At her eight-week check-in, ${latePP}</p>`;
   }
 
   return p1 + p2 + p3 + p4 + p5;
@@ -2636,7 +2645,7 @@ function capitalizeFirst(s){
 }
 
 /* ============================================================
-   LIVE STORY SIDEBAR — rebuilds as rolls/decisions land
+   LIVE STORY SIDEBAR, rebuilds as rolls/decisions land
    ============================================================ */
 function renderStorySidebar(){
   const host = document.getElementById("storySideContent");
@@ -2665,7 +2674,7 @@ function renderStorySidebar(){
 
   let html = "";
 
-  // SETUP — Who she is
+  // SETUP, Who she is
   const hasSetup = ["age","parity","context","partner","provider"].some(id => state.results[id]);
   if(hasSetup){
     let para = `<strong>${name}</strong>`;
@@ -2715,10 +2724,10 @@ function renderStorySidebar(){
 
   // LATE POSTPARTUM
   if(state.results.latePostpartum){
-    html += `<div class="ss-section"><div class="ss-eyebrow"><i class="ico" data-lucide="calendar-days"></i>Six Weeks Out</div><p>At her 6-week check-in, ${state.results.latePostpartum.summary}.</p></div>`;
+    html += `<div class="ss-section"><div class="ss-eyebrow"><i class="ico" data-lucide="calendar-days"></i>Eight Weeks Out</div><p>At her 8-week check-in, ${state.results.latePostpartum.summary}.</p></div>`;
   }
 
-  // DECISIONS — show quality pills
+  // DECISIONS, show quality pills
   const decisionKeys = Object.keys(state.decisions);
   if(decisionKeys.length > 0){
     const qualityIcons = { best:"check-circle", good:"thumbs-up", poor:"alert-circle", worst:"x-circle" };
