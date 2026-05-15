@@ -102,6 +102,9 @@
   .br-roll-result .r-tag .r-chose .r-num{background:var(--mhn-warm-700)}
   .br-roll-result p{margin:0;font-size:15.5px;line-height:1.6;color:var(--mhn-ink)}
   .br-roll-result p strong{color:var(--mhn-purple-700)}
+  .r-reroll{display:inline-flex;align-items:center;gap:6px;background:transparent;border:1.5px solid var(--mhn-purple-200);color:var(--mhn-purple-700);padding:6px 14px;border-radius:999px;font-family:var(--mhn-font-sans);font-size:11.5px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;margin-top:12px;transition:all .15s}
+  .r-reroll:hover{background:var(--mhn-purple-700);color:#fff;border-color:var(--mhn-purple-700);transform:translateY(-1px)}
+  .r-reroll .ico{width:12px;height:12px}
 
   /* Learn more pills */
   .learn-more{margin-top:12px;display:flex;flex-wrap:wrap;gap:8px}
@@ -1886,7 +1889,7 @@ function completeRoll(card, sum, dice, isPick){
   const modeToggle = card.querySelector(".mode-toggle");
   if(modeToggle) modeToggle.style.opacity = "0.5";
 
-  // Render result
+  // Render result with a re-roll button
   const resultHost = card.querySelector("[data-result-host]");
   const tagClass = isPick ? "r-chose" : "";
   const tagLabel = isPick ? "You chose" : "You rolled";
@@ -1894,8 +1897,27 @@ function completeRoll(card, sum, dice, isPick){
     <div class="br-roll-result">
       <div class="r-tag ${tagClass}">${tagLabel} <span class="r-num">${sum}</span>${result.lossVariant ? " &middot; Loss variant" : ""}</div>
       <p>${result.text}</p>
+      <button class="r-reroll" data-reroll type="button"><i class="ico" data-lucide="rotate-ccw"></i>Re-roll this one</button>
     </div>
   `;
+
+  // Hide the re-roll button on any previously rolled cards in this stage
+  // (only the most recent rolled card keeps the option to re-roll)
+  const stageEl = card.closest(".br-stage");
+  if(stageEl){
+    stageEl.querySelectorAll(".br-roll-card.is-done").forEach(prev => {
+      if(prev === card) return;
+      const prevBtn = prev.querySelector("[data-reroll]");
+      if(prevBtn) prevBtn.style.display = "none";
+    });
+  }
+
+  // Wire the re-roll button
+  const rerollBtn = resultHost.querySelector("[data-reroll]");
+  if(rerollBtn){
+    rerollBtn.addEventListener("click", () => resetRoll(card));
+  }
+
   if(window.lucide) window.lucide.createIcons();
 
   // Update live story sidebar
@@ -2015,6 +2037,78 @@ function buildDecisionCard(rollId, decision){
   });
 
   return card;
+}
+
+/* Re-roll: wipe this roll's outcome + any decision it triggered, restore the card to fresh state. */
+function resetRoll(card){
+  const rollId = card.dataset.rollId;
+  const r = ROLL_DATA[rollId];
+  if(!r) return;
+
+  // Clear stored outcome + decision for this roll
+  delete state.results[rollId];
+  delete state.decisions[rollId];
+
+  // Remove any decision card immediately following this roll card
+  let next = card.nextElementSibling;
+  while(next && next.classList.contains("br-decision-card")){
+    const toRemove = next;
+    next = next.nextElementSibling;
+    toRemove.remove();
+  }
+
+  // Reset card visual state
+  card.classList.remove("is-done");
+  card.classList.add("is-current");
+
+  // Re-show the roll button
+  const rollBtn = card.querySelector("[data-roll-btn]");
+  if(rollBtn){
+    rollBtn.style.display = "";
+    rollBtn.disabled = false;
+    const isTwoDice = r.dice === 2;
+    rollBtn.innerHTML = `<i class="ico" data-lucide="dices"></i>Roll ${isTwoDice ? '2 dice' : 'the die'}`;
+  }
+
+  // Restore mode toggle interactivity
+  const modeToggle = card.querySelector(".mode-toggle");
+  if(modeToggle) modeToggle.style.opacity = "";
+
+  // Restore dice helper text
+  const helper = card.querySelector(".dice-helper");
+  if(helper){
+    helper.textContent = r.dice === 2 ? '2d6 · sum determines outcome' : '1d6';
+  }
+
+  // Snap dice cubes back to neutral pose
+  card.querySelectorAll(".dice-cube").forEach(cube => {
+    cube.style.transition = "none";
+    cube.style.transform = "rotateX(-15deg) rotateY(25deg)";
+    void cube.offsetHeight;
+    cube.style.transition = "";
+  });
+
+  // Clear the result host
+  const resultHost = card.querySelector("[data-result-host]");
+  if(resultHost) resultHost.innerHTML = "";
+
+  // The advance button needs to go back to disabled (this roll is no longer locked in)
+  const advance = card.closest(".br-stage").querySelector("[data-advance]");
+  if(advance) advance.disabled = true;
+
+  // If a NEXT roll card was sitting at is-current, demote it
+  let nxt = card.nextElementSibling;
+  while(nxt && !nxt.classList.contains("br-roll-card")) nxt = nxt.nextElementSibling;
+  if(nxt) nxt.classList.remove("is-current");
+
+  // Rebuild flags from remaining results + redraw live sidebar
+  rebuildFlags();
+  renderStorySidebar();
+
+  if(window.lucide) window.lucide.createIcons();
+
+  // Scroll the card back into view
+  card.scrollIntoView({behavior:"smooth", block:"center"});
 }
 
 function proceedAfterRoll(card){
