@@ -922,14 +922,14 @@ const DECISIONS = {
       scene: "{name} is 16. The medical assistant just looked at her and said, \"You're awfully young to be doing this on your own.\"",
       question: "What do you do?",
       options: [
-        { text: "<strong>Step in gently.</strong> Redirect the comment: \"I'm here as her doula. Can we focus on what {name} came in for today?\"", quality: "best",
-          feedback: "You redirect without escalating and re-center {name}. You also model for her that she's allowed to shut down comments like that." },
-        { text: "<strong>Stay silent</strong> and let {name} handle the comment alone &mdash; she's the patient, after all.", quality: "poor",
-          feedback: "She's 16 in a power-imbalanced room. Doula presence sometimes means being the social cover she doesn't yet know how to ask for." },
-        { text: "<strong>Confront the MA directly</strong> and demand an apology in front of {name} before the visit moves forward.", quality: "poor",
-          feedback: "Right impulse, wrong timing. Address it after the visit with the clinic manager if it warrants it &mdash; don't put {name} in the middle of conflict." },
+        { text: "<strong>Check with {name} first.</strong> Catch her eye: \"Do you want me to redirect that, or do you want to handle it?\" Follow her lead.", quality: "best",
+          feedback: "Scope: speaking to staff WITHOUT her direction is out of scope. Asking first preserves her agency and lets you model how to redirect comments &mdash; only when she says yes." },
+        { text: "<strong>Stay quiet</strong> and let {name} handle the comment alone &mdash; she's the patient, after all.", quality: "poor",
+          feedback: "She's 16 in a power-imbalanced room. Presence without offering to help reads as abandonment. At minimum, signal that you're with her." },
+        { text: "<strong>Confront the MA directly</strong> and demand an apology in front of {name} before the visit moves forward.", quality: "worst",
+          feedback: "Speaking on her behalf without her direction is outside scope. You're also putting {name} in the middle of conflict. Raise it with the clinic manager later if warranted." },
         { text: "<strong>Quietly agree</strong> with the MA and ask {name} later, privately, whether she has considered adoption.", quality: "worst",
-          feedback: "Catastrophic projection and a scope violation. {name} chose to keep this pregnancy; your job is to honor that, not interrogate it." }
+          feedback: "Catastrophic projection. {name} chose to keep this pregnancy; your job is to honor that decision, not interrogate it." }
       ]
     },
     "5": { /* 40+ */
@@ -992,14 +992,14 @@ const DECISIONS = {
       scene: "At L&D the nurse is rattling off discharge instructions in fast English. {name}'s first language isn't English. She's nodding, but she's not following.",
       question: "What do you do?",
       options: [
-        { text: "<strong>Interrupt politely.</strong> \"Can we slow down and get a translator on the phone? I want {name} to have every word.\"", quality: "best",
-          feedback: "You advocate for her right to language access without speaking for her. Medical translator services are her right under federal law." },
+        { text: "<strong>Catch her eye and check.</strong> \"{name}, do you want me to ask them to slow down and get a translator on the phone?\" Then follow her lead.", quality: "best",
+          feedback: "Scope: you advocate WITH her direction, not for her. Asking first lets her say yes and gives her language for self-advocacy next time. Federal law guarantees translator access &mdash; she just may not know that." },
         { text: "<strong>Quietly translate yourself</strong> if you speak some of her language, even though you're not medically credentialed.", quality: "poor",
-          feedback: "Even if you're conversational, medical translation requires precision you may not have. Use the certified service unless you're medically credentialed." },
+          feedback: "Medical translation requires precision you may not have, plus it's the clinic's legal obligation. Even with good intent, this puts liability on you and accuracy at risk." },
         { text: "<strong>Stay quiet now</strong> and translate the instructions for her later from notes you took during the visit.", quality: "poor",
-          feedback: "She has the right to understand in the moment, not retroactively." },
+          feedback: "She has the right to understand in the moment, not retroactively. Notes are a fallback, but step one is letting her ask for a translator." },
         { text: "<strong>Tell {name} privately</strong> that she needs to learn more English if she's going to keep using this clinic.", quality: "worst",
-          feedback: "Out of scope, racist, and factually wrong. Federal law guarantees translator access." }
+          feedback: "Out of scope and factually wrong. Federal law guarantees translator access at any healthcare facility receiving federal funds." }
       ]
     },
     "2": { /* low income / transportation */
@@ -1008,13 +1008,13 @@ const DECISIONS = {
       scene: "{name} just lost her ride to her 36-week appointment. No PTO left from work. The bus would take 90 minutes each way.",
       question: "What do you offer?",
       options: [
-        { text: "<strong>Problem-solve with her.</strong> \"Can we check the volunteer-doula ride list, or ask your clinic about a telehealth option for this visit?\"", quality: "best",
-          feedback: "You name the resources without taking over. You also validate that this is a real barrier, not a personal failing." },
-        { text: "<strong>Offer to drive her yourself,</strong> after checking with MHN about insurance and liability for volunteer transport.", quality: "good",
-          feedback: "Generous, sometimes the right call. Check with MHN about insurance/liability first. Try systemic options before your own car." },
-        { text: "<strong>Tell her to skip it</strong> and catch the next appointment when she has childcare and transportation lined up.", quality: "worst",
-          feedback: "At 36 weeks, weekly visits matter. Skipping creates real clinical risk. Help her get there." },
-        { text: "<strong>Lecture her gently</strong> about how important these prenatal appointments are at this stage of the pregnancy.", quality: "poor",
+        { text: "<strong>Help her use her benefits.</strong> \"Most Medicaid plans and many commercial insurers cover non-emergency medical transport. Let's call your insurance and your clinic's social worker together.\"", quality: "best",
+          feedback: "You point her to real resources (NEMT benefits, social work) and offer to navigate the call with her. Doula scope is connecting clients to systems &mdash; not providing the service yourself." },
+        { text: "<strong>Ask her clinic</strong> if telehealth is an option for this visit so she doesn't lose the appointment if transport falls through.", quality: "good",
+          feedback: "Practical. Many clinics offer telehealth for non-clinical visits (medication checks, mental-health, education). Pair with the insurance call for visits that need to be in person." },
+        { text: "<strong>Offer to drive her yourself</strong> in your own car so she doesn't miss the appointment at 36 weeks.", quality: "worst",
+          feedback: "Outside doula scope. Liability, insurance, and boundary issues. Your role is to surface resources and advocate &mdash; not to provide the transportation service." },
+        { text: "<strong>Lecture her gently</strong> about how important these prenatal appointments are at 36 weeks of pregnancy.", quality: "poor",
           feedback: "She knows. She's trying to get there. Lecturing adds shame to a barrier that's already exhausting." }
       ]
     }
@@ -1362,8 +1362,8 @@ const DECISIONS = {
       scene: "The team is moving {name} to the OR. They have 60 seconds before they wheel her away. Her partner is asking what's happening.",
       question: "What do you say to her?",
       options: [
-        { text: "<strong>Name it plainly.</strong> \"Your baby needs help. The team is doing a C-section. You're going to be okay. I'll be here when you come back.\"", quality: "best",
-          feedback: "Plain language anchors her body. You don't promise outcomes &mdash; you tell her where you'll be." },
+        { text: "<strong>Name it plainly.</strong> \"Your baby needs help. The team is doing a C-section. I'm here with you, and I'll be here when you come back.\"", quality: "best",
+          feedback: "Plain language anchors her body without promising a medical outcome. You name what's happening and tell her where you'll be &mdash; the doula's lane mid-emergency." },
         { text: "<strong>Promise her</strong> that everything is going to be fine and she'll be holding her healthy baby very soon.", quality: "poor",
           feedback: "False reassurance. Breaks trust if something goes wrong." },
         { text: "<strong>Coach her partner</strong> to advocate to be present in the OR for the non-general C-section if possible.", quality: "good",
@@ -1470,8 +1470,8 @@ const DECISIONS = {
       scene: "Baby is healthy and alert at home, but {name} is panicking at every sound baby makes. She's barely slept.",
       question: "What do you say?",
       options: [
-        { text: "<strong>Normalize and categorize.</strong> \"Newborns make a LOT of sounds. Let me walk you through call-the-pediatrician versus totally-normal so you can tell.\"", quality: "best",
-          feedback: "You give her categories. Without them, every sound feels equally alarming. With them, she can sleep." },
+        { text: "<strong>Validate and refer.</strong> \"Newborns make a LOT of sounds &mdash; you're not crazy. Let's save your pediatrician's nurse line in your phone right now so you can call when you're unsure.\"", quality: "best",
+          feedback: "Scope: assessing which sounds are clinically concerning is the pediatrician's job, not yours. Validating her feeling AND connecting her to the right resource is exactly the doula's lane." },
         { text: "<strong>Tell her she's being</strong> overprotective and needs to relax &mdash; the baby is fine right now in this moment.", quality: "worst",
           feedback: "Shaming a first-time parent for caring. Don't." },
         { text: "<strong>Suggest she sleep</strong> when baby sleeps &mdash; that's the classic advice and it should help her with rest.", quality: "poor",
@@ -1528,14 +1528,14 @@ const DECISIONS = {
       scene: "At day 8, {name} is crying and tells you she doesn't feel anything for the baby.",
       question: "What do you say?",
       options: [
-        { text: "<strong>Take her seriously.</strong> \"Thank you for telling me. Let's talk about what 'nothing' feels like, and when to call your provider.\"", quality: "best",
-          feedback: "Day 8 numbness is a red flag for PPD or PPP. Don't dismiss, don't catastrophize. Listen, assess, screen for safety, refer." },
-        { text: "<strong>Reassure her quickly</strong> that baby blues are normal at this stage and the feeling will pass within a few weeks.", quality: "poor",
-          feedback: "Could be baby blues, could be something more. Don't normalize before you've assessed." },
+        { text: "<strong>Take her seriously, then refer.</strong> \"Thank you for telling me. This is important. Let's call your provider today &mdash; I'll stay on the line with you.\"", quality: "best",
+          feedback: "Day 8 numbness is a red flag for PPD or PPP. Per ICEA/MHN scope, mental-health screening is OUTSIDE the doula's lane. Your move is to validate and refer immediately to her provider." },
+        { text: "<strong>Reassure her quickly</strong> that baby blues are normal at this stage and the feeling will pass within a few weeks.", quality: "worst",
+          feedback: "Day 8 numbness can be baby blues OR something more serious. Normalizing without referring delays care she may urgently need. Refer first." },
         { text: "<strong>Tell her she'll love the baby</strong> eventually &mdash; the feelings will come once she gets more sleep and recovers.", quality: "worst",
-          feedback: "Dismissive and potentially harmful. What matters is care, not feeling." },
-        { text: "<strong>Offer the Edinburgh (EPDS)</strong> screening tool and walk through it with her right now together, gently.", quality: "good",
-          feedback: "Right instinct. Validate first, then screen. Don't skip the emotional acknowledgment." }
+          feedback: "Dismissive and potentially harmful. PPD is a medical condition that needs clinical assessment, not a wait-and-see from you." },
+        { text: "<strong>Listen for a few minutes</strong> and offer to text her provider's after-hours line together if she wants to.", quality: "good",
+          feedback: "Solid presence + referral. Slightly slower path than option A, which jumps straight to the call. Pair the listening with a clear next step before the visit ends." }
       ]
     },
     "5": { /* optimal, attachment to doula */
