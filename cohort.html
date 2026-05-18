@@ -20,15 +20,17 @@
 <style>
   html,body{margin:0;padding:0;background:#fff;font-family:var(--mhn-font-sans);color:var(--mhn-ink)}
   .page{max-width:1280px;margin:0 auto}
-  .nav{display:flex;align-items:center;justify-content:space-between;padding:20px 48px;border-bottom:1px solid var(--mhn-line-soft)}
-  .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
+  .nav{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:18px 48px;border-bottom:1px solid var(--mhn-line-soft);column-gap:24px}
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit;justify-self:start}
   .brand .seal{width:44px;height:44px;display:flex;align-items:center;justify-content:center}
   .brand .seal img{width:44px;height:44px;display:block}
   .brand .name{font-family:var(--mhn-font-serif);font-weight:700;font-size:20px;color:var(--mhn-purple-700)}
   .brand .sub{font-size:16px;letter-spacing:0.18em;text-transform:uppercase;color:var(--mhn-purple-500);margin-top:2px}
-  .nav-links{display:flex;gap:28px}
-  .nav-links a{text-decoration:none;color:var(--mhn-ink-soft);font-size:16px;font-weight:700}
+  .nav-links{display:flex;gap:30px;align-items:center;justify-self:center}
+  .nav-links a{text-decoration:none;color:var(--mhn-ink-soft);font-size:16px;font-weight:700;display:inline-flex;align-items:center}
   .nav-links .active{color:var(--mhn-purple-700)}
+  .nav-actions{display:flex;gap:14px;align-items:center;justify-self:end}
+  @media(max-width:900px){.nav{grid-template-columns:1fr;row-gap:10px}.brand,.nav-links,.nav-actions{justify-self:center}.nav-links{flex-wrap:wrap;justify-content:center;gap:14px 22px}}
   .hero{padding:36px 48px 24px;max-width:820px}
   .eyebrow{font-size:16px;letter-spacing:0.28em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:700;margin-bottom:18px}
   h1.t{font-family:var(--mhn-font-serif);font-size:25px;line-height:1.05;color:var(--mhn-purple-700);margin:0 0 20px;letter-spacing:-0.015em;font-weight:700}
@@ -204,10 +206,8 @@
   .sch-card .sch-note{font-size:14.5px !important}
   .sch-card h3{font-size:24px !important}
   .sch-card .sch-commit{font-size:17px !important}
-  /* Key dates strip */
-  .key-dates .kd-lbl{font-size:12.5px !important}
+  /* Key dates strip — fonts handled by base block, just bump date a touch */
   .key-dates .kd-date{font-size:18px !important}
-  .key-dates .kd-sub{font-size:13px !important}
   /* Bump address + helper lines under hero h1 */
   .cohort-hero-info .address-line{font-size:17px !important}
   .cohort-hero-info .helper-line{font-size:16px !important}
@@ -227,6 +227,8 @@
     <a href="for-mom.html">For Families</a>
     <a href="doula-training.html" class="active">Training</a>
     <a href="store.html">Store</a>
+  </div>
+  <div class="nav-actions">
     <a href="inicio.html" title="Español" aria-label="Switch to Spanish" style="font-weight:800;font-size:14px;letter-spacing:0.12em;color:var(--mhn-purple-700);text-decoration:none;border:1.5px solid var(--mhn-purple-200);padding:5px 10px;border-radius:6px">ES</a>
     <a href="portal.html" class="btn-portal">Doula Portal</a>
     <a href="donate.html" class="btn-donate">Donate</a>
@@ -243,12 +245,14 @@
   .cohort-hero-info .address-line{font-family:var(--mhn-font-serif);font-style:italic;font-size:15.5px;color:var(--mhn-purple-500);margin:0 0 10px}
   .cohort-hero-info .helper-line{font-family:var(--mhn-font-serif);font-style:italic;font-size:15px;color:var(--mhn-ink-soft);margin:0}
   .cohort-hero-info .helper-line a{color:var(--mhn-purple-700);font-weight:700;text-decoration:none;border-bottom:1.5px solid var(--mhn-purple-200)}
-  /* Key dates strip inside the hero */
-  .key-dates{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:22px 0 22px;padding:18px 18px 16px;background:linear-gradient(135deg,#FFF5E1 0%,#FCE7CB 100%);border:1px solid #E8D5BD;border-radius:14px;box-shadow:0 4px 14px rgba(133,87,31,0.10)}
-  .key-dates .kd{display:flex;flex-direction:column;gap:2px}
-  .key-dates .kd-lbl{font-size:11.5px;letter-spacing:0.16em;text-transform:uppercase;color:#85571F;font-weight:800;line-height:1.2}
-  .key-dates .kd-date{font-family:var(--mhn-font-serif);font-size:17px;font-weight:700;color:var(--mhn-purple-700);line-height:1.15}
-  .key-dates .kd-sub{font-size:12px;color:var(--mhn-ink-mute);line-height:1.3}
+  /* Key dates strip — unified sans-serif, single font family, no uppercase tracking,
+     one bold weight (on the date itself), even spacing. Easier to scan. */
+  .key-dates{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin:22px 0 22px;padding:0;background:#fff;border:1.5px solid #E8D5BD;border-radius:14px;box-shadow:0 4px 14px rgba(133,87,31,0.10);overflow:hidden}
+  .key-dates .kd{display:flex;flex-direction:column;justify-content:center;gap:4px;padding:14px 16px;border-right:1px solid #F0E0C5;background:linear-gradient(180deg,#FFF9EE,#FFF5E1)}
+  .key-dates .kd:last-child{border-right:none;background:linear-gradient(180deg,#FAEFE0,#FFF5E1)}
+  .key-dates .kd-lbl{font-family:var(--mhn-font-sans);font-size:13px;color:#85571F;font-weight:600;line-height:1.3;letter-spacing:0}
+  .key-dates .kd-date{font-family:var(--mhn-font-sans);font-size:17px;font-weight:700;color:var(--mhn-purple-700);line-height:1.2;letter-spacing:0}
+  .key-dates .kd-sub{font-family:var(--mhn-font-sans);font-size:13px;color:var(--mhn-ink-soft);line-height:1.3;font-weight:400}
   /* Stacked logos column */
   .cohort-hero-logos{display:flex;flex-direction:column;gap:18px;background:#fff;border:1px solid var(--mhn-purple-200);border-radius:18px;padding:22px 22px;box-shadow:0 6px 22px rgba(94,55,108,0.10);position:sticky;top:20px}
   .cohort-hero-logos .partner-eyebrow{font-size:11.5px;letter-spacing:0.22em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:800;text-align:center;margin:0 0 4px}
@@ -281,29 +285,29 @@
     <!-- KEY DATES strip -->
     <div class="key-dates" role="region" aria-label="Key dates for the Rho Cohort">
       <div class="kd">
-        <span class="kd-lbl">Scholarship<br>applications close</span>
+        <span class="kd-lbl">Scholarship applications close</span>
         <span class="kd-date">Fri, Jun 12, 2026</span>
         <span class="kd-sub">11:59 PM CST</span>
       </div>
       <div class="kd">
-        <span class="kd-lbl">Scholarship<br>interviews</span>
+        <span class="kd-lbl">Scholarship interviews</span>
         <span class="kd-date">Jun 15&ndash;17, 2026</span>
         <span class="kd-sub">9 AM&ndash;5 PM CST</span>
       </div>
       <div class="kd">
-        <span class="kd-lbl">Scholarship<br>acceptance notice</span>
+        <span class="kd-lbl">Scholarship acceptance notice</span>
         <span class="kd-date">Fri, Jun 19, 2026</span>
         <span class="kd-sub">Decisions emailed</span>
       </div>
       <div class="kd">
-        <span class="kd-lbl">Course<br>registration closes</span>
+        <span class="kd-lbl">Course registration closes</span>
         <span class="kd-date">Mon, Jun 22, 2026</span>
-        <span class="kd-sub">5:00 PM CST &middot; 20 seats</span>
+        <span class="kd-sub">5:00 PM CST</span>
       </div>
       <div class="kd">
-        <span class="kd-lbl">Class<br>begins</span>
+        <span class="kd-lbl">Class begins</span>
         <span class="kd-date">Tue, Jul 28, 2026</span>
-        <span class="kd-sub">Online Night 1 &middot; 5:30 PM CST</span>
+        <span class="kd-sub">Online Night 1, 5:30 PM CST</span>
       </div>
     </div>
 
@@ -329,16 +333,16 @@
 </div>
 </section>
 
-<!-- TOP PHOTO STRIP — two photos moved high so the page reads visually right after the hero -->
+<!-- TOP PHOTO STRIP — two horizontal classroom + graduation shots that fit the wide frames -->
 <section class="top-photos" style="padding:8px 48px 24px;max-width:1180px;margin:0 auto">
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
     <figure style="margin:0;position:relative;border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(94,55,108,0.18);border:5px solid #fff;background:#fff">
-      <img src="./assets/photos/training-comfort-hold.jpg" alt="Trainees practicing comfort holds on yoga mats" style="width:100%;height:100%;aspect-ratio:16/9;object-fit:cover;display:block">
-      <figcaption style="position:absolute;bottom:16px;left:16px;background:rgba(255,255,255,0.94);backdrop-filter:blur(8px);padding:8px 14px;border-radius:999px;font-family:var(--mhn-font-serif);font-style:italic;font-size:15px;color:var(--mhn-purple-700);font-weight:700">Comfort-measure practice</figcaption>
+      <img src="./assets/photos/cohort-graduation-2025.jpg" alt="Graduating MHN doula cohort celebrating certification" style="width:100%;height:100%;aspect-ratio:4/3;object-fit:cover;display:block">
+      <figcaption style="position:absolute;bottom:16px;left:16px;background:rgba(255,255,255,0.94);backdrop-filter:blur(8px);padding:8px 14px;border-radius:999px;font-family:var(--mhn-font-serif);font-style:italic;font-size:15px;color:var(--mhn-purple-700);font-weight:700">A graduating cohort</figcaption>
     </figure>
     <figure style="margin:0;position:relative;border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(94,55,108,0.18);border:5px solid #fff;background:#fff">
-      <img src="./assets/photos/training-five-minute-break.jpg" alt="Two MHN doulas presenting comfort-measure brainstorm chart" style="width:100%;height:100%;aspect-ratio:16/9;object-fit:cover;display:block">
-      <figcaption style="position:absolute;bottom:16px;left:16px;background:rgba(255,255,255,0.94);backdrop-filter:blur(8px);padding:8px 14px;border-radius:999px;font-family:var(--mhn-font-serif);font-style:italic;font-size:15px;color:var(--mhn-purple-700);font-weight:700">Group brainstorm</figcaption>
+      <img src="./assets/photos/cohort-graduation-icea.jpg" alt="MHN trainees on certification day with ICEA credentials" style="width:100%;height:100%;aspect-ratio:4/3;object-fit:cover;display:block">
+      <figcaption style="position:absolute;bottom:16px;left:16px;background:rgba(255,255,255,0.94);backdrop-filter:blur(8px);padding:8px 14px;border-radius:999px;font-family:var(--mhn-font-serif);font-style:italic;font-size:15px;color:var(--mhn-purple-700);font-weight:700">ICEA certification day</figcaption>
     </figure>
   </div>
 </section>
@@ -389,9 +393,37 @@
 
 <div style="margin:18px 0 8px;padding-top:14px;border-top:1px solid rgba(255,255,255,0.18)">
   <div style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:var(--mhn-purple-200);font-weight:700;margin-bottom:10px">What&rsquo;s included</div>
+
+  <!-- Materials photo strip — the books trainees actually receive -->
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px">
+    <figure style="margin:0;background:#fff;border-radius:8px;padding:6px;box-shadow:0 4px 12px rgba(0,0,0,0.18)">
+      <img src="./assets/photos/data-driven-doula.jpg" alt="Data-Driven Doula textbook cover" style="width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:4px;display:block">
+      <figcaption style="font-size:10.5px;text-align:center;margin-top:5px;color:var(--mhn-purple-700);font-weight:700;letter-spacing:0.04em;line-height:1.25">Data-Driven<br>Doula</figcaption>
+    </figure>
+    <figure style="margin:0;background:#fff;border-radius:8px;padding:6px;box-shadow:0 4px 12px rgba(0,0,0,0.18)">
+      <img src="./assets/photos/data-driven-doula-workbook.jpg" alt="Data-Driven Doula companion workbook" style="width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:4px;display:block">
+      <figcaption style="font-size:10.5px;text-align:center;margin-top:5px;color:var(--mhn-purple-700);font-weight:700;letter-spacing:0.04em;line-height:1.25">Workbook</figcaption>
+    </figure>
+    <figure style="margin:0;background:#fff;border-radius:8px;padding:6px;box-shadow:0 4px 12px rgba(0,0,0,0.18)">
+      <img src="./assets/photos/everything-guide.jpg" alt="The Everything Guide to Pregnancy" style="width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:4px;display:block">
+      <figcaption style="font-size:10.5px;text-align:center;margin-top:5px;color:var(--mhn-purple-700);font-weight:700;letter-spacing:0.04em;line-height:1.25">Everything<br>Guide</figcaption>
+    </figure>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px">
+    <figure style="margin:0;background:#fff;border-radius:8px;padding:6px;box-shadow:0 4px 12px rgba(0,0,0,0.18)">
+      <img src="./assets/photos/pocket-doula-hero.jpg" alt="Pocket Doula deck of pocket-sized reference cards" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:4px;display:block">
+      <figcaption style="font-size:10.5px;text-align:center;margin-top:5px;color:var(--mhn-purple-700);font-weight:700;letter-spacing:0.04em;line-height:1.25">Pocket Doula deck</figcaption>
+    </figure>
+    <figure style="margin:0;background:#fff;border-radius:8px;padding:6px;box-shadow:0 4px 12px rgba(0,0,0,0.18)">
+      <img src="./assets/photos/birth-vision-cover.jpg" alt="Birth Vision Guide cover" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:4px;display:block">
+      <figcaption style="font-size:10.5px;text-align:center;margin-top:5px;color:var(--mhn-purple-700);font-weight:700;letter-spacing:0.04em;line-height:1.25">Birth Vision Guide</figcaption>
+    </figure>
+  </div>
+
   <ul style="margin:0;padding-left:18px;font-size:14.5px;line-height:1.6;color:#FFFFFF">
     <li><strong>Data-Driven Doula</strong> textbook + workbook (mailed)</li>
-    <li><strong>Everything Guide to Pregnancy</strong> (mailed)</li>
+    <li><strong>The Everything Guide to Pregnancy</strong> (mailed)</li>
+    <li><strong>Pocket Doula</strong> reference deck</li>
     <li><strong>MHN Field Guide 2026</strong> (online anytime)</li>
     <li>5 ICEA Position Papers + quizzes</li>
     <li>Birth Vision Guide</li>
@@ -414,31 +446,15 @@
 </section>
 <section class="body" style="padding:16px 48px 32px;max-width:1200px;margin:0 auto">
 <div class="acc-group">
-<div class="acc-section-block"><h3 class="acc-section-title">Who this training is for.</h3><div class="acc-section-body"><div class="q-head">
-<div class="eyebrow" style="font-size:16px;letter-spacing:0.28em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:700;margin-bottom:12px">Before You Apply</div>
-</div>
-<div class="qgrid">
-<div class="qcard">
-<h3>Anyone called to this work</h3>
-<p style="margin:0 0 10px;font-size:17px;color:var(--mhn-ink-soft);line-height:1.6"><strong>No previous experience required.</strong> If you feel called to walk alongside families through pregnancy, birth, and the early weeks of parenthood, you belong here.</p>
-<ul>
-<li>People with no birth-work experience whatsoever</li>
-<li>Anyone with lived experience of pregnancy or maternal health</li>
-<li>Community members who want to give back to Louisiana mothers</li>
-<li>Peer supporters, advocates, and friends-of-friends already doing the work informally</li>
-<li>Nurses, midwives, and other birth workers seeking ICEA credentials</li>
+<div class="acc-section-block"><h3 class="acc-section-title">Prerequisites.</h3><div class="acc-section-body">
+<p style="margin:0 0 12px;font-size:17px;color:var(--mhn-ink-soft);line-height:1.6"><strong>No previous birth-work experience required.</strong> If you feel called to walk alongside families through pregnancy, birth, and the early weeks of parenthood, you belong here. To enroll you must:</p>
+<ul style="margin:0;padding-left:22px;font-size:17px;line-height:1.7;color:var(--mhn-ink-soft)">
+<li>Be at least 18 years of age</li>
+<li>Complete all pre-work modules (Canvas, 8&ndash;12 hours) before Night 1</li>
+<li>Have reliable internet plus a computer or tablet with camera and microphone</li>
+<li>Commit to full attendance at all four live sessions (10% absence cap)</li>
 </ul>
-</div>
-<div class="qcard">
-<h3>Prerequisites</h3>
-<ul>
-<li>At least 18 years of age</li>
-<li>Complete all pre-work modules before Night 1</li>
-<li>Reliable internet, computer or tablet with camera and microphone</li>
-<li>Full attendance at all four live sessions (10% absence cap)</li>
-</ul>
-</div>
-</div></div></div>
+</div></div>
 <div class="acc-section-block"><h3 class="acc-section-title">What you'll learn.</h3><div class="acc-section-body"><div class="obj">
 <div class="oitem"><h4>Physiology of birth</h4><p>Stages and phases of labor, hormones, Six P's, ACOG active-labor thresholds.</p></div>
 <div class="oitem"><h4>Comfort measures</h4><p>Counter-pressure, hip squeezes, rebozo, birth ball work, acupressure, water therapy.</p></div>
@@ -666,6 +682,89 @@
 <p style="margin:0"><strong style="color:var(--mhn-purple-700)">Refunds.</strong> Exceeding the attendance cap without excused absence requires a full course retake. Refunds are at administrator discretion for documented medical, family, or professional emergencies.</p>
 </div>
 </div>
+</section>
+
+<!-- =============================================================
+     AFTER TRAINING: YOUR NEXT STEPS
+     Big divider so it visually separates from the application info.
+     ============================================================= -->
+<style>
+  .after-divider{padding:40px 48px 0;max-width:1180px;margin:0 auto}
+  .after-divider .div-line{height:1px;background:linear-gradient(90deg, transparent 0%, var(--mhn-purple-200) 20%, var(--mhn-purple-200) 80%, transparent 100%);margin:0 0 32px}
+  .after-section{padding:0 48px 36px;max-width:1180px;margin:0 auto}
+  .after-section .after-head{text-align:center;max-width:720px;margin:0 auto 28px}
+  .after-section .after-eyebrow{display:inline-block;font-family:var(--mhn-font-sans);font-size:13px;letter-spacing:0.22em;text-transform:uppercase;color:var(--mhn-purple-700);font-weight:800;background:var(--mhn-purple-50);padding:6px 16px;border-radius:999px;margin-bottom:14px}
+  .after-section h2{font-family:var(--mhn-font-serif);font-size:32px;color:var(--mhn-purple-700);margin:0 0 12px;letter-spacing:-0.01em;line-height:1.1;text-wrap:balance}
+  .after-section .after-lede{font-family:var(--mhn-font-serif);font-style:italic;color:var(--mhn-ink-soft);font-size:18px;line-height:1.55;margin:0;text-wrap:pretty}
+  .after-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:8px}
+  .after-card{background:#fff;border:1.5px solid var(--mhn-purple-200);border-radius:16px;padding:26px 28px;box-shadow:0 4px 16px rgba(94,55,108,0.08)}
+  .after-card .step-num{display:inline-block;font-family:var(--mhn-font-serif);font-size:14px;font-weight:800;letter-spacing:0.16em;color:var(--mhn-purple-500);background:var(--mhn-purple-50);padding:4px 12px;border-radius:999px;margin-bottom:12px}
+  .after-card h3{font-family:var(--mhn-font-serif);font-size:22px;color:var(--mhn-purple-700);margin:0 0 8px;font-weight:700;letter-spacing:-0.005em;line-height:1.2}
+  .after-card p{font-size:16.5px;line-height:1.65;color:var(--mhn-ink-soft);margin:0}
+  .after-card ul{margin:8px 0 0;padding-left:22px;font-size:16px;line-height:1.65;color:var(--mhn-ink-soft)}
+  .after-card ul li{margin-bottom:5px}
+  .after-link-row{margin-top:24px;background:linear-gradient(135deg,var(--mhn-purple-700),var(--mhn-purple-900));color:#fff;border-radius:16px;padding:24px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:18px;box-shadow:0 8px 22px rgba(94,55,108,0.25)}
+  .after-link-row .alr-text{flex:1;min-width:280px}
+  .after-link-row .alr-eyebrow{font-size:13px;letter-spacing:0.18em;text-transform:uppercase;color:var(--mhn-purple-200);font-weight:800;margin-bottom:4px}
+  .after-link-row h3{font-family:var(--mhn-font-serif);font-size:22px;color:#fff;margin:0 0 6px;font-weight:700;letter-spacing:-0.005em}
+  .after-link-row p{font-size:16px;color:#F1EDF3;margin:0;line-height:1.5}
+  .after-link-row a.alr-btn{background:#FFD7A8;color:#5E376C;font-weight:800;padding:13px 26px;border-radius:999px;text-decoration:none;font-size:15px;letter-spacing:0.05em;text-transform:uppercase;display:inline-flex;align-items:center;gap:6px;white-space:nowrap;box-shadow:0 4px 14px rgba(0,0,0,0.18);transition:transform 0.15s, box-shadow 0.15s}
+  .after-link-row a.alr-btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,0.28)}
+  @media(max-width:760px){
+    .after-divider, .after-section{padding-left:22px;padding-right:22px}
+    .after-grid{grid-template-columns:1fr}
+    .after-section h2{font-size:26px}
+  }
+</style>
+<div class="after-divider"><div class="div-line"></div></div>
+<section class="after-section" id="after-training">
+  <div class="after-head">
+    <span class="after-eyebrow">After Training: Your Next Steps</span>
+    <h2>From graduation to your first family.</h2>
+    <p class="after-lede">Certification is the start, not the finish. Here's what comes next as an MHN volunteer doula.</p>
+  </div>
+
+  <div class="after-grid">
+    <div class="after-card">
+      <span class="step-num">01</span>
+      <h3>Join the volunteer doula network</h3>
+      <p>You're paired with a coordinator who matches you to clients based on your availability, geography, and birth philosophy. You never work alone, every birth runs as a two-doula team.</p>
+    </div>
+
+    <div class="after-card">
+      <span class="step-num">02</span>
+      <h3>Get the MHN Field Guide</h3>
+      <p>Your year-round companion through every birth and postpartum visit. Comfort measures, complications, scope-of-practice guidance, charting templates, escalation pathways. Online anytime, updated yearly.</p>
+    </div>
+
+    <div class="after-card">
+      <span class="step-num">03</span>
+      <h3>Get connected with clients</h3>
+      <p>Families apply through MHN's <a href="for-mom.html" style="color:var(--mhn-purple-700);font-weight:700;text-decoration:none;border-bottom:1.5px solid var(--mhn-purple-200)">For Families</a> page. Coordinators screen, intake, and assign within days. Prenatal visits, on-call labor support, and two postpartum visits per family.</p>
+    </div>
+
+    <div class="after-card">
+      <span class="step-num">04</span>
+      <h3>The benefits you'll receive</h3>
+      <ul>
+        <li>Free ICEA exam prep + practice quizzes</li>
+        <li>Hospital privileging at partner institutions</li>
+        <li>Monthly continuing-education sessions (free CEUs)</li>
+        <li>Liability coverage on every MHN birth</li>
+        <li>Two-doula team backup so you're never on call solo</li>
+        <li>Birth-debrief sessions with trained peer support</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="after-link-row">
+    <div class="alr-text">
+      <div class="alr-eyebrow">Curious what families see?</div>
+      <h3>Visit the For Families page.</h3>
+      <p>See exactly what mothers experience when they apply for an MHN doula. It's the same page you'll point your future clients to.</p>
+    </div>
+    <a class="alr-btn" href="for-mom.html">For Families &rarr;</a>
+  </div>
 </section>
 
 <!-- FOR GRADUATES: PRACTICING IN LOUISIANA (always-open section) -->
