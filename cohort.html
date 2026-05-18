@@ -187,44 +187,131 @@
     <a href="donate.html" class="btn-donate">Donate</a>
   </div>
 </nav>
-<section class="hero">
-<div class="eyebrow">Next Birth Doula Training &middot; Rho Cohort &middot; Our 16th Class</div>
-<h1 class="t">Birth Doula Training.<br/><em style="font-size:27px;color:var(--mhn-purple-500);font-weight:400;letter-spacing:0">Rho Cohort &middot; July 28&ndash;31, 2026 &middot; Baton Rouge</em></h1>
-<p class="lede">A four-day ICEA-approved birth doula training. Two online evenings plus two full in-person days at FranU St. Francis Hall. Thirty-three contact hours; volunteer-track scholarships available.</p>
-<div class="cohort-affiliations" style="display:flex;align-items:center;gap:36px;flex-wrap:wrap;margin-top:22px;padding-top:22px;border-top:1px solid var(--mhn-purple-200)">
-  <span style="font-size:13px;letter-spacing:0.18em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:700;flex-basis:100%">In partnership with</span>
-  <a href="https://icea.org/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;text-decoration:none" title="International Childbirth Education Association">
-    <img src="./assets/sponsors/icea.png" alt="ICEA — International Childbirth Education Association" style="height:130px;width:auto;display:block">
-  </a>
-  <a href="https://www.franu.edu/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:14px;text-decoration:none;color:var(--mhn-purple-700)" title="Franciscan Missionaries of Our Lady University">
-    <img src="./assets/sponsors/franu.png" alt="Franciscan Missionaries of Our Lady University shield" style="height:130px;width:auto;display:block">
-    <span style="font-family:var(--mhn-font-serif);font-size:17px;font-weight:700;line-height:1.2">Franciscan Missionaries<br>of Our Lady University</span>
-  </a>
-  <a href="https://labluefoundation.org/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;text-decoration:none" title="Louisiana Blue Foundation">
-    <img src="./assets/sponsors/labluefoundation.jpg" alt="Louisiana Blue Foundation" style="height:130px;width:auto;display:block;border-radius:8px">
-  </a>
-</div>
-<p style="font-family:var(--mhn-font-serif);font-style:italic;font-size:16px;color:var(--mhn-purple-500);margin-top:18px">Held at <strong>FranU St. Francis Hall, 5414 Brittany Drive, Baton Rouge, LA 70808</strong>.</p>
-<p style="font-family:var(--mhn-font-serif);font-style:italic;font-size:16px;color:var(--mhn-ink-soft);margin-top:14px">New here? <a href="doula-training.html" style="color:var(--mhn-purple-700);font-weight:700">Start with our Education &amp; Training overview</a></p>
-</section>
+<style>
+  /* Cohort hero, info LEFT, stacked logos RIGHT */
+  .cohort-hero{padding:32px 48px 24px;max-width:1200px !important;margin:0 auto}
+  .cohort-hero-grid{display:grid;grid-template-columns:1.55fr 0.85fr;gap:48px;align-items:start}
+  .cohort-hero-info .eyebrow{font-size:15px;letter-spacing:0.24em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:700;margin-bottom:12px}
+  .cohort-hero-info h1{font-family:var(--mhn-font-serif);font-size:42px;color:var(--mhn-purple-700);margin:0 0 16px;line-height:1.05;letter-spacing:-0.015em;font-weight:700;text-wrap:balance}
+  .cohort-hero-info h1 em{display:block;font-size:23px;color:var(--mhn-purple-500);font-weight:400;letter-spacing:0;margin-top:10px;font-style:italic}
+  .cohort-hero-info .lede{font-family:var(--mhn-font-serif);font-style:italic;font-size:18px;line-height:1.55;color:var(--mhn-ink-soft);margin:0 0 18px;text-wrap:pretty}
+  .cohort-hero-info .address-line{font-family:var(--mhn-font-serif);font-style:italic;font-size:15.5px;color:var(--mhn-purple-500);margin:0 0 10px}
+  .cohort-hero-info .helper-line{font-family:var(--mhn-font-serif);font-style:italic;font-size:15px;color:var(--mhn-ink-soft);margin:0}
+  .cohort-hero-info .helper-line a{color:var(--mhn-purple-700);font-weight:700;text-decoration:none;border-bottom:1.5px solid var(--mhn-purple-200)}
+  /* Key dates strip inside the hero */
+  .key-dates{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:22px 0 22px;padding:18px 18px 16px;background:linear-gradient(135deg,#FFF5E1 0%,#FCE7CB 100%);border:1px solid #E8D5BD;border-radius:14px;box-shadow:0 4px 14px rgba(133,87,31,0.10)}
+  .key-dates .kd{display:flex;flex-direction:column;gap:2px}
+  .key-dates .kd-lbl{font-size:11.5px;letter-spacing:0.16em;text-transform:uppercase;color:#85571F;font-weight:800;line-height:1.2}
+  .key-dates .kd-date{font-family:var(--mhn-font-serif);font-size:17px;font-weight:700;color:var(--mhn-purple-700);line-height:1.15}
+  .key-dates .kd-sub{font-size:12px;color:var(--mhn-ink-mute);line-height:1.3}
+  /* Stacked logos column */
+  .cohort-hero-logos{display:flex;flex-direction:column;gap:18px;background:#fff;border:1px solid var(--mhn-purple-200);border-radius:18px;padding:22px 22px;box-shadow:0 6px 22px rgba(94,55,108,0.10);position:sticky;top:20px}
+  .cohort-hero-logos .partner-eyebrow{font-size:11.5px;letter-spacing:0.22em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:800;text-align:center;margin:0 0 4px}
+  .cohort-hero-logos .logo-link{display:flex;flex-direction:column;align-items:center;gap:8px;text-decoration:none;padding:14px 8px;border-radius:12px;background:var(--mhn-paper-alt);border:1px solid var(--mhn-line-soft);transition:transform 0.15s, box-shadow 0.15s}
+  .cohort-hero-logos .logo-link:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(94,55,108,0.14);border-color:var(--mhn-purple-200)}
+  .cohort-hero-logos .logo-link img{max-width:100%;height:auto;display:block;max-height:84px;width:auto;margin:0 auto}
+  .cohort-hero-logos .logo-link .logo-cap{font-family:var(--mhn-font-serif);font-size:13.5px;color:var(--mhn-purple-700);font-weight:700;text-align:center;line-height:1.25}
+  @media(max-width:900px){
+    .cohort-hero{padding:24px 20px 16px}
+    .cohort-hero-grid{grid-template-columns:1fr;gap:24px}
+    .cohort-hero-info h1{font-size:32px}
+    .cohort-hero-info h1 em{font-size:18px}
+    .key-dates{grid-template-columns:repeat(2,1fr)}
+    .cohort-hero-logos{position:static;flex-direction:row;flex-wrap:wrap;justify-content:center;padding:18px}
+    .cohort-hero-logos .partner-eyebrow{flex-basis:100%}
+    .cohort-hero-logos .logo-link{flex:1 1 30%;min-width:120px}
+  }
+  @media(max-width:560px){
+    .key-dates{grid-template-columns:1fr}
+    .cohort-hero-info h1{font-size:28px}
+  }
+</style>
+<section class="hero cohort-hero">
+<div class="cohort-hero-grid">
+  <div class="cohort-hero-info">
+    <div class="eyebrow">Next Birth Doula Training &middot; Rho Cohort &middot; Our 16th Class</div>
+    <h1 class="t">Birth Doula Training.<em>Rho Cohort &middot; July 28&ndash;31, 2026 &middot; Baton Rouge</em></h1>
+    <p class="lede">A four-day ICEA-approved birth doula training. Two online evenings plus two full in-person days at FranU St. Francis Hall. Thirty-three contact hours; volunteer-track scholarships available.</p>
 
-<!-- THE INVITATION -->
-<section class="invitation" style="padding:24px 48px 8px;background:#fff">
-<div style="max-width:880px;margin:0 auto;text-align:center">
-<div class="eyebrow" style="font-size:16px;letter-spacing:0.28em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:700;margin-bottom:14px">The Invitation</div>
-<p style="font-family:var(--mhn-font-serif);font-style:italic;color:var(--mhn-purple-700);font-size:21px;line-height:1.55;margin:0">Four days. Years of difference made. You will learn how to support a laboring mother through hours of contractions, how to read a hospital room, and how to be the steady voice that reminds a woman her birth is hers. The work is not glamorous. It is essential.</p>
+    <!-- KEY DATES strip -->
+    <div class="key-dates" role="region" aria-label="Key dates for the Rho Cohort">
+      <div class="kd">
+        <span class="kd-lbl">Scholarship<br>applications close</span>
+        <span class="kd-date">Fri, Jun 12, 2026</span>
+        <span class="kd-sub">Apply early for full or partial</span>
+      </div>
+      <div class="kd">
+        <span class="kd-lbl">All applications<br>close</span>
+        <span class="kd-date">Tue, Jun 16, 2026</span>
+        <span class="kd-sub">20 seats total</span>
+      </div>
+      <div class="kd">
+        <span class="kd-lbl">Tuition payment<br>due (paid track)</span>
+        <span class="kd-date">Tue, Jul 21, 2026</span>
+        <span class="kd-sub">One week before Night 1</span>
+      </div>
+      <div class="kd">
+        <span class="kd-lbl">Class<br>begins</span>
+        <span class="kd-date">Tue, Jul 28, 2026</span>
+        <span class="kd-sub">Online Night 1 &middot; 5:30 PM CST</span>
+      </div>
+    </div>
+
+    <p class="address-line">Held at <strong>FranU St. Francis Hall, 5414 Brittany Drive, Baton Rouge, LA 70808</strong>.</p>
+    <p class="helper-line">New here? <a href="doula-training.html">Start with our Education &amp; Training overview</a></p>
+  </div>
+
+  <aside class="cohort-hero-logos" aria-label="Cohort partners">
+    <div class="partner-eyebrow">In partnership with</div>
+    <a class="logo-link" href="https://icea.org/" target="_blank" rel="noopener" title="International Childbirth Education Association">
+      <img src="./assets/sponsors/icea.png" alt="ICEA — International Childbirth Education Association">
+      <span class="logo-cap">ICEA-approved curriculum</span>
+    </a>
+    <a class="logo-link" href="https://www.franu.edu/" target="_blank" rel="noopener" title="Franciscan Missionaries of Our Lady University">
+      <img src="./assets/sponsors/franu.png" alt="Franciscan Missionaries of Our Lady University shield">
+      <span class="logo-cap">FranU &middot; St. Francis Hall<br>training venue</span>
+    </a>
+    <a class="logo-link" href="https://labluefoundation.org/" target="_blank" rel="noopener" title="Louisiana Blue Foundation">
+      <img src="./assets/sponsors/labluefoundation.jpg" alt="Louisiana Blue Foundation" style="border-radius:6px">
+      <span class="logo-cap">Louisiana Blue Foundation<br>funding partner</span>
+    </a>
+  </aside>
 </div>
 </section>
 
 <section class="program" style="background:linear-gradient(180deg, var(--mhn-purple-50) 0%, #fff 100%);padding-top:32px">
-<div class="sched">
-<h3>July 28–31, 2026</h3>
-<p style="font-family:var(--mhn-font-serif);font-style:italic;color:var(--mhn-purple-500);font-size:16px;margin:0 0 16px">Hybrid: 2 online evenings, 2 in-person days at <strong>FranU St. Francis Hall, Baton Rouge</strong></p>
-<p style="font-family:var(--mhn-font-serif);font-style:italic;color:var(--mhn-purple-500);font-size:16px;margin:0 0 16px">Late-July cohort in Baton Rouge.</p>
-<div class="sched-row"><div class="sched-date">Jul 28</div><div><div class="sched-title">Online Night 1 · Pregnancy Physiology &amp; Complications</div><div class="sched-desc">Virtual · Microsoft Teams · 5:30–8:00 PM CST</div></div></div>
-<div class="sched-row"><div class="sched-date">Jul 29</div><div><div class="sched-title">Online Night 2 · Labor, Birth &amp; Medications</div><div class="sched-desc">Virtual · Microsoft Teams · 5:30–8:00 PM CST</div></div></div>
-<div class="sched-row"><div class="sched-date">Jul 30</div><div><div class="sched-title">In-Person Day 1 · Pain Management &amp; Comfort Measures</div><div class="sched-desc">FranU · St. Francis Hall, Baton Rouge · 8:30 AM–4:30 PM</div></div></div>
-<div class="sched-row"><div class="sched-date">Jul 31</div><div><div class="sched-title">In-Person Day 2 · Postpartum, Newborn Care &amp; Practice</div><div class="sched-desc">FranU · St. Francis Hall, Baton Rouge · 8:30 AM–4:30 PM</div></div></div>
+<style>
+  /* Larger, more prominent schedule (May 17 2026 refresh) */
+  .sched--big{padding:36px 36px 32px !important}
+  .sched--big h3{font-size:31px !important;margin:0 0 6px !important;color:var(--mhn-purple-700) !important;letter-spacing:-0.01em}
+  .sched--big .sched-meta{font-family:var(--mhn-font-serif);font-style:italic;color:var(--mhn-purple-500);font-size:18px;margin:0 0 6px;line-height:1.4}
+  .sched--big .sched-meta strong{color:var(--mhn-purple-700)}
+  .sched--big .sched-format-pill{display:inline-block;background:var(--mhn-warm-50);color:#85571F;border:1px solid #E8D5BD;padding:6px 14px;border-radius:999px;font-size:13.5px;letter-spacing:0.14em;text-transform:uppercase;font-weight:800;margin:8px 0 18px}
+  .sched--big .sched-row{grid-template-columns:100px 1fr !important;padding:18px 0 !important;gap:20px}
+  .sched--big .sched-date{font-family:var(--mhn-font-serif);font-size:21px !important;color:var(--mhn-purple-700) !important;font-weight:700;letter-spacing:-0.01em}
+  .sched--big .sched-date small{display:block;font-family:var(--mhn-font-sans);font-style:normal;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:800;margin-top:2px}
+  .sched--big .sched-title{font-size:18.5px !important;color:var(--mhn-purple-900);font-weight:700;line-height:1.3}
+  .sched--big .sched-desc{font-size:16px !important;margin-top:6px !important;color:var(--mhn-ink-soft)}
+  .sched--big .sched-tag{display:inline-block;background:var(--mhn-purple-50);color:var(--mhn-purple-700);font-size:11.5px;font-weight:800;letter-spacing:0.16em;text-transform:uppercase;padding:3px 10px;border-radius:999px;margin-right:8px;vertical-align:middle}
+  .sched--big .sched-tag.tag-online{background:#E2F0E7;color:#1F5C3A;border:1px solid #B7D9C3}
+  .sched--big .sched-tag.tag-inperson{background:#FCE7CB;color:#85571F;border:1px solid #E8D5BD}
+  @media(max-width:760px){
+    .sched--big{padding:24px 22px !important}
+    .sched--big h3{font-size:25px !important}
+    .sched--big .sched-row{grid-template-columns:1fr !important}
+    .sched--big .sched-date{font-size:18px !important}
+  }
+</style>
+<div class="sched sched--big">
+<h3>July 28&ndash;31, 2026 &middot; Four Days</h3>
+<p class="sched-meta">Hybrid format: <strong>2 online evenings</strong> + <strong>2 in-person days</strong> at FranU St. Francis Hall, Baton Rouge</p>
+<p class="sched-meta">33 contact hours &middot; ICEA-approved curriculum &middot; Pass/Fail grading</p>
+<div class="sched-format-pill">Hybrid &middot; 2 + 2 Format</div>
+
+<div class="sched-row"><div class="sched-date">Jul 28<small>Tuesday</small></div><div><div class="sched-title"><span class="sched-tag tag-online">Online</span>Night 1 &middot; Pregnancy Physiology &amp; Complications</div><div class="sched-desc">Microsoft Teams &middot; 5:30&ndash;8:00 PM CST</div></div></div>
+<div class="sched-row"><div class="sched-date">Jul 29<small>Wednesday</small></div><div><div class="sched-title"><span class="sched-tag tag-online">Online</span>Night 2 &middot; Labor, Birth &amp; Medications</div><div class="sched-desc">Microsoft Teams &middot; 5:30&ndash;8:00 PM CST</div></div></div>
+<div class="sched-row"><div class="sched-date">Jul 30<small>Thursday</small></div><div><div class="sched-title"><span class="sched-tag tag-inperson">In-Person</span>Day 1 &middot; Pain Management &amp; Comfort Measures</div><div class="sched-desc">FranU St. Francis Hall, Baton Rouge &middot; 8:30 AM&ndash;4:30 PM &middot; Breakfast &amp; lunch provided</div></div></div>
+<div class="sched-row"><div class="sched-date">Jul 31<small>Friday</small></div><div><div class="sched-title"><span class="sched-tag tag-inperson">In-Person</span>Day 2 &middot; Postpartum, Newborn Care &amp; Skills Practice</div><div class="sched-desc">FranU St. Francis Hall, Baton Rouge &middot; 8:30 AM&ndash;4:30 PM &middot; Breakfast &amp; lunch provided &middot; Skills check-off</div></div></div>
 </div>
 <aside class="price-card">
 <div class="p">$950</div>
@@ -294,6 +381,128 @@
 </div></div></div>
 </div>
 </div>
+
+<!-- SCHOLARSHIP REQUIREMENTS -->
+<style>
+  .sch-section{padding:36px 48px;background:linear-gradient(180deg,#FFF5E1 0%,#FAEFE0 100%);border-top:1px solid #E8D5BD;border-bottom:1px solid #E8D5BD}
+  .sch-wrap{max-width:1180px;margin:0 auto}
+  .sch-head{text-align:center;max-width:760px;margin:0 auto 28px}
+  .sch-head .eyebrow{display:inline-block;font-size:13px;letter-spacing:0.22em;text-transform:uppercase;color:#85571F;font-weight:800;background:#fff;padding:6px 14px;border-radius:999px;box-shadow:0 2px 8px rgba(133,87,31,0.12);margin-bottom:14px}
+  .sch-head h2{font-family:var(--mhn-font-serif);font-size:31px;color:var(--mhn-purple-700);margin:0 0 12px;letter-spacing:-0.01em;line-height:1.1;text-wrap:balance}
+  .sch-head p{font-family:var(--mhn-font-serif);font-style:italic;color:var(--mhn-ink-soft);font-size:17px;margin:0;line-height:1.55;text-wrap:pretty}
+  .sch-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  .sch-card{background:#fff;border:1.5px solid #E8D5BD;border-radius:18px;padding:28px 30px;box-shadow:0 4px 18px rgba(133,87,31,0.10);display:flex;flex-direction:column}
+  .sch-card.full{border-color:#85571F;border-width:2px;position:relative;overflow:hidden}
+  .sch-card.full::before{content:"";position:absolute;top:0;left:0;right:0;height:6px;background:linear-gradient(90deg,#85571F,#B5824A,#85571F)}
+  .sch-card .price-row{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px;padding-bottom:14px;border-bottom:1px solid var(--mhn-line);margin-bottom:16px}
+  .sch-card .sch-price{font-family:var(--mhn-font-serif);font-size:37px;color:var(--mhn-purple-700);font-weight:700;letter-spacing:-0.02em;line-height:1}
+  .sch-card .sch-price small{font-family:var(--mhn-font-sans);font-size:13px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--mhn-ink-mute);display:block;margin-top:6px;letter-spacing:0.16em}
+  .sch-card .sch-value{font-size:13px;letter-spacing:0.18em;text-transform:uppercase;color:#85571F;font-weight:800;background:#FFF5E1;border:1px solid #E8D5BD;padding:5px 11px;border-radius:999px}
+  .sch-card h3{font-family:var(--mhn-font-serif);font-size:22px;color:var(--mhn-purple-700);margin:0 0 10px;font-weight:700;letter-spacing:-0.005em}
+  .sch-card .sch-commit{font-family:var(--mhn-font-serif);font-style:italic;font-size:16px;color:var(--mhn-purple-500);margin:0 0 14px;line-height:1.5}
+  .sch-card .sch-commit strong{color:var(--mhn-purple-700);font-style:normal;font-weight:800}
+  .sch-card .sch-req-label{font-size:12.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--mhn-purple-700);font-weight:800;margin:0 0 10px}
+  .sch-card ul{margin:0 0 14px;padding-left:22px;font-size:15.5px;line-height:1.65;color:var(--mhn-ink-soft)}
+  .sch-card ul li{margin-bottom:6px}
+  .sch-card ul li::marker{color:#85571F}
+  .sch-card ul li strong{color:var(--mhn-ink)}
+  .sch-card .sch-note{margin-top:auto;padding:12px 14px;background:var(--mhn-paper-alt);border-radius:10px;font-size:13.5px;font-style:italic;color:var(--mhn-ink-soft);line-height:1.5}
+  .sch-deadline-banner{margin-top:24px;background:var(--mhn-purple-700);color:#fff;border-radius:14px;padding:18px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;box-shadow:0 8px 22px rgba(94,55,108,0.25)}
+  .sch-deadline-banner .dl-text{display:flex;align-items:center;gap:14px}
+  .sch-deadline-banner .dl-icon{width:38px;height:38px;background:rgba(255,255,255,0.18);border-radius:10px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+  .sch-deadline-banner .dl-icon i,.sch-deadline-banner .dl-icon svg{color:#fff;width:20px;height:20px}
+  .sch-deadline-banner .dl-msg{font-size:16px;line-height:1.4;color:#F1EDF3}
+  .sch-deadline-banner .dl-msg strong{color:#fff;font-family:var(--mhn-font-serif);font-size:18px;display:block;margin-bottom:2px}
+  .sch-deadline-banner a.sch-apply{background:#FFD7A8;color:#5E376C;font-weight:800;padding:11px 22px;border-radius:999px;text-decoration:none;font-size:14.5px;letter-spacing:0.04em;display:inline-flex;align-items:center;gap:6px;box-shadow:0 4px 14px rgba(0,0,0,0.18);white-space:nowrap;transition:transform 0.15s, box-shadow 0.15s}
+  .sch-deadline-banner a.sch-apply:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,0.28)}
+  @media(max-width:760px){
+    .sch-section{padding:28px 22px}
+    .sch-grid{grid-template-columns:1fr}
+    .sch-card{padding:22px}
+    .sch-head h2{font-size:25px}
+  }
+</style>
+<section class="sch-section" id="scholarships">
+<div class="sch-wrap">
+  <div class="sch-head">
+    <span class="eyebrow">Scholarships &amp; Service Commitments</span>
+    <h2>Applying for a scholarship.</h2>
+    <p>Need-based scholarships in two tiers. Submit the scholarship questions on your cohort application. Decisions are made by the MHN scholarship committee after a brief phone interview.</p>
+  </div>
+
+  <div class="sch-grid">
+    <!-- FULL SCHOLARSHIP -->
+    <div class="sch-card full">
+      <div class="price-row">
+        <div class="sch-price">$0<small>You pay</small></div>
+        <span class="sch-value">$950 value</span>
+      </div>
+      <h3>Full Scholarship</h3>
+      <p class="sch-commit"><strong>2-year volunteer service commitment</strong> after graduation</p>
+
+      <p class="sch-req-label">What's required to apply</p>
+      <ul>
+        <li><strong>Cohort application</strong> with scholarship section completed (income, household size, dependents)</li>
+        <li><strong>Brief written essay</strong> (~250&ndash;400 words): why you want to serve as a doula, what community you'd serve, and any lived experience that grounds you</li>
+        <li><strong>One reference</strong> (community member, employer, faith leader, mentor, or anyone who can speak to your character)</li>
+        <li><strong>Phone or Zoom interview</strong> with the scholarship committee (15&ndash;20 minutes, scheduled after application)</li>
+        <li><strong>Signed Service Agreement</strong> confirming you understand the 2-year commitment to volunteer with MHN families after certification</li>
+      </ul>
+
+      <p class="sch-req-label">What the 2-year commitment looks like</p>
+      <ul>
+        <li>Carry an active doula caseload (typically 3&ndash;6 families per year)</li>
+        <li>Attend monthly continuing-education sessions</li>
+        <li>Maintain CEUs to keep ICEA certification active</li>
+        <li>Communicate openly with your Volunteer Coordinator about availability</li>
+      </ul>
+
+      <div class="sch-note">Materials (textbook, workbook, Field Guide, meals) are included regardless of tuition tier.</div>
+    </div>
+
+    <!-- PARTIAL SCHOLARSHIP -->
+    <div class="sch-card">
+      <div class="price-row">
+        <div class="sch-price">$500<small>You pay</small></div>
+        <span class="sch-value">$450 value</span>
+      </div>
+      <h3>Partial Scholarship</h3>
+      <p class="sch-commit"><strong>1-year volunteer service commitment</strong> after graduation</p>
+
+      <p class="sch-req-label">What's required to apply</p>
+      <ul>
+        <li><strong>Cohort application</strong> with scholarship section completed</li>
+        <li><strong>Short statement</strong> (~150&ndash;250 words) on why you want this training and how you plan to serve</li>
+        <li><strong>One reference</strong> (community member, employer, mentor, etc.)</li>
+        <li><strong>Brief phone check-in</strong> with the scholarship committee (10&ndash;15 minutes)</li>
+        <li><strong>Signed Service Agreement</strong> confirming the 1-year commitment to volunteer with MHN families</li>
+      </ul>
+
+      <p class="sch-req-label">What the 1-year commitment looks like</p>
+      <ul>
+        <li>Carry an active caseload (typically 2&ndash;4 families)</li>
+        <li>Attend monthly continuing-education sessions</li>
+        <li>Maintain CEUs through the service year</li>
+      </ul>
+
+      <div class="sch-note">Tuition balance ($500) due by <strong>July 21, 2026</strong>. Payment plans available; ask on your application.</div>
+    </div>
+  </div>
+
+  <!-- Deadline banner -->
+  <div class="sch-deadline-banner">
+    <div class="dl-text">
+      <div class="dl-icon"><i data-lucide="calendar-clock"></i></div>
+      <div class="dl-msg">
+        <strong>Scholarship applications close Friday, June 12, 2026</strong>
+        Scholarship interviews completed by July 1 &middot; decisions sent by July 7
+      </div>
+    </div>
+    <a class="sch-apply" href="https://forms.monday.com/forms/ca1d4fbc14042eb290043defbd016330?r=use1" target="_blank" rel="noopener">Start your application &rarr;</a>
+  </div>
+</div>
+</section>
+
 <!-- TESTIMONIALS -->
 <section class="cohort-testimonials" style="padding:36px 48px 24px;background:linear-gradient(180deg,var(--mhn-paper-alt),#fff)">
 <div style="max-width:1180px;margin:0 auto">
@@ -381,6 +590,63 @@
 <p style="margin:0"><strong style="color:var(--mhn-purple-700)">Refunds.</strong> Exceeding the attendance cap without excused absence requires a full course retake. Refunds are at administrator discretion for documented medical, family, or professional emergencies.</p>
 </div>
 </div>
+</section>
+
+<!-- FOR GRADUATES: PRACTICING IN LOUISIANA (moved from doula-training.html) -->
+<style>
+  #practicing-in-louisiana{padding:32px 48px 8px;max-width:1180px;margin:0 auto}
+  #practicing-in-louisiana details{background:linear-gradient(135deg,#EEF6F1 0%,#E2F0E7 100%);border:1px solid #B7D9C3;border-radius:14px;padding:18px 24px;box-shadow:0 4px 14px rgba(40,120,70,0.08)}
+  #practicing-in-louisiana details summary{cursor:pointer;font-family:var(--mhn-font-sans);font-size:13px;letter-spacing:0.18em;text-transform:uppercase;color:#1F5C3A;font-weight:800;list-style:none;display:flex;justify-content:space-between;align-items:center}
+  #practicing-in-louisiana details summary::-webkit-details-marker{display:none}
+  #practicing-in-louisiana details summary span:last-child{font-family:var(--mhn-font-serif);font-size:22px;color:#3E8059;font-weight:400}
+  #practicing-in-louisiana details[open] summary span:last-child{transform:rotate(45deg);transition:transform 0.2s}
+  #practicing-in-louisiana .biz-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:18px}
+  #practicing-in-louisiana .biz-card{background:#fff;border:1px solid rgba(40,120,70,0.16);border-radius:14px;padding:24px 26px;box-shadow:0 4px 14px rgba(40,120,70,0.10)}
+  #practicing-in-louisiana .biz-card .ico-w{width:42px;height:42px;background:#EEF6F1;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;margin-bottom:12px}
+  #practicing-in-louisiana .biz-card .ico-w i,#practicing-in-louisiana .biz-card .ico-w svg{width:22px;height:22px;color:#1F5C3A}
+  #practicing-in-louisiana .biz-card h3{font-family:var(--mhn-font-serif);font-size:19px;color:var(--mhn-purple-700);margin:0 0 8px;font-weight:700;letter-spacing:-0.005em}
+  #practicing-in-louisiana .biz-card p{font-size:15.5px;line-height:1.6;color:var(--mhn-ink-soft);margin:0 0 10px}
+  #practicing-in-louisiana .biz-card ul{margin:0 0 6px;padding-left:18px;font-size:15px;line-height:1.6;color:var(--mhn-ink-soft)}
+  #practicing-in-louisiana .biz-card ul li{margin-bottom:5px}
+  #practicing-in-louisiana .biz-card .src{font-size:13.5px;font-style:italic;color:var(--mhn-ink-mute);margin-top:10px}
+  @media(max-width:760px){#practicing-in-louisiana{padding:24px 22px}#practicing-in-louisiana .biz-grid{grid-template-columns:1fr}}
+</style>
+<section id="practicing-in-louisiana">
+<details>
+<summary>
+  <span>For Graduates: Practicing in Louisiana</span>
+  <span>+</span>
+</summary>
+<div style="padding-top:18px">
+<p style="margin:0 0 6px;font-family:var(--mhn-font-serif);font-style:italic;color:var(--mhn-ink-soft);font-size:16px;line-height:1.6">Once you are a credentialed birth or postpartum doula, here are the two practical questions every graduate asks.</p>
+<div class="biz-grid">
+  <div class="biz-card">
+    <div class="ico-w"><i data-lucide="clipboard-list"></i></div>
+    <h3>Joining the Louisiana Doula Registry</h3>
+    <p>Louisiana&rsquo;s Department of Health maintains the official Doula Registry. Practicing as a registered doula in the state requires a few specific steps:</p>
+    <ul>
+      <li>Hold a current credential from an approved training organization (ICEA-credentialed graduates qualify)</li>
+      <li>Submit your registry application to LDH with documentation</li>
+      <li>Complete state-required training in trauma-informed care, implicit bias, and child abuse reporting</li>
+      <li>Maintain CEUs to keep your registration active</li>
+    </ul>
+    <p class="src">The full requirements live on the LA Department of Health doula registry page; we walk our graduates through the application as part of the Workforce Development pillar.</p>
+  </div>
+
+  <div class="biz-card">
+    <div class="ico-w"><i data-lucide="banknote"></i></div>
+    <h3>Billing insurance for your services</h3>
+    <p>Louisiana state law now requires both Medicaid and commercial insurers to cover doula services for eligible clients. Once you&rsquo;re on the state registry, you can:</p>
+    <ul>
+      <li>Bill Louisiana Medicaid for prenatal visits, labor support, and postpartum visits</li>
+      <li>Bill commercial insurance for the same services under the parity provision</li>
+      <li>Use HCPCS codes the LDH publishes for reimbursable doula encounters</li>
+    </ul>
+    <p class="src">Reimbursement rates and exact code requirements are set by LDH; we cover the practical side of billing in our post-graduation Volunteer Coordinator support sessions.</p>
+  </div>
+</div>
+</div>
+</details>
 </section>
 </div>
 </section>

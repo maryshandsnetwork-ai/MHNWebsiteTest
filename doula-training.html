@@ -185,6 +185,9 @@
 
   /* COHORT CALLOUT: already animated purple — bump margins */
   .cohort-callout{margin-top:0 !important}
+  /* Cohort callout pinned at the very top of the page */
+  .cohort-callout--top{margin:18px 48px 8px !important}
+  @media(max-width:760px){.cohort-callout--top{margin:14px 20px 6px !important}}
 
   /* Birth-doula transitional note: drop into colored band */
   .programs + div[style*="text-align:center"]{background:#fff;padding:22px 48px !important;margin:0 !important;max-width:none !important;border-bottom:1px solid var(--mhn-line-soft)}
@@ -252,6 +255,19 @@
   </div>
 </nav>
 
+<!-- COHORT CALLOUT, moved to the very top per Madeline May 17 2026 -->
+<div class="cohort-callout cohort-callout--top">
+  <div>
+    <div class="label">Next Birth Doula Training</div>
+    <h3>Rho Cohort &middot; July 28&ndash;31, 2026 &middot; Baton Rouge</h3>
+    <p>Schedule, tuition, what&rsquo;s included, scholarships, attendance requirements, and the application.</p>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:8px;align-items:stretch">
+    <a class="btn" href="https://forms.monday.com/forms/ca1d4fbc14042eb290043defbd016330?r=use1" target="_blank" rel="noopener" style="background:#85571F;color:#fff;border:none;text-align:center;white-space:nowrap">Apply now &rarr;</a>
+    <a class="btn" href="cohort.html" style="background:rgba(255,255,255,0.14);color:#fff;border:1.5px solid rgba(255,255,255,0.55);text-align:center;white-space:nowrap">View Class Details</a>
+  </div>
+</div>
+
 <!-- HERO -->
 <section class="hero hero-with-photo" style="display:grid;grid-template-columns:1.15fr 1fr;gap:40px;align-items:center;max-width:1200px;margin:0 auto;padding:32px 48px 24px">
 <div>
@@ -284,18 +300,20 @@
   @media(max-width:560px){.hero-with-photo .hero-photo-grid{grid-template-columns:1fr !important}.hero-with-photo .hero-photo-grid figure:first-child img,.hero-with-photo .hero-photo-grid figure img{aspect-ratio:3/2 !important}}
 </style>
 
-<!-- COHORT CALLOUT -->
-<div class="cohort-callout">
-  <div>
-    <div class="label">Next Birth Doula Training</div>
-    <h3>Rho Cohort &middot; July 28&ndash;31, 2026 &middot; Baton Rouge</h3>
-    <p>Schedule, tuition, what&rsquo;s included, scholarships, attendance requirements, and the application.</p>
-  </div>
-  <div style="display:flex;flex-direction:column;gap:8px;align-items:stretch">
-    <a class="btn" href="https://forms.monday.com/forms/ca1d4fbc14042eb290043defbd016330?r=use1" target="_blank" rel="noopener" style="background:#85571F;color:#fff;border:none;text-align:center;white-space:nowrap">Apply now &rarr;</a>
-    <a class="btn" href="cohort.html" style="background:rgba(255,255,255,0.14);color:#fff;border:1.5px solid rgba(255,255,255,0.55);text-align:center;white-space:nowrap">View Class Details</a>
-  </div>
+<!-- PHOTO STRIP (training photos) — moved high per Madeline May 17 2026 -->
+<section class="photo-strip">
+<div class="photo-strip-head">
+<div class="eyebrow" style="text-align:center">Inside Our Cohorts</div>
+<h2>Hands-on, every cohort.</h2>
+<p>Real classroom moments and comfort-measure practice from our most recent trainings.</p>
 </div>
+<div class="frame-row">
+<figure class="mhn-frame"><img src="./assets/photos/cohort-graduation-may-2026.jpg" alt="MHN cohort graduates with ICEA certificates"><figcaption>Latest graduation</figcaption></figure>
+<figure class="mhn-frame"><img src="./assets/photos/training-five-minute-break.jpg" alt="Two MHN doulas presenting comfort-measure chart"><figcaption>Group brainstorm</figcaption></figure>
+<figure class="mhn-frame"><img src="./assets/photos/training-on-birth-balls.jpg" alt="Trainees on birth balls"><figcaption>Hands-on classroom</figcaption></figure>
+<figure class="mhn-frame"><img src="./assets/photos/training-rebozo-active.jpg" alt="MHN doulas practicing rebozo"><figcaption>Rebozo practice</figcaption></figure>
+</div>
+</section>
 
 <!-- PROGRAMS -->
 <section class="programs">
@@ -407,62 +425,7 @@
 </div>
 </section>
 
-<!-- ICEA Certification Pathway lives on the cohort.html (class details) page. -->
-
-
-<!-- INSURANCE + REGISTRY (folded into a "For Graduates" disclosure to keep the page focused on enrollment) -->
-<section id="practicing-in-louisiana" style="padding:24px 48px 8px;max-width:1100px;margin:0 auto">
-<details style="background:var(--mhn-paper-alt);border:1px solid var(--mhn-line);border-radius:14px;padding:18px 24px">
-<summary style="cursor:pointer;font-family:var(--mhn-font-sans);font-size:13px;letter-spacing:0.18em;text-transform:uppercase;color:var(--mhn-purple-700);font-weight:800;list-style:none;display:flex;justify-content:space-between;align-items:center">
-  <span>For Graduates: Practicing in Louisiana</span>
-  <span style="font-family:var(--mhn-font-serif);font-size:22px;color:var(--mhn-purple-500);font-weight:400">+</span>
-</summary>
-<div style="padding-top:18px">
-<p style="margin:0 0 18px;font-family:var(--mhn-font-serif);font-style:italic;color:var(--mhn-ink-soft);font-size:16px;line-height:1.6">Once you are a credentialed birth or postpartum doula, here are the two practical questions every graduate asks.</p>
-<div class="biz-grid">
-  <div class="biz-card">
-    <div class="ico-w"><i data-lucide="clipboard-list"></i></div>
-    <h3>Joining the Louisiana Doula Registry</h3>
-    <p>Louisiana&rsquo;s Department of Health maintains the official Doula Registry. Practicing as a registered doula in the state requires a few specific steps:</p>
-    <ul>
-      <li>Hold a current credential from an approved training organization (ICEA-credentialed graduates qualify)</li>
-      <li>Submit your registry application to LDH with documentation</li>
-      <li>Complete state-required training in trauma-informed care, implicit bias, and child abuse reporting</li>
-      <li>Maintain CEUs to keep your registration active</li>
-    </ul>
-    <p class="src">The full requirements live on the LA Department of Health doula registry page; we walk our graduates through the application as part of the Workforce Development pillar.</p>
-  </div>
-
-  <div class="biz-card">
-    <div class="ico-w"><i data-lucide="banknote"></i></div>
-    <h3>Billing insurance for your services</h3>
-    <p>Louisiana state law now requires both Medicaid and commercial insurers to cover doula services for eligible clients. Once you&rsquo;re on the state registry, you can:</p>
-    <ul>
-      <li>Bill Louisiana Medicaid for prenatal visits, labor support, and postpartum visits</li>
-      <li>Bill commercial insurance for the same services under the parity provision</li>
-      <li>Use HCPCS codes the LDH publishes for reimbursable doula encounters</li>
-    </ul>
-    <p class="src">Reimbursement rates and exact code requirements are set by LDH; we cover the practical side of billing in our post-graduation Volunteer Coordinator support sessions.</p>
-  </div>
-</div>
-</div>
-</details>
-</section>
-
-<!-- PHOTO STRIP (training photos) -->
-<section class="photo-strip">
-<div class="photo-strip-head">
-<div class="eyebrow" style="text-align:center">Inside Our Cohorts</div>
-<h2>Hands-on, every cohort.</h2>
-<p>Real classroom moments and comfort-measure practice from our most recent trainings.</p>
-</div>
-<div class="frame-row">
-<figure class="mhn-frame"><img src="./assets/photos/training-classroom-cohort.jpg" alt="MHN training cohort in classroom"><figcaption>Classroom cohort</figcaption></figure>
-<figure class="mhn-frame"><img src="./assets/photos/training-rebozo-active.jpg" alt="MHN doulas practicing rebozo"><figcaption>Rebozo practice</figcaption></figure>
-<figure class="mhn-frame"><img src="./assets/photos/training-on-birth-balls.jpg" alt="Trainees on birth balls"><figcaption>Birth ball practice</figcaption></figure>
-<figure class="mhn-frame"><img src="./assets/photos/cohort-graduation-purple.jpg" alt="MHN cohort with certificates"><figcaption>Earned certification</figcaption></figure>
-</div>
-</section>
+<!-- ICEA Certification Pathway + For Graduates: Practicing in Louisiana now live on cohort.html -->
 
 <!-- STORE CTA -->
 <section class="store-cta">
