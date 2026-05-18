@@ -167,6 +167,51 @@
   .acc-section-title{font-family:var(--mhn-font-serif);font-size:21px;color:var(--mhn-purple-700);margin:0;padding:18px 26px;background:var(--mhn-purple-50);border-bottom:1px solid var(--mhn-purple-200);font-weight:700;letter-spacing:-0.005em}
   .acc-section-body{padding:24px 26px}
   @media(max-width:760px){.acc-section-title{padding:14px 18px;font-size:19px}.acc-section-body{padding:18px}}
+
+  /* ============================================================
+     MAY 17 2026: TIGHTEN WHITESPACE + BUMP FONTS site-wide on cohort page
+     Reduce section padding; bump small text to 16-17px floor for readability.
+     ============================================================ */
+  .cohort-hero{padding:24px 48px 18px !important}
+  .program{padding:24px 48px 32px !important;gap:28px !important}
+  .body{padding:8px 48px 24px !important}
+  .photo-gallery{padding:28px 48px !important}
+  .pathway{padding:24px 48px 8px !important;margin-top:8px !important}
+  .cohort-testimonials{padding:28px 48px 20px !important}
+  .top-photos{padding:6px 48px 18px !important}
+  .sch-section{padding:28px 48px !important}
+  /* Bump qcard + oitem fonts */
+  .qcard h3{font-size:22px !important}
+  .qcard ul, .qcard li{font-size:17px !important;line-height:1.65 !important}
+  .qcard p{font-size:17px !important}
+  .oitem h4{font-size:18px !important}
+  .oitem p{font-size:16.5px !important;line-height:1.6 !important}
+  /* Schedule body */
+  .sched--big h3{font-size:30px !important}
+  .sched--big .sched-meta{font-size:17.5px !important}
+  /* Acc section title */
+  .acc-section-title{font-size:22px !important;padding:16px 24px !important}
+  .acc-section-body{padding:22px 24px !important}
+  /* Tighten attendance policy box */
+  [style*="Attendance &amp; Refund Policy"],
+  .acc-section-block + section{padding-top:16px !important}
+  /* Bump testimonial card fonts */
+  .testimonial-grid p{font-size:16.5px !important;line-height:1.6 !important}
+  .testimonial-grid cite{font-size:14.5px !important}
+  /* Bump scholarship card fonts */
+  .sch-card .sch-req-label{font-size:13.5px !important}
+  .sch-card ul, .sch-card li{font-size:16.5px !important;line-height:1.7 !important}
+  .sch-card .sch-note{font-size:14.5px !important}
+  .sch-card h3{font-size:24px !important}
+  .sch-card .sch-commit{font-size:17px !important}
+  /* Key dates strip */
+  .key-dates .kd-lbl{font-size:12.5px !important}
+  .key-dates .kd-date{font-size:18px !important}
+  .key-dates .kd-sub{font-size:13px !important}
+  /* Bump address + helper lines under hero h1 */
+  .cohort-hero-info .address-line{font-size:17px !important}
+  .cohort-hero-info .helper-line{font-size:16px !important}
+  .cohort-hero-info .lede{font-size:19px !important}
 </style></head>
 <body>
 <div class="page" data-screen-label="Doula Training">
@@ -284,6 +329,21 @@
 </div>
 </section>
 
+<!-- TOP PHOTO STRIP — two photos moved high so the page reads visually right after the hero -->
+<section class="top-photos" style="padding:8px 48px 24px;max-width:1180px;margin:0 auto">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+    <figure style="margin:0;position:relative;border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(94,55,108,0.18);border:5px solid #fff;background:#fff">
+      <img src="./assets/photos/training-comfort-hold.jpg" alt="Trainees practicing comfort holds on yoga mats" style="width:100%;height:100%;aspect-ratio:16/9;object-fit:cover;display:block">
+      <figcaption style="position:absolute;bottom:16px;left:16px;background:rgba(255,255,255,0.94);backdrop-filter:blur(8px);padding:8px 14px;border-radius:999px;font-family:var(--mhn-font-serif);font-style:italic;font-size:15px;color:var(--mhn-purple-700);font-weight:700">Comfort-measure practice</figcaption>
+    </figure>
+    <figure style="margin:0;position:relative;border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(94,55,108,0.18);border:5px solid #fff;background:#fff">
+      <img src="./assets/photos/training-five-minute-break.jpg" alt="Two MHN doulas presenting comfort-measure brainstorm chart" style="width:100%;height:100%;aspect-ratio:16/9;object-fit:cover;display:block">
+      <figcaption style="position:absolute;bottom:16px;left:16px;background:rgba(255,255,255,0.94);backdrop-filter:blur(8px);padding:8px 14px;border-radius:999px;font-family:var(--mhn-font-serif);font-style:italic;font-size:15px;color:var(--mhn-purple-700);font-weight:700">Group brainstorm</figcaption>
+    </figure>
+  </div>
+</section>
+<style>@media(max-width:760px){.top-photos{padding:6px 20px 18px !important}.top-photos > div{grid-template-columns:1fr !important}}</style>
+
 <section class="program" style="background:linear-gradient(180deg, var(--mhn-purple-50) 0%, #fff 100%);padding-top:32px">
 <style>
   /* Larger, more prominent schedule (May 17 2026 refresh) */
@@ -359,9 +419,8 @@
 </div>
 <div class="qgrid">
 <div class="qcard">
-<i class="ico" data-lucide="users"></i>
 <h3>Anyone called to this work</h3>
-<p style="margin:0 0 10px;font-size:16px;color:var(--mhn-ink-soft);line-height:1.55"><strong>No previous experience required.</strong> If you feel called to walk alongside families through pregnancy, birth, and the early weeks of parenthood, you belong here.</p>
+<p style="margin:0 0 10px;font-size:17px;color:var(--mhn-ink-soft);line-height:1.6"><strong>No previous experience required.</strong> If you feel called to walk alongside families through pregnancy, birth, and the early weeks of parenthood, you belong here.</p>
 <ul>
 <li>People with no birth-work experience whatsoever</li>
 <li>Anyone with lived experience of pregnancy or maternal health</li>
@@ -371,7 +430,6 @@
 </ul>
 </div>
 <div class="qcard">
-<i class="ico" data-lucide="clipboard-check"></i>
 <h3>Prerequisites</h3>
 <ul>
 <li>At least 18 years of age</li>
@@ -382,12 +440,12 @@
 </div>
 </div></div></div>
 <div class="acc-section-block"><h3 class="acc-section-title">What you'll learn.</h3><div class="acc-section-body"><div class="obj">
-<div class="oitem"><i class="ico" data-lucide="heart-pulse"></i><h4>Physiology of birth</h4><p>Stages and phases of labor, hormones, Six P's, ACOG active-labor thresholds.</p></div>
-<div class="oitem"><i class="ico" data-lucide="hand-heart"></i><h4>Comfort measures</h4><p>Counter-pressure, hip squeezes, rebozo, birth ball work, acupressure, water therapy.</p></div>
-<div class="oitem"><i class="ico" data-lucide="message-circle"></i><h4>Client interviewing</h4><p>Active listening, social determinants of health screening, BRAIN framework.</p></div>
-<div class="oitem"><i class="ico" data-lucide="baby"></i><h4>Newborn care</h4><p>Diapering, paced bottle feeding, burping, rebath method, newborn massage.</p></div>
-<div class="oitem"><i class="ico" data-lucide="shield-check"></i><h4>Scope of practice</h4><p>Where the doula's role begins and ends. How to stay in your lane, gracefully.</p></div>
-<div class="oitem"><i class="ico" data-lucide="brain"></i><h4>Postpartum mental health</h4><p>Perinatal mood disorders, postpartum psychosis, trauma-informed escalation.</p></div>
+<div class="oitem"><h4>Physiology of birth</h4><p>Stages and phases of labor, hormones, Six P's, ACOG active-labor thresholds.</p></div>
+<div class="oitem"><h4>Comfort measures</h4><p>Counter-pressure, hip squeezes, rebozo, birth ball work, acupressure, water therapy.</p></div>
+<div class="oitem"><h4>Client interviewing</h4><p>Active listening, social determinants of health screening, BRAIN framework.</p></div>
+<div class="oitem"><h4>Newborn care</h4><p>Diapering, paced bottle feeding, burping, rebath method, newborn massage.</p></div>
+<div class="oitem"><h4>Scope of practice</h4><p>Where the doula's role begins and ends. How to stay in your lane, gracefully.</p></div>
+<div class="oitem"><h4>Postpartum mental health</h4><p>Perinatal mood disorders, postpartum psychosis, trauma-informed escalation.</p></div>
 </div></div></div>
 </div>
 </div>
@@ -417,12 +475,9 @@
   .sch-card ul li::marker{color:#85571F}
   .sch-card ul li strong{color:var(--mhn-ink)}
   .sch-card .sch-note{margin-top:auto;padding:12px 14px;background:var(--mhn-paper-alt);border-radius:10px;font-size:13.5px;font-style:italic;color:var(--mhn-ink-soft);line-height:1.5}
-  .sch-deadline-banner{margin-top:24px;background:var(--mhn-purple-700);color:#fff;border-radius:14px;padding:18px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;box-shadow:0 8px 22px rgba(94,55,108,0.25)}
-  .sch-deadline-banner .dl-text{display:flex;align-items:center;gap:14px}
-  .sch-deadline-banner .dl-icon{width:38px;height:38px;background:rgba(255,255,255,0.18);border-radius:10px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
-  .sch-deadline-banner .dl-icon i,.sch-deadline-banner .dl-icon svg{color:#fff;width:20px;height:20px}
-  .sch-deadline-banner .dl-msg{font-size:16px;line-height:1.4;color:#F1EDF3}
-  .sch-deadline-banner .dl-msg strong{color:#fff;font-family:var(--mhn-font-serif);font-size:18px;display:block;margin-bottom:2px}
+  .sch-deadline-banner{margin-top:24px;background:var(--mhn-purple-700);color:#fff;border-radius:14px;padding:22px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:18px;box-shadow:0 8px 22px rgba(94,55,108,0.25)}
+  .sch-deadline-banner .dl-msg{font-size:17.5px;line-height:1.45;color:#F1EDF3;flex:1;min-width:280px}
+  .sch-deadline-banner .dl-msg strong{color:#fff;font-family:var(--mhn-font-serif);font-size:20px;display:block;margin-bottom:4px}
   .sch-deadline-banner a.sch-apply{background:#FFD7A8;color:#5E376C;font-weight:800;padding:11px 22px;border-radius:999px;text-decoration:none;font-size:14.5px;letter-spacing:0.04em;display:inline-flex;align-items:center;gap:6px;box-shadow:0 4px 14px rgba(0,0,0,0.18);white-space:nowrap;transition:transform 0.15s, box-shadow 0.15s}
   .sch-deadline-banner a.sch-apply:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,0.28)}
   @media(max-width:760px){
@@ -441,14 +496,9 @@
   </div>
 
   <!-- Application fee + Self-Pay callout -->
-  <div style="background:#fff;border:1.5px solid #E8D5BD;border-radius:14px;padding:18px 22px;max-width:980px;margin:0 auto 24px;display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;box-shadow:0 4px 14px rgba(133,87,31,0.10)">
-    <div style="width:48px;height:48px;background:#FFF5E1;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0">
-      <i data-lucide="receipt" style="color:#85571F;width:24px;height:24px"></i>
-    </div>
-    <div>
-      <div style="font-family:var(--mhn-font-serif);font-size:18px;color:var(--mhn-purple-700);font-weight:700;margin-bottom:4px">A non-refundable <strong>$35 application fee</strong> is required.</div>
-      <p style="margin:0;font-size:15px;color:var(--mhn-ink-soft);line-height:1.55">Your application will not be reviewed until payment is received. You will receive a payment link by email <strong>within 24 hours</strong> of submitting any application form (scholarship or self-pay).</p>
-    </div>
+  <div style="background:#fff;border:1.5px solid #E8D5BD;border-radius:14px;padding:20px 26px;max-width:980px;margin:0 auto 24px;box-shadow:0 4px 14px rgba(133,87,31,0.10)">
+    <div style="font-family:var(--mhn-font-serif);font-size:20px;color:var(--mhn-purple-700);font-weight:700;margin-bottom:6px">A non-refundable <strong>$35 application fee</strong> is required.</div>
+    <p style="margin:0;font-size:17px;color:var(--mhn-ink-soft);line-height:1.55">Your application will not be reviewed until payment is received. You will receive a payment link by email <strong>within 24 hours</strong> of submitting any application form (scholarship or self-pay).</p>
   </div>
 
   <div class="sch-grid">
@@ -522,12 +572,9 @@
 
   <!-- Deadline banner -->
   <div class="sch-deadline-banner">
-    <div class="dl-text">
-      <div class="dl-icon"><i data-lucide="calendar-clock"></i></div>
-      <div class="dl-msg">
-        <strong>Scholarship applications close Friday, June 12, 2026 at 11:59 PM CST</strong>
-        Interviews Jun 15&ndash;17 &middot; acceptance notice Jun 19 &middot; course registration closes Mon, Jun 22 at 5:00 PM CST
-      </div>
+    <div class="dl-msg">
+      <strong>Scholarship applications close Friday, June 12, 2026 at 11:59 PM CST</strong>
+      Interviews Jun 15&ndash;17 &middot; acceptance notice Jun 19 &middot; course registration closes Mon, Jun 22 at 5:00 PM CST
     </div>
     <a class="sch-apply" href="https://forms.monday.com/forms/ca1d4fbc14042eb290043defbd016330?r=use1" target="_blank" rel="noopener">Start your application &rarr;</a>
   </div>
@@ -577,22 +624,20 @@
 </section>
 <style>@media (max-width:760px){.testimonial-grid{grid-template-columns:repeat(2,1fr) !important}}@media(max-width:480px){.testimonial-grid{grid-template-columns:1fr !important}}</style>
 
-<!-- TRAINING PHOTOS -->
+<!-- TRAINING PHOTOS, 2 rows of 3 (the most striking 6) -->
 <section class="photo-gallery">
 <div class="gallery-head">
 <div class="eyebrow">In the Cohort</div>
 <h2 class="h2-warm">What training looks like.</h2>
 <p class="intro">Hands-on practice, classroom instruction, and a network of women who show up for each other.</p>
 </div>
-<div class="frame-row" style="grid-template-columns:repeat(4,1fr);max-width:1180px;margin:0 auto 18px;gap:18px">
+<div class="frame-row" style="grid-template-columns:repeat(3,1fr);max-width:1180px;margin:0 auto 18px;gap:20px">
 <figure class="mhn-frame"><img src="./assets/photos/cohort-graduation-may-2026.jpg" alt="MHN cohort graduates holding ICEA certificates"><figcaption>Latest graduation</figcaption></figure>
-<figure class="mhn-frame"><img src="./assets/photos/training-comfort-hold.jpg" alt="Trainees practicing comfort holds on yoga mats"><figcaption>Comfort-measure practice</figcaption></figure>
 <figure class="mhn-frame"><img src="./assets/photos/training-on-birth-balls.jpg" alt="Trainees seated on birth balls in classroom"><figcaption>Hands-on classroom</figcaption></figure>
-<figure class="mhn-frame"><img src="./assets/photos/training-five-minute-break.jpg" alt="Two MHN doulas presenting comfort-measure brainstorm chart"><figcaption>Group brainstorm</figcaption></figure>
-</div>
-<div class="frame-row" style="grid-template-columns:repeat(4,1fr);max-width:1180px;margin:0 auto;gap:18px">
-<figure class="mhn-frame"><img src="./assets/photos/training-rebozo-active.jpg" alt="Two MHN doulas practicing rebozo together"><figcaption>Rebozo practice</figcaption></figure>
 <figure class="mhn-frame"><img src="./assets/photos/training-coaching-pink.jpg" alt="Trainees practicing side-lying comfort position"><figcaption>Position coaching</figcaption></figure>
+</div>
+<div class="frame-row" style="grid-template-columns:repeat(3,1fr);max-width:1180px;margin:0 auto;gap:20px">
+<figure class="mhn-frame"><img src="./assets/photos/training-rebozo-active.jpg" alt="Two MHN doulas practicing rebozo together"><figcaption>Rebozo practice</figcaption></figure>
 <figure class="mhn-frame"><img src="./assets/photos/training-classroom-wide.jpg" alt="Cohort working through pre-work at long tables"><figcaption>Classroom instruction</figcaption></figure>
 <figure class="mhn-frame"><img src="./assets/photos/training-postpartum-lecture.jpg" alt="A postpartum support lecture in progress"><figcaption>Postpartum lecture</figcaption></figure>
 </div>
@@ -623,36 +668,29 @@
 </div>
 </section>
 
-<!-- FOR GRADUATES: PRACTICING IN LOUISIANA (moved from doula-training.html) -->
+<!-- FOR GRADUATES: PRACTICING IN LOUISIANA (always-open section) -->
 <style>
-  #practicing-in-louisiana{padding:32px 48px 8px;max-width:1180px;margin:0 auto}
-  #practicing-in-louisiana details{background:linear-gradient(135deg,#EEF6F1 0%,#E2F0E7 100%);border:1px solid #B7D9C3;border-radius:14px;padding:18px 24px;box-shadow:0 4px 14px rgba(40,120,70,0.08)}
-  #practicing-in-louisiana details summary{cursor:pointer;font-family:var(--mhn-font-sans);font-size:13px;letter-spacing:0.18em;text-transform:uppercase;color:#1F5C3A;font-weight:800;list-style:none;display:flex;justify-content:space-between;align-items:center}
-  #practicing-in-louisiana details summary::-webkit-details-marker{display:none}
-  #practicing-in-louisiana details summary span:last-child{font-family:var(--mhn-font-serif);font-size:22px;color:#3E8059;font-weight:400}
-  #practicing-in-louisiana details[open] summary span:last-child{transform:rotate(45deg);transition:transform 0.2s}
-  #practicing-in-louisiana .biz-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:18px}
+  #practicing-in-louisiana{padding:32px 48px 16px;max-width:1180px;margin:0 auto}
+  #practicing-in-louisiana .pil-wrap{background:linear-gradient(135deg,#EEF6F1 0%,#E2F0E7 100%);border:1px solid #B7D9C3;border-radius:16px;padding:24px 28px;box-shadow:0 4px 14px rgba(40,120,70,0.08)}
+  #practicing-in-louisiana .pil-eyebrow{font-family:var(--mhn-font-sans);font-size:14px;letter-spacing:0.20em;text-transform:uppercase;color:#1F5C3A;font-weight:800;margin-bottom:6px}
+  #practicing-in-louisiana .pil-title{font-family:var(--mhn-font-serif);font-size:25px;color:var(--mhn-purple-700);margin:0 0 6px;font-weight:700;letter-spacing:-0.01em;line-height:1.15}
+  #practicing-in-louisiana .pil-intro{margin:0 0 16px;font-family:var(--mhn-font-serif);font-style:italic;color:var(--mhn-ink-soft);font-size:17px;line-height:1.6}
+  #practicing-in-louisiana .biz-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
   #practicing-in-louisiana .biz-card{background:#fff;border:1px solid rgba(40,120,70,0.16);border-radius:14px;padding:24px 26px;box-shadow:0 4px 14px rgba(40,120,70,0.10)}
-  #practicing-in-louisiana .biz-card .ico-w{width:42px;height:42px;background:#EEF6F1;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;margin-bottom:12px}
-  #practicing-in-louisiana .biz-card .ico-w i,#practicing-in-louisiana .biz-card .ico-w svg{width:22px;height:22px;color:#1F5C3A}
-  #practicing-in-louisiana .biz-card h3{font-family:var(--mhn-font-serif);font-size:19px;color:var(--mhn-purple-700);margin:0 0 8px;font-weight:700;letter-spacing:-0.005em}
-  #practicing-in-louisiana .biz-card p{font-size:15.5px;line-height:1.6;color:var(--mhn-ink-soft);margin:0 0 10px}
-  #practicing-in-louisiana .biz-card ul{margin:0 0 6px;padding-left:18px;font-size:15px;line-height:1.6;color:var(--mhn-ink-soft)}
-  #practicing-in-louisiana .biz-card ul li{margin-bottom:5px}
-  #practicing-in-louisiana .biz-card .src{font-size:13.5px;font-style:italic;color:var(--mhn-ink-mute);margin-top:10px}
+  #practicing-in-louisiana .biz-card h3{font-family:var(--mhn-font-serif);font-size:21px;color:var(--mhn-purple-700);margin:0 0 10px;font-weight:700;letter-spacing:-0.005em}
+  #practicing-in-louisiana .biz-card p{font-size:16.5px;line-height:1.6;color:var(--mhn-ink-soft);margin:0 0 12px}
+  #practicing-in-louisiana .biz-card ul{margin:0 0 8px;padding-left:20px;font-size:16px;line-height:1.65;color:var(--mhn-ink-soft)}
+  #practicing-in-louisiana .biz-card ul li{margin-bottom:6px}
+  #practicing-in-louisiana .biz-card .src{font-size:14.5px;font-style:italic;color:var(--mhn-ink-mute);margin-top:12px}
   @media(max-width:760px){#practicing-in-louisiana{padding:24px 22px}#practicing-in-louisiana .biz-grid{grid-template-columns:1fr}}
 </style>
 <section id="practicing-in-louisiana">
-<details>
-<summary>
-  <span>For Graduates: Practicing in Louisiana</span>
-  <span>+</span>
-</summary>
-<div style="padding-top:18px">
-<p style="margin:0 0 6px;font-family:var(--mhn-font-serif);font-style:italic;color:var(--mhn-ink-soft);font-size:16px;line-height:1.6">Once you are a credentialed birth or postpartum doula, here are the two practical questions every graduate asks.</p>
+<div class="pil-wrap">
+<div class="pil-eyebrow">For Graduates: Practicing in Louisiana</div>
+<h2 class="pil-title">After certification, here's what comes next.</h2>
+<p class="pil-intro">Once you are a credentialed birth or postpartum doula, here are the two practical questions every graduate asks.</p>
 <div class="biz-grid">
   <div class="biz-card">
-    <div class="ico-w"><i data-lucide="clipboard-list"></i></div>
     <h3>Joining the Louisiana Doula Registry</h3>
     <p>Louisiana&rsquo;s Department of Health maintains the official Doula Registry. Practicing as a registered doula in the state requires a few specific steps:</p>
     <ul>
@@ -665,7 +703,6 @@
   </div>
 
   <div class="biz-card">
-    <div class="ico-w"><i data-lucide="banknote"></i></div>
     <h3>Billing insurance for your services</h3>
     <p>Louisiana state law now requires both Medicaid and commercial insurers to cover doula services for eligible clients. Once you&rsquo;re on the state registry, you can:</p>
     <ul>
@@ -677,7 +714,6 @@
   </div>
 </div>
 </div>
-</details>
 </section>
 </div>
 </section>
