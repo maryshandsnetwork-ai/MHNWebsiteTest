@@ -171,17 +171,24 @@
   @media(max-width:760px){.acc-section-title{padding:14px 18px;font-size:19px}.acc-section-body{padding:18px}}
 
   /* ============================================================
-     MAY 17 2026: TIGHTEN WHITESPACE + BUMP FONTS site-wide on cohort page
+     MAY 18 2026: TIGHTER WHITESPACE + BIGGER FONTS site-wide on cohort page
      Reduce section padding; bump small text to 16-17px floor for readability.
      ============================================================ */
-  .cohort-hero{padding:24px 48px 18px !important}
-  .program{padding:24px 48px 32px !important;gap:28px !important}
-  .body{padding:8px 48px 24px !important}
-  .photo-gallery{padding:28px 48px !important}
-  .pathway{padding:24px 48px 8px !important;margin-top:8px !important}
-  .cohort-testimonials{padding:28px 48px 20px !important}
-  .top-photos{padding:6px 48px 18px !important}
-  .sch-section{padding:28px 48px !important}
+  .cohort-hero{padding:20px 48px 14px !important}
+  .program{padding:18px 48px 24px !important;gap:24px !important}
+  .body{padding:4px 48px 18px !important}
+  .photo-gallery{padding:22px 48px !important}
+  .pathway, .pathway-big{padding:24px 48px 8px !important;margin-top:6px !important}
+  .cohort-testimonials{padding:22px 48px 16px !important}
+  .top-photos{padding:4px 48px 14px !important}
+  .sch-section{padding:22px 48px !important}
+  .after-divider{padding:24px 48px 0 !important}
+  .after-section{padding:0 48px 28px !important}
+  #practicing-in-louisiana{padding:20px 48px 12px !important}
+  /* Bump remaining small fonts in price card for readability */
+  .price-card ul{font-size:15.5px !important;line-height:1.65 !important}
+  .price-card{padding:24px !important}
+  .price-card .p{font-size:38px !important}
   /* Bump qcard + oitem fonts */
   .qcard h3{font-size:22px !important}
   .qcard ul, .qcard li{font-size:17px !important;line-height:1.65 !important}
@@ -278,9 +285,9 @@
 <section class="hero cohort-hero">
 <div class="cohort-hero-grid">
   <div class="cohort-hero-info">
-    <div class="eyebrow">Next Birth Doula Training &middot; Rho Cohort &middot; Our 16th Class</div>
+    <div class="eyebrow">Next Birth Doula Training &middot; Rho Cohort &middot; Our 17th Birth Doula Cohort &middot; 18th Training Overall</div>
     <h1 class="t">Birth Doula Training.<em>Rho Cohort &middot; July 28&ndash;31, 2026 &middot; Baton Rouge</em></h1>
-    <p class="lede">A four-day ICEA-approved birth doula training. Two online evenings plus two full in-person days at FranU St. Francis Hall. Thirty-three contact hours; volunteer-track scholarships available.</p>
+    <p class="lede">A four-day ICEA-approved birth doula training. Two online evenings plus two full in-person days at FranU St. Francis Hall. Twenty-four contact hours; volunteer-track scholarships available.</p>
 
     <!-- KEY DATES strip -->
     <div class="key-dates" role="region" aria-label="Key dates for the Rho Cohort">
@@ -374,7 +381,7 @@
 <div class="sched sched--big">
 <h3>July 13&ndash;31, 2026 &middot; Pre-Work + Four Class Days</h3>
 <p class="sched-meta">Hybrid format: <strong>self-paced pre-work</strong> + <strong>2 live online evenings</strong> + <strong>2 in-person days</strong> at FranU St. Francis Hall, Baton Rouge</p>
-<p class="sched-meta">33 contact hours &middot; ICEA-approved curriculum &middot; Pass/Fail grading</p>
+<p class="sched-meta">24 contact hours &middot; ICEA-approved curriculum &middot; Pass/Fail grading</p>
 <div class="sched-format-pill">Hybrid &middot; Pre-Work + 2 + 2 Format</div>
 
 <style>
@@ -435,8 +442,8 @@
 
 <div style="margin:14px 0;padding:14px 16px;background:var(--mhn-warm-50);border-radius:10px;border-left:3px solid var(--mhn-warm-700)">
   <div style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:var(--mhn-warm-700);font-weight:800;margin-bottom:10px">Scholarships available</div>
-  <div style="font-size:14.5px;color:var(--mhn-ink);margin-bottom:8px;line-height:1.5"><strong style="font-family:var(--mhn-font-serif);font-size:17px;color:var(--mhn-purple-700)">Full Scholarship ($950 value)</strong><br>Pay $0 with a 2-year service commitment.</div>
-  <div style="font-size:14.5px;color:var(--mhn-ink);margin-bottom:10px;line-height:1.5"><strong style="font-family:var(--mhn-font-serif);font-size:17px;color:var(--mhn-purple-700)">Partial Scholarship ($450 value)</strong><br>Pay $500 with a 1-year service commitment.</div>
+  <div style="font-size:15px;color:var(--mhn-ink);margin-bottom:12px;line-height:1.5"><strong style="font-family:var(--mhn-font-serif);font-size:19px;color:var(--mhn-purple-700);display:block;margin-bottom:2px">Full Scholarship <span style="color:#85571F;font-weight:800">($950 value)</span></strong>Pay $0 with a 2-year service commitment.</div>
+  <div style="font-size:15px;color:var(--mhn-ink);margin-bottom:10px;line-height:1.5"><strong style="font-family:var(--mhn-font-serif);font-size:19px;color:var(--mhn-purple-700);display:block;margin-bottom:2px">Partial Scholarship <span style="color:#85571F;font-weight:800">($450 value)</span></strong>Pay $500 with a 1-year service commitment.</div>
   <p style="margin:0;font-size:13px;font-style:italic;color:var(--mhn-ink-soft);line-height:1.5">Need-based. Submit with your application. Materials included regardless of tuition level.</p>
 </div>
 
@@ -479,9 +486,11 @@
   .sch-card.full{border-color:#85571F;border-width:2px;position:relative;overflow:hidden}
   .sch-card.full::before{content:"";position:absolute;top:0;left:0;right:0;height:6px;background:linear-gradient(90deg,#85571F,#B5824A,#85571F)}
   .sch-card .price-row{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px;padding-bottom:14px;border-bottom:1px solid var(--mhn-line);margin-bottom:16px}
-  .sch-card .sch-price{font-family:var(--mhn-font-serif);font-size:37px;color:var(--mhn-purple-700);font-weight:700;letter-spacing:-0.02em;line-height:1}
-  .sch-card .sch-price small{font-family:var(--mhn-font-sans);font-size:13px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--mhn-ink-mute);display:block;margin-top:6px;letter-spacing:0.16em}
-  .sch-card .sch-value{font-size:13px;letter-spacing:0.18em;text-transform:uppercase;color:#85571F;font-weight:800;background:#FFF5E1;border:1px solid #E8D5BD;padding:5px 11px;border-radius:999px}
+  .sch-card .sch-price{font-family:var(--mhn-font-serif);font-size:48px;color:var(--mhn-purple-700);font-weight:700;letter-spacing:-0.02em;line-height:1}
+  .sch-card .sch-price small{font-family:var(--mhn-font-sans);font-size:13px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--mhn-ink-mute);display:block;margin-top:8px}
+  .sch-card .sch-value{display:flex;flex-direction:column;align-items:flex-end;text-align:right;background:linear-gradient(135deg,#FFF5E1 0%,#FCE7CB 100%);border:2px solid #B5824A;padding:10px 18px;border-radius:14px;box-shadow:0 4px 14px rgba(133,87,31,0.18);min-width:120px}
+  .sch-card .sch-value .sv-amt{font-family:var(--mhn-font-serif);font-size:32px;font-weight:800;color:#85571F;line-height:1;letter-spacing:-0.01em}
+  .sch-card .sch-value .sv-lbl{font-family:var(--mhn-font-sans);font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:#85571F;font-weight:800;margin-top:4px}
   .sch-card h3{font-family:var(--mhn-font-serif);font-size:22px;color:var(--mhn-purple-700);margin:0 0 10px;font-weight:700;letter-spacing:-0.005em}
   .sch-card .sch-commit{font-family:var(--mhn-font-serif);font-style:italic;font-size:16px;color:var(--mhn-purple-500);margin:0 0 14px;line-height:1.5}
   .sch-card .sch-commit strong{color:var(--mhn-purple-700);font-style:normal;font-weight:800}
@@ -522,7 +531,7 @@
     <div class="sch-card full">
       <div class="price-row">
         <div class="sch-price">$0<small>You pay</small></div>
-        <span class="sch-value">$950 value</span>
+        <span class="sch-value"><span class="sv-amt">$950</span><span class="sv-lbl">Value</span></span>
       </div>
       <h3>Full Scholarship</h3>
       <p class="sch-commit"><strong>2-year volunteer service commitment</strong> after graduation</p>
@@ -551,7 +560,7 @@
     <div class="sch-card">
       <div class="price-row">
         <div class="sch-price">$500<small>You pay</small></div>
-        <span class="sch-value">$450 value</span>
+        <span class="sch-value"><span class="sv-amt">$450</span><span class="sv-lbl">Value</span></span>
       </div>
       <h3>Partial Scholarship</h3>
       <p class="sch-commit"><strong>1-year volunteer service commitment</strong> after graduation</p>
@@ -658,21 +667,6 @@
 <figure class="mhn-frame"><img src="./assets/photos/training-postpartum-lecture.jpg" alt="A postpartum support lecture in progress"><figcaption>Postpartum lecture</figcaption></figure>
 </div>
 </section>
-<!-- ICEA CERTIFICATION PATHWAY -->
-<section class="pathway" id="certification-pathway" style="padding:40px 48px 8px;max-width:1180px;margin:24px auto 0">
-<div class="p-head" style="max-width:780px;margin-bottom:24px">
-<div class="eyebrow" style="font-size:14px;letter-spacing:0.22em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:700;margin-bottom:8px">Route to ICEA Certification</div>
-<h2 style="font-family:var(--mhn-font-serif);font-size:25px;color:var(--mhn-purple-700);margin:0 0 10px;letter-spacing:-0.01em;line-height:1.15">Your route to ICEA Certified Birth Doula.</h2>
-<p class="sub" style="font-family:var(--mhn-font-serif);font-style:italic;font-size:17px;line-height:1.55;color:var(--mhn-ink-soft);margin:0">MHN graduates follow ICEA&rsquo;s traditional Birth Doula Pathway. You never work alone: two-doula teams, staff coordinator support, hospital privileging, and free ICEA exam prep for active volunteers.</p>
-</div>
-<div class="steps">
-<div class="step"><div class="n">01</div><h4>Complete coursework</h4><p>Pre-work, all live sessions, and skills check-offs.</p></div>
-<div class="step"><div class="n">02</div><h4>Earn three births</h4><p>Attend a minimum of three births of at least six hours each.</p></div>
-<div class="step"><div class="n">03</div><h4>Submit to ICEA</h4><p>Package your evidence and submit through ICEA&rsquo;s pathway.</p></div>
-<div class="step"><div class="n">04</div><h4>Pass the exam</h4><p>Sit for the proctored ICEA exam (separate fee, paid to ICEA).</p></div>
-</div>
-</section>
-
 <!-- ATTENDANCE + REFUND POLICY (full, expanded) -->
 <section style="padding:24px 48px 0;max-width:1080px;margin:0 auto">
 <div style="background:#fff;border:1px solid var(--mhn-line);border-radius:14px;padding:24px 28px;box-shadow:var(--mhn-shadow-sm)">
@@ -764,6 +758,35 @@
       <p>See exactly what mothers experience when they apply for an MHN doula. It's the same page you'll point your future clients to.</p>
     </div>
     <a class="alr-btn" href="for-mom.html">Visit For Families</a>
+  </div>
+</section>
+
+<!-- ICEA CERTIFICATION PATHWAY (moved beneath After Training per Madeline May 18 2026) -->
+<style>
+  .pathway-big{padding:32px 48px 16px;max-width:1180px;margin:0 auto}
+  .pathway-big .p-head{text-align:center;max-width:760px;margin:0 auto 28px}
+  .pathway-big .p-eyebrow{display:inline-block;font-family:var(--mhn-font-sans);font-size:13px;letter-spacing:0.22em;text-transform:uppercase;color:var(--mhn-purple-700);font-weight:800;background:var(--mhn-purple-50);padding:6px 16px;border-radius:999px;margin-bottom:14px}
+  .pathway-big h2{font-family:var(--mhn-font-serif);font-size:32px;color:var(--mhn-purple-700);margin:0 0 12px;letter-spacing:-0.01em;line-height:1.1;text-wrap:balance}
+  .pathway-big .sub{font-family:var(--mhn-font-serif);font-style:italic;color:var(--mhn-ink-soft);font-size:18px;line-height:1.55;margin:0;text-wrap:pretty}
+  .pathway-big .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:8px}
+  .pathway-big .step{background:#fff;border:1.5px solid var(--mhn-purple-200);border-radius:16px;padding:24px 22px;box-shadow:0 4px 14px rgba(94,55,108,0.08);display:flex;flex-direction:column}
+  .pathway-big .step .n{font-family:var(--mhn-font-serif);font-size:38px;font-weight:800;color:var(--mhn-purple-500);line-height:1;letter-spacing:-0.02em;margin-bottom:10px}
+  .pathway-big .step h4{font-family:var(--mhn-font-serif);font-size:20px;color:var(--mhn-purple-700);margin:0 0 8px;font-weight:700;line-height:1.2}
+  .pathway-big .step p{font-size:16px;line-height:1.6;color:var(--mhn-ink-soft);margin:0}
+  @media(max-width:900px){.pathway-big .steps{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.pathway-big{padding:24px 22px}.pathway-big .steps{grid-template-columns:1fr}.pathway-big h2{font-size:26px}}
+</style>
+<section class="pathway-big" id="certification-pathway">
+  <div class="p-head">
+    <span class="p-eyebrow">Route to ICEA Certification</span>
+    <h2>Your route to ICEA Certified Birth Doula.</h2>
+    <p class="sub">MHN graduates follow ICEA&rsquo;s traditional Birth Doula Pathway. You never work alone: two-doula teams, staff coordinator support, hospital privileging, and free ICEA exam prep for active volunteers.</p>
+  </div>
+  <div class="steps">
+    <div class="step"><div class="n">01</div><h4>Complete coursework</h4><p>Pre-work, all live sessions, and skills check-offs.</p></div>
+    <div class="step"><div class="n">02</div><h4>Earn three births</h4><p>Attend a minimum of three births of at least six hours each.</p></div>
+    <div class="step"><div class="n">03</div><h4>Submit to ICEA</h4><p>Package your evidence and submit through ICEA&rsquo;s pathway.</p></div>
+    <div class="step"><div class="n">04</div><h4>Pass the exam</h4><p>Sit for the proctored ICEA exam (separate fee, paid to ICEA).</p></div>
   </div>
 </section>
 
