@@ -161,6 +161,74 @@
     .programs,.formats,.pathway,.biz,.photo-strip,.store-cta{padding-left:24px;padding-right:24px}
     .cohort-callout{margin:16px 24px 24px;padding:22px 24px}
   }
+
+  /* ============================================================
+     COLORFUL SECTION BACKGROUNDS (April 2026 visual refresh)
+     Alternating warm/cool washes + subtle pattern accents to make
+     the page easier to scan and more visually engaging.
+     ============================================================ */
+
+  /* Page-wide soft cream wash behind the hero */
+  body{background:linear-gradient(180deg, #FAF5EC 0%, #FFFFFF 240px) !important}
+
+  /* HERO: subtle warm cream backdrop */
+  .hero.hero-with-photo{background:linear-gradient(135deg, #FAF1E1 0%, #F8F5FA 100%);border-radius:0 0 28px 28px;padding-bottom:40px !important;position:relative;overflow:hidden}
+  .hero.hero-with-photo::before{content:"";position:absolute;top:-80px;right:-60px;width:240px;height:240px;background:radial-gradient(circle, rgba(181,130,74,0.18) 0%, rgba(181,130,74,0) 70%);pointer-events:none}
+  .hero.hero-with-photo::after{content:"";position:absolute;bottom:-100px;left:-80px;width:280px;height:280px;background:radial-gradient(circle, rgba(94,55,108,0.14) 0%, rgba(94,55,108,0) 70%);pointer-events:none}
+
+  /* PROGRAMS: rich purple gradient with soft top fade */
+  .programs{background:linear-gradient(180deg, #F4EAF7 0%, #EFE0F2 100%) !important;padding:48px 48px 56px !important;max-width:none !important;border-top:1px solid #E2C8EA;border-bottom:1px solid #E2C8EA;position:relative}
+  .programs .programs-head, .programs .pgrid{max-width:1200px;margin-left:auto !important;margin-right:auto !important}
+  .programs .programs-head .eyebrow{color:var(--mhn-purple-700);background:#fff;display:inline-block;padding:6px 14px;border-radius:999px;font-size:14px;letter-spacing:0.18em;box-shadow:0 2px 8px rgba(94,55,108,0.10)}
+  .pcard{box-shadow:0 4px 18px rgba(94,55,108,0.08);border-color:rgba(94,55,108,0.12) !important}
+  .pcard:hover{box-shadow:0 12px 32px rgba(94,55,108,0.20) !important}
+
+  /* COHORT CALLOUT: already animated purple — bump margins */
+  .cohort-callout{margin-top:0 !important}
+
+  /* Birth-doula transitional note: drop into colored band */
+  .programs + div[style*="text-align:center"]{background:#fff;padding:22px 48px !important;margin:0 !important;max-width:none !important;border-bottom:1px solid var(--mhn-line-soft)}
+
+  /* FORMATS: warm honey wash */
+  .formats{background:linear-gradient(180deg, #FBF5ED 0%, #F4E5D2 100%) !important;border-top:1px solid #E8D5BD;border-bottom:1px solid #E8D5BD;padding:56px 48px !important;position:relative}
+  .formats .formats-head .eyebrow{color:#85571F;background:#fff;display:inline-block;padding:6px 14px;border-radius:999px;font-size:14px;letter-spacing:0.18em;box-shadow:0 2px 8px rgba(133,87,31,0.12)}
+  .formats .formats-head h2{color:#5E376C !important}
+  .fcard{border:1px solid #E8D5BD !important;box-shadow:0 4px 16px rgba(181,130,74,0.10);transition:transform 0.15s, box-shadow 0.15s}
+  .fcard:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(181,130,74,0.20)}
+  .fcard .meta{color:#85571F !important}
+  .fcard .h{color:var(--mhn-purple-700) !important}
+
+  /* PRACTICING IN LOUISIANA: cool sage / mint wash inside the details */
+  #practicing-in-louisiana{padding:32px 48px 8px !important}
+  #practicing-in-louisiana details{background:linear-gradient(135deg, #EEF6F1 0%, #E2F0E7 100%) !important;border:1px solid #B7D9C3 !important;box-shadow:0 4px 14px rgba(40,120,70,0.08)}
+  #practicing-in-louisiana details summary{color:#1F5C3A !important}
+  #practicing-in-louisiana details summary span:last-child{color:#3E8059 !important}
+  .biz-card{box-shadow:0 4px 14px rgba(40,120,70,0.10);border-color:rgba(40,120,70,0.14) !important;background:#fff !important}
+  .biz-card .ico-w{background:#EEF6F1 !important}
+  .biz-card .ico-w i, .biz-card .ico-w svg{color:#1F5C3A !important}
+
+  /* PHOTO STRIP: deep plum wash so photos pop */
+  .photo-strip{background:linear-gradient(180deg, #F8F5FA 0%, #EFE3F3 100%) !important;padding:56px 48px !important;border-top:1px solid #E2C8EA;border-bottom:1px solid #E2C8EA}
+  .photo-strip .photo-strip-head .eyebrow{color:var(--mhn-purple-700);background:#fff;display:inline-block;padding:6px 14px;border-radius:999px;font-size:14px;letter-spacing:0.18em;box-shadow:0 2px 8px rgba(94,55,108,0.10)}
+  .photo-strip .frame-row figure{box-shadow:0 8px 24px rgba(94,55,108,0.18);border-radius:14px;overflow:hidden;transition:transform 0.2s, box-shadow 0.2s;background:#fff;padding:8px}
+  .photo-strip .frame-row figure:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(94,55,108,0.28)}
+  .photo-strip .frame-row figure img{border-radius:8px}
+
+  /* STORE CTA: warm gold-purple gradient */
+  .store-cta{background:linear-gradient(135deg, #FFF5E1 0%, #F4EAF7 100%) !important;border-top:1px solid #E8D5BD;padding:56px 48px !important}
+  .store-cta-inner{max-width:1100px;margin:0 auto;background:#fff;border-radius:20px;padding:36px 40px;box-shadow:0 8px 28px rgba(94,55,108,0.10);border:1px solid rgba(94,55,108,0.10)}
+  .store-cta-inner .eyebrow{color:#85571F !important;background:#FFF5E1;display:inline-block;padding:6px 14px;border-radius:999px;font-size:14px;letter-spacing:0.18em}
+  .store-cta-inner h2{color:var(--mhn-purple-700) !important}
+  .store-cta-inner .go{background:#85571F;color:#fff;padding:14px 28px;border-radius:999px;text-decoration:none;font-weight:700;display:inline-flex;align-items:center;gap:8px;box-shadow:0 6px 18px rgba(133,87,31,0.32);transition:transform 0.15s, box-shadow 0.15s}
+  .store-cta-inner .go:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(133,87,31,0.42)}
+
+  /* Mobile responsive padding tweaks */
+  @media(max-width:760px){
+    .programs, .formats, .photo-strip, .store-cta{padding-left:20px !important;padding-right:20px !important}
+    #practicing-in-louisiana{padding-left:20px !important;padding-right:20px !important}
+    .hero.hero-with-photo{border-radius:0;padding:24px 20px 32px !important}
+    .store-cta-inner{padding:24px 22px}
+  }
 </style>
 </head>
 

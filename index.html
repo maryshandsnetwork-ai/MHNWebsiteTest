@@ -232,6 +232,63 @@
 </script>
 </head>
 <body>
+
+<!-- ANIMATED JULY COHORT BANNER (above nav, full bleed) -->
+<style>
+  .july-banner{position:relative;background:linear-gradient(90deg,#5E376C 0%,#7A4A8E 35%,#B5824A 70%,#5E376C 100%);background-size:200% 100%;color:#fff;overflow:hidden;border-bottom:2px solid #FFD7A8;animation:juneBG 14s ease-in-out infinite}
+  .july-banner-track{display:flex;gap:54px;align-items:center;white-space:nowrap;padding:11px 0;animation:julyScroll 28s linear infinite;will-change:transform}
+  .july-banner-track .item{display:inline-flex;align-items:center;gap:12px;font-family:var(--mhn-font-sans);font-weight:700;font-size:15.5px;letter-spacing:0.04em}
+  .july-banner-track .pulse{display:inline-block;width:10px;height:10px;border-radius:50%;background:#FFD7A8;box-shadow:0 0 0 0 rgba(255,215,168,0.7);animation:juneBlink 1.4s ease-in-out infinite}
+  .july-banner-track em{font-family:var(--mhn-font-serif);font-style:italic;font-weight:400;color:#FFE5C4;font-size:16px;letter-spacing:0.01em}
+  .july-banner-track .sep{color:rgba(255,255,255,0.55);font-weight:400}
+  .july-banner-track .learn-more{display:inline-flex;align-items:center;gap:6px;background:#FFD7A8;color:#5E376C;text-decoration:none;padding:5px 14px;border-radius:999px;font-weight:800;font-size:14px;letter-spacing:0.06em;text-transform:uppercase;box-shadow:0 2px 8px rgba(0,0,0,0.15);transition:transform 0.15s,box-shadow 0.15s}
+  .july-banner-track .learn-more:hover{transform:translateY(-1px) scale(1.04);box-shadow:0 4px 12px rgba(0,0,0,0.25);background:#FFE5C4}
+  .july-banner-track .apply-now{display:inline-flex;align-items:center;gap:6px;background:#fff;color:#5E376C;text-decoration:none;padding:5px 14px;border-radius:999px;font-weight:800;font-size:14px;letter-spacing:0.06em;text-transform:uppercase;box-shadow:0 2px 8px rgba(0,0,0,0.15);transition:transform 0.15s}
+  .july-banner-track .apply-now:hover{transform:translateY(-1px) scale(1.04);background:#FFE5C4}
+  /* pause on hover */
+  .july-banner:hover .july-banner-track{animation-play-state:paused}
+  @keyframes julyScroll{
+    0%{transform:translateX(0)}
+    100%{transform:translateX(-50%)}
+  }
+  @keyframes juneBG{
+    0%,100%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+  }
+  @keyframes juneBlink{
+    0%,100%{box-shadow:0 0 0 0 rgba(255,215,168,0.7);transform:scale(1)}
+    50%{box-shadow:0 0 0 8px rgba(255,215,168,0);transform:scale(1.15)}
+  }
+  /* respect reduced-motion preferences */
+  @media (prefers-reduced-motion:reduce){
+    .july-banner{animation:none}
+    .july-banner-track{animation:none;justify-content:center;flex-wrap:wrap;white-space:normal}
+    .july-banner-track .pulse{animation:none}
+  }
+  @media (max-width:700px){
+    .july-banner-track{gap:32px;padding:9px 0;font-size:14px}
+    .july-banner-track .item{font-size:14px}
+  }
+</style>
+<div class="july-banner" role="region" aria-label="July 2026 cohort announcement">
+  <div class="july-banner-track" aria-hidden="false">
+    <!-- Loop A -->
+    <span class="item"><span class="pulse"></span><strong>Now enrolling</strong> <em>&middot; Rho Cohort &middot;</em> Birth Doula Training <strong>July 28 to 31, 2026</strong></span>
+    <span class="item">ICEA-approved &middot; FranU St. Francis Hall, Baton Rouge</span>
+    <span class="item">Full &amp; partial scholarships available</span>
+    <span class="item"><a class="learn-more" href="doula-training.html">Learn more &rarr;</a></span>
+    <span class="item"><a class="apply-now" href="https://forms.monday.com/forms/ca1d4fbc14042eb290043defbd016330?r=use1" target="_blank" rel="noopener">Apply now</a></span>
+    <span class="item"><span class="pulse"></span>20 seats &middot; applications close <strong>June 16</strong></span>
+    <!-- Loop B (duplicate so the scroll seam is invisible) -->
+    <span class="item" aria-hidden="true"><span class="pulse"></span><strong>Now enrolling</strong> <em>&middot; Rho Cohort &middot;</em> Birth Doula Training <strong>July 28 to 31, 2026</strong></span>
+    <span class="item" aria-hidden="true">ICEA-approved &middot; FranU St. Francis Hall, Baton Rouge</span>
+    <span class="item" aria-hidden="true">Full &amp; partial scholarships available</span>
+    <span class="item" aria-hidden="true"><a class="learn-more" href="doula-training.html">Learn more &rarr;</a></span>
+    <span class="item" aria-hidden="true"><a class="apply-now" href="https://forms.monday.com/forms/ca1d4fbc14042eb290043defbd016330?r=use1" target="_blank" rel="noopener">Apply now</a></span>
+    <span class="item" aria-hidden="true"><span class="pulse"></span>20 seats &middot; applications close <strong>June 16</strong></span>
+  </div>
+</div>
+
 <div class="page" data-screen-label="Home">
 
 <!-- NAV -->
@@ -626,8 +683,8 @@
 <a href="https://birthcenterbr.com/" target="_blank" rel="noopener" class="partner-card" title="Birth Center of Baton Rouge">
 <img src="assets/sponsors/birth-center-baton-rouge.png" alt="Birth Center of Baton Rouge logo">
 </a>
-<a href="https://www.mylori.org/" target="_blank" rel="noopener" class="partner-card" title="Louisiana Organization for Refugees and Immigrants (LORI)">
-<img src="assets/sponsors/lori.png" alt="Louisiana Organization for Refugees and Immigrants (LORI) logo">
+<a href="https://kevinharrisarchitect.com/" target="_blank" rel="noopener" class="partner-card" title="Kevin Harris Architect, LLC">
+<img src="assets/sponsors/kevin-harris-architect.png" alt="Kevin Harris Architect, LLC logo">
 </a>
 </div>
 </div>
