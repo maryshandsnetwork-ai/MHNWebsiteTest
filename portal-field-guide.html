@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Field Guide · Mary's Hands Network</title>
+<title>Network Resources · Mary's Hands Network</title>
 <meta name="description" content="Private portal for active MHN volunteer doulas.">
 <link rel="icon" type="image/png" href="./assets/logo-seal.png">
 <link rel="apple-touch-icon" href="./assets/logo-seal.png">
@@ -12,8 +12,48 @@
 <link rel="stylesheet" href="./portal-shell.css">
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 <script src="./mobile-nav.js" defer></script>
+<style>
+  .nr-hero{padding:20px 36px 0;max-width:1100px;margin:0 auto}
+  .nr-hero .eyebrow{font-size:13px;letter-spacing:0.22em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:700;margin-bottom:8px}
+  .nr-hero h1{font-family:var(--mhn-font-serif);font-size:30px;color:var(--mhn-purple-700);margin:0 0 8px;letter-spacing:-0.015em;line-height:1.1}
+  .nr-hero p{font-family:var(--mhn-font-serif);font-style:italic;color:var(--mhn-ink-soft);font-size:16px;margin:0 0 18px;line-height:1.55;max-width:820px}
+
+  .nr-section{max-width:1100px;margin:24px auto 0;padding:0 36px}
+  .nr-section .sec-eyebrow{font-size:12px;letter-spacing:0.22em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:700;margin-bottom:4px}
+  .nr-section h2{font-family:var(--mhn-font-serif);font-size:22px;color:var(--mhn-purple-700);margin:0 0 4px;letter-spacing:-0.01em}
+  .nr-section .sec-sub{font-family:var(--mhn-font-serif);font-style:italic;color:var(--mhn-ink-soft);font-size:15px;margin:6px 0 18px;line-height:1.55;max-width:820px}
+
+  .nr-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-bottom:8px}
+  .nr-card{background:#fff;border:1px solid var(--mhn-line);border-radius:16px;padding:22px 24px;display:flex;flex-direction:column;transition:box-shadow .15s, transform .12s}
+  .nr-card:hover{box-shadow:0 8px 22px rgba(94,55,108,0.10);transform:translateY(-2px)}
+  .nr-card .nr-icon{width:46px;height:46px;border-radius:12px;background:var(--mhn-purple-50);border:1px solid var(--mhn-purple-200);display:inline-flex;align-items:center;justify-content:center;margin-bottom:14px;flex-shrink:0}
+  .nr-card .nr-icon .ico{width:22px;height:22px;color:var(--mhn-purple-700)}
+  .nr-card .nr-kicker{font-size:11.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:800;margin-bottom:6px}
+  .nr-card h3{font-family:var(--mhn-font-serif);font-size:21px;color:var(--mhn-purple-700);margin:0 0 8px;line-height:1.22}
+  .nr-card p{font-size:14.5px;line-height:1.55;color:var(--mhn-ink-soft);margin:0 0 18px;flex:1}
+  .nr-actions{display:flex;gap:10px}
+  .nr-actions a{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:11px 14px;border-radius:999px;font-family:var(--mhn-font-sans);font-size:13.5px;font-weight:700;letter-spacing:0.03em;text-decoration:none;transition:background .15s, border-color .15s, color .15s}
+  .nr-actions a .ico{width:15px;height:15px}
+  .nr-actions .nr-view{background:var(--mhn-purple-700);color:#fff;border:1px solid var(--mhn-purple-700)}
+  .nr-actions .nr-view:hover{background:var(--mhn-purple-900);border-color:var(--mhn-purple-900)}
+  .nr-actions .nr-dl{background:#fff;color:var(--mhn-purple-700);border:1px solid var(--mhn-purple-300)}
+  .nr-actions .nr-dl:hover{background:var(--mhn-purple-50);border-color:var(--mhn-purple-500)}
+
+  .nr-note{max-width:1100px;margin:30px auto 40px;padding:18px 22px;background:var(--mhn-cream);border-left:4px solid var(--mhn-warm-700);border-radius:8px;font-family:var(--mhn-font-serif);font-style:italic;color:var(--mhn-ink);font-size:15px;line-height:1.6}
+  .nr-note strong{font-style:normal;color:var(--mhn-warm-700);font-family:var(--mhn-font-sans);font-weight:700}
+  .nr-note a{color:var(--mhn-purple-700);font-weight:700;text-decoration:none}
+  .nr-note a:hover{text-decoration:underline}
+
+  @media (max-width:760px){
+    .nr-hero{padding:14px 20px 0}
+    .nr-hero h1{font-size:24px}
+    .nr-section{padding:0 20px}
+    .nr-grid{grid-template-columns:1fr}
+    .nr-note{margin:24px 20px 32px}
+  }
+</style>
 </head>
-<body data-screen-label="Field Guide">
+<body data-screen-label="Network Resources">
 <div class="page">
 
 <!-- TOP NAV -->
@@ -37,7 +77,7 @@
 <section id="portal-gate">
   <div class="eyebrow">For Active Doulas</div>
   <h1>Members only.</h1>
-  <p class="lede">Enter your access code to view the doula portal. Forms, course materials, contacts, and the field guide.</p>
+  <p class="lede">Enter your access code to view the doula portal. Forms, course materials, contacts, and network resources.</p>
   <form id="portal-gate-form" autocomplete="off" novalidate>
     <input id="portal-code" type="text" placeholder="Access code" aria-label="Access code" autocapitalize="characters" spellcheck="false">
     <button type="submit">Enter portal</button>
@@ -60,7 +100,7 @@
     <a href="portal-availability.html" data-id="availability" class=""><i class="ico" data-lucide="calendar-check"></i>Availability</a>
     <a href="portal-training-materials.html" data-id="training-materials" class=""><i class="ico" data-lucide="book-marked"></i>Training Materials</a>
     <a href="directory.html" data-id="directory" class=""><i class="ico" data-lucide="users"></i>Doula Directory</a>
-    <a href="portal-field-guide.html" data-id="field-guide" class="active"><i class="ico" data-lucide="book-open"></i>Field Guide</a>
+    <a href="portal-field-guide.html" data-id="field-guide" class="active"><i class="ico" data-lucide="library"></i>Network Resources</a>
     <a href="portal-pocket-doula.html" data-id="pocket-doula" class=""><i class="ico" data-lucide="layers"></i>Pocket Doula</a>
     <a href="portal-contacts.html" data-id="contacts" class=""><i class="ico" data-lucide="phone"></i>Contacts</a>
   </nav>
@@ -71,27 +111,79 @@
 <!-- MAIN -->
 <main class="portal-main">
 
-<section class="hero">
+<section class="nr-hero">
   <div class="eyebrow">Internal Reference</div>
-  <h1 class="t">MHN Field Guide.</h1>
-  <p class="lede">Your clinical reference, mailed with every cohort and updated each year. Read it full-page in your browser below or download a copy to your phone for the labor room.</p>
+  <h1>Network Resources.</h1>
+  <p>Your MHN Field Guide and the supporting guides and planners you'll use with the families you serve. View any resource in your browser, or download a copy to your phone for the labor room and home visits.</p>
 </section>
 
-<section class="resources fg-section">
-  <div class="fg-card fg-card-fullpage">
-    <div class="fg-head">
-      <div>
-        <div class="fg-eyebrow">2026 Edition &middot; 48 pages</div>
-        <h3>MHN Field Guide 2026</h3>
+<!-- DOULA REFERENCES -->
+<section class="nr-section">
+  <div class="sec-eyebrow">For Doulas</div>
+  <h2>Field Guide &amp; doula references.</h2>
+  <p class="sec-sub">Your clinical and communication references, updated each year and mailed with every cohort.</p>
+  <div class="nr-grid">
+
+    <div class="nr-card">
+      <span class="nr-icon"><i class="ico" data-lucide="book-open"></i></span>
+      <div class="nr-kicker">2026 Edition &middot; 48 pages</div>
+      <h3>MHN Field Guide 2026</h3>
+      <p>Your clinical quick-reference for pregnancy, labor, birth, and postpartum support. Comfort measures, scope of practice, the BRAIN framework, and more.</p>
+      <div class="nr-actions">
+        <a class="nr-view" href="./assets/mhn-field-guide-2026.pdf" target="_blank" rel="noopener"><i class="ico" data-lucide="eye"></i>View</a>
+        <a class="nr-dl" href="./assets/mhn-field-guide-2026.pdf" download><i class="ico" data-lucide="download"></i>Download</a>
       </div>
-      <a class="dl" href="./assets/mhn-field-guide-2026.pdf" download>Download PDF</a>
     </div>
-    <div class="fg-viewer fg-viewer-fullpage">
-      <iframe src="./assets/mhn-field-guide-2026.pdf#view=FitH&toolbar=1&navpanes=0&pagemode=none" title="MHN Field Guide 2026 PDF"></iframe>
-      <p class="fg-fallback">PDF preview not loading? <a href="./assets/mhn-field-guide-2026.pdf" target="_blank" rel="noopener">Open it in a new tab</a></p>
+
+    <div class="nr-card">
+      <span class="nr-icon"><i class="ico" data-lucide="messages-square"></i></span>
+      <div class="nr-kicker">2026 Edition &middot; 18 pages</div>
+      <h3>Volunteer Doula Communication Guide</h3>
+      <p>How to communicate with clients, families, and care teams, and how to help your client find her own voice. Authorized internal use for active doulas.</p>
+      <div class="nr-actions">
+        <a class="nr-view" href="./assets/resources/mhn-communication-guide.pdf" target="_blank" rel="noopener"><i class="ico" data-lucide="eye"></i>View</a>
+        <a class="nr-dl" href="./assets/resources/mhn-communication-guide.pdf" download><i class="ico" data-lucide="download"></i>Download</a>
+      </div>
     </div>
+
   </div>
 </section>
+
+<!-- FAMILY-FACING TOOLS -->
+<section class="nr-section">
+  <div class="sec-eyebrow">For the Families You Serve</div>
+  <h2>Planners &amp; resources to share.</h2>
+  <p class="sec-sub">Tools you can walk through with clients or send home with them as they prepare for the weeks after birth.</p>
+  <div class="nr-grid">
+
+    <div class="nr-card">
+      <span class="nr-icon"><i class="ico" data-lucide="clipboard-list"></i></span>
+      <div class="nr-kicker">Family Planner &middot; 11 pages</div>
+      <h3>My Postpartum Plan</h3>
+      <p>A fill-in planner that helps families map out support, rest, feeding, and recovery for the weeks after birth. A map, not a rigid plan.</p>
+      <div class="nr-actions">
+        <a class="nr-view" href="./assets/resources/mhn-postpartum-planner.pdf" target="_blank" rel="noopener"><i class="ico" data-lucide="eye"></i>View</a>
+        <a class="nr-dl" href="./assets/resources/mhn-postpartum-planner.pdf" download><i class="ico" data-lucide="download"></i>Download</a>
+      </div>
+    </div>
+
+    <div class="nr-card">
+      <span class="nr-icon"><i class="ico" data-lucide="list-checks"></i></span>
+      <div class="nr-kicker">Resource List &middot; 3 pages</div>
+      <h3>Postpartum Resource Guide</h3>
+      <p>Vetted emotional and mental-health support, infant feeding and lactation help, and community resources, with direct links to share with families.</p>
+      <div class="nr-actions">
+        <a class="nr-view" href="./assets/resources/mhn-postpartum-resource-guide.pdf" target="_blank" rel="noopener"><i class="ico" data-lucide="eye"></i>View</a>
+        <a class="nr-dl" href="./assets/resources/mhn-postpartum-resource-guide.pdf" download><i class="ico" data-lucide="download"></i>Download</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="nr-note">
+  <strong>Need another resource?</strong> If there's a guide or handout you use often that isn't here yet, email your Volunteer Coordinator at <a href="mailto:klewis@mhndoula.com">klewis@mhndoula.com</a> &mdash; we'll get it added.
+</div>
 
 </main>
 </div><!-- /portal-app -->
