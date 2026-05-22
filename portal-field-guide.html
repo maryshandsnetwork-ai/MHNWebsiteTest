@@ -26,13 +26,15 @@
   .nr-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-bottom:8px}
   .nr-card{background:#fff;border:1px solid var(--mhn-line);border-radius:16px;padding:22px 24px;display:flex;flex-direction:column;transition:box-shadow .15s, transform .12s}
   .nr-card:hover{box-shadow:0 8px 22px rgba(94,55,108,0.10);transform:translateY(-2px)}
-  .nr-card .nr-icon{width:46px;height:46px;border-radius:12px;background:var(--mhn-purple-50);border:1px solid var(--mhn-purple-200);display:inline-flex;align-items:center;justify-content:center;margin-bottom:14px;flex-shrink:0}
-  .nr-card .nr-icon .ico{width:22px;height:22px;color:var(--mhn-purple-700)}
+  .nr-card .nr-top{display:flex;gap:16px;align-items:flex-start;margin-bottom:14px}
+  .nr-thumb{width:108px;height:108px;flex-shrink:0;border-radius:10px;overflow:hidden;border:1px solid var(--mhn-purple-200);box-shadow:0 4px 12px rgba(94,55,108,0.18);background:#fff}
+  .nr-thumb img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+  .nr-card .nr-head{padding-top:2px;min-width:0}
   .nr-card .nr-kicker{font-size:11.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:800;margin-bottom:6px}
-  .nr-card h3{font-family:var(--mhn-font-serif);font-size:21px;color:var(--mhn-purple-700);margin:0 0 8px;line-height:1.22}
+  .nr-card h3{font-family:var(--mhn-font-serif);font-size:21px;color:var(--mhn-purple-700);margin:0;line-height:1.22}
   .nr-card p{font-size:14.5px;line-height:1.55;color:var(--mhn-ink-soft);margin:0 0 18px;flex:1}
   .nr-actions{display:flex;gap:10px}
-  .nr-actions a{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:11px 14px;border-radius:999px;font-family:var(--mhn-font-sans);font-size:13.5px;font-weight:700;letter-spacing:0.03em;text-decoration:none;transition:background .15s, border-color .15s, color .15s}
+  .nr-actions a{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:11px 14px;border-radius:999px;font-family:var(--mhn-font-sans);font-size:13.5px;font-weight:700;letter-spacing:0.03em;text-decoration:none;cursor:pointer;transition:background .15s, border-color .15s, color .15s}
   .nr-actions a .ico{width:15px;height:15px}
   .nr-actions .nr-view{background:var(--mhn-purple-700);color:#fff;border:1px solid var(--mhn-purple-700)}
   .nr-actions .nr-view:hover{background:var(--mhn-purple-900);border-color:var(--mhn-purple-900)}
@@ -44,12 +46,31 @@
   .nr-note a{color:var(--mhn-purple-700);font-weight:700;text-decoration:none}
   .nr-note a:hover{text-decoration:underline}
 
+  /* PDF PREVIEW MODAL */
+  .nr-modal{position:fixed;inset:0;z-index:1200;display:none;align-items:center;justify-content:center;padding:24px;background:rgba(46,26,54,0.80)}
+  .nr-modal.open{display:flex}
+  .nr-modal-box{background:#fff;border-radius:16px;width:min(980px,100%);height:min(88vh,920px);display:flex;flex-direction:column;overflow:hidden;box-shadow:0 26px 64px rgba(0,0,0,0.45)}
+  .nr-modal-head{display:flex;align-items:center;gap:12px;padding:13px 16px;border-bottom:1px solid var(--mhn-line);background:var(--mhn-purple-50);flex-shrink:0}
+  .nr-modal-head h3{flex:1;margin:0;font-family:var(--mhn-font-serif);font-size:18px;color:var(--mhn-purple-700);min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .nr-modal-head .nr-m-dl{display:inline-flex;align-items:center;gap:6px;padding:9px 16px;border-radius:999px;background:var(--mhn-purple-700);color:#fff;text-decoration:none;font-family:var(--mhn-font-sans);font-size:13px;font-weight:700;letter-spacing:0.03em;white-space:nowrap;transition:background .15s}
+  .nr-modal-head .nr-m-dl:hover{background:var(--mhn-purple-900)}
+  .nr-modal-head .nr-m-dl .ico{width:15px;height:15px}
+  .nr-modal-head .nr-m-close{flex-shrink:0;width:38px;height:38px;border-radius:50%;border:1px solid var(--mhn-purple-200);background:#fff;color:var(--mhn-purple-700);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:background .15s, border-color .15s}
+  .nr-modal-head .nr-m-close:hover{background:var(--mhn-purple-100, #EFE0F2);border-color:var(--mhn-purple-500)}
+  .nr-modal-head .nr-m-close .ico{width:18px;height:18px}
+  .nr-modal-body{flex:1;background:#525659;min-height:0}
+  .nr-modal-body iframe{width:100%;height:100%;border:0;display:block}
+
   @media (max-width:760px){
     .nr-hero{padding:14px 20px 0}
     .nr-hero h1{font-size:24px}
     .nr-section{padding:0 20px}
     .nr-grid{grid-template-columns:1fr}
     .nr-note{margin:24px 20px 32px}
+    .nr-modal{padding:0}
+    .nr-modal-box{width:100%;height:100%;border-radius:0}
+    .nr-modal-head h3{font-size:15px}
+    .nr-modal-head .nr-m-dl{padding:8px 12px;font-size:12px}
   }
 </style>
 </head>
@@ -125,23 +146,31 @@
   <div class="nr-grid">
 
     <div class="nr-card">
-      <span class="nr-icon"><i class="ico" data-lucide="book-open"></i></span>
-      <div class="nr-kicker">2026 Edition &middot; 48 pages</div>
-      <h3>MHN Field Guide 2026</h3>
+      <div class="nr-top">
+        <div class="nr-thumb"><img src="./assets/resources/thumbs/field-guide.jpg" alt="MHN Field Guide 2026 cover preview"></div>
+        <div class="nr-head">
+          <div class="nr-kicker">2026 Edition &middot; 48 pages</div>
+          <h3>MHN Field Guide 2026</h3>
+        </div>
+      </div>
       <p>Your clinical quick-reference for pregnancy, labor, birth, and postpartum support. Comfort measures, scope of practice, the BRAIN framework, and more.</p>
       <div class="nr-actions">
-        <a class="nr-view" href="./assets/mhn-field-guide-2026.pdf" target="_blank" rel="noopener"><i class="ico" data-lucide="eye"></i>View</a>
+        <a class="nr-view" href="./assets/mhn-field-guide-2026.pdf" data-pdf="./assets/mhn-field-guide-2026.pdf" data-title="MHN Field Guide 2026"><i class="ico" data-lucide="eye"></i>View</a>
         <a class="nr-dl" href="./assets/mhn-field-guide-2026.pdf" download><i class="ico" data-lucide="download"></i>Download</a>
       </div>
     </div>
 
     <div class="nr-card">
-      <span class="nr-icon"><i class="ico" data-lucide="messages-square"></i></span>
-      <div class="nr-kicker">2026 Edition &middot; 18 pages</div>
-      <h3>Volunteer Doula Communication Guide</h3>
+      <div class="nr-top">
+        <div class="nr-thumb"><img src="./assets/resources/thumbs/communication-guide.jpg" alt="Volunteer Doula Communication Guide cover preview"></div>
+        <div class="nr-head">
+          <div class="nr-kicker">2026 Edition &middot; 18 pages</div>
+          <h3>Volunteer Doula Communication Guide</h3>
+        </div>
+      </div>
       <p>How to communicate with clients, families, and care teams, and how to help your client find her own voice. Authorized internal use for active doulas.</p>
       <div class="nr-actions">
-        <a class="nr-view" href="./assets/resources/mhn-communication-guide.pdf" target="_blank" rel="noopener"><i class="ico" data-lucide="eye"></i>View</a>
+        <a class="nr-view" href="./assets/resources/mhn-communication-guide.pdf" data-pdf="./assets/resources/mhn-communication-guide.pdf" data-title="Volunteer Doula Communication Guide"><i class="ico" data-lucide="eye"></i>View</a>
         <a class="nr-dl" href="./assets/resources/mhn-communication-guide.pdf" download><i class="ico" data-lucide="download"></i>Download</a>
       </div>
     </div>
@@ -157,23 +186,31 @@
   <div class="nr-grid">
 
     <div class="nr-card">
-      <span class="nr-icon"><i class="ico" data-lucide="clipboard-list"></i></span>
-      <div class="nr-kicker">Family Planner &middot; 11 pages</div>
-      <h3>My Postpartum Plan</h3>
+      <div class="nr-top">
+        <div class="nr-thumb"><img src="./assets/resources/thumbs/postpartum-planner.jpg" alt="My Postpartum Plan cover preview"></div>
+        <div class="nr-head">
+          <div class="nr-kicker">Family Planner &middot; 11 pages</div>
+          <h3>My Postpartum Plan</h3>
+        </div>
+      </div>
       <p>A fill-in planner that helps families map out support, rest, feeding, and recovery for the weeks after birth. A map, not a rigid plan.</p>
       <div class="nr-actions">
-        <a class="nr-view" href="./assets/resources/mhn-postpartum-planner.pdf" target="_blank" rel="noopener"><i class="ico" data-lucide="eye"></i>View</a>
+        <a class="nr-view" href="./assets/resources/mhn-postpartum-planner.pdf" data-pdf="./assets/resources/mhn-postpartum-planner.pdf" data-title="My Postpartum Plan"><i class="ico" data-lucide="eye"></i>View</a>
         <a class="nr-dl" href="./assets/resources/mhn-postpartum-planner.pdf" download><i class="ico" data-lucide="download"></i>Download</a>
       </div>
     </div>
 
     <div class="nr-card">
-      <span class="nr-icon"><i class="ico" data-lucide="list-checks"></i></span>
-      <div class="nr-kicker">Resource List &middot; 3 pages</div>
-      <h3>Postpartum Resource Guide</h3>
+      <div class="nr-top">
+        <div class="nr-thumb"><img src="./assets/resources/thumbs/postpartum-resource-guide.jpg" alt="Postpartum Resource Guide cover preview"></div>
+        <div class="nr-head">
+          <div class="nr-kicker">Resource List &middot; 3 pages</div>
+          <h3>Postpartum Resource Guide</h3>
+        </div>
+      </div>
       <p>Vetted emotional and mental-health support, infant feeding and lactation help, and community resources, with direct links to share with families.</p>
       <div class="nr-actions">
-        <a class="nr-view" href="./assets/resources/mhn-postpartum-resource-guide.pdf" target="_blank" rel="noopener"><i class="ico" data-lucide="eye"></i>View</a>
+        <a class="nr-view" href="./assets/resources/mhn-postpartum-resource-guide.pdf" data-pdf="./assets/resources/mhn-postpartum-resource-guide.pdf" data-title="Postpartum Resource Guide"><i class="ico" data-lucide="eye"></i>View</a>
         <a class="nr-dl" href="./assets/resources/mhn-postpartum-resource-guide.pdf" download><i class="ico" data-lucide="download"></i>Download</a>
       </div>
     </div>
@@ -187,6 +224,20 @@
 
 </main>
 </div><!-- /portal-app -->
+
+<!-- PDF PREVIEW MODAL -->
+<div class="nr-modal" id="nrModal" role="dialog" aria-modal="true" aria-labelledby="nrModalTitle">
+  <div class="nr-modal-box">
+    <div class="nr-modal-head">
+      <h3 id="nrModalTitle">Document preview</h3>
+      <a class="nr-m-dl" id="nrModalDownload" href="#" download><i class="ico" data-lucide="download"></i>Download</a>
+      <button class="nr-m-close" id="nrModalClose" type="button" aria-label="Close preview"><i class="ico" data-lucide="x"></i></button>
+    </div>
+    <div class="nr-modal-body">
+      <iframe id="nrModalFrame" title="Document preview" src="about:blank"></iframe>
+    </div>
+  </div>
+</div>
 </div><!-- /portal-protected -->
 
 <!-- FOOTER -->
@@ -227,7 +278,47 @@
 </div>
 <script>lucide.createIcons();</script>
 
+<!-- PDF PREVIEW MODAL LOGIC -->
+<script>
+(function(){
+  var modal   = document.getElementById("nrModal");
+  var frame   = document.getElementById("nrModalFrame");
+  var titleEl = document.getElementById("nrModalTitle");
+  var dlBtn   = document.getElementById("nrModalDownload");
+  var closeBtn= document.getElementById("nrModalClose");
+  if(!modal) return;
 
+  function openModal(pdf, title){
+    titleEl.textContent = title || "Document preview";
+    dlBtn.setAttribute("href", pdf);
+    frame.setAttribute("src", pdf + "#view=FitH&toolbar=1&navpanes=0");
+    modal.classList.add("open");
+    document.body.style.overflow = "hidden";
+    closeBtn.focus();
+  }
+  function closeModal(){
+    modal.classList.remove("open");
+    frame.setAttribute("src", "about:blank");
+    document.body.style.overflow = "";
+  }
+
+  // Wire every View link on the page
+  document.querySelectorAll("a.nr-view[data-pdf]").forEach(function(link){
+    link.addEventListener("click", function(e){
+      e.preventDefault();
+      openModal(link.getAttribute("data-pdf"), link.getAttribute("data-title"));
+    });
+  });
+
+  closeBtn.addEventListener("click", closeModal);
+  modal.addEventListener("click", function(e){
+    if(e.target === modal) closeModal();
+  });
+  document.addEventListener("keydown", function(e){
+    if(e.key === "Escape" && modal.classList.contains("open")) closeModal();
+  });
+})();
+</script>
 
 <script>
 (function(){
