@@ -1257,6 +1257,13 @@ footer .ein-line { font-size:16px; color: #845995; margin-top: 12px; letter-spac
 .nav-links .lang-toggle .lang-sep{color:var(--mhn-purple-300); font-weight:400}
 .nav-links .lang-toggle .lang-other{color:var(--mhn-ink-mute); font-weight:600}
 
+/* === DISABLED LANGUAGE PLACEHOLDER (Español coming soon) === */
+.nav-links .lang-icon.lang-disabled,
+.nav-links .lang-toggle.lang-disabled{opacity:0.4; cursor:default}
+.nav-links .lang-icon.lang-disabled:hover{background:transparent; color:var(--mhn-purple-700)}
+.nav-links .lang-toggle.lang-disabled:hover{background:#fff; color:var(--mhn-ink-mute); border-color:var(--mhn-purple-200)}
+.nav-links .lang-toggle.lang-disabled:hover .lang-other{color:var(--mhn-ink-mute)}
+
 /* === STICKY TOP NAVIGATION (site-wide override) === */
 nav.nav{
   position:sticky !important;
