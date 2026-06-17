@@ -198,55 +198,91 @@
 </section>
 
 <!-- CONTACT THE TEAM (inline on hub) -->
-<section class="contacts" id="team">
-  <div class="contacts-inner">
-    <div class="eyebrow">Your admin team</div>
-    <h2>Contact the MHN team.</h2>
-    <p class="sub">Reach Kerionne, Breea, or Maddy directly. When in doubt, start with your Volunteer Coordinator and she'll pull in whoever else is needed. <em>Looking for another doula instead? Use the <a href="directory.html" style="color:var(--mhn-purple-700);font-weight:700">Doula Directory</a>.</em></p>
-    <div class="cgrid">
-      <div class="ccard">
-        <div class="role">Volunteer Coordinator</div>
-        <h3>Kerionne Lewis</h3>
-        <p class="title">Schedules, matches, escalations, day-to-day questions.</p>
-        <a class="email" href="mailto:klewis@mhndoula.com">klewis@mhndoula.com</a>
-        <a class="email" href="tel:5045174820">Call or text (504) 517-4820</a>
-      </div>
-      <div class="ccard">
-        <div class="role">Operations Director</div>
-        <h3>Breea Carter</h3>
-        <p class="title">Onboarding paperwork, hospital privileging, operations.</p>
-        <a class="email" href="mailto:bcarter@mhndoula.com">bcarter@mhndoula.com</a>
-      </div>
-      <div class="ccard">
-        <div class="role">Executive Director &amp; Lead Instructor</div>
-        <h3>Madeline LeBlanc</h3>
-        <p class="title">Strategy, partnerships, training escalations, anything else.</p>
-        <a class="email" href="mailto:mleblanc@mhndoula.com">mleblanc@mhndoula.com</a>
-      </div>
-    </div>
-    <div class="general">
-      <span class="label">General questions:</span>
-      <a href="mailto:info@mhndoula.com">info@mhndoula.com</a>
-      <span class="sep">&bull;</span>
-      <span class="label">Office (Maddy direct):</span>
-      <a href="tel:2258924906">(225) 892-4906</a>
-      <span class="sep">&bull;</span>
-      <span class="label">Doula Hotline:</span>
-      <a href="tel:2254247532">(225) 424-7532</a>
-    </div>
+<style>
+  .team2{padding:8px 36px 48px;max-width:1120px;margin:0 auto}
+  .team2 .t2-eyebrow{font-size:14px;letter-spacing:0.2em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:700;margin-bottom:6px}
+  .team2 .t2-h2{font-family:var(--mhn-font-serif);font-size:28px;color:var(--mhn-purple-700);margin:0 0 8px;font-weight:700;letter-spacing:-0.01em}
+  .team2 .t2-sub{font-size:16px;line-height:1.6;color:var(--mhn-ink-soft);margin:0 0 30px;max-width:760px}
+  .team2 .t2-sub a{color:var(--mhn-purple-700);font-weight:700}
+  .team2 .t2-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch}
+  .team2 .t2-card{position:relative;background:#fff;border:1px solid var(--mhn-line);border-radius:18px;padding:24px 22px;display:flex;flex-direction:column}
+  .team2 .t2-card--primary{border:2px solid var(--mhn-purple-500);box-shadow:0 12px 32px rgba(94,55,108,0.14)}
+  .team2 .t2-badge{position:absolute;top:-12px;left:22px;background:var(--mhn-purple-700);color:#fff;font-size:12px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;padding:5px 13px;border-radius:999px;box-shadow:0 3px 10px rgba(94,55,108,0.3)}
+  .team2 .t2-role{font-size:12.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:700;margin-bottom:4px;line-height:1.3}
+  .team2 .t2-name{font-family:var(--mhn-font-serif);font-size:22px;color:var(--mhn-purple-700);margin:0 0 10px;font-weight:700;letter-spacing:-0.005em}
+  .team2 .t2-for{font-size:15px;line-height:1.5;color:var(--mhn-ink-soft);margin:0 0 18px;flex:1}
+  .team2 .t2-for b{color:var(--mhn-ink);font-weight:700}
+  .team2 .t2-actions{display:flex;flex-direction:column;gap:9px}
+  .team2 .t2-btn{display:block;text-align:center;border:1.5px solid var(--mhn-purple-200);color:var(--mhn-purple-700);background:#fff;text-decoration:none;padding:11px 16px;border-radius:999px;font-weight:700;font-size:14.5px;letter-spacing:0.01em;transition:background .15s,border-color .15s}
+  .team2 .t2-btn:hover{background:var(--mhn-purple-50);border-color:var(--mhn-purple-500)}
+  .team2 .t2-btn--solid{background:var(--mhn-purple-700);color:#fff;border-color:var(--mhn-purple-700)}
+  .team2 .t2-btn--solid:hover{background:var(--mhn-purple-900);border-color:var(--mhn-purple-900)}
+  .team2 .t2-note{font-size:13px;line-height:1.5;color:var(--mhn-ink-mute);margin:14px 0 0;font-style:italic}
+  .team2 .t2-lines-head{font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:var(--mhn-ink-mute);font-weight:700;margin:34px 0 12px}
+  .team2 .t2-lines{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .team2 .t2-line{background:var(--mhn-paper-alt,#FAF6F0);border:1px solid var(--mhn-line);border-radius:14px;padding:16px 18px;text-decoration:none;display:block;transition:border-color .15s,box-shadow .15s}
+  .team2 .t2-line:hover{border-color:var(--mhn-purple-300);box-shadow:0 4px 14px rgba(94,55,108,0.08)}
+  .team2 .t2-line-lbl{font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mhn-ink-mute);font-weight:700;margin-bottom:6px}
+  .team2 .t2-line-val{font-family:var(--mhn-font-serif);font-size:18px;color:var(--mhn-purple-700);font-weight:700;line-height:1.2}
+  .team2 .t2-line--urgent{background:#FBEFEF;border-color:#E9C9C9}
+  .team2 .t2-line--urgent .t2-line-lbl{color:#B05656}
+  .team2 .t2-line--urgent .t2-line-val{color:#A23A3A}
+  @media(max-width:820px){.team2{padding:8px 20px 40px}.team2 .t2-grid,.team2 .t2-lines{grid-template-columns:1fr}}
+</style>
+<section class="team2" id="team">
+  <div class="t2-eyebrow">Your admin team</div>
+  <h2 class="t2-h2">Who to contact, and how.</h2>
+  <p class="t2-sub">Find the person whose work matches your question, then reach them whichever way is easiest. Not sure who to ask? Start with Kerionne. <em>Looking for another doula? That's the <a href="directory.html">Doula Directory</a>.</em></p>
 
-    <!-- Book a meeting with Kerionne -->
-    <div style="margin-top:28px;background:linear-gradient(135deg,var(--mhn-purple-700),var(--mhn-purple-900));color:#fff;border-radius:20px;padding:32px 36px;box-shadow:0 14px 40px rgba(94,55,108,0.22)">
-      <div style="font-size:14px;letter-spacing:0.2em;text-transform:uppercase;color:var(--mhn-purple-200);font-weight:700;margin-bottom:10px">Volunteer Coordinator</div>
-      <h3 style="font-family:var(--mhn-font-serif);font-size:25px;margin:0 0 8px;color:#fff;font-weight:700;letter-spacing:-0.01em">Book a meeting with Kerionne Lewis</h3>
-      <p style="font-size:16px;line-height:1.6;color:#F1EDF3;margin:0 0 20px;max-width:700px">Doulas who need a meeting or a scheduled support call may use my booking link to grab a time that works for you.</p>
-      <a href="https://bookings.cloud.microsoft/bookwithme/user/ca713362c0804bef9dbe63f575e0d79f%40mhndoula.com?anonymous&amp;ismsaljsauthenabled" target="_blank" rel="noopener" style="display:inline-block;background:#fff;color:var(--mhn-purple-700);text-decoration:none;padding:13px 26px;border-radius:999px;font-weight:700;font-size:16px;box-shadow:0 4px 14px rgba(0,0,0,0.18)">Book a time with Kerionne</a>
-      <div style="height:1px;background:rgba(212,186,221,0.3);margin:26px 0"></div>
-      <h4 style="font-family:var(--mhn-font-serif);font-size:20px;margin:0 0 10px;color:#fff;font-weight:700">Doula Support Office Hours</h4>
-      <p style="font-size:16px;line-height:1.6;color:#F1EDF3;margin:0 0 8px;max-width:700px">Doulas may text me at <a href="tel:5045174820" style="color:#fff;font-weight:700">(504) 517-4820</a> during office hours (<strong>8:30 AM&ndash;4:30 PM</strong>) for assistance with doula-related questions, concerns, or support needs.</p>
-      <p style="font-size:16px;line-height:1.6;color:#F1EDF3;margin:0 0 16px;max-width:700px">For formal matters, please email me at <a href="mailto:klewis@mhndoula.com" style="color:#fff;font-weight:700">klewis@mhndoula.com</a>.</p>
-      <p style="font-size:15px;line-height:1.55;color:#E8D4EE;margin:0;max-width:700px"><strong>Please note:</strong> While I strive to respond as quickly as possible, text messages may take up to 48 hours to receive a response.</p>
+  <div class="t2-grid">
+    <!-- Kerionne — primary -->
+    <div class="t2-card t2-card--primary">
+      <span class="t2-badge">Start here</span>
+      <div class="t2-role">Volunteer Coordinator</div>
+      <h3 class="t2-name">Kerionne Lewis</h3>
+      <p class="t2-for">Contact for <b>scheduling, doula matches, day-to-day questions, and escalations.</b></p>
+      <div class="t2-actions">
+        <a class="t2-btn t2-btn--solid" href="tel:5045174820">Call or text (504) 517-4820</a>
+        <a class="t2-btn" href="mailto:klewis@mhndoula.com">Email Kerionne</a>
+        <a class="t2-btn" href="https://bookings.cloud.microsoft/bookwithme/user/ca713362c0804bef9dbe63f575e0d79f%40mhndoula.com?anonymous&amp;ismsaljsauthenabled" target="_blank" rel="noopener">Book a time</a>
+      </div>
+      <p class="t2-note">Office hours 8:30 AM&ndash;4:30 PM. Texts may take up to 48 hours for a reply.</p>
     </div>
+    <!-- Breea -->
+    <div class="t2-card">
+      <div class="t2-role">Operations Director</div>
+      <h3 class="t2-name">Breea Carter</h3>
+      <p class="t2-for">Contact for <b>onboarding paperwork, hospital privileging, and operations.</b></p>
+      <div class="t2-actions">
+        <a class="t2-btn" href="mailto:bcarter@mhndoula.com">Email Breea</a>
+      </div>
+    </div>
+    <!-- Maddy -->
+    <div class="t2-card">
+      <div class="t2-role">Executive Director &amp; Lead Instructor</div>
+      <h3 class="t2-name">Madeline LeBlanc</h3>
+      <p class="t2-for">Contact for <b>strategy, partnerships, and training escalations.</b></p>
+      <div class="t2-actions">
+        <a class="t2-btn" href="mailto:mleblanc@mhndoula.com">Email Maddy</a>
+        <a class="t2-btn" href="tel:2258924906">Office line (225) 892-4906</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="t2-lines-head">General &amp; urgent lines</div>
+  <div class="t2-lines">
+    <a class="t2-line" href="mailto:info@mhndoula.com">
+      <div class="t2-line-lbl">General questions</div>
+      <div class="t2-line-val">info@mhndoula.com</div>
+    </a>
+    <a class="t2-line" href="tel:2258924906">
+      <div class="t2-line-lbl">Main office</div>
+      <div class="t2-line-val">(225) 892-4906</div>
+    </a>
+    <a class="t2-line t2-line--urgent" href="tel:2254247532">
+      <div class="t2-line-lbl">Doula Hotline &middot; 24/7</div>
+      <div class="t2-line-val">(225) 424-7532</div>
+    </a>
   </div>
 </section>
 
