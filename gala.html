@@ -50,6 +50,15 @@
   .btn-outline:hover{background:rgba(255,255,255,0.2)}
   .btn-cal{display:inline-block;background:#fff;color:var(--mhn-purple-700);border:1.5px solid var(--mhn-purple-200);text-decoration:none;padding:12px 22px;border-radius:999px;font-weight:700;font-size:15px;transition:background .15s,border-color .15s}
   .btn-cal:hover{background:var(--mhn-purple-50);border-color:var(--mhn-purple-500)}
+  /* lavender ornaments (from the sponsorship packet) */
+  .orn{display:flex;align-items:center;justify-content:center;gap:9px;margin:12px 0 2px}
+  .orn::before,.orn::after{content:"";width:52px;height:1px;background:var(--mhn-purple-300)}
+  .orn i{width:7px;height:7px;background:var(--mhn-purple-500);transform:rotate(45deg);display:inline-block}
+  .hero-spray{position:absolute;bottom:0;width:300px;max-width:32vw;z-index:2;opacity:0.92;pointer-events:none}
+  .hero-spray.l{left:8px}
+  .hero-spray.r{right:8px}
+  .gala-garland{display:block;margin:8px auto 0;width:300px;max-width:72%;height:auto}
+  @media(max-width:600px){.hero-spray{width:165px;opacity:0.8}}
   @media(max-width:600px){.gala-hero .lav{font-size:30px}.gala-hero .ihh{font-size:22px;letter-spacing:0.3em}}
 
   /* SECTIONS */
@@ -172,11 +181,14 @@
 <section class="gala-hero">
   <img class="bg" src="./assets/photos/mom-doula-newborn.jpg" alt="A mother holding her newborn">
   <div class="shade"></div>
+  <img class="hero-spray l" src="./assets/gala/lavender-spray-left.png" alt="">
+  <img class="hero-spray r" src="./assets/gala/lavender-spray-right.png" alt="">
   <div class="inner">
     <div class="eyebrow">Mary's Hands Network &middot; Inaugural Benefit</div>
     <p class="ihh">In Her Honor</p>
     <p class="lav">A Legacy in Lavender</p>
     <p class="ag">Awards Gala</p>
+    <img class="gala-garland" src="./assets/gala/lavender-wreath.png" alt="" style="width:200px;margin:0 auto 18px">
     <p class="when"><strong>Friday, January 8, 2027</strong> <span class="dot">&middot;</span> 6:00&ndash;9:00 PM<br>Renaissance Hotel &middot; 7000 Bluebonnet Blvd, Baton Rouge, LA</p>
     <div class="hero-cta">
       <a class="btn-fill" href="./assets/in-her-honor-gala-sponsorship-packet.pdf" target="_blank" rel="noopener">Download the Sponsorship Packet</a>
@@ -190,6 +202,7 @@
   <div class="wrap">
     <div class="eyebrow-c">You're Invited</div>
     <h2 class="sec-h">An evening given in her honor.</h2>
+    <div class="orn"><i></i></div>
     <p class="lede-c">Mary's Hands Network is honored to welcome you to our very first <em>In Her Honor Awards Gala: A Legacy in Lavender.</em></p>
     <p class="body-c">The In Her Honor Awards Gala is an evening dedicated to the mothers at the heart of our work, and to the community leaders, partners, and volunteers advancing maternal and infant health across Louisiana. Together, we celebrate their impact and the families whose lives have been changed.</p>
     <p class="body-c">Proceeds from the evening benefit Mary's Hands Network, sustaining the volunteer doula care we provide to families at no cost so that no mother faces birth alone. Your presence honors the women we serve and helps extend that care to many more.</p>
@@ -212,6 +225,7 @@
   <div class="wrap">
     <div class="eyebrow-c">The Evening</div>
     <h2 class="sec-h">An evening of celebration, connection, and impact.</h2>
+    <div class="orn"><i></i></div>
     <p class="lede-c">Join us for dinner, an open bar, entertainment, and an awards program honoring the people and partners advancing maternal and infant health in Louisiana.</p>
     <div class="details">
       <div class="dcard"><i class="ico" data-lucide="calendar-heart"></i><div class="lbl">Date &amp; Time</div><div class="val">Friday, January 8, 2027<br>6:00&ndash;9:00 PM</div></div>
@@ -236,6 +250,7 @@
   <div class="wrap">
     <div class="eyebrow-c">Getting There</div>
     <h2 class="sec-h">Renaissance Baton Rouge Hotel</h2>
+    <div class="orn"><i></i></div>
     <p class="lede-c">7000 Bluebonnet Blvd, Baton Rouge, LA 70810</p>
     <div style="border-radius:18px;overflow:hidden;border:1px solid var(--mhn-line);box-shadow:0 10px 30px rgba(94,55,108,0.10);margin-top:22px">
       <iframe
@@ -254,6 +269,7 @@
   <div class="wrap">
     <div class="eyebrow-c">Why Sponsor</div>
     <h2 class="sec-h">Your support becomes a legacy in lavender.</h2>
+    <div class="orn"><i></i></div>
     <p class="lede-c">Every mother we serve is met by a doula in a lavender jacket. When you sponsor the gala, you place another lavender jacket beside another mother.</p>
     <div class="why">
       <div class="wcard"><h3>Impact</h3><p>Create healthier outcomes for mothers, babies, and families. Your investment supports maternal health access, doula training, and critical resources.</p></div>
@@ -268,6 +284,7 @@
   <div class="wrap">
     <div class="eyebrow-c">Attend the Gala</div>
     <h2 class="sec-h">Reserve a seat or a table.</h2>
+    <div class="orn"><i></i></div>
     <div class="tickets">
       <div class="tcard">
         <div class="tname">Single Ticket</div>
@@ -290,6 +307,7 @@
   <div class="wrap">
     <div class="eyebrow-c">Sponsorship Levels</div>
     <h2 class="sec-h">Leave your legacy in lavender.</h2>
+    <div class="orn"><i></i></div>
     <p class="lede-c">Support at every level leaves a mark, and together those marks become a legacy that outlasts us all.</p>
     <div class="levels">
       <div class="lvl title-lvl">
@@ -354,6 +372,7 @@
   <div class="wrap">
     <div class="eyebrow-c">Signature Experiences</div>
     <h2 class="sec-h">Sponsor a moment of the evening.</h2>
+    <div class="orn"><i></i></div>
     <p class="lede-c">Exclusive opportunities to put your name behind the most memorable moments of the gala.</p>
     <div class="levels">
       <div class="lvl">
