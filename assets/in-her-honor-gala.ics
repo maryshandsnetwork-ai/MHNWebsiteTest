@@ -1,0 +1,16 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Mary's Hands Network//In Her Honor Awards Gala//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:in-her-honor-gala-2027@maryshandsnetwork.org
+DTSTAMP:20260630T000000Z
+DTSTART:20270109T000000Z
+DTEND:20270109T030000Z
+SUMMARY:In Her Honor Awards Gala — A Legacy in Lavender
+LOCATION:Renaissance Hotel, 7000 Bluebonnet Blvd, Baton Rouge, LA 70810
+DESCRIPTION:Mary's Hands Network's inaugural benefit gala. An evening of dinner, open bar, entertainment, and an awards program honoring those advancing maternal and infant health in Louisiana. Details and sponsorships: https://maryshandsnetwork.org/gala.html
+URL:https://maryshandsnetwork.org/gala.html
+END:VEVENT
+END:VCALENDAR

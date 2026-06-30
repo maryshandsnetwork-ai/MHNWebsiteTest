@@ -48,6 +48,8 @@
   .btn-fill:hover{transform:translateY(-2px)}
   .btn-outline{background:rgba(255,255,255,0.10);color:#fff;text-decoration:none;padding:15px 28px;border-radius:999px;font-weight:800;font-size:16px;border:1.5px solid rgba(255,255,255,0.6);transition:background .15s}
   .btn-outline:hover{background:rgba(255,255,255,0.2)}
+  .btn-cal{display:inline-block;background:#fff;color:var(--mhn-purple-700);border:1.5px solid var(--mhn-purple-200);text-decoration:none;padding:12px 22px;border-radius:999px;font-weight:700;font-size:15px;transition:background .15s,border-color .15s}
+  .btn-cal:hover{background:var(--mhn-purple-50);border-color:var(--mhn-purple-500)}
   @media(max-width:600px){.gala-hero .lav{font-size:30px}.gala-hero .ihh{font-size:22px;letter-spacing:0.3em}}
 
   /* SECTIONS */
@@ -215,6 +217,34 @@
       <div class="dcard"><i class="ico" data-lucide="calendar-heart"></i><div class="lbl">Date &amp; Time</div><div class="val">Friday, January 8, 2027<br>6:00&ndash;9:00 PM</div></div>
       <div class="dcard"><i class="ico" data-lucide="map-pin"></i><div class="lbl">Location</div><div class="val">Renaissance Hotel<br>7000 Bluebonnet Blvd<br>Baton Rouge, LA 70810</div></div>
       <div class="dcard"><i class="ico" data-lucide="wine"></i><div class="lbl">Included</div><div class="val">Dinner, open bar,<br>entertainment &amp; awards</div></div>
+    </div>
+
+    <!-- ADD TO CALENDAR -->
+    <div style="text-align:center;margin:34px auto 0;max-width:760px">
+      <div class="eyebrow-c" style="margin-bottom:14px">Save the Date</div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center">
+        <a class="btn-cal" href="https://www.google.com/calendar/render?action=TEMPLATE&amp;text=In%20Her%20Honor%20Awards%20Gala%20%E2%80%94%20A%20Legacy%20in%20Lavender&amp;dates=20270109T000000Z/20270109T030000Z&amp;location=Renaissance%20Hotel%2C%207000%20Bluebonnet%20Blvd%2C%20Baton%20Rouge%2C%20LA%2070810&amp;details=Mary%27s%20Hands%20Network%27s%20inaugural%20benefit%20gala.%20Details%3A%20https%3A%2F%2Fmaryshandsnetwork.org%2Fgala.html" target="_blank" rel="noopener">Add to Google Calendar</a>
+        <a class="btn-cal" href="./assets/in-her-honor-gala.ics" download>Apple / Outlook (.ics)</a>
+        <a class="btn-cal" href="https://outlook.live.com/calendar/0/deeplink/compose?subject=In%20Her%20Honor%20Awards%20Gala%20%E2%80%94%20A%20Legacy%20in%20Lavender&amp;startdt=2027-01-08T18:00:00-06:00&amp;enddt=2027-01-08T21:00:00-06:00&amp;location=Renaissance%20Hotel%2C%207000%20Bluebonnet%20Blvd%2C%20Baton%20Rouge%2C%20LA%2070810&amp;path=%2Fcalendar%2Faction%2Fcompose&amp;rru=addevent" target="_blank" rel="noopener">Outlook Web</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION / MAP -->
+<section class="sec">
+  <div class="wrap">
+    <div class="eyebrow-c">Getting There</div>
+    <h2 class="sec-h">Renaissance Baton Rouge Hotel</h2>
+    <p class="lede-c">7000 Bluebonnet Blvd, Baton Rouge, LA 70810</p>
+    <div style="border-radius:18px;overflow:hidden;border:1px solid var(--mhn-line);box-shadow:0 10px 30px rgba(94,55,108,0.10);margin-top:22px">
+      <iframe
+        title="Map to Renaissance Baton Rouge Hotel"
+        src="https://www.google.com/maps?q=Renaissance%20Baton%20Rouge%20Hotel%2C%207000%20Bluebonnet%20Blvd%2C%20Baton%20Rouge%2C%20LA%2070810&output=embed"
+        width="100%" height="420" style="border:0;display:block" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div style="text-align:center;margin-top:22px">
+      <a class="btn-cal" href="https://www.google.com/maps/dir/?api=1&amp;destination=Renaissance%20Baton%20Rouge%20Hotel%2C%207000%20Bluebonnet%20Blvd%2C%20Baton%20Rouge%2C%20LA%2070810" target="_blank" rel="noopener">Get Directions</a>
     </div>
   </div>
 </section>
