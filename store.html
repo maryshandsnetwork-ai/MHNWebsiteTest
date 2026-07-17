@@ -575,7 +575,7 @@
       if (urls[v]) btn.href = urls[v];
       // Show/hide conditional notes (e.g. course access note)
       card.querySelectorAll('[data-show-for]').forEach(function(el){
-        el.style.display = (el.getAttribute('data-show-for') === v) ? '' : 'none';
+        el.style.display = (el.getAttribute('data-show-for') === v) ? 'block' : 'none';
       });
     }
     sel.addEventListener('change', update);
