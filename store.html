@@ -194,6 +194,22 @@
   .course-note a.email{color:var(--mhn-purple-700);font-weight:700;text-decoration:none;border-bottom:1px solid var(--mhn-purple-300);padding-bottom:1px;white-space:nowrap}
   .course-note a.email:hover{color:var(--mhn-purple-900);border-color:var(--mhn-purple-700)}
 
+  /* Course access inline note (shown only when Full Course variant is selected) */
+  .course-access-note{
+    display:none;
+    margin:10px 0 0;
+    padding:13px 16px;
+    background:#F4EAF7;
+    border:1px solid #C9A9D9;
+    border-radius:12px;
+    font-size:14px;
+    line-height:1.6;
+    color:var(--mhn-ink-soft);
+  }
+  .course-access-note strong{color:var(--mhn-purple-700);font-weight:700}
+  .course-access-note a{color:var(--mhn-purple-700);font-weight:700;text-decoration:none;border-bottom:1px solid var(--mhn-purple-300)}
+  .course-access-note a:hover{color:var(--mhn-purple-900)}
+
   @media (max-width: 760px){
     .product--featured{grid-template-columns:1fr}
     .product--featured .photo{border-right:none;border-bottom:1px solid var(--mhn-line);min-height:280px}
@@ -467,6 +483,7 @@
           </div>
           <p class="price-line"><span class="price-display" data-default="$50">$50</span> <span class="price-fine">+ tax · free shipping</span></p>
           <a class="buy-btn buy-cta" data-default="https://www.paypal.com/ncp/payment/SGL8R9MLKEFQW" href="https://www.paypal.com/ncp/payment/SGL8R9MLKEFQW" target="_blank" rel="noopener">Buy on PayPal</a>
+          <p class="course-access-note" data-show-for="course"><strong>Course access:</strong> After your purchase, we'll send you a link to the online course and an access code by email. If you don't receive your code or have any issues, reach out to us at <a href="mailto:info@mhndoula.com">info@mhndoula.com</a>.</p>
           <p class="bulk-note">Need more than 10? <a href="mailto:info@mhndoula.com?subject=Bereavement%20Doula%20bulk%20pricing">Email for bulk pricing</a></p>
         </div>
       </div>
@@ -540,7 +557,8 @@
 <script>lucide.createIcons();</script>
 
 <script>
-/* Variant dropdowns: update price + buy button URL when user picks a variant */
+/* Variant dropdowns: update price + buy button URL when user picks a variant.
+   Also shows/hides any element with data-show-for="<variant>" inside the card. */
 (function(){
   document.querySelectorAll('.product[data-variants]').forEach(function(card){
     var sel = card.querySelector('.variant-select');
@@ -555,6 +573,10 @@
       var v = sel.value;
       if (prices[v]) priceEl.textContent = prices[v];
       if (urls[v]) btn.href = urls[v];
+      // Show/hide conditional notes (e.g. course access note)
+      card.querySelectorAll('[data-show-for]').forEach(function(el){
+        el.style.display = (el.getAttribute('data-show-for') === v) ? '' : 'none';
+      });
     }
     sel.addEventListener('change', update);
     update();
