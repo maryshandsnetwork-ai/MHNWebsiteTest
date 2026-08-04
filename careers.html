@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Careers · Mary's Hands Network</title>
+<meta name="description" content="Join the Mary's Hands Network team. We're hiring Network Doulas passionate about maternal health and birth equity in Louisiana.">
+<link rel="icon" type="image/png" href="./assets/logo-seal.png">
+<link rel="apple-touch-icon" href="./assets/logo-seal.png">
+<meta property="og:title" content="Careers · Mary's Hands Network">
+<meta property="og:description" content="Join the MHN team. We're hiring Network Doulas passionate about birth equity.">
+<meta property="og:image" content="https://maryshandsnetwork.org/assets/logo-full.png">
+<link rel="canonical" href="https://maryshandsnetwork.org/careers.html">
+<link rel="stylesheet" href="./colors_and_type.css">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script src="./mobile-nav.js" defer></script>
+<!-- Metricool tracking -->
+<script>function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"d8d3c46a1618fd16101a331dfbfb19dd"})});</script>
+<style>
+html, body{margin:0;padding:0;background:var(--mhn-paper);font-family:var(--mhn-font-sans);color:var(--mhn-ink)}
+.page{max-width:1280px;margin:0 auto}
+
+/* NAV */
+.nav{display:flex;align-items:center;justify-content:space-between;padding:20px 48px;border-bottom:1px solid var(--mhn-line-soft)}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
+.brand .seal{width:44px;height:44px;display:flex;align-items:center;justify-content:center}
+.brand .seal img{width:44px;height:44px;display:block}
+.brand .name{font-family:var(--mhn-font-serif);font-weight:700;font-size:20px;color:var(--mhn-purple-700);line-height:1}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{text-decoration:none;color:var(--mhn-ink-soft);font-size:16px;font-weight:700;letter-spacing:0.02em;transition:color var(--mhn-dur)}
+.nav-links a:hover{color:var(--mhn-purple-700)}
+.nav-links .active{color:var(--mhn-purple-700)}
+.btn-portal{background:var(--mhn-purple-700);color:#fff !important;padding:9px 20px;border-radius:999px;font-size:15px !important;transition:background 0.15s !important}
+.btn-portal:hover{background:var(--mhn-purple-900) !important}
+.btn-donate{background:var(--mhn-warm-700,#B5824A);color:#fff !important;padding:9px 20px;border-radius:999px;font-size:15px !important;transition:background 0.15s !important}
+.btn-donate:hover{background:#85571F !important}
+.lang-icon{display:flex;align-items:center;color:var(--mhn-ink-soft) !important}
+.lang-icon svg{width:18px;height:18px}
+
+/* HERO */
+.careers-hero{background:linear-gradient(135deg,#3D1F48 0%,#5E376C 50%,#7A4A8E 100%);padding:72px 48px 64px;text-align:center;position:relative;overflow:hidden}
+.careers-hero::before{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");pointer-events:none}
+.careers-hero .eyebrow{font-size:13px;letter-spacing:0.28em;text-transform:uppercase;color:rgba(255,255,255,0.7);font-weight:700;margin:0 0 16px;position:relative}
+.careers-hero h1{font-family:var(--mhn-font-serif);font-size:54px;color:#fff;margin:0 0 20px;letter-spacing:-0.02em;line-height:1;font-weight:700;position:relative}
+.careers-hero h1 em{font-style:italic;color:#FFD7A8}
+.careers-hero .lede{font-family:var(--mhn-font-serif);font-style:italic;font-size:19px;color:rgba(255,255,255,0.88);margin:0 auto;max-width:680px;line-height:1.6;position:relative}
+@media(max-width:700px){
+  .careers-hero{padding:48px 24px 44px}
+  .careers-hero h1{font-size:36px}
+  .careers-hero .lede{font-size:17px}
+}
+
+/* OPEN POSITIONS */
+.open-positions{max-width:880px;margin:0 auto;padding:56px 48px 72px}
+.section-head{font-size:13px;letter-spacing:0.26em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:700;margin:0 0 10px}
+.section-title{font-family:var(--mhn-font-serif);font-size:28px;color:var(--mhn-purple-700);margin:0 0 32px;letter-spacing:-0.01em;font-weight:700}
+
+/* JOB CARD */
+.job-card{background:#fff;border:1.5px solid var(--mhn-purple-200);border-radius:24px;overflow:hidden;box-shadow:0 8px 32px rgba(94,55,108,0.10)}
+.job-card-header{background:linear-gradient(135deg,#5E376C 0%,#7A4A8E 100%);padding:32px 36px;display:flex;align-items:flex-start;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.job-card-header .jch-left{flex:1;min-width:0}
+.job-card-header .jch-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,0.18);color:#FFD7A8;font-size:12px;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;padding:6px 14px;border-radius:999px;margin-bottom:12px}
+.job-card-header .jch-badge .dot{width:8px;height:8px;border-radius:50%;background:#FFD7A8;animation:pulse-dot 1.4s ease-in-out infinite}
+@keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.6;transform:scale(0.85)}}
+.job-card-header h2{font-family:var(--mhn-font-serif);font-size:30px;color:#fff;margin:0 0 8px;font-weight:700;letter-spacing:-0.01em;line-height:1.1}
+.job-card-header .jch-meta{display:flex;flex-wrap:wrap;gap:18px;margin-top:6px}
+.job-card-header .jch-meta span{display:inline-flex;align-items:center;gap:7px;font-size:14.5px;color:rgba(255,255,255,0.85);font-weight:600}
+.job-card-header .jch-meta .ico{width:15px;height:15px;color:rgba(255,255,255,0.65);flex-shrink:0}
+.job-card-header .jch-openings{flex-shrink:0;background:rgba(255,255,255,0.14);border:1.5px solid rgba(255,255,255,0.28);border-radius:16px;padding:18px 22px;text-align:center;backdrop-filter:blur(4px)}
+.job-card-header .jch-openings .open-num{font-family:var(--mhn-font-serif);font-size:38px;font-weight:700;color:#FFD7A8;line-height:1}
+.job-card-header .jch-openings .open-lbl{font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.75);font-weight:700;margin-top:4px}
+
+.job-card-body{padding:36px 36px 32px;display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.job-section h3{font-family:var(--mhn-font-sans);font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:800;margin:0 0 14px}
+.job-section ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+.job-section ul li{display:flex;align-items:flex-start;gap:10px;font-size:15px;line-height:1.5;color:var(--mhn-ink)}
+.job-section ul li::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--mhn-purple-400,#9B6DAD);margin-top:6px;flex-shrink:0}
+.job-section.benefits ul li::before{background:var(--mhn-warm-500,#C49A5A)}
+
+.job-card-footer{padding:24px 36px 32px;border-top:1px solid var(--mhn-line);background:var(--mhn-paper-alt,#FAF6F0);display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.jcf-how{flex:1;min-width:0}
+.jcf-how .jcf-eyebrow{font-size:11.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--mhn-ink-mute);font-weight:700;margin-bottom:6px}
+.jcf-how .jcf-text{font-size:15px;line-height:1.55;color:var(--mhn-ink-soft)}
+.jcf-how .jcf-text a{color:var(--mhn-purple-700);font-weight:700;text-decoration:none}
+.jcf-how .jcf-text a:hover{text-decoration:underline}
+.jcf-deadline{font-size:14px;font-weight:700;color:var(--mhn-warm-700,#B5824A);display:flex;align-items:center;gap:7px;white-space:nowrap}
+.jcf-deadline .ico{width:15px;height:15px}
+.apply-btn{display:inline-flex;align-items:center;gap:8px;background:var(--mhn-purple-700);color:#fff;text-decoration:none;padding:14px 28px;border-radius:999px;font-weight:800;font-size:15.5px;letter-spacing:0.04em;text-transform:uppercase;box-shadow:0 6px 20px rgba(94,55,108,0.28);transition:background 0.15s,transform 0.12s,box-shadow 0.12s;white-space:nowrap}
+.apply-btn:hover{background:var(--mhn-purple-900);transform:translateY(-2px);box-shadow:0 10px 28px rgba(94,55,108,0.36)}
+.apply-btn .ico{width:16px;height:16px}
+
+/* NO POSITIONS CTA */
+.no-match{background:var(--mhn-purple-50);border:1px solid var(--mhn-purple-200);border-radius:16px;padding:28px 32px;text-align:center;margin-top:28px}
+.no-match p{font-family:var(--mhn-font-serif);font-style:italic;color:var(--mhn-ink-soft);margin:0 0 14px;font-size:16px;line-height:1.55}
+.no-match a{color:var(--mhn-purple-700);font-weight:700;text-decoration:none}
+.no-match a:hover{text-decoration:underline}
+
+@media(max-width:760px){
+  .open-positions{padding:36px 20px 56px}
+  .job-card-header{padding:24px 22px}
+  .job-card-header h2{font-size:24px}
+  .job-card-header .jch-openings{display:none}
+  .job-card-body{grid-template-columns:1fr;gap:22px;padding:24px 22px}
+  .job-card-footer{padding:20px 22px 24px;flex-direction:column;align-items:flex-start;gap:16px}
+  .apply-btn{width:100%;justify-content:center}
+}
+
+/* FOOTER */
+footer{background:var(--mhn-purple-900);color:#D4BADD;padding:64px 48px 32px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.foot-brand{display:flex;flex-direction:column;gap:12px}
+.foot-brand .logo{font-family:var(--mhn-font-serif);font-size:21px;color:#fff;font-weight:700}
+.foot-brand p{font-size:16px;line-height:1.6;color:#B8A0C0;margin:0;max-width:300px}
+.foot-col h5{font-family:var(--mhn-font-sans);font-size:16px;letter-spacing:0.18em;text-transform:uppercase;color:#fff;margin:0 0 14px;font-weight:700}
+.foot-col a{display:block;font-size:16px;color:#B8A0C0;text-decoration:none;margin-bottom:8px}
+.foot-col a:hover{color:#fff}
+.foot-btm{padding-top:24px;border-top:1px solid rgba(212,186,221,0.18);display:flex;justify-content:space-between;font-size:16px;color:#845995;letter-spacing:0.04em}
+@media(max-width:900px){
+  .nav{padding:16px 20px}
+  .foot-grid{grid-template-columns:1fr 1fr;gap:32px}
+  footer{padding:40px 24px 24px}
+}
+@media(max-width:560px){
+  .foot-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body data-screen-label="Careers">
+
+<!-- ANIMATED SIGMA COHORT BANNER -->
+<style>
+.july-banner{position:relative;background:linear-gradient(90deg,#5E376C 0%,#7A4A8E 35%,#B5824A 70%,#5E376C 100%);background-size:200% 100%;color:#fff;overflow:hidden;border-bottom:2px solid #FFD7A8;animation:juneBG 14s ease-in-out infinite}
+.july-banner-track{display:flex;gap:54px;align-items:center;white-space:nowrap;padding:11px 0;animation:julyScroll 28s linear infinite;will-change:transform}
+.july-banner-track .item{display:inline-flex;align-items:center;gap:12px;font-family:var(--mhn-font-sans);font-weight:700;font-size:15.5px;letter-spacing:0.04em}
+.july-banner-track .pulse{display:inline-block;width:10px;height:10px;border-radius:50%;background:#FFD7A8;box-shadow:0 0 0 0 rgba(255,215,168,0.7);animation:juneBlink 1.4s ease-in-out infinite}
+.july-banner-track em{font-family:var(--mhn-font-serif);font-style:italic;font-weight:400;color:#FFE5C4;font-size:16px;letter-spacing:0.01em}
+.july-banner-track .learn-more{display:inline-flex;align-items:center;gap:6px;background:#FFD7A8;color:#5E376C;text-decoration:none;padding:5px 14px;border-radius:999px;font-weight:800;font-size:14px;letter-spacing:0.06em;text-transform:uppercase;box-shadow:0 2px 8px rgba(0,0,0,0.15);transition:transform 0.15s,box-shadow 0.15s}
+.july-banner-track .learn-more:hover{transform:translateY(-1px) scale(1.04);box-shadow:0 4px 12px rgba(0,0,0,0.25);background:#FFE5C4}
+.july-banner-track .apply-now{display:inline-flex;align-items:center;gap:6px;background:#fff;color:#5E376C;text-decoration:none;padding:5px 14px;border-radius:999px;font-weight:800;font-size:14px;letter-spacing:0.06em;text-transform:uppercase;box-shadow:0 2px 8px rgba(0,0,0,0.15);transition:transform 0.15s}
+.july-banner-track .apply-now:hover{transform:translateY(-1px) scale(1.04);background:#FFE5C4}
+.july-banner:hover .july-banner-track{animation-play-state:paused}
+@keyframes julyScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@keyframes juneBG{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+@keyframes juneBlink{0%,100%{box-shadow:0 0 0 0 rgba(255,215,168,0.7);transform:scale(1)}50%{box-shadow:0 0 0 8px rgba(255,215,168,0);transform:scale(1.15)}}
+@media (prefers-reduced-motion:reduce){.july-banner{animation:none}.july-banner-track{animation:none;justify-content:center;flex-wrap:wrap;white-space:normal}.july-banner-track .pulse{animation:none}}
+@media (max-width:700px){.july-banner-track{gap:32px;padding:9px 0;font-size:14px}.july-banner-track .item{font-size:14px}}
+</style>
+<div class="july-banner" role="region" aria-label="October 2026 cohort announcement">
+  <div class="july-banner-track" aria-hidden="false">
+    <span class="item"><span class="pulse"></span><strong>Sigma Cohort</strong> <em>&middot;</em> Birth Doula Training <strong>now open</strong></span>
+    <span class="item"><span class="pulse"></span><strong>Now accepting clients due September 2026 &amp; beyond</strong></span>
+    <span class="item">Full &amp; partial scholarships available &middot; apply by Sep 26</span>
+    <span class="item"><a class="learn-more" href="cohort.html">View class details</a></span>
+    <span class="item"><a class="apply-now" href="cohort.html#apply">Apply Now</a></span>
+    <span class="item" aria-hidden="true"><span class="pulse"></span><strong>Sigma Cohort</strong> <em>&middot;</em> Birth Doula Training <strong>now open</strong></span>
+    <span class="item" aria-hidden="true"><span class="pulse"></span><strong>Now accepting clients due September 2026 &amp; beyond</strong></span>
+    <span class="item" aria-hidden="true">Full &amp; partial scholarships available &middot; apply by Sep 26</span>
+    <span class="item" aria-hidden="true"><a class="learn-more" href="cohort.html">View class details</a></span>
+    <span class="item" aria-hidden="true"><a class="apply-now" href="cohort.html#apply">Apply Now</a></span>
+  </div>
+</div>
+
+<div class="page">
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html" class="brand">
+    <div class="seal"><img src="./assets/logo-seal.png" alt="Mary's Hands Network logo"></div>
+    <div>
+      <div class="name">Mary's Hands Network</div>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="about.html">About</a>
+    <a href="for-mom.html">For Families</a>
+    <a href="doula-training.html">For Doulas</a>
+    <a href="store.html">Store</a>
+    <a href="tienda.html" class="lang-icon" title="Español" aria-label="Ver en español"><i data-lucide="globe"></i></a>
+    <a href="portal.html" class="btn-portal">Doula Portal</a>
+    <a href="donate.html" class="btn-donate">Donate</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="careers-hero">
+  <div class="eyebrow">Mary's Hands Network · Careers</div>
+  <h1>We're <em>hiring.</em></h1>
+  <p class="lede">Join a team of passionate birth workers changing maternal health outcomes in Louisiana. Every role at MHN is a front-line role.</p>
+</section>
+
+<!-- OPEN POSITIONS -->
+<section class="open-positions">
+  <div class="section-head">Open Positions</div>
+  <div class="section-title">2 positions available right now.</div>
+
+  <!-- NETWORK DOULA JOB CARD -->
+  <div class="job-card">
+
+    <div class="job-card-header">
+      <div class="jch-left">
+        <div class="jch-badge"><span class="dot"></span>Now Hiring</div>
+        <h2>Network Doula</h2>
+        <div class="jch-meta">
+          <span><i class="ico" data-lucide="map-pin"></i>Louisiana</span>
+          <span><i class="ico" data-lucide="clock"></i>Part-time &middot; On-call</span>
+          <span><i class="ico" data-lucide="dollar-sign"></i>$12.50&ndash;$15.00 / hour</span>
+        </div>
+      </div>
+      <div class="jch-openings">
+        <div class="open-num">2</div>
+        <div class="open-lbl">Openings</div>
+      </div>
+    </div>
+
+    <div class="job-card-body">
+
+      <div style="grid-column:1 / -1;padding-bottom:4px">
+        <p style="font-family:var(--mhn-font-serif);font-style:italic;font-size:16.5px;color:var(--mhn-ink-soft);margin:0;line-height:1.6">Are you passionate about maternal health and birth equity? Join our team as a Network Doula, carrying your own client caseload, leading onboarding, and providing hands-on support to families across Louisiana.</p>
+      </div>
+
+      <div class="job-section">
+        <h3>General Requirements</h3>
+        <ul>
+          <li>Minimum 1 year of experience in customer service, client coordination, or case management</li>
+          <li>Reliable transportation and valid driver&rsquo;s license</li>
+          <li>Availability for on-call coverage, including evenings and weekends</li>
+          <li>Must pass background check and drug screen</li>
+          <li>Bilingual (English/Spanish) strongly preferred</li>
+        </ul>
+      </div>
+
+      <div class="job-section benefits">
+        <h3>Benefits</h3>
+        <ul>
+          <li>$12.50&ndash;$15.00 / hour</li>
+          <li>Hands-on training &amp; mentorship</li>
+          <li>Growth into childbirth education &amp; lactation support</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="job-card-footer">
+      <div class="jcf-how">
+        <div class="jcf-eyebrow">How to Apply</div>
+        <p class="jcf-text">Submit the application form below, or send your resume and cover letter to <a href="mailto:info@mhndoula.com">info@mhndoula.com</a>.</p>
+        <div class="jcf-deadline"><i class="ico" data-lucide="calendar"></i>Application deadline: August 24, 2026</div>
+      </div>
+      <a class="apply-btn" href="https://forms.monday.com/forms/088d12912241e64559d650989b277d0e?r=use1" target="_blank" rel="noopener">
+        Apply Now <i class="ico" data-lucide="arrow-right"></i>
+      </a>
+    </div>
+
+  </div><!-- /job-card -->
+
+  <div class="no-match">
+    <p>Don&rsquo;t see a fit right now? We&rsquo;re always growing. Send your resume to <a href="mailto:info@mhndoula.com">info@mhndoula.com</a> and we&rsquo;ll keep you in mind for future openings.</p>
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <div class="logo">Mary's Hands Network</div>
+      <p>A Louisiana 501(c)(3) nonprofit · EIN 92-2430838. 451 E. Airport Avenue, Ste. A, Baton Rouge, LA 70806.</p>
+      <p style="font-family:var(--mhn-font-serif);font-style:italic;color:#D4BADD">info@mhndoula.com · (225) 892-4906</p>
+    </div>
+    <div class="foot-col">
+      <h5>For Families</h5>
+      <a href="for-mom.html">For Families</a>
+      <a href="hotline.html">Doula Hotline</a>
+      <a href="birth-vision.html">Birth Vision Guide</a>
+      <a href="bereavement.html">Loss &amp; Bereavement</a>
+    </div>
+    <div class="foot-col">
+      <h5>For Doulas</h5>
+      <a href="doula-training.html">Education &amp; Training</a>
+      <a href="cohort.html">Next Cohort</a>
+      <a href="volunteer.html">Volunteer with MHN</a>
+    </div>
+    <div class="foot-col">
+      <h5>About</h5>
+      <a href="about.html">Our Mission</a>
+      <a href="store.html">Store</a>
+      <a href="community-partners.html">Community Partners</a>
+      <a href="contact.html">Contact</a>
+      <a href="gala.html">Gala</a>
+      <a href="careers.html">Careers</a>
+    </div>
+  </div>
+  <div class="foot-btm">
+    <span>&copy; 2026 Mary's Hands Network · All Rights Reserved</span>
+    <span>Every Birth Deserves a Doula.</span>
+  </div>
+</footer>
+
+</div><!-- /page -->
+<script>lucide.createIcons();</script>
+</body>
+</html>
