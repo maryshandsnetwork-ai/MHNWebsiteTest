@@ -394,7 +394,7 @@
 </div>
 <!-- BOARD -->
 <div style="margin:8px 0 18px;font-family:var(--mhn-font-sans);font-size:20px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--mhn-warm-700);text-align:center;padding-top:8px;border-top:1.5px solid var(--mhn-purple-200);max-width:280px;margin-left:auto;margin-right:auto">Board of Directors</div>
-<div class="people-grid" id="board-grid" style="display:flex;flex-wrap:wrap;justify-content:center;gap:18px">
+<div class="people-grid" id="board-grid" style="display:grid;grid-template-columns:repeat(6,1fr);gap:18px">
 
 <div class="person-card" style="background:#fff;border:1px solid var(--mhn-line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column">
 <div style="aspect-ratio:1/1;background:var(--mhn-purple-50);background-image:url('./assets/photos/board-carol-patin.jpg');background-size:cover;background-position:center"></div>
@@ -448,9 +448,11 @@
 <style>
 @media (max-width:900px){.people-grid{grid-template-columns:repeat(2,1fr) !important}}
 @media (max-width:560px){.people-grid{grid-template-columns:1fr !important}}
-#board-grid .person-card{flex:0 0 calc(33.333% - 12px);max-width:calc(33.333% - 12px)}
-@media(max-width:900px){#board-grid .person-card{flex:0 0 calc(50% - 9px);max-width:calc(50% - 9px)}}
-@media(max-width:560px){#board-grid .person-card{flex:0 0 100%;max-width:100%}}
+#board-grid .person-card{grid-column:span 2}
+#board-grid>:nth-child(4){grid-column:2/4}
+#board-grid>:nth-child(5){grid-column:4/6}
+@media(max-width:900px){#board-grid{grid-template-columns:repeat(4,1fr) !important}#board-grid>:nth-child(4),#board-grid>:nth-child(5){grid-column:span 2}}
+@media(max-width:560px){#board-grid{grid-template-columns:repeat(2,1fr) !important}}
 .person-card{transition:transform 0.15s, box-shadow 0.15s}
 .person-card:hover{transform:translateY(-2px);box-shadow:var(--mhn-shadow-md)}
 </style>
