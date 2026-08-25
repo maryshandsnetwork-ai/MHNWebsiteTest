@@ -1045,5 +1045,21 @@ www.maryshandsnetwork.org">
   if (params.get('play') === '1' || params.get('autoplay') === '1') play();
 })();
 </script>
+
+<script>
+(function(){
+  function fixLayout(){
+    var stage=document.querySelector('.deck-stage');
+    var vp=document.querySelector('.deck-viewport');
+    if(!stage||!vp)return;
+    var vw=vp.offsetWidth,vh=vp.offsetHeight;
+    var sc=Math.min(vw/1920,vh/1080);
+    var tx=(vw-1920*sc)/2,ty=(vh-1080*sc)/2;
+    stage.style.transform='translate('+tx+'px,'+ty+'px) scale('+sc+')';
+  }
+  window.addEventListener('load',function(){setTimeout(fixLayout,0);setTimeout(fixLayout,200);});
+  window.addEventListener('resize',fixLayout);
+})();
+</script>
 </body>
 </html>
