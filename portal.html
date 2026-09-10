@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Doula Portal · Mary's Hands Network</title>
+<title>Doula Portal Â· Mary's Hands Network</title>
 <meta name="description" content="Private portal for active MHN volunteer doulas.">
 <link rel="icon" type="image/png" href="./assets/logo-seal.png">
 <link rel="apple-touch-icon" href="./assets/logo-seal.png">
@@ -34,6 +34,15 @@
   @keyframes juneBlink{0%,100%{box-shadow:0 0 0 0 rgba(255,215,168,0.7);transform:scale(1)}50%{box-shadow:0 0 0 8px rgba(255,215,168,0);transform:scale(1.15)}}
   @media (prefers-reduced-motion:reduce){.july-banner{animation:none}.july-banner-track{animation:none;justify-content:center;flex-wrap:wrap;white-space:normal}.july-banner-track .pulse{animation:none}}
   @media (max-width:700px){.july-banner-track{gap:32px;padding:9px 0;font-size:14px}.july-banner-track .item{font-size:14px}}
+
+  .dash-callout{background:#f5f0f8;border:1.5px solid #c9aedd;border-radius:14px;padding:20px 28px;margin:0 0 32px}
+  .dash-callout-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .dash-callout-text{display:flex;flex-direction:column;gap:3px}
+  .dash-callout-text .eyebrow{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#B5824A;margin:0}
+  .dash-callout-text strong{font-size:16px;color:#3a1f4a}
+  .dash-callout-text p{font-size:14px;color:#555;margin:0}
+  .pill-btn{display:inline-flex;align-items:center;gap:6px;background:#5E376C;color:#fff;border-radius:999px;padding:10px 22px;font-weight:700;font-size:14px;text-decoration:none;white-space:nowrap;transition:background .2s}
+  .pill-btn:hover{background:#3a1f4a}
 </style>
 <div class="july-banner" role="region" aria-label="July 2026 cohort announcement">
   <div class="july-banner-track" aria-hidden="false">
@@ -65,7 +74,7 @@
     <a href="for-mom.html">For Families</a>
     <a href="doula-training.html">For Doulas</a>
     <a href="store.html">Store</a>
-    <span class="lang-icon lang-disabled" title="Español — coming soon" aria-disabled="true"><i data-lucide="globe"></i></span>
+    <span class="lang-icon lang-disabled" title="EspaÃ±ol â coming soon" aria-disabled="true"><i data-lucide="globe"></i></span>
     <a href="portal.html" class="btn-portal">Doula Portal</a>
     <a href="donate.html" class="btn-donate">Donate</a>
   </div>
@@ -116,7 +125,19 @@
   <p class="lede">Forms, course access, resources, and the people you can call when you need backup. Everything an active MHN volunteer doula needs to do the work.</p>
 </section>
 
-<!-- QUICK ACTIONS — 5 colored cards linking to leaf pages -->
+<!-- DASHBOARD CALLOUT -->
+<section class="dash-callout">
+  <div class="dash-callout-inner">
+    <div class="dash-callout-text">
+      <div class="eyebrow">New</div>
+      <strong>MHN Web App</strong>
+      <p>Track clients, births, and your schedule in one place.</p>
+    </div>
+    <a class="pill-btn" href="https://www.mhndoula.com/dashboard" target="_blank" rel="noopener">Open Dashboard &rarr;</a>
+  </div>
+</section>
+
+<!-- QUICK ACTIONS â 5 colored cards linking to leaf pages -->
 <section class="actions">
   <div class="acc-section-head"><span class="line"></span>Quick Actions</div>
   <div class="agrid" style="grid-template-columns:repeat(4,1fr)">
@@ -233,7 +254,7 @@
   <p class="t2-sub">Find the person whose work matches your question, then reach them whichever way is easiest. Not sure who to ask? Start with Kerionne. <em>Looking for another doula? That's the <a href="directory.html">Doula Directory</a>.</em></p>
 
   <div class="t2-grid">
-    <!-- Kerionne — primary -->
+    <!-- Kerionne â primary -->
     <div class="t2-card t2-card--primary">
       <span class="t2-badge">Start here</span>
       <div class="t2-role">Volunteer Coordinator</div>
