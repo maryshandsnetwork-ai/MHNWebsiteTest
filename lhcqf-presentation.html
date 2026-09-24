@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mary's Hands Network · Louisiana Health Care Quality Forum</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --font-sans:'Work Sans','Helvetica Neue',Arial,sans-serif;
+  --font-serif:'Libre Baskerville','Georgia',serif;
+  --mhn-purple-50:#F8F5FA; --mhn-purple-200:#D4BADD; --mhn-purple-300:#B8A0C0;
+  --mhn-purple-500:#845995; --mhn-purple-700:#5E376C; --mhn-purple-900:#3F2449;
+  --mhn-warm-50:#FBF5ED; --mhn-warm-300:#EAC79F; --mhn-warm-500:#D4A475; --mhn-warm-700:#B5824A;
+  --mhn-ink:#1F1B24; --mhn-ink-soft:#4A4351; --mhn-ink-mute:#736B7A;
+  --mhn-line:#E8E2EC; --mhn-paper:#FFFFFF; --stage-bg:#2b1c33;
+  --takeaway-bg:#F0FDF4; --takeaway-border:#059669; --warn-bg:#FFFBEB; --warn-border:#D97706;
+  --tip-bg:#F0F7FA; --tip-border:#0D9488;
+}
+*{box-sizing:border-box}
+html,body{width:100%;height:100%;margin:0;overflow:hidden;background:var(--stage-bg);font-family:var(--font-sans);color:var(--mhn-ink)}
+#stage{position:absolute;left:50%;top:50%;width:1920px;height:1080px;transform-origin:0 0}
+.slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;visibility:hidden;opacity:0;pointer-events:none;background:var(--mhn-paper);padding:90px 120px;display:flex;flex-direction:column;transition:opacity .45s ease}
+.slide.active{visibility:visible;opacity:1;pointer-events:auto;z-index:1}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+.slide.active .reveal{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.25s}.d3{transition-delay:.4s}.d4{transition-delay:.55s}.d5{transition-delay:.7s}
+h1,h2,h3{font-family:var(--font-serif);color:var(--mhn-purple-700);font-weight:700;line-height:1.15;letter-spacing:-.01em;margin:0}
+h1{font-size:92px}h2{font-size:62px;margin-bottom:28px}
+.eyebrow{font-family:var(--font-sans);font-size:22px;letter-spacing:.32em;text-transform:uppercase;color:var(--mhn-warm-700);font-weight:700;margin-bottom:28px}
+.statement{font-family:var(--font-serif);font-weight:700;color:var(--mhn-purple-700);font-size:46px;line-height:1.3;max-width:1560px}
+.statement em{font-weight:400;font-style:italic}
+.lede{font-size:30px;line-height:1.5;color:var(--mhn-ink-soft);max-width:1500px}
+.slide-footer{position:absolute;left:120px;right:120px;bottom:40px;display:flex;justify-content:space-between;align-items:center;font-size:18px;color:var(--mhn-ink-mute);letter-spacing:.06em}
+.slide-footer .brand{color:var(--mhn-purple-500);font-weight:700}
+.dark{background:radial-gradient(ellipse at 30% 30%,rgba(181,130,74,.18) 0%,transparent 60%),radial-gradient(ellipse at 70% 70%,rgba(212,186,221,.10) 0%,transparent 55%),linear-gradient(135deg,var(--mhn-purple-700),var(--mhn-purple-900));color:#fff}
+.dark h1,.dark h2,.dark .statement{color:#fff}
+.dark .eyebrow{color:var(--mhn-warm-300)}
+.dark .lede{color:var(--mhn-purple-200)}
+.dark .slide-footer{color:var(--mhn-purple-300)}.dark .slide-footer .brand{color:var(--mhn-purple-200)}
+
+/* title */
+.slide--title{justify-content:center}
+.slide--title h1{font-size:132px;line-height:1.05;margin:18px 0 30px}
+.slide--title .lede{font-size:40px;margin-bottom:90px;max-width:1500px}
+.slide--title .attribution{font-size:22px;letter-spacing:.16em;text-transform:uppercase;color:var(--mhn-purple-300);line-height:1.8}
+.slide--title .attribution strong{color:#fff;font-weight:600}
+.ornament{color:var(--mhn-warm-500);font-family:var(--font-serif);font-size:42px;margin:6px 0 30px;opacity:.85}
+
+/* hero stat */
+.slide--hero{justify-content:center;align-items:center;text-align:center;padding-left:160px;padding-right:160px}
+.hero-number{font-family:var(--font-serif);font-size:340px;font-weight:700;color:var(--mhn-purple-700);line-height:.95;letter-spacing:-.05em;margin-bottom:16px}
+.dark .hero-number{color:#fff;text-shadow:0 2px 40px rgba(212,186,221,.35)}
+.hero-unit{font-family:var(--font-serif);font-size:58px;color:var(--mhn-purple-500);font-style:italic;margin-bottom:50px}
+.dark .hero-unit{color:var(--mhn-purple-200)}
+.hero-explanation{font-family:var(--font-serif);font-size:40px;line-height:1.4;max-width:1450px;font-weight:700;color:var(--mhn-ink)}
+.dark .hero-explanation{color:rgba(255,255,255,.94)}
+.hero-citation{font-size:20px;letter-spacing:.16em;text-transform:uppercase;color:var(--mhn-ink-mute);margin-top:40px}
+.dark .hero-citation{color:var(--mhn-purple-300)}
+
+/* stat grid */
+.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:36px;margin-top:40px}
+.stat{background:var(--mhn-purple-50);border-top:6px solid var(--mhn-purple-700);padding:44px 40px 40px}
+.stat .n{font-family:var(--font-serif);font-size:112px;font-weight:700;color:var(--mhn-purple-700);line-height:1;letter-spacing:-.03em}
+.stat .l{font-size:26px;font-weight:600;color:var(--mhn-ink);margin-top:18px}
+.stat .s{font-size:21px;color:var(--mhn-ink-mute);margin-top:6px;line-height:1.4}
+
+/* outcomes compare */
+.compare{display:grid;grid-template-columns:repeat(3,1fr);gap:44px;margin-top:40px;flex:1;align-content:center}
+.metric{background:var(--mhn-purple-50);padding:56px 52px 52px;border-radius:6px}
+.metric h3{font-size:42px;margin-bottom:36px;color:var(--mhn-ink)}
+.bars{display:flex;flex-direction:column;gap:28px}
+.bar{display:grid;grid-template-columns:150px 1fr 130px;align-items:center;gap:18px;font-size:28px;color:var(--mhn-ink-soft)}
+.bar .track{height:44px;background:var(--mhn-line);border-radius:4px;overflow:hidden}
+.bar .fill{height:100%;background:var(--mhn-ink-mute);border-radius:4px}
+.bar.mhn{font-weight:700;color:var(--mhn-purple-700)}
+.bar.mhn .fill{background:var(--mhn-purple-700)}
+.bar .v{text-align:right;font-family:var(--font-serif);font-size:38px}
+.metric .delta{margin-top:36px;font-family:var(--font-serif);font-size:34px;font-weight:700;color:var(--takeaway-border)}
+
+/* table */
+table.data{width:100%;border-collapse:collapse;margin-top:20px;font-size:25px}
+table.data th{background:var(--mhn-purple-700);color:#fff;text-align:left;padding:13px 26px;font-weight:600;font-size:22px;letter-spacing:.06em;text-transform:uppercase}
+table.data td{padding:11px 26px;border-bottom:1px solid var(--mhn-line);color:var(--mhn-ink-soft)}
+table.data td.m{font-weight:600;color:var(--mhn-ink)}
+table.data td.doula{font-family:var(--font-serif);font-weight:700;color:var(--mhn-purple-700);font-size:30px}
+table.data td.good{color:var(--takeaway-border);font-weight:700}
+table.data td.flag{color:var(--warn-border);font-weight:700}
+.note{margin-top:24px;font-size:22px;color:var(--mhn-ink-mute);line-height:1.5;max-width:1680px}
+
+/* cost */
+.cost-row{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:30px;flex:1;align-content:center}
+.cost{background:rgba(255,255,255,.08);border:1px solid rgba(212,186,221,.35);padding:52px 56px;border-radius:8px}
+.cost .n{font-family:var(--font-serif);font-size:128px;font-weight:700;color:#fff;line-height:1;letter-spacing:-.03em}
+.cost .l{font-size:30px;color:var(--mhn-warm-300);font-weight:600;margin-top:16px}
+.cost .s{font-size:23px;color:var(--mhn-purple-200);margin-top:14px;line-height:1.5}
+.callout{margin-top:44px;background:rgba(255,255,255,.10);border-left:8px solid var(--mhn-warm-500);padding:34px 44px;font-family:var(--font-serif);font-size:36px;line-height:1.4;color:#fff}
+
+/* gap */
+.gap-list{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:40px;flex:1;align-content:center}
+.gap{background:var(--warn-bg);border-left:8px solid var(--warn-border);padding:40px 44px}
+.gap h3{font-size:34px;color:var(--mhn-ink);margin-bottom:14px}
+.gap p{font-size:26px;line-height:1.5;color:var(--mhn-ink-soft);margin:0}
+
+/* ask */
+.ask-num{font-family:var(--font-serif);font-size:26px;letter-spacing:.24em;text-transform:uppercase;color:var(--mhn-warm-700);font-weight:700;margin-bottom:26px}
+.ask-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:80px;margin-top:30px;align-items:center;flex:1}
+.ask-grid .what{font-family:var(--font-serif);font-size:48px;line-height:1.4;color:var(--mhn-ink)}
+.ask-grid .what strong{color:var(--mhn-purple-700)}
+.unlocks h3{font-size:24px;letter-spacing:.2em;text-transform:uppercase;color:var(--mhn-ink-mute);font-family:var(--font-sans);font-weight:700;margin-bottom:22px}
+.unlocks ul{list-style:none;margin:0;padding:0}
+.unlocks li{font-size:31px;line-height:1.45;color:var(--mhn-ink-soft);padding:26px 0 26px 48px;border-top:1px solid var(--mhn-line);position:relative}
+.unlocks li::before{content:"";position:absolute;left:8px;top:42px;width:14px;height:14px;border-radius:50%;background:var(--mhn-purple-500)}
+.takeaway{margin-top:40px;margin-bottom:30px;background:var(--takeaway-bg);border-left:8px solid var(--takeaway-border);padding:28px 40px;font-size:28px;line-height:1.45;color:var(--mhn-ink)}
+
+/* summary */
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:40px;flex:1;align-content:center}
+.three .card{background:rgba(255,255,255,.08);border:1px solid rgba(212,186,221,.35);padding:48px 44px;border-radius:8px;display:flex;flex-direction:column}
+.three .k{font-family:var(--font-serif);font-size:88px;color:var(--mhn-warm-300);line-height:1;margin-bottom:22px}
+.three h3{color:#fff;font-size:36px;margin-bottom:18px}
+.three p{font-size:26px;line-height:1.5;color:var(--mhn-purple-200);margin:0}
+
+/* closing */
+.slide--closing{align-items:center;justify-content:center;text-align:center;padding:100px 120px}
+.slide--closing h1{font-size:96px;margin-bottom:36px;line-height:1.1}
+.quote-lead{font-family:var(--font-serif);font-style:italic;font-size:44px;color:var(--mhn-purple-200);margin-bottom:70px;max-width:1500px;line-height:1.4}
+.contact-block{border-top:1px solid rgba(212,186,221,.4);padding-top:46px;margin-top:20px}
+.contact-name{font-family:var(--font-serif);font-size:36px;color:#fff;margin-bottom:10px}
+.contact-title{font-size:20px;letter-spacing:.24em;text-transform:uppercase;color:var(--mhn-purple-200);margin-bottom:22px}
+.contact-details{font-size:22px;color:var(--mhn-purple-200);line-height:1.6}
+
+/* nav */
+#nav{position:fixed;right:22px;top:18px;z-index:10;font-family:var(--font-sans);font-size:14px;color:rgba(255,255,255,.55);display:flex;gap:14px;align-items:center;user-select:none}
+#nav button{background:rgba(255,255,255,.12);border:0;color:#fff;width:36px;height:36px;border-radius:50%;font-size:18px;cursor:pointer}
+#nav button:hover{background:rgba(255,255,255,.25)}
+
+.nicu-cost{display:grid;grid-template-columns:1fr 1fr 1.2fr;gap:28px;margin-top:22px}
+.nc{background:var(--mhn-purple-50);border-top:6px solid var(--mhn-purple-300);padding:18px 28px 16px}
+.nc.hi{border-top-color:var(--takeaway-border);background:var(--takeaway-bg)}
+.nc .n{font-family:var(--font-serif);font-size:56px;font-weight:700;color:var(--mhn-purple-700);line-height:1}
+.nc.hi .n{color:var(--takeaway-border)}
+.nc .l{font-size:24px;font-weight:600;color:var(--mhn-ink);margin-top:10px}
+.nc .s{font-size:19px;color:var(--mhn-ink-mute);margin-top:6px;line-height:1.35}
+</style>
+</head>
+<body>
+<div id="stage">
+
+<!-- 1 TITLE -->
+<section class="slide slide--title dark">
+  <div class="eyebrow reveal">Mary's Hands Network &middot; for the Louisiana Health Care Quality Forum</div>
+  <h1 class="reveal d1">Doula Care,<br>On the Record</h1>
+    <p class="lede reveal d2">Louisiana now pays for doula care. Nobody can see it yet. Here is what three years of tracked births show, and how we can measure it together.</p>
+  <div class="attribution reveal d3"><strong>Madeline Harris LeBlanc</strong>, MHA, RNC-OB, IBCLC, IAT-BD/PD<br>Founder &amp; Executive Director, Mary's Hands Network &middot; September 24, 2026</div>
+</section>
+
+<!-- 2 LOUISIANA REALITY -->
+<section class="slide slide--hero dark">
+  <div class="eyebrow reveal">Louisiana's reality</div>
+  <div class="hero-number reveal d1">58.1</div>
+  <div class="hero-unit reveal d2">maternal deaths per 100,000 live births</div>
+  <div class="hero-explanation reveal d3">More than twice the national rate. A March of Dimes grade of F. And Black mothers face three to four times the pregnancy-related death rate of white mothers.</div>
+  <div class="hero-citation reveal d4">March of Dimes &middot; CDC Pregnancy Mortality Surveillance System</div>
+</section>
+
+<!-- 2b NEWBORNS -->
+<section class="slide">
+  <div class="eyebrow reveal">Louisiana's reality, continued</div>
+  <h2 class="reveal d1">It does not stop with mothers.</h2>
+  <p class="lede reveal d2">7,454 Louisiana babies were born preterm in 2024. Behind every maternal death are far more mothers and newborns who got sick, went to the NICU, or had surgery they might not have needed.</p>
+  <div class="stat-grid reveal d3">
+    <div class="stat"><div class="n">14.0%</div><div class="l">Preterm birth</div><div class="s">US 10.4%. Louisiana ranks 51st of 52. March of Dimes grade: F</div></div>
+    <div class="stat"><div class="n">7.1</div><div class="l">Infant deaths per 1,000 births</div><div class="s">US 5.6. Louisiana ranks 46th of 52</div></div>
+    <div class="stat"><div class="n">12%</div><div class="l">NICU admission</div><div class="s">US 9%. One in eight Louisiana newborns starts life in intensive care</div></div>
+    <div class="stat"><div class="n">37%</div><div class="l">Cesarean birth</div><div class="s">US 32%. Major surgery for more than one in three Louisiana mothers</div></div>
+  </div>
+  <div class="slide-footer"><span class="brand">Mary's Hands Network</span><span>Sources: March of Dimes 2025 Report Card &middot; CDC &middot; Louisiana Department of Health</span></div>
+</section>
+
+<!-- 3 WHO WE ARE -->
+<section class="slide">
+  <div class="eyebrow reveal">Who we are</div>
+  <h2 class="reveal d1">Every birth deserves a doula.</h2>
+  <p class="lede reveal d2">Mary's Hands Network is a Louisiana 501(c)(3) founded in 2023. We recruit, train and match community doulas with families across Southeast Louisiana at no cost to the family, and we track every birth under an IRB protocol.</p>
+  <div class="stat-grid reveal d3">
+    <div class="stat"><div class="n">276</div><div class="l">Doulas trained</div><div class="s">Across 19 ICEA-approved cohorts</div></div>
+    <div class="stat"><div class="n">9,504</div><div class="l">Volunteer hours</div><div class="s">Given to families in need</div></div>
+    <div class="stat"><div class="n">202</div><div class="l">Births attended</div><div class="s">IRB-tracked outcomes, Protocol #2025-001</div></div>
+    <div class="stat"><div class="n">206</div><div class="l">Babies loved</div><div class="s">Including four sets of twins</div></div>
+  </div>
+  <div class="slide-footer"><span class="brand">Mary's Hands Network</span><span>Baton Rouge &middot; New Orleans &middot; Lafayette</span></div>
+</section>
+
+<!-- 4 OUTCOMES -->
+<section class="slide">
+  <div class="eyebrow reveal">Birth outcomes, May 2023 to May 2026</div>
+  <h2 class="reveal d1">Better than Louisiana. Better than the nation.</h2>
+  <div class="compare reveal d2">
+    <div class="metric">
+      <h3>Cesarean rate</h3>
+      <div class="bars">
+        <div class="bar"><span>Louisiana</span><div class="track"><div class="fill" style="width:92%"></div></div><span class="v">37%</span></div>
+        <div class="bar"><span>National</span><div class="track"><div class="fill" style="width:80%"></div></div><span class="v">32%</span></div>
+        <div class="bar mhn"><span>MHN</span><div class="track"><div class="fill" style="width:48%"></div></div><span class="v">&lt;20%</span></div>
+      </div>
+      <div class="delta">Roughly half the state rate</div>
+    </div>
+    <div class="metric">
+      <h3>Preterm birth</h3>
+      <div class="bars">
+        <div class="bar"><span>Louisiana</span><div class="track"><div class="fill" style="width:92%"></div></div><span class="v">13%</span></div>
+        <div class="bar"><span>National</span><div class="track"><div class="fill" style="width:71%"></div></div><span class="v">10%</span></div>
+        <div class="bar mhn"><span>MHN</span><div class="track"><div class="fill" style="width:28%"></div></div><span class="v">4%</span></div>
+      </div>
+      <div class="delta">71% fewer than Louisiana</div>
+    </div>
+    <div class="metric">
+      <h3>NICU admission</h3>
+      <div class="bars">
+        <div class="bar"><span>Louisiana</span><div class="track"><div class="fill" style="width:92%"></div></div><span class="v">12%</span></div>
+        <div class="bar"><span>National</span><div class="track"><div class="fill" style="width:69%"></div></div><span class="v">9%</span></div>
+        <div class="bar mhn"><span>MHN</span><div class="track"><div class="fill" style="width:31%"></div></div><span class="v">~4%</span></div>
+      </div>
+      <div class="delta">67% fewer than Louisiana</div>
+    </div>
+  </div>
+  <p class="note reveal d3">Sources: MHN IRB Protocol #2025-001 &middot; Louisiana Department of Health &middot; March of Dimes &middot; CDC.</p>
+  <div class="slide-footer"><span class="brand">Mary's Hands Network</span><span>Doula-supported births, tracked outcomes</span></div>
+</section>
+
+<!-- 5 PAYER VIEW -->
+<section class="slide">
+  <div class="eyebrow reveal">The payer's view</div>
+  <h2 class="reveal d1">A Medicaid plan ran its own numbers.</h2>
+  <p class="lede reveal d2" style="font-size:26px;margin:0 0 4px">Louisiana Healthcare Connections compared members who received Mary's Hands doula care with members referred but never seen. Same plan, same referral pool.</p>
+  <table class="data reveal d3">
+    <thead><tr><th>Metric</th><th>With doula (44 deliveries)</th><th>No doula (64 deliveries)</th><th>Difference</th></tr></thead>
+    <tbody>
+      <tr><td class="m">Preterm birth</td><td class="doula">4.5%</td><td>10.9%</td><td class="good">6.4 points lower</td></tr>
+      <tr><td class="m">Low birth weight</td><td class="doula">18.2%</td><td>25.0%</td><td class="good">6.8 points lower</td></tr>
+      <tr><td class="m">NICU admission</td><td class="doula">18.2%</td><td>25.0%</td><td class="good">6.8 points lower</td></tr>
+      <tr><td class="m">NICU length of stay</td><td class="doula">10.4 days</td><td>23.6 days</td><td class="good">13.2 days shorter</td></tr>
+      <tr><td class="m">Postpartum follow-up visits</td><td class="doula">9</td><td>0</td><td class="good">9 more</td></tr>
+    </tbody>
+  </table>
+  <div class="nicu-cost reveal d4">
+    <div class="nc"><div class="n">~176</div><div class="l">NICU days avoided</div><div class="s">across 44 doula-supported deliveries vs. the no-doula rates</div></div>
+    <div class="nc"><div class="n">$3,000</div><div class="l">average cost of one NICU day</div><div class="s">conservative national estimate</div></div>
+    <div class="nc hi"><div class="n">~$529K</div><div class="l">estimated NICU savings</div><div class="s">about $12,000 per doula-supported birth, from NICU care alone</div></div>
+  </div>
+  <div class="slide-footer"><span class="brand" style="margin-right:40px;white-space:nowrap">Mary's Hands Network</span><span>Source: Louisiana Healthcare Connections internal analysis &middot; NICU day cost is an approximate national average; savings are MHN's estimate from the plan's rates</span></div>
+</section>
+
+<!-- 6 COST -->
+<section class="slide dark">
+  <div class="eyebrow reveal">What it is worth</div>
+  <h2 class="reveal d1">Fewer cesareans. Fewer NICU days. Real dollars.</h2>
+  <div class="cost-row reveal d2">
+    <div class="cost"><div class="n">$988K</div><div class="l">Louisiana health care costs avoided</div><div class="s">Three years of Mary's Hands care. About 25 avoided cesareans at $13,000 and about 9 avoided NICU admissions at $73,700.</div></div>
+    <div class="cost"><div class="n">$336.6M</div><div class="l">Annual savings potential, statewide</div><div class="s">Roughly 59,000 Louisiana births a year at MHN's demonstrated cesarean and NICU differentials.</div></div>
+  </div>
+  <div class="slide-footer"><span class="brand">Mary's Hands Network</span><span>Sources: HCUP/AHRQ &middot; March of Dimes &middot; Louisiana Vital Records &middot; MHN IRB Protocol #2025-001</span></div>
+</section>
+
+<!-- 7 THE GAP -->
+<section class="slide">
+  <div class="eyebrow reveal">The gap</div>
+  <h2 class="reveal d1">The benefit exists. The evidence base does not.</h2>
+  <p class="lede reveal d2">Louisiana Medicaid began enrolling doulas as providers in December 2025 under Act 228. For the first time the state is paying for doula care at scale, and it has no way to see it.</p>
+  <div class="gap-list reveal d3">
+    <div class="gap"><h3>No field in the chart</h3><p>No Louisiana hospital EHR records whether a doula was at the bedside. The doula is invisible in the delivery record.</p></div>
+    <div class="gap"><h3>No record in the exchange</h3><p>Nothing about doula care flows through LaHIE, so hospitals, plans and LDH cannot link it to outcomes.</p></div>
+    <div class="gap"><h3>No statewide comparison</h3><p>Nobody can compare doula-supported births to all other Louisiana births. Small programs like ours are the only evidence.</p></div>
+  </div>
+  <div class="slide-footer"><span class="brand">Mary's Hands Network</span><span>Where we need your help</span></div>
+</section>
+
+<!-- 8 ASK 1 -->
+<section class="slide">
+  <div class="ask-num reveal">Opportunity one</div>
+  <h2 class="reveal d1">"Doula at bedside" in every Louisiana EHR</h2>
+  <div class="ask-grid reveal d2">
+    <div class="what">One discrete field in the delivery record: <strong>was a doula present at this birth?</strong> Captured at every Louisiana birthing hospital and carried through LaHIE. Small to build. Statewide in reach.</div>
+    <div class="unlocks">
+      <h3>What it unlocks</h3>
+      <ul>
+        <li>Doula-supported births compared against every other birth in the state, not just our 202</li>
+        <li>An evaluation of the Medicaid doula benefit built on the state's own data</li>
+        <li>A doula outcomes registry alongside the registries the Forum already runs</li>
+      </ul>
+    </div>
+  </div>
+  <div class="slide-footer"><span class="brand">Mary's Hands Network</span><span>Opportunity one of three</span></div>
+</section>
+
+<!-- 9 ASK 2 -->
+<section class="slide">
+  <div class="ask-num reveal">Opportunity two</div>
+  <h2 class="reveal d1">Review how we collect and store our data</h2>
+  <div class="ask-grid reveal d2">
+    <div class="what">Three years of IRB-tracked outcomes, built by a small nonprofit. We want your team's eyes on <strong>how we collect it, where we store it, and how to make it registry-ready</strong> before it grows.</div>
+    <div class="unlocks">
+      <h3>What it unlocks</h3>
+      <ul>
+        <li>A dataset that stands up to the scrutiny of a health plan, a hospital or a journal</li>
+        <li>A data model that can plug into LaHIE or a Forum registry later</li>
+        <li>A template other Louisiana doula programs can adopt as the Medicaid benefit grows</li>
+      </ul>
+    </div>
+  </div>
+  <div class="slide-footer"><span class="brand">Mary's Hands Network</span><span>Opportunity two of three</span></div>
+</section>
+
+<!-- 10 ASK 3 -->
+<section class="slide">
+  <div class="ask-num reveal">Opportunity three</div>
+  <h2 class="reveal d1">Bring the impact of doula care to the full Forum</h2>
+  <div class="ask-grid reveal d2">
+    <div class="what">A presentation to the Forum's members and the Employer Coalition on <strong>the cost savings from cesarean and NICU prevention</strong>: the payer's perspective from Louisiana Healthcare Connections, and what those same savings mean for a self-insured employer.</div>
+    <div class="unlocks">
+      <h3>What it unlocks</h3>
+      <ul>
+        <li>Health plans and hospitals see doula care as a quality and cost lever, not a nicety</li>
+        <li>Employers learn that maternity is often their largest claims category and doulas move it</li>
+        <li>New partners and funders for statewide doula access</li>
+      </ul>
+    </div>
+  </div>
+  <div class="slide-footer"><span class="brand">Mary's Hands Network</span><span>Opportunity three of three</span></div>
+</section>
+
+<!-- 11 SUMMARY -->
+<section class="slide dark">
+  <div class="eyebrow reveal">Working together</div>
+  <h2 class="reveal d1">Three ways to start</h2>
+  <div class="three reveal d2">
+    <div class="card"><div class="k">1</div><h3>Doula at bedside</h3><p>A single EHR field, statewide, so Louisiana can finally compare doula-supported births to all others.</p></div>
+    <div class="card"><div class="k">2</div><h3>Review our data</h3><p>Your team's assessment of how we collect and store three years of tracked outcomes.</p></div>
+    <div class="card"><div class="k">3</div><h3>Share the impact</h3><p>Cost savings from cesarean and NICU prevention, presented to the Forum and its employers.</p></div>
+  </div>
+  <div class="slide-footer"><span class="brand">Mary's Hands Network</span><span>Louisiana Health Care Quality Forum &middot; September 2026</span></div>
+</section>
+
+<!-- 12 CLOSING -->
+<section class="slide slide--closing dark">
+  <h1 class="reveal">Thank you.</h1>
+  <p class="quote-lead reveal d1">Doulas don't replace medical care. They make sure no family goes through birth without a hand to hold. Let's make sure Louisiana can see it.</p>
+  <div class="contact-block reveal d2">
+    <div class="contact-name">Madeline Harris LeBlanc, MHA, RNC-OB, IBCLC, IAT-BD/PD</div>
+    <div class="contact-title">Founder &amp; Executive Director, Mary's Hands Network</div>
+    <div class="contact-details">mleblanc@mhndoula.com &middot; (225) 892-4906<br>www.maryshandsnetwork.org</div>
+  </div>
+</section>
+
+</div>
+<div id="nav"><button id="prev" aria-label="Previous">&#8249;</button><span id="counter">1 / 13</span><button id="next" aria-label="Next">&#8250;</button></div>
+
+<script>
+(function(){
+  const slides=[...document.querySelectorAll('.slide')];
+  const stage=document.getElementById('stage');
+  const counter=document.getElementById('counter');
+  let i=0;
+  function fit(){const s=Math.min(innerWidth/1920,innerHeight/1080);stage.style.transform=`translate(${-960*s}px,${-540*s}px) scale(${s})`;}
+  function show(n){i=Math.max(0,Math.min(slides.length-1,n));slides.forEach((s,k)=>s.classList.toggle('active',k===i));counter.textContent=(i+1)+' / '+slides.length;history.replaceState(null,'','#'+(i+1));}
+  addEventListener('resize',fit);fit();
+  const h=parseInt(location.hash.slice(1),10);show(isNaN(h)?0:h-1);
+  addEventListener('keydown',e=>{if(['ArrowRight','ArrowDown','PageDown',' ','Enter'].includes(e.key)){e.preventDefault();show(i+1);}else if(['ArrowLeft','ArrowUp','PageUp','Backspace'].includes(e.key)){e.preventDefault();show(i-1);}else if(e.key==='Home')show(0);else if(e.key==='End')show(slides.length-1);else if(e.key==='f'||e.key==='F'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen();}});
+  document.getElementById('next').onclick=()=>show(i+1);document.getElementById('prev').onclick=()=>show(i-1);
+  stage.addEventListener('click',e=>{if(e.target.closest('#nav'))return;const r=innerWidth;e.clientX>r*0.7?show(i+1):e.clientX<r*0.3?show(i-1):null;});
+  let tx=null;addEventListener('touchstart',e=>tx=e.touches[0].clientX);addEventListener('touchend',e=>{if(tx===null)return;const dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>50)show(dx<0?i+1:i-1);tx=null;});
+})();
+</script>
+</body>
+</html>
