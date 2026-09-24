@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Doula Directory · Mary's Hands Network</title>
+<title>Doula Directory Â· Mary's Hands Network</title>
 <meta name="description" content="Private searchable directory for active MHN volunteer doulas. Members only.">
 <link rel="icon" type="image/png" href="./assets/logo-seal.png">
 <link rel="apple-touch-icon" href="./assets/logo-seal.png">
@@ -23,7 +23,7 @@
   .nav-links{display:flex;gap:28px}
   .nav-links a{text-decoration:none;color:var(--mhn-ink-soft);font-size:18px;font-weight:700}
 
-  /* GATE — same as portal */
+  /* GATE â same as portal */
   #portal-gate{padding:80px 48px 100px;max-width:540px;margin:0 auto;text-align:center}
   #portal-gate .eyebrow{font-size:16px;letter-spacing:0.28em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:700;margin-bottom:14px}
   #portal-gate h1{font-family:var(--mhn-font-serif);font-size:32px;line-height:1.1;color:var(--mhn-purple-700);margin:0 0 12px;letter-spacing:-0.01em;font-weight:700}
@@ -160,7 +160,6 @@
 <div class="july-banner" role="region" aria-label="July 2026 cohort announcement">
   <div class="july-banner-track" aria-hidden="false">
     <!-- Loop A -->
-    <span class="item"><span class="pulse"></span><strong>The Rho Cohort is full</strong> <em>&middot; Sigma Cohort &middot;</em> Birth Doula Training <strong>coming soon</strong></span>
     <span class="item"><span class="pulse"></span><strong>Now accepting clients due September 2026 &amp; beyond</strong></span>
     <span class="item">Full &amp; partial scholarships available</span>
     <span class="item"><a class="learn-more" href="doula-training.html">Learn more</a></span>
@@ -187,7 +186,7 @@
     <a href="for-mom.html">For Families</a>
     <a href="doula-training.html">For Doulas</a>
     <a href="store.html">Store</a>
-    <span class="lang-icon lang-disabled" title="Español — coming soon" aria-disabled="true"><i data-lucide="globe"></i></span>
+    <span class="lang-icon lang-disabled" title="EspaÃ±ol â coming soon" aria-disabled="true"><i data-lucide="globe"></i></span>
     <a href="portal.html" class="btn-portal">Doula Portal</a>
     <a href="donate.html" class="btn-donate">Donate</a>
   </div>
@@ -242,7 +241,7 @@
     <form class="dir-search" id="dirSearchForm" autocomplete="off" role="search">
       <div class="dir-search-input-wrap">
         <svg class="dir-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-        <input type="text" id="dirSearch" placeholder="Search by name, cohort, or location…" aria-label="Search doulas" autocomplete="off">
+        <input type="text" id="dirSearch" placeholder="Search by name, cohort, or locationâ¦" aria-label="Search doulas" autocomplete="off">
         <button type="button" class="dir-search-clear" id="dirSearchClear" aria-label="Clear search">&times;</button>
         <div class="dir-suggest" id="dirSuggest" role="listbox" aria-label="Suggestions"></div>
       </div>
@@ -256,11 +255,11 @@
     </select>
     <select id="dirRegion" aria-label="Filter by region">
       <option value="">All regions</option>
-      <option value="Region 1">Region 1 — New Orleans</option>
-      <option value="Region 2">Region 2 — Baton Rouge</option>
-      <option value="Region 3">Region 3 — Bayou</option>
-      <option value="Region 4">Region 4 — Acadiana / Lafayette</option>
-      <option value="Region 5">Region 5 — Southwest LA / Lake Charles</option>
+      <option value="Region 1">Region 1 â New Orleans</option>
+      <option value="Region 2">Region 2 â Baton Rouge</option>
+      <option value="Region 3">Region 3 â Bayou</option>
+      <option value="Region 4">Region 4 â Acadiana / Lafayette</option>
+      <option value="Region 5">Region 5 â Southwest LA / Lake Charles</option>
     </select>
     <select id="dirStatus" aria-label="Filter by status">
       <option value="">All statuses</option>
@@ -314,12 +313,12 @@
 <script>lucide.createIcons();</script>
 
 <script>
-/* Directory state — declared FIRST so unlock() can populate it */
+/* Directory state â declared FIRST so unlock() can populate it */
 var DOULAS = [];
 var SUGGEST_INDEX = []; // [{label, kind, value}] for autocomplete
 var SUGGEST_ACTIVE = -1;
 
-/* Access gate — same code/key as portal */
+/* Access gate â same code/key as portal */
 (function(){
   var KEY="mhn_portal_access_v1";
   var CODE="MHNDOULA2026";
@@ -384,7 +383,7 @@ function initDirectory(){
   document.getElementById("dirCohort").addEventListener("change", render);
   document.getElementById("dirRegion").addEventListener("change", render);
   document.getElementById("dirStatus").addEventListener("change", render);
-  // Search input — live filter + autocomplete
+  // Search input â live filter + autocomplete
   var input = document.getElementById("dirSearch");
   var clearBtn = document.getElementById("dirSearchClear");
   input.addEventListener("input", function(){
@@ -433,7 +432,7 @@ function buildSuggestIndex(){
     seen["n:"+nm.toLowerCase()] = true;
     SUGGEST_INDEX.push({ label: nm, kind: "doula", value: nm });
   });
-  // Cohort names — Greek alphabet order
+  // Cohort names â Greek alphabet order
   var order = ["Alpha","Beta","Gamma","Delta","Epsilon","Zeta","Eta","Theta","Iota","Kappa","Lambda","Mu","Nu","Xi","Omicron","Pi","Rho","Sigma","Tau","Upsilon","Phi","Chi","Psi","Omega"];
   var cohorts = {};
   DOULAS.forEach(function(d){ if (d.cohort) cohorts[d.cohort] = true; });
@@ -531,7 +530,7 @@ function setActiveSuggest(items){
 function populateCohortFilter(){
   var select = document.getElementById("dirCohort");
   if (!select) return;
-  // Greek-alphabet order — keeps dropdown sensible
+  // Greek-alphabet order â keeps dropdown sensible
   var order = ["Alpha","Beta","Gamma","Delta","Epsilon","Zeta","Eta","Theta","Iota","Kappa","Lambda","Mu","Nu","Xi","Omicron","Pi","Rho","Sigma","Tau","Upsilon","Phi","Chi","Psi","Omega"];
   var found = {};
   DOULAS.forEach(function(d){ if (d.cohort) found[d.cohort] = true; });
@@ -571,19 +570,19 @@ function renderCard(d){
   var phone = formatPhone(d.phone);
   var photo = d.photo ? '<img src="'+d.photo+'" alt="">' : initials(d.name);
   var meta = [];
-  if (d.email) meta.push('<div>📧 <a href="mailto:'+d.email+'">'+d.email+'</a></div>');
-  if (phone)   meta.push('<div>📞 <a href="tel:'+(d.phone+"").replace(/\D/g,"")+'">'+phone+'</a></div>');
+  if (d.email) meta.push('<div>ð§ <a href="mailto:'+d.email+'">'+d.email+'</a></div>');
+  if (phone)   meta.push('<div>ð <a href="tel:'+(d.phone+"").replace(/\D/g,"")+'">'+phone+'</a></div>');
   var loc = d.region || d.service;
-  if (loc)     meta.push('<div>📍 '+loc+'</div>');
+  if (loc)     meta.push('<div>ð '+loc+'</div>');
   var badges = [statusBadge(d)];
   if (d.cohort) badges.push('<span class="dir-badge cohort">'+d.cohort+'</span>');
-  // ICEA Certified — show if Birth Doula or Postpartum
+  // ICEA Certified â show if Birth Doula or Postpartum
   if (d.icea === "Birth Doula" || d.icea === "Postpartum"){
-    badges.push('<span class="dir-badge icea" title="ICEA-certified ' + d.icea + ' Doula"><span class="check">✓</span>ICEA ' + d.icea + '</span>');
+    badges.push('<span class="dir-badge icea" title="ICEA-certified ' + d.icea + ' Doula"><span class="check">â</span>ICEA ' + d.icea + '</span>');
   }
-  // Doula Registry — show if Active on registry
+  // Doula Registry â show if Active on registry
   if (d.registry === "Active"){
-    badges.push('<span class="dir-badge registry" title="On the Louisiana Doula Registry"><span class="check">✓</span>LA Registry</span>');
+    badges.push('<span class="dir-badge registry" title="On the Louisiana Doula Registry"><span class="check">â</span>LA Registry</span>');
   }
   return '<div class="dir-card">'
        +   '<div class="dir-avatar">'+photo+'</div>'

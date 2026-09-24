@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pocket Doula · Mary's Hands Network</title>
+<title>Pocket Doula Â· Mary's Hands Network</title>
 <meta name="description" content="Private portal for active MHN volunteer doulas.">
 <link rel="icon" type="image/png" href="./assets/logo-seal.png">
 <link rel="apple-touch-icon" href="./assets/logo-seal.png">
@@ -38,7 +38,6 @@
 <div class="july-banner" role="region" aria-label="July 2026 cohort announcement">
   <div class="july-banner-track" aria-hidden="false">
     <!-- Loop A -->
-    <span class="item"><span class="pulse"></span><strong>The Rho Cohort is full</strong> <em>&middot; Sigma Cohort &middot;</em> Birth Doula Training <strong>coming soon</strong></span>
     <span class="item"><span class="pulse"></span><strong>Now accepting clients due September 2026 &amp; beyond</strong></span>
     <span class="item">Full &amp; partial scholarships available</span>
     <span class="item"><a class="learn-more" href="doula-training.html">Learn more</a></span>
@@ -65,7 +64,7 @@
     <a href="for-mom.html">For Families</a>
     <a href="doula-training.html">For Doulas</a>
     <a href="store.html">Store</a>
-    <span class="lang-icon lang-disabled" title="Español — coming soon" aria-disabled="true"><i data-lucide="globe"></i></span>
+    <span class="lang-icon lang-disabled" title="EspaÃ±ol â coming soon" aria-disabled="true"><i data-lucide="globe"></i></span>
     <a href="portal.html" class="btn-portal">Doula Portal</a>
     <a href="donate.html" class="btn-donate">Donate</a>
   </div>
@@ -154,7 +153,7 @@
   <p class="pd-proceeds"><strong>Proceeds from Pocket Doula deck sales support free doula services for clients and doula training for community doulas through Mary&rsquo;s Hands Network.</strong></p>
 </section>
 
-<!-- POCKET DOULA POPUP VIEWER — big card on the left, full deck grid on the right -->
+<!-- POCKET DOULA POPUP VIEWER â big card on the left, full deck grid on the right -->
 <div class="pd-fs-viewer" id="pdFsViewer" hidden role="dialog" aria-label="Pocket Doula card viewer">
   <div class="pd-fs-modal" id="pdFsModal" role="document">
 
@@ -247,7 +246,7 @@
 
 
 <script>
-/* Pocket Doula deck viewer — 50 cards
+/* Pocket Doula deck viewer â 50 cards
    In-page (small) view: keeps the front+back side-by-side pair so doulas can scan quickly.
    Full-screen view: single card, click-to-flip, swipe/arrow nav, thumbnail strip, favorites. */
 function initPageContent(){
@@ -334,12 +333,12 @@ function initPageContent(){
     opts = opts || {};
     var list = visibleList();
     if (list.length === 0){
-      // No favorites — turn off filter quietly
+      // No favorites â turn off filter quietly
       favOnly = false;
       if (fsFavToggle){ fsFavToggle.classList.remove("active"); fsFavToggle.setAttribute("aria-pressed","false"); }
       list = visibleList();
     }
-    // If current n is not in the visible list, snap to nearest member (first ≥ n, else first)
+    // If current n is not in the visible list, snap to nearest member (first â¥ n, else first)
     if (list.indexOf(n) === -1){
       var pick = list.find(function(x){ return x >= n; });
       n = (pick != null) ? pick : list[0];
@@ -365,7 +364,7 @@ function initPageContent(){
   function renderThumbs(){
     if (!fsThumbs) return;
     var list = visibleList();
-    if (fsGridHead) fsGridHead.textContent = favOnly ? ("Your favorites · " + list.length) : ("All " + TOTAL + " cards");
+    if (fsGridHead) fsGridHead.textContent = favOnly ? ("Your favorites Â· " + list.length) : ("All " + TOTAL + " cards");
     if (list.length === 0){
       fsThumbs.innerHTML = '<div class="pd-fs-empty">No favorites yet.<br>Tap the <strong>heart</strong> on a card to add it to your favorites.</div>';
       return;
@@ -424,7 +423,7 @@ function initPageContent(){
   // Click big card to flip
   if (fsCard) fsCard.addEventListener("click", function(){ fsCard.classList.toggle("flipped"); });
 
-  // Heart button — favorite current card
+  // Heart button â favorite current card
   if (fsHeart) fsHeart.addEventListener("click", function(e){ e.stopPropagation(); toggleFav(idx); });
 
   // Favorites filter toggle
@@ -460,7 +459,7 @@ function initPageContent(){
     fsCard.addEventListener("touchend", function(e){
       var t = e.changedTouches[0];
       var dx = t.clientX - touchStartX, dy = t.clientY - touchStartY;
-      // If it's a tap (no significant movement), flip — let the click handler do it
+      // If it's a tap (no significant movement), flip â let the click handler do it
       if (!touchMoved) return;
       // If horizontal swipe is meaningful and dominant, change card
       if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.3){
