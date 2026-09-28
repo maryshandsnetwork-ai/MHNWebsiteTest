@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Birth Roll Â· Mary's Hands Network</title>
+<title>The Birth Roll &middot; Mary's Hands Network</title>
 <meta name="description" content="A doula-training simulation: roll the dice and walk a client through pregnancy, labor, birth, and postpartum. Practice BRAIN, comfort measures, and emotional presence.">
 <link rel="icon" type="image/png" href="./assets/logo-seal.png">
 <link rel="apple-touch-icon" href="./assets/logo-seal.png">
@@ -432,6 +432,7 @@
   </div>
 </div>
 
+<div class="mhn-gala-banner" style="background:#5E376C;color:#fff;text-align:center;padding:16px 24px;font-size:16px;line-height:1.5">Join us for the <strong>MHN Gala – January 8, 2026</strong> &bull; Nominations close October 15 &nbsp;<a href="/gala.html" style="color:#f5c97a;font-weight:600;text-decoration:underline">Tickets &amp; Info →</a></div>
 <div class="page">
 
 <!-- TOP NAV -->
@@ -446,11 +447,10 @@
     <a href="doula-training.html">For Doulas</a>
     <a href="store.html">Store</a>
     <a href="gala.html">Gala</a>
-    <span class="lang-toggle lang-disabled" title="EspaÃ±ol â coming soon" aria-disabled="true"><span class="lang-active">ENG</span><span class="lang-sep">/</span><span class="lang-other">ESP</span></span><a href="portal.html" class="btn-portal">Doula Portal</a>
+    <span class="lang-toggle lang-disabled" title="EspaÃ±ol &mdash; coming soon" aria-disabled="true"><span class="lang-active">ENG</span><span class="lang-sep">/</span><span class="lang-other">ESP</span></span><a href="portal.html" class="btn-portal">Doula Portal</a>
     <a href="donate.html" class="btn-donate">Donate</a>
   </div>
 </nav>
-<div class="mhn-gala-banner" style="background:#5E376C;color:#fff;text-align:center;padding:16px 24px;font-size:16px;line-height:1.5">Join us for the <strong>MHN Gala – January 8, 2026</strong> &bull; Nominations close October 15 &nbsp;<a href="/gala.html" style="color:#f5c97a;font-weight:600;text-decoration:underline">Tickets &amp; Info →</a></div>
 
 <!-- ACCESS GATE -->
 <section id="portal-gate">
@@ -508,7 +508,7 @@
 
 <!-- STEPPER -->
 <div class="br-stepper" id="brStepper">
-  <div class="br-step" data-step="welcome"><span class="step-n">Â·</span><span class="step-l">Start</span></div>
+  <div class="br-step" data-step="welcome"><span class="step-n">&middot;</span><span class="step-l">Start</span></div>
   <div class="br-step" data-step="create"><span class="step-n">1</span><span class="step-l">Client</span></div>
   <div class="br-step" data-step="pregnancy"><span class="step-n">2</span><span class="step-l">Pregnancy</span></div>
   <div class="br-step" data-step="labor"><span class="step-n">3</span><span class="step-l">Labor</span></div>
@@ -1962,7 +1962,7 @@ function buildRollCard(rollId, isFirst){
           <i class="ico" data-lucide="dices"></i>
           Roll ${isTwoDice ? '2 dice' : 'the die'}
         </button>
-        <div class="dice-helper">${isTwoDice ? '2d6 Â· sum determines outcome' : '1d6'}</div>
+        <div class="dice-helper">${isTwoDice ? '2d6 &middot; sum determines outcome' : '1d6'}</div>
       </div>
       <div data-roll-extra></div>
     </div>
@@ -2022,7 +2022,7 @@ function buildRollCard(rollId, isFirst){
     if(card.classList.contains("is-done")) return;
     const btn = card.querySelector("[data-roll-btn]");
     btn.disabled = true;
-    btn.textContent = "Rollingâ¦";
+    btn.textContent = "Rolling&hellip;";
 
     // Compute biased dice values
     const bias = getCascadeBias(rollId);
@@ -2142,7 +2142,7 @@ function buildFeedingCard(rollId, isFirst){
     if(!card.dataset.feedingPlan) return;
     const btn = card.querySelector("[data-roll-btn]");
     btn.disabled = true;
-    btn.textContent = "Rollingâ¦";
+    btn.textContent = "Rolling&hellip;";
     const bias = getCascadeBias(rollId);
     const dieValues = [biasedDie(bias)];
     await spinCube(cube1, dieValues[0]);
@@ -2354,7 +2354,7 @@ function resetRoll(card){
   // Restore dice helper text
   const helper = card.querySelector(".dice-helper");
   if(helper){
-    helper.textContent = r.dice === 2 ? '2d6 Â· sum determines outcome' : '1d6';
+    helper.textContent = r.dice === 2 ? '2d6 &middot; sum determines outcome' : '1d6';
   }
 
   // Snap dice cubes back to neutral pose
@@ -2592,7 +2592,7 @@ function renderStory(){
 
   const clientName = escapeHTML(state.clientName || "Your client");
   const diffLabel = { easy: "Easy", medium: "Medium", hard: "Hard" }[state.difficulty];
-  const diffNote = state.difficulty === "hard" && state.allowLoss ? " Â· Perinatal loss enabled" : "";
+  const diffNote = state.difficulty === "hard" && state.allowLoss ? " &middot; Perinatal loss enabled" : "";
 
   let storyHTML = `
     <div class="story-banner">
