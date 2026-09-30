@@ -1,276 +1,173 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>In Her Honor Awards | Mary's Hands Network Gala</title>
-  <meta name="description" content="Five awards recognizing leaders, advocates, and organizations advancing maternal and infant health in Louisiana. Nominations open October 5 and close November 15.">
-  <link href="./colors_and_type.css" rel="stylesheet"/>
-  <link rel="icon" href="./assets/mhn-favicon.png" type="image/png">
-  <link rel="stylesheet" href="./css/main.css">
-  <style>
-    /* PAGE LAYOUT */
-    .awards-hero {
-      background: linear-gradient(135deg, #3a1f4a 0%, #5E376C 60%, #7A4A8E 100%);
-      padding: 80px 32px 64px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .awards-hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: url('./assets/photos/gala-hero.jpg') center/cover no-repeat;
-      opacity: 0.15;
-    }
-    .awards-hero-inner { position: relative; max-width: 760px; margin: 0 auto; }
-    .awards-hero .eyebrow {
-      font-family: Georgia, serif;
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .16em;
-      color: #c9aedd;
-      margin: 0 0 16px;
-    }
-    .awards-hero h1 {
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      color: #fff;
-      margin: 0 0 16px;
-      line-height: 1.15;
-    }
-    .awards-hero .sub {
-      color: rgba(255,255,255,0.75);
-      font-family: Georgia, serif;
-      font-size: 1.05rem;
-      margin: 0 0 32px;
-      line-height: 1.6;
-    }
-    .awards-hero .deadline-pill {
-      display: inline-block;
-      background: rgba(255,255,255,0.12);
-      border: 1.5px solid rgba(255,255,255,0.35);
-      border-radius: 999px;
-      padding: 8px 24px;
-      color: #fff;
-      font-family: Georgia, serif;
-      font-size: 0.88rem;
-      letter-spacing: .04em;
-    }
-    .awards-hero .deadline-pill strong { color: #e8c97a; }
+<html lang="en"><head><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>The In Her Honor Awards | Mary's Hands Network</title>
+<meta name="description" content="Join Mary's Hands Network for the inaugural In Her Honor Awards Gala: A Legacy in Lavender. January 8, 2027, 6 to 9 PM at the Renaissance Hotel, Baton Rouge. Tickets, tables, and sponsorships available.">
+<link href="./assets/logo-seal.png" rel="icon" type="image/png"/>
+<link href="./assets/logo-seal.png" rel="apple-touch-icon"/>
+<meta content="website" property="og:type"/>
+<meta content="In Her Honor Awards Gala &middot; A Legacy in Lavender" property="og:title"/>
+<meta property="og:description" content="Five awards honoring the individuals and organizations who protect, empower, and care for women in our community. Nominations open October 5 for the January 8, 2027 gala.">
+<meta content="https://maryshandsnetwork.org/assets/logo-full.png" property="og:image"/>
+<meta content="https://maryshandsnetwork.org/gala.html" property="og:url"/>
+<link href="./colors_and_type.css" rel="stylesheet"/>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script src="./mobile-nav.js" defer></script>
+<!-- Metricool tracking -->
+<script>function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"d8d3c46a1618fd16101a331dfbfb19dd"})});</script>
+<style>
+  html,body{margin:0;padding:0;background:#fff;font-family:var(--mhn-font-sans);color:var(--mhn-ink)}
+  .page{max-width:1280px;margin:0 auto}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:20px 48px;border-bottom:1px solid var(--mhn-line-soft)}
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
+  .brand .seal{width:44px;height:44px;display:flex;align-items:center;justify-content:center}
+  .brand .seal img{width:44px;height:44px;display:block}
+  .brand .name{font-family:var(--mhn-font-serif);font-weight:700;font-size:20px;color:var(--mhn-purple-700);line-height:1}
+  .nav-links{display:flex;gap:24px;align-items:center}
+  .nav-links a{text-decoration:none;color:var(--mhn-ink-soft);font-size:16px;font-weight:700}
+  .nav-links a:hover{color:var(--mhn-purple-700)}
+  .nav-links .active{color:var(--mhn-purple-700)}
+  .btn-portal{background:var(--mhn-purple-700);color:#fff !important;padding:9px 18px;border-radius:999px;font-size:15px}
+  .btn-donate{background:var(--mhn-warm-700,#B5824A);color:#fff !important;padding:9px 18px;border-radius:999px;font-size:15px}
+  @media(max-width:980px){.nav{flex-wrap:wrap;gap:12px;padding:16px 20px}.nav-links{flex-wrap:wrap;justify-content:center;gap:12px 18px}}
 
-    /* AWARDS GRID */
-    .awards-section { padding: 72px 32px; background: #faf8fc; }
-    .awards-section h2 {
-      text-align: center;
-      font-size: 1.05rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .14em;
-      color: #5E376C;
-      margin: 0 0 48px;
-    }
-    .awards-grid {
-      max-width: 900px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 32px;
-    }
-    .award-card {
-      background: #fff;
-      border-radius: 12px;
-      border: 1.5px solid #e8dff0;
-      padding: 36px 40px;
-      display: grid;
-      grid-template-columns: 48px 1fr;
-      gap: 20px;
-      align-items: start;
-    }
-    .award-num {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #5E376C, #7A4A8E);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-family: Georgia, serif;
-      font-size: 1.1rem;
-      font-weight: 700;
-      flex-shrink: 0;
-    }
-    .award-body {}
-    .award-tag {
-      font-family: Georgia, serif;
-      font-size: 0.7rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .14em;
-      color: #B5824A;
-      margin: 0 0 8px;
-    }
-    .award-card h3 {
-      font-size: 1.25rem;
-      color: #3a1f4a;
-      margin: 0 0 10px;
-      line-height: 1.3;
-    }
-    .award-card p {
-      color: #555;
-      font-size: 0.97rem;
-      line-height: 1.7;
-      margin: 0;
-    }
+  /* HERO */
+  .gala-hero{position:relative;min-height:560px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
+  .gala-hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 38%;z-index:0}
+  .gala-hero .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(63,36,73,0.62) 0%,rgba(94,55,108,0.72) 55%,rgba(63,36,73,0.86) 100%);z-index:1}
+  .gala-hero .inner{position:relative;z-index:2;max-width:760px;padding:72px 32px}
+  .gala-hero .eyebrow{font-size:14px;letter-spacing:0.32em;text-transform:uppercase;color:#E8D4EE;font-weight:700;margin-bottom:22px}
+  .gala-hero .ihh{font-family:var(--mhn-font-serif);font-size:30px;letter-spacing:0.42em;text-transform:uppercase;color:#fff;font-weight:700;margin:0 0 6px;padding-left:0.42em}
+  .gala-hero .lav{font-family:var(--mhn-font-serif);font-style:italic;font-size:40px;color:#E8D4EE;line-height:1.05;margin:0 0 10px}
+  .gala-hero .ag{font-size:16px;letter-spacing:0.36em;text-transform:uppercase;color:#fff;font-weight:700;margin:0 0 26px;padding-left:0.36em}
+  .gala-hero .when{font-family:var(--mhn-font-serif);font-size:18px;color:#fff;line-height:1.6;margin:0 0 30px}
+  .gala-hero .when strong{color:#fff}
+  .gala-hero .when .dot{color:var(--mhn-purple-200);margin:0 8px}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+  .btn-fill{background:#fff;color:var(--mhn-purple-700);text-decoration:none;padding:15px 28px;border-radius:999px;font-weight:800;font-size:16px;box-shadow:0 8px 24px rgba(0,0,0,0.25);transition:transform .15s}
+  .btn-fill:hover{transform:translateY(-2px)}
+  .btn-outline{background:rgba(255,255,255,0.10);color:#fff;text-decoration:none;padding:15px 28px;border-radius:999px;font-weight:800;font-size:16px;border:1.5px solid rgba(255,255,255,0.6);transition:background .15s}
+  .btn-outline:hover{background:rgba(255,255,255,0.2)}
+  .btn-cal{display:inline-block;background:#fff;color:var(--mhn-purple-700);border:1.5px solid var(--mhn-purple-200);text-decoration:none;padding:12px 22px;border-radius:999px;font-weight:700;font-size:15px;transition:background .15s,border-color .15s}
+  .btn-cal:hover{background:var(--mhn-purple-50);border-color:var(--mhn-purple-500)}
+  /* lavender ornaments (from the sponsorship packet) */
+  .orn{display:flex;align-items:center;justify-content:center;gap:9px;margin:12px 0 2px}
+  .orn::before,.orn::after{content:"";width:52px;height:1px;background:var(--mhn-purple-300)}
+  .orn i{width:7px;height:7px;background:var(--mhn-purple-500);transform:rotate(45deg);display:inline-block}
+  .hero-spray{position:absolute;bottom:0;width:300px;max-width:32vw;z-index:2;opacity:0.92;pointer-events:none}
+  .hero-spray.l{left:8px}
+  .hero-spray.r{right:8px}
+  .gala-garland{display:block;margin:8px auto 0;width:300px;max-width:72%;height:auto}
+  @media(max-width:600px){.hero-spray{width:165px;opacity:0.8}}
+  @media(max-width:600px){.gala-hero .lav{font-size:30px}.gala-hero .ihh{font-size:22px;letter-spacing:0.3em}}
 
-    /* WHO CAN NOMINATE */
-    .eligibility {
-      background: #f5f0f8;
-      border-top: 3px solid #c9aedd;
-      padding: 56px 32px;
-      text-align: center;
-    }
-    .eligibility-inner { max-width: 680px; margin: 0 auto; }
-    .eligibility h2 {
-      font-size: 1.05rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .14em;
-      color: #5E376C;
-      margin: 0 0 20px;
-    }
-    .eligibility p {
-      color: #3a1f4a;
-      font-size: 1rem;
-      line-height: 1.75;
-      margin: 0 0 16px;
-    }
-    .eligibility ul {
-      list-style: none;
-      padding: 0;
-      margin: 20px 0 0;
-      text-align: left;
-      display: inline-block;
-    }
-    .eligibility ul li {
-      color: #3a1f4a;
-      font-size: 0.97rem;
-      line-height: 1.7;
-      padding: 4px 0 4px 24px;
-      position: relative;
-    }
-    .eligibility ul li::before {
-      content: 'Ã¢ÂÂ¦';
-      position: absolute;
-      left: 0;
-      color: #B5824A;
-      font-size: 0.65rem;
-      top: 8px;
-    }
+  /* SECTIONS */
+  .wrap{max-width:980px;margin:0 auto;padding:0 32px}
+  .sec{padding:64px 0}
+  .sec.alt{background:var(--mhn-purple-50)}
+  .eyebrow-c{font-size:14px;letter-spacing:0.26em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:700;text-align:center;margin-bottom:10px}
+  h2.sec-h{font-family:var(--mhn-font-serif);font-size:30px;color:var(--mhn-purple-700);text-align:center;margin:0 0 16px;letter-spacing:-0.01em;line-height:1.15}
+  .lede-c{font-family:var(--mhn-font-serif);font-style:italic;font-size:19px;line-height:1.6;color:var(--mhn-ink-soft);text-align:center;max-width:720px;margin:0 auto 8px}
+  .body-c{font-size:17px;line-height:1.75;color:var(--mhn-ink);max-width:760px;margin:0 auto 18px}
+  .pull{font-family:var(--mhn-font-serif);font-style:italic;font-size:22px;line-height:1.5;color:var(--mhn-purple-700);text-align:center;max-width:760px;margin:30px auto;padding:0 12px}
 
-    /* NOMINATE FORM */
-    .nominate-section {
-      padding: 72px 32px;
-      background: #fff;
-    }
-    .nominate-inner { max-width: 680px; margin: 0 auto; }
-    .nominate-inner h2 {
-      font-size: 1.05rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .14em;
-      color: #5E376C;
-      margin: 0 0 8px;
-      text-align: center;
-    }
-    .nominate-inner .lead {
-      text-align: center;
-      color: #555;
-      font-size: 0.97rem;
-      line-height: 1.7;
-      margin: 0 0 36px;
-    }
-    .form-group { margin-bottom: 20px; }
-    .form-group label {
-      display: block;
-      font-family: Georgia, serif;
-      font-size: 0.8rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .1em;
-      color: #5E376C;
-      margin-bottom: 6px;
-    }
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      width: 100%;
-      padding: 12px 16px;
-      border: 1.5px solid #d0c0e0;
-      border-radius: 8px;
-      font-size: 0.97rem;
-      font-family: inherit;
-      color: #3a1f4a;
-      background: #faf8fc;
-      box-sizing: border-box;
-      transition: border-color .2s;
-      outline: none;
-    }
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus { border-color: #5E376C; background: #fff; }
-    .form-group textarea { min-height: 120px; resize: vertical; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .submit-btn {
-      display: block;
-      width: 100%;
-      background: #5E376C;
-      color: #fff;
-      font-weight: 700;
-      font-size: 1rem;
-      padding: 16px;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      margin-top: 8px;
-      font-family: inherit;
-      transition: background .2s;
-    }
-    .submit-btn:hover { background: #7A4A8E; }
-    .form-note {
-      text-align: center;
-      color: #888;
-      font-size: 0.82rem;
-      margin-top: 16px;
-      line-height: 1.5;
-    }
+  /* DETAILS STRIP */
+  .details{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:900px;margin:30px auto 0}
+  .dcard{background:#fff;border:1px solid var(--mhn-line);border-radius:16px;padding:24px;text-align:center;box-shadow:0 6px 20px rgba(94,55,108,0.06)}
+  .dcard .ico{width:30px;height:30px;color:var(--mhn-purple-500);margin-bottom:10px}
+  .dcard .lbl{font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--mhn-ink-mute);font-weight:700;margin-bottom:6px}
+  .dcard .val{font-family:var(--mhn-font-serif);font-size:18px;color:var(--mhn-purple-700);font-weight:700;line-height:1.35}
+  @media(max-width:680px){.details{grid-template-columns:1fr}}
 
-    /* BACK LINK */
-    .back-bar {
-      background: #3a1f4a;
-      padding: 14px 32px;
-      text-align: center;
-    }
-    .back-bar a {
-      color: #c9aedd;
-      text-decoration: none;
-      font-family: Georgia, serif;
-      font-size: 0.85rem;
-      letter-spacing: .06em;
-    }
-    .back-bar a:hover { color: #fff; }
+  /* WHY SPONSOR */
+  .why{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:14px}
+  .wcard{background:#fff;border:1px solid var(--mhn-line);border-radius:16px;padding:28px 24px}
+  .wcard h3{font-family:var(--mhn-font-serif);font-size:22px;color:var(--mhn-purple-700);margin:0 0 10px;font-weight:700}
+  .wcard p{font-size:15.5px;line-height:1.6;color:var(--mhn-ink-soft);margin:0}
+  @media(max-width:780px){.why{grid-template-columns:1fr}}
 
-    @media (max-width: 600px) {
-      .award-card { grid-template-columns: 1fr; gap: 12px; padding: 24px 20px; }
-      .form-row { grid-template-columns: 1fr; }
-    }
-  </style>
-</head>
+  /* TICKETS */
+  .tickets{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:760px;margin:24px auto 0}
+  .tcard{background:#fff;border:1.5px solid var(--mhn-purple-200);border-radius:18px;padding:28px;text-align:center}
+  .tcard .tname{font-size:13px;letter-spacing:0.18em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:700;margin-bottom:6px}
+  .tcard .tprice{font-family:var(--mhn-font-serif);font-size:38px;color:var(--mhn-purple-700);font-weight:700;line-height:1;margin-bottom:12px}
+  .tcard p{font-size:15px;line-height:1.55;color:var(--mhn-ink-soft);margin:0 0 4px}
+  @media(max-width:600px){.tickets{grid-template-columns:1fr}}
+
+  /* SPONSOR LEVELS */
+  .levels{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:18px}
+  .lvl{background:#fff;border:1px solid var(--mhn-line);border-top:5px solid var(--mhn-purple-500);border-radius:0 0 16px 16px;padding:24px 24px 22px;position:relative}
+  .lvl.title-lvl{border-top-color:var(--mhn-warm-700,#B5824A);background:linear-gradient(180deg,#FBF6EE 0%,#fff 60%);grid-column:1 / -1}
+  .lvl .lvl-top{display:flex;justify-content:space-between;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:4px}
+  .lvl h3{font-family:var(--mhn-font-serif);font-size:21px;color:var(--mhn-purple-700);margin:0;font-weight:700}
+  .lvl .price{font-family:var(--mhn-font-serif);font-size:26px;color:var(--mhn-purple-700);font-weight:700;white-space:nowrap}
+  .lvl .avail{display:inline-block;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;font-weight:800;color:#85571F;background:#FBEFD9;padding:3px 10px;border-radius:999px;margin-bottom:10px}
+  .lvl p{font-size:15px;line-height:1.6;color:var(--mhn-ink-soft);margin:0 0 12px}
+  .lvl ul{margin:0;padding-left:18px;font-size:14.5px;line-height:1.6;color:var(--mhn-ink)}
+  .lvl ul li{margin-bottom:5px}
+  @media(max-width:760px){.levels{grid-template-columns:1fr}}
+
+  /* CTA BAND */
+  .cta-band{background:linear-gradient(135deg,var(--mhn-purple-700),var(--mhn-purple-900));color:#fff;border-radius:24px;padding:48px 40px;text-align:center;max-width:900px;margin:0 auto}
+  .cta-band h2{font-family:var(--mhn-font-serif);font-size:28px;color:#fff;margin:0 0 12px;letter-spacing:-0.01em}
+  .cta-band p{font-size:17px;line-height:1.6;color:#F1EDF3;margin:0 0 12px;max-width:660px;margin-left:auto;margin-right:auto}
+  .cta-band .contact{font-family:var(--mhn-font-serif);font-style:italic;color:#E8D4EE;font-size:16px;margin-top:18px}
+  .cta-band a.lnk{color:#fff;font-weight:700;text-decoration:underline}
+
+  /* FOOTER */
+  footer{background:var(--mhn-purple-900);color:#D4BADD;padding:56px 48px 28px}
+  .foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;max-width:1180px;margin:0 auto 36px}
+  .foot-brand .logo{font-family:var(--mhn-font-serif);font-size:20px;color:#fff;font-weight:700}
+  .foot-brand p{font-size:14px;line-height:1.6;color:#C9A9D4;margin:10px 0 0}
+  .foot-col h5{font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:#fff;margin:0 0 14px}
+  .foot-col a{display:block;color:#D4BADD;text-decoration:none;font-size:15px;margin-bottom:9px}
+  .foot-col a:hover{color:#fff}
+  .foot-btm{max-width:1180px;margin:0 auto;border-top:1px solid rgba(212,186,221,0.25);padding-top:20px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:#B68FC4}
+  @media(max-width:820px){.foot-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:520px){.foot-grid{grid-template-columns:1fr}}
+
+  /* running banner */
+  .july-banner{position:relative;background:linear-gradient(90deg,#5E376C 0%,#7A4A8E 35%,#B5824A 70%,#5E376C 100%);background-size:200% 100%;color:#fff;overflow:hidden;border-bottom:2px solid #FFD7A8;animation:juneBG 14s ease-in-out infinite}
+  .july-banner-track{display:flex;gap:54px;align-items:center;white-space:nowrap;padding:11px 0;animation:julyScroll 28s linear infinite;will-change:transform}
+  .july-banner-track .item{display:inline-flex;align-items:center;gap:12px;font-family:var(--mhn-font-sans);font-weight:700;font-size:15.5px;letter-spacing:0.04em}
+  .july-banner-track .pulse{display:inline-block;width:10px;height:10px;border-radius:50%;background:#FFD7A8;box-shadow:0 0 0 0 rgba(255,215,168,0.7);animation:juneBlink 1.4s ease-in-out infinite}
+  .july-banner-track em{font-family:var(--mhn-font-serif);font-style:italic;font-weight:400;color:#FFE5C4;font-size:16px;letter-spacing:0.01em}
+  .july-banner-track .learn-more{display:inline-flex;align-items:center;gap:6px;background:#FFD7A8;color:#5E376C;text-decoration:none;padding:5px 14px;border-radius:999px;font-weight:800;font-size:14px;letter-spacing:0.06em;text-transform:uppercase;box-shadow:0 2px 8px rgba(0,0,0,0.15)}
+  .july-banner-track .apply-now{display:inline-flex;align-items:center;gap:6px;background:#fff;color:#5E376C;text-decoration:none;padding:5px 14px;border-radius:999px;font-weight:800;font-size:14px;letter-spacing:0.06em;text-transform:uppercase;box-shadow:0 2px 8px rgba(0,0,0,0.15)}
+  .july-banner:hover .july-banner-track{animation-play-state:paused}
+  @keyframes julyScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+  @keyframes juneBG{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+  @keyframes juneBlink{0%,100%{box-shadow:0 0 0 0 rgba(255,215,168,0.7);transform:scale(1)}50%{box-shadow:0 0 0 8px rgba(255,215,168,0);transform:scale(1.15)}}
+  @media (prefers-reduced-motion:reduce){.july-banner{animation:none}.july-banner-track{animation:none;justify-content:center;flex-wrap:wrap;white-space:normal}.july-banner-track .pulse{animation:none}}
+  @media (max-width:700px){.july-banner-track{gap:32px;padding:9px 0;font-size:14px}.july-banner-track .item{font-size:14px}}
+</style>
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="In Her Honor Awards Gala, January 8, 2027 | Mary's Hands Network">
+<meta name="twitter:description" content="The inaugural Mary's Hands Network benefit gala. January 8, 2027 in Baton Rouge. Awards, nominations, tickets, and sponsorships.">
+
 <body>
-  <!-- NAV -->
-  <nav class="nav">
+
+
+<!-- ANIMATED JULY COHORT BANNER (above nav, full bleed) -->
+<div class="july-banner" role="region" aria-label="July 2026 cohort announcement">
+  <div class="july-banner-track" aria-hidden="false">
+    <!-- Loop A -->
+    <span class="item"><span class="pulse"></span><strong>Now accepting clients due November 2026 &amp; beyond</strong></span>
+    <span class="item"><span class="pulse"></span><strong>Sigma Cohort</strong> &middot; Oct 26&ndash;31, 2026 &middot; YWCA Empowerment Center &middot; Registration closes Oct 9</span>
+    <span class="item">Full &amp; partial scholarships available</span>
+    <span class="item"><a class="learn-more" href="doula-training.html">Learn more</a></span>
+    <!-- Loop B (duplicate so the scroll seam is invisible) -->
+    <span class="item" aria-hidden="true"><span class="pulse"></span><strong>Now accepting clients due November 2026 &amp; beyond</strong></span>
+    <span class="item" aria-hidden="true"><span class="pulse"></span><strong>Sigma Cohort</strong> &middot; Oct 26&ndash;31, 2026 &middot; YWCA Empowerment Center &middot; Registration closes Oct 9</span>
+    <span class="item" aria-hidden="true">Full &amp; partial scholarships available</span>
+    <span class="item" aria-hidden="true"><a class="learn-more" href="doula-training.html">Learn more</a></span>
+</div>
+</div>
+
+<div class="mhn-gala-banner" style="background:#5E376C;color:#fff;text-align:center;padding:16px 24px;font-size:16px;line-height:1.5">Join us for the <strong>In Her Honor Awards Gala  January 8, 2027</strong> &bull; Nominations close October 5 &nbsp;<a href="/gala.html" style="color:#f5c97a;font-weight:600;text-decoration:underline">Tickets &amp; Info </a></div>
+<div class="page">
+
+<nav class="nav">
   <a href="index.html" class="brand">
     <div class="seal"><img src="./assets/logo-seal.png" alt="Mary's Hands Network logo"></div>
     <div><div class="name">Mary's Hands Network</div></div>
@@ -280,111 +177,177 @@
     <a href="for-mom.html">For Families</a>
     <a href="doula-training.html">For Doulas</a>
     <a href="store.html">Store</a>
-    <a href="gala.html" aria-current="page">Gala</a>
+    <a href="gala.html">Gala</a><a href="awards.html" aria-current="page">Awards</a>
     <a href="portal.html" class="btn-portal">Doula Portal</a>
     <a href="donate.html" class="btn-donate">Donate</a>
   </div>
 </nav>
 
-  <!-- BACK BAR -->
-  <div class="back-bar">
-    <a href="gala.html">&larr; Back to the Gala</a>
+<!-- HERO -->
+<section style="background:linear-gradient(135deg,#5E376C 0%,#3D2148 100%);padding:80px 0 60px;text-align:center">
+  <div style="max-width:800px;margin:0 auto;padding:0 24px">
+    <p style="font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#FFD7A8;margin:0 0 16px">In Her Honor: A Legacy in Lavender Awards Gala &nbsp;|&nbsp; January 8, 2027</p>
+    <h1 style="font-family:var(--mhn-font-serif);font-size:clamp(36px,6vw,60px);color:#fff;margin:0 0 24px;line-height:1.1">The In Her Honor Awards</h1>
+    <p style="font-size:18px;color:rgba(255,255,255,0.85);max-width:640px;margin:0 auto 36px;line-height:1.7">Five awards. Five ways our community shows up for women.<br>Nominations open October 5.</p>
+    <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center">
+      <a href="gala.html#tickets" style="background:#B5824A;color:#fff;font-weight:700;font-size:15px;padding:14px 28px;border-radius:8px;text-decoration:none">Get gala tickets</a>
+      <a href="#nominate" style="background:transparent;color:#fff;font-weight:700;font-size:15px;padding:14px 28px;border-radius:8px;text-decoration:none;border:2px solid rgba(255,255,255,0.5)">How to nominate</a>
+    </div>
   </div>
+</section>
 
-  <!-- HERO -->
-  <section class="awards-hero">
-    <div class="awards-hero-inner">
-      <p class="eyebrow">Mary's Hands Network &middot; Inaugural Benefit Gala &middot; January 8, 2027</p>
-      <h1>The In Her Honor Awards</h1>
-      <p class="sub">Five awards, presented on January 8, to the people and organizations whose work has honored the women of our community.</p>
-      <span class="deadline-pill">Nominations open <strong>October 5</strong> and close <strong>November 15</strong></span>
-    </div>
-  </section>
+<!-- IN HER HONOR -->
+<section style="padding:60px 0">
+  <div style="max-width:900px;margin:0 auto;padding:0 24px">
+    <h2 style="font-family:var(--mhn-font-serif);font-size:36px;color:#5E376C;text-align:center;margin:0 0 48px">The Awards</h2>
 
-  <!-- AWARDS -->
-  <section class="awards-section">
-    <h2>The Five Awards</h2>
-    <div class="awards-grid">
-
-      <div class="award-card">
-        <div class="award-num">1</div>
-        <div class="award-body">
-          <p class="award-tag">Award</p>
-          <h3>Pinnacle of Health Excellence Award</h3>
-          <p>For a leader whose work represents the highest standard of excellence in women's health, well-being, and dignity. This award recognizes someone who has consistently elevated the quality, accessibility, and compassion of care available to women and families in Louisiana.</p>
-        <a href="https://forms.monday.com/forms/f144cbcdc71ae5b00ff7d058ba0a05a0?r=use1" target="_blank" rel="noopener" style="display:inline-block;margin-top:18px;background:#B5824A;color:#fff;font-weight:700;font-size:0.88rem;padding:10px 22px;border-radius:8px;text-decoration:none;letter-spacing:.02em">Nominate for this award &rarr;</a>
-        </div>
-      </div>
-
-      <div class="award-card">
-        <div class="award-num">2</div>
-        <div class="award-body">
-          <p class="award-tag">Award</p>
-          <h3>Empowerment Luminary Award</h3>
-          <p>For a visionary who creates pathways of empowerment and opportunity to uplift women. This award honors someone who has opened doors, built bridges, and worked to ensure that women have the knowledge, resources, and support they need to lead their own lives and births.</p>
-        <a href="https://forms.monday.com/forms/54c0fa6e4544f7ffabe83a146e7e37f4?r=use1" target="_blank" rel="noopener" style="display:inline-block;margin-top:18px;background:#B5824A;color:#fff;font-weight:700;font-size:0.88rem;padding:10px 22px;border-radius:8px;text-decoration:none;letter-spacing:.02em">Nominate for this award &rarr;</a>
-        </div>
-      </div>
-
-      <div class="award-card">
-        <div class="award-num">3</div>
-        <div class="award-body">
-          <p class="award-tag">Award</p>
-          <h3>Distinction of Advocacy Award</h3>
-          <p>For a champion whose advocacy advances justice, equity, and women's rights. This award recognizes someone who has spoken up, shown up, and fought for the policy changes, community protections, and systemic shifts that make a real difference in the lives of women and families.</p>
-        <a href="https://forms.monday.com/forms/fe5b35f36a0cd5b02fb91d9bef1546c8?r=use1" target="_blank" rel="noopener" style="display:inline-block;margin-top:18px;background:#B5824A;color:#fff;font-weight:700;font-size:0.88rem;padding:10px 22px;border-radius:8px;text-decoration:none;letter-spacing:.02em">Nominate for this award &rarr;</a>
-        </div>
-      </div>
-
-      <div class="award-card">
-        <div class="award-num">4</div>
-        <div class="award-body">
-          <p class="award-tag">Award</p>
-          <h3>Legacy of Care Award</h3>
-          <p>For an organization or leader whose long-standing service has shaped generations of support for women. This award honors sustained, committed presence, the kind of care that does not come and go but stays, grows roots, and builds something that lasts.</p>
-        <a href="https://forms.monday.com/forms/e7d79af7093a595371270d6f34d8841f?r=use1" target="_blank" rel="noopener" style="display:inline-block;margin-top:18px;background:#B5824A;color:#fff;font-weight:700;font-size:0.88rem;padding:10px 22px;border-radius:8px;text-decoration:none;letter-spacing:.02em">Nominate for this award &rarr;</a>
-        </div>
-      </div>
-
-      <div class="award-card">
-        <div class="award-num">5</div>
-        <div class="award-body">
-          <p class="award-tag">Award</p>
-          <h3>Rising Impact Award</h3>
-          <p>For an emerging leader whose early contributions already demonstrate extraordinary promise. This award is for the person who is just getting started and whose work is already changing lives, the kind of leader whose best years are still ahead.</p>
-        <a href="https://forms.monday.com/forms/69b1a36ae7de11a738dadcc9ab188e76?r=use1" target="_blank" rel="noopener" style="display:inline-block;margin-top:18px;background:#B5824A;color:#fff;font-weight:700;font-size:0.88rem;padding:10px 22px;border-radius:8px;text-decoration:none;letter-spacing:.02em">Nominate for this award &rarr;</a>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ELIGIBILITY -->
-  <section class="eligibility">
-    <div class="eligibility-inner">
-      <h2>Who Can Be Nominated?</h2>
-      <p>Anyone in the community can nominate someone they believe deserves recognition. You can nominate an individual, a team, or an organization. Self-nominations are welcome.</p>
-      <p>Nominees should have demonstrated meaningful impact in Louisiana, though their work may extend beyond the state. There is no membership requirement.</p>
-      <ul>
-        <li>Individuals, teams, and organizations are all eligible</li>
-        <li>Nominees do not need to be affiliated with Mary's Hands Network</li>
-        <li>Self-nominations are accepted</li>
-        <li>Anyone may submit a nomination, no account or membership required</li>
-        <li>A person or organization may be nominated for more than one award</li>
+    <!-- Award 1 -->
+    <div style="border-left:4px solid #B5824A;padding:0 0 0 28px;margin:0 0 48px">
+      <h3 style="font-family:var(--mhn-font-serif);font-size:26px;color:#5E376C;margin:0 0 8px">Pinnacle of Health Excellence Award</h3>
+      <p style="font-size:15px;color:#B5824A;font-weight:600;margin:0 0 16px;font-style:italic">For a leader whose work represents the highest standard of excellence in women's health, well-being, and dignity.</p>
+      <p style="font-size:15px;color:#444;line-height:1.65;margin:0 0 16px">This award recognizes an individual who has set an extraordinary standard in women's health. Whether through clinical excellence, research, education, or community practice, they have shaped what it looks like to truly center women's well-being and dignity in every aspect of their work.</p>
+      <p style="font-size:14px;font-weight:700;color:#3D2148;margin:0 0 8px">Criteria:</p>
+      <ul style="font-size:14px;color:#444;line-height:1.8;padding-left:20px;margin:0">
+        <li>Demonstrated long-term commitment to advancing women's well-being</li>
+        <li>Leadership that centers compassion, dignity, and equity</li>
+        <li>Proven advocacy for women's rights, health, or safety</li>
+        <li>Significant, measurable impact on women or families</li>
+        <li>Recognized as a trusted voice and a community anchor</li>
       </ul>
+      <p style="margin:18px 0 0"><a href="https://forms.monday.com/forms/f144cbcdc71ae5b00ff7d058ba0a05a0?r=use1" target="_blank" rel="noopener" style="display:inline-block;background:#5E376C;color:#fff;padding:12px 22px;border-radius:8px;font-weight:600;text-decoration:none">Nominate someone for this award</a></p>
     </div>
-  </section>
 
-  
+    <!-- Award 2 -->
+    <div style="border-left:4px solid #7A4A8E;padding:0 0 0 28px;margin:0 0 48px">
+      <h3 style="font-family:var(--mhn-font-serif);font-size:26px;color:#5E376C;margin:0 0 8px">Empowerment Luminary Award</h3>
+      <p style="font-size:15px;color:#7A4A8E;font-weight:600;margin:0 0 16px;font-style:italic">For a visionary who creates pathways of empowerment and opportunity to uplift women.</p>
+      <p style="font-size:15px;color:#444;line-height:1.65;margin:0 0 16px">This award honors a person who builds the scaffolding that allows women to rise: programs, training, mentorship, access, and opportunity. Their work opens doors that were closed and creates new ones where none existed.</p>
+      <p style="font-size:14px;font-weight:700;color:#3D2148;margin:0 0 8px">Criteria:</p>
+      <ul style="font-size:14px;color:#444;line-height:1.8;padding-left:20px;margin:0">
+        <li>Creator or architect of a program serving women</li>
+        <li>Innovation that addresses an unmet need or a systemic gap</li>
+        <li>Demonstrated program success, growth, or community adoption</li>
+        <li>Evidence of improved outcomes for women</li>
+        <li>Commitment to sustainability and long-term impact</li>
+      </ul>
+      <p style="margin:18px 0 0"><a href="https://forms.monday.com/forms/54c0fa6e4544f7ffabe83a146e7e37f4?r=use1" target="_blank" rel="noopener" style="display:inline-block;background:#5E376C;color:#fff;padding:12px 22px;border-radius:8px;font-weight:600;text-decoration:none">Nominate someone for this award</a></p>
+    </div>
 
-  <!-- BACK TO GALA -->
-  <section style="background:#3a1f4a;padding:48px 32px;text-align:center">
-    <p style="font-family:Georgia,serif;color:rgba(255,255,255,0.7);font-size:0.85rem;text-transform:uppercase;letter-spacing:.1em;margin:0 0 20px">Ready to attend?</p>
-    <a href="gala.html#tickets" style="display:inline-block;background:#B5824A;color:#fff;font-weight:700;font-size:0.95rem;padding:14px 32px;border-radius:10px;text-decoration:none">Reserve Your Seat at the Gala &rarr;</a>
-  </section>
+    <!-- Award 3 -->
+    <div style="border-left:4px solid #B5824A;padding:0 0 0 28px;margin:0 0 48px">
+      <h3 style="font-family:var(--mhn-font-serif);font-size:26px;color:#5E376C;margin:0 0 8px">Distinction of Advocacy Award</h3>
+      <p style="font-size:15px;color:#B5824A;font-weight:600;margin:0 0 16px;font-style:italic">For a champion whose advocacy advances justice, equity, and women's rights.</p>
+      <p style="font-size:15px;color:#444;line-height:1.65;margin:0 0 16px">This award goes to the person who fights for women when the systems and structures will not. They speak loudly when it is uncomfortable, stand in rooms where women have historically not been heard, and push for change at every level from the bedside to the legislature.</p>
+      <p style="font-size:14px;font-weight:700;color:#3D2148;margin:0 0 8px">Criteria:</p>
+      <ul style="font-size:14px;color:#444;line-height:1.8;padding-left:20px;margin:0">
+        <li>Advocacy that advances women's rights or health</li>
+        <li>Leadership in public policy, community organizing, or institutional reform</li>
+        <li>Demonstrated courage in addressing inequities affecting women</li>
+        <li>A track record of mobilizing people, resources, or awareness</li>
+        <li>Clear evidence of improved conditions or protections for women</li>
+      </ul>
+      <p style="margin:18px 0 0"><a href="https://forms.monday.com/forms/fe5b35f36a0cd5b02fb91d9bef1546c8?r=use1" target="_blank" rel="noopener" style="display:inline-block;background:#5E376C;color:#fff;padding:12px 22px;border-radius:8px;font-weight:600;text-decoration:none">Nominate someone for this award</a></p>
+    </div>
 
-  <!-- FOOTER -->
-  <footer>
+    <!-- Award 4 -->
+    <div style="border-left:4px solid #7A4A8E;padding:0 0 0 28px;margin:0 0 48px">
+      <h3 style="font-family:var(--mhn-font-serif);font-size:26px;color:#5E376C;margin:0 0 8px">Legacy of Care Award</h3>
+      <p style="font-size:15px;color:#7A4A8E;font-weight:600;margin:0 0 16px;font-style:italic">For an organization or leader whose long-standing service has shaped generations of support for women.</p>
+      <p style="font-size:15px;color:#444;line-height:1.65;margin:0 0 16px">This award honors the long game. It belongs to an organization or individual who has been showing up for women for years, whose service has become part of the fabric of this community, and whose impact can be measured in generations. The Legacy of Care is the only In Her Honor Award that may be given to an organization.</p>
+      <p style="font-size:14px;font-weight:700;color:#3D2148;margin:0 0 8px">Criteria:</p>
+      <ul style="font-size:14px;color:#444;line-height:1.8;padding-left:20px;margin:0">
+        <li>A multi-year history of serving women, typically ten or more years</li>
+        <li>Programs or services with measurable long-term impact</li>
+        <li>Demonstrated organizational commitment to equity and access</li>
+        <li>A strong reputation for reliability, compassion, and community partnership</li>
+        <li>Evidence of continued innovation and responsiveness to women's needs</li>
+      </ul>
+      <p style="margin:18px 0 0"><a href="https://forms.monday.com/forms/e7d79af7093a595371270d6f34d8841f?r=use1" target="_blank" rel="noopener" style="display:inline-block;background:#5E376C;color:#fff;padding:12px 22px;border-radius:8px;font-weight:600;text-decoration:none">Nominate someone for this award</a></p>
+    </div>
+
+    <!-- Award 5 -->
+    <div style="border-left:4px solid #B5824A;padding:0 0 0 28px;margin:0 0 48px">
+      <h3 style="font-family:var(--mhn-font-serif);font-size:26px;color:#5E376C;margin:0 0 8px">Rising Impact Award</h3>
+      <p style="font-size:15px;color:#B5824A;font-weight:600;margin:0 0 16px;font-style:italic">For an emerging leader whose early contributions already demonstrate extraordinary promise.</p>
+      <p style="font-size:15px;color:#444;line-height:1.65;margin:0 0 16px">This award belongs to the person who is just getting started and is already impossible to ignore. They are building something, changing something, and making the kind of impact that most people take decades to achieve. We honor them now because the work cannot wait.</p>
+      <p style="font-size:14px;font-weight:700;color:#3D2148;margin:0 0 8px">Criteria:</p>
+      <ul style="font-size:14px;color:#444;line-height:1.8;padding-left:20px;margin:0">
+        <li>Typically under five years of service or leadership experience</li>
+        <li>Early achievements showing strong potential for long-term impact</li>
+        <li>Demonstrated commitment to women's empowerment or well-being</li>
+        <li>Innovative thinking, fresh approaches, or bold leadership</li>
+        <li>Recognized by peers or the community as a rising changemaker</li>
+      </ul>
+      <p style="margin:18px 0 0"><a href="https://forms.monday.com/forms/69b1a36ae7de11a738dadcc9ab188e76?r=use1" target="_blank" rel="noopener" style="display:inline-block;background:#5E376C;color:#fff;padding:12px 22px;border-radius:8px;font-weight:600;text-decoration:none">Nominate someone for this award</a></p>
+    </div>
+
+  </div>
+</section>
+
+<!-- HOW TO NOMINATE -->
+<section id="nominate" style="background:#5E376C;padding:60px 0">
+  <div style="max-width:800px;margin:0 auto;padding:0 24px;text-align:center">
+    <h2 style="font-family:var(--mhn-font-serif);font-size:36px;color:#fff;margin:0 0 20px">How to Nominate</h2>
+    <p style="font-size:16px;color:rgba(255,255,255,0.85);line-height:1.7;margin:0 0 12px">Nominations open Monday, October 5, 2026 and close Sunday, November 15, 2026. Each nomination is reviewed by our selection committee and awarded at the January 8, 2027 gala.</p>
+    <p style="font-size:16px;color:rgba(255,255,255,0.85);line-height:1.7;margin:0 0 32px">Anyone may nominate. You may nominate yourself. Organizations may be nominated for the Legacy of Care Award only. You may submit separate nominations for multiple awards. Tell us the story; we want to hear it.</p>
+    <div class="nomination-form" style="display:flex;flex-direction:column;gap:12px;margin:20px 0 28px">
+      <a href="https://forms.monday.com/forms/f144cbcdc71ae5b00ff7d058ba0a05a0?r=use1" target="_blank" rel="noopener" style="display:block;background:#f5f0f8;border:1px solid #c9aedd;border-radius:10px;padding:14px 18px;color:#5E376C;font-weight:600;text-decoration:none">Nominate for the Pinnacle of Health Excellence Award &rarr;</a>
+      <a href="https://forms.monday.com/forms/54c0fa6e4544f7ffabe83a146e7e37f4?r=use1" target="_blank" rel="noopener" style="display:block;background:#f5f0f8;border:1px solid #c9aedd;border-radius:10px;padding:14px 18px;color:#5E376C;font-weight:600;text-decoration:none">Nominate for the Empowerment Luminary Award &rarr;</a>
+      <a href="https://forms.monday.com/forms/fe5b35f36a0cd5b02fb91d9bef1546c8?r=use1" target="_blank" rel="noopener" style="display:block;background:#f5f0f8;border:1px solid #c9aedd;border-radius:10px;padding:14px 18px;color:#5E376C;font-weight:600;text-decoration:none">Nominate for the Distinction of Advocacy Award &rarr;</a>
+      <a href="https://forms.monday.com/forms/e7d79af7093a595371270d6f34d8841f?r=use1" target="_blank" rel="noopener" style="display:block;background:#f5f0f8;border:1px solid #c9aedd;border-radius:10px;padding:14px 18px;color:#5E376C;font-weight:600;text-decoration:none">Nominate for the Legacy of Care Award &rarr;</a>
+      <a href="https://forms.monday.com/forms/69b1a36ae7de11a738dadcc9ab188e76?r=use1" target="_blank" rel="noopener" style="display:block;background:#f5f0f8;border:1px solid #c9aedd;border-radius:10px;padding:14px 18px;color:#5E376C;font-weight:600;text-decoration:none">Nominate for the Rising Impact Award &rarr;</a>
+    </div>
+    <p style="font-size:15px;color:rgba(255,255,255,0.65);margin:0 0 24px">Questions? Email <a href="mailto:info@mhndoula.com" style="color:#FFD7A8">info@mhndoula.com</a> or call <a href="tel:+12258924906" style="color:#FFD7A8">(225) 892-4906</a>.</p>
+    <a href="gala.html" style="display:inline-block;background:#B5824A;color:#fff;font-weight:700;font-size:15px;padding:14px 28px;border-radius:8px;text-decoration:none">Back to the gala page</a>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section style="padding:60px 0;background:#f5f0f8">
+  <div style="max-width:800px;margin:0 auto;padding:0 24px">
+    <h2 style="font-family:var(--mhn-font-serif);font-size:32px;color:#5E376C;margin:0 0 36px;text-align:center">Frequently Asked Questions</h2>
+    <div style="display:flex;flex-direction:column;gap:24px">
+      <div>
+        <h3 style="font-size:16px;font-weight:700;color:#3D2148;margin:0 0 8px">Who can nominate?</h3>
+        <p style="font-size:15px;color:#444;margin:0;line-height:1.65">Anyone. You do not have to be affiliated with Mary's Hands Network. If you know someone doing extraordinary work for women in this community, we want to hear about it.</p>
+      </div>
+      <div>
+        <h3 style="font-size:16px;font-weight:700;color:#3D2148;margin:0 0 8px">Can I nominate myself?</h3>
+        <p style="font-size:15px;color:#444;margin:0;line-height:1.65">Yes. Self-nominations are welcome and reviewed with the same care as any other submission.</p>
+      </div>
+      <div>
+        <h3 style="font-size:16px;font-weight:700;color:#3D2148;margin:0 0 8px">Can I nominate an organization?</h3>
+        <p style="font-size:15px;color:#444;margin:0;line-height:1.65">Yes, for the Legacy of Care Award only. All other awards are given to individuals.</p>
+      </div>
+      <div>
+        <h3 style="font-size:16px;font-weight:700;color:#3D2148;margin:0 0 8px">Who chooses the recipients?</h3>
+        <p style="font-size:15px;color:#444;margin:0;line-height:1.65"><span class="selection-committee-statement" style="display:none">Recipients are chosen by a selection committee of community members, Mary's Hands Network board members, maternal and women's health professionals, and community leaders who have served women in Louisiana. Committee members score every nomination against the award's published criteria. No member scores a nomination they submitted or one where they have a personal or professional conflict. Decisions are final and announced at the gala.</span><span class="selection-committee-placeholder">An independent selection committee reviews all nominations. Committee members are announced before the gala.</span></p>
+      </div>
+      <div>
+        <h3 style="font-size:16px;font-weight:700;color:#3D2148;margin:0 0 8px">Can someone win more than one award?</h3>
+        <p style="font-size:15px;color:#444;margin:0;line-height:1.65">Yes. If someone meets the criteria for more than one award, submit a separate nomination for each. The selection committee considers each nomination independently.</p>
+      </div>
+      <div>
+        <h3 style="font-size:16px;font-weight:700;color:#3D2148;margin:0 0 8px">When will recipients be notified?</h3>
+        <p style="font-size:15px;color:#444;margin:0;line-height:1.65">Recipients are notified privately before the gala so they can make arrangements to attend. All awards are presented at the In Her Honor Awards Gala on January 8, 2027 at the Renaissance Hotel in Baton Rouge.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER CTA -->
+<section style="background:#3D2148;padding:60px 0;text-align:center">
+  <div style="max-width:700px;margin:0 auto;padding:0 24px">
+    <h2 style="font-family:var(--mhn-font-serif);font-size:34px;color:#fff;margin:0 0 16px">Join us January 8, 2027.</h2>
+    <p style="font-size:16px;color:rgba(255,255,255,0.8);line-height:1.7;margin:0 0 32px">Reserve your seat at the table. Every ticket supports our work to put a doula in the room for every Louisiana family who needs one.</p>
+    <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center">
+      <a href="gala.html#tickets" style="background:#B5824A;color:#fff;font-weight:700;font-size:15px;padding:14px 28px;border-radius:8px;text-decoration:none">Get tickets</a>
+      <a href="gala.html" style="background:transparent;color:#fff;font-weight:700;font-size:15px;padding:14px 28px;border-radius:8px;text-decoration:none;border:2px solid rgba(255,255,255,0.4)">Gala details</a>
+    </div>
+  </div>
+</section>
+
+<footer>
   <div class="foot-grid">
     <div class="foot-brand">
       <div class="logo">Mary's Hands Network</div>
