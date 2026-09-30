@@ -140,7 +140,28 @@
   @keyframes juneBlink{0%,100%{box-shadow:0 0 0 0 rgba(255,215,168,0.7);transform:scale(1)}50%{box-shadow:0 0 0 8px rgba(255,215,168,0);transform:scale(1.15)}}
   @media (prefers-reduced-motion:reduce){.july-banner{animation:none}.july-banner-track{animation:none;justify-content:center;flex-wrap:wrap;white-space:normal}.july-banner-track .pulse{animation:none}}
   @media (max-width:700px){.july-banner-track{gap:32px;padding:9px 0;font-size:14px}.july-banner-track .item{font-size:14px}}
-</style>
+
+  /* ACCORDIONS */
+  .acc-list{display:flex;flex-direction:column;gap:10px;margin-top:24px}
+  .acc{border:1px solid #e0d0f0;border-radius:12px;overflow:hidden}
+  .acc summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:18px 22px;background:#fff;gap:14px;user-select:none}
+  .acc summary::-webkit-details-marker{display:none}
+  .acc summary:focus-visible{outline:2px solid #B5824A;outline-offset:-2px}
+  .acc .acc-sum-left{flex:1;min-width:0}
+  .acc .acc-badge{display:inline-block;font-size:10.5px;font-weight:700;color:#B5824A;background:#fef5e8;border:1px solid #f0d9b0;border-radius:20px;padding:2px 10px;margin-bottom:5px;letter-spacing:0.06em;text-transform:uppercase}
+  .acc .acc-badge.claimed{color:#5E376C;background:#f3edf9;border-color:#c9aedd}
+  .acc .acc-name{font-family:var(--mhn-font-serif);font-size:18px;font-weight:700;color:#3D2148;line-height:1.2}
+  .acc .acc-price{font-size:19px;font-weight:700;color:#5E376C;white-space:nowrap;flex-shrink:0}
+  .acc .acc-chev{color:#7A4A8E;font-size:13px;flex-shrink:0;transition:transform 0.22s ease}
+  details.acc[open] .acc-chev{transform:rotate(180deg)}
+  details.acc[open]>summary{background:#f8f5fc;border-bottom:1px solid #e0d0f0}
+  .acc .acc-body{padding:18px 22px 22px}
+  .acc .acc-body p{font-size:14.5px;color:#5E376C;margin:0 0 12px;line-height:1.6}
+  .acc .acc-body ul{margin:0;padding-left:18px}
+  .acc .acc-body li{font-size:14px;color:#555;line-height:1.6;margin-bottom:4px}
+  .acc.title-acc>summary{background:linear-gradient(90deg,#FBF6EE 0%,#fff 100%)}
+  details.acc.title-acc[open]>summary{background:linear-gradient(90deg,#f5ede0 0%,#f8f5fc 100%)}
+  </style>
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="In Her Honor Awards Gala, January 8, 2027 | Mary's Hands Network">
 <meta name="twitter:description" content="The inaugural Mary's Hands Network benefit gala. January 8, 2027 in Baton Rouge. Awards, nominations, tickets, and sponsorships.">
@@ -315,140 +336,193 @@ Have an item or experience to donate to the silent auction? <a href="mailto:info
     <div class="eyebrow-c">Sponsorship Levels</div>
     <h2 class="sec-h">Leave your <em>Legacy in Lavender</em>.</h2>
     <p class="lede-c">Support at every level leaves a mark, and together those marks become a legacy that outlasts us all.</p>
-    <div class="levels">
-      <div class="lvl title-lvl">
-        <span class="avail">Title Sponsor &middot; Proudly Claimed by My Bump Hub</span>
-        <div class="lvl-top"><h3>Champion of Legacy</h3><span class="price">$20,000</span></div>
-        <p>Our premier, exclusive presenting sponsorship, with unparalleled visibility before, during, and after the evening.</p>
-        <ul>
-          <li>Exclusive naming rights as Title Sponsor</li>
-          <li>Premier logo placement on all event materials and signage</li>
-          <li>Welcome remarks and recognition from the podium</li>
-          <li>Preferred VIP seating: twenty (20) tickets and two reserved tables</li>
-          <li>Full-page premium ad in the commemorative program</li>
-        </ul>
-      </div>
-      <div class="lvl">
-        <div class="lvl-top"><h3>Pillar of Support</h3><span class="price">$15,000</span></div>
-        <p>A leadership-level sponsorship that helps hold up the very foundation of this work.</p>
-        <ul>
-          <li>Prominent logo placement on event materials</li>
-          <li>Welcome remarks during the reception</li>
-          <li>Full-page ad in the commemorative program</li>
-          <li>VIP table placement with ten (10) tickets</li>
-          <li>Recognition on MHN social media</li>
-        </ul>
-      </div>
-      <div class="lvl">
-        <div class="lvl-top"><h3>Promise of Tomorrow</h3><span class="price">$10,000</span></div>
-        <p>An investment in the future of Louisiana's families, one healthy birth at a time.</p>
-        <ul>
-          <li>Prominent logo placement on event materials</li>
-          <li>Audio and visual recognition during the program</li>
-          <li>Half-page ad in the commemorative program</li>
-          <li>VIP table placement with ten (10) tickets</li>
-        </ul>
-      </div>
-      <div class="lvl">
-        <div class="lvl-top"><h3>Labor of Love</h3><span class="price">$5,000</span></div>
-        <p>Share in the heart of our mission, strengthening the care our doulas provide.</p>
-        <ul>
-          <li>Listing in event materials and marketing</li>
-          <li>Social media and on-site recognition</li>
-          <li>Listing in the event program</li>
-          <li>Reserved seating for four (4) guests</li>
-        </ul>
-      </div>
-      <div class="lvl">
-        <div class="lvl-top"><h3>Sweet Beginnings</h3><span class="price">$2,500</span></div>
-        <p>Help welcome new life into our community with warmth and care.</p>
-        <ul>
-          <li>Listing in event materials and marketing</li>
-          <li>Social media and on-site recognition</li>
-          <li>Listing in the event program</li>
-          <li>Reserved seating for two (2) guests</li>
-        </ul>
-      </div>
+    <div class="acc-list">
+      <details class="acc title-acc">
+        <summary>
+          <div class="acc-sum-left">
+            <div class="acc-badge claimed">Title Sponsor &middot; Claimed by My Bump Hub</div>
+            <div class="acc-name">Champion of Legacy</div>
+          </div>
+          <span class="acc-price">$20,000</span>
+          <span class="acc-chev">&#9660;</span>
+        </summary>
+        <div class="acc-body">
+          <p>Our premier, exclusive presenting sponsorship, with unparalleled visibility before, during, and after the evening.</p>
+          <ul>
+            <li>Exclusive naming rights as Title Sponsor</li>
+            <li>Premier logo placement on all event materials and signage</li>
+            <li>Welcome remarks and recognition from the podium</li>
+            <li>Preferred VIP seating: twenty (20) tickets and two reserved tables</li>
+            <li>Full-page premium ad in the commemorative program</li>
+          </ul>
+        </div>
+      </details>
+      <details class="acc">
+        <summary>
+          <div class="acc-sum-left">
+            <div class="acc-name">Pillar of Support</div>
+          </div>
+          <span class="acc-price">$15,000</span>
+          <span class="acc-chev">&#9660;</span>
+        </summary>
+        <div class="acc-body">
+          <p>A leadership-level sponsorship that helps hold up the very foundation of this work.</p>
+          <ul>
+            <li>Prominent logo placement on event materials</li>
+            <li>Welcome remarks during the reception</li>
+            <li>Full-page ad in the commemorative program</li>
+            <li>VIP table placement with ten (10) tickets</li>
+            <li>Recognition on MHN social media</li>
+          </ul>
+        </div>
+      </details>
+      <details class="acc">
+        <summary>
+          <div class="acc-sum-left">
+            <div class="acc-name">Promise of Tomorrow</div>
+          </div>
+          <span class="acc-price">$10,000</span>
+          <span class="acc-chev">&#9660;</span>
+        </summary>
+        <div class="acc-body">
+          <p>An investment in the future of Louisiana&#8217;s families, one healthy birth at a time.</p>
+          <ul>
+            <li>Prominent logo placement on event materials</li>
+            <li>Audio and visual recognition during the program</li>
+            <li>Half-page ad in the commemorative program</li>
+            <li>VIP table placement with ten (10) tickets</li>
+          </ul>
+        </div>
+      </details>
+      <details class="acc">
+        <summary>
+          <div class="acc-sum-left">
+            <div class="acc-name">Labor of Love</div>
+          </div>
+          <span class="acc-price">$5,000</span>
+          <span class="acc-chev">&#9660;</span>
+        </summary>
+        <div class="acc-body">
+          <p>Share in the heart of our mission, strengthening the care our doulas provide.</p>
+          <ul>
+            <li>Listing in event materials and marketing</li>
+            <li>Social media and on-site recognition</li>
+            <li>Listing in the event program</li>
+            <li>Reserved seating for four (4) guests</li>
+          </ul>
+        </div>
+      </details>
+      <details class="acc">
+        <summary>
+          <div class="acc-sum-left">
+            <div class="acc-name">Sweet Beginnings</div>
+          </div>
+          <span class="acc-price">$2,500</span>
+          <span class="acc-chev">&#9660;</span>
+        </summary>
+        <div class="acc-body">
+          <p>Help welcome new life into our community with warmth and care.</p>
+          <ul>
+            <li>Listing in event materials and marketing</li>
+            <li>Social media and on-site recognition</li>
+            <li>Listing in the event program</li>
+            <li>Reserved seating for two (2) guests</li>
+          </ul>
+        </div>
+      </details>
     </div>
   </div>
 </section>
 
 <!-- SIGNATURE EXPERIENCES -->
-<section class="sec alt">
+<section class="sec" style="background:#f8f5fc">
   <div class="wrap">
     <div class="eyebrow-c">Signature Experiences</div>
     <h2 class="sec-h">Sponsor a moment of the evening.</h2>
     <p class="lede-c">Exclusive opportunities to put your name behind the most memorable moments of the gala.</p>
-    <div class="levels">
-      <div class="lvl">
-        <span class="avail">Only One Available</span>
-        <div class="lvl-top"><h3>Legacy Reception</h3><span class="price">$15,000</span></div>
-        <p>Sponsor the exclusive pre-event Champagne Reception that sets the tone for the evening, welcoming honorees, community leaders, and partners.</p>
-        <ul>
-          <li>Prominent branding throughout the reception</li>
-          <li>Welcome remarks and full-page program ad</li>
-          <li>VIP table placement with ten (10) tickets</li>
-        </ul>
-      </div>
-      <div class="lvl">
-        <span class="avail">Two Available</span>
-        <div class="lvl-top"><h3>Signature Bar</h3><span class="price">$10,000</span></div>
-        <p>Align your brand with one of the gala's most engaging guest experiences for the evening.</p>
-        <ul>
-          <li>Logo on beverage napkins, bar signage, and cups</li>
-          <li>Half-page program ad and social recognition</li>
-          <li>Invitation to the pre-event Champagne Reception</li>
-        </ul>
-      </div>
-      <div class="lvl">
-        <span class="avail">Four Available</span>
-        <div class="lvl-top"><h3>Table Sponsor</h3><span class="price">$5,000</span></div>
-        <p>Help celebrate the women, families, healthcare professionals, and community leaders whose work creates lasting impact.</p>
-        <ul>
-          <li>Recognition in the event program and on signage</li>
-          <li>Social media recognition as a Table Sponsor</li>
-          <li>Invitation to the pre-event Champagne Reception</li>
-        </ul>
-      </div>
-      <div class="lvl">
-        <span class="avail">Only One Available</span>
-        <div class="lvl-top"><h3>Welcome Pour</h3><span class="price">$3,000</span></div>
-        <p>Greet every guest with a glass of champagne and a memorable first impression as they arrive.</p>
-        <ul>
-          <li>Logo placement on event materials and marketing</li>
-          <li>Social media recognition as Welcome Pour Sponsor</li>
-          <li>Invitation to the pre-event Champagne Reception</li>
-        </ul>
-      </div>
+    <div class="acc-list">
+      <details class="acc">
+        <summary>
+          <div class="acc-sum-left">
+            <div class="acc-badge">Only One Available</div>
+            <div class="acc-name">Legacy Reception</div>
+          </div>
+          <span class="acc-price">$15,000</span>
+          <span class="acc-chev">&#9660;</span>
+        </summary>
+        <div class="acc-body">
+          <p>Sponsor the exclusive pre-event Champagne Reception that sets the tone for the evening, welcoming honorees, community leaders, and partners.</p>
+          <ul>
+            <li>Prominent branding throughout the reception</li>
+            <li>Welcome remarks and full-page program ad</li>
+            <li>VIP table placement with ten (10) tickets</li>
+          </ul>
+        </div>
+      </details>
+      <details class="acc">
+        <summary>
+          <div class="acc-sum-left">
+            <div class="acc-badge">Two Available</div>
+            <div class="acc-name">Signature Bar</div>
+          </div>
+          <span class="acc-price">$10,000</span>
+          <span class="acc-chev">&#9660;</span>
+        </summary>
+        <div class="acc-body">
+          <p>Align your brand with one of the gala&#8217;s most engaging guest experiences for the evening.</p>
+          <ul>
+            <li>Logo on beverage napkins, bar signage, and cups</li>
+            <li>Half-page program ad and social recognition</li>
+            <li>Invitation to the pre-event Champagne Reception</li>
+          </ul>
+        </div>
+      </details>
+      <details class="acc">
+        <summary>
+          <div class="acc-sum-left">
+            <div class="acc-badge">Four Available</div>
+            <div class="acc-name">Table Sponsor</div>
+          </div>
+          <span class="acc-price">$5,000</span>
+          <span class="acc-chev">&#9660;</span>
+        </summary>
+        <div class="acc-body">
+          <p>Help celebrate the women, families, and community leaders whose work creates lasting impact.</p>
+          <ul>
+            <li>Recognition in the event program and on signage</li>
+            <li>Social media recognition as a Table Sponsor</li>
+            <li>Invitation to the pre-event Champagne Reception</li>
+          </ul>
+        </div>
+      </details>
+      <details class="acc">
+        <summary>
+          <div class="acc-sum-left">
+            <div class="acc-badge">Only One Available</div>
+            <div class="acc-name">Welcome Pour</div>
+          </div>
+          <span class="acc-price">$3,000</span>
+          <span class="acc-chev">&#9660;</span>
+        </summary>
+        <div class="acc-body">
+          <p>Greet every guest with a glass of champagne and a memorable first impression as they arrive.</p>
+          <ul>
+            <li>Logo placement on event materials and marketing</li>
+            <li>Social media recognition as Welcome Pour Sponsor</li>
+            <li>Invitation to the pre-event Champagne Reception</li>
+          </ul>
+        </div>
+      </details>
     </div>
   </div>
 </section>
-
-<!-- CTA -->
-
-<section style="padding:60px 0;background:#f5f0f8" id="faq">
-  <div style="max-width:800px;margin:0 auto;padding:0 24px">
-    <h2 style="font-family:var(--mhn-font-serif);font-size:32px;color:#5E376C;margin:0 0 36px;text-align:center">Frequently Asked Questions</h2>
-    <div style="display:flex;flex-direction:column;gap:24px">
-      <div>
-        <h3 style="font-size:16px;font-weight:700;color:#3D2148;margin:0 0 8px">What should I wear?</h3>
-        <p style="font-size:15px;color:#444;margin:0;line-height:1.65">Cocktail attire. Lavender is encouraged.</p>
-      </div>
-      <div>
-        <h3 style="font-size:16px;font-weight:700;color:#3D2148;margin:0 0 8px">Where do I park?</h3>
-        <p style="font-size:15px;color:#444;margin:0;line-height:1.65"><span class="parking-details" style="display:none">[PARKING DETAILS]</span> The Renaissance Hotel has on-site parking; details will be included in your confirmation email.</p>
-      </div>
-      <div>
-        <h3 style="font-size:16px;font-weight:700;color:#3D2148;margin:0 0 8px">Is my ticket tax-deductible?</h3>
-        <p style="font-size:15px;color:#444;margin:0;line-height:1.65">The portion of your ticket price above the fair market value of the event is tax-deductible. The deductible amount will be noted on your receipt. Mary's Hands Network is a Louisiana 501(c)(3), EIN 92-2430838.</p>
-      </div>
-      <div>
-        <h3 style="font-size:16px;font-weight:700;color:#3D2148;margin:0 0 8px">How do I nominate someone for an award?</h3>
-        <p style="font-size:15px;color:#444;margin:0;line-height:1.65">Visit the <a href="awards.html" style="color:#5E376C;font-weight:600">awards page</a> to read the criteria and submit a nomination.</p>
-      </div>
-    </div>
-  </div>
+<section style="padding:56px 24px;text-align:center;background:#fff">
+  <p style="font-family:var(--mhn-font-serif);font-size:24px;color:#3D2148;margin:0 0 8px;font-weight:700">Ready to join us on January 8?</p>
+  <p style="font-size:15px;color:#7A4A8E;margin:0 0 28px">Single tickets $150 &middot; Tables from $1,500 (seats 10)</p>
+  <a href="https://givebutter.com/c/in-her-honor-a-legacy-in-lavender-awards-gala-rx8lxs" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;background:#B5824A;color:#fff;font-weight:700;font-size:18px;padding:18px 44px;border-radius:10px;text-decoration:none;letter-spacing:0.02em;box-shadow:0 4px 16px rgba(181,130,74,0.35)">Get Tickets</a>
 </section>
+
+
 
 <section class="gala-updates" style="padding:40px 0;background:#5E376C">
   <div style="max-width:600px;margin:0 auto;padding:0 24px;text-align:center">
