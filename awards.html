@@ -161,7 +161,7 @@
       position: relative;
     }
     .eligibility ul li::before {
-      content: '✦';
+      content: 'â¦';
       position: absolute;
       left: 0;
       color: #B5824A;
@@ -271,7 +271,7 @@
   <!-- NAV -->
   <div id="mhn-nav-placeholder"></div>
   <script>
-    fetch('/nav.html').then(r=>r.text()).then(t=>{
+    fetch('/nav.html').then(r=>{ if(!r.ok) throw 0; return r.text(); }).then(t=>{
       document.getElementById('mhn-nav-placeholder').outerHTML = t;
     }).catch(()=>{});
   </script>
@@ -302,6 +302,7 @@
           <p class="award-tag">Award</p>
           <h3>Pinnacle of Health Excellence Award</h3>
           <p>For a leader whose work represents the highest standard of excellence in women's health, well-being, and dignity. This award recognizes someone who has consistently elevated the quality, accessibility, and compassion of care available to women and families in Louisiana.</p>
+        <a href="https://forms.monday.com/forms/f144cbcdc71ae5b00ff7d058ba0a05a0?r=use1" target="_blank" rel="noopener" style="display:inline-block;margin-top:18px;background:#B5824A;color:#fff;font-weight:700;font-size:0.88rem;padding:10px 22px;border-radius:8px;text-decoration:none;letter-spacing:.02em">Nominate for this award &rarr;</a>
         </div>
       </div>
 
@@ -311,6 +312,7 @@
           <p class="award-tag">Award</p>
           <h3>Empowerment Luminary Award</h3>
           <p>For a visionary who creates pathways of empowerment and opportunity to uplift women. This award honors someone who has opened doors, built bridges, and worked to ensure that women have the knowledge, resources, and support they need to lead their own lives and births.</p>
+        <a href="https://forms.monday.com/forms/54c0fa6e4544f7ffabe83a146e7e37f4?r=use1" target="_blank" rel="noopener" style="display:inline-block;margin-top:18px;background:#B5824A;color:#fff;font-weight:700;font-size:0.88rem;padding:10px 22px;border-radius:8px;text-decoration:none;letter-spacing:.02em">Nominate for this award &rarr;</a>
         </div>
       </div>
 
@@ -320,6 +322,7 @@
           <p class="award-tag">Award</p>
           <h3>Distinction of Advocacy Award</h3>
           <p>For a champion whose advocacy advances justice, equity, and women's rights. This award recognizes someone who has spoken up, shown up, and fought for the policy changes, community protections, and systemic shifts that make a real difference in the lives of women and families.</p>
+        <a href="https://forms.monday.com/forms/fe5b35f36a0cd5b02fb91d9bef1546c8?r=use1" target="_blank" rel="noopener" style="display:inline-block;margin-top:18px;background:#B5824A;color:#fff;font-weight:700;font-size:0.88rem;padding:10px 22px;border-radius:8px;text-decoration:none;letter-spacing:.02em">Nominate for this award &rarr;</a>
         </div>
       </div>
 
@@ -329,6 +332,7 @@
           <p class="award-tag">Award</p>
           <h3>Legacy of Care Award</h3>
           <p>For an organization or leader whose long-standing service has shaped generations of support for women. This award honors sustained, committed presence, the kind of care that does not come and go but stays, grows roots, and builds something that lasts.</p>
+        <a href="https://forms.monday.com/forms/e7d79af7093a595371270d6f34d8841f?r=use1" target="_blank" rel="noopener" style="display:inline-block;margin-top:18px;background:#B5824A;color:#fff;font-weight:700;font-size:0.88rem;padding:10px 22px;border-radius:8px;text-decoration:none;letter-spacing:.02em">Nominate for this award &rarr;</a>
         </div>
       </div>
 
@@ -338,6 +342,7 @@
           <p class="award-tag">Award</p>
           <h3>Rising Impact Award</h3>
           <p>For an emerging leader whose early contributions already demonstrate extraordinary promise. This award is for the person who is just getting started and whose work is already changing lives, the kind of leader whose best years are still ahead.</p>
+        <a href="https://forms.monday.com/forms/69b1a36ae7de11a738dadcc9ab188e76?r=use1" target="_blank" rel="noopener" style="display:inline-block;margin-top:18px;background:#B5824A;color:#fff;font-weight:700;font-size:0.88rem;padding:10px 22px;border-radius:8px;text-decoration:none;letter-spacing:.02em">Nominate for this award &rarr;</a>
         </div>
       </div>
 
@@ -360,78 +365,7 @@
     </div>
   </section>
 
-  <!-- NOMINATION FORM -->
-  <section class="nominate-section" id="nominate">
-    <div class="nominate-inner">
-      <h2>Submit a Nomination</h2>
-      <p class="lead">Tell us about someone doing extraordinary work for women and families in Louisiana. Nominations close November 15, 2026.</p>
-
-      <form action="mailto:info@mhndoula.com" method="POST" enctype="text/plain" onsubmit="return confirmSubmit()">
-        <div class="form-group">
-          <label>Which award are you nominating for?</label>
-          <select name="Award" required>
-            <option value="" disabled selected>Select an award</option>
-            <option>Pinnacle of Health Excellence Award</option>
-            <option>Empowerment Luminary Award</option>
-            <option>Distinction of Advocacy Award</option>
-            <option>Legacy of Care Award</option>
-            <option>Rising Impact Award</option>
-          </select>
-        </div>
-
-        <div style="border-top:1.5px solid #e8dff0;margin:28px 0;padding-top:28px">
-          <p style="font-family:Georgia,serif;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:#5E376C;margin:0 0 20px">About the Nominee</p>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Nominee's Name or Organization</label>
-              <input type="text" name="Nominee Name" placeholder="Full name or organization" required>
-            </div>
-            <div class="form-group">
-              <label>Nominee's Title / Role</label>
-              <input type="text" name="Nominee Title" placeholder="e.g. Executive Director, Doula, Nurse">
-            </div>
-          </div>
-          <div class="form-group">
-            <label>How can we reach the nominee? (optional)</label>
-            <input type="text" name="Nominee Contact" placeholder="Email address or phone number">
-          </div>
-        </div>
-
-        <div style="border-top:1.5px solid #e8dff0;margin:8px 0 28px;padding-top:28px">
-          <p style="font-family:Georgia,serif;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:#5E376C;margin:0 0 20px">Your Nomination</p>
-          <div class="form-group">
-            <label>Why does this person or organization deserve this award?</label>
-            <textarea name="Reason" placeholder="Tell us about their work, their impact, and why this award fits them. There is no minimum or maximum length, but specific examples help." required></textarea>
-          </div>
-          <div class="form-group">
-            <label>Any additional context? (optional)</label>
-            <textarea name="Additional Context" placeholder="Anything else we should know about this nominee, including other people we could contact as references." style="min-height:80px"></textarea>
-          </div>
-        </div>
-
-        <div style="border-top:1.5px solid #e8dff0;margin:8px 0 28px;padding-top:28px">
-          <p style="font-family:Georgia,serif;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:#5E376C;margin:0 0 20px">About You</p>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Your Name</label>
-              <input type="text" name="Nominator Name" placeholder="Your full name" required>
-            </div>
-            <div class="form-group">
-              <label>Your Email</label>
-              <input type="email" name="Nominator Email" placeholder="your@email.com" required>
-            </div>
-          </div>
-          <div class="form-group">
-            <label>Your Relationship to the Nominee</label>
-            <input type="text" name="Relationship" placeholder="e.g. Colleague, community member, patient, self">
-          </div>
-        </div>
-
-        <button type="submit" class="submit-btn">Submit Nomination &rarr;</button>
-        <p class="form-note">Submissions open your email client to send directly to Mary's Hands Network. If you prefer, you can also email your nomination directly to <a href="mailto:info@mhndoula.com" style="color:#5E376C">info@mhndoula.com</a>. All nominations are reviewed by the In Her Honor Awards Committee. Nominees will not be contacted without permission from their nominator.</p>
-      </form>
-    </div>
-  </section>
+  
 
   <!-- BACK TO GALA -->
   <section style="background:#3a1f4a;padding:48px 32px;text-align:center">
@@ -442,7 +376,7 @@
   <!-- FOOTER -->
   <div id="mhn-footer-placeholder"></div>
   <script>
-    fetch('/footer.html').then(r=>r.text()).then(t=>{
+    fetch('/footer.html').then(r=>{ if(!r.ok) throw 0; return r.text(); }).then(t=>{
       document.getElementById('mhn-footer-placeholder').outerHTML = t;
     }).catch(()=>{});
     function confirmSubmit() {
