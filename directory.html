@@ -187,7 +187,7 @@
     <a href="doula-training.html">For Doulas</a>
     <a href="store.html">Store</a>
     <a href="gala.html">Gala</a>
-    <span class="lang-icon lang-disabled" title="EspaÃ±ol &mdash; coming soon" aria-disabled="true"><i data-lucide="globe"></i></span><a href="portal.html" class="btn-portal">Doula Portal</a>
+    <span class="lang-icon lang-disabled" title="Español &mdash; coming soon" aria-disabled="true"><i data-lucide="globe"></i></span><a href="portal.html" class="btn-portal">Doula Portal</a>
     <a href="donate.html" class="btn-donate">Donate</a>
   </div>
 </nav>
@@ -570,19 +570,19 @@ function renderCard(d){
   var phone = formatPhone(d.phone);
   var photo = d.photo ? '<img src="'+d.photo+'" alt="">' : initials(d.name);
   var meta = [];
-  if (d.email) meta.push('<div>ð§ <a href="mailto:'+d.email+'">'+d.email+'</a></div>');
-  if (phone)   meta.push('<div>ð <a href="tel:'+(d.phone+"").replace(/\D/g,"")+'">'+phone+'</a></div>');
+  if (d.email) meta.push('<div>📧 <a href="mailto:'+d.email+'">'+d.email+'</a></div>');
+  if (phone)   meta.push('<div>📞 <a href="tel:'+(d.phone+"").replace(/\D/g,"")+'">'+phone+'</a></div>');
   var loc = d.region || d.service;
-  if (loc)     meta.push('<div>ð '+loc+'</div>');
+  if (loc)     meta.push('<div>📍 '+loc+'</div>');
   var badges = [statusBadge(d)];
   if (d.cohort) badges.push('<span class="dir-badge cohort">'+d.cohort+'</span>');
   // ICEA Certified &mdash; show if Birth Doula or Postpartum
   if (d.icea === "Birth Doula" || d.icea === "Postpartum"){
-    badges.push('<span class="dir-badge icea" title="ICEA-certified ' + d.icea + ' Doula"><span class="check">â</span>ICEA ' + d.icea + '</span>');
+    badges.push('<span class="dir-badge icea" title="ICEA-certified ' + d.icea + ' Doula"><span class="check">✓</span>ICEA ' + d.icea + '</span>');
   }
   // Doula Registry &mdash; show if Active on registry
   if (d.registry === "Active"){
-    badges.push('<span class="dir-badge registry" title="On the Louisiana Doula Registry"><span class="check">â</span>LA Registry</span>');
+    badges.push('<span class="dir-badge registry" title="On the Louisiana Doula Registry"><span class="check">✓</span>LA Registry</span>');
   }
   return '<div class="dir-card">'
        +   '<div class="dir-avatar">'+photo+'</div>'
