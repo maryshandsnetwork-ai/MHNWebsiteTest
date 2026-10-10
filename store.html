@@ -195,6 +195,11 @@
   .course-note a.email:hover{color:var(--mhn-purple-900);border-color:var(--mhn-purple-700)}
 
   /* Course access inline note (shown only when Full Course variant is selected) */
+  .photo-label{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:28px;font-style:normal;font-size:26px;line-height:1.25;font-weight:700;color:var(--mhn-purple-700)}
+  .photo-label small{display:block;margin-top:10px;font-size:15px;font-weight:400;font-style:italic;color:var(--mhn-ink-soft)}
+  .shop-courses .shop-inner{padding-top:8px}
+  .shop-decks.shop-courses .pgrid{grid-template-columns:repeat(2,1fr);max-width:980px}
+  @media (max-width:900px){.shop-decks.shop-courses .pgrid{grid-template-columns:1fr}}
   .course-access-note{
     display:none;
     margin:10px 0 0;
@@ -354,13 +359,11 @@
   <div class="july-banner-track" aria-hidden="false">
     <!-- Loop A -->
     <span class="item"><span class="pulse"></span><strong>Now accepting clients due November 2026 &amp; beyond</strong></span>
-    <span class="item"><span class="pulse"></span><strong>Sigma Cohort</strong> &middot; Oct 26&ndash;31, 2026 &middot; YWCA Empowerment Center &middot; Registration closes Oct 9</span>
-    <span class="item">Full &amp; partial scholarships available</span>
+    <span class="item"><span class="pulse"></span><strong>Sigma Cohort</strong> &middot; Oct 26&ndash;31, 2026 &middot; YWCA Empowerment Center &middot; Registration closed</span>
     <span class="item"><a class="learn-more" href="doula-training.html">Learn more</a></span>
     <!-- Loop B (duplicate so the scroll seam is invisible) -->
     <span class="item" aria-hidden="true"><span class="pulse"></span><strong>Now accepting clients due November 2026 &amp; beyond</strong></span>
-    <span class="item" aria-hidden="true"><span class="pulse"></span><strong>Sigma Cohort</strong> &middot; Oct 26&ndash;31, 2026 &middot; YWCA Empowerment Center &middot; Registration closes Oct 9</span>
-    <span class="item" aria-hidden="true">Full &amp; partial scholarships available</span>
+    <span class="item" aria-hidden="true"><span class="pulse"></span><strong>Sigma Cohort</strong> &middot; Oct 26&ndash;31, 2026 &middot; YWCA Empowerment Center &middot; Registration closed</span>
     <span class="item" aria-hidden="true"><a class="learn-more" href="doula-training.html">Learn more</a></span>
 </div>
 </div>
@@ -397,7 +400,7 @@
   </div>
   <div class="store-hero-art">
     <img src="./assets/photos/pocket-doula-pair.jpg" alt="MHN store products" class="store-hero-img a">
-    <img src="./assets/photos/bereavement-1.jpg" alt="" class="store-hero-img b">
+    <img src="./assets/photos/bereavement-cover.jpg" alt="" class="store-hero-img b">
     <img src="./assets/photos/data-driven-doula.jpg" alt="" class="store-hero-img c">
   </div>
 </section>
@@ -445,59 +448,127 @@
         </div>
         <div class="body">
           <h3>The Data-Driven Doula</h3>
-          <p class="desc">The full ICEA-approved doula curriculum. 5 units, 21 chapters of evidence-based content + a companion workbook for reflection, exercises, and exam prep.</p>
+          <p class="desc">The full ICEA-approved doula curriculum. 5 units, 21 chapters of evidence-based content + a companion workbook for reflection, exercises, and exam prep. Add the 40-hour online course with video lessons and quizzes, and get the books at 30% off.</p>
           <div class="variant-row">
             <label class="variant-label" for="var-ddd">Format</label>
             <select id="var-ddd" class="variant-select"
-                    data-prices='{"bundle":"$150","textbook":"$120","workbook":"$50"}'
-                    data-urls='{"bundle":"https://www.paypal.com/ncp/payment/PMQ3U2H2EVQ2G","textbook":"https://www.paypal.com/ncp/payment/5HFVDZ4CDNP48","workbook":"https://www.paypal.com/ncp/payment/QNJKXYYU39NBA"}'>
+                    data-prices='{"bundle":"$150","textbook":"$120","workbook":"$50","coursebooks":"$726","course":"$621"}'
+                    data-urls='{"bundle":"https://www.paypal.com/ncp/payment/PMQ3U2H2EVQ2G","textbook":"https://www.paypal.com/ncp/payment/5HFVDZ4CDNP48","workbook":"https://www.paypal.com/ncp/payment/QNJKXYYU39NBA","coursebooks":"https://www.paypal.com/ncp/payment/NTJJKPAG5PAQ8","course":"https://www.paypal.com/ncp/payment/S99GTVMDSFQLJ"}'>
               <option value="bundle">Bundle &middot; textbook + workbook &middot; $150 (Save $20)</option>
               <option value="textbook">Textbook only &middot; $120</option>
               <option value="workbook">Workbook only &middot; $50</option>
+              <option value="coursebooks">Online course + books &middot; $726</option>
+              <option value="course">Online course only &middot; $621</option>
             </select>
           </div>
           <p class="price-line"><span class="price-display" data-default="$150">$150</span> <span class="price-fine">+ tax &middot; free shipping</span></p>
           <a class="buy-btn buy-cta" data-default="https://www.paypal.com/ncp/payment/PMQ3U2H2EVQ2G" href="https://www.paypal.com/ncp/payment/PMQ3U2H2EVQ2G" target="_blank" rel="noopener">Buy on PayPal</a>
+          <p class="course-access-note" data-show-for="coursebooks course"><strong>Course access:</strong> 1 year of access. After your purchase, we'll send you a link to the online course and an access code by email. If you don't receive your code or have any issues, reach out to us at <a href="mailto:info@mhndoula.com">info@mhndoula.com</a>.</p>
           <p class="bulk-note">Need more than 10? <a href="mailto:info@mhndoula.com?subject=Data-Driven%20Doula%20bulk%20pricing">Email for bulk pricing</a></p>
         </div>
       </div>
 
       <!-- BEREAVEMENT DOULA &mdash; variant dropdown (textbook bundle / full course) -->
       <div class="product" data-variants="bereavement">
-        <div class="photo">
-          <img src="./assets/photos/bereavement-1.jpg" alt="The Bereavement Doula textbook front cover" class="photo-main">
+        <div class="photo" style="padding:32px">
+          <img src="./assets/photos/bereavement-cover.jpg" alt="The Bereavement Doula textbook front cover" style="position:static;width:auto;height:100%;max-width:100%;object-fit:contain;border-radius:6px;box-shadow:0 6px 16px rgba(94,55,108,0.18)">
           <span class="ribbon ribbon-purple">16 ICEA CEUs</span>
         </div>
         <div class="body">
           <h3>The Bereavement Doula</h3>
-          <p class="desc">ICEA-approved training to support families through pregnancy and infant loss. Choose the textbook bundle (textbook + workbook) or the full online course with 6 months of access and 16 ICEA CEUs.</p>
+          <p class="desc">ICEA-approved training to support families through pregnancy and infant loss. Choose the textbook bundle (textbook + workbook), the online course with 1 year of access and 16 ICEA CEUs, or both together with the books at 30% off.</p>
           <div class="variant-row">
             <label class="variant-label" for="var-bereavement">Format</label>
             <select id="var-bereavement" class="variant-select"
-                    data-prices='{"bundle":"$50","course":"$450"}'
-                    data-urls='{"bundle":"https://www.paypal.com/ncp/payment/SGL8R9MLKEFQW","course":"https://www.paypal.com/ncp/payment/SUV4QJA8V7E36"}'>
+                    data-prices='{"bundle":"$50","coursebooks":"$532","course":"$497"}'
+                    data-urls='{"bundle":"https://www.paypal.com/ncp/payment/SGL8R9MLKEFQW","coursebooks":"https://www.paypal.com/ncp/payment/A2GG6ULJ4ZKDC","course":"https://www.paypal.com/ncp/payment/9YM667574WFV4"}'>
               <option value="bundle">Textbook Bundle &middot; textbook + workbook &middot; $50</option>
-              <option value="course">Full Course &middot; online + books + 16 CEUs &middot; $450</option>
+              <option value="coursebooks">Online course + books &middot; $532</option>
+              <option value="course">Online course only &middot; $497</option>
             </select>
           </div>
           <p class="price-line"><span class="price-display" data-default="$50">$50</span> <span class="price-fine">+ tax &middot; free shipping</span></p>
           <a class="buy-btn buy-cta" data-default="https://www.paypal.com/ncp/payment/SGL8R9MLKEFQW" href="https://www.paypal.com/ncp/payment/SGL8R9MLKEFQW" target="_blank" rel="noopener">Buy on PayPal</a>
-          <p class="course-access-note" data-show-for="course"><strong>Course access:</strong> After your purchase, we'll send you a link to the online course and an access code by email. If you don't receive your code or have any issues, reach out to us at <a href="mailto:info@mhndoula.com">info@mhndoula.com</a>.</p>
+          <p class="course-access-note" data-show-for="coursebooks course"><strong>Course access:</strong> 1 year of access. After your purchase, we'll send you a link to the online course and an access code by email. If you don't receive your code or have any issues, reach out to us at <a href="mailto:info@mhndoula.com">info@mhndoula.com</a>.</p>
           <p class="bulk-note">Need more than 10? <a href="mailto:info@mhndoula.com?subject=Bereavement%20Doula%20bulk%20pricing">Email for bulk pricing</a></p>
         </div>
       </div>
 
-      <!-- THE EVERYTHING GUIDE -->
-      <div class="product">
+      <!-- THE EVERYTHING GUIDE &mdash; variant dropdown (book / course / both) -->
+      <div class="product" data-variants="everything">
         <div class="photo">
           <img src="./assets/photos/everything-guide-1.jpg" alt="The Everything Guide front cover" class="photo-main">
         </div>
         <div class="body">
           <h3>The Everything Guide</h3>
-          <p class="desc">A parent-facing guide to the whole journey &mdash; early pregnancy through postpartum. The book MHN doulas reach for first when families want to read alongside their care.</p>
-          <p class="price-line"><span class="price-display">$50</span> <span class="price-fine">to Pregnancy, Childbirth and Postpartum &middot; + tax &middot; free shipping</span></p>
-          <a class="buy-btn" href="https://www.paypal.com/ncp/payment/ZPCZG6BPBD5YE" target="_blank" rel="noopener">Buy on PayPal</a>
+          <p class="desc">A parent-facing guide to the whole journey &mdash; early pregnancy through postpartum. Pair it with the online course: 10 modules, about 13 hours, with quizzes and a certificate of completion.</p>
+          <div class="variant-row">
+            <label class="variant-label" for="var-everything">Format</label>
+            <select id="var-everything" class="variant-select"
+                    data-prices='{"book":"$50","coursebook":"$232","course":"$197"}'
+                    data-urls='{"book":"https://www.paypal.com/ncp/payment/ZPCZG6BPBD5YE","coursebook":"https://www.paypal.com/ncp/payment/XT6ZM2BV6SG7L","course":"https://www.paypal.com/ncp/payment/A3YP62TQKUV36"}'>
+              <option value="book">Book &middot; $50</option>
+              <option value="coursebook">Online course + book &middot; $232</option>
+              <option value="course">Online course only &middot; $197</option>
+            </select>
+          </div>
+          <p class="price-line"><span class="price-display" data-default="$50">$50</span> <span class="price-fine">+ tax &middot; free shipping</span></p>
+          <a class="buy-btn buy-cta" data-default="https://www.paypal.com/ncp/payment/ZPCZG6BPBD5YE" href="https://www.paypal.com/ncp/payment/ZPCZG6BPBD5YE" target="_blank" rel="noopener">Buy on PayPal</a>
+          <p class="course-access-note" data-show-for="coursebook course"><strong>Course access:</strong> 1 year of access. After your purchase, we'll send you a link to the online course and an access code by email. If you don't receive your code or have any issues, reach out to us at <a href="mailto:info@mhndoula.com">info@mhndoula.com</a>.</p>
           <p class="bulk-note">Need more than 10? <a href="mailto:info@mhndoula.com?subject=Everything%20Guide%20bulk%20pricing">Email for bulk pricing</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ONLINE COURSES -->
+<section class="shop shop-decks shop-courses">
+  <div class="shop-inner">
+    <div class="section-divider">
+      <h2 class="sd-title">Online Courses</h2>
+      <p class="sd-sub">Self-paced, with 1 year of access. Your access code arrives by email after purchase.</p>
+    </div>
+
+    <div class="pgrid">
+      <div class="product">
+        <div class="photo" style="padding:32px"><img src="./assets/photos/data-driven-doula.jpg" alt="The Data-Driven Doula textbook cover" style="position:static;width:auto;height:100%;max-width:100%;object-fit:contain;border-radius:6px;box-shadow:0 6px 16px rgba(94,55,108,0.18)"></div>
+        <div class="body">
+          <h3>The Data-Driven Doula</h3>
+          <p class="desc">The full online doula training: 40 hours across 21 chapters, with video lessons and quizzes. Want the textbook and workbook too? Choose the course + books option above and get the books at 30% off.</p>
+          <p class="price-line"><span class="price-display">$621</span> <span class="price-fine">+ tax &middot; 1 year of access</span></p>
+          <a class="buy-btn" href="https://www.paypal.com/ncp/payment/S99GTVMDSFQLJ" target="_blank" rel="noopener">Buy on PayPal</a>
+          <p class="course-access-note" style="display:block"><strong>Course access:</strong> 1 year of access. After your purchase, we'll send you a link to the online course and an access code by email. If you don't receive your code or have any issues, reach out to us at <a href="mailto:info@mhndoula.com">info@mhndoula.com</a>.</p>
+        </div>
+      </div>
+      <div class="product">
+        <div class="photo" style="padding:32px"><img src="./assets/photos/bereavement-cover.jpg" alt="The Bereavement Doula textbook cover" style="position:static;width:auto;height:100%;max-width:100%;object-fit:contain;border-radius:6px;box-shadow:0 6px 16px rgba(94,55,108,0.18)"><span class="ribbon ribbon-purple">16 ICEA CEUs</span></div>
+        <div class="body">
+          <h3>The Bereavement Doula</h3>
+          <p class="desc">ICEA-approved specialty training to support families through pregnancy and infant loss. 12 modules, 40 lessons, a final exam, and a certificate of completion. Earns 16 ICEA CEUs. Want the textbook and workbook too? Choose the course + books option above and get the books at 30% off.</p>
+          <p class="price-line"><span class="price-display">$497</span> <span class="price-fine">+ tax &middot; 1 year of access</span></p>
+          <a class="buy-btn" href="https://www.paypal.com/ncp/payment/9YM667574WFV4" target="_blank" rel="noopener">Buy on PayPal</a>
+          <p class="course-access-note" style="display:block"><strong>Course access:</strong> 1 year of access. After your purchase, we'll send you a link to the online course and an access code by email. If you don't receive your code or have any issues, reach out to us at <a href="mailto:info@mhndoula.com">info@mhndoula.com</a>.</p>
+        </div>
+      </div>
+      <div class="product">
+        <div class="photo" style="background:#fff"><img src="./assets/photos/exam-prep-birth.jpg" alt="ICEA Birth Doula Exam Prep Course" style="position:static;width:100%;height:auto;object-fit:contain"></div>
+        <div class="body">
+          <h3>Birth Doula Exam Prep</h3>
+          <p class="desc">Get ready for the ICEA birth doula exam: 8 review modules, a 1-hour review video, a 59-slide review presentation, and 180 practice questions.</p>
+          <p class="price-line"><span class="price-display">$100</span> <span class="price-fine">+ tax &middot; 1 year of access</span></p>
+          <a class="buy-btn" href="https://www.paypal.com/ncp/payment/8W5WPQEE5ZGUE" target="_blank" rel="noopener">Buy on PayPal</a>
+          <p class="course-access-note" style="display:block"><strong>Course access:</strong> 1 year of access. After your purchase, we'll send you a link to the online course and an access code by email. If you don't receive your code or have any issues, reach out to us at <a href="mailto:info@mhndoula.com">info@mhndoula.com</a>.</p>
+        </div>
+      </div>
+      <div class="product">
+        <div class="photo" style="background:#fff"><img src="./assets/photos/exam-prep-postpartum.jpg" alt="ICEA Postpartum Doula Exam Prep Course" style="position:static;width:100%;height:auto;object-fit:contain"></div>
+        <div class="body">
+          <h3>Postpartum Doula Exam Prep</h3>
+          <p class="desc">Practice questions and a full review to prepare for the ICEA postpartum doula exam.</p>
+          <p class="price-line"><span class="price-display">$100</span> <span class="price-fine">+ tax &middot; 1 year of access</span></p>
+          <a class="buy-btn" href="https://www.paypal.com/ncp/payment/SJ2BTJ4QGS3AL" target="_blank" rel="noopener">Buy on PayPal</a>
+          <p class="course-access-note" style="display:block"><strong>Course access:</strong> 1 year of access. After your purchase, we'll send you a link to the online course and an access code by email. If you don't receive your code or have any issues, reach out to us at <a href="mailto:info@mhndoula.com">info@mhndoula.com</a>.</p>
         </div>
       </div>
     </div>
@@ -576,7 +647,7 @@
       if (urls[v]) btn.href = urls[v];
       // Show/hide conditional notes (e.g. course access note)
       card.querySelectorAll('[data-show-for]').forEach(function(el){
-        el.style.display = (el.getAttribute('data-show-for') === v) ? 'block' : 'none';
+        el.style.display = ((el.getAttribute('data-show-for') || '').split(' ').indexOf(v) > -1) ? 'block' : 'none';
       });
     }
     sel.addEventListener('change', update);
