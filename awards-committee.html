@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>In Her Honor Awards — Committee Scoring</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--purple:#5E376C;--purple-mid:#7A4A8E;--purple-dark:#3a1f4a;--gold:#B5824A;--gold-dark:#85571F;--lavender:#f5f0f8;--lavender-border:#c9aedd;--white:#fff;--ink:#1e1226;--muted:#6e5a7a;--surface:#faf8fc;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit;margin:0;padding:0}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{font-family:'Inter',sans-serif;background:var(--surface);color:var(--ink);line-height:1.6;font-size:15px}
+
+/* GATE */
+#gate{position:fixed;inset:0;background:var(--purple-dark);display:flex;align-items:center;justify-content:center;z-index:9999;padding:24px}
+.gate-box{background:rgba(255,255,255,.06);border:1px solid rgba(201,174,221,.25);border-radius:16px;padding:48px 40px;width:100%;max-width:380px;text-align:center}
+.gate-box::before{content:'✦';font-size:2rem;color:var(--gold);display:block;margin-bottom:20px}
+.gate-title{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:600;color:white;margin-bottom:6px}
+.gate-sub{font-size:.8rem;color:rgba(255,255,255,.5);margin-bottom:28px}
+.gate-input{width:100%;background:rgba(255,255,255,.08);border:1px solid rgba(201,174,221,.3);border-radius:8px;color:white;font-family:'Inter',sans-serif;font-size:1rem;padding:11px 14px;outline:none;text-align:center;letter-spacing:.12em;margin-bottom:12px;transition:border-color .15s}
+.gate-input:focus{border-color:var(--gold)}
+.gate-input::placeholder{color:rgba(255,255,255,.25);letter-spacing:0}
+.gate-btn{width:100%;background:var(--gold);border:none;border-radius:8px;color:white;font-family:'Inter',sans-serif;font-size:.9rem;font-weight:600;padding:12px;cursor:pointer;transition:background .15s}
+.gate-btn:hover{background:var(--gold-dark)}
+.gate-error{font-size:.78rem;color:#ff8a8a;margin-top:10px;min-height:18px}
+
+/* HEADER */
+.site-header{background:var(--purple-dark);padding:22px 28px 18px;position:sticky;top:0;z-index:100;box-shadow:0 2px 16px rgba(58,31,74,.3)}
+.site-header::before{content:'';display:block;position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-dark),var(--gold))}
+.header-inner{max-width:980px;margin:0 auto;display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.header-title{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:600;color:white;line-height:1.2}
+.header-sub{font-size:.75rem;color:var(--lavender-border);margin-top:3px}
+.reviewer-wrap{display:flex;flex-direction:column;gap:5px;min-width:210px}
+.reviewer-wrap label{font-size:.7rem;letter-spacing:.06em;color:var(--lavender-border);font-weight:500}
+.reviewer-select{background:rgba(255,255,255,.1);border:1px solid rgba(201,174,221,.3);border-radius:7px;color:white;font-family:'Inter',sans-serif;font-size:.88rem;padding:7px 11px;outline:none;cursor:pointer;width:100%}
+.reviewer-select option{color:var(--ink);background:white}
+.progress-wrap{max-width:980px;margin:0 auto;padding:10px 0 2px;display:flex;align-items:center;gap:10px}
+.progress-bar{flex:1;height:4px;background:rgba(255,255,255,.12);border-radius:2px;overflow:hidden}
+.progress-fill{height:100%;background:var(--gold);transition:width .4s;width:0}
+.progress-label{font-size:.72rem;color:var(--lavender-border);white-space:nowrap}
+
+/* TABS */
+.tab-bar-wrap{background:var(--purple);position:sticky;top:95px;z-index:90}
+.tab-bar{max-width:980px;margin:0 auto;display:flex;overflow-x:auto;scrollbar-width:none;padding:0 8px}
+.tab-bar::-webkit-scrollbar{display:none}
+.tab-btn{flex-shrink:0;background:none;border:none;color:rgba(255,255,255,.6);font-family:'Inter',sans-serif;font-size:.76rem;font-weight:500;padding:12px 16px 10px;cursor:pointer;border-bottom:3px solid transparent;transition:color .15s,border-color .15s;white-space:nowrap}
+.tab-btn:hover{color:white}
+.tab-btn.active{color:white;border-bottom-color:var(--gold)}
+.tab-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--gold);margin-left:6px;opacity:0;transition:opacity .2s;vertical-align:middle}
+.tab-dot.visible{opacity:1}
+
+/* MAIN */
+.main{max-width:980px;margin:0 auto;padding:28px 18px 60px}
+.tab-panel{display:none}.tab-panel.active{display:block}
+
+/* AWARD HEADER */
+.award-header{background:white;border:1px solid var(--lavender-border);border-radius:10px;padding:22px 26px;margin-bottom:24px;display:flex;gap:20px;align-items:flex-start}
+.award-badge{background:var(--purple);color:white;border-radius:8px;padding:8px 12px;font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:600;line-height:1;flex-shrink:0}
+.award-header-text h2{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:600;color:var(--purple-dark);line-height:1.2}
+.award-purpose{font-size:.85rem;color:var(--muted);margin-top:4px;max-width:64ch}
+.score-legend{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}
+.chip{font-size:.7rem;font-weight:600;padding:3px 9px;border-radius:20px;border:1px solid}
+.chip-e{color:#1a7a3c;border-color:#a8e6bf;background:#f0fff6}
+.chip-s{color:#2a5ea8;border-color:#a8c4e6;background:#f0f6ff}
+.chip-p{color:#7a5a1a;border-color:#e6d0a8;background:#fffaf0}
+.chip-l{color:#7a2a2a;border-color:#e6a8a8;background:#fff0f0}
+
+/* LOADING */
+.loading-state{text-align:center;padding:60px 20px;color:var(--muted)}
+.spinner{width:36px;height:36px;border:3px solid var(--lavender-border);border-top-color:var(--purple);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 16px}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* NOMINEE CARD */
+.nominee-card{background:white;border:1px solid var(--lavender-border);border-radius:10px;margin-bottom:18px;overflow:hidden}
+.score-progress-bar{height:4px;background:var(--lavender)}
+.score-progress-fill{height:100%;background:linear-gradient(90deg,var(--purple),var(--purple-mid));transition:width .3s;width:0}
+.card-header{display:flex;align-items:center;padding:16px 22px;gap:12px;cursor:pointer;user-select:none}
+.nominee-info{flex:1}
+.nominee-name{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--purple-dark)}
+.nominee-meta{font-size:.8rem;color:var(--muted);margin-top:2px}
+.score-badge{background:var(--lavender);border-radius:8px;padding:7px 14px;text-align:center;min-width:62px;flex-shrink:0}
+.score-badge-num{font-weight:600;font-size:1rem;color:var(--purple)}
+.score-badge-sub{font-size:.62rem;color:var(--muted);margin-top:1px}
+.card-toggle-btn{background:none;border:1px solid var(--lavender-border);border-radius:6px;color:var(--purple-mid);font-family:'Inter',sans-serif;font-size:.72rem;font-weight:500;padding:5px 10px;cursor:pointer;white-space:nowrap;flex-shrink:0}
+.card-toggle-btn:hover{background:var(--lavender)}
+.saved-badge{font-size:.7rem;font-weight:600;color:#1a7a3c;background:#f0fff6;border:1px solid #a8e6bf;border-radius:20px;padding:3px 10px;display:none}
+.saved-badge.visible{display:inline}
+
+/* RECUSAL NOTICE */
+.recusal-notice{margin:0 22px 0;background:#fff9e6;border:1px solid #e6c84a;border-radius:7px;padding:10px 14px;font-size:.8rem;color:#7a5a00;display:none}
+.recusal-notice.visible{display:block;margin-bottom:0}
+
+/* CARD BODY */
+.card-body{display:none}.card-body.open{display:block}
+
+/* RESPONSES */
+.responses-section{padding:16px 22px;border-top:1px solid var(--lavender)}
+.response-label{font-size:.7rem;font-weight:600;color:var(--muted);letter-spacing:.06em;margin-bottom:6px}
+.response-text{font-size:.86rem;color:var(--ink);line-height:1.65;background:var(--lavender);border-radius:6px;padding:12px 14px;white-space:pre-wrap}
+.response-text.empty{color:var(--muted);font-style:italic}
+.response-block{margin-bottom:14px}
+.response-block:last-child{margin-bottom:0}
+
+/* ATTACHMENTS */
+.attachments-section{padding:0 22px 16px;border-top:1px solid var(--lavender)}
+.attach-label{font-size:.7rem;font-weight:600;color:var(--muted);letter-spacing:.06em;margin:16px 0 8px}
+.attach-list{display:flex;flex-wrap:wrap;gap:8px}
+.attach-link{display:flex;align-items:center;gap:7px;background:var(--lavender);border:1px solid var(--lavender-border);border-radius:7px;padding:7px 12px;text-decoration:none;color:var(--purple-mid);font-size:.78rem;font-weight:500;transition:background .15s}
+.attach-link:hover{background:#ece3f5}
+.attach-icon{font-size:1rem}
+.attach-size{font-size:.68rem;color:var(--muted);margin-left:2px}
+.no-attachments{font-size:.8rem;color:var(--muted);font-style:italic}
+
+/* SCORING */
+.scoring-section{padding:18px 22px;border-top:1px solid var(--lavender)}
+.criteria-list{display:flex;flex-direction:column;gap:14px}
+.criterion-row{background:var(--surface);border:1px solid transparent;border-radius:8px;padding:13px 15px;display:grid;grid-template-columns:1fr auto;gap:14px;align-items:start;transition:border-color .15s,background .15s}
+.criterion-row:focus-within{border-color:var(--lavender-border);background:var(--lavender)}
+.criterion-name{font-size:.86rem;font-weight:600;color:var(--ink);margin-bottom:2px}
+.criterion-guidance{font-size:.76rem;color:var(--muted);line-height:1.5}
+.criterion-guidance em{font-style:normal;color:var(--purple-mid)}
+.stars{display:flex;gap:4px;flex-shrink:0;padding-top:1px}
+.star{background:none;border:none;font-size:1.4rem;color:#d8ccdf;cursor:pointer;line-height:1;padding:0;transition:color .1s,transform .1s}
+.star:hover,.star.filled{color:var(--gold)}
+.star:hover{transform:scale(1.15)}
+.score-summary{display:flex;align-items:center;justify-content:space-between;margin-top:14px;padding-top:14px;border-top:1px solid var(--lavender-border)}
+.score-total{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:var(--purple)}
+.score-total small{font-family:'Inter',sans-serif;font-size:.85rem;color:var(--muted);font-weight:400}
+.score-interp-badge{font-size:.72rem;font-weight:600;padding:3px 10px;border-radius:20px;border:1px solid transparent}
+.save-btn{background:var(--purple);color:white;border:none;border-radius:8px;font-family:'Inter',sans-serif;font-size:.82rem;font-weight:600;padding:9px 20px;cursor:pointer;transition:background .15s,opacity .15s;white-space:nowrap;flex-shrink:0}
+.save-btn:hover:not(:disabled){background:var(--purple-mid)}
+.save-btn:disabled{opacity:.5;cursor:default}
+.save-row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:14px}
+.save-msg{font-size:.75rem}
+.save-msg.ok{color:#1a7a3c}.save-msg.err{color:#c0392b}
+
+/* NO REVIEWER */
+.no-reviewer-notice{text-align:center;padding:28px;background:var(--lavender);border-radius:8px;margin-bottom:18px;color:var(--muted);font-size:.85rem}
+
+@media(max-width:600px){
+.site-header{padding:16px 14px 14px}
+.header-inner{flex-direction:column;align-items:flex-start}
+.award-header{flex-direction:column;gap:12px}
+.gate-box{padding:36px 24px}
+}
+</style>
+</head>
+<body>
+
+<!-- PASSWORD GATE -->
+<div id="gate">
+  <div class="gate-box">
+    <div class="gate-title">In Her Honor Awards</div>
+    <div class="gate-sub">Committee Scoring Portal &bull; Mary&rsquo;s Hands Network</div>
+    <input class="gate-input" id="gate-input" type="password" placeholder="Enter access code" autocomplete="off" autocorrect="off" spellcheck="false">
+    <button class="gate-btn" id="gate-btn">Enter</button>
+    <div class="gate-error" id="gate-error"></div>
+  </div>
+</div>
+
+<!-- MAIN APP (hidden until unlocked) -->
+<div id="app" hidden>
+  <header class="site-header">
+    <div class="header-inner">
+      <div>
+        <div class="header-title">In Her Honor Awards &mdash; Committee Scoring</div>
+        <div class="header-sub">Gala &bull; January 8, 2027 &bull; Mary&rsquo;s Hands Network</div>
+      </div>
+      <div class="reviewer-wrap">
+        <label>Scoring as</label>
+        <select class="reviewer-select" id="reviewer-select">
+          <option value="">— Select your name —</option>
+          <option>Erin Douget</option>
+          <option>Victoria Brock</option>
+          <option>Carol Patin</option>
+          <option>Charlene Montelaro</option>
+          <option>Maddy LeBlanc</option>
+        </select>
+      </div>
+    </div>
+    <div class="progress-wrap">
+      <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+      <div class="progress-label" id="progress-label">0 of 13 scored</div>
+    </div>
+  </header>
+
+  <div class="tab-bar-wrap">
+    <nav class="tab-bar" id="tab-bar"></nav>
+  </div>
+
+  <main class="main" id="main">
+    <div class="loading-state" id="loading">
+      <div class="spinner"></div>
+      Loading nominations&hellip;
+    </div>
+  </main>
+</div>
+
+<script>
+// ─────────────────────────────────────────────
+// CONFIG
+// ─────────────────────────────────────────────
+const TOKEN   = 'eyJhbGciOiJIUzI1NiJ9.eyJ0aWQiOjU5MjA1NjIzMiwiYWFpIjoxMSwidWlkIjo5Mzg3NDk4NCwiaWFkIjoiMjAyNS0xMi0wMVQwMjowMzozNi4wMDBaIiwicGVyIjoibWU6d3JpdGUiLCJhY3RpZCI6MzE3MjA5OTQsInJnbiI6InVzZTEifQ.ll3MKuVC5HLWOTJ3MMrs46JhRrP3b-ZFYaOy8M1rZK8';
+const BOARD_ID = '18433289134';
+const SUB_BOARD = '18438023527';
+const PASSWORD  = 'InHerHonor27';
+
+const REVIEWERS = ['Erin Douget','Victoria Brock','Carol Patin','Charlene Montelaro','Maddy LeBlanc'];
+
+// Subitem IDs: nominee item ID → reviewer → subitem ID
+const SUBITEM_IDS = {
+  '13242881262':{'Erin Douget':'13437296840','Victoria Brock':'13437394369','Carol Patin':'13437394341','Charlene Montelaro':'13437323559','Maddy LeBlanc':'13437320624'},
+  '13260926836':{'Erin Douget':'13437323606','Victoria Brock':'13437323815','Carol Patin':'13437394106','Charlene Montelaro':'13437395254','Maddy LeBlanc':'13437394727'},
+  '13261654313':{'Erin Douget':'13437394739','Victoria Brock':'13437323583','Carol Patin':'13437320370','Charlene Montelaro':'13437394207','Maddy LeBlanc':'13437395253'},
+  '13318462159':{'Erin Douget':'13437394368','Victoria Brock':'13437323816','Carol Patin':'13437320625','Charlene Montelaro':'13437323607','Maddy LeBlanc':'13437323817'},
+  '13428060397':{'Erin Douget':'13437395255','Victoria Brock':'13437394371','Carol Patin':'13437395260','Charlene Montelaro':'13437323769','Maddy LeBlanc':'13437395259'},
+  '13388655931':{'Erin Douget':'13437395261','Victoria Brock':'13437323586','Carol Patin':'13437320629','Charlene Montelaro':'13437320937','Maddy LeBlanc':'13437320973'},
+  '13432338464':{'Erin Douget':'13437323608','Victoria Brock':'13437323587','Carol Patin':'13437323771','Charlene Montelaro':'13437323790','Maddy LeBlanc':'13437323770'},
+  '13432428762':{'Erin Douget':'13437394347','Victoria Brock':'13437323611','Carol Patin':'13437323609','Charlene Montelaro':'13437323610','Maddy LeBlanc':'13437323612'},
+  '13281880511':{'Erin Douget':'13437394745','Victoria Brock':'13437355522','Carol Patin':'13437352784','Charlene Montelaro':'13437352785','Maddy LeBlanc':'13437352732'},
+  '13328996877':{'Erin Douget':'13437352783','Victoria Brock':'13437352303','Carol Patin':'13437321578','Charlene Montelaro':'13437321593','Maddy LeBlanc':'13437321594'},
+  '13371847390':{'Erin Douget':'13437352743','Victoria Brock':'13437322367','Carol Patin':'13437355511','Charlene Montelaro':'13437355646','Maddy LeBlanc':'13437321596'},
+  '13384006673':{'Erin Douget':'13437321595','Victoria Brock':'13437321732','Carol Patin':'13437321580','Charlene Montelaro':'13437321766','Maddy LeBlanc':'13437355771'},
+  '13432464553':{'Erin Douget':'13437355524','Victoria Brock':'13437321528','Carol Patin':'13437322372','Charlene Montelaro':'13437321527','Maddy LeBlanc':'13437299280'}
+};
+
+// Subitem score column IDs
+const SCORE_COLS = ['numeric_mm8pzyxe','numeric_mm8p1q7y','numeric_mm8ptvyq','numeric_mm8pv241','numeric_mm8pqnyh'];
+
+// Award group config (criteria + display)
+const GROUPS = {
+  'group_mm7nsa27':{title:'Rising Impact',full:'Rising Impact Award',purpose:'Celebrates an emerging leader whose early contributions show extraordinary promise.',criteria:[
+    {name:'Under five years of service',guidance:'Early-stage leadership aligned with the award\'s criteria'},
+    {name:'Early achievements with long-term potential',guidance:'Strong initial outcomes or clear momentum'},
+    {name:'Commitment to women\'s empowerment or well-being',guidance:'Values alignment and mission focus'},
+    {name:'Innovation or bold leadership',guidance:'Fresh approaches, risk-taking, or unconventional solutions'},
+    {name:'Peer or community recognition',guidance:'Testimonials, endorsements, or growing visibility'}
+  ]},
+  'group_mm7ndgtv':{title:'Legacy of Care',full:'Legacy of Care Award',purpose:'Honors long-standing service shaping generations of support for women.',criteria:[
+    {name:'Multi-year history (10+ years typical)',guidance:'Longevity and consistency of service to women'},
+    {name:'Long-term measurable impact',guidance:'Generational outcomes, community transformation'},
+    {name:'Commitment to equity and access',guidance:'Inclusive practices and reach across diverse communities'},
+    {name:'Reputation for reliability and compassion',guidance:'Community trust and strength of partnerships'},
+    {name:'Continued innovation and responsiveness',guidance:'Adaptation to evolving needs over time'}
+  ]},
+  'group_mm7ng5ej':{title:'Distinction of Advocacy',full:'Distinction of Advocacy Award',purpose:'Honors a champion whose advocacy advances justice, equity, and women\'s rights.',criteria:[
+    {name:'Advocacy advancing women\'s rights or health',guidance:'Legislative, community, or institutional influence'},
+    {name:'Leadership in policy, organizing, or reform',guidance:'Roles, initiatives, or coalitions led'},
+    {name:'Courage addressing inequities',guidance:'Willingness to confront barriers or hostile systems'},
+    {name:'Mobilization of people, resources, or awareness',guidance:'Campaigns, partnerships, or public engagement'},
+    {name:'Evidence of improved conditions or protections',guidance:'Tangible outcomes or structural change for women'}
+  ]},
+  'group_mm7nhqb9':{title:'Empowerment Luminary',full:'Empowerment Luminary Award',purpose:'Recognizes a visionary who creates pathways of empowerment and opportunity.',criteria:[
+    {name:'Program creation or architecture',guidance:'Founding or designing initiatives serving women'},
+    {name:'Innovation addressing unmet needs or systemic gaps',guidance:'Novel approaches or solutions to overlooked problems'},
+    {name:'Program success, growth, or adoption',guidance:'Participation numbers, expansion, or replication'},
+    {name:'Improved outcomes for women',guidance:'Documented benefits or measurable change in participants\' lives'},
+    {name:'Sustainability and long-term impact',guidance:'Plans, funding stability, or continued relevance'}
+  ]},
+  'group_mm7ndysw':{title:'Pinnacle of Health Excellence',full:'Pinnacle of Health Excellence Award',purpose:'Honors a leader who sets the highest standard in women\'s health, well-being, and dignity.',criteria:[
+    {name:'Long-term commitment to women\'s well-being',guidance:'<em>No info = 1 · 0–5 yrs = 2 · 5–10 yrs = 3 · 10–15 yrs = 4 · 15+ yrs = 5</em>'},
+    {name:'Leadership in compassion, dignity, and equity',guidance:'<em>1 of 3 settings = 1 · 2 of 3 = 3 · All three = 5</em> (clinical / research / community)'},
+    {name:'Advocacy for women\'s rights, health, or safety',guidance:'<em>1 of 3 types = 1 · 2 of 3 = 3 · All three = 5</em> (policy / engagement / reform)'},
+    {name:'Measurable impact on women or families',guidance:'Outcomes, reach, and documented improvements'},
+    {name:'Community trust and recognition',guidance:'Reputation as a reliable, respected community anchor'}
+  ]}
+};
+
+const GROUP_ORDER = ['group_mm7nsa27','group_mm7ndgtv','group_mm7ng5ej','group_mm7nhqb9','group_mm7ndysw'];
+
+// ─────────────────────────────────────────────
+// STATE
+// ─────────────────────────────────────────────
+let nominees      = [];   // Fetched from monday
+let scores        = {};   // { itemId: [c1,c2,c3,c4,c5] }
+let savedItems    = new Set();
+let currentTab    = null;
+let reviewer      = '';
+
+// ─────────────────────────────────────────────
+// MONDAY API
+// ─────────────────────────────────────────────
+async function mondayAPI(query, variables = {}) {
+  const res = await fetch('https://api.monday.com/v2', {
+    method: 'POST',
+    headers: {'Content-Type':'application/json','Authorization': TOKEN, 'API-Version': '2023-10'},
+    body: JSON.stringify({ query, variables })
+  });
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  const data = await res.json();
+  if (data.errors) throw new Error(data.errors.map(e => e.message).join(', '));
+  return data.data;
+}
+
+async function fetchNominees() {
+  const q = `{
+    boards(ids: [${BOARD_ID}]) {
+      items_page(limit: 100) {
+        items {
+          id name
+          group { id }
+          column_values(ids: ["text_mm7n35k9","text_mm7n4b2e","long_text_mm7nwwg0","long_text_mm7na1z0","long_text_mm7n89v0","long_text_mm7n1aj0","file_mm7n9zzb"]) {
+            id text
+            ... on FileValue {
+              files {
+                ... on FileAssetValue {
+                  name
+                  asset { name public_url file_extension file_size }
+                }
+                ... on FileLinkValue { url name }
+              }
+            }
+          }
+        }
+      }
+    }
+  }`;
+  const data = await mondayAPI(q);
+  return data.boards[0].items_page.items;
+}
+
+async function fetchExistingScores(reviewerName) {
+  const subitemIds = [];
+  for (const [itemId, map] of Object.entries(SUBITEM_IDS)) {
+    const sid = map[reviewerName];
+    if (sid) subitemIds.push(sid);
+  }
+  if (!subitemIds.length) return {};
+  const q = `{
+    items(ids: [${subitemIds.join(',')}]) {
+      id
+      column_values(ids: ["${SCORE_COLS.join('","')}"]){id text}
+    }
+  }`;
+  const data = await mondayAPI(q);
+  // Map subitem id → criterion scores
+  const result = {};
+  for (const sub of data.items) {
+    result[sub.id] = sub.column_values.map(cv => parseFloat(cv.text) || 0);
+  }
+  return result; // { subitemId: [c1,c2,c3,c4,c5] }
+}
+
+async function saveScores(itemId) {
+  const rev = reviewer;
+  if (!rev) return;
+  const subitemId = SUBITEM_IDS[itemId]?.[rev];
+  if (!subitemId) throw new Error('No subitem found');
+  const vals = scores[itemId] || [0,0,0,0,0];
+  const colVals = {};
+  SCORE_COLS.forEach((col, i) => { colVals[col] = String(vals[i] || 0); });
+  const mutation = `
+    mutation($boardId: ID!, $itemId: ID!, $colVals: JSON!) {
+      change_multiple_column_values(board_id: $boardId, item_id: $itemId, column_values: $colVals) { id }
+    }
+  `;
+  await mondayAPI(mutation, {
+    boardId: SUB_BOARD,
+    itemId: subitemId,
+    colVals: JSON.stringify(colVals)
+  });
+}
+
+// ─────────────────────────────────────────────
+// UI BUILDING
+// ─────────────────────────────────────────────
+function buildUI(items) {
+  nominees = items;
+  const main = document.getElementById('main');
+  const tabBar = document.getElementById('tab-bar');
+  main.innerHTML = '';
+  tabBar.innerHTML = '';
+
+  // Group items
+  const grouped = {};
+  for (const g of GROUP_ORDER) grouped[g] = [];
+  for (const item of items) {
+    const g = item.group?.id;
+    if (grouped[g]) grouped[g].push(item);
+  }
+
+  GROUP_ORDER.forEach((gid, idx) => {
+    const cfg = GROUPS[gid];
+    const items = grouped[gid] || [];
+    if (!items.length) return;
+
+    // Tab button
+    const btn = document.createElement('button');
+    btn.className = 'tab-btn' + (idx === 0 ? ' active' : '');
+    btn.dataset.tab = gid;
+    btn.innerHTML = cfg.title + '<span class="tab-dot" id="dot-'+gid+'"></span>';
+    btn.onclick = () => switchTab(gid);
+    tabBar.appendChild(btn);
+
+    // Panel
+    const panel = document.createElement('section');
+    panel.className = 'tab-panel' + (idx === 0 ? ' active' : '');
+    panel.id = 'panel-' + gid;
+
+    // Award header
+    panel.innerHTML = `
+      <div class="award-header">
+        <div class="award-badge">✦</div>
+        <div class="award-header-text">
+          <h2>${cfg.full}</h2>
+          <p class="award-purpose">${cfg.purpose}</p>
+          <div class="score-legend">
+            <span class="chip chip-e">20–25 Exceptional</span>
+            <span class="chip chip-s">15–19 Strong</span>
+            <span class="chip chip-p">10–14 Partial fit</span>
+            <span class="chip chip-l">Below 10 Limited fit</span>
+          </div>
+        </div>
+      </div>
+    `;
+
+    // Nominee cards
+    for (const item of items) {
+      panel.appendChild(buildCard(item, cfg));
+    }
+    main.appendChild(panel);
+  });
+
+  // Set first tab
+  currentTab = GROUP_ORDER.find(g => (grouped[g]||[]).length);
+  updateProgress();
+}
+
+function buildCard(item, groupCfg) {
+  const card = document.createElement('div');
+  card.className = 'nominee-card';
+  card.id = 'card-' + item.id;
+
+  // Extract column values
+  const colMap = {};
+  for (const cv of item.column_values) colMap[cv.id] = cv;
+
+  const org  = colMap['text_mm7n35k9']?.text || '';
+  const role = colMap['text_mm7n4b2e']?.text || '';
+  const r1   = colMap['long_text_mm7nwwg0']?.text || '';
+  const r2   = colMap['long_text_mm7na1z0']?.text || '';
+  const r3   = colMap['long_text_mm7n89v0']?.text || '';
+  const r4   = colMap['long_text_mm7n1aj0']?.text || '';
+  const fileCol = colMap['file_mm7n9zzb'];
+  const files = fileCol?.files || [];
+
+  // Detect Carol conflict
+  const isCarolNominee = item.name.toLowerCase().includes('carol patin');
+
+  // Build responses HTML
+  const responses = [
+    {label:'Nomination Response 1', text: r1},
+    {label:'Nomination Response 2', text: r2},
+    {label:'Nomination Response 3', text: r3},
+    {label:'Nomination Response 4', text: r4},
+  ].filter(r => r.text.trim());
+
+  let responsesHtml = responses.map(r => `
+    <div class="response-block">
+      <div class="response-label">${r.label}</div>
+      <div class="response-text">${escHtml(r.text)}</div>
+    </div>
+  `).join('') || `<div class="response-text empty">No written responses on file yet.</div>`;
+
+  // Build attachments HTML
+  let attachHtml = '';
+  if (files.length) {
+    const links = files.map(f => {
+      const url  = f.asset?.public_url || f.url || '#';
+      const name = f.asset?.name || f.name || 'Attachment';
+      const ext  = (f.asset?.file_extension || '').toLowerCase();
+      const size = f.asset?.file_size ? formatSize(f.asset.file_size) : '';
+      const icon = fileIcon(ext);
+      return `<a class="attach-link" href="${url}" target="_blank" rel="noopener">
+        <span class="attach-icon">${icon}</span>
+        <span>${escHtml(name)}</span>
+        ${size ? `<span class="attach-size">${size}</span>` : ''}
+      </a>`;
+    }).join('');
+    attachHtml = `
+      <div class="attachments-section">
+        <div class="attach-label">Supporting materials</div>
+        <div class="attach-list">${links}</div>
+      </div>`;
+  }
+
+  // Build criteria HTML
+  const criteriaHtml = groupCfg.criteria.map((c, i) => `
+    <div class="criterion-row">
+      <div>
+        <div class="criterion-name">${c.name}</div>
+        <div class="criterion-guidance">${c.guidance}</div>
+      </div>
+      <div class="stars" id="stars-${item.id}-${i}">
+        ${[1,2,3,4,5].map(v => `<button class="star" data-value="${v}" onclick="rateStar('${item.id}',${i},${v})" title="${v}/5">★</button>`).join('')}
+      </div>
+    </div>
+  `).join('');
+
+  card.innerHTML = `
+    <div class="score-progress-bar"><div class="score-progress-fill" id="bar-${item.id}"></div></div>
+    <div class="card-header" onclick="toggleCard('${item.id}')">
+      <div class="nominee-info">
+        <div class="nominee-name">${escHtml(item.name)}</div>
+        <div class="nominee-meta">${escHtml(org)}${role ? ' &bull; '+escHtml(role) : ''}</div>
+      </div>
+      <button class="card-toggle-btn" id="toggle-${item.id}" onclick="event.stopPropagation();toggleCard('${item.id}')">View</button>
+      <div class="score-badge">
+        <div class="score-badge-num" id="badge-${item.id}">0</div>
+        <div class="score-badge-sub">of 25</div>
+      </div>
+    </div>
+    ${isCarolNominee ? `<div class="recusal-notice" id="recusal-${item.id}">⚠ <strong>Note:</strong> Carol Patin is also listed as a committee reviewer. You may wish to discuss recusal before scoring this nomination.</div>` : ''}
+    <div class="card-body" id="body-${item.id}">
+      <div class="responses-section">${responsesHtml}</div>
+      ${attachHtml}
+      <div class="scoring-section">
+        <div class="criteria-list">${criteriaHtml}</div>
+        <div class="score-summary">
+          <div>
+            <div class="score-total" id="total-${item.id}">0 <small>/ 25</small></div>
+            <span class="score-interp-badge" id="interp-${item.id}"></span>
+          </div>
+        </div>
+        <div class="save-row" id="saverow-${item.id}">
+          <div class="save-msg" id="savemsg-${item.id}"></div>
+          <button class="save-btn" id="savebtn-${item.id}" onclick="handleSave('${item.id}')" disabled>Save score</button>
+        </div>
+      </div>
+    </div>
+  `;
+  return card;
+}
+
+function toggleCard(itemId) {
+  const body = document.getElementById('body-' + itemId);
+  const btn  = document.getElementById('toggle-' + itemId);
+  const open = body.classList.toggle('open');
+  btn.textContent = open ? 'Hide' : 'View';
+}
+
+// ─────────────────────────────────────────────
+// SCORING LOGIC
+// ─────────────────────────────────────────────
+function rateStar(itemId, criterion, value) {
+  if (!scores[itemId]) scores[itemId] = [0,0,0,0,0];
+  scores[itemId][criterion] = value;
+  renderStars(itemId, criterion, value);
+  updateCardTotal(itemId);
+  updateSaveBtn(itemId);
+}
+
+function renderStars(itemId, criterion, value) {
+  const container = document.getElementById(`stars-${itemId}-${criterion}`);
+  if (!container) return;
+  container.querySelectorAll('.star').forEach((s, i) => {
+    s.classList.toggle('filled', i < value);
+  });
+}
+
+function updateCardTotal(itemId) {
+  const vals = scores[itemId] || [0,0,0,0,0];
+  const total = vals.reduce((a,b) => a+b, 0);
+  const badge = document.getElementById('badge-' + itemId);
+  const totalEl = document.getElementById('total-' + itemId);
+  const interpEl = document.getElementById('interp-' + itemId);
+  const bar = document.getElementById('bar-' + itemId);
+  if (badge) badge.textContent = total;
+  if (totalEl) totalEl.innerHTML = `${total} <small>/ 25</small>`;
+  if (bar) bar.style.width = (total / 25 * 100) + '%';
+  if (interpEl) {
+    if (!total) { interpEl.textContent = ''; interpEl.style.cssText = ''; return; }
+    if (total >= 20) { interpEl.textContent = 'Exceptional'; interpEl.style.cssText = 'background:#f0fff6;color:#1a7a3c;border-color:#a8e6bf'; }
+    else if (total >= 15) { interpEl.textContent = 'Strong'; interpEl.style.cssText = 'background:#f0f6ff;color:#2a5ea8;border-color:#a8c4e6'; }
+    else if (total >= 10) { interpEl.textContent = 'Partial fit'; interpEl.style.cssText = 'background:#fffaf0;color:#7a5a1a;border-color:#e6d0a8'; }
+    else { interpEl.textContent = 'Limited fit'; interpEl.style.cssText = 'background:#fff0f0;color:#7a2a2a;border-color:#e6a8a8'; }
+  }
+}
+
+function updateSaveBtn(itemId) {
+  const btn = document.getElementById('savebtn-' + itemId);
+  if (!btn) return;
+  const hasReviewer = !!reviewer;
+  const scored = (scores[itemId] || []).some(v => v > 0);
+  btn.disabled = !hasReviewer || !scored;
+}
+
+async function handleSave(itemId) {
+  const btn  = document.getElementById('savebtn-' + itemId);
+  const msg  = document.getElementById('savemsg-' + itemId);
+  btn.disabled = true;
+  btn.textContent = 'Saving…';
+  msg.textContent = '';
+  msg.className = 'save-msg';
+  try {
+    await saveScores(itemId);
+    savedItems.add(itemId);
+    btn.textContent = 'Saved ✓';
+    msg.textContent = 'Score saved to the board.';
+    msg.className = 'save-msg ok';
+    updateTabDot(itemId);
+    updateProgress();
+    setTimeout(() => { btn.textContent = 'Save score'; updateSaveBtn(itemId); }, 3000);
+  } catch(e) {
+    btn.disabled = false;
+    btn.textContent = 'Save score';
+    msg.textContent = 'Save failed — check your connection and try again.';
+    msg.className = 'save-msg err';
+  }
+}
+
+function updateTabDot(itemId) {
+  // Find which group this item belongs to
+  for (const item of nominees) {
+    if (item.id === itemId) {
+      const gid = item.group?.id;
+      const dot = document.getElementById('dot-' + gid);
+      if (dot) dot.classList.add('visible');
+    }
+  }
+}
+
+function updateProgress() {
+  const total = nominees.length || 13;
+  const done  = savedItems.size;
+  const fill  = document.getElementById('progress-fill');
+  const label = document.getElementById('progress-label');
+  if (fill) fill.style.width = (done / total * 100) + '%';
+  if (label) label.textContent = `${done} of ${total} scored`;
+}
+
+// ─────────────────────────────────────────────
+// REVIEWER CHANGE
+// ─────────────────────────────────────────────
+async function onReviewerChange(name) {
+  reviewer = name;
+  scores = {};
+  savedItems.clear();
+  updateProgress();
+
+  // Show/hide recusal notices
+  document.querySelectorAll('[id^="recusal-"]').forEach(el => {
+    el.classList.toggle('visible', name === 'Carol Patin');
+  });
+
+  // Enable/disable all save buttons
+  document.querySelectorAll('.save-btn').forEach(btn => {
+    btn.disabled = true;
+    btn.textContent = 'Save score';
+  });
+  document.querySelectorAll('.save-msg').forEach(el => { el.textContent = ''; el.className = 'save-msg'; });
+
+  // Reset all stars
+  document.querySelectorAll('.stars').forEach(container => {
+    container.querySelectorAll('.star').forEach(s => s.classList.remove('filled'));
+  });
+  document.querySelectorAll('.score-progress-fill').forEach(b => b.style.width = '0');
+  document.querySelectorAll('[id^="badge-"]').forEach(el => el.textContent = '0');
+  document.querySelectorAll('[id^="total-"]').forEach(el => el.innerHTML = '0 <small>/ 25</small>');
+  document.querySelectorAll('[id^="interp-"]').forEach(el => { el.textContent = ''; el.style.cssText = ''; });
+
+  if (!name) return;
+
+  // Fetch existing scores for this reviewer
+  try {
+    // Build reverse map: subitemId → itemId
+    const subToItem = {};
+    for (const [itemId, map] of Object.entries(SUBITEM_IDS)) {
+      const sid = map[name];
+      if (sid) subToItem[sid] = itemId;
+    }
+    const existing = await fetchExistingScores(name);
+    for (const [subId, vals] of Object.entries(existing)) {
+      const itemId = subToItem[subId];
+      if (!itemId) continue;
+      const nonZero = vals.some(v => v > 0);
+      if (!nonZero) continue;
+      scores[itemId] = vals;
+      savedItems.add(itemId);
+      // Render existing stars
+      vals.forEach((v, i) => {
+        if (v > 0) renderStars(itemId, i, v);
+      });
+      updateCardTotal(itemId);
+      updateTabDot(itemId);
+    }
+    updateProgress();
+  } catch(e) {
+    console.warn('Could not load existing scores:', e);
+  }
+
+  // Update all save buttons
+  nominees.forEach(item => updateSaveBtn(item.id));
+}
+
+// ─────────────────────────────────────────────
+// TAB SWITCHING
+// ─────────────────────────────────────────────
+function switchTab(gid) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b.dataset.tab === gid));
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.toggle('active', p.id === 'panel-' + gid));
+  currentTab = gid;
+}
+
+// ─────────────────────────────────────────────
+// HELPERS
+// ─────────────────────────────────────────────
+function escHtml(str) {
+  return (str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+function formatSize(bytes) {
+  if (bytes < 1024) return bytes + 'B';
+  if (bytes < 1048576) return Math.round(bytes/1024) + 'KB';
+  return (bytes/1048576).toFixed(1) + 'MB';
+}
+function fileIcon(ext) {
+  const icons = {pdf:'📄',doc:'📝',docx:'📝',xls:'📊',xlsx:'📊',ppt:'📋',pptx:'📋',jpg:'🖼',jpeg:'🖼',png:'🖼',gif:'🖼',mp4:'🎬',mov:'🎬',mp3:'🎵'};
+  return icons[ext] || '📎';
+}
+
+// ─────────────────────────────────────────────
+// GATE & INIT
+// ─────────────────────────────────────────────
+function unlock() {
+  const val = document.getElementById('gate-input').value.trim();
+  if (val !== PASSWORD) {
+    const err = document.getElementById('gate-error');
+    err.textContent = 'Incorrect access code. Please try again.';
+    document.getElementById('gate-input').value = '';
+    document.getElementById('gate-input').focus();
+    return;
+  }
+  document.getElementById('gate').style.display = 'none';
+  document.getElementById('app').removeAttribute('hidden');
+  loadData();
+}
+
+async function loadData() {
+  try {
+    const items = await fetchNominees();
+    buildUI(items);
+  } catch(e) {
+    document.getElementById('main').innerHTML = `
+      <div class="loading-state">
+        <p style="color:#c0392b">Could not load nominations. Please refresh and try again.<br><small>${e.message}</small></p>
+      </div>`;
+  }
+}
+
+// Event wiring
+document.getElementById('gate-btn').addEventListener('click', unlock);
+document.getElementById('gate-input').addEventListener('keydown', e => { if (e.key === 'Enter') unlock(); });
+document.getElementById('reviewer-select').addEventListener('change', e => onReviewerChange(e.target.value));
+</script>
+</body>
+</html>
