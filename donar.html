@@ -18,8 +18,9 @@
 <meta name="twitter:image" content="https://maryshandsnetwork.org/assets/logo-full.png">
 <link rel="canonical" href="https://maryshandsnetwork.org/donar.html">
 <link rel="stylesheet" href="./colors_and_type.css?v=20261119b">
+<link rel="stylesheet" href="./site.css?v=20261119e">
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-<script src="./mobile-nav.js" defer></script>
+<script src="./mobile-nav.js?v=20261119e" defer></script>
 <style>
   html, body{margin:0;padding:0;background:var(--mhn-paper);font-family:var(--mhn-font-sans);color:var(--mhn-ink)}
   .page{max-width:1280px;margin:0 auto}
@@ -155,26 +156,30 @@
 <script src="./ticker.js?v=20261119a" defer></script>
 </head>
 <body>
+<a class="mhn-skip" href="#main">Skip to content</a>
+<header class="mhn-header">
+  <div class="mhn-wrap mhn-header-bar">
+    <a class="mhn-brand" href="inicio.html">
+      <img src="./assets/logo-seal.png" alt="" width="44" height="44">
+      <span>Mary's Hands Network</span>
+    </a>
+    <button class="mhn-menu" type="button" aria-expanded="false" aria-controls="site-nav" data-open="Menú" data-close="Cerrar">Menú</button>
+    <nav id="site-nav" class="mhn-nav" aria-label="Primary">
+      <a href="quienes-somos.html">Quiénes somos</a>
+      <a href="para-familias.html">Para familias</a>
+      <a href="entrenamiento.html">Capacitación</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="index.html" class="mhn-lang" lang="en" title="English" aria-label="Switch to English">ESP<span>/</span>ENG</a>
+      <a href="portal.html">Portal de Doulas</a>
+      <a href="donar.html" class="mhn-btn mhn-btn--donate" aria-current="page">Donar</a>
+    </nav>
+  </div>
+</header>
+
 <!-- ANIMATED JULY COHORT BANNER (above nav, full bleed) -->
 <style>/* Interim: grey out links to pages not yet translated to Spanish */
 a[href$=".html"]:not(.lang-toggle):not(.brand):not([href="inicio.html"]):not([href="para-familias.html"]):not([href="quienes-somos.html"]):not([href="donar.html"]):not([href="entrenamiento.html"]):not([href="cohorte.html"]):not([href="tienda.html"]):not([href="linea-de-doulas.html"]):not([href="vision-de-parto.html"]):not([href="duelo.html"]):not([href="voluntariado.html"]):not([href="aliados-comunitarios.html"]):not([href="contacto.html"]):not([href="gala.html"]):not([href="portal.html"]){pointer-events:none;opacity:0.45;cursor:default}</style>
 <div class="page" data-screen-label="Donar">
-
-<nav class="nav">
-  <a href="inicio.html" class="brand">
-    <div class="seal"><img src="./assets/logo-seal.png" alt="Mary's Hands Network logo"></div>
-    <div>
-      <div class="name">Mary's Hands Network</div>
-    </div>
-  </a>
-  <div class="nav-links">
-    <a href="quienes-somos.html">Quiénes somos</a>
-    <a href="para-familias.html">Para familias</a>
-    <a href="entrenamiento.html">Capacitación</a>
-    <a href="donate.html" class="lang-toggle" title="English" aria-label="Switch to English"><span class="lang-active">ESP</span><span class="lang-sep">/</span><span class="lang-other">ENG</span></a><a href="portal.html">Portal de Doulas</a>
-    <a href="donar.html" class="btn-donate">Donar</a>
-  </div>
-</nav>
 
 <!-- DONATE HERO (full-bleed photo + frosted card) -->
 <section class="donate-hero fade-in">
@@ -455,6 +460,6 @@ a[href$=".html"]:not(.lang-toggle):not(.brand):not([href="inicio.html"]):not([hr
     els.forEach(el => { if (!el.classList.contains('visible')) observer.observe(el); });
   })();
 </script>
-<link rel="stylesheet" href="./density.css?v=20261119c">
+<link rel="stylesheet" href="./density.css?v=20261119d">
 </body>
 </html>
