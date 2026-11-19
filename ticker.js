@@ -9,8 +9,8 @@
   var learnLabel = es ? 'Más información' : 'Learn more';
   var label = es ? 'Anuncio de la cohorte Tau' : 'Tau Cohort announcement';
   var accepting = es
-    ? 'Aceptando clientes con fecha de parto en diciembre de 2026 y después'
-    : 'Now accepting clients due December 2026 and beyond';
+    ? 'Aceptando clientes con fecha de parto en enero de 2027 y después'
+    : 'Now accepting clients due January 2027 and beyond';
   var cohort = es
     ? 'Cohorte Tau · 15–20 de feb, 2027 · día presencial en Baton Rouge · Solicitudes de beca abiertas hasta el 10 de ene'
     : 'Tau Cohort · Feb 15–20, 2027 · in-person day in Baton Rouge · Scholarship applications open through Jan 10';
