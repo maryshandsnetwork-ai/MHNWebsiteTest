@@ -333,6 +333,10 @@ blockquote, figcaption, .mhn-quote, .mhn-quote p, .quote, .pull-quote, em, i {
   color: #5E376C !important;
   font-style: normal !important;
 }
+div[style*="mhn-warm-700"][style*="letter-spacing"] {
+  color: #5E376C !important;
+  max-width: none !important;
+}
 .mhn-enroll .mhn-kicker,
 .cohort-callout .label,
 .gala-hero .eyebrow,
