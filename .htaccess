@@ -1,0 +1,17 @@
+# DreamHost Apache. The host defaults CSS and JS to a 30-day cache,
+# which left returning visitors with a stylesheet that had no ticker rules.
+# One hour is long enough to help repeat views and short enough that a
+# published fix shows up the same day. HTML and images are unchanged.
+# Query strings on the asset tags are the backup if this file is not read.
+<IfModule mod_headers.c>
+  <FilesMatch "\.(css|js)$">
+    Header unset Expires
+    Header set Cache-Control "public, max-age=3600"
+  </FilesMatch>
+</IfModule>
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 hour"
+  ExpiresByType application/javascript "access plus 1 hour"
+  ExpiresByType text/javascript "access plus 1 hour"
+</IfModule>
