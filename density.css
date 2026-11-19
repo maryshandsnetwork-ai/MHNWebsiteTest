@@ -158,6 +158,68 @@ footer .ein-line { color: #E4D0EE !important; }
 }
 .person-card { border-top: 3px solid var(--mhn-purple-500) !important; }
 
+/* Impact numbers sit on a plum band, each in its own tile.
+   Inline sizes on the older pages lose to these rules. */
+.about-stats-band {
+  background: linear-gradient(165deg, var(--mhn-plum-800) 0%, var(--mhn-purple-700) 100%) !important;
+  color: #fff !important;
+}
+.about-stats-band > div { gap: 16px !important; }
+.about-stats-band > div > div,
+.hero-stats > div {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  border-radius: 12px;
+  padding: 14px 10px 12px;
+  text-align: center;
+}
+.hero-stats {
+  background: linear-gradient(165deg, var(--mhn-plum-800) 0%, var(--mhn-purple-700) 100%) !important;
+  border: 0 !important;
+  border-radius: 14px;
+  padding: 14px !important;
+  gap: 12px !important;
+}
+.about-stats-band > div > div > div:first-child,
+.hero-stats > div > div:first-child {
+  font-size: 60px !important;
+  color: #fff !important;
+  line-height: 1 !important;
+}
+.about-stats-band > div > div > div:first-child::after,
+.hero-stats > div > div:first-child::after {
+  content: "";
+  display: block;
+  width: 32px;
+  height: 2px;
+  margin: 10px auto 0;
+  background: var(--mhn-gold, #B5824A);
+}
+.about-stats-band > div > div > div:last-child,
+.hero-stats > div > div:last-child {
+  color: #F4EAF6 !important;
+}
+.mhn-card:has(.mhn-card-photo) {
+  padding: 0 0 16px !important;
+  overflow: hidden;
+}
+.mhn-card-photo {
+  margin: 0 0 12px !important;
+  height: 220px !important;
+  width: 100% !important;
+  max-width: 100%;
+}
+.mhn-grid-3 { gap: 16px !important; }
+.mhn-logos, .partners-grid { gap: 16px !important; }
+
+@media (max-width: 760px) {
+  .about-stats-band > div > div > div:first-child,
+  .hero-stats > div > div:first-child,
+  .mhn-stats strong { font-size: 40px !important; }
+  .mhn-card-photo { height: 180px !important; }
+  .about-stats-band > div { grid-template-columns: repeat(2, 1fr) !important; }
+}
+
 @media (max-width: 760px) {
   section,
   footer,
