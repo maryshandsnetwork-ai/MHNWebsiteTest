@@ -313,3 +313,146 @@ body:has(.portal-app) .portal-main a.btn {
   padding: 0 22px;
   font-weight: 700;
 }
+
+/* ---------- Design-review quick wins ---------- */
+h1, h2, h3, .sec-h, .h2-warm { text-wrap: balance; }
+p, li { text-wrap: pretty; }
+body, p, li, .lede, .mhn-lede, .mhn-intro, .story-grid, .story-grid p, .founder-body p {
+  font-family: var(--mhn-font-sans);
+}
+p, .lede, .mhn-lede { font-style: normal; }
+blockquote, figcaption, .mhn-quote, .mhn-quote p, .quote, .pull-quote, em, i {
+  font-style: italic;
+}
+.eyebrow, .eyebrow-c, .mhn-kicker, .lbl {
+  font-family: var(--mhn-font-sans) !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  color: #5E376C !important;
+  font-style: normal !important;
+}
+div[style*="mhn-warm-700"][style*="letter-spacing"] {
+  color: #5E376C !important;
+  max-width: none !important;
+}
+.mhn-enroll .mhn-kicker,
+.cohort-callout .label,
+.gala-hero .eyebrow,
+footer .eyebrow { color: #fff !important; }
+a[style*="B5824A"], a[style*="#B5824A"], button[style*="B5824A"],
+.sticky-mobile-cta a.donate, a.btn-donate {
+  background: #5E376C !important;
+  color: #fff !important;
+  border-color: #5E376C !important;
+  border-radius: 999px !important;
+}
+.gala-hero p[style*="B5824A"] { color: #fff !important; }
+a.auction-form, .auction-form { color: #5E376C !important; }
+.sec-h, .lede-c, .eyebrow-c,
+[style*="text-align:center"] h2,
+[style*="text-align: center"] h2,
+.ladder-head h2, .ways-head h2 {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center;
+}
+.mhn-stat-asof { display: block; width: 100%; text-align: center !important; grid-column: 1 / -1; }
+.hero-photo-grid { max-width: 100% !important; min-width: 0; }
+.hero-with-photo > * { min-width: 0; }
+.hero-with-photo { min-width: 0; }
+.hero-with-photo .hero-photo-grid figure img { width: 100%; height: auto; object-fit: cover; }
+.origin, .founder, .footprint { max-width: none !important; }
+.mhn-wrap > .mhn-lists,
+.mhn-wrap > .mhn-grid-3 { margin-top: 32px; }
+.mhn-wrap > h2:not(:first-child) { margin-top: 64px; }
+
+.sustainer-grid { min-width: 0; }
+.sustainer-grid > div:last-child > div,
+.sustainer-grid > div:last-child > div * { color: #2A1733 !important; }
+@media (max-width: 720px) {
+  .sustainer-grid {
+    grid-template-columns: 1fr !important;
+    padding: 24px 20px !important;
+    gap: 20px !important;
+  }
+  .sustainer-grid > div { min-width: 0; width: 100%; }
+}
+
+.person-card > div:first-child {
+  aspect-ratio: 4 / 5 !important;
+  height: auto !important;
+  max-height: none !important;
+  background-position: center 18% !important;
+  background-size: cover !important;
+}
+.people-grid { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+#board-grid { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; }
+@media (max-width: 900px) {
+  .people-grid, #board-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+}
+@media (max-width: 560px) {
+  .people-grid, #board-grid { grid-template-columns: 1fr !important; }
+}
+.bio summary { list-style: none; cursor: pointer; }
+.bio summary::-webkit-details-marker { display: none; }
+.bio:not([open]) .bio-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.bio[open] .bio-clamp { display: none; }
+.bio .more { display: inline-block; margin-top: 8px; color: #5E376C; font-weight: 700; font-size: 16px; }
+.bio[open] .more { font-size: 0; }
+html[lang="es"] .bio[open] .more::after { content: "Leer menos"; font-size: 16px; }
+html:not([lang="es"]) .bio[open] .more::after { content: "Read less"; font-size: 16px; }
+
+.partners-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 16px !important;
+  align-items: stretch;
+}
+.partner-card {
+  height: 104px !important;
+  min-height: 104px;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  background: #fff !important;
+  border: 1px solid #D4BADD !important;
+  border-radius: 12px !important;
+  padding: 12px 16px !important;
+  box-sizing: border-box;
+}
+.partner-card img {
+  max-height: 52px !important;
+  max-width: 78% !important;
+  width: auto !important;
+  height: auto !important;
+  object-fit: contain !important;
+  margin: 0 auto;
+}
+.partner-name {
+  font-family: var(--mhn-font-serif) !important;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+  color: #5E376C !important;
+  text-align: center;
+}
+@media (max-width: 800px) {
+  .partners-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+}
+.mhn-logos a { height: 84px; }
+.mhn-logos img { max-height: 44px !important; width: auto; }
+
+.gala-hero, .gala-hero p, .gala-hero .ihh, .gala-hero .lav, .sec, .sec-h {
+  font-family: var(--mhn-font-serif);
+}
+.gala-hero .when, .gala-hero .ag, body { font-family: var(--mhn-font-sans); }
+.page a[href*="givebutter"], .btn-fill, .btn-outline {
+  border-radius: 999px !important;
+}
