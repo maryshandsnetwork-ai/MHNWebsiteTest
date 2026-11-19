@@ -11,7 +11,7 @@
 <meta content="https://maryshandsnetwork.org/assets/logo-full.png" property="og:image"/>
 <meta content="https://maryshandsnetwork.org/entrenamiento.html" property="og:url"/>
 <link href="./colors_and_type.css?v=20261119b" rel="stylesheet"/>
-<link rel="stylesheet" href="./site.css?v=20261119e">
+<link rel="stylesheet" href="./site.css?v=20261119f">
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 <script src="./mobile-nav.js?v=20261119e" defer></script>
 <style>
@@ -36,8 +36,8 @@
   .lede{font-family:var(--mhn-font-serif);font-style:italic;font-size:19px;line-height:1.55;color:var(--mhn-ink-soft);margin:0;max-width:780px}
 
   /* COHORT CALLOUT (top of page) — animated to draw attention */
-  .cohort-callout{position:relative;margin:8px 48px 28px;background:linear-gradient(135deg,var(--mhn-purple-700),var(--mhn-purple-900));color:#fff;border-radius:20px;padding:24px 32px;display:grid;grid-template-columns:1.2fr auto;gap:24px;align-items:center;box-shadow:0 12px 36px rgba(94,55,108,0.32),0 0 0 0 rgba(212,186,221,0.65);animation:cohortGlow 2.6s ease-in-out infinite}
-  .cohort-callout::before{content:"";position:absolute;inset:-3px;border-radius:22px;background:linear-gradient(135deg,var(--mhn-purple-200),var(--mhn-warm-700),var(--mhn-purple-200));z-index:-1;opacity:0.55;filter:blur(8px);animation:cohortShimmer 4s linear infinite}
+  .cohort-callout{position:relative;margin:0;background:#2A1733;color:#fff;border-radius:0;padding:28px 48px;display:grid;grid-template-columns:1.2fr auto;gap:24px;align-items:center;box-shadow:none;animation:none}
+  .cohort-callout::before{display:none}
   @keyframes cohortGlow{
     0%,100%{box-shadow:0 12px 36px rgba(94,55,108,0.32),0 0 0 0 rgba(212,186,221,0.65)}
     50%{box-shadow:0 16px 44px rgba(94,55,108,0.42),0 0 0 12px rgba(212,186,221,0.0)}
@@ -76,10 +76,10 @@
   .pcard a.more{color:var(--mhn-purple-700);font-weight:700;font-size:16px;text-decoration:none;border-bottom:1.5px solid var(--mhn-purple-200);padding-bottom:1px;transition:border-color 0.15s}
   .pcard a.more:hover{border-color:var(--mhn-purple-700)}
   /* Wide card spans the full grid row (used for Customized Curriculum) */
-  .pcard--wide{grid-column:1 / -1;background:linear-gradient(135deg,#FAF1E1 0%,#F2E2C5 100%);border-color:#E8D5BD}
-  .pcard--wide .ico-w{background:#fff}
-  .pcard--wide .ico-w i,.pcard--wide .ico-w svg{color:#85571F}
-  .pcard--wide .badge{background:#fff;color:#85571F}
+  .pcard--wide{grid-column:1 / -1;background:#fff;border-color:#D4BADD}
+  .pcard--wide .ico-w{background:#F4EBF8}
+  .pcard--wide .ico-w i,.pcard--wide .ico-w svg{color:#5E376C}
+  .pcard--wide .badge{background:#F4EBF8;color:#5E376C}
   .pcard--wide ul{column-count:2;column-gap:36px}
   .pcard--wide ul li{break-inside:avoid}
   @media(max-width:680px){.pgrid{grid-template-columns:1fr} .pcard--wide ul{column-count:1}}
@@ -306,7 +306,7 @@ a[href$=".html"]:not(.lang-toggle):not(.brand):not([href="inicio.html"]):not([hr
     <p>Horario, matrícula, qué incluye, becas, requisitos de asistencia y la solicitud.</p>
   </div>
   <div style="display:flex;flex-direction:column;gap:8px;align-items:stretch">
-    <a class="btn" href="https://forms.monday.com/forms/ca1d4fbc14042eb290043defbd016330?r=use1" target="_blank" rel="noopener" style="background:#85571F;color:#fff;border:none;text-align:center;white-space:nowrap">Inscríbete</a>
+    <a class="btn" href="https://forms.monday.com/forms/ca1d4fbc14042eb290043defbd016330?r=use1" target="_blank" rel="noopener" style="background:transparent;color:#fff;border:1.5px solid #fff;text-align:center;white-space:nowrap">Inscríbete</a>
     <a class="btn" href="cohorte.html" style="background:rgba(255,255,255,0.14);color:#fff;border:1.5px solid rgba(255,255,255,0.55);text-align:center;white-space:nowrap">Ver detalles de la clase</a>
   </div>
 </div>
@@ -527,5 +527,5 @@ a[href$=".html"]:not(.lang-toggle):not(.brand):not([href="inicio.html"]):not([hr
 <a class="call" href="tienda.html">Tienda</a>
 <a class="donate" href="donar.html">Donar</a>
 </div>
-<link rel="stylesheet" href="./density.css?v=20261119e">
+<link rel="stylesheet" href="./density.css?v=20261119f">
 </body></html>

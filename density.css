@@ -137,7 +137,7 @@ footer, .mhn-footer {
 
 /* Richer purple on older pages. Spacing above is unchanged.
    doula-training.html keeps its own hero and section colors. */
-body:not([data-screen-label="Education & Training"]) .hero:not(.hero-purple) {
+body .hero:not(.hero-purple) {
   background: linear-gradient(165deg, var(--mhn-hero-start) 0%, var(--mhn-hero-end) 68%) !important;
 }
 body:not([data-screen-label="Education & Training"]) .page > section:nth-child(even):not(.about-stats-band):not(.hero-purple):not(.hero):not(.mhn-purple):not([style*="purple-700"]):not([style*="purple-900"]) {
