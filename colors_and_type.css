@@ -1313,6 +1313,50 @@ nav.nav{
 .mhn-banner p { margin: 0; }
 .mhn-banner a { color: var(--mhn-purple-700); font-weight: 700; }
 
+/* Scrolling ticker. White text on brand purple. The Learn more chip is
+   pale lilac with purple text, so nothing is white on gold.
+   The second copy exists only so the scroll can loop. */
+.mhn-ticker {
+  background: #5E376C;
+  color: #fff;
+  overflow: hidden;
+  border-bottom: 3px solid #B5824A;
+  font-family: var(--mhn-font-sans);
+}
+.mhn-ticker-track {
+  display: flex;
+  width: max-content;
+  animation: mhnTicker 36s linear infinite;
+}
+.mhn-ticker:hover .mhn-ticker-track { animation-play-state: paused; }
+.mhn-ticker-set {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  padding: 11px 28px;
+  white-space: nowrap;
+}
+.mhn-ticker .item { font-size: 15px; font-weight: 700; color: #fff; }
+.mhn-ticker a.more {
+  background: #F3EEF6;
+  color: #5E376C;
+  text-decoration: none;
+  padding: 5px 14px;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+}
+@keyframes mhnTicker {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mhn-ticker-track { animation: none; width: auto; flex-wrap: wrap; }
+  .mhn-ticker-set { white-space: normal; flex-wrap: wrap; justify-content: center; width: 100%; }
+  .mhn-ticker-set[data-dup] { display: none; }
+}
+
 .btn-donate,
 a.btn-donate,
 .nav-links .btn-donate,

@@ -38,7 +38,7 @@
   margin: 16px 0 0;
 }
 
-.mhn-wrap { width: min(1120px, calc(100% - 48px)); margin: 0 auto; }
+.mhn-wrap { width: min(1200px, calc(100% - 40px)); margin: 0 auto; }
 .mhn-skip {
   position: absolute; left: 16px; top: -48px;
   background: #fff; color: #5E376C; padding: 8px 12px; z-index: 50;
@@ -52,7 +52,7 @@
 }
 .mhn-header-bar {
   display: flex; align-items: center; justify-content: space-between;
-  gap: 24px; min-height: 72px; flex-wrap: wrap;
+  gap: 20px; min-height: 64px; flex-wrap: wrap;
 }
 .mhn-brand {
   display: flex; align-items: center; gap: 12px;
@@ -87,35 +87,35 @@
 .mhn-proto a:focus-visible,
 .mhn-menu:focus-visible { outline: 3px solid #5E376C; outline-offset: 2px; }
 
-.mhn-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+.mhn-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
 .mhn-kicker { margin: 0 0 12px; color: #5E376C; font-size: 15px; font-weight: 700; }
-.mhn-lede { margin-top: 16px; max-width: 40em; color: #4A4351; font-size: 18px; }
+.mhn-lede { margin-top: 10px; max-width: 42em; color: #4A4351; font-size: 18px; }
 .mhn-hotline-top {
   margin: 0 0 16px; font-size: 18px; font-weight: 700;
 }
 .mhn-hotline-top a { font-size: 20px; }
 
 .mhn-proto section { padding-left: 0 !important; padding-right: 0 !important; }
-.mhn-section { padding: 72px 0 !important; }
-.mhn-band { background: #F3EEF6; }
-.mhn-section h2 { margin-bottom: 12px; }
-.mhn-intro { max-width: 42em; color: #4A4351; margin-bottom: 28px; }
+.mhn-section { padding: 36px 0 !important; }
+.mhn-band { background: #EFE4F6; }
+.mhn-section h2 { margin-bottom: 8px; }
+.mhn-intro { max-width: 46em; color: #4A4351; margin-bottom: 16px; }
 
-.mhn-hero { padding: 56px 0 24px !important; }
+.mhn-hero { padding: 28px 0 20px !important; background: #F4EEF8; }
 .mhn-hero-grid {
-  display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 48px; align-items: center;
+  display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 28px; align-items: center;
 }
 .mhn-hero-photo, .mhn-split-photo {
   margin: 0; border-radius: 12px; overflow: hidden; background: #F3EEF6;
 }
-.mhn-hero-photo { aspect-ratio: 4 / 5; }
+.mhn-hero-photo { aspect-ratio: 4 / 3; }
 .mhn-split-photo { aspect-ratio: 4 / 3; }
 .mhn-hero-photo img, .mhn-card-photo img, .mhn-shot img, .mhn-split-photo img, .mhn-film img {
   width: 100%; height: 100%; object-fit: cover; display: block;
 }
 
 .mhn-grid-3, .mhn-grid-2, .mhn-steps, .mhn-photos, .mhn-lists {
-  display: grid; gap: 20px;
+  display: grid; gap: 14px;
 }
 .mhn-grid-3, .mhn-photos { grid-template-columns: repeat(3, 1fr); }
 .mhn-grid-2, .mhn-lists { grid-template-columns: 1fr 1fr; }
@@ -234,9 +234,9 @@
   .mhn-split, .mhn-photos, .mhn-foot-grid { grid-template-columns: 1fr; }
   .mhn-stats { grid-template-columns: 1fr 1fr; }
   .mhn-logos { grid-template-columns: 1fr 1fr; }
-  .mhn-hero { padding: 32px 0 8px !important; }
+  .mhn-hero { padding: 20px 0 16px !important; }
   .mhn-hero-photo { aspect-ratio: 3 / 2; order: -1; }
-  .mhn-section { padding: 48px 0 !important; }
+  .mhn-section { padding: 28px 0 !important; }
   .mhn-proto h1 { font-size: 32px !important; }
   .mhn-proto h2 { font-size: 26px !important; }
   .mhn-proto h3 { font-size: 20px !important; }
