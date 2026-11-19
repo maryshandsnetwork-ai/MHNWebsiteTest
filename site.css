@@ -251,10 +251,24 @@
 .mhn-footer a:hover { text-decoration: underline; }
 .mhn-foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 32px; }
 .mhn-footer h2 { color: #fff !important; font-size: 22px !important; margin-bottom: 8px; }
-.mhn-footer h3 { color: #fff !important; font-family: var(--mhn-font-sans); font-size: 15px !important; margin-bottom: 12px; }
+.mhn-footer h3 {
+  color: var(--mhn-lavender-100) !important;
+  font-family: var(--mhn-font-serif) !important;
+  font-size: 22px !important;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+  line-height: 1.2;
+  display: inline-block;
+  margin: 0 0 14px !important;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--mhn-gold, #B5824A);
+}
 .mhn-footer p, .mhn-footer li { color: #E7DDED; font-size: 15px; }
 .mhn-footer ul { list-style: none; margin: 0; padding: 0; }
-.mhn-footer li { margin: 0 0 8px; }
+.mhn-footer li { margin: 0 0 4px; }
+.mhn-footer li a { color: rgba(255,255,255,0.85); font-size: 15px; }
+.mhn-footer li a:hover { color: #fff; text-decoration: none; }
 .mhn-foot-base {
   display: flex; justify-content: space-between; gap: 16px;
   margin-top: 32px; padding-top: 16px;
@@ -310,7 +324,7 @@
   .mhn-proto h2 { font-size: 26px !important; }
   .mhn-proto h3 { font-size: 20px !important; }
   .mhn-proto .mhn-footer h2 { font-size: 22px !important; }
-  .mhn-proto .mhn-footer h3 { font-size: 15px !important; }
+  .mhn-proto .mhn-footer h3 { font-size: 22px !important; }
   .mhn-proto .mhn-apply h2 { font-size: 24px !important; }
   .mhn-hotline { flex-direction: column; align-items: flex-start; }
   .mhn-phone { white-space: normal; }
