@@ -150,6 +150,36 @@ footer,
 }
 footer a,
 .mhn-footer a { color: #ffffff; }
+footer .foot-col h5,
+.site-foot .foot-col h5,
+.mhn-footer h3,
+.mhn-proto .mhn-footer h3 {
+  font-family: var(--mhn-font-serif) !important;
+  font-size: 22px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  color: var(--mhn-lavender-100, #E9D8F2) !important;
+  line-height: 1.2 !important;
+  display: inline-block;
+  margin: 0 0 14px !important;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--mhn-gold, #B5824A);
+}
+footer .foot-col a,
+.site-foot .foot-col a,
+.mhn-footer li a {
+  display: block;
+  font-size: 15px !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+  margin-bottom: 4px !important;
+  text-decoration: none;
+}
+footer .foot-col a:hover,
+.site-foot .foot-col a:hover,
+.mhn-footer li a:hover {
+  color: #ffffff !important;
+}
 footer .ein-line { color: #E4D0EE !important; }
 .mhn-quote footer,
 .mhn-quote footer a {

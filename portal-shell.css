@@ -116,8 +116,8 @@ footer{background:var(--mhn-purple-900);color:#D4BADD;padding:48px 48px 28px}
 .foot-brand{display:flex;flex-direction:column;gap:12px}
 .foot-brand .logo{font-family:var(--mhn-font-serif);font-size:21px;color:#fff;font-weight:700}
 .foot-brand p{font-size:16px;line-height:1.6;color:#B8A0C0;margin:0;max-width:300px}
-.foot-col h5{font-family:var(--mhn-font-sans);font-size:16px;letter-spacing:0.18em;text-transform:uppercase;color:#fff;margin:0 0 14px;font-weight:700}
-.foot-col a{display:block;font-size:16px;color:#B8A0C0;text-decoration:none;margin-bottom:8px}
+.foot-col h5{font-family:var(--mhn-font-serif);font-size:22px;letter-spacing:0;text-transform:none;color:#E9D8F2;font-weight:700;line-height:1.2;display:inline-block;margin:0 0 14px;padding-bottom:8px;border-bottom:2px solid #B5824A}
+.foot-col a{display:block;font-size:15px;color:rgba(255,255,255,0.85);text-decoration:none;margin-bottom:4px}
 .foot-col a:hover{color:#fff}
 .foot-btm{padding-top:24px;border-top:1px solid rgba(212,186,221,0.18);display:flex;justify-content:space-between;font-size:16px;color:#845995;letter-spacing:0.04em}
 
