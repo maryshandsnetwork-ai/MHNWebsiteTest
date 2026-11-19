@@ -110,6 +110,19 @@ h1.t em{font-style:italic;color:var(--mhn-purple-500)}
 .general a{color:var(--mhn-purple-700);text-decoration:none;font-weight:700}
 .general .sep{color:var(--mhn-purple-200)}
 
+/* Soft-pill public nav */
+.nav-links{background:#F4EBF8;border-radius:999px;padding:6px;gap:4px}
+.nav-links a,.nav-links .lang-icon{color:#4C2C5A;border-radius:999px;padding:8px 14px}
+.nav-links a:hover{background:#E9D8F2;color:#3F2449}
+.nav-links a[aria-current="page"]:not(.btn-donate),.nav-links a.active:not(.btn-donate){background:#5E376C;color:#fff}
+.nav-links a.btn-donate{background:#3F2449;color:#fff;border-radius:999px}
+.nav-links a:focus-visible,.nav-burger:focus-visible{outline:3px solid #fff;outline-offset:2px;box-shadow:0 0 0 5px #5E376C}
+@media (max-width:760px){
+  .nav.nav-open .nav-links{background:#F4EBF8;border-radius:22px;padding:10px;gap:2px}
+  .nav-links a{border-bottom:0}
+  .nav-links a.btn-donate{background:#3F2449;color:#fff;text-align:center;margin-top:8px}
+}
+
 /* FOOTER */
 footer{background:var(--mhn-purple-900);color:#D4BADD;padding:48px 48px 28px}
 .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;margin-bottom:36px}
