@@ -179,6 +179,7 @@
 }
 section:has(.mhn-steps) > .mhn-wrap > h2,
 section:has(.mhn-steps) > .mhn-wrap > .mhn-intro { text-align: center; }
+section:has(.mhn-steps) > .mhn-wrap > .mhn-intro { margin-left: auto; margin-right: auto; }
 
 .mhn-card {
   background: #fff;
