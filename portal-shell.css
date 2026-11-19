@@ -32,6 +32,31 @@ h1.t em{font-style:italic;color:var(--mhn-purple-500)}
 .portal-side .side-signout:hover{background:#F4E0C2}
 .portal-main{padding:0;min-width:0}
 
+/* Dashboard announcement, aligned with the Quick Actions column */
+.dash-callout{padding:4px 36px 28px;max-width:1100px;margin:0 auto}
+.dash-callout-inner{
+  display:flex;align-items:center;justify-content:space-between;gap:28px;
+  background:#fff;border:1px solid var(--mhn-lavender-400,#D4BADD);border-radius:20px;padding:26px 28px;
+}
+.dash-callout-text{min-width:0}
+.dash-callout .eyebrow{
+  display:inline-block;margin:0 0 12px;padding:4px 10px;border-radius:999px;
+  background:var(--mhn-purple-700);color:#fff;font-family:var(--mhn-font-sans);font-style:normal;
+  font-size:11px;font-weight:800;letter-spacing:0.14em;line-height:1.2;text-transform:uppercase;
+}
+.dash-callout strong{
+  display:block;font-family:var(--mhn-font-serif);font-size:28px;font-weight:700;line-height:1.15;
+  color:var(--mhn-purple-700);letter-spacing:-0.01em;margin:0 0 8px;
+}
+.dash-callout p{font-family:var(--mhn-font-sans);font-size:16px;font-style:normal;line-height:1.55;color:var(--mhn-ink-soft);margin:0}
+.dash-callout .pill-btn{
+  display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;
+  background:var(--mhn-purple-700);color:#fff;text-decoration:none;font-weight:700;font-size:15px;
+  padding:12px 18px;border-radius:999px;white-space:nowrap;
+}
+.dash-callout .pill-btn:hover{background:var(--mhn-purple-900)}
+.dash-callout .pill-btn:focus-visible{outline:3px solid #5E376C;outline-offset:3px}
+
 /* QUICK ACTIONS — colored cards */
 .actions{padding:8px 36px 28px;max-width:1100px;margin:0 auto}
 .acc-section-head{font-size:16px;letter-spacing:0.24em;color:var(--mhn-purple-700);margin:0 0 22px;font-weight:700;text-transform:uppercase}
@@ -139,7 +164,9 @@ footer{background:var(--mhn-purple-900);color:#D4BADD;padding:48px 48px 28px}
   body, .page{max-width:100%;overflow-x:hidden}
   .nav{flex-direction:column;gap:14px;padding:14px 18px}
   .nav-links{flex-wrap:wrap;justify-content:center;gap:14px 18px;font-size:16px}
-  .hero,.actions,.resources,.contacts,.form-section{padding:32px 20px !important}
+  .hero,.actions,.resources,.contacts,.form-section,.dash-callout{padding:32px 20px !important}
+  .dash-callout-inner{flex-direction:column;align-items:flex-start;gap:16px;padding:22px}
+  .dash-callout .pill-btn{white-space:normal}
   h1.t{font-size:26px !important;line-height:1.1 !important}
   .agrid,.rgrid,.cgrid{grid-template-columns:1fr !important;gap:16px !important}
   .general{flex-direction:column;align-items:flex-start;gap:8px}
