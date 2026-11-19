@@ -274,7 +274,10 @@ section:has(.mhn-steps) > .mhn-wrap > .mhn-intro { margin-left: auto; margin-rig
 .mhn-film {
   display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
   padding-bottom: 8px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
+.mhn-film::-webkit-scrollbar { display: none; width: 0; height: 0; }
 .mhn-film-wrap::after {
   content: "";
   position: absolute; top: 0; right: 0; bottom: 8px; width: 32px;
