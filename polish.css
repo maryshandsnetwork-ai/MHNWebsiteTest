@@ -1,0 +1,269 @@
+/* Shared frame, type, and surfaces. Loaded after density.css.
+   Section backgrounds stay full-bleed. Content, the header, and the footer
+   share one 1120px wrap. Portal pages keep their shell. */
+
+:root { --mhn-gutter: 56px; }
+@media (max-width: 1099px) { :root { --mhn-gutter: 40px; } }
+@media (max-width: 699px) { :root { --mhn-gutter: 24px; } }
+
+html { overflow-x: clip; }
+body {
+  color: #1F1B24;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+/* ---------- Round 1: one frame ---------- */
+body:not(:has(.portal-app)) .page {
+  max-width: none !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+body:not(:has(.portal-app)) .page > section,
+body:not(:has(.portal-app)) .page > footer,
+body:not(:has(.portal-app)) .page > .cohort-callout {
+  max-width: none !important;
+  width: auto !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  box-sizing: border-box !important;
+  padding-left: max(var(--mhn-gutter), calc((100% - 1120px) / 2 + var(--mhn-gutter))) !important;
+  padding-right: max(var(--mhn-gutter), calc((100% - 1120px) / 2 + var(--mhn-gutter))) !important;
+}
+body:not(:has(.portal-app)) .page > section {
+  padding-top: 72px !important;
+  padding-bottom: 72px !important;
+}
+body:not(:has(.portal-app)) .page > section.hero,
+body:not(:has(.portal-app)) .page > .cohort-callout {
+  padding-top: 44px !important;
+  padding-bottom: 44px !important;
+}
+body:not(:has(.portal-app)) .page > footer {
+  padding-top: 56px !important;
+  padding-bottom: 28px !important;
+}
+body:not(:has(.portal-app)) .page > footer .foot-grid,
+body:not(:has(.portal-app)) .page > footer .foot-btm,
+body:not(:has(.portal-app)) .foot-grid,
+body:not(:has(.portal-app)) .foot-btm {
+  max-width: none !important;
+  width: auto !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+@media (max-width: 699px) {
+  body:not(:has(.portal-app)) .page > section { padding-top: 56px !important; padding-bottom: 56px !important; }
+  body:not(:has(.portal-app)) .page > section.hero,
+  body:not(:has(.portal-app)) .page > .cohort-callout { padding-top: 40px !important; padding-bottom: 40px !important; }
+}
+
+/* The donate photo is the full-bleed layer. The card sits in the wrap. */
+body:not(:has(.portal-app)) .page > section.donate-hero {
+  padding: 0 !important;
+  aspect-ratio: 16 / 9;
+  min-height: 0 !important;
+  max-height: none !important;
+  height: auto !important;
+}
+.donate-hero .dh-inner {
+  max-width: 1120px !important;
+  width: 100% !important;
+  margin-inline: auto !important;
+  padding-left: var(--mhn-gutter) !important;
+  padding-right: var(--mhn-gutter) !important;
+  box-sizing: border-box;
+}
+.donate-hero img.dh-bg { object-position: center 58% !important; }
+.donate-hero .dh-card { border-radius: 12px !important; }
+
+.cohort-callout,
+.cohort-callout--top {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+  width: auto !important;
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  border-radius: 0 !important;
+}
+
+/* ---------- Round 2: type ---------- */
+body:not(:has(.portal-app)) h1,
+body:not(:has(.portal-app)) h1.t,
+body:not(:has(.portal-app)) .h1 {
+  font-family: var(--mhn-font-serif) !important;
+  font-size: 40px !important;
+  line-height: 1.15 !important;
+  max-width: 22em;
+}
+body:not(:has(.portal-app)) h2,
+body:not(:has(.portal-app)) .h2-warm {
+  font-size: 30px !important;
+  line-height: 1.2 !important;
+  max-width: 22em;
+}
+body:not(:has(.portal-app)) h3 {
+  font-size: 22px !important;
+  line-height: 1.25 !important;
+}
+body:not(:has(.portal-app)) .eyebrow,
+body:not(:has(.portal-app)) .mhn-kicker {
+  font-family: var(--mhn-font-sans) !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+}
+.eyebrow[style*="warm"],
+.eyebrow[style*="85571F"],
+.eyebrow[style*="B5824A"] {
+  color: #5E376C !important;
+}
+body:not(:has(.portal-app)) p,
+body:not(:has(.portal-app)) .lede {
+  font-size: 18px !important;
+  line-height: 1.6 !important;
+  max-width: 40em;
+}
+body:not(:has(.portal-app)) .mhn-card p,
+body:not(:has(.portal-app)) .person-card p,
+body:not(:has(.portal-app)) .tier p,
+body:not(:has(.portal-app)) footer p,
+body:not(:has(.portal-app)) .pcard p {
+  max-width: none;
+}
+@media (max-width: 699px) {
+  body:not(:has(.portal-app)) h1,
+  body:not(:has(.portal-app)) h1.t,
+  body:not(:has(.portal-app)) .h1 { font-size: 32px !important; }
+  body:not(:has(.portal-app)) h2,
+  body:not(:has(.portal-app)) .h2-warm { font-size: 26px !important; }
+}
+
+/* ---------- Buttons ---------- */
+body:not(:has(.portal-app)) .mhn-btn,
+body:not(:has(.portal-app)) a.btn,
+body:not(:has(.portal-app)) a.btn-primary,
+body:not(:has(.portal-app)) a.btn-donate,
+body:not(:has(.portal-app)) .tier > a,
+body:not(:has(.portal-app)) .sticky-mobile-cta a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 22px !important;
+  border-radius: 999px !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  line-height: 1.2;
+  box-sizing: border-box;
+}
+.sticky-mobile-cta a.donate,
+a.btn-donate,
+footer .foot-newsletter button,
+.newsletter button {
+  background: #3F2449 !important;
+  color: #fff !important;
+}
+.sticky-mobile-cta a.donate:hover,
+a.btn-donate:hover { background: #2A1733 !important; }
+.sticky-mobile-cta a.apply { background: #5E376C !important; color: #fff !important; }
+.sticky-mobile-cta a.call {
+  background: #fff !important;
+  color: #5E376C !important;
+  border: 1.5px solid #5E376C !important;
+}
+.tier.highlight > a { background: #fff !important; color: #5E376C !important; }
+
+/* ---------- Photos and cards ---------- */
+.mhn-frame {
+  background: transparent !important;
+  border: 0 !important;
+  padding: 0 !important;
+  border-radius: 12px !important;
+  box-shadow: none !important;
+}
+.mhn-frame::before { display: none !important; }
+.mhn-frame img,
+.hero-photo-wrap img,
+.mhn-card-photo img {
+  border: 0 !important;
+  border-radius: 12px !important;
+  aspect-ratio: 4 / 3 !important;
+  object-fit: cover !important;
+  height: auto !important;
+}
+.mhn-card-photo { aspect-ratio: 4 / 3 !important; height: auto !important; border-radius: 12px 12px 0 0 !important; }
+.mhn-card, .person-card, .tier, .pcard, .partner-card, .dh-card {
+  border-radius: 12px !important;
+}
+.person-card > div:first-child {
+  aspect-ratio: auto !important;
+  height: 220px !important;
+  max-height: 220px !important;
+  background-position: center 20% !important;
+}
+.people-grid,
+#board-grid {
+  grid-template-columns: 1fr 1fr !important;
+  gap: 24px !important;
+}
+img[src*="mom-doula-newborn"] { object-position: center 28% !important; }
+img[src*="family-with-ms-lyn"] { object-position: center 30% !important; }
+img[src*="family-skin-to-skin"] { object-position: center 42% !important; }
+img[src*="training-doulas-joyful"] { object-position: center 18% !important; }
+img[src*="community-tabling"] { object-position: center 40% !important; }
+img[src*="cohort-louisiana-healthcare"] {
+  object-position: center 82% !important;
+  aspect-ratio: 16 / 9 !important;
+}
+.page .tiers { grid-template-columns: 1fr 1fr !important; gap: 24px !important; }
+.tier { padding: 24px !important; }
+
+@media (max-width: 760px) {
+  .hero-with-photo { grid-template-columns: 1fr !important; }
+  .hero-photo-wrap { order: -1; }
+  .people-grid, #board-grid, .page .tiers { grid-template-columns: 1fr !important; }
+}
+
+/* Cream and extra tints fold into the lavender wash. Plum bands stay. */
+.page > section[style*="mhn-cream"],
+.page > section[style*="mhn-warm-50"],
+.page > section[style*="#FAF"],
+.page > section[style*="#faf"] {
+  background: #F4EBF8 !important;
+}
+
+/* Community-partners gala note, kept and set as one card. */
+body:not(:has(.portal-app)) .page > section.gala-callout {
+  background: #fff !important;
+  padding-top: 32px !important;
+  padding-bottom: 32px !important;
+}
+.gala-callout p {
+  margin: 0 auto !important;
+  max-width: 40em !important;
+  background: #F4EBF8;
+  border: 1px solid #D4BADD;
+  border-radius: 12px;
+  padding: 20px 24px;
+}
+
+/* Portal: type and buttons only. The sidebar shell is untouched. */
+body:has(.portal-app) .portal-main h1 { font-size: 40px; line-height: 1.15; }
+body:has(.portal-app) .portal-main h2 { font-size: 30px; line-height: 1.2; }
+body:has(.portal-app) .portal-main h3 { font-size: 22px; line-height: 1.25; }
+body:has(.portal-app) .portal-main p { font-size: 18px; line-height: 1.6; }
+body:has(.portal-app) .pill-btn,
+body:has(.portal-app) .portal-main a.btn {
+  border-radius: 999px;
+  min-height: 48px;
+  padding: 0 22px;
+  font-weight: 700;
+}

@@ -38,6 +38,17 @@
     });
   });
 
+  if (!document.querySelector('.sticky-mobile-cta') && !document.querySelector('.portal-app')) {
+    var es = (document.documentElement.lang || '').toLowerCase().indexOf('es') === 0
+      || !!document.querySelector('a[href="donar.html"], a[href="./donar.html"]');
+    var bar = document.createElement('div');
+    bar.className = 'sticky-mobile-cta';
+    bar.innerHTML = es
+      ? '<a class="apply" href="para-familias.html">Solicitar</a><a class="call" href="tel:2254247532">Llamar</a><a class="donate" href="donar.html">Donar</a>'
+      : '<a class="apply" href="for-mom.html">Apply</a><a class="call" href="tel:2254247532">Call</a><a class="donate" href="donate.html">Donate</a>';
+    document.body.appendChild(bar);
+  }
+
   document.querySelectorAll('.mhn-menu').forEach(function (btn) {
     if (btn.dataset.wired) return;
     btn.dataset.wired = '1';
