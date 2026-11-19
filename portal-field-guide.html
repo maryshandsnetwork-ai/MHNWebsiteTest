@@ -9,9 +9,10 @@
 <link rel="apple-touch-icon" href="./assets/logo-seal.png">
 <link rel="canonical" href="https://maryshandsnetwork.org/portal-field-guide.html">
 <link rel="stylesheet" href="./colors_and_type.css?v=20261119b">
+<link rel="stylesheet" href="./site.css?v=20261119e">
 <link rel="stylesheet" href="./portal-shell.css?v=20261119d">
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-<script src="./mobile-nav.js" defer></script>
+<script src="./mobile-nav.js?v=20261119e" defer></script>
 <style>
 .nr-hero{padding:20px 36px 0;max-width:1100px;margin:0 auto}
 .nr-hero .eyebrow{font-size:13px;letter-spacing:0.22em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:700;margin-bottom:8px}
@@ -97,24 +98,30 @@
 <script src="./ticker.js?v=20261119a" defer></script>
 </head>
 <body data-screen-label="Network Resources">
+<a class="mhn-skip" href="#main">Skip to content</a>
+<header class="mhn-header">
+  <div class="mhn-wrap mhn-header-bar">
+    <a class="mhn-brand" href="index.html">
+      <img src="./assets/logo-seal.png" alt="" width="44" height="44">
+      <span>Mary's Hands Network</span>
+    </a>
+    <button class="mhn-menu" type="button" aria-expanded="false" aria-controls="site-nav" data-open="Menu" data-close="Close">Menu</button>
+    <nav id="site-nav" class="mhn-nav" aria-label="Primary">
+      <a href="about.html">About</a>
+      <a href="for-mom.html">For Families</a>
+      <a href="doula-training.html">For Doulas</a>
+      <a href="contact.html">Contact</a>
+      <a href="inicio.html" class="mhn-lang" lang="es" title="Español" aria-label="Cambiar a español">ENG<span>/</span>ESP</a>
+      <a href="portal.html">Doula Portal</a>
+      <a href="donate.html" class="mhn-btn mhn-btn--donate">Donate</a>
+    </nav>
+  </div>
+</header>
+
 <!-- ANIMATED JULY COHORT BANNER (above nav, full bleed) -->
 <div class="page">
 
 <!-- TOP NAV -->
-<nav class="nav">
-<a href="index.html" class="brand">
-<div class="seal"><img src="./assets/logo-seal.png" alt="Mary's Hands Network logo"></div>
-<div><div class="name">Mary's Hands Network</div></div>
-</a>
-<div class="nav-links">
-<a href="about.html">About</a>
-<a href="for-mom.html">For Families</a>
-<a href="doula-training.html">For Doulas</a>
-<span class="lang-icon lang-disabled" title="EspaÃ±ol &mdash; coming soon" aria-disabled="true"><i data-lucide="globe"></i></span><a href="portal.html">Doula Portal</a>
-<a href="donate.html" class="btn-donate">Donate</a>
-</div>
-</nav>
-
 <!-- ACCESS GATE -->
 <section id="portal-gate">
 <div class="eyebrow">For Active Doulas</div>

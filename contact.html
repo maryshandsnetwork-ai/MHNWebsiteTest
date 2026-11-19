@@ -18,8 +18,9 @@
 <meta name="twitter:image" content="https://maryshandsnetwork.org/assets/logo-full.png">
 <link rel="canonical" href="https://maryshandsnetwork.org/contact.html">
 <link rel="stylesheet" href="./colors_and_type.css?v=20261119b">
+<link rel="stylesheet" href="./site.css?v=20261119e">
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-<script src="./mobile-nav.js" defer></script>
+<script src="./mobile-nav.js?v=20261119e" defer></script>
 <style>
   html, body{margin:0;padding:0;background:var(--mhn-paper);font-family:var(--mhn-font-sans);color:var(--mhn-ink)}
   .page{max-width:1280px;margin:0 auto}
@@ -141,26 +142,30 @@
 <script src="./ticker.js?v=20261119a" defer></script>
 </head>
 <body>
+<a class="mhn-skip" href="#main">Skip to content</a>
+<header class="mhn-header">
+  <div class="mhn-wrap mhn-header-bar">
+    <a class="mhn-brand" href="index.html">
+      <img src="./assets/logo-seal.png" alt="" width="44" height="44">
+      <span>Mary's Hands Network</span>
+    </a>
+    <button class="mhn-menu" type="button" aria-expanded="false" aria-controls="site-nav" data-open="Menu" data-close="Close">Menu</button>
+    <nav id="site-nav" class="mhn-nav" aria-label="Primary">
+      <a href="about.html">About</a>
+      <a href="for-mom.html">For Families</a>
+      <a href="doula-training.html">For Doulas</a>
+      <a href="contact.html" aria-current="page">Contact</a>
+      <a href="inicio.html" class="mhn-lang" lang="es" title="Español" aria-label="Cambiar a español">ENG<span>/</span>ESP</a>
+      <a href="portal.html">Doula Portal</a>
+      <a href="donate.html" class="mhn-btn mhn-btn--donate">Donate</a>
+    </nav>
+  </div>
+</header>
+
 <!-- ANIMATED JULY COHORT BANNER (above nav, full bleed) -->
 <div class="page" data-screen-label="Contact">
 
 <!-- NAV -->
-<nav class="nav">
-  <a href="index.html" class="brand">
-    <div class="seal"><img src="./assets/logo-seal.png" alt="Mary's Hands Network logo"></div>
-    <div>
-      <div class="name">Mary's Hands Network</div>
-    </div>
-  </a>
-  <div class="nav-links">
-    <a href="about.html">About</a>
-    <a href="for-mom.html">For Families</a>
-    <a href="doula-training.html">For Doulas</a>
-    <a href="contacto.html" class="lang-icon" title="EspaÃ±ol" aria-label="Ver en espaÃ±ol"><i data-lucide="globe"></i></a><a href="portal.html">Doula Portal</a>
-    <a href="donate.html" class="btn-donate">Donate</a>
-  </div>
-</nav>
-
 <!-- HERO -->
 <section class="hero">
   <div class="eyebrow">Contact</div>

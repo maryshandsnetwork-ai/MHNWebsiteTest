@@ -37,4 +37,21 @@
       }
     });
   });
+
+  document.querySelectorAll('.mhn-menu').forEach(function (btn) {
+    if (btn.dataset.wired) return;
+    btn.dataset.wired = '1';
+    btn.addEventListener('click', function () {
+      var open = document.body.classList.toggle('mhn-nav-open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      btn.textContent = open ? btn.getAttribute('data-close') : btn.getAttribute('data-open');
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && document.body.classList.contains('mhn-nav-open')) {
+        document.body.classList.remove('mhn-nav-open');
+        btn.setAttribute('aria-expanded', 'false');
+        btn.textContent = btn.getAttribute('data-open');
+      }
+    });
+  });
 })();
