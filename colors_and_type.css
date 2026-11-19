@@ -1282,3 +1282,97 @@ nav.nav{
   background:#fff;
   box-shadow:0 1px 0 var(--mhn-line-soft), 0 4px 16px rgba(94,55,108,0.04);
 }
+
+/* =========================================================
+   Phase 1 public chrome
+   Purple stays the brand. Gold is a rare decorative accent
+   only (a thin rule), never a button or body text.
+   Donate is deep purple so white text clears WCAG AA.
+   Doula Portal is a text link, not a button.
+   ========================================================= */
+:root {
+  --mhn-band: #F3EEF6;
+  --mhn-hairline: #E4DEE8;
+  --mhn-gold: #B5824A;
+  --mhn-donate: #3F2449;
+}
+
+.mhn-banner {
+  background: var(--mhn-band);
+  color: var(--mhn-ink);
+  font-family: var(--mhn-font-sans);
+  font-size: 15px;
+  line-height: 1.45;
+}
+.mhn-banner .mhn-wrap,
+.mhn-banner-inner {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 10px 0;
+}
+.mhn-banner p { margin: 0; }
+.mhn-banner a { color: var(--mhn-purple-700); font-weight: 700; }
+
+.btn-donate,
+a.btn-donate,
+.nav-links .btn-donate,
+.nav-links a.btn-donate {
+  background: #3F2449 !important;
+  color: #ffffff !important;
+  border-radius: 8px !important;
+  min-height: 48px;
+  padding: 0 18px !important;
+  box-shadow: none !important;
+  font-size: 16px !important;
+  letter-spacing: 0 !important;
+}
+.btn-donate:hover,
+a.btn-donate:hover,
+.nav-links a.btn-donate:hover {
+  background: #5E376C !important;
+  color: #ffffff !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Portal stays in the menu as a plain text link. */
+.btn-portal,
+a.btn-portal,
+.nav-links a.btn-portal,
+.nav .nav-links a.btn-portal {
+  background: transparent !important;
+  background-color: transparent !important;
+  color: var(--mhn-ink-soft) !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.02em !important;
+  display: inline !important;
+  border: 0 !important;
+  line-height: inherit !important;
+}
+.btn-portal:hover,
+a.btn-portal:hover,
+.nav-links a.btn-portal:hover {
+  background: transparent !important;
+  color: var(--mhn-purple-700) !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+@media (max-width: 760px) {
+  .nav-links .btn-portal,
+  .nav-links a.btn-portal {
+    display: block !important;
+    width: 100% !important;
+    margin-top: 0 !important;
+    padding: 12px 4px !important;
+    text-align: left !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    color: var(--mhn-ink-soft) !important;
+    border-bottom: 1px solid var(--mhn-line-soft) !important;
+    justify-content: flex-start !important;
+  }
+}
