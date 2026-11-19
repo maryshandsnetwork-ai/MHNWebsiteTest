@@ -11,7 +11,7 @@
 <meta content="https://maryshandsnetwork.org/assets/logo-full.png" property="og:image"/>
 <meta content="https://maryshandsnetwork.org/doula-training.html" property="og:url"/>
 <link href="./colors_and_type.css?v=20261119b" rel="stylesheet"/>
-<link rel="stylesheet" href="./site.css?v=20261119e">
+<link rel="stylesheet" href="./site.css?v=20261119f">
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 <script src="./mobile-nav.js?v=20261119e" defer></script>
 <style>
@@ -36,8 +36,8 @@ h1.t em{font-style:italic;color:var(--mhn-purple-500)}
 .lede{font-family:var(--mhn-font-serif);font-style:italic;font-size:19px;line-height:1.55;color:var(--mhn-ink-soft);margin:0;max-width:780px}
 
 /* COHORT CALLOUT (top of page)  animated to draw attention */
-.cohort-callout{position:relative;margin:8px 48px 28px;background:linear-gradient(135deg,var(--mhn-purple-700),var(--mhn-purple-900));color:#fff;border-radius:20px;padding:24px 32px;display:grid;grid-template-columns:1.2fr auto;gap:24px;align-items:center;box-shadow:0 12px 36px rgba(94,55,108,0.32),0 0 0 0 rgba(212,186,221,0.65);animation:cohortGlow 2.6s ease-in-out infinite}
-.cohort-callout::before{content:"";position:absolute;inset:-3px;border-radius:22px;background:linear-gradient(135deg,var(--mhn-purple-200),var(--mhn-warm-700),var(--mhn-purple-200));z-index:-1;opacity:0.55;filter:blur(8px);animation:cohortShimmer 4s linear infinite}
+.cohort-callout{position:relative;margin:0;background:#2A1733;color:#fff;border-radius:0;padding:28px 48px;display:grid;grid-template-columns:1.2fr auto;gap:24px;align-items:center;box-shadow:none;animation:none}
+.cohort-callout::before{display:none}
 @keyframes cohortGlow{
 0%,100%{box-shadow:0 12px 36px rgba(94,55,108,0.32),0 0 0 0 rgba(212,186,221,0.65)}
 50%{box-shadow:0 16px 44px rgba(94,55,108,0.42),0 0 0 12px rgba(212,186,221,0.0)}
@@ -64,7 +64,7 @@ h1.t em{font-style:italic;color:var(--mhn-purple-500)}
 .programs-head h2{font-family:var(--mhn-font-serif);font-size:25px;color:var(--mhn-purple-700);margin:8px 0 12px;letter-spacing:-0.01em;line-height:1.1}
 .programs-head p{font-family:var(--mhn-font-serif);font-style:italic;color:var(--mhn-ink-soft);font-size:17px;margin:0;line-height:1.55}
 .pgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
-.pcard{background:#fff;border:1px solid var(--mhn-line);border-radius:18px;padding:30px;transition:transform 0.15s, box-shadow 0.15s}
+.pcard{background:#fff;border:1px solid #D4BADD;border-radius:12px;padding:24px;transition:transform 0.15s, box-shadow 0.15s}
 .pcard:hover{transform:translateY(-2px);box-shadow:var(--mhn-shadow-md)}
 .pcard .ico-w{width:44px;height:44px;background:var(--mhn-purple-50);border-radius:12px;display:inline-flex;align-items:center;justify-content:center;margin-bottom:16px}
 .pcard .ico-w i,.pcard .ico-w svg{width:22px;height:22px;color:var(--mhn-purple-700)}
@@ -76,16 +76,16 @@ h1.t em{font-style:italic;color:var(--mhn-purple-500)}
 .pcard a.more{color:var(--mhn-purple-700);font-weight:700;font-size:16px;text-decoration:none;border-bottom:1.5px solid var(--mhn-purple-200);padding-bottom:1px;transition:border-color 0.15s}
 .pcard a.more:hover{border-color:var(--mhn-purple-700)}
 /* Wide card spans the full grid row (used for Customized Curriculum) */
-.pcard--wide{grid-column:1 / -1;background:linear-gradient(135deg,#FAF1E1 0%,#F2E2C5 100%);border-color:#E8D5BD}
-.pcard--wide .ico-w{background:#fff}
-.pcard--wide .ico-w i,.pcard--wide .ico-w svg{color:#85571F}
-.pcard--wide .badge{background:#fff;color:#85571F}
+.pcard--wide{grid-column:1 / -1;background:#fff;border-color:#D4BADD}
+.pcard--wide .ico-w{background:#F4EBF8}
+.pcard--wide .ico-w i,.pcard--wide .ico-w svg{color:#5E376C}
+.pcard--wide .badge{background:#F4EBF8;color:#5E376C}
 .pcard--wide ul{column-count:2;column-gap:36px}
 .pcard--wide ul li{break-inside:avoid}
 @media(max-width:680px){.pgrid{grid-template-columns:1fr} .pcard--wide ul{column-count:1}}
 
 /* FORMATS */
-.formats{padding:56px 48px;background:var(--mhn-paper-alt)}
+.formats{padding:56px 48px;background:#F4EBF8}
 .formats-head{max-width:680px;margin-bottom:30px}
 .formats-head h2{font-family:var(--mhn-font-serif);font-size:27px;color:var(--mhn-purple-700);margin:10px 0 10px;letter-spacing:-0.01em;line-height:1.1}
 .formats-head p{font-family:var(--mhn-font-serif);font-style:italic;color:var(--mhn-ink-soft);font-size:17px;margin:0;line-height:1.55}
@@ -305,11 +305,11 @@ html{overflow-x:hidden}
 </div>
 <div style="display:flex;flex-direction:column;gap:10px;align-items:stretch">
 <a class="btn" href="cohort.html" style="background:#fff;color:var(--mhn-purple-700);border:none;text-align:center;white-space:nowrap;font-size:18px;font-weight:800;padding:16px 34px;box-shadow:0 6px 18px rgba(0,0,0,0.22)">View Class Details &amp; Dates</a>
-<a class="btn" href="https://forms.monday.com/forms/ca1d4fbc14042eb290043defbd016330?r=use1" target="_blank" rel="noopener" style="background:#85571F;color:#fff;border:none;text-align:center;white-space:nowrap;font-size:17px;font-weight:800;padding:15px 34px;display:inline-block;border-radius:999px;text-decoration:none">Apply for the Tau Cohort</a>
+<a class="btn" href="https://forms.monday.com/forms/ca1d4fbc14042eb290043defbd016330?r=use1" target="_blank" rel="noopener" style="background:transparent;color:#fff;border:1.5px solid #fff;text-align:center;white-space:nowrap;font-size:17px;font-weight:800;padding:15px 34px;display:inline-block;border-radius:999px;text-decoration:none">Apply for the Tau Cohort</a>
 </div>
 </div>
 <!-- HERO -->
-<section class="hero hero-with-photo" style="display:grid;grid-template-columns:1.15fr 1fr;gap:40px;align-items:center;max-width:1200px;margin:0 auto;padding:32px 48px 24px">
+<section class="hero hero-with-photo" style="display:grid;grid-template-columns:1.15fr 1fr;gap:40px;align-items:center;max-width:1200px;margin:0 auto;padding:32px 48px 24px;background:#F7F2FA">
 <div>
 <div class="eyebrow">Education &amp; Training</div>
 <h1 class="t" style="margin:10px 0 16px">We educate the <em>maternal health workforce.</em></h1>
@@ -523,5 +523,5 @@ html{overflow-x:hidden}
 <a class="call" href="store.html">Store</a>
 <a class="donate" href="donate.html">Donate</a>
 </div>
-<link rel="stylesheet" href="./density.css?v=20261119e">
+<link rel="stylesheet" href="./density.css?v=20261119f">
 </body></html>
