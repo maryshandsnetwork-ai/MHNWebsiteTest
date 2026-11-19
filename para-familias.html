@@ -17,487 +17,202 @@
 <link href="./colors_and_type.css" rel="stylesheet"/>
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 <script src="./mobile-nav.js" defer></script>
-<style>
-  html,body{margin:0;padding:0;background:#fff;font-family:var(--mhn-font-sans);color:var(--mhn-ink)}
-  .page{max-width:1280px;margin:0 auto}
-  .nav{display:flex;align-items:center;justify-content:space-between;padding:20px 48px;border-bottom:1px solid var(--mhn-line-soft)}
-  .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
-  .brand .seal{width:44px;height:44px;display:flex;align-items:center;justify-content:center}
-  .brand .seal img{width:44px;height:44px;display:block}
-  .brand .name{font-family:var(--mhn-font-serif);font-weight:700;font-size:20px;color:var(--mhn-purple-700);line-height:1}
-  .brand .sub{font-size:16px;letter-spacing:0.18em;text-transform:uppercase;color:var(--mhn-purple-500);margin-top:2px}
-  .nav-links{display:flex;gap:28px;align-items:center}
-  .nav-links a{text-decoration:none;color:var(--mhn-ink-soft);font-size:16px;font-weight:700}
-  .nav-links .active{color:var(--mhn-purple-700)}
-  .nav-links .active::after{content:"";display:block;height:2px;background:var(--mhn-purple-200);margin-top:4px}
-  .hero{padding:28px 48px 18px;display:grid;grid-template-columns:1.3fr 1fr;gap:48px;align-items:start}
-  .eyebrow{font-size:16px;letter-spacing:0.28em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:700;margin-bottom:14px}
-  h1.t{font-family:var(--mhn-font-serif);font-size:38px;line-height:1.05;color:var(--mhn-purple-700);margin:0 0 16px;letter-spacing:-0.015em;font-weight:700}
-  h1.t em{font-style:italic;color:var(--mhn-purple-500)}
-  .lede{font-family:var(--mhn-font-serif);font-style:italic;font-size:21px;line-height:1.5;color:var(--mhn-ink-soft);max-width:560px;margin-bottom:18px}
-  .apply-card{background:var(--mhn-purple-50);border:1px solid var(--mhn-purple-200);border-radius:20px;padding:24px;position:sticky;top:20px;box-sizing:border-box}
-  .apply-card h3{font-family:var(--mhn-font-serif);font-size:23px;margin:0 0 8px;color:var(--mhn-purple-700);font-weight:700}
-  .apply-card p{font-size:17px;line-height:1.55;color:var(--mhn-ink-soft);margin:0 0 14px}
-  .apply-card ul{margin:0 0 16px;padding-left:18px;font-size:17px;line-height:1.65;color:var(--mhn-ink)}
-  .apply-card ul li::marker{color:var(--mhn-purple-500)}
-  .apply-card .mhn-btn{width:100%;box-sizing:border-box;justify-content:center}
-  .reviews{padding:28px 48px 24px;background:#fff}
-  .reviews .head{max-width:620px;margin-bottom:22px}
-  .reviews h2{font-family:var(--mhn-font-serif);font-size:30px;color:var(--mhn-purple-700);margin:8px 0 0;letter-spacing:-0.01em}
-  .rgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-  .review{background:var(--mhn-paper-alt);border:1px solid var(--mhn-line);border-radius:14px;padding:20px 22px;display:flex;flex-direction:column}
-  .review .mark{font-family:var(--mhn-font-serif);font-size:36px;line-height:0.6;color:var(--mhn-purple-200);margin-bottom:4px}
-  .review blockquote{font-family:var(--mhn-font-serif);font-style:italic;font-size:18px;line-height:1.5;color:var(--mhn-purple-900);margin:0 0 16px;flex:1;text-wrap:pretty}
-  .review cite{font-family:var(--mhn-font-sans);font-style:normal;font-size:15px;letter-spacing:0.14em;text-transform:uppercase;color:var(--mhn-ink-mute);font-weight:700}
-  .review .client{font-family:var(--mhn-font-serif);font-style:italic;font-size:16px;color:var(--mhn-purple-700);margin-top:4px;letter-spacing:0}
-  .journey{padding:28px 48px 28px;background:var(--mhn-paper-alt)}
-  .journey h2{font-family:var(--mhn-font-serif);font-size:30px;color:var(--mhn-purple-700);margin:0 0 8px;letter-spacing:-0.01em}
-  .journey .sub{font-family:var(--mhn-font-serif);font-style:italic;font-size:18px;color:var(--mhn-ink-soft);max-width:680px;margin-bottom:22px}
-  .stages{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-  .stage{background:#fff;border:1px solid var(--mhn-line);border-radius:16px;padding:22px}
-  .stage .num{font-family:var(--mhn-font-serif);font-size:16px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:var(--mhn-purple-500)}
-  .stage h4{font-family:var(--mhn-font-serif);font-size:20px;color:var(--mhn-purple-700);margin:10px 0 8px;font-weight:700}
-  .stage p{font-size:17px;color:var(--mhn-ink-soft);margin:0;line-height:1.5}
-  .care-cta{padding:24px 48px;max-width:820px}
-  .care-cta h2{font-family:var(--mhn-font-serif);font-size:32px;color:var(--mhn-purple-700);margin:0 0 12px;letter-spacing:-0.01em;line-height:1.1}
-  .care-cta p{font-size:18px;line-height:1.6;color:var(--mhn-ink-soft);margin:0 0 14px}
-
-  /* TEXT A DOULA */
-  .hotline{padding:32px 40px;background:var(--mhn-purple-700);color:#fff;margin:20px 48px;border-radius:24px;display:grid;grid-template-columns:1.3fr 1fr;gap:36px;align-items:center}
-  .hotline .label{font-size:15px;letter-spacing:0.2em;text-transform:uppercase;color:var(--mhn-purple-200);font-weight:700;margin-bottom:10px}
-  .hotline h2{font-family:var(--mhn-font-serif);font-size:28px;color:#fff;margin:0 0 14px;letter-spacing:-0.01em;line-height:1.1;text-wrap:balance}
-  .hotline p{font-size:18px;line-height:1.6;color:#F1EDF3;margin:0 0 12px}
-  .hotline .emph{font-family:var(--mhn-font-serif);font-style:italic;color:#E8D4EE;font-size:17px}
-  .phone-card{background:var(--mhn-purple-900);border-radius:20px;padding:24px;text-align:center}
-  .phone-card .sml{font-size:15px;letter-spacing:0.2em;text-transform:uppercase;color:var(--mhn-purple-200);font-weight:700;margin-bottom:12px}
-  .phone-card .num{font-family:var(--mhn-font-serif);font-size:28px;font-weight:700;color:#fff;letter-spacing:-0.02em;line-height:1;text-decoration:none;display:block;margin-bottom:14px}
-  .phone-card .num:hover{color:var(--mhn-purple-200)}
-  .phone-card .hr{height:1px;background:rgba(212,186,221,0.28);margin:14px 0}
-  .phone-card .alt{font-size:16px;line-height:1.55;color:#D4BADD}
-  .phone-card .alt a{color:#fff;font-weight:700}
-
-  /* LOSS & BEREAVEMENT */
-  .bereavement{padding:32px 48px;max-width:820px}
-  .bereavement-art{aspect-ratio:4/5;border-radius:20px;background:linear-gradient(160deg,#F8F5FA,#E8D4EE);border:1px solid var(--mhn-purple-200);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
-  .bereavement-art::before{content:"";position:absolute;inset:22px;border:1px solid var(--mhn-purple-300);border-radius:14px;pointer-events:none}
-  .bereavement-art svg{width:56%;opacity:0.78}
-  .bereavement-art .cap{position:absolute;bottom:22px;left:22px;right:22px;background:rgba(255,255,255,0.92);backdrop-filter:blur(8px);padding:10px 14px;border-radius:8px;font-size:16px;color:var(--mhn-purple-700);font-family:var(--mhn-font-serif);font-style:italic}
-  .bereavement-body h2{font-family:var(--mhn-font-serif);font-size:28px;color:var(--mhn-purple-700);margin:8px 0 14px;letter-spacing:-0.01em;line-height:1.1}
-  .bereavement-body p{font-size:18px;line-height:1.6;color:var(--mhn-ink-soft);margin:0 0 14px;text-wrap:pretty}
-  .bereavement-body .pull{font-family:var(--mhn-font-serif);font-style:italic;font-size:20px;color:var(--mhn-purple-700);border-left:3px solid var(--mhn-purple-200);padding-left:22px;margin:18px 0}
-  .bereavement-body .types{display:grid;grid-template-columns:repeat(2,1fr);gap:8px 18px;margin:18px 0 8px}
-  .bereavement-body .types span{display:flex;align-items:center;gap:10px;font-size:17px;color:var(--mhn-ink)}
-  .bereavement-body .types span::before{content:"";width:6px;height:6px;border-radius:999px;background:var(--mhn-purple-500);flex-shrink:0}
-
-  /* RESOURCES */
-  .resources{padding:32px 48px;background:var(--mhn-paper-alt)}
-  .resources-head{max-width:680px;margin-bottom:24px}
-  .resources-head h2{font-family:var(--mhn-font-serif);font-size:28px;color:var(--mhn-purple-700);margin:8px 0 12px;letter-spacing:-0.01em}
-  .resources-head p{font-family:var(--mhn-font-serif);font-style:italic;font-size:18px;line-height:1.55;color:var(--mhn-ink-soft);margin:0}
-  .rgrid2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-  .rcard{background:#fff;border:1px solid var(--mhn-line);border-radius:14px;padding:22px 24px;display:flex;gap:18px;align-items:flex-start;transition:box-shadow var(--mhn-dur),transform var(--mhn-dur)}
-  .rcard:hover{box-shadow:var(--mhn-shadow-md);transform:translateY(-1px)}
-  .rcard .r-ico{width:28px;height:28px;color:var(--mhn-purple-700);flex-shrink:0;margin-top:2px}
-  .rcard h4{font-family:var(--mhn-font-serif);font-size:21px;color:var(--mhn-purple-700);margin:0 0 4px;font-weight:700}
-  .rcard .rmeta{font-size:15px;letter-spacing:0.12em;text-transform:uppercase;color:var(--mhn-ink-mute);margin-bottom:8px;font-weight:700}
-  .rcard p{font-size:17px;line-height:1.55;color:var(--mhn-ink-soft);margin:0 0 10px}
-  .rcard a{font-family:var(--mhn-font-sans);font-weight:700;font-size:16px;color:var(--mhn-purple-700);text-decoration:none;letter-spacing:0.02em;display:inline-block;margin-right:14px;border-bottom:1px solid var(--mhn-purple-300);padding-bottom:1px}
-  .rcard a:hover{color:var(--mhn-purple-900);border-color:var(--mhn-purple-700)}
-  .resources-foot{margin-top:24px;font-size:16px;color:var(--mhn-ink-mute);font-family:var(--mhn-font-serif);font-style:italic}
-</style><!-- Metricool tracking -->
+<!-- Metricool tracking -->
 <script>function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"d8d3c46a1618fd16101a331dfbfb19dd"})});</script>
+<link rel="stylesheet" href="./site.css">
 </head>
-<body>
-<!-- ANIMATED JULY COHORT BANNER (above nav, full bleed) -->
-<style>
-  .july-banner{position:relative;background:linear-gradient(90deg,#5E376C 0%,#7A4A8E 35%,#B5824A 70%,#5E376C 100%);background-size:200% 100%;color:#fff;overflow:hidden;border-bottom:2px solid #FFD7A8;animation:juneBG 14s ease-in-out infinite}
-  .july-banner-track{display:flex;gap:54px;align-items:center;white-space:nowrap;padding:11px 0;animation:julyScroll 28s linear infinite;will-change:transform}
-  .july-banner-track .item{display:inline-flex;align-items:center;gap:12px;font-family:var(--mhn-font-sans);font-weight:700;font-size:15.5px;letter-spacing:0.04em}
-  .july-banner-track .pulse{display:inline-block;width:10px;height:10px;border-radius:50%;background:#FFD7A8;box-shadow:0 0 0 0 rgba(255,215,168,0.7);animation:juneBlink 1.4s ease-in-out infinite}
-  .july-banner-track em{font-family:var(--mhn-font-serif);font-style:italic;font-weight:400;color:#FFE5C4;font-size:16px;letter-spacing:0.01em}
-  .july-banner-track .sep{color:rgba(255,255,255,0.55);font-weight:400}
-  .july-banner-track .learn-more{display:inline-flex;align-items:center;gap:6px;background:#FFD7A8;color:#5E376C;text-decoration:none;padding:5px 14px;border-radius:999px;font-weight:800;font-size:14px;letter-spacing:0.06em;text-transform:uppercase;box-shadow:0 2px 8px rgba(0,0,0,0.15);transition:transform 0.15s,box-shadow 0.15s}
-  .july-banner-track .learn-more:hover{transform:translateY(-1px) scale(1.04);box-shadow:0 4px 12px rgba(0,0,0,0.25);background:#FFE5C4}
-  .july-banner-track .apply-now{display:inline-flex;align-items:center;gap:6px;background:#fff;color:#5E376C;text-decoration:none;padding:5px 14px;border-radius:999px;font-weight:800;font-size:14px;letter-spacing:0.06em;text-transform:uppercase;box-shadow:0 2px 8px rgba(0,0,0,0.15);transition:transform 0.15s}
-  .july-banner-track .apply-now:hover{transform:translateY(-1px) scale(1.04);background:#FFE5C4}
-  .july-banner:hover .july-banner-track{animation-play-state:paused}
-  @keyframes julyScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-  @keyframes juneBG{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
-  @keyframes juneBlink{0%,100%{box-shadow:0 0 0 0 rgba(255,215,168,0.7);transform:scale(1)}50%{box-shadow:0 0 0 8px rgba(255,215,168,0);transform:scale(1.15)}}
-  @media (prefers-reduced-motion:reduce){.july-banner{animation:none}.july-banner-track{animation:none;justify-content:center;flex-wrap:wrap;white-space:normal}.july-banner-track .pulse{animation:none}}
-  @media (max-width:700px){.july-banner-track{gap:32px;padding:9px 0;font-size:14px}.july-banner-track .item{font-size:14px}}
-</style>
-<div class="july-banner" role="region" aria-label="Anuncio de la cohorte de febrero de 2027">
-  <div class="july-banner-track" aria-hidden="false">
-    <!-- Loop A -->
-    <span class="item"><span class="pulse"></span><strong>Aceptando clientes con fecha de parto en diciembre de 2026 y después</strong></span>
-    <span class="item"><span class="pulse"></span><strong>Cohorte Tau</strong> &middot; 15&ndash;20 de feb, 2027 &middot; Lafayette &middot; Solicitudes de beca abiertas hasta el 10 de ene</span>
-    <span class="item"><a class="learn-more" href="entrenamiento.html">Más información</a></span>
-    <!-- Loop B (duplicate so the scroll seam is invisible) -->
-    <span class="item" aria-hidden="true"><span class="pulse"></span><strong>Aceptando clientes con fecha de parto en diciembre de 2026 y después</strong></span>
-    <span class="item" aria-hidden="true"><span class="pulse"></span><strong>Cohorte Tau</strong> &middot; 15&ndash;20 de feb, 2027 &middot; Lafayette &middot; Solicitudes de beca abiertas hasta el 10 de ene</span>
-    <span class="item" aria-hidden="true"><a class="learn-more" href="entrenamiento.html">Más información</a></span>
-  </div>
-</div>
 
-<style>/* Interim: grey out links to pages not yet translated to Spanish */
-a[href$=".html"]:not(.lang-toggle):not(.brand):not([href="inicio.html"]):not([href="para-familias.html"]):not([href="quienes-somos.html"]):not([href="donar.html"]):not([href="entrenamiento.html"]):not([href="cohorte.html"]):not([href="tienda.html"]):not([href="linea-de-doulas.html"]):not([href="vision-de-parto.html"]):not([href="duelo.html"]):not([href="voluntariado.html"]):not([href="aliados-comunitarios.html"]):not([href="contacto.html"]){pointer-events:none;opacity:0.45;cursor:default}</style>
-<div class="mhn-gala-banner" style="background:#5E376C;color:#fff;text-align:center;padding:16px 24px;font-size:16px;line-height:1.5">Join us for the <strong>In Her Honor Awards Gala – January 8, 2027</strong> &bull; Nominations close October 30 &nbsp;<a href="/gala.html" style="color:#f5c97a;font-weight:600;text-decoration:underline">Tickets &amp; Info →</a></div>
-<div class="page" data-screen-label="Para Familias">
-<nav class="nav">
-  <a href="inicio.html" class="brand">
-    <div class="seal"><img src="./assets/logo-seal.png" alt="Mary's Hands Network logo"></div>
-    <div>
-      <div class="name">Mary's Hands Network</div>
-    </div>
-  </a>
-  <div class="nav-links">
-    <a href="quienes-somos.html">Quiénes somos</a>
-    <a href="para-familias.html" class="active">Para familias</a>
-    <a href="entrenamiento.html">Capacitación</a>
-    <a href="tienda.html">Tienda</a>
-    <a href="for-mom.html" class="lang-toggle" title="English" aria-label="Switch to English"><span class="lang-active">ESP</span><span class="lang-sep">/</span><span class="lang-other">ENG</span></a>
-    <a href="gala.html">Gala</a><a href="portal.html" class="btn-portal">Portal de Doulas</a>
-    <a href="donar.html" class="btn-donate">Donar</a>
-  </div>
-</nav>
-<section class="hero">
-<div>
-<div class="eyebrow">Para futuras mamás</div>
-<h1 class="t">Una doula a tu lado, <em>sin costo alguno.</em></h1>
-<p class="lede">Mary's Hands Network ofrece servicios de doula gratuitos a cualquier mamá que lo solicite. Nuestros servicios están limitados por la disponibilidad y ubicación de nuestras voluntarias, pero cada madre que aplica recibe el mayor cuidado que podamos brindar.</p>
-<p style="font-size:18px;line-height:1.6;color:var(--mhn-ink-soft);max-width:580px">Tu equipo de doulas estará disponible alrededor de tu fecha de parto. Darán seguimiento dentro de las 72 horas posteriores al nacimiento, con una o dos visitas entre el parto y las 8 semanas posparto. Después de tu visita de las 6 a 8 semanas, nuestro equipo administrativo continúa con seguimientos a los 4, 6 y 12 meses.</p>
-</div>
-<aside class="apply-card">
-<h3>¿Lista para aplicar?</h3>
-<p>Completa tu solicitud en línea. El cuestionario abarca tus conexiones sociales, seguridad alimentaria y de vivienda, transporte y salud general.</p>
-<ul>
-<li>Toma de 15 a 20 minutos</li>
-<li>Totalmente confidencial (HIPAA)</li>
-<li>Tú programas tu orientación</li>
-</ul>
-<a class="mhn-btn mhn-btn--primary" href="https://forms.monday.com/forms/546fd2fcbe315080bfe3f5adb91179d9?r=use1" rel="noopener" target="_blank">Comenzar solicitud</a>
-<p style="text-align:center;margin:16px 0 0;font-size:16px;color:var(--mhn-ink-mute)">¿Preguntas? info@mhndoula.com</p>
-</aside>
-</section>
-
-<!-- HOW TO APPLY VIDEO WALKTHROUGH -->
-<section style="padding:24px 48px 18px;max-width:980px;margin:0 auto;text-align:center">
-  <div class="eyebrow" style="font-size:16px;letter-spacing:0.28em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:700;margin-bottom:10px">Mira cómo aplicar</div>
-  <h2 class="h2-warm" style="font-family:var(--mhn-font-serif);font-size:30px;color:var(--mhn-purple-700);margin:0 0 10px;letter-spacing:-0.01em;line-height:1.15">Un recorrido de 5 minutos por la solicitud.</h2>
-  <p style="font-family:var(--mhn-font-serif);font-style:italic;color:var(--mhn-ink-soft);font-size:18px;margin:0 0 18px;max-width:720px;margin-left:auto;margin-right:auto">Desde el envío de tu solicitud hasta la creación de tu cuenta de clienta en Kiip, la carga de tu tarjeta del seguro, la firma de tus formularios y la programación de tu visita de orientación con una doula del equipo. Cada paso, en orden.</p>
-  <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;max-width:820px;margin:0 auto;border-radius:16px;box-shadow:0 8px 28px rgba(94,55,108,0.16);border:1px solid var(--mhn-warm-300, #E8D5BD)">
-    <iframe src="https://www.youtube.com/embed/R3l6APBv6Po" title="Cómo solicitar servicios de doula con Mary's Hands Network" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%"></iframe>
-  </div>
-  <p style="margin:18px 0 0;font-family:var(--mhn-font-serif);font-style:italic;color:var(--mhn-ink-mute);font-size:16px">¿Prefieres comenzar ahora? <a href="https://forms.monday.com/forms/546fd2fcbe315080bfe3f5adb91179d9?r=use1" target="_blank" rel="noopener" style="color:var(--mhn-purple-700);font-weight:700">Inicia tu solicitud</a></p>
-</section>
-
-<section class="journey">
-<h2 class="h2-warm">Tu camino con nosotras.</h2>
-<p class="sub">Desde el emparejamiento hasta las 8 semanas posparto. Toca cualquier etapa para ver qué esperar.</p>
-<div class="flip-grid" style="grid-template-columns:repeat(4,1fr);max-width:none">
-  <div class="flip-card" style="height:240px" onclick="this.classList.toggle('flipped')">
-    <div class="flip-inner">
-      <div class="flip-front">
-        <div style="font-family:var(--mhn-font-serif);font-size:17px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:var(--mhn-purple-500);margin-bottom:12px">Etapa 01</div>
-        <h3 style="font-size:25px;margin:0 0 4px">Solicita y te incorporas</h3>
-        <div class="hint">Toca para girar</div>
-      </div>
-      <div class="flip-back">
-        <h4 style="margin:0 0 12px;font-family:var(--mhn-font-serif);font-size:21px">Solicitud e incorporación</h4>
-        <p style="font-size:18px;line-height:1.5;margin:0">Completa la solicitud, firma los acuerdos y reúnete con una doula del equipo.</p>
-      </div>
-    </div>
-  </div>
-  <div class="flip-card" style="height:240px" onclick="this.classList.toggle('flipped')">
-    <div class="flip-inner">
-      <div class="flip-front">
-        <div style="font-family:var(--mhn-font-serif);font-size:17px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:var(--mhn-purple-500);margin-bottom:12px">Etapa 02</div>
-        <h3 style="font-size:25px;margin:0 0 4px">Emparejamiento de equipo</h3>
-        <div class="hint">Toca para girar</div>
-      </div>
-      <div class="flip-back">
-        <h4 style="margin:0 0 12px;font-family:var(--mhn-font-serif);font-size:21px">Emparejamiento de equipo</h4>
-        <p style="font-size:18px;line-height:1.5;margin:0">Te emparejamos con dos doulas voluntarias en una semana y te las presentamos de forma virtual.</p>
-      </div>
-    </div>
-  </div>
-  <div class="flip-card" style="height:240px" onclick="this.classList.toggle('flipped')">
-    <div class="flip-inner">
-      <div class="flip-front">
-        <div style="font-family:var(--mhn-font-serif);font-size:17px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:var(--mhn-purple-500);margin-bottom:12px">Etapa 03</div>
-        <h3 style="font-size:25px;margin:0 0 4px">Visitas antes del parto</h3>
-        <div class="hint">Toca para girar</div>
-      </div>
-      <div class="flip-back">
-        <h4 style="margin:0 0 12px;font-family:var(--mhn-font-serif);font-size:21px">Visitas antes del parto</h4>
-        <p style="font-size:18px;line-height:1.5;margin:0">Dos visitas en persona para construir tu visión de parto, practicar medidas de confort y planificar.</p>
-      </div>
-    </div>
-  </div>
-  <div class="flip-card" style="height:240px" onclick="this.classList.toggle('flipped')">
-    <div class="flip-inner">
-      <div class="flip-front">
-        <div style="font-family:var(--mhn-font-serif);font-size:17px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:var(--mhn-purple-500);margin-bottom:12px">Etapa 04</div>
-        <h3 style="font-size:25px;margin:0 0 4px">Parto y posparto</h3>
-        <div class="hint">Toca para girar</div>
-      </div>
-      <div class="flip-back">
-        <h4 style="margin:0 0 12px;font-family:var(--mhn-font-serif);font-size:21px">Trabajo de parto, parto y posparto</h4>
-        <p style="font-size:18px;line-height:1.5;margin:0">Apoyo disponible durante el mes de tu parto, seguimiento a las 72 horas y hasta 8 semanas de acompañamiento.</p>
-      </div>
-    </div>
-  </div>
-</div>
-</section>
-<section style="padding:24px 48px 12px;background:#fff">
-<div style="max-width:1100px;margin:0 auto;text-align:center">
-<div class="eyebrow" style="font-size:16px;letter-spacing:0.28em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:700;margin-bottom:8px">Momentos reales</div>
-<h2 class="h2-warm" style="font-family:var(--mhn-font-serif);font-size:30px;color:var(--mhn-purple-700);margin:0 0 18px;letter-spacing:-0.01em;line-height:1.1">De las familias que atendemos.</h2>
-<div class="frame-row" style="max-width:1100px;grid-template-columns:repeat(3,1fr);gap:24px">
-<figure class="mhn-frame mhn-frame--lg">
-<img src="./assets/photos/mom-newborn-selfie.jpg" alt="A new mother smiling with her newborn">
-<figcaption>Primeros minutos</figcaption>
-</figure>
-<figure class="mhn-frame mhn-frame--lg">
-<img src="./assets/photos/mom-doula-newborn.jpg" alt="An MHN doula with a mother and her newborn">
-<figcaption>Tu doula a tu lado</figcaption>
-</figure>
-<figure class="mhn-frame mhn-frame--lg">
-<img src="./assets/photos/family-skin-to-skin.jpg" alt="A new family in skin-to-skin contact with their newborn">
-<figcaption>Piel con piel</figcaption>
-</figure>
-</div>
-</div>
-</section>
-
-<section class="reviews">
-<div class="head">
-<div class="eyebrow">Reseñas de clientas</div>
-<h2 class="h2-warm">En sus propias palabras.</h2>
-</div>
-<div class="rgrid">
-<div class="review">
-<div class="mark">"</div>
-<blockquote>Mi doula estuvo conmigo durante treinta horas de trabajo de parto. Sabía cuándo hablar, cuándo presionar mi espalda y cuándo simplemente estar presente. Tuve el parto que esperaba porque ella estuvo a mi lado.</blockquote>
-<cite>Clienta, Baton Rouge</cite>
-<div class="client">Mamá primeriza · 2025</div>
-</div>
-<div class="review">
-<div class="mark">"</div>
-<blockquote>No sabía que una doula podía ser gratuita. Mi equipo llegó a mis visitas posparto, me ayudó con la lactancia y me acompañó cuando estaba sola. Me trataron como familia.</blockquote>
-<cite>Clienta, New Orleans</cite>
-<div class="client">Segundo parto · 2024</div>
-</div>
-<div class="review">
-<div class="mark">"</div>
-<blockquote>Me ayudaron a hacer las preguntas que no sabía cómo hacer. Por primera vez sentí que mis médicos me escuchaban. Eso solo cambió toda mi experiencia.</blockquote>
-<cite>Clienta, Lafayette</cite>
-<div class="client">Mamá primeriza · 2025</div>
-</div>
-</div>
-</section>
-<section class="care-cta" style="display:grid;grid-template-columns:1.1fr 0.9fr;gap:48px;align-items:center;max-width:980px;padding:36px 48px">
-<div>
-<div class="eyebrow">Construye tu visión de parto</div>
-<h2 class="h2-warm">Un mapa, no un plan rígido.</h2>
-<p>Construye Tu Visión de Parto es una guía sencilla para ayudarte a explorar tus opciones, compartir tus deseos y comenzar conversaciones significativas con tu equipo de cuidado.</p>
-<p>Piénsalo como un mapa para tu camino de parto, una herramienta para prepararte sin perder la flexibilidad cuando las cosas cambian.</p>
-<a class="mhn-btn mhn-btn--secondary" href="./assets/birth-vision-guide.pdf" rel="noopener" style="margin-top:12px" target="_blank">Descarga la guía (PDF)</a>
-</div>
-<a href="./assets/birth-vision-guide.pdf" target="_blank" rel="noopener" style="display:block;text-decoration:none">
-<figure class="mhn-frame" style="max-width:280px;margin:0 0 0 auto">
-<img src="./assets/photos/birth-vision-cover.jpg" alt="Building Your Birth Vision guide cover">
-<figcaption>La guía gratuita en PDF</figcaption>
-</figure>
-</a>
-</section>
-<!-- TEXT A DOULA -->
-<section class="hotline" id="text-a-doula">
-<div>
-<div class="label">Escribe a una doula · Línea MHN</div>
-<h2 class="h2-warm">Cuando nos necesites, de día o de noche.</h2>
-<p>Cada clienta de MHN recibe la Línea de Doulas en su primera visita. Si no puedes comunicarte con tu equipo de doulas, la línea te conecta directamente con el personal de MHN, que avisará a tu equipo, activará cobertura de respaldo o te dará orientación inmediata.</p>
-<p>¿Aún no eres clienta? Llama o escribe al mismo número para hacer una pregunta, solicitar una doula o simplemente hablar con alguien que entiende.</p>
-<p class="emph">Nunca necesitas una cita. Nunca necesitas disculparte por llamar.</p>
-</div>
-<div class="phone-card">
-<div class="sml">Llama o escribe</div>
-<a class="num" href="tel:2254247532">(225) 424-7532</a>
-<div class="hr"></div>
-<div class="alt">O escribe a <a href="mailto:info@mhndoula.com">info@mhndoula.com</a> y te responderemos dentro de 24 horas.</div>
-</div>
-</section>
-<!-- IF YOUR STORY TAKES A DIFFERENT TURN -->
-<section style="padding:32px 48px 32px;background:linear-gradient(180deg, #F8F5FA 0%, #FAEFE0 100%);border-top:1px solid var(--mhn-purple-200);border-bottom:1px solid var(--mhn-warm-300, #E8D5BD)">
-<div style="max-width:980px;margin:0 auto">
-<div style="text-align:center;margin-bottom:20px">
-<div class="eyebrow" style="font-size:16px;letter-spacing:0.28em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:700;margin-bottom:10px">Para cuando el camino se ve diferente</div>
-<h2 class="h2-warm" style="font-family:var(--mhn-font-serif);font-size:30px;color:var(--mhn-purple-700);margin:0 0 10px;letter-spacing:-0.01em;line-height:1.15;max-width:680px;margin-left:auto;margin-right:auto">Si tu historia toma otro rumbo, seguimos aquí.</h2>
-<p style="font-family:var(--mhn-font-serif);font-style:italic;color:var(--mhn-ink-soft);font-size:18px;margin:0 auto;max-width:660px">Pérdida, complicaciones, dificultades económicas, inseguridad alimentaria. Tu camino puede no ser una línea recta. Sea cual sea tu historia, no estás sola.</p>
-</div>
-
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
-<div style="background:#fff;border:1px solid var(--mhn-purple-200);border-radius:16px;padding:24px 26px;box-shadow:0 4px 14px rgba(94,55,108,0.08);display:flex;flex-direction:column">
-<div style="font-family:var(--mhn-font-serif);font-size:15px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--mhn-purple-700);margin-bottom:8px">Si has sufrido una pérdida</div>
-<h3 style="font-family:var(--mhn-font-serif);font-size:24px;color:var(--mhn-purple-700);margin:0 0 10px;line-height:1.2">Apoyo de doula en el duelo</h3>
-<p style="font-size:17px;line-height:1.6;color:var(--mhn-ink-soft);margin:0 0 14px;flex:1">Nuestras doulas capacitadas en duelo acompañan a las familias a través del aborto espontáneo, la muerte fetal, la interrupción médica y la pérdida neonatal. Gratis, confidencial, sin plazos para comunicarte.</p>
-<div style="display:flex;flex-direction:column;gap:10px">
-<a href="duelo.html" class="mhn-btn mhn-btn--primary" style="text-align:center">Lee nuestra guía de duelo</a>
-<a href="mailto:mleblanc@mhndoula.com?subject=Bereavement%20Support%20Request&body=Hi%2C%0A%0AI%27m%20reaching%20out%20about%20bereavement%20support.%0A%0A" style="text-align:center;color:var(--mhn-purple-700);font-weight:700;font-size:16px;padding-top:4px">O escribe directamente a nuestra doula de duelo</a>
-</div>
-</div>
-
-<div style="background:#fff;border:1px solid var(--mhn-purple-200);border-radius:16px;padding:24px 26px;box-shadow:0 4px 14px rgba(94,55,108,0.08);display:flex;flex-direction:column">
-<div style="font-family:var(--mhn-font-serif);font-size:15px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--mhn-purple-700);margin-bottom:8px">Si necesitas apoyo integral</div>
-<h3 style="font-family:var(--mhn-font-serif);font-size:24px;color:var(--mhn-purple-700);margin:0 0 10px;line-height:1.2">Recursos comunitarios en Louisiana</h3>
-<p style="font-size:17px;line-height:1.6;color:var(--mhn-ink-soft);margin:0 0 14px;flex:1">Servicios gratuitos y de bajo costo para alimentación, vivienda, transporte, cuidado infantil, salud mental y asistencia legal. Busca en una base de datos nacional por tu código postal y conéctate directamente con proveedores cerca de ti.</p>
-<div style="display:flex;flex-direction:column;gap:10px">
-<a href="https://www.findhelp.org/" target="_blank" rel="noopener" class="mhn-btn mhn-btn--secondary" style="text-align:center">Busca en FindHelp.org por código postal</a>
-<a href="tel:2254247532" style="text-align:center;color:var(--mhn-purple-700);font-weight:700;font-size:16px;padding-top:4px">O escribe a la línea (225) 424-7532</a>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- RESOURCES -->
-
-<!-- TESTIMONIALS -->
-<section class="testimonials bg-warm-cream">
-  <div class="testimonials-head">
-    <div class="eyebrow">Voces de clientas</div>
-    <h3>En sus propias palabras.</h3>
-  </div>
-  <div class="tgrid">
-    <div class="tcard">
-      <div class="mark">"</div>
-      <blockquote>Mi doula estuvo conmigo durante treinta horas de trabajo de parto. Sabía cuándo hablar, cuándo presionar mi espalda y cuándo simplemente estar presente. Tuve el parto que esperaba porque ella estuvo a mi lado.</blockquote>
-      <cite>Clienta, Baton Rouge</cite>
-      <div class="client">Mamá primeriza &middot; 2025</div>
-    </div>
-    <div class="tcard">
-      <div class="mark">"</div>
-      <blockquote>No sabía que una doula podía ser gratuita. Mi equipo llegó a mis visitas posparto, me ayudó con la lactancia y me acompañó cuando estaba sola. Me trataron como familia.</blockquote>
-      <cite>Clienta, New Orleans</cite>
-      <div class="client">Segundo parto &middot; 2024</div>
-    </div>
-    <div class="tcard">
-      <div class="mark">"</div>
-      <blockquote>Me ayudaron a hacer las preguntas que no sabía cómo hacer. Por primera vez sentí que mis médicos me escuchaban. Eso solo cambió toda mi experiencia.</blockquote>
-      <cite>Clienta, Lafayette</cite>
-      <div class="client">Mamá primeriza &middot; 2025</div>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<style>
-footer.site-foot{background:var(--mhn-purple-900);color:#D4BADD;padding:44px 48px 24px;margin-top:0}
-.site-foot .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;margin-bottom:32px}
-.site-foot .foot-brand{display:flex;flex-direction:column;gap:12px}
-.site-foot .foot-brand .logo{font-family:var(--mhn-font-serif);font-size:21px;color:#fff;font-weight:700}
-.site-foot .foot-brand p{font-size:16px;line-height:1.6;color:#B8A0C0;margin:0;max-width:300px}
-.site-foot .foot-col h5{font-family:var(--mhn-font-sans);font-size:16px;letter-spacing:0.18em;text-transform:uppercase;color:#fff;margin:0 0 14px;font-weight:700}
-.site-foot .foot-col a{display:block;font-size:16px;color:#B8A0C0;text-decoration:none;margin-bottom:8px}
-.site-foot .foot-col a:hover{color:#fff}
-.site-foot .foot-btm{padding-top:24px;border-top:1px solid rgba(212,186,221,0.18);display:flex;justify-content:space-between;font-size:16px;color:#845995;letter-spacing:0.04em}
-
-  /* MOBILE RESPONSIVE */
-  @media (max-width:900px){
-    body, .page{max-width:100%;overflow-x:hidden}
-    .nav{flex-direction:column;gap:14px;padding:14px 18px}
-    .nav-links{flex-wrap:wrap;justify-content:center;gap:14px 18px;font-size:16px}
-    .nav-links a{font-size:16px}
-    .hero, .hero-purple, .body, .mission-wrap, .numbers, .tl-wrap, .footprint, .contact, .founder, .origin, .photo-gallery{padding:48px 20px !important;max-width:100% !important}
-    h1.t, .h1{font-size:25px !important;line-height:1.1 !important}
-    .lede{font-size:17px !important}
-    h2{font-size:21px !important;line-height:1.15 !important}
-    h3{font-size:19px !important}
-    .mv, .ngrid, .tl, .ogrid, .grid-3, .grid-2, .stats-grid, .routes-grid, .services-grid, .gallery-grid, .home-vision, .home-hotline, .contact-inner{grid-template-columns:1fr !important;gap:18px !important}
-    .stats, .mission, .services, .testimonials, .final, .outcomes, .home-hotline, .home-vision{margin:24px 16px !important;padding:48px 24px !important}
-    .home-hotline h2, .home-vision h2{font-size:25px !important}
-    .home-hotline .phone-card .num{font-size:25px !important}
-    .featured-doula{grid-template-columns:1fr !important;text-align:center;padding:24px !important}
-    footer{padding:48px 20px 20px}
-    .foot-grid{grid-template-columns:1fr !important;gap:32px !important}
-    .foot-btm{flex-direction:column;gap:8px;text-align:center}
-    .nitem .n, .stat .n{font-size:25px !important}
-    .ostat .pct{font-size:29px !important}
-    .regions{grid-template-columns:1fr !important}
-    .rchip{text-align:center}
-    .pchip{display:block;margin:6px 0;text-align:center}
-    .callout{padding:20px 18px !important;margin:18px 0 !important}
-    .mhn-btn--inline, .mhn-btn--primary, .mhn-btn--secondary{display:block;text-align:center;margin:8px 0 !important}
-    .tl::before{display:none}
-    .tl-item{padding:18px 0;border-top:1px solid var(--mhn-purple-200)}
-    .tl-item:first-child{border-top:none}
-  }
-  @media (max-width:560px){
-    h1.t, .h1{font-size:25px !important}
-    .home-hotline .phone-card .num{font-size:21px !important}
-  }
-</style>
-<footer class="site-foot">
-<div class="foot-grid">
-<div class="foot-brand">
-<div class="logo">Mary's Hands Network</div>
-<p>Una organización sin fines de lucro 501(c)(3) de Louisiana. 451 E. Airport Avenue, Ste. A, Baton Rouge, LA 70806.</p>
-<p style="font-family:var(--mhn-font-serif);font-style:italic;color:#D4BADD">info@mhndoula.com</p>
-</div>
-<div class="foot-col">
-<h5>Para familias</h5>
-<a href="https://forms.monday.com/forms/546fd2fcbe315080bfe3f5adb91179d9?r=use1" rel="noopener" target="_blank">Solicita una doula</a>
-<a href="para-familias.html#text-a-doula">Escribe a una doula</a>
-<a href="duelo.html">Duelo y pérdida</a>
-<a href="para-familias.html#resources">Recursos</a>
-</div>
-<div class="foot-col">
-<h5>Para doulas</h5>
-<a href="entrenamiento.html">Educación y capacitación</a>
-<a href="cohorte.html">Próxima cohorte</a>
-<a href="cohorte.html">Becas</a>
-</div>
-<div class="foot-col">
-<h5>Quiénes somos</h5>
-<a href="quienes-somos.html">Nuestra misión</a>
-<a href="quienes-somos.html#founder">Fundadora</a>
-<a href="tienda.html">Tienda</a>
+<body class="mhn-proto">
+<a class="mhn-skip" href="#main">Skip to content</a>
+<div class="mhn-banner"><div class="mhn-wrap"><p>Aceptando clientes con fecha de parto en diciembre de 2026 y después. <a href="entrenamiento.html">Cohorte Tau · 15–20 de feb, 2027 · Lafayette · Solicitudes de beca abiertas hasta el 10 de ene</a>.</p></div></div>
+<header class="mhn-header">
+  <div class="mhn-wrap mhn-header-bar">
+    <a class="mhn-brand" href="inicio.html">
+      <img src="./assets/logo-seal.png" alt="" width="44" height="44">
+      <span>Mary's Hands Network</span>
+    </a>
+    <button class="mhn-menu" type="button" aria-expanded="false" aria-controls="site-nav" data-open="Menú" data-close="Cerrar">Menú</button>
+    <nav id="site-nav" class="mhn-nav" aria-label="Primary">
+      <a href="quienes-somos.html">Quiénes somos</a>
+      <a href="para-familias.html" aria-current="page">Para familias</a>
+      <a href="entrenamiento.html">Capacitación</a>
       <a href="contacto.html">Contacto</a>
-</div>
-</div>
-<div class="foot-quick-help">
-<span class="qh-label">¿Necesitas ayuda ahora?</span>
-<a href="linea-de-doulas.html">Línea de Doulas</a>
-<a href="duelo.html">Duelo y pérdida</a>
-<a href="vision-de-parto.html">Guía de Visión de Parto</a>
-</div>
-<div class="foot-btm">
-<span>© 2026 Mary's Hands Network · Todos los derechos reservados</span>
-<span>Cada nacimiento merece una doula.</span>
-</div>
+      <a class="mhn-lang" href="index.html" lang="en" title="English" aria-label="Switch to English">ESP<span>/</span>ENG</a>
+      <a href="portal.html">Portal de Doulas</a>
+      <a class="mhn-btn mhn-btn--donate" href="donar.html">Donar</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="mhn-hero">
+  <div class="mhn-wrap mhn-hero-grid">
+    <div>
+      <p class="mhn-hotline-top">Línea de doulas, llama o escribe al <a href="tel:2254247532">(225) 424-7532</a></p>
+      <p class="mhn-kicker">Para futuras mamás</p>
+      <h1>Una doula a tu lado, sin costo alguno.</h1>
+      <hr class="mhn-gold">
+      <p class="mhn-lede">Mary's Hands Network ofrece servicios de doula gratuitos a cualquier mamá que lo solicite. Nuestros servicios están limitados por la disponibilidad y ubicación de nuestras voluntarias, pero cada madre que aplica recibe el mayor cuidado que podamos brindar.</p>
+      <p class="mhn-lede">Tu equipo de doulas estará disponible alrededor de tu fecha de parto. Darán seguimiento dentro de las 72 horas posteriores al nacimiento, con una o dos visitas entre el parto y las 8 semanas posparto. Después de tu visita de las 6 a 8 semanas, nuestro equipo administrativo continúa con seguimientos a los 4, 6 y 12 meses.</p>
+    </div>
+    <aside class="mhn-apply" id="apply">
+      <h2>¿Lista para aplicar?</h2>
+      <p class="mhn-lede">Completa tu solicitud en línea. El cuestionario abarca tus conexiones sociales, seguridad alimentaria y de vivienda, transporte y salud general.</p>
+      <ul>
+        <li>Toma de 15 a 20 minutos</li>
+        <li>Totalmente confidencial (HIPAA)</li>
+        <li>Tú programas tu orientación</li>
+      </ul>
+      <a class="mhn-btn mhn-btn--primary" href="https://forms.monday.com/forms/546fd2fcbe315080bfe3f5adb91179d9?r=use1" target="_blank" rel="noopener">Comenzar solicitud</a>
+      <p class="mhn-note">¿Preguntas? info@mhndoula.com</p>
+    </aside>
+  </div>
+</section>
+<section class="mhn-section mhn-band">
+  <div class="mhn-wrap">
+    <h2>Tu camino con nosotras.</h2>
+    <p class="mhn-intro">Desde el emparejamiento hasta las 8 semanas posparto.</p>
+    <div class="mhn-steps">
+      <article class="mhn-card"><p class="mhn-kicker">1</p><h3>Solicita y te incorporas</h3><p>Completa la solicitud, firma los acuerdos y reúnete con una doula del equipo.</p></article>
+      <article class="mhn-card"><p class="mhn-kicker">2</p><h3>Emparejamiento de equipo</h3><p>Te emparejamos con dos doulas voluntarias en una semana y te las presentamos de forma virtual.</p></article>
+      <article class="mhn-card"><p class="mhn-kicker">3</p><h3>Visitas antes del parto</h3><p>Dos visitas en persona para construir tu visión de parto, practicar medidas de confort y planificar.</p></article>
+      <article class="mhn-card"><p class="mhn-kicker">4</p><h3>Parto y posparto</h3><p>Apoyo disponible durante el mes de tu parto, seguimiento a las 72 horas y hasta 8 semanas de acompañamiento.</p></article>
+    </div>
+  </div>
+</section>
+<section class="mhn-section">
+  <div class="mhn-wrap">
+    <h2>Un recorrido de 5 minutos por la solicitud.</h2>
+    <p class="mhn-intro">Desde el envío de tu solicitud hasta la creación de tu cuenta de clienta en Kiip, la carga de tu tarjeta del seguro, la firma de tus formularios y la programación de tu visita de orientación con una doula del equipo. Cada paso, en orden.</p>
+    <div class="mhn-video"><iframe src="https://www.youtube.com/embed/R3l6APBv6Po" title="Cómo solicitar servicios de doula con Mary's Hands Network" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+    <p class="mhn-note">¿Prefieres comenzar ahora? <a href="https://forms.monday.com/forms/546fd2fcbe315080bfe3f5adb91179d9?r=use1" target="_blank" rel="noopener">Inicia tu solicitud</a></p>
+  </div>
+</section>
+<section class="mhn-section mhn-band">
+  <div class="mhn-wrap">
+    <h2>De las familias que atendemos.</h2>
+    <div class="mhn-photos">
+      <figure class="mhn-shot"><div><img src="./assets/photos/mom-newborn-selfie.jpg" alt="Una madre recién parida sonriendo con su bebé"></div><figcaption>Primeros minutos</figcaption></figure>
+      <figure class="mhn-shot"><div><img src="./assets/photos/mom-doula-newborn.jpg" alt="Una doula de MHN con una madre y su recién nacido"></div><figcaption>Tu doula a tu lado</figcaption></figure>
+      <figure class="mhn-shot"><div><img src="./assets/photos/family-skin-to-skin.jpg" alt="Una familia en contacto piel con piel"></div><figcaption>Piel con piel</figcaption></figure>
+    </div>
+  </div>
+</section>
+<section class="mhn-section">
+  <div class="mhn-wrap">
+    <h2>En sus propias palabras.</h2>
+    <div class="mhn-grid-3" style="margin-top:24px">
+      <blockquote class="mhn-card mhn-quote"><p>Mi doula estuvo conmigo durante treinta horas de trabajo de parto. Sabía cuándo hablar, cuándo presionar mi espalda y cuándo simplemente estar presente. Tuve el parto que esperaba porque ella estuvo a mi lado.</p><footer>Clienta, Baton Rouge · Mamá primeriza · 2025</footer></blockquote>
+      <blockquote class="mhn-card mhn-quote"><p>No sabía que una doula podía ser gratuita. Mi equipo llegó a mis visitas posparto, me ayudó con la lactancia y me acompañó cuando estaba sola. Me trataron como familia.</p><footer>Clienta, New Orleans · Segundo parto · 2024</footer></blockquote>
+      <blockquote class="mhn-card mhn-quote"><p>Me ayudaron a hacer las preguntas que no sabía cómo hacer. Por primera vez sentí que mis médicos me escuchaban. Eso solo cambió toda mi experiencia.</p><footer>Clienta, Lafayette · Mamá primeriza · 2025</footer></blockquote>
+    </div>
+  </div>
+</section>
+<section class="mhn-section mhn-band">
+  <div class="mhn-wrap mhn-split">
+    <div>
+      <h2>Un mapa, no un plan rígido.</h2>
+      <p class="mhn-lede">Construye Tu Visión de Parto es una guía sencilla para ayudarte a explorar tus opciones, compartir tus deseos y comenzar conversaciones significativas con tu equipo de cuidado.</p>
+      <p class="mhn-lede">Piénsalo como un mapa para tu camino de parto, una herramienta para prepararte sin perder la flexibilidad cuando las cosas cambian.</p>
+      <div class="mhn-actions"><a class="mhn-btn mhn-btn--secondary" href="./assets/birth-vision-guide.pdf" target="_blank" rel="noopener">Descarga la guía (PDF)</a></div>
+    </div>
+    <figure class="mhn-split-photo"><img src="./assets/photos/birth-vision-cover.jpg" alt="Portada de la guía Construye Tu Visión de Parto"><figcaption class="mhn-note">La guía gratuita en PDF</figcaption></figure>
+  </div>
+</section>
+<section class="mhn-section mhn-purple" id="text-a-doula">
+  <div class="mhn-wrap mhn-hotline">
+    <div>
+      <p class="mhn-kicker">Escribe a una doula · Línea MHN</p>
+      <h2>Cuando nos necesites, de día o de noche.</h2>
+      <p class="mhn-lede">Cada clienta de MHN recibe la Línea de Doulas en su primera visita. Si no puedes comunicarte con tu equipo de doulas, la línea te conecta directamente con el personal de MHN, que avisará a tu equipo, activará cobertura de respaldo o te dará orientación inmediata.</p>
+      <p class="mhn-lede">¿Aún no eres clienta? Llama o escribe al mismo número para hacer una pregunta, solicitar una doula o simplemente hablar con alguien que entiende.</p>
+      <p class="mhn-lede">Nunca necesitas una cita. Nunca necesitas disculparte por llamar.</p>
+    </div>
+    <div>
+      <a class="mhn-phone" href="tel:2254247532">(225) 424-7532</a>
+      <p class="mhn-note">O escribe a <a href="mailto:info@mhndoula.com" style="color:#fff">info@mhndoula.com</a> y te responderemos dentro de 24 horas.</p>
+    </div>
+  </div>
+</section>
+<section class="mhn-section">
+  <div class="mhn-wrap">
+    <h2>Si tu historia toma otro rumbo, seguimos aquí.</h2>
+    <p class="mhn-intro">Pérdida, complicaciones, dificultades económicas, inseguridad alimentaria. Tu camino puede no ser una línea recta. Sea cual sea tu historia, no estás sola.</p>
+    <div class="mhn-grid-2">
+      <article class="mhn-card">
+        <h3>Apoyo de doula en el duelo</h3>
+        <p>Nuestras doulas capacitadas en duelo acompañan a las familias a través del aborto espontáneo, la muerte fetal, la interrupción médica y la pérdida neonatal. Gratis, confidencial, sin plazos para comunicarte.</p>
+        <a class="mhn-more" href="duelo.html">Lee nuestra guía de duelo</a>
+        <a class="mhn-more" href="mailto:mleblanc@mhndoula.com?subject=Bereavement%20Support%20Request">O escribe directamente a nuestra doula de duelo</a>
+      </article>
+      <article class="mhn-card">
+        <h3>Recursos comunitarios en Louisiana</h3>
+        <p>Servicios gratuitos y de bajo costo para alimentación, vivienda, transporte, cuidado infantil, salud mental y asistencia legal. Busca en una base de datos nacional por tu código postal y conéctate directamente con proveedores cerca de ti.</p>
+        <a class="mhn-btn mhn-btn--secondary" href="https://www.findhelp.org/" target="_blank" rel="noopener">Busca en FindHelp.org por código postal</a>
+        <a class="mhn-more" href="tel:2254247532">O escribe a la línea (225) 424-7532</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="mhn-footer">
+  <div class="mhn-wrap">
+    <div class="mhn-foot-grid">
+      <div>
+        <h2>Mary's Hands Network</h2>
+        <p>Una organización sin fines de lucro 501(c)(3) de Louisiana<br>EIN 92-2430838<br>451 E. Airport Avenue, Ste. A<br>Baton Rouge, LA 70806</p>
+        <p style="margin-top:12px">Línea de doulas, llama o escribe <a href="tel:2254247532">(225) 424-7532</a><br>Oficina <a href="tel:2258924906">(225) 892-4906</a><br><a href="mailto:info@mhndoula.com">info@mhndoula.com</a></p>
+      </div>
+      <div>
+        <h3>Para familias</h3>
+        <ul>
+          <li><a href="para-familias.html">Para familias</a></li>
+          <li><a href="linea-de-doulas.html">Línea de Doulas</a></li>
+          <li><a href="vision-de-parto.html">Guía de Visión de Parto</a></li>
+          <li><a href="duelo.html">Duelo y pérdida</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Para doulas</h3>
+        <ul>
+          <li><a href="entrenamiento.html">Educación y capacitación</a></li>
+          <li><a href="cohorte.html">Próxima cohorte</a></li>
+          <li><a href="voluntariado.html">Voluntaria con MHN</a></li>
+          <li><a href="portal.html">Portal de Doulas</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Quiénes somos</h3>
+        <ul>
+          <li><a href="quienes-somos.html">Nuestra misión</a></li>
+          <li><a href="tienda.html">Tienda</a></li>
+          <li><a href="aliados-comunitarios.html">Aliados comunitarios</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="gala.html">Gala</a></li>
+          <li><a href="donar.html">Donar</a></li>
+          <li><a href="index.html" lang="en">English</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="mhn-foot-base">
+      <span>© 2026 Mary's Hands Network</span>
+      <span>Cada nacimiento merece una doula.</span>
+    </div>
+  </div>
 </footer>
-</div>
-<script>lucide.createIcons();</script>
-<div class="sticky-mobile-cta">
-  <a href="para-familias.html" class="apply">Solicitar</a>
-  <a href="tel:2254247532" class="call">Llamar</a>
-  <a href="donar.html" class="donate">Donar</a>
-</div>
+
+
 <script>
-  // Fade-in on scroll, but reveal immediately if already in viewport on load
-  (function(){
-    const els = document.querySelectorAll('.fade-in');
-    const reveal = (el) => el.classList.add('visible');
-    // First, immediately reveal anything that's already on screen
-    els.forEach(el => {
-      const r = el.getBoundingClientRect();
-      if (r.top < window.innerHeight && r.bottom > 0) reveal(el);
-    });
-    // Then observe the rest for as they scroll into view
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) reveal(e.target); });
-    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
-    els.forEach(el => { if (!el.classList.contains('visible')) observer.observe(el); });
-  })();
+document.querySelector('.mhn-menu').addEventListener('click', function () {
+  var open = document.body.classList.toggle('mhn-nav-open');
+  this.setAttribute('aria-expanded', open ? 'true' : 'false');
+  this.textContent = open ? this.getAttribute('data-close') : this.getAttribute('data-open');
+});
 </script>
-</body></html>
+
+
+</body>
+</html>
