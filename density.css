@@ -276,6 +276,21 @@ footer .ein-line { color: #E4D0EE !important; }
 }
 .person-card { border-top: 3px solid var(--mhn-purple-500) !important; }
 
+.mhn-stat-asof {
+  margin: 14px 0 0;
+  font-family: var(--mhn-font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1.4;
+  color: var(--mhn-ink-mute, #736B7A);
+  text-align: center;
+}
+.mhn-impact .mhn-stat-asof,
+.about-stats-band .mhn-stat-asof {
+  color: rgba(255, 255, 255, 0.75);
+}
+
 /* Impact numbers sit on a plum band, each in its own tile.
    Inline sizes on the older pages lose to these rules. */
 .about-stats-band {
