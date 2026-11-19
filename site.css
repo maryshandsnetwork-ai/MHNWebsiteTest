@@ -96,7 +96,7 @@
 .mhn-hotline-top a { font-size: 20px; }
 
 .mhn-proto section { padding-left: 0 !important; padding-right: 0 !important; }
-.mhn-section { padding: 36px 0 !important; }
+.mhn-section { padding: 32px 0 !important; }
 .mhn-band { background: #EFE4F6; }
 .mhn-section h2 { margin-bottom: 8px; }
 .mhn-intro { max-width: 46em; color: #4A4351; margin-bottom: 16px; }
@@ -236,7 +236,7 @@
   .mhn-logos { grid-template-columns: 1fr 1fr; }
   .mhn-hero { padding: 20px 0 16px !important; }
   .mhn-hero-photo { aspect-ratio: 3 / 2; order: -1; }
-  .mhn-section { padding: 28px 0 !important; }
+  .mhn-section { padding: 22px 0 !important; }
   .mhn-proto h1 { font-size: 32px !important; }
   .mhn-proto h2 { font-size: 26px !important; }
   .mhn-proto h3 { font-size: 20px !important; }

@@ -1,0 +1,187 @@
+/* Aggressive density for every public page. Loaded last.
+   Vertical rhythm only. The ticker, buttons, and copy are untouched. */
+
+section,
+footer,
+.mhn-section,
+.mhn-hero,
+.mhn-footer,
+.hero,
+.body,
+.founder,
+.numbers,
+.tl-wrap,
+.footprint,
+.origin,
+.contact,
+.ways,
+.trust,
+.photo-gallery,
+.programs,
+.formats,
+.pathway,
+.biz,
+.sec,
+.shop,
+.support-note,
+.cohort-callout,
+.donate-hero,
+.store-hero,
+.hero-purple,
+.hero-full,
+.testimonials,
+.services,
+.mission,
+.stats,
+.final,
+.outcomes,
+.partners,
+.partners-strip,
+.qualify,
+.materials,
+.appr,
+.scholarships,
+.policy,
+.reviews,
+.journey,
+.resources,
+.care-cta,
+.hotline,
+.bereavement,
+.actions,
+.contacts,
+.doula-gallery {
+  padding-top: 32px !important;
+  padding-bottom: 32px !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.mhn-hero,
+.hero,
+.store-hero,
+.donate-hero,
+.hero-full,
+.hero-purple,
+.cohort-callout {
+  padding-top: 20px !important;
+  padding-bottom: 16px !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  height: auto !important;
+}
+
+.hero,
+.body,
+.founder,
+.footprint,
+.origin,
+.programs,
+.pathway,
+.shop {
+  max-width: 1200px !important;
+}
+
+.page { max-width: 1200px !important; }
+
+h1, h2, h3, h4,
+.mhn-proto h1,
+.mhn-proto h2,
+.mhn-proto h3 {
+  margin-top: 0 !important;
+  margin-bottom: 8px !important;
+}
+
+.lede, .sub, .mhn-lede, .mhn-intro, .mhn-kicker, .mhn-note, .eyebrow {
+  margin-top: 0 !important;
+  margin-bottom: 8px !important;
+}
+
+.mhn-gold { margin: 8px 0 !important; }
+.mhn-actions { margin-top: 12px !important; gap: 10px !important; }
+.mhn-card { padding: 16px !important; }
+.mhn-card h3, .mhn-card p, .mhn-card li { margin-bottom: 6px !important; }
+.mhn-more { margin-top: 8px !important; }
+
+.pgrid, .fgrid, .tgrid, .rgrid, .rcards, .scards,
+.mhn-grid-3, .mhn-grid-2, .mhn-steps, .mhn-photos, .mhn-lists,
+.partners-grid, .gallery-grid, .steps-grid, .biz-grid,
+.flip-grid, .stats-grid, .hero-grid, .mhn-hero-grid,
+.mhn-split, .mhn-logos, .foot-grid, .mhn-foot-grid,
+.contact-inner, .program {
+  gap: 14px !important;
+}
+
+.flip-card, .flip-inner { height: auto !important; min-height: 0 !important; }
+.flip-front, .flip-back {
+  position: relative !important;
+  height: auto !important;
+  transform: none !important;
+  backface-visibility: visible !important;
+}
+.photo-band {
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: 240px !important;
+}
+
+footer, .mhn-footer {
+  padding-top: 24px !important;
+  padding-bottom: 14px !important;
+}
+.foot-grid, .mhn-foot-grid { margin-bottom: 10px !important; }
+.foot-btm, .mhn-foot-base { margin-top: 10px !important; padding-top: 10px !important; }
+.nav, .mhn-header-bar { padding-top: 8px !important; padding-bottom: 8px !important; min-height: 0 !important; }
+
+.hero-purple { margin: 8px 16px !important; }
+
+@media (max-width: 760px) {
+  section,
+  footer,
+  .mhn-section,
+  .mhn-footer,
+  .hero,
+  .body,
+  .founder,
+  .numbers,
+  .tl-wrap,
+  .footprint,
+  .origin,
+  .contact,
+  .ways,
+  .trust,
+  .photo-gallery,
+  .programs,
+  .formats,
+  .pathway,
+  .biz,
+  .sec,
+  .shop,
+  .support-note,
+  .testimonials,
+  .services,
+  .mission,
+  .stats,
+  .final,
+  .partners,
+  .partners-strip,
+  .reviews,
+  .journey,
+  .resources,
+  .care-cta,
+  .hotline,
+  .bereavement {
+    padding-top: 22px !important;
+    padding-bottom: 22px !important;
+  }
+  .mhn-hero,
+  .hero,
+  .store-hero,
+  .donate-hero,
+  .hero-full,
+  .hero-purple,
+  .cohort-callout {
+    padding-top: 16px !important;
+    padding-bottom: 12px !important;
+  }
+}
