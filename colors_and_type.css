@@ -23,11 +23,19 @@ a[x-apple-data-detectors] {
 
 :root {
   /* ---------- BRAND PURPLE SCALE ---------- */
-  --mhn-purple-900: #3F2449;   /* deepest, rare, for text on lightest tints */
+  --mhn-plum-950:   #2A1733;   /* deepest plum, footer and darkest button hover */
+  --mhn-purple-900: #3F2449;   /* deep plum, donate button, text on the lightest tints */
+  --mhn-plum-800:   #4C2C5A;   /* heading shade between deep plum and brand */
   --mhn-purple-700: #5E376C;   /* PRIMARY, H1/H2, links, brand */
-  --mhn-purple-500: #845995;   /* SECONDARY, H3, accents, "what if" border */
+  --mhn-purple-600: #734E86;   /* mid purple, borders and hover steps */
+  --mhn-purple-500: #845995;   /* SECONDARY, accents, card top edge */
+  --mhn-lavender-400: #A07BB0; /* decorative lavender, borders only, not small text */
   --mhn-purple-300: #B8A0C0;   /* TERTIARY, dividers, subtle bg, captions */
   --mhn-purple-200: #D4BADD;   /* ACCENT, H2 underline accent, highlights */
+  --mhn-lavender-100: #E9D8F2; /* richer section band */
+  --mhn-lavender-wash: #F4EBF8; /* soft wash on every other section */
+  --mhn-hero-start: #E4D0EE;   /* plum side of the hero gradient */
+  --mhn-hero-end:   #F8F4FB;   /* lavender side of the hero gradient */
   --mhn-purple-50:  #F8F5FA;   /* lightest tint, intro box background */
 
   /* ---------- NEUTRALS ---------- */
@@ -1291,10 +1299,10 @@ nav.nav{
    Doula Portal is a text link, not a button.
    ========================================================= */
 :root {
-  --mhn-band: #F3EEF6;
+  --mhn-band: var(--mhn-lavender-100);
   --mhn-hairline: #E4DEE8;
   --mhn-gold: #B5824A;
-  --mhn-donate: #3F2449;
+  --mhn-donate: var(--mhn-purple-900);
 }
 
 .mhn-banner {
@@ -1373,7 +1381,7 @@ a.btn-donate,
 .btn-donate:hover,
 a.btn-donate:hover,
 .nav-links a.btn-donate:hover {
-  background: #5E376C !important;
+  background: var(--mhn-plum-950) !important;
   color: #ffffff !important;
   transform: none !important;
   box-shadow: none !important;

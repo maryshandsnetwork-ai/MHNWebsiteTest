@@ -21,6 +21,28 @@
       + '<a class="more" href="' + learn + '">' + learnLabel + '</a>';
   }
 
+  /* Painted here so a 30-day cached stylesheet cannot leave the
+     duplicate copy as a second unstyled line. */
+  if (!document.getElementById('mhn-ticker-style')) {
+    var style = document.createElement('style');
+    style.id = 'mhn-ticker-style';
+    style.textContent = [
+      '.mhn-ticker{background:#5E376C;color:#fff;overflow:hidden;white-space:nowrap;border-bottom:3px solid #B5824A;font-family:Arial,Helvetica,sans-serif;line-height:1.4}',
+      '.mhn-ticker-track{display:flex;flex-wrap:nowrap;width:max-content;animation:mhnTicker 36s linear infinite}',
+      '.mhn-ticker:hover .mhn-ticker-track{animation-play-state:paused}',
+      '.mhn-ticker-set{display:inline-flex;align-items:center;gap:36px;padding:11px 28px;white-space:nowrap;vertical-align:top}',
+      '.mhn-ticker .item{font-size:15px;font-weight:700;color:#fff}',
+      '.mhn-ticker a.more{background:#F3EEF6;color:#5E376C;text-decoration:none;padding:5px 14px;border-radius:999px;font-weight:800;font-size:13px;letter-spacing:.04em}',
+      '@keyframes mhnTicker{from{transform:translateX(0)}to{transform:translateX(-50%)}}',
+      '@media (prefers-reduced-motion:reduce){',
+      '.mhn-ticker-track{animation:none;width:auto;flex-wrap:wrap;white-space:normal}',
+      '.mhn-ticker-set{white-space:normal;flex-wrap:wrap;justify-content:center;width:100%}',
+      '.mhn-ticker-set[data-dup]{display:none !important}',
+      '}'
+    ].join('\n');
+    document.head.appendChild(style);
+  }
+
   var bar = document.createElement('div');
   bar.className = 'mhn-ticker';
   bar.setAttribute('role', 'region');
