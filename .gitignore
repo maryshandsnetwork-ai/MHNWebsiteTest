@@ -1,5 +1,6 @@
-# Apache password files. The directory password lives on the server
-# and in the DIRECTORY_HTPASSWD GitHub Actions secret, never in git.
+# Apache password files. The directory login lives on the server
+# and in the DIRECTORY_USERNAME and DIRECTORY_PASSWORD GitHub Actions
+# secrets, never in git.
 .htpasswd
 .htpasswd-*
 **/.htpasswd

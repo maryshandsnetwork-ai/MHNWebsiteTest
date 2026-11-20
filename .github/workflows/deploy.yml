@@ -42,15 +42,24 @@ jobs:
       - name: Install directory password file
         env:
           SSHPASS: ${{ secrets.DREAMHOST_SFTP_PASSWORD }}
-          DIRECTORY_HTPASSWD: ${{ secrets.DIRECTORY_HTPASSWD }}
+          DIRECTORY_USERNAME: ${{ secrets.DIRECTORY_USERNAME }}
+          DIRECTORY_PASSWORD: ${{ secrets.DIRECTORY_PASSWORD }}
         run: |
-          sudo apt-get install -y sshpass
-          if [ -z "${DIRECTORY_HTPASSWD}" ]; then
-            echo "DIRECTORY_HTPASSWD is not set. Leaving the server password file unchanged."
+          sudo apt-get install -y sshpass apache2-utils
+          if [ -z "${DIRECTORY_USERNAME}" ] || [ -z "${DIRECTORY_PASSWORD}" ]; then
+            echo "DIRECTORY_USERNAME or DIRECTORY_PASSWORD is not set. Leaving the server password file unchanged."
             exit 0
           fi
-          printf '%s\n' "$DIRECTORY_HTPASSWD" | sshpass -e ssh \
+          tmp="$(mktemp)"
+          chmod 600 "$tmp"
+          if ! htpasswd -cbB "$tmp" "$DIRECTORY_USERNAME" "$DIRECTORY_PASSWORD" >/dev/null 2>&1; then
+            rm -f "$tmp"
+            echo "Could not build the directory password file."
+            exit 1
+          fi
+          sshpass -e ssh \
             -o StrictHostKeyChecking=no \
             -o UserKnownHostsFile=/dev/null \
             dh_n5xhce@ams1-shared-02.dreamhost.com \
-            "umask 077; cat > /home/dh_n5xhce/.htpasswd-directory"
+            "umask 077; cat > /home/dh_n5xhce/.htpasswd-directory" < "$tmp"
+          rm -f "$tmp"
