@@ -22,6 +22,8 @@ jobs:
             --exclude='README.md' \
             --exclude='vercel.json' \
             --exclude='.DS_Store' \
+            --exclude='doulas.json' \
+            --exclude='assets/doulas.json' \
             ./ _deploy/
 
       - name: Upload via SFTP
@@ -29,6 +31,26 @@ jobs:
           SSHPASS: ${{ secrets.DREAMHOST_SFTP_PASSWORD }}
         run: |
           sudo apt-get install -y sshpass
+          # doulas.json is not in the public repo. Exclude it here so
+          # --delete leaves the copies already on DreamHost in place.
           sshpass -e rsync -avz --delete \
+            --exclude='doulas.json' \
+            --exclude='assets/doulas.json' \
             -e "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=10" \
             _deploy/ dh_n5xhce@ams1-shared-02.dreamhost.com:/home/dh_n5xhce/maryshandsnetwork.org/
+
+      - name: Install directory password file
+        env:
+          SSHPASS: ${{ secrets.DREAMHOST_SFTP_PASSWORD }}
+          DIRECTORY_HTPASSWD: ${{ secrets.DIRECTORY_HTPASSWD }}
+        run: |
+          sudo apt-get install -y sshpass
+          if [ -z "${DIRECTORY_HTPASSWD}" ]; then
+            echo "DIRECTORY_HTPASSWD is not set. Leaving the server password file unchanged."
+            exit 0
+          fi
+          printf '%s\n' "$DIRECTORY_HTPASSWD" | sshpass -e ssh \
+            -o StrictHostKeyChecking=no \
+            -o UserKnownHostsFile=/dev/null \
+            dh_n5xhce@ams1-shared-02.dreamhost.com \
+            "umask 077; cat > /home/dh_n5xhce/.htpasswd-directory"

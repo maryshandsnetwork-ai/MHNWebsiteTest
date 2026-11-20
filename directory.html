@@ -8,6 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Doula Directory &middot; Mary's Hands Network</title>
 <meta name="description" content="Private searchable directory for active MHN volunteer doulas. Members only.">
+<meta name="robots" content="noindex">
 <link rel="icon" type="image/png" href="./assets/logo-seal.png">
 <link rel="apple-touch-icon" href="./assets/logo-seal.png">
 <link rel="canonical" href="https://maryshandsnetwork.org/directory.html">
@@ -28,22 +29,7 @@
   .nav-links{display:flex;gap:28px}
   .nav-links a{text-decoration:none;color:var(--mhn-ink-soft);font-size:18px;font-weight:700}
 
-  /* GATE &mdash; same as portal */
-  #portal-gate{padding:80px 48px 100px;max-width:540px;margin:0 auto;text-align:center}
-  #portal-gate .eyebrow{font-size:16px;letter-spacing:0.28em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:700;margin-bottom:14px}
-  #portal-gate h1{font-family:var(--mhn-font-serif);font-size:32px;line-height:1.1;color:var(--mhn-purple-700);margin:0 0 12px;letter-spacing:-0.01em;font-weight:700}
-  #portal-gate p.lede{font-family:var(--mhn-font-serif);font-style:italic;color:var(--mhn-ink-soft);font-size:18px;margin:0 0 28px;line-height:1.5}
-  #portal-gate form{display:flex;flex-direction:column;gap:12px;align-items:stretch;max-width:380px;margin:0 auto}
-  #portal-gate input{padding:14px 18px;border:2px solid var(--mhn-purple-200);border-radius:12px;font-size:18px;font-family:var(--mhn-font-sans);background:#fff;color:var(--mhn-ink);outline:none;letter-spacing:0.04em}
-  #portal-gate input:focus{border-color:var(--mhn-purple-500)}
-  #portal-gate button{background:var(--mhn-purple-700);color:#fff;border:0;border-radius:12px;padding:14px 22px;font-size:17px;font-weight:700;cursor:pointer;font-family:var(--mhn-font-sans)}
-  #portal-gate button:hover{background:var(--mhn-purple-500)}
-  #portal-gate .gate-error{color:#a83232;font-size:16px;font-weight:600;margin:6px 0 0;min-height:18px}
-  #portal-gate .gate-help{font-size:16px;color:var(--mhn-ink-soft);margin-top:18px;line-height:1.5}
-  #portal-gate .gate-help a{color:var(--mhn-purple-700);font-weight:600}
-  #portal-protected{display:none}
-  .gate-signout{position:fixed;top:14px;right:14px;background:var(--mhn-purple-50);color:var(--mhn-purple-700);border:1px solid var(--mhn-purple-200);border-radius:999px;padding:6px 14px;font-size:16px;font-weight:700;letter-spacing:0.04em;text-decoration:none;z-index:90}
-  .gate-signout:hover{background:var(--mhn-purple-200)}
+  #portal-protected{display:block}
 
   /* DIRECTORY */
   .dir-back{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;background:var(--mhn-purple-50);color:var(--mhn-purple-700);border:1px solid var(--mhn-purple-200);border-radius:999px;font-size:15px;font-weight:700;text-decoration:none;margin:24px 48px 0;transition:background 0.15s}
@@ -167,21 +153,7 @@
 <!-- ANIMATED JULY COHORT BANNER (above nav, full bleed) -->
 <div class="page">
 
-<!-- NAV -->
-<!-- ACCESS GATE -->
-<section id="portal-gate">
-  <div class="eyebrow">For Active Doulas</div>
-  <h1>Members only.</h1>
-  <p class="lede">Enter your access code to view the doula directory. Names, contacts, and service areas for your network.</p>
-  <form id="portal-gate-form" autocomplete="off" novalidate>
-    <input id="portal-code" type="text" placeholder="Access code" aria-label="Access code" autocapitalize="characters" spellcheck="false">
-    <button type="submit">Enter directory</button>
-    <p class="gate-error" id="portal-gate-error" role="alert" aria-live="polite"></p>
-  </form>
-  <p class="gate-help">Don't have a code? <a href="contact.html">Contact us</a> or ask your Volunteer Coordinator.</p>
-</section>
-
-<!-- PROTECTED -->
+<!-- PROTECTED by the server. The browser asks for the directory login. -->
 <div id="portal-protected">
 
 <div class="portal-app">
@@ -296,51 +268,7 @@ var DOULAS = [];
 var SUGGEST_INDEX = []; // [{label, kind, value}] for autocomplete
 var SUGGEST_ACTIVE = -1;
 
-/* Access gate &mdash; same code/key as portal */
-(function(){
-  var KEY="mhn_portal_access_v1";
-  var CODE="MHNDOULA2026";
-  var gate=document.getElementById("portal-gate");
-  var prot=document.getElementById("portal-protected");
-  var form=document.getElementById("portal-gate-form");
-  var input=document.getElementById("portal-code");
-  var err=document.getElementById("portal-gate-error");
-  function unlock(){
-    if(gate) gate.style.display="none";
-    if(prot) prot.style.display="block";
-    var sideOut = document.getElementById("portalSideSignout");
-    if (sideOut && !sideOut.__wired){
-      sideOut.__wired = true;
-      sideOut.addEventListener("click", function(e){
-        e.preventDefault();
-        try{localStorage.removeItem(KEY);}catch(_){}
-        location.reload();
-      });
-    }
-    if(window.lucide && window.lucide.createIcons) window.lucide.createIcons();
-    try { initDirectory(); } catch(e) { console.error("initDirectory error:", e); }
-  }
-  try{
-    if(localStorage.getItem(KEY)==="1"){ unlock(); return; }
-  }catch(_){}
-  if(form){
-    form.addEventListener("submit",function(e){
-      e.preventDefault();
-      var v=(input.value||"").trim().toUpperCase().replace(/\s+/g,"");
-      if(v===CODE){
-        try{localStorage.setItem(KEY,"1");}catch(_){}
-        err.textContent="";
-        unlock();
-      } else {
-        err.textContent="That code didn't match. Please check with your Volunteer Coordinator.";
-        input.focus(); input.select();
-      }
-    });
-    setTimeout(function(){try{input.focus();}catch(_){}},200);
-  }
-})();
-
-/* Directory rendering + search */
+/* Directory rendering + search. The server asks for the login before this page loads. */
 
 function initDirectory(){
   if (DOULAS.length) { render(); return; }
@@ -595,5 +523,16 @@ function render(){
   }
   document.getElementById("dirCount").textContent = filtered.length + " of " + DOULAS.length + " doulas";
 }
+
+var sideOut = document.getElementById("portalSideSignout");
+if (sideOut){
+  sideOut.addEventListener("click", function(e){
+    e.preventDefault();
+    try{ localStorage.removeItem("mhn_portal_access_v1"); }catch(_){}
+    location.reload();
+  });
+}
+if (window.lucide && window.lucide.createIcons) window.lucide.createIcons();
+try { initDirectory(); } catch(e) { console.error("initDirectory error:", e); }
 </script>
 </body></html>

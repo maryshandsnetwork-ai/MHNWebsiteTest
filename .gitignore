@@ -1,0 +1,6 @@
+# Apache password files. The directory password lives on the server
+# and in the DIRECTORY_HTPASSWD GitHub Actions secret, never in git.
+.htpasswd
+.htpasswd-*
+**/.htpasswd
+**/.htpasswd-*
