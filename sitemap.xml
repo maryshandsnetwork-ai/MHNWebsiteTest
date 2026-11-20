@@ -20,4 +20,6 @@
   <url><loc>https://maryshandsnetwork.org/entrenamiento.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://maryshandsnetwork.org/donar.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://maryshandsnetwork.org/contacto.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://maryshandsnetwork.org/privacy.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://maryshandsnetwork.org/privacidad.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
 </urlset>
