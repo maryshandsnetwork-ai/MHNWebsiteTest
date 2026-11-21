@@ -939,7 +939,7 @@ body.portal .course-mod h2,
 body.portal .nr-section h2,
 body.portal .portal-main h2,
 body.portal .portal-main h3{color:#5E376C}
-body.portal .course-mod h2 span{background:#5E376C;color:#fff}
+body.portal .course-mod h2 span:not(.bubble){background:#5E376C;color:#fff}
 body.portal .nr-section{background:transparent}
 body.portal .dir-controls{background:#F4EBF8;position:sticky;top:74px}
 body.portal .portal-help{background:#3F2449;color:#fff;padding:26px 0}
@@ -1014,114 +1014,170 @@ body.portal .course-mod{min-width:0;max-width:100%}
   body.portal .ptabs nav{flex-wrap:wrap}
 }
 
-/* Portal accents. Rose, sage, and a little teal. Purple stays the frame. */
-body.portal{
-  --rose:#9B3F4E; --rose-deep:#6E2D38; --rose-light:#F7E5E8; --rose-mid:#EDD0D5; --rose-line:#E0B8C0;
-  --sage:#4F7339; --sage-deep:#2E4321; --sage-mid:#3F5C2E; --sage-light:#EDF3E8; --sage-wash:#DCE7D2; --sage-line:#C5D6B5;
-  --teal:#1D5F58; --teal-light:#E3F0EF;
+/* Option 8. Bold color circles and emoji. Portal pages only. */
+body.portal .portal-main,
+body.portal .portal-main *{font-style:normal}
+body.portal,
+body.portal #portal-protected{background:#fff}
+body.portal .sec{padding:30px 0}
+body.portal .ptabs{background:#5E376C;border-bottom:4px solid #BE185D}
+body.portal .ptabs .ptabs-badge{border-bottom:0}
+body.portal[data-screen-label] .ptabs nav a[aria-current=page]{box-shadow:none}
+body.portal .ptabs nav a[aria-current=page]{background:#fff !important;color:#5E376C !important}
+body.portal .ptabs .wrap,
+body.portal .ptabs nav{flex-wrap:wrap}
+body.portal .ptabs nav a{
+  display:inline-flex;align-items:center;gap:5px;
+  border-bottom:3px solid transparent
 }
-body.portal section.sec:has(.pgrid.g4){background:#EFE6F3 !important}
-body.portal section.sec:has(.pgrid.g2){background:#EDF3E8 !important}
-body.portal .pgrid.g4>.pc:nth-child(1),
-body.portal .pgrid.g3>.pc:nth-child(2),
-body.portal .pgrid.g2>.pc:nth-child(1){
-  background:linear-gradient(135deg,#F7E5E8 0%,#EDD0D5 100%) !important;
-  border:1px solid #E0B8C0 !important;border-top:5px solid #9B3F4E !important
+body.portal .ptabs nav a .tab-emoji{
+  font-size:14px;line-height:1;flex:none;
+  font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif
 }
-body.portal .pgrid.g4>.pc:nth-child(1) .ico,
-body.portal .pgrid.g3>.pc:nth-child(2) .ico,
-body.portal .pgrid.g2>.pc:nth-child(1) .ico{background:#9B3F4E !important;color:#fff !important}
-body.portal .pgrid.g4>.pc:nth-child(1) h3,
-body.portal .pgrid.g4>.pc:nth-child(1) .go,
-body.portal .pgrid.g3>.pc:nth-child(2) h3,
-body.portal .pgrid.g3>.pc:nth-child(2) .go,
-body.portal .pgrid.g2>.pc:nth-child(1) h3,
-body.portal .pgrid.g2>.pc:nth-child(1) .go{color:#6E2D38 !important}
-body.portal .pgrid.g4>.pc:nth-child(2),
-body.portal .pgrid.g3>.pc:nth-child(1),
-body.portal .pgrid.g2>.pc:nth-child(2){
-  background:linear-gradient(135deg,#EDF3E8 0%,#DCE7D2 100%) !important;
-  border:1px solid #C5D6B5 !important;border-top:5px solid #3F5C2E !important
+@media(min-width:1100px){
+  body.portal .ptabs .ptabs-badge{display:none}
+  body.portal .ptabs nav a{padding:8px 9px !important;font-size:14.5px !important}
 }
-body.portal .pgrid.g4>.pc:nth-child(2) .ico,
-body.portal .pgrid.g3>.pc:nth-child(1) .ico,
-body.portal .pgrid.g2>.pc:nth-child(2) .ico{background:#3F5C2E !important;color:#fff !important}
-body.portal .pgrid.g4>.pc:nth-child(2) h3,
-body.portal .pgrid.g4>.pc:nth-child(2) .go,
-body.portal .pgrid.g3>.pc:nth-child(1) h3,
-body.portal .pgrid.g3>.pc:nth-child(1) .go,
-body.portal .pgrid.g2>.pc:nth-child(2) h3,
-body.portal .pgrid.g2>.pc:nth-child(2) .go{color:#2E4321 !important}
-body.portal .pgrid.g4>.pc:nth-child(3){
-  background:linear-gradient(135deg,#F4EAF7 0%,#E9DCEE 100%) !important;
-  border:1px solid #D4BADD !important;border-top:5px solid #5E376C !important
+
+body.portal section.sec:has(.pgrid.g4),
+body.portal section.sec:has(.pgrid.g2){background:#fff !important}
+body.portal section.sec:has(.pgrid.g3){background:#F7F2FA !important}
+body.portal section.sec:has(.pgrid) h2{color:#3F2449 !important}
+body.portal section.sec:has(.pgrid) .eyebrow{color:#BE185D !important}
+body.portal section.sec:has(.pgrid) .shead p{color:#4A4351 !important}
+body.portal section.sec.dk:has(.pgrid),
+body.portal section.sec.dk:has(.pgrid) p{color:#2F2538}
+
+body.portal .bubble{
+  display:flex;align-items:center;justify-content:center;
+  width:68px;height:68px;border-radius:50%;
+  font-size:32px;line-height:1;margin:0 0 10px;flex:none;
+  font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif;
+  font-style:normal;font-variant-emoji:emoji
 }
-body.portal .pgrid.g4>.pc:nth-child(3) .ico{background:#5E376C !important;color:#fff !important}
-body.portal .pgrid.g4>.pc:nth-child(3) h3,
-body.portal .pgrid.g4>.pc:nth-child(3) .go{color:#3F2449 !important}
-body.portal .pgrid.g4>.pc:nth-child(4){
-  background:linear-gradient(135deg,#E3F0EF 0%,#CCDEDC 100%) !important;
-  border:1px solid #A8C5C2 !important;border-top:5px solid #1D5F58 !important
+body.portal .bubble.sm{width:48px;height:48px;font-size:24px;margin:0 0 8px}
+body.portal .bubble.rose{background:#BE185D}
+body.portal .bubble.sage{background:#15803D}
+body.portal .bubble.plum{background:#5E376C}
+body.portal .bubble.teal{background:#0F766E}
+body.portal .hero > .bubble,
+body.portal .nr-hero > .bubble,
+body.portal .dir-hero > .bubble,
+body.portal .course-wrap > .bubble{margin:0 0 12px}
+
+body.portal .sec .pgrid > .pc{
+  background:#fff !important;
+  border:1px solid #E8E2EC !important;
+  border-radius:16px !important;
+  text-align:center;
+  align-items:center;
+  padding:20px 18px 16px;
+  box-shadow:0 4px 14px rgba(63,36,73,.07)
 }
-body.portal .pgrid.g4>.pc:nth-child(4) .ico{background:#1D5F58 !important;color:#fff !important}
-body.portal .pgrid.g4>.pc:nth-child(4) h3,
-body.portal .pgrid.g4>.pc:nth-child(4) .go{color:#103E39 !important}
-body.portal .pgrid.g3>.pc:nth-child(3){
-  background:linear-gradient(135deg,#F4EAF7 0%,#E9DCEE 100%) !important;
-  border:1px solid #D4BADD !important;border-top:5px solid #5E376C !important
+body.portal .sec .pgrid > .pc .bubble{margin:0 auto 6px}
+body.portal .sec .pgrid > .pc .ico{display:none !important}
+body.portal .sec .pgrid > .pc h3{color:#3F2449 !important;text-align:center}
+body.portal .sec .pgrid > .pc p{color:#4A4351 !important;text-align:center}
+body.portal .sec .pgrid > .pc:hover{box-shadow:0 8px 20px rgba(63,36,73,.16)}
+body.portal .pc:has(.bubble.rose) .go{color:#BE185D !important}
+body.portal .pc:has(.bubble.sage) .go{color:#15803D !important}
+body.portal .pc:has(.bubble.plum) .go{color:#5E376C !important}
+body.portal .pc:has(.bubble.teal) .go{color:#0F766E !important}
+body.portal .pgrid.g2 .btn--primary{
+  background:#BE185D !important;border-color:#BE185D !important;color:#fff !important;border-radius:999px
 }
-body.portal .pgrid.g3>.pc:nth-child(3) .ico{background:#5E376C !important;color:#fff !important}
-body.portal .pgrid.g3>.pc:nth-child(3) h3,
-body.portal .pgrid.g3>.pc:nth-child(3) .go{color:#3F2449 !important}
-body.portal .t2-grid>.t2-card:nth-child(1){border-top:7px solid #9B3F4E !important}
-body.portal .t2-grid>.t2-card:nth-child(2){border-top:7px solid #3F5C2E !important}
-body.portal .t2-grid>.t2-card:nth-child(3){border-top:7px solid #1D5F58 !important}
-body.portal[data-screen-label="Doula Portal"] .ptabs nav a[aria-current=page]{box-shadow:inset 0 -3px 0 #9B3F4E}
-body.portal .ptabs-badge{border-bottom:3px solid #9B3F4E}
-body.portal[data-screen-label="Client Update"] #portal-protected,
-body.portal[data-screen-label="Pocket Doula"] #portal-protected,
-body.portal[data-screen-label="Doula Directory"] #portal-protected{background:var(--rose-light)}
-body.portal[data-screen-label="Availability"] #portal-protected,
-body.portal[data-screen-label="Training Materials"] #portal-protected,
-body.portal[data-screen-label="Day 1 Materials"] #portal-protected,
-body.portal[data-screen-label="Day 2 Materials"] #portal-protected,
-body.portal[data-screen-label="Network Resources"] #portal-protected{background:var(--sage-light)}
-body.portal[data-screen-label="Day 3 Materials"] #portal-protected,
-body.portal[data-screen-label="Day 4 Materials"] #portal-protected,
-body.portal[data-screen-label="Course Resources"] #portal-protected,
-body.portal[data-screen-label="The Birth Roll"] #portal-protected{background:var(--teal-light)}
-body.portal[data-screen-label="Client Update"] .form-frame-wrap,
-body.portal[data-screen-label="Pocket Doula"] .form-frame-wrap,
-body.portal[data-screen-label="Doula Directory"] .dir-card{border-top-color:var(--rose) !important}
-body.portal[data-screen-label="Availability"] .form-frame-wrap,
-body.portal[data-screen-label="Training Materials"] .course-mod,
-body.portal[data-screen-label="Day 1 Materials"] .course-mod,
-body.portal[data-screen-label="Day 2 Materials"] .course-mod,
-body.portal[data-screen-label="Network Resources"] .nr-card{border-top-color:var(--sage) !important}
-body.portal[data-screen-label="Day 3 Materials"] .course-mod,
-body.portal[data-screen-label="Day 4 Materials"] .course-mod,
-body.portal[data-screen-label="Course Resources"] .course-wrap,
-body.portal[data-screen-label="The Birth Roll"] .br-moved{border-top-color:var(--teal) !important}
-body.portal[data-screen-label="Client Update"] .form-frame-meta .lbl,
-body.portal[data-screen-label="Pocket Doula"] .portal-main h2,
-body.portal[data-screen-label="Doula Directory"] .dir-card h3{color:var(--rose-deep);border-bottom:2px solid var(--rose-line);display:inline-block}
-body.portal[data-screen-label="Availability"] .form-frame-meta .lbl,
-body.portal[data-screen-label="Training Materials"] .course-mod h2,
-body.portal[data-screen-label="Day 1 Materials"] .course-mod h2,
-body.portal[data-screen-label="Day 2 Materials"] .course-mod h2,
-body.portal[data-screen-label="Network Resources"] .nr-card h3,
-body.portal[data-screen-label="Network Resources"] .nr-section h2{color:var(--sage-deep);border-bottom:2px solid var(--sage-line)}
-body.portal[data-screen-label="Day 3 Materials"] .course-mod h2,
-body.portal[data-screen-label="Day 4 Materials"] .course-mod h2{color:var(--teal);border-bottom:2px solid #A8C5C2}
-body.portal[data-screen-label="Training Materials"] .course-mod h2 span,
-body.portal[data-screen-label="Day 1 Materials"] .course-mod h2 span,
-body.portal[data-screen-label="Day 2 Materials"] .course-mod h2 span{background:var(--sage-light);color:var(--sage-deep)}
-body.portal[data-screen-label="Day 3 Materials"] .course-mod h2 span,
-body.portal[data-screen-label="Day 4 Materials"] .course-mod h2 span{background:var(--teal-light);color:var(--teal)}
-body.portal .portal-help{background:#6E2D38}
+body.portal .pgrid.g2 > .pc .btn,
+body.portal .pgrid.g2 > .pc .pill{margin-top:4px;align-self:center}
+body.portal .pc .pill{background:#DCFCE7;color:#166534}
+
+body.portal section.team2{background:#F7F2FA !important;color:#2F2538}
+body.portal .team2 .eyebrow{color:#BE185D !important}
+body.portal .team2 .t2-h2{color:#3F2449 !important}
+body.portal .team2 .t2-sub{color:#4A4351 !important}
+body.portal .team2 .t2-sub a{color:#5E376C !important;text-decoration:underline}
+body.portal .team2 .t2-lines-head{color:#5E376C !important}
+body.portal .team2 .t2-card{
+  border:1px solid #E8E2EC !important;border-top:1px solid #E8E2EC !important;
+  border-radius:14px;box-shadow:0 6px 18px rgba(63,36,73,.10);background:#fff
+}
+body.portal .team2 .t2-card--primary{outline:0 !important;border:2px solid #BE185D !important}
+body.portal .team2 .t2-badge{background:#BE185D;color:#fff}
+body.portal .team2 .t2-line{
+  border:1px solid #E8E2EC !important;border-radius:14px;box-shadow:0 4px 12px rgba(63,36,73,.08)
+}
+body.portal .team2 .t2-line--urgent{border:2px solid #BE185D !important}
+body.portal .team2 .t2-name{color:#5E376C !important}
+body.portal .team2 .t2-for,
+body.portal .team2 .t2-note{color:#2F2538 !important}
+body.portal .team2 .t2-for b{color:#1F1B24}
+body.portal .team2 .t2-line-lbl{color:#5E376C !important}
+body.portal .team2 .t2-line-val{color:#3F2449}
+body.portal .team2 .t2-grid > .t2-card:nth-child(1) a.t2-btn--solid,
+body.portal .team2 .t2-grid > .t2-card:nth-child(1) a.t2-btn--solid:hover{
+  background:#BE185D !important;border-color:#BE185D !important;color:#fff !important
+}
+body.portal .team2 .t2-grid > .t2-card:nth-child(1) a.t2-btn:not(.t2-btn--solid),
+body.portal .team2 .t2-grid > .t2-card:nth-child(1) a.t2-btn:not(.t2-btn--solid):hover{
+  background:#fff !important;border-color:#15803D !important;color:#15803D !important
+}
+body.portal .team2 .t2-grid > .t2-card:nth-child(1) .t2-role{color:#15803D}
+body.portal .team2 .t2-grid > .t2-card:nth-child(2) a.t2-btn--solid,
+body.portal .team2 .t2-grid > .t2-card:nth-child(2) a.t2-btn--solid:hover{
+  background:#15803D !important;border-color:#15803D !important;color:#fff !important
+}
+body.portal .team2 .t2-grid > .t2-card:nth-child(2) a.t2-btn:not(.t2-btn--solid),
+body.portal .team2 .t2-grid > .t2-card:nth-child(2) a.t2-btn:not(.t2-btn--solid):hover{
+  background:#fff !important;border-color:#BE185D !important;color:#BE185D !important
+}
+body.portal .team2 .t2-grid > .t2-card:nth-child(2) .t2-role{color:#BE185D}
+body.portal .team2 .t2-grid > .t2-card:nth-child(3) a.t2-btn--solid,
+body.portal .team2 .t2-grid > .t2-card:nth-child(3) a.t2-btn--solid:hover{
+  background:#5E376C !important;border-color:#5E376C !important;color:#fff !important
+}
+body.portal .team2 .t2-grid > .t2-card:nth-child(3) a.t2-btn:not(.t2-btn--solid),
+body.portal .team2 .t2-grid > .t2-card:nth-child(3) a.t2-btn:not(.t2-btn--solid):hover{
+  background:#fff !important;border-color:#0F766E !important;color:#0F766E !important
+}
+body.portal .team2 .t2-grid > .t2-card:nth-child(3) .t2-role{color:#0F766E}
+
+body.portal .portal-help{background:#5E376C}
 body.portal .portal-help h2,
 body.portal .portal-help .btn--ghost-light{color:#fff}
-body.portal .portal-help .eyebrow{color:#F7E5E8}
-body.portal[data-screen-label="Pocket Doula"] .pd-viewer,
-body.portal[data-screen-label="Pocket Doula"] .pd-size-card{background:#fff;border-top:4px solid var(--rose);border-radius:8px}
-body.portal[data-screen-label="Doula Directory"] .dir-search-btn{background:var(--rose-deep) !important;color:#fff !important}
+body.portal .portal-help .eyebrow{color:#F3ECF6}
+
+body.portal[data-screen-label="Client Update"] .form-frame-wrap{
+  border:1px solid #E8E2EC !important;border-top:8px solid #BE185D !important;border-radius:16px !important
+}
+body.portal[data-screen-label="Availability"] .form-frame-wrap{
+  border:1px solid #E8E2EC !important;border-top:8px solid #15803D !important;border-radius:16px !important
+}
+body.portal[data-screen-label="Client Update"] .form-frame-meta .lbl{color:#BE185D;border-bottom:0}
+body.portal[data-screen-label="Availability"] .form-frame-meta .lbl{color:#15803D;border-bottom:0}
+
+body.portal .nr-card,
+body.portal .dir-card,
+body.portal .course-mod,
+body.portal .pd-viewer,
+body.portal .pd-size-card{
+  background:#fff !important;
+  border:1px solid #E8E2EC !important;
+  border-radius:16px !important;
+  box-shadow:0 4px 14px rgba(63,36,73,.07)
+}
+body.portal .nr-section h2,
+body.portal .course-mod h2,
+body.portal .pd-size-card h3,
+body.portal .dir-card h3{color:#3F2449 !important;border-bottom:0}
+body.portal .course-mod{padding:18px 18px 8px}
+body.portal .pd-size-card{padding:20px 18px;text-align:center}
+body.portal .pd-size-card .bubble{margin-left:auto;margin-right:auto}
+body.portal .pd-sizes .pd-size-card:nth-child(1){border-top:8px solid #BE185D !important}
+body.portal .pd-sizes .pd-size-card:nth-child(2){border-top:8px solid #0F766E !important}
+body.portal .pd-sizes .pd-size-card:nth-child(1) .pd-buy{background:#BE185D;color:#fff}
+body.portal .pd-sizes .pd-size-card:nth-child(2) .pd-buy{background:#0F766E;color:#fff}
+body.portal .pd-viewer{border-top:8px solid #BE185D !important;padding:18px}
+body.portal .br-moved{border-top:8px solid #5E376C !important}
+body.portal .dir-controls{background:#fff}
+body.portal[data-screen-label="Doula Directory"] .dir-search-btn{background:#0F766E !important;color:#fff !important}
+body.portal .nr-birth-roll .br-icon{background:transparent;width:auto;height:auto;border-radius:0}
+body.portal .nr-birth-roll .br-icon .bubble{margin:0}
