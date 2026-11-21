@@ -1060,6 +1060,7 @@ body.portal .hero > .bubble,
 body.portal .nr-hero > .bubble,
 body.portal .dir-hero > .bubble,
 body.portal .course-wrap > .bubble{margin:0 0 12px}
+body.portal .hero > .back{margin:0 0 12px;font-weight:700}
 
 body.portal .sec .pgrid > .pc{
   background:#fff !important;
