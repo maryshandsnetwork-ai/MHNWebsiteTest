@@ -38,20 +38,7 @@
     });
   });
 
-  document.querySelectorAll('.burger').forEach(function (btn) {
-    if (btn.dataset.wired) return;
-    btn.dataset.wired = '1';
-    btn.addEventListener('click', function () {
-      var open = document.body.classList.toggle('nav-open');
-      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-      btn.setAttribute('aria-label', open ? 'Close menu' : 'Menu');
-    });
-  });
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') document.body.classList.remove('nav-open');
-  });
-
-  if (!document.querySelector('.sticky-mobile-cta') && !document.querySelector('.mbar') && !document.querySelector('.portal-app')) {
+  if (!document.querySelector('.sticky-mobile-cta') && !document.querySelector('.portal-app')) {
     var es = (document.documentElement.lang || '').toLowerCase().indexOf('es') === 0
       || !!document.querySelector('a[href="donar.html"], a[href="./donar.html"]');
     var bar = document.createElement('div');
