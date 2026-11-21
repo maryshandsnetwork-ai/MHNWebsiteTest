@@ -881,3 +881,88 @@ body.a1 .portal-main .d1-section-divider{
 body.a1 .dir-controls-inner{grid-template-columns:minmax(340px,2.2fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) auto}
 body.a1 .dir-controls select{min-width:0;max-width:100%}
 body.a1 .dir-search input{min-width:0;padding-right:14px}
+
+/* Doula Portal only. Public pages do not use body.portal. */
+body.portal{background:#F4EBF8}
+body.portal #portal-protected{background:#F4EBF8}
+body.portal .ptabs{background:#5E376C;border-bottom:3px solid #B5824A}
+body.portal .ptabs .wrap{gap:12px}
+body.portal .ptabs-badge{flex:none;font-family:var(--sans);font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#2A1733;background:#E8D6B8;border-radius:999px;padding:5px 10px;white-space:nowrap}
+body.portal .ptabs nav a,
+body.portal .ptabs .side-signout{color:#fff !important;background:transparent !important;border-color:transparent}
+body.portal .ptabs nav a:hover,
+body.portal .ptabs .side-signout:hover{background:rgba(255,255,255,.14) !important;color:#fff !important}
+body.portal .ptabs nav a[aria-current=page]{background:#E9D8F2 !important;color:#3F2449 !important}
+body.portal .ptabs .side-signout{border:1.5px solid rgba(255,255,255,.75) !important}
+body.portal .sec:not(.dk):not(.gate){background:#EFE6F3}
+body.portal .pc{background:#fff;border:1px solid #E8E2EC;border-top:4px solid #5E376C}
+body.portal .pc .ico{width:40px;height:40px;display:flex;align-items:center;justify-content:center;background:#E9D8F2;border-radius:8px;color:#5E376C}
+body.portal .pc .ico svg{width:22px;height:22px}
+body.portal .portal-main{background:transparent;padding-top:0;padding-bottom:12px;max-width:none}
+body.portal .portal-main>.hero,
+body.portal .portal-main>.dir-hero,
+body.portal .portal-main>.nr-hero,
+body.portal .portal-main>.d1-hero,
+body.portal .portal-main>.res-hero,
+body.portal .portal-main>.br-hero,
+body.portal .portal-main>.tm-hero{
+  background:#5E376C !important;color:#fff !important;border-radius:0;max-width:none !important;width:100%;
+  margin:0 0 22px !important;padding:34px max(22px,calc((100% - var(--w))/2)) 28px !important
+}
+body.portal .portal-main>.hero h1,
+body.portal .dir-hero h1,
+body.portal .nr-hero h1,
+body.portal .portal-main>.hero .eyebrow,
+body.portal .nr-hero .eyebrow,
+body.portal .dir-hero .private-tag{color:#fff}
+body.portal .dir-hero .private-tag{color:#3F2449 !important;background:#E8D6B8 !important}
+body.portal .portal-main>.hero p,
+body.portal .dir-hero p,
+body.portal .nr-hero p{color:#F3ECF6 !important}
+body.portal .form-section,
+body.portal .course-wrap,
+body.portal .nr-section,
+body.portal .dir-controls,
+body.portal .dir-grid,
+body.portal .br-wrap,
+body.portal .br-back{max-width:calc(var(--w) + var(--pad)*2);margin-left:auto;margin-right:auto;padding-left:var(--pad);padding-right:var(--pad)}
+body.portal .form-frame-wrap,
+body.portal .course-mod,
+body.portal .nr-card,
+body.portal .dir-card,
+body.portal .br-moved{
+  background:#fff !important;border:1px solid #E8E2EC !important;border-top:4px solid #5E376C !important;border-radius:8px
+}
+body.portal .course-mod{padding:16px 18px 8px;margin:0 0 14px}
+body.portal .course-mod h2,
+body.portal .nr-section h2,
+body.portal .portal-main h2,
+body.portal .portal-main h3{color:#5E376C}
+body.portal .course-mod h2 span{background:#5E376C;color:#fff}
+body.portal .nr-section{background:transparent}
+body.portal .dir-controls{background:#F4EBF8;position:sticky;top:74px}
+body.portal .portal-help{background:#3F2449;color:#fff;padding:26px 0}
+body.portal .portal-help .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+body.portal .portal-help h2{color:#fff;font-size:28px;margin-top:4px}
+body.portal .portal-help .eyebrow{color:#E8D6B8}
+body.portal .portal-help .acts{display:flex;gap:10px;flex-wrap:wrap}
+body.portal .portal-help .btn--ghost-light{border-color:rgba(255,255,255,.85);color:#fff}
+@media(max-width:760px){
+  body.portal .portal-help h2{font-size:24px}
+  body.portal .ptabs-badge{margin-top:8px}
+}
+body.portal .course-wrap{max-width:none !important;margin-left:0 !important;margin-right:0 !important;padding-left:0 !important;padding-right:0 !important;background:transparent}
+body.portal .course-note{display:block;width:100%;box-sizing:border-box;margin:0 !important;background:#5E376C !important;color:#fff !important;padding:6px max(22px,calc((100% - var(--w))/2))}
+body.portal .course-note a{color:#fff !important}
+body.portal .portal-main>.course-wrap>.course-note:first-child{padding-top:26px}
+body.portal .portal-main>.course-wrap>.course-note:nth-of-type(2){padding-bottom:20px}
+@media (min-width:1100px){
+  body.portal .ptabs .wrap{flex-wrap:nowrap}
+  body.portal .ptabs nav{flex-wrap:nowrap}
+  body.portal .ptabs nav a{padding:8px 9px;font-size:15px}
+}
+body.portal .portal-main>.course-wrap:not(:has(.course-mod)){background:#5E376C;color:#fff;padding:32px max(22px,calc((100% - var(--w))/2)) 28px}
+body.portal .portal-main>.course-wrap:not(:has(.course-mod)) h1,
+body.portal .portal-main>.course-wrap:not(:has(.course-mod)) p,
+body.portal .portal-main>.course-wrap:not(:has(.course-mod)) a{color:#fff}
+body.portal .course-mod{max-width:var(--w);margin-left:auto;margin-right:auto}
