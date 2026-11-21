@@ -1,3 +1,5 @@
+ErrorDocument 404 /404.html
+
 # DreamHost Apache. The host defaults CSS and JS to a 30-day cache,
 # which left returning visitors with a stylesheet that had no ticker rules.
 # One hour is long enough to help repeat views and short enough that a
