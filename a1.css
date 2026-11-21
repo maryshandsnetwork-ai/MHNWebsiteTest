@@ -1013,3 +1013,77 @@ body.portal .course-mod{min-width:0;max-width:100%}
   body.portal .dir-card{width:100%}
   body.portal .ptabs nav{flex-wrap:wrap}
 }
+
+/* Portal accents. Rose, sage, and a little teal. Purple stays the frame. */
+body.portal{
+  --rose:#9B3F4E; --rose-deep:#6E2D38; --rose-light:#F7E5E8; --rose-mid:#EDD0D5; --rose-line:#E0B8C0;
+  --sage:#4F7339; --sage-deep:#2E4321; --sage-mid:#3F5C2E; --sage-light:#EDF3E8; --sage-wash:#DCE7D2; --sage-line:#C5D6B5;
+  --teal:#1D5F58; --teal-light:#E3F0EF;
+}
+body.portal .pgrid.g4>.pc:nth-child(1){border-top-color:var(--rose)}
+body.portal .pgrid.g4>.pc:nth-child(1) .ico{background:var(--rose-light);color:var(--rose)}
+body.portal .pgrid.g4>.pc:nth-child(1) h3,
+body.portal .pgrid.g4>.pc:nth-child(1) .go{color:var(--rose-deep)}
+body.portal .pgrid.g4>.pc:nth-child(2){border-top-color:var(--sage)}
+body.portal .pgrid.g4>.pc:nth-child(2) .ico{background:var(--sage-light);color:var(--sage-mid)}
+body.portal .pgrid.g4>.pc:nth-child(2) h3,
+body.portal .pgrid.g4>.pc:nth-child(2) .go{color:var(--sage-deep)}
+body.portal .pgrid.g4>.pc:nth-child(4){border-top-color:var(--teal)}
+body.portal .pgrid.g4>.pc:nth-child(4) .ico{background:var(--teal-light);color:var(--teal)}
+body.portal .pgrid.g4>.pc:nth-child(4) h3,
+body.portal .pgrid.g4>.pc:nth-child(4) .go{color:var(--teal)}
+body.portal .pgrid.g3>.pc:nth-child(1){border-top-color:var(--sage)}
+body.portal .pgrid.g3>.pc:nth-child(1) .ico{background:var(--sage-light);color:var(--sage-mid)}
+body.portal .pgrid.g3>.pc:nth-child(2){border-top-color:var(--rose)}
+body.portal .pgrid.g3>.pc:nth-child(2) .ico{background:var(--rose-light);color:var(--rose)}
+body.portal .pgrid.g2>.pc:nth-child(1){border-top-color:var(--rose)}
+body.portal .pgrid.g2>.pc:nth-child(1) .ico{background:var(--rose-light);color:var(--rose)}
+body.portal .pgrid.g2>.pc:nth-child(2){border-top-color:var(--sage)}
+body.portal .pgrid.g2>.pc:nth-child(2) .ico{background:var(--sage-light);color:var(--sage-mid)}
+body.portal[data-screen-label="Client Update"] #portal-protected,
+body.portal[data-screen-label="Pocket Doula"] #portal-protected,
+body.portal[data-screen-label="Doula Directory"] #portal-protected{background:var(--rose-light)}
+body.portal[data-screen-label="Availability"] #portal-protected,
+body.portal[data-screen-label="Training Materials"] #portal-protected,
+body.portal[data-screen-label="Day 1 Materials"] #portal-protected,
+body.portal[data-screen-label="Day 2 Materials"] #portal-protected,
+body.portal[data-screen-label="Network Resources"] #portal-protected{background:var(--sage-light)}
+body.portal[data-screen-label="Day 3 Materials"] #portal-protected,
+body.portal[data-screen-label="Day 4 Materials"] #portal-protected,
+body.portal[data-screen-label="Course Resources"] #portal-protected,
+body.portal[data-screen-label="The Birth Roll"] #portal-protected{background:var(--teal-light)}
+body.portal[data-screen-label="Client Update"] .form-frame-wrap,
+body.portal[data-screen-label="Pocket Doula"] .form-frame-wrap,
+body.portal[data-screen-label="Doula Directory"] .dir-card{border-top-color:var(--rose) !important}
+body.portal[data-screen-label="Availability"] .form-frame-wrap,
+body.portal[data-screen-label="Training Materials"] .course-mod,
+body.portal[data-screen-label="Day 1 Materials"] .course-mod,
+body.portal[data-screen-label="Day 2 Materials"] .course-mod,
+body.portal[data-screen-label="Network Resources"] .nr-card{border-top-color:var(--sage) !important}
+body.portal[data-screen-label="Day 3 Materials"] .course-mod,
+body.portal[data-screen-label="Day 4 Materials"] .course-mod,
+body.portal[data-screen-label="Course Resources"] .course-wrap,
+body.portal[data-screen-label="The Birth Roll"] .br-moved{border-top-color:var(--teal) !important}
+body.portal[data-screen-label="Client Update"] .form-frame-meta .lbl,
+body.portal[data-screen-label="Pocket Doula"] .portal-main h2,
+body.portal[data-screen-label="Doula Directory"] .dir-card h3{color:var(--rose-deep);border-bottom:2px solid var(--rose-line);display:inline-block}
+body.portal[data-screen-label="Availability"] .form-frame-meta .lbl,
+body.portal[data-screen-label="Training Materials"] .course-mod h2,
+body.portal[data-screen-label="Day 1 Materials"] .course-mod h2,
+body.portal[data-screen-label="Day 2 Materials"] .course-mod h2,
+body.portal[data-screen-label="Network Resources"] .nr-card h3,
+body.portal[data-screen-label="Network Resources"] .nr-section h2{color:var(--sage-deep);border-bottom:2px solid var(--sage-line)}
+body.portal[data-screen-label="Day 3 Materials"] .course-mod h2,
+body.portal[data-screen-label="Day 4 Materials"] .course-mod h2{color:var(--teal);border-bottom:2px solid #A8C5C2}
+body.portal[data-screen-label="Training Materials"] .course-mod h2 span,
+body.portal[data-screen-label="Day 1 Materials"] .course-mod h2 span,
+body.portal[data-screen-label="Day 2 Materials"] .course-mod h2 span{background:var(--sage-light);color:var(--sage-deep)}
+body.portal[data-screen-label="Day 3 Materials"] .course-mod h2 span,
+body.portal[data-screen-label="Day 4 Materials"] .course-mod h2 span{background:var(--teal-light);color:var(--teal)}
+body.portal .portal-help{background:#6E2D38}
+body.portal .portal-help h2,
+body.portal .portal-help .btn--ghost-light{color:#fff}
+body.portal .portal-help .eyebrow{color:#F7E5E8}
+body.portal[data-screen-label="Pocket Doula"] .pd-viewer,
+body.portal[data-screen-label="Pocket Doula"] .pd-size-card{background:#fff;border-top:4px solid var(--rose);border-radius:8px}
+body.portal[data-screen-label="Doula Directory"] .dir-search-btn{background:var(--rose-deep) !important;color:#fff !important}
