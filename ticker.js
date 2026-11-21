@@ -27,7 +27,7 @@
     var style = document.createElement('style');
     style.id = 'mhn-ticker-style';
     style.textContent = [
-      '.mhn-ticker{background:#5E376C;color:#fff;overflow:hidden;white-space:nowrap;border-bottom:3px solid #B5824A;font-family:Arial,Helvetica,sans-serif;line-height:1.4}',
+      '.mhn-ticker{background:#24132C;color:#E9DDF0;overflow:hidden;white-space:nowrap;border-bottom:0;font-family:"Instrument Sans","Helvetica Neue",Arial,sans-serif;line-height:1.4}',
       '.mhn-ticker-track{display:flex;flex-wrap:nowrap;width:max-content;animation:mhnTicker 36s linear infinite}',
       '.mhn-ticker:hover .mhn-ticker-track{animation-play-state:paused}',
       '.mhn-ticker-set{display:inline-flex;align-items:center;gap:36px;padding:11px 28px;white-space:nowrap;vertical-align:top}',

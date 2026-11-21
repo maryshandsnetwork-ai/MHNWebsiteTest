@@ -26,7 +26,7 @@
 <link rel="stylesheet" href="./site.css?v=20261119m">
 <link rel="stylesheet" href="./polish.css?v=20261119m">
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-<script src="./mobile-nav.js?v=20261119m" defer></script>
+<script src="./mobile-nav.js?v=20261121a" defer></script>
 <!-- Metricool tracking -->
 <script>function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"d8d3c46a1618fd16101a331dfbfb19dd"})});</script>
 <style>
@@ -147,24 +147,11 @@
 
 <body>
 <a class="mhn-skip" href="#main">Skip to content</a>
-<header class="mhn-header">
-  <div class="mhn-wrap mhn-header-bar">
-    <a class="mhn-brand" href="index.html">
-      <img src="./assets/logo-seal-96.png" alt="Mary's Hands Network" width="52" height="52">
-      <span>Mary's Hands Network</span>
-    </a>
-    <button class="mhn-menu" type="button" aria-expanded="false" aria-controls="site-nav" data-open="Menu" data-close="Close">Menu</button>
-    <nav id="site-nav" class="mhn-nav" aria-label="Primary">
-      <a href="about.html">About</a>
-      <a href="for-mom.html">For Families</a>
-      <a href="doula-training.html">For Doulas</a>
-      <a href="contact.html">Contact</a>
-      <a href="inicio.html" class="mhn-lang" lang="es" title="Español" aria-label="Cambiar a español">ENG<span>/</span>ESP</a>
-      <a href="portal.html">Doula Portal</a>
-      <a href="donate.html" class="mhn-btn mhn-btn--donate">Donate</a>
-    </nav>
-  </div>
-</header>
+<header class="site"><div class="wrap">
+<a class="brand" href="index.html"><img src="./assets/logo-seal.png" alt="Mary's Hands Network" width="44" height="44"><span>Mary's Hands<small>Network</small></span></a>
+<nav class="main" id="site-nav" aria-label="Primary"><a href="about.html">About</a><a href="for-mom.html">For Families</a><a href="doula-training.html">For Doulas</a><a href="gala.html" class="on">Gala</a><a href="contact.html">Contact</a></nav>
+<div class="hdr-cta"><a class="lang" href="inicio.html" lang="es" title="Español">EN / ES</a><a class="btn btn-ghost" href="for-mom.html">Get a doula</a><a class="btn btn-primary" href="donate.html">Donate</a><button class="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav"><i></i></button></div>
+</div></header>
 
 
 
@@ -336,38 +323,16 @@
   </div>
 </section>
 
-<footer>
-  <div class="foot-grid">
-    <div class="foot-brand">
-      <div class="logo">Mary's Hands Network</div>
-      <p>A Louisiana 501(c)(3) nonprofit<br>EIN 92-2430838<br>451 E. Airport Avenue, Ste. A, Baton Rouge, LA 70806</p>
-      <p style="font-family:var(--mhn-font-serif);font-style:italic;color:#D4BADD">info@mhndoula.com<br>(225) 892-4906</p>
-    </div>
-    <div class="foot-col">
-<h5>For families</h5>
-<a href="https://forms.monday.com/forms/546fd2fcbe315080bfe3f5adb91179d9?r=use1" target="_blank" rel="noopener">Apply for Doula Support</a>
-<a href="hotline.html">Doula Hotline</a>
-<a href="bereavement.html">Loss &amp; Bereavement</a>
+<footer class="site"><div class="wrap">
+<div class="fgrid">
+<div class="fbrand"><img src="./assets/logo-seal.png" alt="" width="52" height="52"><p class="big">Every birth deserves a doula.</p><p>A Louisiana 501(c)(3) nonprofit · EIN 92-2430838<br>451 E. Airport Avenue, Ste. A, Baton Rouge, LA 70806</p><p class="fsocial"><a href="https://www.facebook.com/maryshandsnetwork" target="_blank" rel="noopener">Facebook</a><a href="https://www.instagram.com/maryshandsnetwork" target="_blank" rel="noopener">Instagram</a><a href="https://www.youtube.com/@maryshandsnetwork" target="_blank" rel="noopener">YouTube</a></p></div>
+<div><h4>For families</h4><ul><li><a href="https://forms.monday.com/forms/546fd2fcbe315080bfe3f5adb91179d9?r=use1" target="_blank" rel="noopener">Apply for doula support</a></li><li><a href="hotline.html">Doula hotline</a></li><li><a href="bereavement.html">Loss &amp; bereavement</a></li></ul></div>
+<div><h4>For doulas</h4><ul><li><a href="doula-training.html">Training &amp; next cohort</a></li><li><a href="portal.html">Doula portal</a></li></ul></div>
+<div><h4>About</h4><ul><li><a href="about.html">Our mission</a></li><li><a href="community-partners.html">Community partners</a></li><li><a href="gala.html">Gala</a></li><li><a href="store.html">Store</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="contact.html">Contact</a></li></ul></div>
 </div>
-<div class="foot-col">
-<h5>For doulas</h5>
-<a href="doula-training.html">Training &amp; Next Cohort</a>
-<a href="portal.html">Doula Portal</a>
-</div>
-<div class="foot-col">
-<h5>About</h5>
-<a href="about.html">Our Mission</a>
-<a href="community-partners.html">Community Partners</a>
-<a href="gala.html">Gala</a>
-<a href="store.html">Store</a>
-<a href="privacy.html">Privacy</a>
-<a href="contact.html">Contact</a>
-</div>
-  </div>
-  <div class="foot-btm">
-    <span>&copy; 2026 Mary's Hands Network &middot; All Rights Reserved</span>
-    <span>Every Birth Deserves a Doula.</span>
-  </div>
-</footer>
+<div class="fhelp"><div><span class="eyebrow">Need help right now?</span><br><a class="phone" href="tel:2254247532">(225) 424-7532</a> <span style="margin-left:10px">Call or text, 24/7</span></div><div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn btn-light" href="hotline.html">Doula hotline</a><a class="btn btn-ghost" style="color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.3)" href="bereavement.html">Loss &amp; bereavement</a></div></div>
+<div class="fbottom"><span>© 2026 Mary's Hands Network · IRB Protocol #2025-001 · ICEA-approved training</span><span><a href="mailto:info@mhndoula.com">info@mhndoula.com</a> · (225) 892-4906</span></div>
+</div></footer>
+<nav class="mbar" aria-label="Actions"><a class="p" href="for-mom.html">Get a doula</a><a href="tel:2254247532">Call</a><a href="donate.html">Donate</a></nav>
 </body>
 </html>
