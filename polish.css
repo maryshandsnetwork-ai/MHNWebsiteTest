@@ -322,7 +322,7 @@ body, p, li, .lede, .mhn-lede, .mhn-intro, .story-grid, .story-grid p, .founder-
 }
 p, .lede, .mhn-lede { font-style: normal; }
 blockquote, figcaption, .mhn-quote, .mhn-quote p, .quote, .pull-quote, em, i {
-  font-style: normal;
+  font-style: italic;
 }
 .eyebrow, .eyebrow-c, .mhn-kicker, .lbl {
   font-family: var(--mhn-font-sans) !important;

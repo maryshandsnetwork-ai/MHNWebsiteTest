@@ -32,7 +32,7 @@
 <link rel="stylesheet" href="./colors_and_type.css?v=20261119m">
 <link rel="stylesheet" href="./site.css?v=20261119m">
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-<script src="./mobile-nav.js?v=20261121a" defer></script>
+<script src="./mobile-nav.js?v=20261119m" defer></script>
 <style>
   html, body{margin:0;padding:0;background:var(--mhn-paper);font-family:var(--mhn-font-sans);color:var(--mhn-ink)}
   .page{max-width:1280px;margin:0 auto}
@@ -176,68 +176,295 @@
 </style>
 <!-- Metricool tracking -->
 <script>function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"d8d3c46a1618fd16101a331dfbfb19dd"})});</script>
-<script src="./ticker.js?v=20261121a" defer></script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./redesign.css?v=20261121a">
+<script src="./ticker.js?v=20261119m" defer></script>
 </head>
 <body>
 <a class="mhn-skip" href="#main">Skip to content</a>
-<header class="site"><div class="wrap">
-<a class="brand" href="index.html"><img src="./assets/logo-seal.png" alt="Mary's Hands Network" width="44" height="44"><span>Mary's Hands<small>Network</small></span></a>
-<nav class="main" id="site-nav" aria-label="Primary"><a href="about.html">About</a><a href="for-mom.html">For Families</a><a href="doula-training.html">For Doulas</a><a href="gala.html">Gala</a><a href="contact.html">Contact</a></nav>
-<div class="hdr-cta"><a class="lang" href="donar.html" lang="es" title="Español">EN / ES</a><a class="btn btn-ghost" href="for-mom.html">Get a doula</a><a class="btn btn-primary" href="donate.html">Donate</a><button class="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav"><i></i></button></div>
-</div></header>
-<main id="main" class="mhn-mock">
-<section class="dhero"><div class="wrap">
- <div><span class="eyebrow rise">A tax-deductible gift</span><h1 class="rise d1" style="margin:24px 0 26px;font-size:clamp(44px,5.4vw,78px)">Your gift becomes someone’s <em>safest birth.</em></h1>
- <p class="lede rise d2">Every dollar moves through our 501(c)(3) and lands as a doula at a hospital bedside, a scholarship for a future trainee, or a birth support in a mother’s hands. We will show you exactly what your gift funded.</p>
- <div class="ctas rise d3" style="display:flex;gap:14px;margin-top:38px;flex-wrap:wrap"><a class="btn btn-primary" href="https://www.paypal.com/donate/?hosted_button_id=PCRE2AJYQQ8J8" target="_blank" rel="noopener"><span class="arrow">Give $500, fund a birth</span></a><a class="btn btn-ghost" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=SWNSJ66NKCW2N" target="_blank" rel="noopener">Give monthly</a></div>
- <div class="trust rise d4"><span><b>EIN</b> 92-2430838</span><span><b>Receipt</b> within 5 business days</span><span><b>Gala sponsorships</b> from $2,500</span></div></div>
- <figure class="rise d2"><img src="./assets/photos/family-skin-to-skin.jpg" alt="A new family in skin-to-skin contact"></figure>
-</div></section>
+<header class="mhn-header">
+  <div class="mhn-wrap mhn-header-bar">
+    <a class="mhn-brand" href="index.html">
+      <img src="./assets/logo-seal-96.png" alt="Mary's Hands Network" width="52" height="52">
+      <span>Mary's Hands Network</span>
+    </a>
+    <button class="mhn-menu" type="button" aria-expanded="false" aria-controls="site-nav" data-open="Menu" data-close="Close">Menu</button>
+    <nav id="site-nav" class="mhn-nav" aria-label="Primary">
+      <a href="about.html">About</a>
+      <a href="for-mom.html">For Families</a>
+      <a href="doula-training.html">For Doulas</a>
+      <a href="contact.html">Contact</a>
+      <a href="inicio.html" class="mhn-lang" lang="es" title="Español" aria-label="Cambiar a español">ENG<span>/</span>ESP</a>
+      <a href="portal.html">Doula Portal</a>
+      <a href="donate.html" class="mhn-btn mhn-btn--donate" aria-current="page">Donate</a>
+    </nav>
+  </div>
+</header>
 
-<section style="padding-bottom:var(--s10)"><div class="wrap"><div class="sustain">
- <div class="l"><span class="eyebrow">Recurring impact</span><h2>Become a Sustainer, <em>$25 a month.</em></h2><p style="color:#CBBBD3;max-width:32em">Sustainers let us plan ahead, train more cohorts, and never turn a mother away. Cancel anytime. Tax-deductible. Real-time impact reports.</p><div style="margin-top:34px"><a class="btn btn-light" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=SWNSJ66NKCW2N" target="_blank" rel="noopener"><span class="arrow">Start monthly giving</span></a></div></div>
- <div class="r"><span class="eyebrow" style="color:var(--gold-soft)">Your year at $25/mo</span><strong>$300</strong><span>Six birth supports plus a postpartum visit cycle.</span></div>
-</div></div></section>
+<!-- ANIMATED JULY COHORT BANNER (above nav, full bleed) -->
+<div class="page" data-screen-label="Donate">
 
-<section style="padding-bottom:var(--s10)"><div class="wrap">
- <div class="head"><div><span class="eyebrow">Gift impact</span><h2 style="margin-top:20px">What your donation <em>does.</em></h2></div><p class="lede">Every tier has a real, concrete cost we can show you on a spreadsheet. Your gift goes to the line item you choose. No overhead games.</p></div>
- <div class="tiers">
-  <div class="tier"><span class="amt">$250</span><span class="tag">Postpartum care</span><h3>Eight weeks of follow-up.</h3><p>Two in-person visits, lactation check-ins, and connections to WIC, 211, and mental health resources.</p><a class="btn btn-ghost" href="https://www.paypal.com/donate/?hosted_button_id=RHM6D3DHUYUR8&amp;amount=250&amp;currency_code=USD" target="_blank" rel="noopener">Give $250</a></div>
-  <div class="tier"><span class="amt">$500</span><span class="tag">Support a birth</span><h3>Support one birth.</h3><p>A complete birth support kit: rebozo, peanut ball, hydration, snack pack, and a postpartum care bundle.</p><a class="btn btn-ghost" href="https://www.paypal.com/donate/?hosted_button_id=PCRE2AJYQQ8J8" target="_blank" rel="noopener">Give $500</a></div>
-  <div class="tier feat"><span class="amt">$2,000</span><span class="tag">Training scholarship</span><h3>One full training seat.</h3><p>Full tuition, Field Guide, textbook, and meals for one volunteer doula, who commits to a year of service.</p><a class="btn btn-light" href="https://www.paypal.com/donate/?hosted_button_id=RHM6D3DHUYUR8&amp;amount=2000&amp;currency_code=USD" target="_blank" rel="noopener">Give $2,000</a></div>
-  <div class="tier"><span class="amt">$20,000</span><span class="tag">Full cohort</span><h3>Ten doulas trained.</h3><p>An entire cohort of ten new volunteer doulas, each committed to serving at least two families in year one.</p><a class="btn btn-ghost" href="https://www.paypal.com/donate/?hosted_button_id=RHM6D3DHUYUR8&amp;amount=20000&amp;currency_code=USD" target="_blank" rel="noopener">Give $20,000</a></div>
- </div>
- <div class="custom"><div><h3>Any other amount is welcome.</h3><p style="color:var(--ink-soft)">Every dollar is tracked, and every family who walks through our door feels it.</p></div><a class="btn btn-primary" href="https://www.paypal.com/donate/?hosted_button_id=RHM6D3DHUYUR8" target="_blank" rel="noopener"><span class="arrow">Give a custom amount</span></a></div>
-</div></section>
+<!-- DONATE HERO (full-bleed photo + frosted card) -->
+<section class="donate-hero fade-in">
+  <img class="dh-bg" src="./assets/photos/family-with-ms-lyn.jpg" alt="MHN doula GiGi at the bedside with a young family and their newborn" width="1200" height="900">
+  <div class="dh-shade"></div>
+  <div class="dh-inner">
+    <div class="dh-card">
+      <div class="eyebrow" style="font-size:15px;letter-spacing:0.22em;text-transform:uppercase;color:var(--mhn-warm-700);font-weight:700;margin-bottom:14px">A Tax-Deductible Gift</div>
+      <h1 class="h1" style="margin:0;font-family:var(--mhn-font-serif);color:var(--mhn-purple-700);font-size:38px;line-height:1.05;letter-spacing:-0.02em">Your gift becomes someone&rsquo;s <em style="color:var(--mhn-warm-700);font-style:italic">safest birth.</em></h1>
+      <p class="lede" style="font-family:var(--mhn-font-sans);font-size:18px;line-height:1.5;color:var(--mhn-ink);margin:16px 0 0">Every dollar moves through our 501(c)(3) and lands as a doula at a hospital bedside, a scholarship for a future trainee, or a birth support in a mother&rsquo;s hands. <strong style="color:var(--mhn-purple-700)">We will show you exactly what your gift funded.</strong></p>
+  <p style="margin-top:16px">Sponsor the In Her Honor Awards Gala on January 8, 2027; sponsorships start at $2,500. <a href="gala.html">Learn about gala sponsorships.</a></p>
+    </div>
+  </div>
+</section>
+<style>
+.donate-hero{position:relative;width:100%;min-height:440px;max-height:520px;overflow:hidden;display:flex;align-items:stretch}
+.donate-hero .dh-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;z-index:0}
+.donate-hero .dh-shade{position:absolute;inset:0;background:linear-gradient(95deg,rgba(94,55,108,0.55) 0%,rgba(94,55,108,0.30) 42%,rgba(94,55,108,0.05) 75%,rgba(94,55,108,0) 100%);z-index:1}
+.donate-hero .dh-inner{position:relative;z-index:2;width:100%;max-width:1280px;margin:0 auto;padding:36px 48px;display:flex;align-items:center}
+.donate-hero .dh-card{max-width:600px;background:rgba(255,255,255,0.82);backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);border:1px solid rgba(255,255,255,0.6);border-radius:22px;padding:30px 34px;box-shadow:0 20px 60px rgba(94,55,108,0.30)}
+@media (max-width:900px){
+  .donate-hero{min-height:420px}
+  .donate-hero .dh-inner{padding:24px 20px}
+  .donate-hero .dh-card{padding:22px 20px;max-width:100%}
+  .donate-hero .dh-card .h1{font-size:28px}
+  .donate-hero .dh-shade{background:linear-gradient(180deg,rgba(94,55,108,0.10) 0%,rgba(94,55,108,0.45) 100%)}
+}
+</style>
 
-<section class="honor"><figure><img src="./assets/photos/training/training-embrace-support.webp" alt="Two women in a supportive embrace during doula training" style="object-position:center 30%"></figure><div class="txt"><span class="eyebrow">In her honor</span><h2>Name the woman who <em>showed up for you.</em></h2><p style="color:var(--ink-soft)">We will read her name at the gala. A donation of any amount qualifies. Include her name in the notes field when you give, or email it to info@mhndoula.com.</p><div><a class="btn btn-primary" href="https://www.paypal.com/donate/?hosted_button_id=RHM6D3DHUYUR8" target="_blank" rel="noopener"><span class="arrow">Give in her honor</span></a></div></div></section>
+<!-- FEATURED MONTHLY GIVING (moved up per design pass) -->
+<section style="padding:40px 48px;background:linear-gradient(135deg, var(--mhn-warm-50), var(--mhn-cream))">
+  <div class="sustainer-grid" style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:center;background:#fff;border:2px solid var(--mhn-warm-300);border-radius:24px;padding:36px 40px;box-shadow:0 8px 28px rgba(181,130,74,0.12)">
+    <div>
+      <div class="eyebrow" style="font-size:16px;letter-spacing:0.28em;text-transform:uppercase;color:var(--mhn-warm-700);font-weight:700;margin-bottom:10px">Recurring Impact</div>
+      <h2 class="h2-warm" style="font-family:var(--mhn-font-serif);font-size:27px;color:var(--mhn-purple-700);margin:0 0 14px;letter-spacing:-0.01em;line-height:1.15">Become a Sustainer, $25/month.</h2>
+      <p style="font-size:17px;line-height:1.65;color:var(--mhn-ink-soft);margin:0 0 8px">$25 a month funds a birth support every other month and keeps the lights on year-round. Recurring donors give five times more lifetime value than one-time donors, but more importantly, sustainers let us plan ahead, train more cohorts, and never turn a mother away.</p>
+      <p style="font-size:16px;color:var(--mhn-ink-mute);font-style:italic;margin:0 0 18px">Cancel anytime. Tax-deductible. Real-time impact reports.</p>
+      <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SWNSJ66NKCW2N" target="_blank" rel="noopener" class="btn-donate" style="font-size:17px;padding:16px 28px">Start monthly giving</a>
+    </div>
+    <div style="text-align:center">
+      <div style="background:var(--mhn-warm-700);color:#fff;border-radius:18px;padding:32px 24px">
+        <div style="font-family:var(--mhn-font-serif);font-size:16px;letter-spacing:0.18em;text-transform:uppercase;opacity:0.85;margin-bottom:8px">Annual impact at $25/mo</div>
+        <div style="font-family:var(--mhn-font-serif);font-size:35px;font-weight:700;line-height:1;margin:8px 0">$300</div>
+        <div style="font-family:var(--mhn-font-serif);font-style:italic;font-size:17px;margin-top:8px;opacity:0.95">Six birth supports + a postpartum visit cycle</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<section class="pad"><div class="wrap">
- <div class="head"><div><span class="eyebrow">Other ways to give</span><h2 style="margin-top:20px">Beyond <em>one-time gifts.</em></h2></div></div>
- <div class="ways">
-  <div><h3>Employer match</h3><p>Many employers match charitable gifts. We’ll send the paperwork.</p><a class="link" href="mailto:info@mhndoula.com?subject=Employer%20Match">Request info</a></div>
-  <div><h3>In-kind gifts</h3><p>Supplies, professional services, venue space, or photography time.</p><a class="link" href="mailto:info@mhndoula.com?subject=In-kind%20Gift">Offer a gift</a></div>
-  <div><h3>Corporate sponsorship</h3><p>Underwrite a cohort, a birth support run, or community events.</p><a class="link" href="mailto:info@mhndoula.com?subject=Corporate%20Sponsorship">Talk to us</a></div>
-  <div><h3>Foundation grants</h3><p>Request our grants package and outcomes report.</p><a class="link" href="mailto:info@mhndoula.com?subject=Grants%20Package">Request package</a></div>
-  <div><h3>Planned giving</h3><p>Bequests, beneficiary designations, charitable trusts.</p><a class="link" href="mailto:info@mhndoula.com?subject=Planned%20Giving">Talk with us</a></div>
- </div>
-</div></section>
-</main>
-<footer class="site"><div class="wrap">
-<div class="fgrid">
-<div class="fbrand"><img src="./assets/logo-seal.png" alt="" width="52" height="52"><p class="big">Every birth deserves a doula.</p><p>A Louisiana 501(c)(3) nonprofit · EIN 92-2430838<br>451 E. Airport Avenue, Ste. A, Baton Rouge, LA 70806</p><p class="fsocial"><a href="https://www.facebook.com/maryshandsnetwork" target="_blank" rel="noopener">Facebook</a><a href="https://www.instagram.com/maryshandsnetwork" target="_blank" rel="noopener">Instagram</a><a href="https://www.youtube.com/@maryshandsnetwork" target="_blank" rel="noopener">YouTube</a></p></div>
-<div><h4>For families</h4><ul><li><a href="https://forms.monday.com/forms/546fd2fcbe315080bfe3f5adb91179d9?r=use1" target="_blank" rel="noopener">Apply for doula support</a></li><li><a href="hotline.html">Doula hotline</a></li><li><a href="bereavement.html">Loss &amp; bereavement</a></li></ul></div>
-<div><h4>For doulas</h4><ul><li><a href="doula-training.html">Training &amp; next cohort</a></li><li><a href="portal.html">Doula portal</a></li></ul></div>
-<div><h4>About</h4><ul><li><a href="about.html">Our mission</a></li><li><a href="community-partners.html">Community partners</a></li><li><a href="gala.html">Gala</a></li><li><a href="store.html">Store</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+<section class="ladder">
+  <div class="ladder-head">
+    <div class="eyebrow">Gift Impact</div>
+    <h2 class="h2-warm">What your donation does.</h2>
+    <p>Every tier below has a real, concrete cost we can show you on a spreadsheet. Your gift goes to the line item you choose. No overhead games.</p>
+  </div>
+  <div class="tiers">
+    <div class="tier">
+      <div class="amt">$250</div>
+      <div class="label">Postpartum Care</div>
+      <h3>Eight weeks of follow-up.</h3>
+      <p>Covers one family's postpartum follow-up: two in-person visits, lactation check-ins, and connections to WIC, 211, and mental health resources.</p>
+      <a href="https://www.paypal.com/donate/?hosted_button_id=RHM6D3DHUYUR8&amount=250&currency_code=USD" target="_blank" rel="noopener">Give $250</a>
+    </div>
+    <div class="tier">
+      <div class="amt">$500</div>
+      <div class="label">Support a Birth</div>
+      <h3>Support one birth.</h3>
+      <p>Funds one complete birth support kit: rebozo, peanut ball, tens unit wipes, hydration, snack pack, and a postpartum care bundle for one MHN family.</p>
+      <a href="https://www.paypal.com/donate/?hosted_button_id=PCRE2AJYQQ8J8" target="_blank" rel="noopener">Give $500</a>
+    </div>
+    <div class="tier highlight">
+      <div class="amt">$2,000</div>
+      <div class="label">Training Scholarship</div>
+      <h3>One full training seat.</h3>
+      <p>Covers full tuition, Field Guide, textbook, and meals for one volunteer doula in our ICEA-certified cohort. She commits to a year of service in return.</p>
+      <a href="https://www.paypal.com/donate/?hosted_button_id=RHM6D3DHUYUR8&amount=2000&currency_code=USD" target="_blank" rel="noopener">Give $2,000</a>
+    </div>
+    <div class="tier">
+      <div class="amt">$20,000</div>
+      <div class="label">Full Cohort</div>
+      <h3>Ten doulas trained.</h3>
+      <p>Sponsors an entire training cohort: ten new volunteer doulas entering our Louisiana network, each committed to serving at least two client families in year one.</p>
+      <a href="https://www.paypal.com/donate/?hosted_button_id=RHM6D3DHUYUR8&amount=20000&currency_code=USD" target="_blank" rel="noopener">Give $20,000</a>
+    </div>
+  </div>
+
+  <div class="custom-row">
+    <div>
+      <h3>Any other amount is welcome.</h3>
+      <p>Give what you can. Every dollar is tracked and every family who walks through our door feels it.</p>
+    </div>
+    <a href="https://www.paypal.com/donate/?hosted_button_id=RHM6D3DHUYUR8" target="_blank" rel="noopener" class="mhn-btn mhn-btn--primary">Give a custom amount</a>
+  </div>
+</section>
+<section style="background:#5E376C;padding:60px 0">
+  <div style="max-width:700px;margin:0 auto;padding:0 24px;text-align:center">
+    <h2 style="font-family:var(--mhn-font-serif);font-size:32px;color:#fff;margin:0 0 16px">Give in her honor.</h2>
+    <p style="font-size:16px;color:rgba(255,255,255,0.85);line-height:1.7;margin:0 0 24px">Name the woman who showed up for you, and we will read her name at the gala. A donation of any amount qualifies. Include her name in the notes field when you give, or email it to <a href="mailto:info@mhndoula.com" style="color:#FFD7A8">info@mhndoula.com</a>.</p>
+    <a href="https://www.paypal.com/donate/?hosted_button_id=RHM6D3DHUYUR8" target="_blank" rel="noopener" style="background:#5E376C;color:#fff;font-weight:700;font-size:15px;padding:14px 28px;border-radius:999px;text-decoration:none">Give in her honor</a>
+  </div>
+</section>
+
+<!-- DONATION IMPACT PHOTOS -->
+<section style="padding:24px 48px 36px;background:#fff;text-align:center">
+<div style="max-width:1100px;margin:0 auto">
+<div class="eyebrow" style="font-size:16px;letter-spacing:0.28em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:700;margin-bottom:14px">What Your Gift Becomes</div>
+<h2 class="h2-warm" style="font-family:var(--mhn-font-serif);font-size:25px;color:var(--mhn-purple-700);margin:0 0 22px;letter-spacing:-0.01em;line-height:1.1">Real moments your dollars made possible.</h2>
+<div class="frame-row" style="grid-template-columns:repeat(4,1fr);max-width:1000px;margin:0 auto;gap:18px">
+<figure class="mhn-frame"><img src="./assets/photos/doula-pamela-family.jpg" alt="Pamela, an MHN volunteer doula, with a family"><figcaption>A family supported</figcaption></figure>
+<figure class="mhn-frame"><img src="./assets/photos/family-skin-to-skin.jpg" alt="A new family in skin-to-skin contact"><figcaption>A safer first hour</figcaption></figure>
+<figure class="mhn-frame"><img src="./assets/photos/cohort-graduation-2025.jpg" alt="A graduating MHN cohort"><figcaption>A cohort certified</figcaption></figure>
+<figure class="mhn-frame"><img src="./assets/photos/community-tabling-staff.jpg" alt="MHN staff at a community event"><figcaption>A community reached</figcaption></figure>
 </div>
-<div class="fhelp"><div><span class="eyebrow">Need help right now?</span><br><a class="phone" href="tel:2254247532">(225) 424-7532</a> <span style="margin-left:10px">Call or text, 24/7</span></div><div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn btn-light" href="hotline.html">Doula hotline</a><a class="btn btn-ghost" style="color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.3)" href="bereavement.html">Loss &amp; bereavement</a></div></div>
-<div class="fbottom"><span>© 2026 Mary's Hands Network · IRB Protocol #2025-001 · ICEA-approved training</span><span><a href="mailto:info@mhndoula.com">info@mhndoula.com</a> · (225) 892-4906</span></div>
-</div></footer>
-<nav class="mbar" aria-label="Actions"><a class="p" href="for-mom.html">Get a doula</a><a href="tel:2254247532">Call</a><a href="donate.html">Donate</a></nav>
+</div>
+</section>
+
+<section class="ways" style="padding:36px 48px 40px">
+  <div class="ways-head" style="margin-bottom:24px">
+    <div class="eyebrow">Other Ways to Give</div>
+    <h2 class="h2-warm" style="font-size:22px;margin-top:6px">Beyond one-time gifts.</h2>
+  </div>
+  <div class="wgrid" style="grid-template-columns:repeat(5,1fr);gap:16px">
+
+    <div class="way" style="padding:18px 18px">
+      <i class="ico" data-lucide="briefcase" style="width:22px;height:22px;margin-bottom:10px"></i>
+      <h4 style="font-size:17px;margin:0 0 6px">Employer match</h4>
+      <p style="font-size:14.5px;line-height:1.5;margin:0 0 10px">Many employers match charitable gifts. Ask HR; we&rsquo;ll send the paperwork.</p>
+      <a href="mailto:info@mhndoula.com?subject=Employer%20Match" style="font-size:14px">Request match info</a>
+    </div>
+    <div class="way" style="padding:18px 18px">
+      <i class="ico" data-lucide="gift" style="width:22px;height:22px;margin-bottom:10px"></i>
+      <h4 style="font-size:17px;margin:0 0 6px">In-kind gifts</h4>
+      <p style="font-size:14.5px;line-height:1.5;margin:0 0 10px">Supplies, professional services, venue space, or photography time with families.</p>
+      <a href="mailto:info@mhndoula.com?subject=In-kind%20Gift" style="font-size:14px">Offer a gift in-kind</a>
+    </div>
+    <div class="way" style="padding:18px 18px">
+      <i class="ico" data-lucide="building-2" style="width:22px;height:22px;margin-bottom:10px"></i>
+      <h4 style="font-size:17px;margin:0 0 6px">Corporate sponsorship</h4>
+      <p style="font-size:14.5px;line-height:1.5;margin:0 0 10px">Underwrite a cohort, sponsor a birth support run, or support community events.</p>
+      <a href="mailto:info@mhndoula.com?subject=Corporate%20Sponsorship" style="font-size:14px">Talk to us</a>
+    </div>
+    <div class="way" style="padding:18px 18px">
+      <i class="ico" data-lucide="landmark" style="width:22px;height:22px;margin-bottom:10px"></i>
+      <h4 style="font-size:17px;margin:0 0 6px">Foundation grants</h4>
+      <p style="font-size:14.5px;line-height:1.5;margin:0 0 10px">Public and private foundations welcome. Request our grants package and outcomes report.</p>
+      <a href="mailto:info@mhndoula.com?subject=Grants%20Package" style="font-size:14px">Request package</a>
+    </div>
+    <div class="way" style="padding:18px 18px">
+      <i class="ico" data-lucide="book-heart" style="width:22px;height:22px;margin-bottom:10px"></i>
+      <h4 style="font-size:17px;margin:0 0 6px">Planned giving</h4>
+      <p style="font-size:14.5px;line-height:1.5;margin:0 0 10px">Include MHN in your estate plan. Bequests, beneficiary designations, charitable trusts.</p>
+      <a href="mailto:info@mhndoula.com?subject=Planned%20Giving" style="font-size:14px">Talk with us</a>
+    </div>
+  </div>
+</section>
+<style>@media (max-width:1000px){.ways .wgrid{grid-template-columns:repeat(2,1fr) !important}}@media (max-width:560px){.ways .wgrid{grid-template-columns:1fr !important}}</style>
+
+
+<!-- MAJOR GIFTS / FOUNDATION PARTNERSHIPS -->
+<section style="padding:56px 48px;background:linear-gradient(180deg,#fff,var(--mhn-purple-50))">
+<div style="max-width:1100px;margin:0 auto">
+<div style="text-align:center;margin-bottom:32px">
+<div class="eyebrow" style="font-size:16px;letter-spacing:0.28em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:700;margin-bottom:14px">Major Gifts &amp; Foundation Partnerships</div>
+<h2 style="font-family:var(--mhn-font-serif);font-size:27px;color:var(--mhn-purple-700);margin:0 0 12px;letter-spacing:-0.01em;line-height:1.1">Multi-year support builds the Louisiana doula workforce.</h2>
+<p style="font-family:var(--mhn-font-serif);font-style:italic;color:var(--mhn-ink-soft);font-size:17px;margin:0 auto;max-width:780px;line-height:1.55">For donors and foundations considering a major or multi-year commitment, here's the funding architecture that lets us scale.</p>
+</div>
+
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:28px">
+
+<div style="background:#fff;border:1px solid var(--mhn-line);border-radius:18px;padding:26px">
+<div style="font-family:var(--mhn-font-serif);font-size:27px;font-weight:700;color:var(--mhn-purple-700);line-height:1;letter-spacing:-0.01em;margin-bottom:6px">$10K</div>
+<div style="font-size:14px;letter-spacing:0.16em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:700;margin-bottom:14px">Cohort Sponsor</div>
+<p style="font-size:16px;line-height:1.6;color:var(--mhn-ink-soft);margin:0">Underwrites a partial cohort of birth-doula trainees, including curriculum materials, instructor honoraria, and venue costs. Funds 8&ndash;10 trained volunteer doulas serving Louisiana families.</p>
+</div>
+
+<div style="background:#fff;border:1px solid var(--mhn-line);border-radius:18px;padding:26px;border-color:var(--mhn-purple-300)">
+<div style="font-family:var(--mhn-font-serif);font-size:27px;font-weight:700;color:var(--mhn-purple-700);line-height:1;letter-spacing:-0.01em;margin-bottom:6px">$50K</div>
+<div style="font-size:14px;letter-spacing:0.16em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:700;margin-bottom:14px">Annual Partner</div>
+<p style="font-size:16px;line-height:1.6;color:var(--mhn-ink-soft);margin:0">Funds a full year of operating costs for one healthcare region: client intake, doula coordination, hotline staffing, and outcomes data collection. Supports 90+ births annually.</p>
+</div>
+
+<div style="background:var(--mhn-purple-700);color:#fff;border-radius:18px;padding:26px">
+<div style="font-family:var(--mhn-font-serif);font-size:27px;font-weight:700;color:#fff;line-height:1;letter-spacing:-0.01em;margin-bottom:6px">$100K+</div>
+<div style="font-size:14px;letter-spacing:0.16em;text-transform:uppercase;color:var(--mhn-purple-300);font-weight:700;margin-bottom:14px">Multi-Year Lead</div>
+<p style="font-size:16px;line-height:1.6;color:#F1EDF3;margin:0">Anchors our 2026&ndash;2028 strategic plan: workforce expansion to 300+ doulas, geographic growth into rural parishes, and Medicaid reimbursement infrastructure under LA Act 228.</p>
+</div>
+
+</div>
+
+<div style="background:var(--mhn-warm-50);border-left:4px solid var(--mhn-warm-700);border-radius:10px;padding:24px 28px;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center">
+<div>
+<div style="font-family:var(--mhn-font-serif);font-size:19px;color:var(--mhn-purple-700);font-weight:700;margin-bottom:6px">Talk with us about a major gift or foundation partnership.</div>
+<p style="font-size:16px;color:var(--mhn-ink-soft);margin:0;line-height:1.55">We share methodology, IRB outcomes summary, financials, and a 5-year strategic plan with prospective major donors and foundation officers.</p>
+</div>
+<a href="mailto:info@mhndoula.com?subject=Major%20Gift%20%2F%20Foundation%20Partnership" style="background:var(--mhn-purple-700);color:#fff;padding:14px 24px;border-radius:999px;text-decoration:none;font-weight:700;font-size:16px;letter-spacing:0.02em;white-space:nowrap;display:inline-block">Email Madeline</a>
+</div>
+
+</div>
+</section>
+
+<section class="trust">
+  <div class="trust-inner">
+    <div>
+      <h3>Your gift is tax-deductible.</h3>
+      <p>Mary's Hands Network is a registered 501(c)(3) nonprofit under Louisiana state charity law. 100% of your contribution is deductible to the full extent allowed by law.</p>
+      <p>You'll receive an emailed acknowledgement letter within five business days of your gift. Let us know if you prefer a mailed receipt.</p>
+    </div>
+    <div class="receipt">
+      <div class="lbl">For Your Records</div>
+      <div class="val" style="margin-bottom:14px"><b>Mary's Hands Network</b><br>A Louisiana 501(c)(3) nonprofit</div>
+      <div class="lbl">Federal EIN</div>
+      <div class="val" style="margin-bottom:14px">92-2430838</div>
+      <div class="lbl">Form 990</div>
+      <div class="val" style="margin-bottom:14px">Available on request: <a href="mailto:info@mhndoula.com?subject=Form%20990%20Request" style="color:var(--mhn-purple-700)">email us</a></div>
+      <div class="lbl">Address</div>
+      <div class="val">451 E. Airport Avenue, Ste. A<br>Baton Rouge, LA 70806</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <div class="logo">Mary's Hands Network</div>
+      <p>A Louisiana 501(c)(3) nonprofit<br>EIN 92-2430838<br>451 E. Airport Avenue, Ste. A, Baton Rouge, LA 70806</p>
+      <p style="font-family:var(--mhn-font-serif);font-style:italic;color:#D4BADD">info@mhndoula.com<br>(225) 892-4906</p>
+      <div class="social-row">
+        <a href="https://www.facebook.com/maryshandsnetwork" aria-label="Facebook" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12C22 6.48 17.52 2 12 2S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg></a>
+        <a href="https://www.instagram.com/maryshandsnetwork" aria-label="Instagram" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.64-.07-4.85s.01-3.58.07-4.85c.15-3.23 1.66-4.77 4.92-4.92C8.42 2.17 8.8 2.16 12 2.16zm0-2.16C8.74 0 8.33.01 7.05.07c-4.36.2-6.78 2.62-6.98 6.98C.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.36 2.62 6.78 6.98 6.98C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c4.35-.2 6.78-2.62 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.2-4.35-2.62-6.78-6.98-6.98C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 100 12.32A6.16 6.16 0 0012 5.84zM12 16a4 4 0 110-8 4 4 0 010 8zm6.41-11.85a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/></svg></a>
+        <a href="https://www.youtube.com/@maryshandsnetwork" aria-label="YouTube" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 00.5 6.2C0 8 0 12 0 12s0 4 .5 5.8a3 3 0 002.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 002.1-2.1C24 16 24 12 24 12s0-4-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg></a>
+      </div>
+      <div class="ein-line">501(c)(3) &middot; IRB Protocol #2025-001 &middot; ICEA-approved training</div>
+    </div>
+    <div class="foot-col">
+<h5>For families</h5>
+<a href="https://forms.monday.com/forms/546fd2fcbe315080bfe3f5adb91179d9?r=use1" target="_blank" rel="noopener">Apply for Doula Support</a>
+<a href="hotline.html">Doula Hotline</a>
+<a href="bereavement.html">Loss &amp; Bereavement</a>
+</div>
+<div class="foot-col">
+<h5>For doulas</h5>
+<a href="doula-training.html">Training &amp; Next Cohort</a>
+<a href="portal.html">Doula Portal</a>
+</div>
+<div class="foot-col">
+<h5>About</h5>
+<a href="about.html">Our Mission</a>
+<a href="community-partners.html">Community Partners</a>
+<a href="gala.html">Gala</a>
+<a href="store.html">Store</a>
+<a href="privacy.html">Privacy</a>
+<a href="contact.html">Contact</a>
+</div>
+  </div>
+  <div class="foot-quick-help">
+    <span class="qh-label">Need help right now?</span>
+    <a href="hotline.html">Doula Hotline</a>
+    <a href="bereavement.html">Loss &amp; Bereavement</a>
+  </div>
+  <div class="foot-btm">
+    <span>&copy;  2026 Mary's Hands Network &middot; All Rights Reserved</span>
+    <span>Every Birth Deserves a Doula.</span>
+  </div>
+</footer>
 
 </div>
 <script>lucide.createIcons();</script>
@@ -265,6 +492,5 @@
 </script>
 <link rel="stylesheet" href="./density.css?v=20261119m">
 <link rel="stylesheet" href="./polish.css?v=20261119m">
-<link rel="stylesheet" href="./layouts.css?v=20261121c">
 </body>
 </html>

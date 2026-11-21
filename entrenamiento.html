@@ -25,7 +25,7 @@
 <link href="./colors_and_type.css?v=20261119m" rel="stylesheet"/>
 <link rel="stylesheet" href="./site.css?v=20261119m">
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-<script src="./mobile-nav.js?v=20261121a" defer></script>
+<script src="./mobile-nav.js?v=20261119m" defer></script>
 <style>
   html,body{margin:0;padding:0;background:#fff;font-family:var(--mhn-font-sans);color:var(--mhn-ink)}
   .page{max-width:1280px;margin:0 auto}
@@ -281,84 +281,257 @@
 <script>function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"d8d3c46a1618fd16101a331dfbfb19dd"})});</script>
 <style>/* Interim: grey out links to pages not yet translated to Spanish */
 a[href$=".html"]:not(.lang-toggle):not(.brand):not([href="inicio.html"]):not([href="para-familias.html"]):not([href="quienes-somos.html"]):not([href="donar.html"]):not([href="entrenamiento.html"]):not([href="cohorte.html"]):not([href="tienda.html"]):not([href="linea-de-doulas.html"]):not([href="vision-de-parto.html"]):not([href="duelo.html"]):not([href="voluntariado.html"]):not([href="aliados-comunitarios.html"]):not([href="contacto.html"]):not([href="gala.html"]):not([href="portal.html"]){pointer-events:none;opacity:0.45;cursor:default}</style>
-<script src="./ticker.js?v=20261121a" defer></script>
+<script src="./ticker.js?v=20261119m" defer></script>
 <script src="./stats.js?v=20261119m" defer></script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./redesign.css?v=20261121a">
 </head>
 
 <body data-screen-label="Educación y Capacitación">
 <a class="mhn-skip" href="#main">Skip to content</a>
-<header class="site"><div class="wrap">
-<a class="brand" href="inicio.html"><img src="./assets/logo-seal.png" alt="Mary's Hands Network" width="44" height="44"><span>Mary's Hands<small>Network</small></span></a>
-<nav class="main" id="site-nav" aria-label="Primary"><a href="quienes-somos.html">Quiénes somos</a><a href="para-familias.html">Para familias</a><a href="entrenamiento.html" class="on">Para doulas</a><a href="gala.html">Gala</a><a href="contacto.html">Contacto</a></nav>
-<div class="hdr-cta"><a class="lang" href="doula-training.html" lang="en" title="English">ES / EN</a><a class="btn btn-ghost" href="para-familias.html">Pedir una doula</a><a class="btn btn-primary" href="donar.html">Donar</a><button class="burger" type="button" aria-label="Menú" aria-expanded="false" aria-controls="site-nav"><i></i></button></div>
-</div></header>
-<main id="main" class="mhn-mock">
-<section style="background:var(--plum-950);color:#E9DDF0"><div class="wrap" style="display:flex;justify-content:space-between;align-items:center;gap:28px;padding-top:26px;padding-bottom:26px;flex-wrap:wrap">
- <div><span class="eyebrow" style="color:var(--gold-soft)">Próxima capacitación de doula de parto</span><p style="font-family:var(--serif);font-size:24px;color:#fff;margin-top:8px;line-height:1.25">Tau Cohort · February 15–20, 2027 · in-person day in Baton Rouge</p></div>
- <div style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn btn-light" href="cohorte.html"><span class="arrow">Ver detalles y fechas</span></a><a class="btn btn-ghost" style="color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.35)" href="https://forms.monday.com/forms/ca1d4fbc14042eb290043defbd016330?r=use1" target="_blank" rel="noopener">Solicita la Cohorte Tau</a></div>
-</div></section>
+<header class="mhn-header">
+  <div class="mhn-wrap mhn-header-bar">
+    <a class="mhn-brand" href="inicio.html">
+      <img src="./assets/logo-seal-96.png" alt="Mary's Hands Network" width="52" height="52">
+      <span>Mary's Hands Network</span>
+    </a>
+    <button class="mhn-menu" type="button" aria-expanded="false" aria-controls="site-nav" data-open="Menú" data-close="Cerrar">Menú</button>
+    <nav id="site-nav" class="mhn-nav" aria-label="Primary">
+      <a href="quienes-somos.html">Quiénes somos</a>
+      <a href="para-familias.html">Para familias</a>
+      <a href="entrenamiento.html" aria-current="page">Capacitación</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="index.html" class="mhn-lang" lang="en" title="English" aria-label="Switch to English">ESP<span>/</span>ENG</a>
+      <a href="portal.html">Portal de Doulas</a>
+      <a href="donar.html" class="mhn-btn mhn-btn--donate">Donar</a>
+    </nav>
+  </div>
+</header>
 
-<section class="phero"><div class="wrap">
- <div><span class="eyebrow rise">Educación y capacitación</span>
- <h1 class="rise d1">Capacitamos a la <em>fuerza laboral de salud materna.</em></h1>
- <p class="lede rise d2">ICEA-credentialed birth doula training, plus postpartum, bereavement, and breastfeeding specialties. Rooted in Louisiana, available to partners nationwide.</p>
- <div class="trust rise d3"><span><b>285</b> doulas trained</span><span><b>650+</b> families served</span><span><b>ICEA</b>-approved curriculum</span></div></div>
- <div class="mosaic rise d2">
-  <figure><img src="./assets/photos/training/training-hip-support-birthball.webp" alt="A trainee practicing hip support on a birth ball" style="object-position:center 45%"><span class="cap">En capacitación</span></figure>
-  <figure><img src="./assets/photos/training/training-instructor-pelvis-demo.webp" alt="An MHN instructor demonstrating with a pelvis model" style="object-position:center 25%"><span class="cap">Demostración</span></figure>
-  <figure><img src="./assets/photos/training/training-newborn-care-group.webp" alt="Trainees practicing newborn care"><span class="cap">Cuidado del recién nacido</span></figure>
- </div>
-</div></section>
+<!-- ANIMATED JULY COHORT BANNER (above nav, full bleed) -->
+<div class="page">
 
-<section class="pad band-white"><div class="wrap">
- <div class="head"><div><span class="eyebrow">Inside our cohorts</span><h2 style="margin-top:20px">Práctica activa, <em>en cada cohorte.</em></h2></div><p class="lede">Real classroom moments and comfort-measure practice from our most recent trainings.</p></div>
- <div class="quad">
-  <figure><img src="./assets/photos/training/training-peanut-ball.webp" alt="Peanut ball positioning practice"><span class="cap">Pelota de cacahuate</span></figure>
-  <figure><img src="./assets/photos/training/training-birthball-kneeling-coach.webp" alt="An instructor coaching on a birth ball"><span class="cap">Pelota de parto</span></figure>
-  <figure><img src="./assets/photos/training/training-counterpressure.webp" alt="Counterpressure practice"><span class="cap">Contrapresión</span></figure>
-  <figure><img src="./assets/photos/training/training-rebozo-sifting.webp" alt="Rebozo practice with an instructor"><span class="cap">Práctica de rebozo</span></figure>
- </div>
-</div></section>
-
-<section class="pad"><div class="wrap">
- <div class="head"><div><span class="eyebrow">What we train</span><h2 style="margin-top:20px">Cinco programas, <em>una fuerza laboral.</em></h2></div><p class="lede">Birth doula training is the entry point and the most requested. Beyond it, we offer postpartum, bereavement, breastfeeding, and customized curriculum for partner organizations.</p></div>
- <div class="programs">
-  <div class="card feat"><span class="tag">Flagship program</span><h3>Birth Doula Training</h3><p>An ICEA-approved birth doula training. Hybrid or fully in-person, forty hours in total (24 live contact hours plus 16 hours of independent coursework), with an evidence-based curriculum developed by ICEA Approved Trainer Madeline LeBlanc, ICCE, ICBD, RN, IBCLC.</p>
-   <ul class="ticks"><li>Physiology of birth and comfort measures</li><li>Newborn care and postpartum mental health</li><li>Scope of practice, BRAIN framework, SDOH screening</li><li>Volunteer-track scholarships available</li><li>Available in Spanish by request for partner organizations</li></ul>
-   <div style="margin-top:auto"><a class="btn btn-light" href="cohorte.html"><span class="arrow">Ver la próxima cohorte</span></a></div></div>
-  <div class="card"><span class="tag">Specialty track</span><h3>Postpartum Doula Training</h3><p>Newborn care, infant feeding, sleep coaching, parental mental health, and the recovering mother.</p><div style="margin-top:20px"><a class="link" href="contacto.html">Email about the next round</a></div></div>
-  <div class="card"><span class="tag">Specialty track · Online</span><h3>Bereavement Doula Specialty</h3><p>ICEA-approved, fully online and self-paced, with six months of access, 16 ICEA CEUs, and a hardcover textbook and workbook.</p><div style="margin-top:20px"><a class="link" href="tienda.html">Learn more &amp; enroll</a></div></div>
-  <div class="card"><span class="tag">Coming soon</span><h3>Breastfeeding Education</h3><p>Breastfeeding Basics for every birth worker, and Not-So-Basics for advanced cases. Designed by an IBCLC.</p><div style="margin-top:20px"><a class="link" href="contacto.html">Get notified when it opens</a></div></div>
-  <div class="card"><span class="tag">Custom &amp; contract</span><h3>Customized Curriculum</h3><p>For hospitals, universities, and partner nonprofits, including Spanish-language delivery. Past partners include FranU, March of Dimes, Family Road, and the Diocese of Baton Rouge.</p><div style="margin-top:20px"><a class="link" href="contacto.html">Talk to us about a partnership</a></div></div>
- </div>
-</div></section>
-
-<section class="pad band-alt"><div class="wrap">
- <div class="head"><div><span class="eyebrow">Birth doula · format flexibility</span><h2 style="margin-top:20px">Nos adaptamos <em>a ti.</em></h2></div><p class="lede">For our birth doula training, we offer three scheduling formats. Other specialties have their own structure.</p></div>
- <div class="formats">
-  <div class="card"><span class="tag">Hybrid · 4 + 1</span><strong>4 online nights + 1 in-person day</strong><p>Weeknight evenings online plus a single in-person Saturday. Format used by the Tau Cohort.</p></div>
-  <div class="card"><span class="tag">Hybrid · 2 + 2</span><strong>2 online nights + 2 in-person days</strong><p>Two weeknight evenings plus a full weekend of hands-on practice. Our most-requested format.</p></div>
-  <div class="card"><span class="tag">In-person · Intensive</span><strong>3 full in-person days</strong><p>Three back-to-back days for organizations that prefer immersive delivery. Often used for partner contracts.</p></div>
- </div>
-</div></section>
-
-<section class="closing"><div class="wrap"><span class="eyebrow">Training materials</span><h2 style="margin-top:20px">Obtén nuestros materiales <em>directamente.</em></h2><p class="lede">The Pocket Doula deck, The Everything Guide, the Bereavement Doula bundle, the Data-Driven Doula textbook, and the full Bereavement online course.</p><div class="ctas"><a class="btn btn-primary" href="tienda.html"><span class="arrow">Visita la tienda</span></a></div></div></section>
-</main>
-<footer class="site"><div class="wrap">
-<div class="fgrid">
-<div class="fbrand"><img src="./assets/logo-seal.png" alt="" width="52" height="52"><p class="big">Cada parto merece una doula.</p><p>Organización 501(c)(3) de Louisiana · EIN 92-2430838<br>451 E. Airport Avenue, Ste. A, Baton Rouge, LA 70806</p><p class="fsocial"><a href="https://www.facebook.com/maryshandsnetwork" target="_blank" rel="noopener">Facebook</a><a href="https://www.instagram.com/maryshandsnetwork" target="_blank" rel="noopener">Instagram</a><a href="https://www.youtube.com/@maryshandsnetwork" target="_blank" rel="noopener">YouTube</a></p></div>
-<div><h4>Para familias</h4><ul><li><a href="https://forms.monday.com/forms/546fd2fcbe315080bfe3f5adb91179d9?r=use1" target="_blank" rel="noopener">Solicita apoyo de doula</a></li><li><a href="linea-de-doulas.html">Línea de doulas</a></li><li><a href="duelo.html">Duelo y pérdida</a></li></ul></div>
-<div><h4>Para doulas</h4><ul><li><a href="entrenamiento.html">Capacitación y próxima cohorte</a></li><li><a href="portal.html">Portal de doulas</a></li></ul></div>
-<div><h4>Quiénes somos</h4><ul><li><a href="quienes-somos.html">Nuestra misión</a></li><li><a href="aliados-comunitarios.html">Aliados comunitarios</a></li><li><a href="gala.html">Gala</a></li><li><a href="tienda.html">Tienda</a></li><li><a href="privacidad.html">Privacidad</a></li><li><a href="contacto.html">Contacto</a></li></ul></div>
+<!-- NAV -->
+<!-- COHORT CALLOUT, moved to the very top per Madeline May 17 2026 -->
+<div class="cohort-callout cohort-callout--top">
+  <div>
+    <div class="label">Próxima capacitación de doula de parto</div>
+    <h3>Cohorte Tau &middot; 15&ndash;20 de febrero, 2027 &middot; día presencial en Baton Rouge, Louisiana</h3>
+    <p>Horario, matrícula, qué incluye, becas, requisitos de asistencia y la solicitud.</p>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:8px;align-items:stretch">
+    <a class="btn" href="https://forms.monday.com/forms/ca1d4fbc14042eb290043defbd016330?r=use1" target="_blank" rel="noopener" style="background:transparent;color:#fff;border:1.5px solid #fff;text-align:center;white-space:nowrap">Inscríbete</a>
+    <a class="btn" href="cohorte.html" style="background:rgba(255,255,255,0.14);color:#fff;border:1.5px solid rgba(255,255,255,0.55);text-align:center;white-space:nowrap">Ver detalles de la clase</a>
+  </div>
 </div>
-<div class="fhelp"><div><span class="eyebrow">¿Necesitas ayuda ahora?</span><br><a class="phone" href="tel:2254247532">(225) 424-7532</a> <span style="margin-left:10px">Llama o envía un texto, 24/7</span></div><div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn btn-light" href="linea-de-doulas.html">Línea de doulas</a><a class="btn btn-ghost" style="color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.3)" href="duelo.html">Duelo y pérdida</a></div></div>
-<div class="fbottom"><span>© 2026 Mary's Hands Network · Protocolo IRB #2025-001 · Capacitación aprobada por ICEA</span><span><a href="mailto:info@mhndoula.com">info@mhndoula.com</a> · (225) 892-4906</span></div>
-</div></footer>
-<nav class="mbar" aria-label="Acciones"><a class="p" href="para-familias.html">Pedir doula</a><a href="tel:2254247532">Llamar</a><a href="donar.html">Donar</a></nav>
+
+<!-- HERO -->
+<section class="hero hero-with-photo" style="display:grid;grid-template-columns:1.15fr 1fr;gap:40px;align-items:center;max-width:1200px;margin:0 auto;padding:32px 48px 24px">
+<div>
+<div class="eyebrow">Educación y capacitación</div>
+<h1 class="t" style="margin:10px 0 16px">Capacitamos a la <em>fuerza laboral de salud materna.</em></h1>
+<p class="lede" style="margin:0 0 22px">Capacitación de doula de parto acreditada por ICEA, además de especialidades en posparto, duelo y lactancia. Con raíces en Louisiana, disponible para aliados en todo el país.</p>
+<div class="hero-stats" style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding-top:24px;margin-top:6px;border-top:2px solid var(--mhn-purple-200)">
+  <div><div style="font-family:var(--mhn-font-serif);font-size:48px;font-weight:700;color:var(--mhn-purple-700);line-height:1;letter-spacing:-0.02em">285</div><div style="font-size:15px;letter-spacing:0.14em;text-transform:uppercase;color:var(--mhn-ink-mute);font-weight:700;margin-top:8px;line-height:1.3">Doulas<br>capacitadas</div></div>
+  <div><div style="font-family:var(--mhn-font-serif);font-size:48px;font-weight:700;color:var(--mhn-purple-700);line-height:1;letter-spacing:-0.02em">650+</div><div style="font-size:15px;letter-spacing:0.14em;text-transform:uppercase;color:var(--mhn-ink-mute);font-weight:700;margin-top:8px;line-height:1.3">Familias<br>atendidas</div></div>
+  <div><div style="font-family:var(--mhn-font-serif);font-size:48px;font-weight:700;color:var(--mhn-purple-700);line-height:1;letter-spacing:-0.02em">ICEA</div><div style="font-size:15px;letter-spacing:0.14em;text-transform:uppercase;color:var(--mhn-ink-mute);font-weight:700;margin-top:8px;line-height:1.3">Currículo<br>aprobado</div></div>
+</div>
+<p class="mhn-stat-asof">Actualizado al 1 de noviembre de 2026</p>
+</div>
+<div class="hero-photo-grid" style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:14px">
+  <figure style="margin:0;position:relative;grid-row:1 / span 2;grid-column:1">
+    <img src="./assets/photos/training-coaching-pink.jpg" alt="An MHN trainer coaching a trainee through a comfort technique" style="width:100%;height:100%;object-fit:cover;border-radius:14px;box-shadow:0 10px 28px rgba(94,55,108,0.16);border:4px solid #fff;display:block">
+    <figcaption style="position:absolute;top:14px;left:14px;background:rgba(255,255,255,0.95);backdrop-filter:blur(8px);padding:6px 12px;border-radius:999px;font-family:var(--mhn-font-serif);font-style:italic;font-size:14px;color:var(--mhn-purple-700);font-weight:700;letter-spacing:0.02em">En capacitación</figcaption>
+  </figure>
+  <figure style="margin:0;position:relative;grid-column:2;grid-row:1">
+    <img src="./assets/photos/birth-meeting-newborn.jpg" alt="A doula with parents meeting their newborn at birth" style="width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:14px;box-shadow:0 10px 28px rgba(94,55,108,0.16);border:4px solid #fff;display:block">
+    <figcaption style="position:absolute;top:12px;left:12px;background:rgba(255,255,255,0.95);backdrop-filter:blur(8px);padding:5px 11px;border-radius:999px;font-family:var(--mhn-font-serif);font-style:italic;font-size:13px;color:var(--mhn-purple-700);font-weight:700;letter-spacing:0.02em">En la sala</figcaption>
+  </figure>
+  <figure style="margin:0;position:relative;grid-column:2;grid-row:2">
+    <img src="./assets/photos/cohort-louisiana-healthcare.jpg" alt="An MHN cohort in their purple training jackets" style="width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:14px;box-shadow:0 10px 28px rgba(94,55,108,0.16);border:4px solid #fff;display:block">
+    <figcaption style="position:absolute;top:12px;left:12px;background:rgba(255,255,255,0.95);backdrop-filter:blur(8px);padding:5px 11px;border-radius:999px;font-family:var(--mhn-font-serif);font-style:italic;font-size:13px;color:var(--mhn-purple-700);font-weight:700;letter-spacing:0.02em">Graduadas</figcaption>
+  </figure>
+</div>
+</section>
+<style>
+  @media(max-width:900px){.hero-with-photo{grid-template-columns:1fr !important;padding:24px 20px !important;gap:24px !important}.hero-with-photo .hero-photo-grid figure:first-child{grid-row:auto !important}.hero-with-photo .hero-photo-grid figure:first-child img{aspect-ratio:4/5 !important}}
+  @media(max-width:560px){.hero-with-photo .hero-photo-grid{grid-template-columns:1fr !important}.hero-with-photo .hero-photo-grid figure:first-child img,.hero-with-photo .hero-photo-grid figure img{aspect-ratio:3/2 !important}}
+</style>
+
+<!-- PHOTO STRIP (training photos) — moved high per Madeline May 17 2026 -->
+<section class="photo-strip">
+<div class="photo-strip-head">
+<div class="eyebrow" style="text-align:center">Dentro de nuestras cohortes</div>
+<h2>Práctica activa, en cada cohorte.</h2>
+<p>Momentos reales de clase y práctica de medidas de confort de nuestras capacitaciones más recientes.</p>
+</div>
+<div class="frame-row">
+<figure class="mhn-frame"><img src="./assets/photos/training-madeline-instructing.jpg" alt="Madeline LeBlanc demonstrating rebozo technique to a trainee"><figcaption>Demostración de la instructora</figcaption></figure>
+<figure class="mhn-frame"><img src="./assets/photos/training-five-minute-break.jpg" alt="Two MHN doulas presenting comfort-measure chart"><figcaption>Lluvia de ideas grupal</figcaption></figure>
+<figure class="mhn-frame"><img src="./assets/photos/training-cub-birth-ball.jpg" alt="MHN trainee with the inflatable CUB birth support"><figcaption>Práctica con CUB</figcaption></figure>
+<figure class="mhn-frame"><img src="./assets/photos/training-rebozo-active.jpg" alt="MHN doulas practicing rebozo with the active stretch"><figcaption>Práctica de rebozo</figcaption></figure>
+</div>
+</section>
+
+<!-- PROGRAMS -->
+<section class="programs">
+<div class="programs-head">
+  <div class="eyebrow">Lo que capacitamos</div>
+  <h2>Cinco programas, una fuerza laboral.</h2>
+  <p>Nuestra capacitación de doula de parto es el punto de entrada y la más solicitada. Más allá de ella, ofrecemos posparto, duelo, lactancia y currículo personalizado para organizaciones aliadas.</p>
+</div>
+<div class="pgrid">
+
+  <div class="pcard">
+    <span class="badge">Programa insignia</span>
+    <h3>Capacitación de Doula de Parto</h3>
+    <p>Una capacitación de doula de parto aprobada por ICEA. Formatos híbridos o totalmente presenciales, cuarenta horas de capacitación en total (24 horas de contacto en vivo más 16 horas de trabajo independiente), currículo basado en evidencia desarrollado por la Instructora Aprobada por ICEA Madeline LeBlanc, ICCE, ICBD, RN, IBCLC.</p>
+    <ul>
+      <li>Fisiología del parto y medidas de confort</li>
+      <li>Cuidado del recién nacido y salud mental posparto</li>
+      <li>Alcance de la práctica, marco BRAIN, tamizaje de determinantes sociales de la salud</li>
+      <li>Becas de la vía de voluntariado disponibles</li>
+      <li><strong>Disponible en español</strong> a solicitud para organizaciones aliadas</li>
+    </ul>
+    <a class="more" href="cohorte.html">Ver la próxima cohorte</a>
+  </div>
+
+  <div class="pcard">
+    <span class="badge">Especialidad</span>
+    <h3>Capacitación de Doula de Posparto</h3>
+    <p>Capacitación de especialidad para doulas que quieren apoyar a las familias durante las primeras semanas en casa. Cuidado del recién nacido, alimentación infantil, acompañamiento del sueño, salud mental de los padres y la madre en recuperación.</p>
+    <ul>
+      <li>Fisiología y recuperación posparto</li>
+      <li>Alimentación infantil (pecho, biberón, ritmo)</li>
+      <li>Fundamentos de apoyo a la lactancia</li>
+      <li>Trastornos del estado de ánimo posparto y escalamiento</li>
+    </ul>
+    <a class="more" href="contacto.html">Escríbenos sobre la próxima ronda</a>
+  </div>
+
+  <div class="pcard">
+    <span class="badge">Especialidad &middot; En línea</span>
+    <h3>Especialidad de Doula de Duelo</h3>
+    <p>Una capacitación de especialidad aprobada por ICEA para doulas, enfermeras y trabajadoras del parto que desean acompañar a las familias a través de la pérdida durante el embarazo y la pérdida infantil. <strong>Totalmente en línea</strong>, a tu propio ritmo, con seis meses de acceso y 16 CEU de ICEA.</p>
+    <ul>
+      <li>Cuidado informado por el trauma para la pérdida durante el embarazo y la pérdida infantil</li>
+      <li>Libro de texto de tapa dura + cuaderno de reflexión incluidos</li>
+      <li>En línea y a tu propio ritmo</li>
+    </ul>
+    <a class="more" href="tienda.html">Más información e inscripción</a>
+  </div>
+
+  <div class="pcard">
+    <span class="badge">Próximamente</span>
+    <h3>Educación en Lactancia</h3>
+    <p>Dos programas complementarios en desarrollo. <strong>Lactancia Básica</strong> para toda trabajadora del parto; <strong>Lactancia No-Tan-Básica</strong> para casos avanzados. Currículo diseñado por una IBCLC; las fechas de la primera cohorte se anunciarán pronto.</p>
+    <ul>
+      <li>Agarre, posición y la primera hora</li>
+      <li>Desafíos comunes y cuándo derivar a una IBCLC</li>
+      <li>Regreso al trabajo y casos complejos (avanzado)</li>
+    </ul>
+    <a class="more" href="contacto.html">Avísame cuando abra</a>
+  </div>
+
+  <div class="pcard pcard--wide">
+    <span class="badge">Personalizado y por contrato</span>
+    <h3>Currículo Personalizado</h3>
+    <p>Adaptamos nuestro currículo para hospitales, universidades y organizaciones aliadas sin fines de lucro, incluyendo la impartición en español. Entre los aliados anteriores se encuentran Franciscan Missionaries of Our Lady University, March of Dimes, Family Road of Greater Baton Rouge, la Diócesis de Baton Rouge y organizaciones comunitarias.</p>
+    <ul>
+      <li>Programación de CEU para equipos de enfermería</li>
+      <li>Currículo de doula en español</li>
+      <li>Alianzas para el desarrollo de la fuerza laboral</li>
+      <li>Impartición presencial o híbrida</li>
+    </ul>
+    <a class="more" href="contacto.html">Habla con nosotras sobre una alianza</a>
+  </div>
+
+</div>
+</section>
+
+<!-- Birth-doula-specific transitional note (slim) -->
+<div style="text-align:center;padding:24px 48px 0;font-family:var(--mhn-font-serif);font-style:italic;color:var(--mhn-purple-500);font-size:15px;max-width:760px;margin:0 auto;letter-spacing:0.02em">La siguiente sección es específica de nuestra Capacitación de Doula de Parto insignia. Otras especialidades (posparto, duelo, lactancia) tienen su propia estructura. La ruta completa de certificación ICEA se encuentra en la <a href="cohorte.html#certification-pathway" style="color:var(--mhn-purple-700);font-weight:700;text-decoration:none;border-bottom:1.5px solid var(--mhn-purple-200)">página de detalles de la clase</a>.</div>
+
+<!-- FORMATS -->
+<section class="formats">
+<div class="formats-head" style="margin:0 auto 30px;max-width:680px;text-align:center">
+  <div class="eyebrow" style="text-align:center">Doula de Parto &middot; Flexibilidad de formato</div>
+  <h2>Nos adaptamos a ti.</h2>
+  <p>Solo para nuestra capacitación de doula de parto, ofrecemos tres formatos de horario. La de duelo es totalmente en línea y a tu propio ritmo; los programas de posparto y lactancia tienen su propia estructura.</p>
+</div>
+<div class="fgrid">
+  <div class="fcard">
+    <div class="meta">Híbrido &middot; 4 + 1</div>
+    <div class="h">4 noches en línea + 1 día presencial</div>
+    <p>Noches entre semana en línea más un solo sábado presencial. Ideal para aprendices con compromisos laborales entre semana que solo pueden viajar una vez. Formato usado por la Cohorte Tau.</p>
+  </div>
+  <div class="fcard">
+    <div class="meta">Híbrido &middot; 2 + 2</div>
+    <div class="h">2 noches en línea + 2 días presenciales</div>
+    <p>Dos noches entre semana en línea más un fin de semana completo de práctica activa. Nuestro formato más solicitado.</p>
+  </div>
+  <div class="fcard">
+    <div class="meta">Presencial &middot; Intensivo</div>
+    <div class="h">3 días completos presenciales</div>
+    <p>Tres días consecutivos para organizaciones y grupos que prefieren una impartición inmersiva y totalmente presencial. Se usa con frecuencia para contratos con aliados.</p>
+  </div>
+</div>
+</section>
+
+<!-- ICEA Certification Pathway + For Graduates: Practicing in Louisiana now live on cohort.html -->
+
+<!-- STORE CTA -->
+<section class="store-cta">
+<div class="store-cta-inner">
+<div>
+<div class="eyebrow">Materiales de capacitación</div>
+<h2>Obtén nuestros materiales de capacitación directamente.</h2>
+<p>Ya sea que te unas a una cohorte futura o capacites a tu propio equipo, los textos, mazos y guías de campo que usan nuestras aprendices están disponibles en nuestra tienda.</p>
+<p style="margin-top:6px;color:var(--mhn-ink-mute);font-size:16px;font-style:italic">El mazo Pocket Doula, The Everything Guide, el paquete de Doula de Duelo, el libro de texto Data-Driven Doula y el curso completo de Duelo en línea.</p>
+</div>
+<div style="text-align:center"><a class="go" href="tienda.html">Visita la tienda</a></div>
+</div>
+</section>
+
+<!-- FOOTER (mirror) -->
+<footer>
+<div class="foot-grid">
+<div class="foot-brand">
+<div class="logo">Mary&rsquo;s Hands Network</div>
+<p>Una organización sin fines de lucro 501(c)(3) de Louisiana &middot; EIN 92-2430838.</p>
+<p>451 E. Airport Avenue, Ste. A, Baton Rouge, LA 70806.</p>
+<p style="font-family:var(--mhn-font-serif);font-style:italic;color:#D4BADD">info@mhndoula.com &middot; (225) 892-4906</p>
+<div class="social-row">
+<a aria-label="Facebook" href="https://www.facebook.com/maryshandsnetwork" rel="noopener" target="_blank"><svg fill="currentColor" height="18" viewBox="0 0 24 24" width="18"><path d="M22 12C22 6.48 17.52 2 12 2S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg></a>
+<a aria-label="Instagram" href="https://www.instagram.com/maryshandsnetwork" rel="noopener" target="_blank"><svg fill="currentColor" height="18" viewBox="0 0 24 24" width="18"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.64-.07-4.85s.01-3.58.07-4.85c.15-3.23 1.66-4.77 4.92-4.92C8.42 2.17 8.8 2.16 12 2.16zm0-2.16C8.74 0 8.33.01 7.05.07c-4.36.2-6.78 2.62-6.98 6.98C.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.36 2.62 6.78 6.98 6.98C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c4.35-.2 6.78-2.62 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.2-4.35-2.62-6.78-6.98-6.98C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 100 12.32A6.16 6.16 0 0012 5.84zM12 16a4 4 0 110-8 4 4 0 010 8zm6.41-11.85a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/></svg></a>
+<a aria-label="YouTube" href="https://www.youtube.com/@maryshandsnetwork" rel="noopener" target="_blank"><svg fill="currentColor" height="18" viewBox="0 0 24 24" width="18"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 00.5 6.2C0 8 0 12 0 12s0 4 .5 5.8a3 3 0 002.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 002.1-2.1C24 16 24 12 24 12s0-4-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg></a>
+</div>
+<div class="ein-line">501(c)(3) &middot; Protocolo IRB #2025-001 &middot; Capacitación aprobada por ICEA</div>
+</div>
+<div class="foot-col">
+<h5>Para familias</h5>
+<a href="https://forms.monday.com/forms/546fd2fcbe315080bfe3f5adb91179d9?r=use1" target="_blank" rel="noopener">Solicita apoyo de doula</a>
+<a href="linea-de-doulas.html">Línea de Doulas</a>
+<a href="duelo.html">Duelo y pérdida</a>
+</div>
+<div class="foot-col">
+<h5>Para doulas</h5>
+<a href="entrenamiento.html">Capacitación y próxima cohorte</a>
+<a href="portal.html">Portal de Doulas</a>
+</div>
+<div class="foot-col">
+<h5>Quiénes somos</h5>
+<a href="quienes-somos.html">Nuestra misión</a>
+<a href="aliados-comunitarios.html">Aliados comunitarios</a>
+<a href="gala.html">Gala</a>
+<a href="tienda.html">Tienda</a>
+<a href="privacidad.html">Privacidad</a>
+<a href="contacto.html">Contacto</a>
+</div>
+</div>
+<div class="foot-btm">
+<span>&copy; 2026 Mary&rsquo;s Hands Network &middot; Todos los derechos reservados</span>
+<span>Cada nacimiento merece una doula.</span>
+</div>
+</footer>
 
 </div>
 <script>lucide.createIcons();</script>
@@ -369,5 +542,4 @@ a[href$=".html"]:not(.lang-toggle):not(.brand):not([href="inicio.html"]):not([hr
 </div>
 <link rel="stylesheet" href="./density.css?v=20261119m">
 <link rel="stylesheet" href="./polish.css?v=20261119m">
-<link rel="stylesheet" href="./layouts.css?v=20261121c">
 </body></html>

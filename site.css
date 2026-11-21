@@ -320,7 +320,7 @@ section:has(.mhn-steps) > .mhn-wrap > .mhn-intro { margin-left: auto; margin-rig
   object-fit: contain; mix-blend-mode: multiply;
 }
 
-.mhn-quote p { font-family: var(--mhn-font-serif); font-style: normal; font-size: 18px; line-height: 1.45; color: #3F2449; }
+.mhn-quote p { font-family: var(--mhn-font-serif); font-style: italic; font-size: 18px; line-height: 1.45; color: #3F2449; }
 .mhn-quote footer { margin-top: 16px; font-size: 15px; font-style: normal; font-family: var(--mhn-font-sans); color: #736B7A; }
 
 .mhn-apply { background: #fff; border: 1px solid #E4DEE8; border-radius: 12px; padding: 24px; }
