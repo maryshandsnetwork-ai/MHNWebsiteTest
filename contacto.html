@@ -162,129 +162,39 @@ a[href$=".html"]:not(.lang-toggle):not(.brand):not([href="inicio.html"]):not([hr
 <nav class="main" id="site-nav" aria-label="Primary"><a href="quienes-somos.html">Quiénes somos</a><a href="para-familias.html">Para familias</a><a href="entrenamiento.html">Para doulas</a><a href="gala.html">Gala</a><a href="contacto.html" class="on">Contacto</a></nav>
 <div class="hdr-cta"><a class="lang" href="contact.html" lang="en" title="English">ES / EN</a><a class="btn btn-ghost" href="para-familias.html">Pedir una doula</a><a class="btn btn-primary" href="donar.html">Donar</a><button class="burger" type="button" aria-label="Menú" aria-expanded="false" aria-controls="site-nav"><i></i></button></div>
 </div></header>
+<main id="main" class="mhn-mock">
+<section class="phero solo"><div class="wrap">
+ <div><span class="eyebrow rise">Contact</span><h1 class="rise d1">Nos encantaría <em>saber de ti.</em></h1>
+ <p class="lede rise d2">For partnerships, press, speaking requests, or any question about our training or volunteer network. If you are expecting a baby, please <a href="para-familias.html" style="color:var(--plum-900);font-weight:600">apply for a free doula</a> instead.</p></div>
+</div></section>
 
-<!-- ANIMATED JULY COHORT BANNER (above nav, full bleed) -->
-<div class="page" data-screen-label="Contacto">
+<section style="padding-bottom:var(--s10)"><div class="wrap" style="display:grid;grid-template-columns:1.25fr .75fr;gap:40px" id="cgrid">
+ <div class="card" style="padding:52px"><h2 style="font-size:36px">Envíanos un mensaje.</h2><p style="color:var(--ink-soft);margin:10px 0 34px">We’ll respond to your email within two business days.</p>
+  <form class="form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+   <div style="display:grid;grid-template-columns:1fr 1fr;gap:22px" class="frow"><label>Your name *<input type="text"></label><label>Email address *<input type="email"></label></div>
+   <label>Phone number <span class="hint">Optional. We’ll use this if you prefer a call back.</span><input type="tel"></label>
+   <label>Your message *<textarea placeholder="How can we help?"></textarea></label>
+   <div style="display:flex;align-items:center;gap:22px;flex-wrap:wrap"><button class="btn btn-primary" style="border:0;cursor:pointer"><span class="arrow">Send message</span></button><span style="font-size:13px;color:var(--ink-mute);max-width:26em">We’ll only use your contact details to respond. We never share or sell your information.</span></div>
+  </form></div>
+ <div><h3 style="font-size:24px;margin-bottom:6px">Or reach us directly.</h3>
+  <dl class="dlist">
+   <div><dt>Email</dt><dd><a href="mailto:info@mhndoula.com">info@mhndoula.com</a></dd></div>
+   <div><dt>Doula hotline · call or text, 24/7</dt><dd><a href="tel:2254247532">(225) 424-7532</a></dd></div>
+   <div><dt>Office</dt><dd><a href="tel:2258924906">(225) 892-4906</a></dd></div>
+   <div><dt>Address</dt><dd>451 E. Airport Avenue, Ste. A<br>Baton Rouge, LA 70806</dd></div>
+  </dl>
+  <p style="margin-top:22px;font-family:var(--serif);color:var(--plum-700);font-size:18px">Responses within two business days. Español disponible.</p></div>
+</div></section>
 
-<!-- NAV -->
-<!-- HERO -->
-<section class="hero">
-  <div class="eyebrow">Contacto</div>
-  <h1 class="t">Nos encantaría saber de ti.</h1>
-  <p class="lede">Para alianzas, prensa, solicitudes de conferencias o cualquier pregunta sobre nuestra capacitación o red de voluntarias. Si esperas un bebé, por favor solicita una doula gratuita en su lugar.</p>
-</section>
-
-<!-- FORM + INFO -->
-<section class="contact-wrap">
-  <div class="form-card">
-    <h2>Envíanos un mensaje.</h2>
-    <p class="fs">Completa el formulario y responderemos a tu correo dentro de dos días hábiles.</p>
-
-    <!--
-      FORM BACKEND SETUP:
-      1. Sign up at https://formspree.io (free tier is sufficient for low volume)
-      2. Create a new form, set recipient email to info@mhndoula.com
-      3. Copy the form's endpoint URL (looks like https://formspree.io/f/abcdwxyz)
-      4. Replace YOUR_FORMSPREE_ID below with your endpoint ID
-      5. Verify the recipient email when Formspree sends the verification link
-    -->
-    <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
-      <div class="field">
-        <label for="name">Tu nombre<span class="req">*</span></label>
-        <input type="text" id="name" name="name" required autocomplete="name">
-      </div>
-      <div class="field">
-        <label for="email">Correo electrónico<span class="req">*</span></label>
-        <input type="email" id="email" name="email" required autocomplete="email">
-      </div>
-      <div class="field">
-        <label for="phone">Número de teléfono</label>
-        <input type="tel" id="phone" name="phone" autocomplete="tel">
-        <div class="hint">Opcional. Lo usaremos si prefieres que te llamemos.</div>
-      </div>
-      <div class="field">
-        <label for="message">Tu mensaje<span class="req">*</span></label>
-        <textarea id="message" name="message" required placeholder="¿Cómo podemos ayudarte?"></textarea>
-      </div>
-      <input type="hidden" name="_subject" value="New message from maryshandsnetwork.org">
-      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
-      <div class="submit-row">
-        <button type="submit">Enviar mensaje</button>
-        <div class="privacy">Solo usaremos tus datos de contacto para responder. Nunca compartimos ni vendemos tu información.</div>
-      </div>
-    </form>
-  </div>
-
-  <aside class="info-card">
-    <h3>O comunícate directamente.</h3>
-    <div class="row">
-      <i class="ico" data-lucide="mail"></i>
-      <div>
-        <div class="lbl">Correo electrónico</div>
-        <div class="val"><a href="mailto:info@mhndoula.com">info@mhndoula.com</a></div>
-      </div>
-    </div>
-    <div class="row">
-      <i class="ico" data-lucide="phone"></i>
-      <div>
-        <div class="lbl">Línea de Doulas (llama o escribe, 24/7)</div>
-        <div class="val"><a href="tel:2254247532">(225) 424-7532</a></div>
-      </div>
-    </div>
-    <div class="row">
-      <i class="ico" data-lucide="phone"></i>
-      <div>
-        <div class="lbl">Oficina</div>
-        <div class="val"><a href="tel:2258924906">(225) 892-4906</a></div>
-      </div>
-    </div>
-    <div class="row">
-      <i class="ico" data-lucide="map-pin"></i>
-      <div>
-        <div class="lbl">Dirección</div>
-        <div class="val">451 E. Airport Avenue, Ste. A<br>Baton Rouge, LA 70806</div>
-      </div>
-    </div>
-    <div class="row">
-      <i class="ico" data-lucide="briefcase"></i>
-      <div>
-        <div class="lbl">Directora de la Red</div>
-        <div class="val"><a href="mailto:info@mhndoula.com">info@mhndoula.com</a></div>
-      </div>
-    </div>
-    <div class="turnaround">Respuestas dentro de dos días hábiles. Español disponible.</div>
-  </aside>
-</section>
-
-<!-- ROUTE CARDS: steer by intent -->
-<section class="routes">
-  <div class="routes-head">
-    <div class="eyebrow">¿Buscas algo específico?</div>
-    <h2>Rutas rápidas.</h2>
-  </div>
-  <div class="rcards">
-    <div class="route">
-      <i class="ico" data-lucide="baby"></i>
-      <h4>Estoy esperando un bebé</h4>
-      <p>Solicita una doula gratuita. La solicitud toma de 15 a 20 minutos y es totalmente confidencial.</p>
-      <a href="https://forms.monday.com/forms/546fd2fcbe315080bfe3f5adb91179d9?r=use1" target="_blank" rel="noopener">Comenzar solicitud</a>
-    </div>
-    <div class="route">
-      <i class="ico" data-lucide="graduation-cap"></i>
-      <h4>Quiero ser doula</h4>
-      <p>Conoce nuestra capacitación híbrida certificada por ICEA, las becas y la red de voluntarias a la que te unes después.</p>
-      <a href="entrenamiento.html">Ver la capacitación</a>
-    </div>
-    <div class="route">
-      <i class="ico" data-lucide="heart"></i>
-      <h4>Quiero apoyar el trabajo</h4>
-      <p>Cada donativo deducible de impuestos financia un kit de parto, un cupo de capacitación o un recurso integral para una familia.</p>
-      <a href="https://www.paypal.com/donate/?hosted_button_id=GFZYJZ8LRAPFU" target="_blank" rel="noopener">Haz un donativo</a>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
+<section class="pad band-white"><div class="wrap">
+ <div class="head"><div><span class="eyebrow">Looking for something specific?</span><h2 style="margin-top:20px">Quick <em>paths.</em></h2></div></div>
+ <div class="paths3">
+  <div class="card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.6-7 10-7 10z"/></svg></div><h3>I’m expecting a baby</h3><p>Apply for a free doula. The application takes 15 to 20 minutes and is fully confidential.</p><div style="margin-top:20px"><a class="link" href="para-familias.html">Start application</a></div></div>
+  <div class="card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9l9-5 9 5-9 5-9-5z"/><path d="M7 11v5c3 2 7 2 10 0v-5"/></svg></div><h3>I want to become a doula</h3><p>Learn about our ICEA-certified hybrid training, scholarships, and the volunteer network you join after.</p><div style="margin-top:20px"><a class="link" href="entrenamiento.html">See the training</a></div></div>
+  <div class="card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v18M7 8h7a3 3 0 0 1 0 6H9a3 3 0 0 0 0 6h8"/></svg></div><h3>I want to support the work</h3><p>Every tax-deductible gift funds a birth kit, a training seat, or a wrap-around resource for a family.</p><div style="margin-top:20px"><a class="link" href="donar.html">Make a donation</a></div></div>
+ </div>
+</div></section>
+</main>
 <footer class="site"><div class="wrap">
 <div class="fgrid">
 <div class="fbrand"><img src="./assets/logo-seal.png" alt="" width="52" height="52"><p class="big">Cada parto merece una doula.</p><p>Organización 501(c)(3) de Louisiana · EIN 92-2430838<br>451 E. Airport Avenue, Ste. A, Baton Rouge, LA 70806</p><p class="fsocial"><a href="https://www.facebook.com/maryshandsnetwork" target="_blank" rel="noopener">Facebook</a><a href="https://www.instagram.com/maryshandsnetwork" target="_blank" rel="noopener">Instagram</a><a href="https://www.youtube.com/@maryshandsnetwork" target="_blank" rel="noopener">YouTube</a></p></div>
@@ -323,5 +233,6 @@ a[href$=".html"]:not(.lang-toggle):not(.brand):not([href="inicio.html"]):not([hr
 </script>
 <link rel="stylesheet" href="./density.css?v=20261119m">
 <link rel="stylesheet" href="./polish.css?v=20261119m">
+<link rel="stylesheet" href="./layouts.css?v=20261121c">
 </body>
 </html>
