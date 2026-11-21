@@ -898,7 +898,8 @@ body.portal .sec:not(.dk):not(.gate){background:#EFE6F3}
 body.portal .pc{background:#fff;border:1px solid #E8E2EC;border-top:4px solid #5E376C}
 body.portal .pc .ico{width:40px;height:40px;display:flex;align-items:center;justify-content:center;background:#E9D8F2;border-radius:8px;color:#5E376C}
 body.portal .pc .ico svg{width:22px;height:22px}
-body.portal .portal-main{background:transparent;padding-top:0;padding-bottom:12px;max-width:none}
+body.portal .page{max-width:none !important;width:100%;margin:0 !important}
+body.portal .portal-main{background:transparent;padding:0 0 20px !important;max-width:none !important;width:100%;box-sizing:border-box}
 body.portal .portal-main>.hero,
 body.portal .portal-main>.dir-hero,
 body.portal .portal-main>.nr-hero,
@@ -965,4 +966,50 @@ body.portal .portal-main>.course-wrap:not(:has(.course-mod)){background:#5E376C;
 body.portal .portal-main>.course-wrap:not(:has(.course-mod)) h1,
 body.portal .portal-main>.course-wrap:not(:has(.course-mod)) p,
 body.portal .portal-main>.course-wrap:not(:has(.course-mod)) a{color:#fff}
-body.portal .course-mod{max-width:var(--w);margin-left:auto;margin-right:auto}
+body.portal .course-mod,
+body.portal .course-actions{
+  width:min(var(--w), calc(100% - 2 * var(--pad)));
+  max-width:var(--w);
+  margin-left:auto;
+  margin-right:auto;
+  box-sizing:border-box;
+}
+body.portal .course-wrap>.course-mod:first-of-type{margin-top:16px}
+body.portal .course-wrap>.course-actions{margin-top:16px;margin-bottom:14px}
+body.portal .dir-controls{
+  width:100% !important;max-width:none !important;margin:0 !important;
+  padding:14px 0 !important;box-sizing:border-box;background:#EFE6F3;
+}
+body.portal .dir-controls-inner,
+body.portal .dir-grid{
+  width:min(var(--w), calc(100% - 2 * var(--pad)));
+  max-width:var(--w);
+  margin-left:auto;margin-right:auto;box-sizing:border-box;
+}
+body.portal .dir-grid{padding-left:0 !important;padding-right:0 !important}
+body.portal .nr-section,
+body.portal .nr-note,
+body.portal .nr-birth-roll,
+body.portal .form-section,
+body.portal .br-wrap{
+  width:min(100%, calc(var(--w) + 2 * var(--pad)));
+  max-width:calc(var(--w) + 2 * var(--pad)) !important;
+  margin-left:auto !important;margin-right:auto !important;
+  padding-left:var(--pad) !important;padding-right:var(--pad) !important;
+  box-sizing:border-box;
+}
+body.portal .nr-card,
+body.portal .dir-card,
+body.portal .form-frame-wrap,
+body.portal .course-mod{min-width:0;max-width:100%}
+@media (max-width:760px){
+  body.a1 .dir-controls-inner,
+  body.portal .dir-controls-inner{grid-template-columns:1fr !important;width:calc(100% - 2 * var(--pad))}
+  body.portal .dir-search{width:100%;min-width:0}
+  body.portal .dir-search-input-wrap{min-width:0}
+  body.portal .nr-grid{grid-template-columns:1fr !important}
+  body.portal .form-frame-wrap,
+  body.portal .nr-card,
+  body.portal .dir-card{width:100%}
+  body.portal .ptabs nav{flex-wrap:wrap}
+}
