@@ -1020,26 +1020,64 @@ body.portal{
   --sage:#4F7339; --sage-deep:#2E4321; --sage-mid:#3F5C2E; --sage-light:#EDF3E8; --sage-wash:#DCE7D2; --sage-line:#C5D6B5;
   --teal:#1D5F58; --teal-light:#E3F0EF;
 }
-body.portal .pgrid.g4>.pc:nth-child(1){border-top-color:var(--rose)}
-body.portal .pgrid.g4>.pc:nth-child(1) .ico{background:var(--rose-light);color:var(--rose)}
+body.portal section.sec:has(.pgrid.g4){background:#EFE6F3 !important}
+body.portal section.sec:has(.pgrid.g2){background:#EDF3E8 !important}
+body.portal .pgrid.g4>.pc:nth-child(1),
+body.portal .pgrid.g3>.pc:nth-child(2),
+body.portal .pgrid.g2>.pc:nth-child(1){
+  background:linear-gradient(135deg,#F7E5E8 0%,#EDD0D5 100%) !important;
+  border:1px solid #E0B8C0 !important;border-top:5px solid #9B3F4E !important
+}
+body.portal .pgrid.g4>.pc:nth-child(1) .ico,
+body.portal .pgrid.g3>.pc:nth-child(2) .ico,
+body.portal .pgrid.g2>.pc:nth-child(1) .ico{background:#9B3F4E !important;color:#fff !important}
 body.portal .pgrid.g4>.pc:nth-child(1) h3,
-body.portal .pgrid.g4>.pc:nth-child(1) .go{color:var(--rose-deep)}
-body.portal .pgrid.g4>.pc:nth-child(2){border-top-color:var(--sage)}
-body.portal .pgrid.g4>.pc:nth-child(2) .ico{background:var(--sage-light);color:var(--sage-mid)}
+body.portal .pgrid.g4>.pc:nth-child(1) .go,
+body.portal .pgrid.g3>.pc:nth-child(2) h3,
+body.portal .pgrid.g3>.pc:nth-child(2) .go,
+body.portal .pgrid.g2>.pc:nth-child(1) h3,
+body.portal .pgrid.g2>.pc:nth-child(1) .go{color:#6E2D38 !important}
+body.portal .pgrid.g4>.pc:nth-child(2),
+body.portal .pgrid.g3>.pc:nth-child(1),
+body.portal .pgrid.g2>.pc:nth-child(2){
+  background:linear-gradient(135deg,#EDF3E8 0%,#DCE7D2 100%) !important;
+  border:1px solid #C5D6B5 !important;border-top:5px solid #3F5C2E !important
+}
+body.portal .pgrid.g4>.pc:nth-child(2) .ico,
+body.portal .pgrid.g3>.pc:nth-child(1) .ico,
+body.portal .pgrid.g2>.pc:nth-child(2) .ico{background:#3F5C2E !important;color:#fff !important}
 body.portal .pgrid.g4>.pc:nth-child(2) h3,
-body.portal .pgrid.g4>.pc:nth-child(2) .go{color:var(--sage-deep)}
-body.portal .pgrid.g4>.pc:nth-child(4){border-top-color:var(--teal)}
-body.portal .pgrid.g4>.pc:nth-child(4) .ico{background:var(--teal-light);color:var(--teal)}
+body.portal .pgrid.g4>.pc:nth-child(2) .go,
+body.portal .pgrid.g3>.pc:nth-child(1) h3,
+body.portal .pgrid.g3>.pc:nth-child(1) .go,
+body.portal .pgrid.g2>.pc:nth-child(2) h3,
+body.portal .pgrid.g2>.pc:nth-child(2) .go{color:#2E4321 !important}
+body.portal .pgrid.g4>.pc:nth-child(3){
+  background:linear-gradient(135deg,#F4EAF7 0%,#E9DCEE 100%) !important;
+  border:1px solid #D4BADD !important;border-top:5px solid #5E376C !important
+}
+body.portal .pgrid.g4>.pc:nth-child(3) .ico{background:#5E376C !important;color:#fff !important}
+body.portal .pgrid.g4>.pc:nth-child(3) h3,
+body.portal .pgrid.g4>.pc:nth-child(3) .go{color:#3F2449 !important}
+body.portal .pgrid.g4>.pc:nth-child(4){
+  background:linear-gradient(135deg,#E3F0EF 0%,#CCDEDC 100%) !important;
+  border:1px solid #A8C5C2 !important;border-top:5px solid #1D5F58 !important
+}
+body.portal .pgrid.g4>.pc:nth-child(4) .ico{background:#1D5F58 !important;color:#fff !important}
 body.portal .pgrid.g4>.pc:nth-child(4) h3,
-body.portal .pgrid.g4>.pc:nth-child(4) .go{color:var(--teal)}
-body.portal .pgrid.g3>.pc:nth-child(1){border-top-color:var(--sage)}
-body.portal .pgrid.g3>.pc:nth-child(1) .ico{background:var(--sage-light);color:var(--sage-mid)}
-body.portal .pgrid.g3>.pc:nth-child(2){border-top-color:var(--rose)}
-body.portal .pgrid.g3>.pc:nth-child(2) .ico{background:var(--rose-light);color:var(--rose)}
-body.portal .pgrid.g2>.pc:nth-child(1){border-top-color:var(--rose)}
-body.portal .pgrid.g2>.pc:nth-child(1) .ico{background:var(--rose-light);color:var(--rose)}
-body.portal .pgrid.g2>.pc:nth-child(2){border-top-color:var(--sage)}
-body.portal .pgrid.g2>.pc:nth-child(2) .ico{background:var(--sage-light);color:var(--sage-mid)}
+body.portal .pgrid.g4>.pc:nth-child(4) .go{color:#103E39 !important}
+body.portal .pgrid.g3>.pc:nth-child(3){
+  background:linear-gradient(135deg,#F4EAF7 0%,#E9DCEE 100%) !important;
+  border:1px solid #D4BADD !important;border-top:5px solid #5E376C !important
+}
+body.portal .pgrid.g3>.pc:nth-child(3) .ico{background:#5E376C !important;color:#fff !important}
+body.portal .pgrid.g3>.pc:nth-child(3) h3,
+body.portal .pgrid.g3>.pc:nth-child(3) .go{color:#3F2449 !important}
+body.portal .t2-grid>.t2-card:nth-child(1){border-top:7px solid #9B3F4E !important}
+body.portal .t2-grid>.t2-card:nth-child(2){border-top:7px solid #3F5C2E !important}
+body.portal .t2-grid>.t2-card:nth-child(3){border-top:7px solid #1D5F58 !important}
+body.portal[data-screen-label="Doula Portal"] .ptabs nav a[aria-current=page]{box-shadow:inset 0 -3px 0 #9B3F4E}
+body.portal .ptabs-badge{border-bottom:3px solid #9B3F4E}
 body.portal[data-screen-label="Client Update"] #portal-protected,
 body.portal[data-screen-label="Pocket Doula"] #portal-protected,
 body.portal[data-screen-label="Doula Directory"] #portal-protected{background:var(--rose-light)}
