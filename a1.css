@@ -789,7 +789,7 @@ a.pc:hover{border-color:var(--purple-500);box-shadow:0 4px 14px rgba(63,36,73,.1
 body.a1 .portal-app{display:block}
 body.a1 .portal-main{max-width:calc(var(--w) + var(--pad)*2);margin:0 auto;padding:28px var(--pad) 48px}
 body.a1 .portal-main>.hero,body.a1 .dir-hero,body.a1 .d1-hero,body.a1 .nr-hero,body.a1 .res-hero,body.a1 .br-hero,body.a1 .tm-hero{background:var(--purple-700);color:#fff;border-radius:8px;padding:28px 28px 24px;margin:0 0 22px}
-body.a1 .portal-main>.hero h1,body.a1 .dir-hero h1,body.a1 .d1-hero h1,body.a1 .nr-hero h1,body.a1 .res-hero h1,body.a1 .br-hero h1,body.a1 .tm-hero h1,body.a1 .portal-main>.hero .eyebrow,body.a1 .dir-hero .private-tag{color:#fff}
+body.a1 .portal-main>.hero h1,body.a1 .dir-hero h1,body.a1 .d1-hero h1,body.a1 .nr-hero h1,body.a1 .res-hero h1,body.a1 .br-hero h1,body.a1 .tm-hero h1,body.a1 .portal-main>.hero .eyebrow{color:#fff}
 body.a1 .portal-main>.hero p,body.a1 .dir-hero p,body.a1 .d1-hero p,body.a1 .nr-hero p,body.a1 .res-hero p,body.a1 .br-hero p{color:#F3ECF6}
 body.a1 .form-section{padding:0}
 body.a1 .form-frame-wrap{background:#fff;border:1px solid var(--line);border-radius:8px;padding:18px}
@@ -806,3 +806,78 @@ body.a1 .form-frame-meta .open-new{display:inline-flex;align-items:center;gap:6p
  .team2 .t2-card--primary{margin-top:10px}
 }
 @media(max-width:520px){.pgrid.g4{grid-template-columns:1fr}.cp-form{padding:18px}.ptabs nav a{white-space:normal}}
+
+/* Readable team-card buttons. .dk a:not(.btn) is white and would hide these. */
+body.a1 .team2 a.t2-btn,
+body.a1 .dk .team2 a.t2-btn{
+  color:#5E376C !important;
+  background:#fff !important;
+  border:2px solid #5E376C !important;
+}
+body.a1 .team2 a.t2-btn:hover,
+body.a1 .dk .team2 a.t2-btn:hover{background:#E9D8F2 !important;color:#5E376C !important}
+body.a1 .team2 a.t2-btn--solid,
+body.a1 .dk .team2 a.t2-btn--solid{
+  color:#fff !important;
+  background:#5E376C !important;
+  border-color:#5E376C !important;
+}
+body.a1 .team2 a.t2-btn--solid:hover,
+body.a1 .dk .team2 a.t2-btn--solid:hover{background:#4C2C5A !important;color:#fff !important}
+body.a1 .team2 a.t2-line,
+body.a1 .dk .team2 a.t2-line{color:#1F1B24 !important;background:#fff !important}
+body.a1 .team2 .t2-line-lbl{color:#734E86 !important}
+body.a1 .team2 .t2-line-val{color:#5E376C !important;font-family:var(--serif)}
+
+/* Directory pill: cream chip needs dark text. */
+body.a1 .dir-hero .private-tag{color:#3F2449 !important;background:#FAF1E1 !important}
+
+/* Footer contact lines stay Source Sans, matching the home page. */
+body.a1 footer p,
+body.a1 .mhn-footer p,
+body.a1 footer .ein-line,
+body.a1 .mhn-footer .ein-line{
+  font-family:var(--sans) !important;
+  font-size:16px !important;
+  font-weight:400 !important;
+  letter-spacing:0 !important;
+  text-transform:none !important;
+  line-height:1.5 !important;
+}
+body.a1 footer .logo,
+body.a1 .mhn-footer h2:first-child{
+  font-family:var(--serif) !important;
+  font-size:20px !important;
+  letter-spacing:0 !important;
+  text-transform:none !important;
+}
+body.a1 footer h5,
+body.a1 .foot-col h5,
+body.a1 .mhn-footer h3{
+  font-family:var(--sans) !important;
+  font-size:14px !important;
+  font-weight:700 !important;
+  letter-spacing:.12em !important;
+  text-transform:uppercase !important;
+  color:var(--purple-200) !important;
+  border:0 !important;
+  padding-bottom:0 !important;
+  display:block;
+}
+
+/* Training-day copy uses the same column as the tab strip. */
+body.a1 .portal-main .course-wrap,
+body.a1 .portal-main .d1-hero,
+body.a1 .portal-main .d1-viewer,
+body.a1 .portal-main .day-content,
+body.a1 .portal-main .d1-section-divider{
+  max-width:none;
+  width:auto;
+  margin-left:0;
+  margin-right:0;
+  padding-left:0;
+  padding-right:0;
+}
+body.a1 .dir-controls-inner{grid-template-columns:minmax(340px,2.2fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) auto}
+body.a1 .dir-controls select{min-width:0;max-width:100%}
+body.a1 .dir-search input{min-width:0;padding-right:14px}
