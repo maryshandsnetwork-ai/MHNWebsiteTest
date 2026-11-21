@@ -1,0 +1,8 @@
+# Protect only the members contact list. Logos, photos, and other
+# files in this folder stay public. Same login realm as directory.html.
+<Files "doulas.json">
+  AuthType Basic
+  AuthName "MHN Doula Directory"
+  AuthUserFile /home/dh_n5xhce/.htpasswd-directory
+  Require valid-user
+</Files>
