@@ -20,29 +20,28 @@
 <link rel="icon" type="image/png" href="./assets/logo-seal.png">
 <link rel="apple-touch-icon" href="./assets/logo-seal.png">
 <link rel="canonical" href="https://maryshandsnetwork.org/portal-availability.html">
-<link rel="stylesheet" href="./colors_and_type.css?v=20261119m">
-<link rel="stylesheet" href="./site.css?v=20261119m">
-<link rel="stylesheet" href="./portal-shell.css?v=20261119m">
-<link rel="stylesheet" href="./polish.css?v=20261119m">
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 <script src="./mobile-nav.js?v=20261119m" defer></script>
 <!-- Metricool tracking -->
 <script>function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"d8d3c46a1618fd16101a331dfbfb19dd"})});</script>
 <script src="./ticker.js?v=20261119m" defer></script>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./a1.css?v=20261121l">
 </head>
-<body data-screen-label="Availability">
+<body class="a1 portal" data-screen-label="Availability">
 <a class="mhn-skip" href="#main">Skip to content</a>
 <header class="mhn-header">
   <div class="mhn-wrap mhn-header-bar">
     <a class="mhn-brand" href="index.html">
       <img src="./assets/logo-seal-96.png" alt="Mary's Hands Network" width="52" height="52">
-      <span>Mary's Hands Network</span>
+      <span>Mary's Hands<br>Network</span>
     </a>
     <button class="mhn-menu" type="button" aria-expanded="false" aria-controls="site-nav" data-open="Menu" data-close="Close">Menu</button>
     <nav id="site-nav" class="mhn-nav" aria-label="Primary">
       <a href="about.html">About</a>
       <a href="for-mom.html">For Families</a>
       <a href="doula-training.html">For Doulas</a>
+      <a href="gala.html">Gala</a>
       <a href="contact.html">Contact</a>
       <a href="inicio.html" class="mhn-lang" lang="es" title="Español" aria-label="Cambiar a español">ENG<span>/</span>ESP</a>
       <a href="portal.html">Doula Portal</a>
@@ -56,17 +55,17 @@
 
 <!-- TOP NAV -->
 <!-- ACCESS GATE -->
-<section id="portal-gate">
+<section id="portal-gate" class="sec bg-700 dk gate"><div class="wrap gate-in">
   <div class="eyebrow">For Active Doulas</div>
   <h1>Members only.</h1>
   <p class="lede">Enter your access code to view the doula portal. Forms, course materials, contacts, and the field guide.</p>
   <form id="portal-gate-form" autocomplete="off" novalidate>
     <input id="portal-code" type="text" placeholder="Access code" aria-label="Access code" autocapitalize="characters" spellcheck="false">
-    <button type="submit">Enter portal</button>
+    <button type="submit" class="btn btn--light">Enter portal</button>
     <p class="gate-error" id="portal-gate-error" role="alert" aria-live="polite"></p>
   </form>
   <p class="gate-help">Don't have a code? <a href="contact.html">Contact us</a> or ask your Volunteer Coordinator.</p>
-</section>
+</div></section>
 
 <!-- PROTECTED CONTENT -->
 <div id="portal-protected">
@@ -74,28 +73,23 @@
 <div class="portal-app">
 
 <!-- SIDEBAR -->
-<aside class="portal-side" aria-label="Portal navigation">
-  <h4>Portal</h4>
-  <nav id="portalSideNav">
-    <a href="portal.html" data-id="hub" class=""><i class="ico" data-lucide="home"></i>Welcome</a>
-    <a href="portal-client-update.html" data-id="client-update" class=""><i class="ico" data-lucide="clipboard-edit"></i>Client Update</a>
-    <a href="portal-availability.html" data-id="availability" class="active"><i class="ico" data-lucide="calendar-check"></i>Availability</a>
-    <a href="portal-training-materials.html" data-id="training-materials" class=""><i class="ico" data-lucide="book-marked"></i>Training Materials</a>
-    <a href="directory.html" data-id="directory" class=""><i class="ico" data-lucide="users"></i>Doula Directory</a>
-    <a href="portal-field-guide.html" data-id="field-guide" class=""><i class="ico" data-lucide="library"></i>Network Resources</a>
-    <a href="portal-pocket-doula.html" data-id="pocket-doula" class=""><i class="ico" data-lucide="layers"></i>Pocket Doula</a>
-    <a href="portal.html#team" data-id="contacts" class=""><i class="ico" data-lucide="phone"></i>Contact Team</a>
-  </nav>
-  <div class="side-divider"></div>
-  <a href="#" class="side-signout" id="portalSideSignout"><i class="ico" data-lucide="log-out"></i>Sign out</a>
-</aside>
+<div class="ptabs"><div class="wrap"><span class="ptabs-badge">Doula Portal</span><nav id="portalSideNav" aria-label="Portal navigation">
+    <a href="portal.html" data-id="hub"><span class="tab-emoji" aria-hidden="true">🏠</span>Welcome</a>
+    <a href="portal-client-update.html" data-id="client-update"><span class="tab-emoji" aria-hidden="true">📝</span>Client Update</a>
+    <a href="portal-availability.html" data-id="availability" aria-current="page"><span class="tab-emoji" aria-hidden="true">📅</span>Availability</a>
+    <a href="portal-training-materials.html" data-id="training-materials"><span class="tab-emoji" aria-hidden="true">📚</span>Training Materials</a>
+    <a href="directory.html" data-id="directory"><span class="tab-emoji" aria-hidden="true">🧑‍🤝‍🧑</span>Doula Directory</a>
+    <a href="portal-field-guide.html" data-id="field-guide"><span class="tab-emoji" aria-hidden="true">📖</span>Network Resources</a>
+    <a href="portal-pocket-doula.html" data-id="pocket-doula"><span class="tab-emoji" aria-hidden="true">🃏</span>Pocket Doula</a>
+    <a href="portal.html#team" data-id="contacts"><span class="tab-emoji" aria-hidden="true">💬</span>Contact Team</a>
+  </nav><a href="#" class="side-signout" id="portalSideSignout">Sign out</a></div></div>
 
 <!-- MAIN -->
 <main class="portal-main">
 
 <section class="hero">
   <div class="eyebrow">For Active Doulas</div>
-  <h1 class="t">Submit Your Availability.</h1>
+  <span class="bubble sage" aria-hidden="true">📅</span><h1 class="t">Submit Your Availability.</h1>
   <p class="lede">Update your monthly availability so your Volunteer Coordinator can match you to client teams that fit your schedule.</p>
 </section>
 
@@ -114,6 +108,18 @@
 </div><!-- /portal-protected -->
 
 <!-- FOOTER -->
+<section class="portal-help">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Need help?</p>
+      <h2>Call the hotline or your coordinator.</h2>
+    </div>
+    <div class="acts">
+      <a class="btn btn--light" href="tel:2254247532">Doula Hotline</a>
+      <a class="btn btn--ghost-light" href="portal.html#team">Contact the team</a>
+    </div>
+  </div>
+</section>
 <footer>
   <div class="foot-grid">
     <div class="foot-brand">
@@ -196,5 +202,10 @@
 })();
 </script>
 
+<div class="sticky-mobile-cta">
+<a class="apply" href="for-mom.html">Apply</a>
+<a class="call" href="tel:2254247532">Call</a>
+<a class="donate" href="donate.html">Donate</a>
+</div>
 </body>
 </html>

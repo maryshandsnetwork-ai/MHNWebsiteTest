@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-V7LV29VQYX"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -9,10 +8,8 @@
   gtag('js', new Date());
   gtag('config', 'G-V7LV29VQYX');
 </script>
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Doula Portal &middot; Mary's Hands Network</title>
@@ -20,29 +17,27 @@
 <link rel="icon" type="image/png" href="./assets/logo-seal.png">
 <link rel="apple-touch-icon" href="./assets/logo-seal.png">
 <link rel="canonical" href="https://maryshandsnetwork.org/portal.html">
-<link rel="stylesheet" href="./colors_and_type.css?v=20261119m">
-<link rel="stylesheet" href="./site.css?v=20261119m">
-<link rel="stylesheet" href="./portal-shell.css?v=20261119m">
-<link rel="stylesheet" href="./polish.css?v=20261119m">
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 <script src="./mobile-nav.js?v=20261119m" defer></script>
-<!-- Metricool tracking -->
 <script>function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"d8d3c46a1618fd16101a331dfbfb19dd"})});</script>
 <script src="./ticker.js?v=20261119m" defer></script>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./a1.css?v=20261121l">
 </head>
-<body data-screen-label="Doula Portal">
+<body class="a1 portal" data-screen-label="Doula Portal">
 <a class="mhn-skip" href="#main">Skip to content</a>
 <header class="mhn-header">
   <div class="mhn-wrap mhn-header-bar">
     <a class="mhn-brand" href="index.html">
       <img src="./assets/logo-seal-96.png" alt="Mary's Hands Network" width="52" height="52">
-      <span>Mary's Hands Network</span>
+      <span>Mary's Hands<br>Network</span>
     </a>
     <button class="mhn-menu" type="button" aria-expanded="false" aria-controls="site-nav" data-open="Menu" data-close="Close">Menu</button>
     <nav id="site-nav" class="mhn-nav" aria-label="Primary">
       <a href="about.html">About</a>
       <a href="for-mom.html">For Families</a>
       <a href="doula-training.html">For Doulas</a>
+      <a href="gala.html">Gala</a>
       <a href="contact.html">Contact</a>
       <a href="inicio.html" class="mhn-lang" lang="es" title="Español" aria-label="Cambiar a español">ENG<span>/</span>ESP</a>
       <a href="portal.html" aria-current="page">Doula Portal</a>
@@ -50,183 +45,47 @@
     </nav>
   </div>
 </header>
-
-<!-- ANIMATED JULY COHORT BANNER (above nav, full bleed) -->
-<div class="page">
-
-<!-- TOP NAV -->
-<!-- ACCESS GATE -->
-<section id="portal-gate">
+<main id="main">
+<section id="portal-gate" class="sec bg-700 dk gate"><div class="wrap gate-in">
   <div class="eyebrow">For Active Doulas</div>
   <h1>Members only.</h1>
   <p class="lede">Enter your access code to view the doula portal. Forms, course materials, contacts, and the field guide.</p>
   <form id="portal-gate-form" autocomplete="off" novalidate>
     <input id="portal-code" type="text" placeholder="Access code" aria-label="Access code" autocapitalize="characters" spellcheck="false">
-    <button type="submit">Enter portal</button>
+    <button type="submit" class="btn btn--light">Enter portal</button>
     <p class="gate-error" id="portal-gate-error" role="alert" aria-live="polite"></p>
   </form>
   <p class="gate-help">Don't have a code? <a href="contact.html">Contact us</a> or ask your Volunteer Coordinator.</p>
-</section>
-
-<!-- PROTECTED CONTENT -->
+</div></section>
 <div id="portal-protected">
-
-<div class="portal-app">
-
-<!-- SIDEBAR -->
-<aside class="portal-side" aria-label="Portal navigation">
-  <h4>Portal</h4>
-  <nav id="portalSideNav">
-    <a href="portal.html" data-id="hub" class="active"><i class="ico" data-lucide="home"></i>Welcome</a>
-    <a href="portal-client-update.html" data-id="client-update" class=""><i class="ico" data-lucide="clipboard-edit"></i>Client Update</a>
-    <a href="portal-availability.html" data-id="availability" class=""><i class="ico" data-lucide="calendar-check"></i>Availability</a>
-    <a href="portal-training-materials.html" data-id="training-materials" class=""><i class="ico" data-lucide="book-marked"></i>Training Materials</a>
-    <a href="directory.html" data-id="directory" class=""><i class="ico" data-lucide="users"></i>Doula Directory</a>
-    <a href="portal-field-guide.html" data-id="field-guide" class=""><i class="ico" data-lucide="library"></i>Network Resources</a>
-    <a href="portal-pocket-doula.html" data-id="pocket-doula" class=""><i class="ico" data-lucide="layers"></i>Pocket Doula</a>
-    <a href="portal.html#team" data-id="contacts" class=""><i class="ico" data-lucide="phone"></i>Contact Team</a>
-  </nav>
-  <div class="side-divider"></div>
-  <a href="#" class="side-signout" id="portalSideSignout"><i class="ico" data-lucide="log-out"></i>Sign out</a>
-</aside>
-
-<!-- MAIN -->
-<main class="portal-main">
-
-<!-- HERO -->
-<section class="hero">
-  <div class="eyebrow">For Active Doulas</div>
-  <h1 class="t">Welcome back, <em>doula.</em></h1>
-  <p class="lede">Forms, course access, resources, and the people you can call when you need backup. Everything an active MHN volunteer doula needs to do the work.</p>
-</section>
-
-<!-- DASHBOARD CALLOUT -->
-<section class="dash-callout">
-  <div class="dash-callout-inner">
-    <div class="dash-callout-text">
-      <div class="eyebrow">New</div>
-      <strong>MHN Web App</strong>
-      <p>Track clients, births, and your schedule in one place.</p>
-    </div>
-    <a class="pill-btn" href="https://www.mhndoula.com/dashboard" target="_blank" rel="noopener">Open Dashboard &rarr;</a>
-  </div>
-</section>
-
-<!-- QUICK ACTIONS  5 colored cards linking to leaf pages -->
-<section class="actions">
-  <div class="acc-section-head"><span class="line"></span>Quick Actions</div>
-  <div class="agrid" style="grid-template-columns:repeat(4,1fr)">
-    <a class="acard tone-purple" href="portal-client-update.html">
-      <span class="ico-wrap"><i class="ico" data-lucide="clipboard-edit"></i></span>
-      <h3>Client Update</h3>
-      <p>Log a client visit, document a birth, or update prenatal/postpartum notes.</p>
-      <span class="go">Open form</span>
-    </a>
-    <a class="acard tone-sage" href="portal-availability.html">
-      <span class="ico-wrap"><i class="ico" data-lucide="calendar-check"></i></span>
-      <h3>Availability</h3>
-      <p>Update your monthly availability so coordinators can match you to client teams.</p>
-      <span class="go">Open form</span>
-    </a>
-    <a class="acard tone-teal" href="portal-training-materials.html">
-      <span class="ico-wrap"><i class="ico" data-lucide="book-marked"></i></span>
-      <h3>Training Materials</h3>
-      <p>Click here to access your birth doula course materials by day.</p>
-      <span class="go">Open materials</span>
-    </a>
-    <a class="acard tone-rose" href="directory.html">
-      <span class="ico-wrap"><i class="ico" data-lucide="users"></i></span>
-      <h3>Doula Directory</h3>
-      <p>Search active doulas in the network by name, cohort, or service area.</p>
-      <span class="go">Open directory</span>
-    </a>
-  </div>
-</section>
-
-<!-- SECONDARY ACTIONS -->
-<section class="actions">
-  <div class="acc-section-head"><span class="line"></span>Resources</div>
-  <div class="agrid" style="grid-template-columns:repeat(3,1fr)">
-    <a class="acard tone-purple" href="portal-field-guide.html">
-      <span class="ico-wrap"><i class="ico" data-lucide="library"></i></span>
-      <h3>Network Resources</h3>
-      <p>The MHN Field Guide plus postpartum planners, resource guides, and the doula communication guide. View or download.</p>
-      <span class="go">Open resources</span>
-    </a>
-    <a class="acard tone-sage" href="portal-pocket-doula.html">
-      <span class="ico-wrap"><i class="ico" data-lucide="layers"></i></span>
-      <h3>Pocket Doula deck</h3>
-      <p>Flip through all 50 comfort cards. Standard ($40) and Professional ($100) editions for sale too.</p>
-      <span class="go">Open deck</span>
-    </a>
-    <a class="acard tone-warm" href="portal.html#team">
-      <span class="ico-wrap"><i class="ico" data-lucide="phone"></i></span>
-      <h3>Contact the Team</h3>
-      <p>Reach Kerionne, Breea, or Maddy directly, plus office and hotline lines and Kerionne's booking link.</p>
-      <span class="go">Jump to contacts</span>
-    </a>
-  </div>
-</section>
-
-<!-- BIRTH VISION GUIDE + DOULA SPOTLIGHT -->
-<section class="resources">
-  <div class="acc-section-head"><span class="line"></span>Tools &amp; Forms</div>
-  <div class="rgrid">
-    <div class="rcard">
-      <div class="ico"><i data-lucide="file-down"></i></div>
-      <div>
-        <h3>Birth Vision Guide</h3>
-        <p>Client-facing PDF you can share with families when helping them build their birth plan.</p>
-        <a class="dl" href="./assets/birth-vision-guide.pdf" target="_blank" rel="noopener">Download PDF</a>
-      </div>
-    </div>
-    <div class="rcard placeholder">
-      <div class="ico"><i data-lucide="sparkles"></i></div>
-      <div>
-        <h3>Doula Spotlight form</h3>
-        <p>Nominate yourself or a teammate to be featured on our social channels and in donor communications.</p>
-        <span class="pill">Coming soon</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT THE TEAM (inline on hub) -->
-<style>
-  .team2{padding:8px 36px 48px;max-width:1120px;margin:0 auto}
-  .team2 .t2-eyebrow{font-size:14px;letter-spacing:0.2em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:700;margin-bottom:6px}
-  .team2 .t2-h2{font-family:var(--mhn-font-serif);font-size:28px;color:var(--mhn-purple-700);margin:0 0 8px;font-weight:700;letter-spacing:-0.01em}
-  .team2 .t2-sub{font-size:16px;line-height:1.6;color:var(--mhn-ink-soft);margin:0 0 30px;max-width:760px}
-  .team2 .t2-sub a{color:var(--mhn-purple-700);font-weight:700}
-  .team2 .t2-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch}
-  .team2 .t2-card{position:relative;background:#fff;border:1px solid var(--mhn-line);border-radius:18px;padding:24px 22px;display:flex;flex-direction:column}
-  .team2 .t2-card--primary{border:2px solid var(--mhn-purple-500);box-shadow:0 12px 32px rgba(94,55,108,0.14)}
-  .team2 .t2-badge{position:absolute;top:-12px;left:22px;background:var(--mhn-purple-700);color:#fff;font-size:12px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;padding:5px 13px;border-radius:999px;box-shadow:0 3px 10px rgba(94,55,108,0.3)}
-  .team2 .t2-role{font-size:12.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:700;margin-bottom:4px;line-height:1.3}
-  .team2 .t2-name{font-family:var(--mhn-font-serif);font-size:22px;color:var(--mhn-purple-700);margin:0 0 10px;font-weight:700;letter-spacing:-0.005em}
-  .team2 .t2-for{font-size:15px;line-height:1.5;color:var(--mhn-ink-soft);margin:0 0 18px;flex:1}
-  .team2 .t2-for b{color:var(--mhn-ink);font-weight:700}
-  .team2 .t2-actions{display:flex;flex-direction:column;gap:9px}
-  .team2 .t2-btn{display:block;text-align:center;border:1.5px solid var(--mhn-purple-200);color:var(--mhn-purple-700);background:#fff;text-decoration:none;padding:11px 16px;border-radius:999px;font-weight:700;font-size:14.5px;letter-spacing:0.01em;transition:background .15s,border-color .15s}
-  .team2 .t2-btn:hover{background:var(--mhn-purple-50);border-color:var(--mhn-purple-500)}
-  .team2 .t2-btn--solid{background:var(--mhn-purple-700);color:#fff;border-color:var(--mhn-purple-700)}
-  .team2 .t2-btn--solid:hover{background:var(--mhn-purple-900);border-color:var(--mhn-purple-900)}
-  .team2 .t2-note{font-size:13px;line-height:1.5;color:var(--mhn-ink-mute);margin:14px 0 0;font-style:italic}
-  .team2 .t2-lines-head{font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:var(--mhn-ink-mute);font-weight:700;margin:34px 0 12px}
-  .team2 .t2-lines{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-  .team2 .t2-line{background:var(--mhn-paper-alt,#FAF6F0);border:1px solid var(--mhn-line);border-radius:14px;padding:16px 18px;text-decoration:none;display:block;transition:border-color .15s,box-shadow .15s}
-  .team2 .t2-line:hover{border-color:var(--mhn-purple-300);box-shadow:0 4px 14px rgba(94,55,108,0.08)}
-  .team2 .t2-line-lbl{font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mhn-ink-mute);font-weight:700;margin-bottom:6px}
-  .team2 .t2-line-val{font-family:var(--mhn-font-serif);font-size:18px;color:var(--mhn-purple-700);font-weight:700;line-height:1.2}
-  .team2 .t2-line--urgent{background:#FBEFEF;border-color:#E9C9C9}
-  .team2 .t2-line--urgent .t2-line-lbl{color:#B05656}
-  .team2 .t2-line--urgent .t2-line-val{color:#A23A3A}
-  @media(max-width:820px){.team2{padding:8px 20px 40px}.team2 .t2-grid,.team2 .t2-lines{grid-template-columns:1fr}}
-</style>
-<section class="team2" id="team">
-  <div class="t2-eyebrow">Your admin team</div>
+<section class="phero bg-700 dk cp-hero"><div class="wrap"><div class="eyebrow">For Active Doulas</div><h1>Welcome back, doula.</h1><p class="lead">Forms, course access, resources, and the people you can call when you need backup. Everything an active MHN volunteer doula needs to do the work.</p></div></section>
+<div class="ptabs"><div class="wrap"><span class="ptabs-badge">Doula Portal</span><nav id="portalSideNav" aria-label="Portal navigation">
+    <a href="portal.html" data-id="hub" aria-current="page"><span class="tab-emoji" aria-hidden="true">🏠</span>Welcome</a>
+    <a href="portal-client-update.html" data-id="client-update"><span class="tab-emoji" aria-hidden="true">📝</span>Client Update</a>
+    <a href="portal-availability.html" data-id="availability"><span class="tab-emoji" aria-hidden="true">📅</span>Availability</a>
+    <a href="portal-training-materials.html" data-id="training-materials"><span class="tab-emoji" aria-hidden="true">📚</span>Training Materials</a>
+    <a href="directory.html" data-id="directory"><span class="tab-emoji" aria-hidden="true">🧑‍🤝‍🧑</span>Doula Directory</a>
+    <a href="portal-field-guide.html" data-id="field-guide"><span class="tab-emoji" aria-hidden="true">📖</span>Network Resources</a>
+    <a href="portal-pocket-doula.html" data-id="pocket-doula"><span class="tab-emoji" aria-hidden="true">🃏</span>Pocket Doula</a>
+    <a href="portal.html#team" data-id="contacts"><span class="tab-emoji" aria-hidden="true">💬</span>Contact Team</a>
+  </nav><a href="#" class="side-signout" id="portalSideSignout">Sign out</a></div></div>
+<section class="sec"><div class="wrap"><div class="shead"><div><div class="eyebrow">Start here</div><h2>Quick Actions</h2></div></div><div class="pgrid g4"><a class="pc" href="portal-client-update.html"><span class="bubble rose" aria-hidden="true">📝</span><i class="ico" data-lucide="clipboard-edit"></i><h3>Client Update</h3><p>Log a client visit, document a birth, or update prenatal/postpartum notes.</p><span class="go">Open form &rarr;</span></a>
+<a class="pc" href="portal-availability.html"><span class="bubble sage" aria-hidden="true">📅</span><i class="ico" data-lucide="calendar-check"></i><h3>Availability</h3><p>Update your monthly availability so coordinators can match you to client teams.</p><span class="go">Open form &rarr;</span></a>
+<a class="pc" href="portal-training-materials.html"><span class="bubble plum" aria-hidden="true">📚</span><i class="ico" data-lucide="book-marked"></i><h3>Training Materials</h3><p>Click here to access your birth doula course materials by day.</p><span class="go">Open materials &rarr;</span></a>
+<a class="pc" href="directory.html"><span class="bubble teal" aria-hidden="true">🧑‍🤝‍🧑</span><i class="ico" data-lucide="users"></i><h3>Doula Directory</h3><p>Search active doulas in the network by name, cohort, or service area.</p><span class="go">Open directory &rarr;</span></a>
+</div></div></section>
+<section class="sec bg-700 dk"><div class="wrap"><div class="shead"><div><div class="eyebrow">Library</div><h2>Resources</h2></div></div><div class="pgrid g3 onpurple"><a class="pc" href="portal-field-guide.html"><span class="bubble sage" aria-hidden="true">📖</span><i class="ico" data-lucide="library"></i><h3>Network Resources</h3><p>The MHN Field Guide plus postpartum planners, resource guides, and the doula communication guide. View or download.</p><span class="go">Open resources &rarr;</span></a>
+<a class="pc" href="portal-pocket-doula.html"><span class="bubble rose" aria-hidden="true">🃏</span><i class="ico" data-lucide="layers"></i><h3>Pocket Doula deck</h3><p>Flip through all 50 comfort cards. Standard ($40) and Professional ($100) editions for sale too.</p><span class="go">Open deck &rarr;</span></a>
+<a class="pc" href="portal.html#team"><span class="bubble teal" aria-hidden="true">💬</span><i class="ico" data-lucide="phone"></i><h3>Contact the Team</h3><p>Reach Kerionne, Breea, or Maddy directly, plus office and hotline lines and Kerionne's booking link.</p><span class="go">Jump to contacts &rarr;</span></a>
+</div></div></section>
+<section class="sec"><div class="wrap"><div class="shead"><div><div class="eyebrow">Downloads</div><h2>Tools &amp; Forms</h2></div></div><div class="pgrid g2">
+<div class="pc"><span class="bubble rose" aria-hidden="true">📄</span><i class="ico" data-lucide="file-down"></i><h3>Birth Vision Guide</h3><p>Client-facing PDF you can share with families when helping them build their birth plan.</p><a class="btn btn--primary" href="./assets/birth-vision-guide.pdf" target="_blank" rel="noopener">Download PDF</a></div>
+<div class="pc"><span class="bubble sage" aria-hidden="true">⭐</span><i class="ico" data-lucide="sparkles"></i><h3>Doula Spotlight form</h3><p>Nominate yourself or a teammate to be featured on our social channels and in donor communications.</p><span class="pill">Coming soon</span></div>
+</div></div></section>
+<section class="sec bg-700 dk team2" id="team"><div class="wrap">
+  <div class="eyebrow">Your admin team</div>
   <h2 class="t2-h2">Who to contact, and how.</h2>
-  <p class="t2-sub">Find the person whose work matches your question, then reach them whichever way is easiest. Not sure who to ask? Start with Kerionne. <em>Looking for another doula? That's the <a href="directory.html">Doula Directory</a>.</em></p>
+  <p class="t2-sub">Find the person whose work matches your question, then reach them whichever way is easiest. Not sure who to ask? Start with Kerionne. Looking for another doula? That's the <a href="directory.html">Doula Directory</a>.</p>
 
   <div class="t2-grid">
     <!-- Kerionne  primary -->
@@ -279,20 +138,23 @@
       <div class="t2-line-val">(225) 424-7532</div>
     </a>
   </div>
-</section>
-
-</main>
-</div><!-- /portal-app -->
+</div></section>
 </div><!-- /portal-protected -->
-
-<!-- FOOTER -->
+</main>
 <footer>
-  <div class="foot-grid">
-    <div class="foot-brand">
-      <div class="logo">Mary's Hands Network</div>
-      <p>A Louisiana 501(c)(3) nonprofit<br>EIN 92-2430838<br>451 E. Airport Avenue, Ste. A, Baton Rouge, LA 70806</p>
-    </div>
-    <div class="foot-col">
+<div class="foot-grid">
+<div class="foot-brand">
+<div class="logo">Mary's Hands Network</div>
+<p>A Louisiana 501(c)(3) nonprofit<br>EIN 92-2430838<br>451 E. Airport Avenue, Ste. A, Baton Rouge, LA 70806</p>
+<p style="font-family:var(--mhn-font-serif);color:#D4BADD">info@mhndoula.com<br>(225) 892-4906</p>
+<div class="social-row">
+<a aria-label="Facebook" href="https://www.facebook.com/maryshandsnetwork" rel="noopener" target="_blank"><svg fill="currentColor" height="18" viewbox="0 0 24 24" width="18"><path d="M22 12C22 6.48 17.52 2 12 2S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"></path></svg></a>
+<a aria-label="Instagram" href="https://www.instagram.com/maryshandsnetwork" rel="noopener" target="_blank"><svg fill="currentColor" height="18" viewbox="0 0 24 24" width="18"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.64-.07-4.85s.01-3.58.07-4.85c.15-3.23 1.66-4.77 4.92-4.92C8.42 2.17 8.8 2.16 12 2.16zm0-2.16C8.74 0 8.33.01 7.05.07c-4.36.2-6.78 2.62-6.98 6.98C.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.36 2.62 6.78 6.98 6.98C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c4.35-.2 6.78-2.62 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.2-4.35-2.62-6.78-6.98-6.98C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 100 12.32A6.16 6.16 0 0012 5.84zM12 16a4 4 0 110-8 4 4 0 010 8zm6.41-11.85a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"></path></svg></a>
+<a aria-label="YouTube" href="https://www.youtube.com/@maryshandsnetwork" rel="noopener" target="_blank"><svg fill="currentColor" height="18" viewbox="0 0 24 24" width="18"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 00.5 6.2C0 8 0 12 0 12s0 4 .5 5.8a3 3 0 002.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 002.1-2.1C24 16 24 12 24 12s0-4-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"></path></svg></a>
+</div>
+<div class="ein-line">501(c)(3) &middot; IRB Protocol #2025-001 &middot; ICEA-approved training</div>
+</div>
+<div class="foot-col">
 <h5>For families</h5>
 <a href="https://forms.monday.com/forms/546fd2fcbe315080bfe3f5adb91179d9?r=use1" target="_blank" rel="noopener">Apply for Doula Support</a>
 <a href="hotline.html">Doula Hotline</a>
@@ -312,17 +174,23 @@
 <a href="privacy.html">Privacy</a>
 <a href="contact.html">Contact</a>
 </div>
-  </div>
-  <div class="foot-btm">
-    <span>&copy; 2026 Mary's Hands Network &middot; All Rights Reserved</span>
-    <span>Every Birth Deserves a Doula.</span>
-  </div>
+</div>
+<div class="foot-quick-help">
+<span class="qh-label">Need help right now?</span>
+<a href="hotline.html">Doula Hotline</a>
+<a href="bereavement.html">Loss &amp; Bereavement</a>
+</div>
+<div class="foot-btm">
+<span>&copy;  2026 Mary's Hands Network &middot; All Rights Reserved</span>
+<span>Every Birth Deserves a Doula.</span>
+</div>
 </footer>
+<div class="sticky-mobile-cta">
+<a class="apply" href="for-mom.html">Apply</a>
+<a class="call" href="tel:2254247532">Call</a>
+<a class="donate" href="donate.html">Donate</a>
 </div>
 <script>lucide.createIcons();</script>
-
-
-
 <script>
 (function(){
   var KEY="mhn_portal_access_v1";
@@ -367,6 +235,5 @@
   }
 })();
 </script>
-
 </body>
 </html>

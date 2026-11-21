@@ -20,10 +20,6 @@
 <link rel="icon" type="image/png" href="./assets/logo-seal.png">
 <link rel="apple-touch-icon" href="./assets/logo-seal.png">
 <link rel="canonical" href="https://maryshandsnetwork.org/portal-birth-roll.html">
-<link rel="stylesheet" href="./colors_and_type.css?v=20261119m">
-<link rel="stylesheet" href="./site.css?v=20261119m">
-<link rel="stylesheet" href="./portal-shell.css?v=20261119m">
-<link rel="stylesheet" href="./polish.css?v=20261119m">
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 <script src="./mobile-nav.js?v=20261119m" defer></script>
 <style>
@@ -36,8 +32,8 @@
   .br-hero{display:grid;grid-template-columns:1.2fr auto;gap:24px;align-items:center;padding:22px 28px;background:linear-gradient(135deg,#5E376C 0%,#3D1F48 100%);border-radius:22px;color:#fff;box-shadow:0 12px 36px rgba(94,55,108,0.28);margin-bottom:24px}
   .br-hero .br-eyebrow{font-size:12px;letter-spacing:0.26em;text-transform:uppercase;color:#D4BADD;font-weight:800;margin-bottom:6px}
   .br-hero h1{font-family:var(--mhn-font-serif);font-size:34px;color:#fff;margin:0 0 8px;letter-spacing:-0.015em;line-height:1.05;font-weight:700}
-  .br-hero h1 em{font-style:italic;color:#D4BADD;font-weight:400}
-  .br-hero p{margin:0;font-size:15.5px;line-height:1.6;color:rgba(255,255,255,0.92);max-width:640px;font-family:var(--mhn-font-serif);font-style:italic}
+  .br-hero h1 em{font-style:normal;color:#D4BADD;font-weight:400}
+  .br-hero p{margin:0;font-size:15.5px;line-height:1.6;color:rgba(255,255,255,0.92);max-width:640px;font-family:var(--mhn-font-serif);font-style:normal}
   .br-hero .hero-meta{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,0.14);border:1px solid rgba(212,186,221,0.45);border-radius:12px;padding:14px 18px;color:#fff}
   .br-hero .hero-meta .num{font-family:var(--mhn-font-serif);font-size:44px;font-weight:700;line-height:1;color:#fff;letter-spacing:-0.02em}
   .br-hero .hero-meta .lbl{font-family:var(--mhn-font-sans);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:#D4BADD;font-weight:800;line-height:1.2}
@@ -73,7 +69,7 @@
   .br-stage-head{margin:0 0 18px}
   .br-stage-head .e{font-size:12px;letter-spacing:0.22em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:800;margin-bottom:6px}
   .br-stage-head h2{font-family:var(--mhn-font-serif);font-size:26px;color:var(--mhn-purple-700);margin:0 0 6px;letter-spacing:-0.015em;line-height:1.1}
-  .br-stage-head p{margin:0;color:var(--mhn-ink-soft);font-size:15px;line-height:1.55;font-family:var(--mhn-font-serif);font-style:italic;max-width:780px}
+  .br-stage-head p{margin:0;color:var(--mhn-ink-soft);font-size:15px;line-height:1.55;font-family:var(--mhn-font-serif);font-style:normal;max-width:780px}
 
   /* ---------------- DIFFICULTY PICKER ---------------- */
   .diff-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0}
@@ -116,7 +112,7 @@
   .roll-header{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:start;margin-bottom:14px}
   .roll-label{font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:800;margin-bottom:4px}
   .roll-title{font-family:var(--mhn-font-serif);font-size:21px;color:var(--mhn-purple-700);margin:0 0 4px;font-weight:700;letter-spacing:-0.01em;line-height:1.15}
-  .roll-hint{margin:0;font-size:14px;color:var(--mhn-ink-soft);line-height:1.55;font-family:var(--mhn-font-serif);font-style:italic}
+  .roll-hint{margin:0;font-size:14px;color:var(--mhn-ink-soft);line-height:1.55;font-family:var(--mhn-font-serif);font-style:normal}
 
   .mode-toggle{display:inline-flex;background:var(--mhn-purple-50);border:1px solid var(--mhn-purple-200);border-radius:999px;padding:3px;flex-shrink:0}
   .mode-toggle button{background:transparent;border:none;padding:6px 14px;font-family:var(--mhn-font-sans);font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:var(--mhn-purple-500);cursor:pointer;border-radius:999px;display:inline-flex;align-items:center;gap:4px;transition:all .15s}
@@ -224,7 +220,7 @@
   .br-decision-card .d-eyebrow{display:inline-flex;align-items:center;gap:6px;font-family:var(--mhn-font-sans);font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:#85571F;font-weight:800;margin-bottom:8px}
   .br-decision-card .d-eyebrow .ico{width:14px;height:14px}
   .br-decision-card h4{font-family:var(--mhn-font-serif);font-size:19px;color:#85571F;margin:0 0 8px;font-weight:700;letter-spacing:-0.005em;line-height:1.25}
-  .br-decision-card .d-scene{font-size:15px;line-height:1.6;color:var(--mhn-ink);margin:0 0 16px;font-family:var(--mhn-font-serif);font-style:italic}
+  .br-decision-card .d-scene{font-size:15px;line-height:1.6;color:var(--mhn-ink);margin:0 0 16px;font-family:var(--mhn-font-serif);font-style:normal}
   .br-decision-card .d-question{margin:0 0 12px;font-size:15px;line-height:1.55;color:var(--mhn-ink);font-weight:700}
   .d-options{display:grid;grid-template-columns:1fr;gap:8px}
   .d-option{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start;padding:14px 18px;background:#fff;border:1.5px solid #E8D5BD;border-radius:12px;cursor:pointer;transition:all .15s;text-align:left;font-family:inherit;color:var(--mhn-ink);font-size:14.5px;line-height:1.55}
@@ -250,7 +246,7 @@
   .name-card label{display:block;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:800;margin-bottom:8px}
   .name-card input{display:block;width:100%;max-width:480px;padding:14px 18px;font-family:var(--mhn-font-serif);font-size:22px;color:var(--mhn-purple-700);background:#fff;border:2px solid var(--mhn-purple-200);border-radius:12px;font-weight:700;letter-spacing:-0.005em;box-sizing:border-box}
   .name-card input:focus{outline:none;border-color:var(--mhn-purple-700);box-shadow:0 0 0 4px rgba(94,55,108,0.12)}
-  .name-card .hint{margin:8px 0 0;font-size:13px;color:var(--mhn-ink-soft);font-style:italic;font-family:var(--mhn-font-serif)}
+  .name-card .hint{margin:8px 0 0;font-size:13px;color:var(--mhn-ink-soft);font-style:normal;font-family:var(--mhn-font-serif)}
   .name-card.is-required{border-color:var(--mhn-warm-700);background:linear-gradient(135deg,#FAEFE0 0%,#FFF8EC 100%);box-shadow:0 6px 18px rgba(133,87,31,0.18)}
   .name-card.is-required label{color:#85571F}
   .name-card.is-required input{border-color:var(--mhn-warm-700)}
@@ -301,7 +297,7 @@
   .ss-section .ss-eyebrow .ico{width:11px;height:11px}
   .ss-section p{margin:0;font-size:13.5px;line-height:1.6;color:var(--mhn-ink);font-family:var(--mhn-font-serif)}
   .ss-section p strong{color:#85571F;font-weight:700}
-  .ss-empty{font-family:var(--mhn-font-serif);font-style:italic;font-size:14px;line-height:1.6;color:var(--mhn-ink-soft);text-align:center;padding:24px 12px}
+  .ss-empty{font-family:var(--mhn-font-serif);font-style:normal;font-size:14px;line-height:1.6;color:var(--mhn-ink-soft);text-align:center;padding:24px 12px}
   .ss-decisions{padding-top:10px;border-top:1px dashed #E8D5BD}
   .ss-decision{display:inline-flex;align-items:center;gap:5px;padding:3px 8px;background:#fff;border-radius:999px;font-family:var(--mhn-font-sans);font-size:10.5px;font-weight:800;letter-spacing:0.04em;margin:2px 4px 2px 0}
   .ss-decision .ico{width:11px;height:11px}
@@ -329,8 +325,8 @@
   .story-banner{padding:26px 30px;border-radius:20px;background:linear-gradient(135deg,#5E376C 0%,#3D1F48 100%);color:#fff;margin-bottom:20px;box-shadow:0 12px 36px rgba(94,55,108,0.28)}
   .story-banner .e{font-size:12px;letter-spacing:0.24em;text-transform:uppercase;color:#D4BADD;font-weight:800;margin-bottom:6px}
   .story-banner h2{font-family:var(--mhn-font-serif);font-size:28px;color:#fff;margin:0 0 6px;letter-spacing:-0.015em;line-height:1.1}
-  .story-banner h2 em{font-style:italic;color:#D4BADD;font-weight:400}
-  .story-banner p{margin:0;font-family:var(--mhn-font-serif);font-style:italic;font-size:15px;line-height:1.6;color:rgba(255,255,255,0.92)}
+  .story-banner h2 em{font-style:normal;color:#D4BADD;font-weight:400}
+  .story-banner p{margin:0;font-family:var(--mhn-font-serif);font-style:normal;font-size:15px;line-height:1.6;color:rgba(255,255,255,0.92)}
 
   .narrative-card{background:linear-gradient(135deg,#FAF1E1 0%,#FFF8EC 100%);border:1px solid #E8D5BD;border-radius:18px;padding:26px 30px;margin-bottom:18px;box-shadow:0 6px 18px rgba(133,87,31,0.08)}
   .narrative-card .e{font-size:12px;letter-spacing:0.22em;text-transform:uppercase;color:#85571F;font-weight:800;margin-bottom:10px}
@@ -410,20 +406,23 @@
 <!-- Metricool tracking -->
 <script>function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"d8d3c46a1618fd16101a331dfbfb19dd"})});</script>
 <script src="./ticker.js?v=20261119m" defer></script>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./a1.css?v=20261121l">
 </head>
-<body data-screen-label="The Birth Roll">
+<body class="a1 portal" data-screen-label="The Birth Roll">
 <a class="mhn-skip" href="#main">Skip to content</a>
 <header class="mhn-header">
   <div class="mhn-wrap mhn-header-bar">
     <a class="mhn-brand" href="index.html">
       <img src="./assets/logo-seal-96.png" alt="Mary's Hands Network" width="52" height="52">
-      <span>Mary's Hands Network</span>
+      <span>Mary's Hands<br>Network</span>
     </a>
     <button class="mhn-menu" type="button" aria-expanded="false" aria-controls="site-nav" data-open="Menu" data-close="Close">Menu</button>
     <nav id="site-nav" class="mhn-nav" aria-label="Primary">
       <a href="about.html">About</a>
       <a href="for-mom.html">For Families</a>
       <a href="doula-training.html">For Doulas</a>
+      <a href="gala.html">Gala</a>
       <a href="contact.html">Contact</a>
       <a href="inicio.html" class="mhn-lang" lang="es" title="Español" aria-label="Cambiar a español">ENG<span>/</span>ESP</a>
       <a href="portal.html">Doula Portal</a>
@@ -437,38 +436,33 @@
 
 <!-- TOP NAV -->
 <!-- ACCESS GATE -->
-<section id="portal-gate">
+<section id="portal-gate" class="sec bg-700 dk gate"><div class="wrap gate-in">
   <div class="eyebrow">For Active Doulas</div>
   <h1>Members only.</h1>
   <p class="lede">Enter your access code to view the doula portal.</p>
   <form id="portal-gate-form" autocomplete="off" novalidate>
     <input id="portal-code" type="text" placeholder="Access code" aria-label="Access code" autocapitalize="characters" spellcheck="false">
-    <button type="submit">Enter portal</button>
+    <button type="submit" class="btn btn--light">Enter portal</button>
     <p class="gate-error" id="portal-gate-error" role="alert" aria-live="polite"></p>
   </form>
   <p class="gate-help">Don't have a code? <a href="contact.html">Contact us</a> or ask your Volunteer Coordinator.</p>
-</section>
+</div></section>
 
 <!-- PROTECTED CONTENT -->
 <div id="portal-protected">
 <div class="portal-app">
 
 <!-- SIDEBAR -->
-<aside class="portal-side" aria-label="Portal navigation">
-  <h4>Portal</h4>
-  <nav id="portalSideNav">
-    <a href="portal.html" data-id="hub"><i class="ico" data-lucide="home"></i>Welcome</a>
-    <a href="portal-client-update.html" data-id="client-update"><i class="ico" data-lucide="clipboard-edit"></i>Client Update</a>
-    <a href="portal-availability.html" data-id="availability"><i class="ico" data-lucide="calendar-check"></i>Availability</a>
-    <a href="portal-training-materials.html" data-id="training-materials" class="active"><i class="ico" data-lucide="book-marked"></i>Training Materials</a>
-    <a href="directory.html" data-id="directory"><i class="ico" data-lucide="users"></i>Doula Directory</a>
-    <a href="portal-field-guide.html" data-id="field-guide"><i class="ico" data-lucide="library"></i>Network Resources</a>
-    <a href="portal-pocket-doula.html" data-id="pocket-doula"><i class="ico" data-lucide="layers"></i>Pocket Doula</a>
-    <a href="portal.html#team" data-id="contacts"><i class="ico" data-lucide="phone"></i>Contact Team</a>
-  </nav>
-  <div class="side-divider"></div>
-  <a href="#" class="side-signout" id="portalSideSignout"><i class="ico" data-lucide="log-out"></i>Sign out</a>
-</aside>
+<div class="ptabs"><div class="wrap"><span class="ptabs-badge">Doula Portal</span><nav id="portalSideNav" aria-label="Portal navigation">
+    <a href="portal.html" data-id="hub"><span class="tab-emoji" aria-hidden="true">🏠</span>Welcome</a>
+    <a href="portal-client-update.html" data-id="client-update"><span class="tab-emoji" aria-hidden="true">📝</span>Client Update</a>
+    <a href="portal-availability.html" data-id="availability"><span class="tab-emoji" aria-hidden="true">📅</span>Availability</a>
+    <a href="portal-training-materials.html" data-id="training-materials"><span class="tab-emoji" aria-hidden="true">📚</span>Training Materials</a>
+    <a href="directory.html" data-id="directory"><span class="tab-emoji" aria-hidden="true">🧑‍🤝‍🧑</span>Doula Directory</a>
+    <a href="portal-field-guide.html" data-id="field-guide"><span class="tab-emoji" aria-hidden="true">📖</span>Network Resources</a>
+    <a href="portal-pocket-doula.html" data-id="pocket-doula"><span class="tab-emoji" aria-hidden="true">🃏</span>Pocket Doula</a>
+    <a href="portal.html#team" data-id="contacts"><span class="tab-emoji" aria-hidden="true">💬</span>Contact Team</a>
+  </nav><a href="#" class="side-signout" id="portalSideSignout">Sign out</a></div></div>
 
 <!-- MAIN -->
 <main class="portal-main">
@@ -478,16 +472,28 @@
 <div class="br-wrap">
         <section class="br-moved" style="max-width:760px;margin:24px auto 48px;background:#f5f0f8;border:1.5px solid #c9aedd;border-radius:20px;padding:36px 32px;text-align:left">
           <div style="font-size:12px;letter-spacing:0.22em;text-transform:uppercase;font-weight:800;color:#B5824A;margin-bottom:10px">Doula Training Simulator</div>
-          <h1 style="margin:0 0 14px;color:#5E376C;font-size:32px;line-height:1.15">The Birth Roll has a new home.</h1>
+          <span class="bubble plum" aria-hidden="true">🎲</span><h1 style="margin:0 0 14px;color:#5E376C;font-size:32px;line-height:1.15">The Birth Roll has a new home.</h1>
           <p style="margin:0 0 14px;font-size:17px;line-height:1.6;color:#3a1f4a">The Birth Roll now lives on Madeline Harris LeBlanc's website, where it gets every update. It's free and needs no login or access code.</p>
           <p style="margin:0 0 22px;font-size:16px;line-height:1.6;color:#3a1f4a">The new version has 15 rolls, a story that stays consistent from setup to the eight-week check-in, transfer-of-care and cesarean-day paths, an explanation for every answer choice, and an end-of-game scorecard to bring to your debrief.</p>
           <a href="https://maddythedoulalady.com/birth-roll.html" target="_blank" rel="noopener" style="display:inline-block;background:#5E376C;color:#fff;text-decoration:none;font-weight:700;padding:14px 26px;border-radius:999px;font-size:16px">Open The Birth Roll &rarr;</a>
-          <p style="margin:18px 0 0;font-size:14px;line-height:1.55;color:#7A4A8E;font-style:italic">Opens in a new tab. Your progress saves in your browser on that site, so you can come back and pick up where you left off.</p>
+          <p style="margin:18px 0 0;font-size:14px;line-height:1.55;color:#7A4A8E;font-style:normal">Opens in a new tab. Your progress saves in your browser on that site, so you can come back and pick up where you left off.</p>
         </section>
       </div><!-- /.br-wrap -->
 
 </main>
 </div><!-- /.portal-app -->
+<section class="portal-help">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Need help?</p>
+      <h2>Call the hotline or your coordinator.</h2>
+    </div>
+    <div class="acts">
+      <a class="btn btn--light" href="tel:2254247532">Doula Hotline</a>
+      <a class="btn btn--ghost-light" href="portal.html#team">Contact the team</a>
+    </div>
+  </div>
+</section>
 </div><!-- /#portal-protected -->
 
 </div><!-- /.page -->
