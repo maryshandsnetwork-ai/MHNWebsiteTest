@@ -22,280 +22,31 @@
 <meta property="og:description" content="ICEA-affiliated birth doula training, bereavement specialty, breastfeeding education, and customizable curriculum from MHN.">
 <meta content="https://maryshandsnetwork.org/assets/logo-full.png" property="og:image"/>
 <meta content="https://maryshandsnetwork.org/doula-training.html" property="og:url"/>
-<link href="./colors_and_type.css?v=20261119m" rel="stylesheet"/>
-<link rel="stylesheet" href="./site.css?v=20261119m">
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 <script src="./mobile-nav.js?v=20261119m" defer></script>
-<style>
-html,body{margin:0;padding:0;background:#fff;font-family:var(--mhn-font-sans);color:var(--mhn-ink)}
-.page{max-width:1280px;margin:0 auto}
-.nav{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:18px 48px;border-bottom:1px solid var(--mhn-line-soft);column-gap:24px}
-.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit;justify-self:start}
-.brand .seal{width:44px;height:44px;display:flex;align-items:center;justify-content:center}
-.brand .seal img{width:44px;height:44px;display:block}
-.brand .name{font-family:var(--mhn-font-serif);font-weight:700;font-size:20px;color:var(--mhn-purple-700)}
-.nav-links{display:flex;gap:30px;align-items:center;justify-self:center}
-.nav-links a{text-decoration:none;color:var(--mhn-ink-soft);font-size:16px;font-weight:700;display:inline-flex;align-items:center}
-.nav-links .active{color:var(--mhn-purple-700)}
-.nav-actions{display:flex;gap:14px;align-items:center;justify-self:end}
-@media(max-width:900px){.nav{grid-template-columns:1fr;row-gap:10px}.brand,.nav-links,.nav-actions{justify-self:center}.nav-links{flex-wrap:wrap;justify-content:center;gap:14px 22px}}
 
-/* HERO */
-.hero{padding:56px 48px 28px;max-width:900px}
-.eyebrow{font-size:16px;letter-spacing:0.28em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:700;margin-bottom:16px}
-h1.t{font-family:var(--mhn-font-serif);font-size:25px;line-height:1.05;color:var(--mhn-purple-700);margin:0 0 18px;letter-spacing:-0.015em;font-weight:700}
-h1.t em{font-style:italic;color:var(--mhn-purple-500)}
-.lede{font-family:var(--mhn-font-serif);font-style:italic;font-size:19px;line-height:1.55;color:var(--mhn-ink-soft);margin:0;max-width:780px}
-
-/* COHORT CALLOUT (top of page)  animated to draw attention */
-.cohort-callout{position:relative;margin:0;background:#2A1733;color:#fff;border-radius:0;padding:28px 48px;display:grid;grid-template-columns:1.2fr auto;gap:24px;align-items:center;box-shadow:none;animation:none}
-.cohort-callout::before{display:none}
-@keyframes cohortGlow{
-0%,100%{box-shadow:0 12px 36px rgba(94,55,108,0.32),0 0 0 0 rgba(212,186,221,0.65)}
-50%{box-shadow:0 16px 44px rgba(94,55,108,0.42),0 0 0 12px rgba(212,186,221,0.0)}
-}
-@keyframes cohortShimmer{
-0%{filter:blur(8px);opacity:0.4}
-50%{filter:blur(14px);opacity:0.7}
-100%{filter:blur(8px);opacity:0.4}
-}
-.cohort-callout .label{font-size:16px;letter-spacing:0.22em;text-transform:uppercase;color:var(--mhn-purple-200);font-weight:700;margin-bottom:8px}
-.cohort-callout h3{font-family:var(--mhn-font-serif);font-size:21px;color:#fff;margin:0 0 6px;font-weight:700;letter-spacing:-0.01em}
-.cohort-callout p{margin:0;color:#F1EDF3;font-size:16px;line-height:1.55}
-.cohort-callout a.btn{background:#fff;color:var(--mhn-purple-700);text-decoration:none;padding:14px 26px;border-radius:999px;font-weight:700;font-size:16px;letter-spacing:0.02em;display:inline-block;transition:transform 0.15s, box-shadow 0.15s;box-shadow:0 4px 14px rgba(0,0,0,0.18)}
-.cohort-callout a.btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,0.28)}
-@media(max-width:680px){.cohort-callout{grid-template-columns:1fr}}
-@media (prefers-reduced-motion: reduce){
-.cohort-callout{animation:none}
-.cohort-callout::before{animation:none}
-}
-
-/* PROGRAMS GRID */
-.programs{padding:24px 48px 48px;max-width:1200px;margin:0 auto}
-.programs-head{max-width:700px;margin-bottom:32px}
-.programs-head h2{font-family:var(--mhn-font-serif);font-size:25px;color:var(--mhn-purple-700);margin:8px 0 12px;letter-spacing:-0.01em;line-height:1.1}
-.programs-head p{font-family:var(--mhn-font-serif);font-style:italic;color:var(--mhn-ink-soft);font-size:17px;margin:0;line-height:1.55}
-.pgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
-.pcard{background:#fff;border:1px solid #D4BADD;border-radius:12px;padding:24px;transition:transform 0.15s, box-shadow 0.15s}
-.pcard:hover{transform:translateY(-2px);box-shadow:var(--mhn-shadow-md)}
-.pcard .ico-w{width:44px;height:44px;background:var(--mhn-purple-50);border-radius:12px;display:inline-flex;align-items:center;justify-content:center;margin-bottom:16px}
-.pcard .ico-w i,.pcard .ico-w svg{width:22px;height:22px;color:var(--mhn-purple-700)}
-.pcard .badge{display:inline-block;font-size:16px;letter-spacing:0.16em;text-transform:uppercase;color:var(--mhn-purple-700);font-weight:700;background:var(--mhn-purple-50);padding:4px 10px;border-radius:999px;margin-bottom:10px}
-.pcard h3{font-family:var(--mhn-font-serif);font-size:21px;color:var(--mhn-purple-700);margin:0 0 8px;font-weight:700;letter-spacing:-0.005em}
-.pcard p{font-size:16px;line-height:1.6;color:var(--mhn-ink-soft);margin:0 0 14px}
-.pcard ul{margin:0 0 14px;padding-left:18px;font-size:16px;line-height:1.6;color:var(--mhn-ink-soft)}
-.pcard ul li{margin-bottom:5px}
-.pcard a.more{color:var(--mhn-purple-700);font-weight:700;font-size:16px;text-decoration:none;border-bottom:1.5px solid var(--mhn-purple-200);padding-bottom:1px;transition:border-color 0.15s}
-.pcard a.more:hover{border-color:var(--mhn-purple-700)}
-/* Wide card spans the full grid row (used for Customized Curriculum) */
-.pcard--wide{grid-column:1 / -1;background:#fff;border-color:#D4BADD}
-.pcard--wide .ico-w{background:#F4EBF8}
-.pcard--wide .ico-w i,.pcard--wide .ico-w svg{color:#5E376C}
-.pcard--wide .badge{background:#F4EBF8;color:#5E376C}
-.pcard--wide ul{column-count:2;column-gap:36px}
-.pcard--wide ul li{break-inside:avoid}
-@media(max-width:680px){.pgrid{grid-template-columns:1fr} .pcard--wide ul{column-count:1}}
-
-/* FORMATS */
-.formats{padding:56px 48px;background:#F4EBF8}
-.formats-head{max-width:680px;margin-bottom:30px}
-.formats-head h2{font-family:var(--mhn-font-serif);font-size:27px;color:var(--mhn-purple-700);margin:10px 0 10px;letter-spacing:-0.01em;line-height:1.1}
-.formats-head p{font-family:var(--mhn-font-serif);font-style:italic;color:var(--mhn-ink-soft);font-size:17px;margin:0;line-height:1.55}
-.fgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:1200px;margin:0 auto}
-.fcard{background:#fff;border:1px solid var(--mhn-line);border-radius:16px;padding:24px}
-.fcard .h{font-family:var(--mhn-font-serif);font-size:20px;color:var(--mhn-purple-700);margin:0 0 8px;font-weight:700}
-.fcard .meta{font-size:16px;letter-spacing:0.12em;text-transform:uppercase;color:var(--mhn-purple-500);font-weight:700;margin-bottom:12px}
-.fcard p{margin:0;font-size:16px;color:var(--mhn-ink-soft);line-height:1.55}
-@media(max-width:760px){.fgrid{grid-template-columns:1fr}}
-
-/* CERT PATHWAY */
-.pathway{padding:56px 48px;max-width:1200px;margin:0 auto}
-.pathway-head{margin-bottom:28px;max-width:680px}
-.pathway-head h2{font-family:var(--mhn-font-serif);font-size:27px;color:var(--mhn-purple-700);margin:10px 0 10px;letter-spacing:-0.01em;line-height:1.1}
-.pathway-head p{font-family:var(--mhn-font-serif);font-style:italic;color:var(--mhn-ink-soft);font-size:17px;margin:0;line-height:1.55}
-.steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.step-box{background:var(--mhn-paper-alt);border:1px solid var(--mhn-line);border-radius:14px;padding:20px;position:relative}
-.step-box .n{font-family:var(--mhn-font-serif);font-size:25px;font-weight:700;color:var(--mhn-purple-300);line-height:1;margin-bottom:8px}
-.step-box h4{font-family:var(--mhn-font-serif);font-size:17px;color:var(--mhn-purple-700);margin:0 0 6px;font-weight:700}
-.step-box p{font-size:16px;line-height:1.55;color:var(--mhn-ink-soft);margin:0}
-@media(max-width:900px){.steps-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:520px){.steps-grid{grid-template-columns:1fr}}
-
-/* INSURANCE / REGISTRY two-up */
-.biz{padding:56px 48px;background:var(--mhn-paper-alt)}
-.biz-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:1180px;margin:0 auto}
-.biz-card{background:#fff;border:1px solid var(--mhn-line);border-radius:18px;padding:30px}
-.biz-card .ico-w{width:44px;height:44px;background:var(--mhn-purple-50);border-radius:12px;display:inline-flex;align-items:center;justify-content:center;margin-bottom:14px}
-.biz-card .ico-w i,.biz-card .ico-w svg{width:22px;height:22px;color:var(--mhn-purple-700)}
-.biz-card h3{font-family:var(--mhn-font-serif);font-size:21px;color:var(--mhn-purple-700);margin:0 0 10px;font-weight:700;letter-spacing:-0.005em}
-.biz-card p{font-size:16px;line-height:1.6;color:var(--mhn-ink-soft);margin:0 0 12px}
-.biz-card ul{margin:0 0 6px;padding-left:18px;font-size:16px;line-height:1.6;color:var(--mhn-ink-soft)}
-.biz-card ul li{margin-bottom:6px}
-.biz-card .src{font-size:16px;font-style:italic;color:var(--mhn-ink-mute);margin-top:10px}
-@media(max-width:760px){.biz-grid{grid-template-columns:1fr}}
-
-/* PHOTO STRIP */
-.photo-strip{padding:48px 48px}
-.photo-strip-head{max-width:700px;margin:0 auto 28px;text-align:center}
-.photo-strip-head h2{font-family:var(--mhn-font-serif);font-size:27px;color:var(--mhn-purple-700);margin:6px 0 10px;letter-spacing:-0.01em}
-.photo-strip-head p{font-family:var(--mhn-font-serif);font-style:italic;color:var(--mhn-ink-soft);font-size:17px;margin:0}
-.frame-row{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;max-width:1200px;margin:0 auto}
-.mhn-frame{margin:0;background:#fff;border-radius:14px;overflow:hidden;box-shadow:var(--mhn-shadow-sm)}
-.mhn-frame img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block}
-.mhn-frame figcaption{padding:10px 14px;font-family:var(--mhn-font-serif);font-style:italic;font-size:16px;color:var(--mhn-purple-700);text-align:center}
-@media(max-width:900px){.frame-row{grid-template-columns:repeat(2,1fr)}}
-
-/* STORE CTA */
-.store-cta{padding:56px 48px;background:linear-gradient(180deg,#fff,var(--mhn-purple-50))}
-.store-cta-inner{max-width:1100px;margin:0 auto;background:#fff;border:1px solid var(--mhn-purple-200);border-radius:20px;padding:36px 40px;display:grid;grid-template-columns:1.4fr 1fr;gap:28px;align-items:center}
-.store-cta h2{font-family:var(--mhn-font-serif);font-size:25px;color:var(--mhn-purple-700);margin:0 0 10px;font-weight:700;line-height:1.15}
-.store-cta p{font-size:17px;line-height:1.55;color:var(--mhn-ink-soft);margin:0 0 6px}
-.store-cta a.go{display:inline-block;background:var(--mhn-purple-700);color:#fff;padding:14px 28px;border-radius:999px;text-decoration:none;font-weight:700;font-size:16px;letter-spacing:0.02em}
-.store-cta a.go:hover{background:var(--mhn-purple-900)}
-@media(max-width:760px){.store-cta-inner{grid-template-columns:1fr;text-align:left}}
-
-/* FOOTER mirrors site */
-footer{background:var(--mhn-purple-900);color:#F1EDF3;padding:64px 48px 36px;margin-top:64px}
-.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px;max-width:1280px;margin:0 auto}
-.foot-brand .logo{font-family:var(--mhn-font-serif);font-size:21px;color:#fff;font-weight:700;margin-bottom:10px}
-.foot-brand p{font-size:16px;line-height:1.55;margin:0 0 8px;color:#D4BADD}
-.foot-col h5{font-size:16px;letter-spacing:0.18em;text-transform:uppercase;color:var(--mhn-purple-200);font-weight:700;margin:0 0 14px}
-.foot-col a{display:block;text-decoration:none;color:#F1EDF3;font-size:16px;margin-bottom:8px;transition:color 0.15s}
-.foot-col a:hover{color:#fff}
-.foot-btm{max-width:1280px;margin:32px auto 0;padding-top:24px;border-top:1px solid rgba(255,255,255,0.1);display:flex;justify-content:space-between;font-size:16px;color:#D4BADD}
-.ein-line{font-size:16px;color:#A990B5;margin-top:14px;letter-spacing:0.04em}
-.social-row{display:flex;gap:10px;margin-top:14px}
-.social-row a{color:#D4BADD;background:rgba(255,255,255,0.06);width:34px;height:34px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;transition:background 0.15s}
-.social-row a:hover{background:rgba(255,255,255,0.16);color:#fff}
-@media(max-width:900px){.foot-grid{grid-template-columns:1fr 1fr;gap:24px}.foot-btm{flex-direction:column;gap:8px}}
-
-/* Sticky mobile CTA reused */
-@media(max-width:760px){
-h1.t{font-size:25px}
-.hero{padding:32px 24px 16px}
-.programs,.formats,.pathway,.biz,.photo-strip,.store-cta{padding-left:24px;padding-right:24px}
-.cohort-callout{margin:16px 24px 24px;padding:22px 24px}
-}
-
-/* ============================================================
-COLORFUL SECTION BACKGROUNDS (April 2026 visual refresh)
-Alternating warm/cool washes + subtle pattern accents to make
-the page easier to scan and more visually engaging.
-============================================================ */
-
-/* Page-wide soft cream wash behind the hero */
-body{background:linear-gradient(180deg, #FAF5EC 0%, #FFFFFF 240px) !important}
-
-/* HERO: subtle warm cream backdrop */
-.hero.hero-with-photo{background:linear-gradient(135deg, #FAF1E1 0%, #F8F5FA 100%);border-radius:0 0 28px 28px;padding-bottom:40px !important;position:relative;overflow:hidden}
-.hero.hero-with-photo::before{content:"";position:absolute;top:-80px;right:-60px;width:240px;height:240px;background:radial-gradient(circle, rgba(181,130,74,0.18) 0%, rgba(181,130,74,0) 70%);pointer-events:none}
-.hero.hero-with-photo::after{content:"";position:absolute;bottom:-100px;left:-80px;width:280px;height:280px;background:radial-gradient(circle, rgba(94,55,108,0.14) 0%, rgba(94,55,108,0) 70%);pointer-events:none}
-
-/* PROGRAMS: rich purple gradient with soft top fade */
-.programs{background:linear-gradient(180deg, #F4EAF7 0%, #EFE0F2 100%) !important;padding:48px 48px 56px !important;max-width:none !important;border-top:1px solid #E2C8EA;border-bottom:1px solid #E2C8EA;position:relative}
-.programs .programs-head, .programs .pgrid{max-width:1200px;margin-left:auto !important;margin-right:auto !important}
-.programs .programs-head .eyebrow{color:var(--mhn-purple-700);background:#fff;display:inline-block;padding:6px 14px;border-radius:999px;font-size:14px;letter-spacing:0.18em;box-shadow:0 2px 8px rgba(94,55,108,0.10)}
-.pcard{box-shadow:0 4px 18px rgba(94,55,108,0.08);border-color:rgba(94,55,108,0.12) !important}
-.pcard:hover{box-shadow:0 12px 32px rgba(94,55,108,0.20) !important}
-
-/* COHORT CALLOUT: already animated purple  bump margins */
-.cohort-callout{margin-top:0 !important}
-/* Cohort callout: STICKY beneath the nav, full bleed across viewport.
-The page is 1280px wide; break out with negative viewport margin,
-and stick at top:<nav-height> so it stays in view as you scroll. */
-.cohort-callout--top{
-position:sticky;
-top:80px;
-z-index:90;
-left:50%;
-right:50%;
-margin-left:calc(-50vw + 50%) !important;
-margin-right:calc(-50vw + 50%) !important;
-width:100vw;
-max-width:100vw;
-border-radius:0 !important;
-padding:14px 48px !important;
-box-sizing:border-box;
-margin-top:0 !important;
-margin-bottom:0 !important;
-grid-template-columns:1fr auto !important;
-column-gap:24px;
-align-items:center;
-}
-.cohort-callout--top::before{display:none !important}
-/* Tighten the callout when it sticks (shorter so it doesn't cover content) */
-.cohort-callout--top .label{font-size:13px !important;letter-spacing:0.18em !important;margin-bottom:2px !important}
-.cohort-callout--top h3{font-size:18px !important;margin:0 0 2px !important}
-.cohort-callout--top p{font-size:14px !important;margin:0 !important;color:#E2C8EA !important}
-html{overflow-x:hidden}
-@media(max-width:900px){
-.cohort-callout--top{top:138px;padding:12px 18px !important;grid-template-columns:1fr !important;text-align:center}
-.cohort-callout--top > div:last-child{flex-direction:row !important;justify-content:center;gap:10px !important}
-}
-
-/* Birth-doula transitional note: drop into colored band */
-.programs + div[style*="text-align:center"]{background:#fff;padding:22px 48px !important;margin:0 !important;max-width:none !important;border-bottom:1px solid var(--mhn-line-soft)}
-
-/* FORMATS: warm honey wash */
-.formats{background:linear-gradient(180deg, #FBF5ED 0%, #F4E5D2 100%) !important;border-top:1px solid #E8D5BD;border-bottom:1px solid #E8D5BD;padding:56px 48px !important;position:relative}
-.formats .formats-head .eyebrow{color:#85571F;background:#fff;display:inline-block;padding:6px 14px;border-radius:999px;font-size:14px;letter-spacing:0.18em;box-shadow:0 2px 8px rgba(133,87,31,0.12)}
-.formats .formats-head h2{color:#5E376C !important}
-.fcard{border:1px solid #E8D5BD !important;box-shadow:0 4px 16px rgba(181,130,74,0.10);transition:transform 0.15s, box-shadow 0.15s}
-.fcard:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(181,130,74,0.20)}
-.fcard .meta{color:#85571F !important}
-.fcard .h{color:var(--mhn-purple-700) !important}
-
-/* PRACTICING IN LOUISIANA: cool sage / mint wash inside the details */
-#practicing-in-louisiana{padding:32px 48px 8px !important}
-#practicing-in-louisiana details{background:linear-gradient(135deg, #EEF6F1 0%, #E2F0E7 100%) !important;border:1px solid #B7D9C3 !important;box-shadow:0 4px 14px rgba(40,120,70,0.08)}
-#practicing-in-louisiana details summary{color:#1F5C3A !important}
-#practicing-in-louisiana details summary span:last-child{color:#3E8059 !important}
-.biz-card{box-shadow:0 4px 14px rgba(40,120,70,0.10);border-color:rgba(40,120,70,0.14) !important;background:#fff !important}
-.biz-card .ico-w{background:#EEF6F1 !important}
-.biz-card .ico-w i, .biz-card .ico-w svg{color:#1F5C3A !important}
-
-/* PHOTO STRIP: deep plum wash so photos pop */
-.photo-strip{background:linear-gradient(180deg, #F8F5FA 0%, #EFE3F3 100%) !important;padding:56px 48px !important;border-top:1px solid #E2C8EA;border-bottom:1px solid #E2C8EA}
-.photo-strip .photo-strip-head .eyebrow{color:var(--mhn-purple-700);background:#fff;display:inline-block;padding:6px 14px;border-radius:999px;font-size:14px;letter-spacing:0.18em;box-shadow:0 2px 8px rgba(94,55,108,0.10)}
-.photo-strip .frame-row figure{box-shadow:0 8px 24px rgba(94,55,108,0.18);border-radius:14px;overflow:hidden;transition:transform 0.2s, box-shadow 0.2s;background:#fff;padding:8px}
-.photo-strip .frame-row figure:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(94,55,108,0.28)}
-.photo-strip .frame-row figure img{border-radius:8px}
-
-/* STORE CTA: warm gold-purple gradient */
-.store-cta{background:linear-gradient(135deg, #FFF5E1 0%, #F4EAF7 100%) !important;border-top:1px solid #E8D5BD;padding:56px 48px !important}
-.store-cta-inner{max-width:1100px;margin:0 auto;background:#fff;border-radius:20px;padding:36px 40px;box-shadow:0 8px 28px rgba(94,55,108,0.10);border:1px solid rgba(94,55,108,0.10)}
-.store-cta-inner .eyebrow{color:#85571F !important;background:#FFF5E1;display:inline-block;padding:6px 14px;border-radius:999px;font-size:14px;letter-spacing:0.18em}
-.store-cta-inner h2{color:var(--mhn-purple-700) !important}
-.store-cta-inner .go{background:#85571F;color:#fff;padding:14px 28px;border-radius:999px;text-decoration:none;font-weight:700;display:inline-flex;align-items:center;gap:8px;box-shadow:0 6px 18px rgba(133,87,31,0.32);transition:transform 0.15s, box-shadow 0.15s}
-.store-cta-inner .go:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(133,87,31,0.42)}
-
-/* Mobile responsive padding tweaks */
-@media(max-width:760px){
-.programs, .formats, .photo-strip, .store-cta{padding-left:20px !important;padding-right:20px !important}
-#practicing-in-louisiana{padding-left:20px !important;padding-right:20px !important}
-.hero.hero-with-photo{border-radius:0;padding:24px 20px 32px !important}
-.store-cta-inner{padding:24px 22px}
-}
-</style>
 <!-- Metricool tracking -->
 <script>function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"d8d3c46a1618fd16101a331dfbfb19dd"})});</script>
 <script src="./ticker.js?v=20261119m" defer></script>
 <script src="./stats.js?v=20261119m" defer></script>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./a1.css?v=20261121c">
 </head>
 
-<body data-screen-label="Education &amp; Training">
+<body class="a1" data-screen-label="Education &amp; Training">
 <a class="mhn-skip" href="#main">Skip to content</a>
 <header class="mhn-header">
   <div class="mhn-wrap mhn-header-bar">
     <a class="mhn-brand" href="index.html">
       <img src="./assets/logo-seal-96.png" alt="Mary's Hands Network" width="52" height="52">
-      <span>Mary's Hands Network</span>
+      <span>Mary's Hands<br>Network</span>
     </a>
     <button class="mhn-menu" type="button" aria-expanded="false" aria-controls="site-nav" data-open="Menu" data-close="Close">Menu</button>
     <nav id="site-nav" class="mhn-nav" aria-label="Primary">
       <a href="about.html">About</a>
       <a href="for-mom.html">For Families</a>
       <a href="doula-training.html" aria-current="page">For Doulas</a>
+      <a href="gala.html">Gala</a>
       <a href="contact.html">Contact</a>
       <a href="inicio.html" class="mhn-lang" lang="es" title="Español" aria-label="Cambiar a español">ENG<span>/</span>ESP</a>
       <a href="portal.html">Doula Portal</a>
@@ -303,192 +54,66 @@ html{overflow-x:hidden}
     </nav>
   </div>
 </header>
+<main>
+<div class="next"><div class="wrap"><span class="k">Next Birth Doula Training</span>
+<div class="txt"><h3>Tau Cohort · February 15–20, 2027 · in-person day in Baton Rouge, Louisiana</h3><p>Schedule, tuition, what’s included, scholarships, attendance requirements, and the application.</p></div>
+<div class="acts"><a class="btn btn--primary" href="cohort.html">View Class Details &amp; Dates</a><a class="btn btn--outline" href="https://forms.monday.com/forms/ca1d4fbc14042eb290043defbd016330?r=use1" target="_blank" rel="noopener">Apply for the Tau Cohort</a></div></div></div>
+<section class="phero bg-700 dk"><div class="wrap">
+<div><div class="eyebrow">Education &amp; Training</div>
+<h1>We educate the maternal health workforce.</h1>
+<p class="lead">ICEA-credentialed birth doula training, plus postpartum, bereavement, and breastfeeding specialties. Rooted in Louisiana, available to partners nationwide.</p>
+<div class="mini"><div><b>285</b><span>Doulas trained</span></div><div><b>650+</b><span>Families served</span></div><div><b>ICEA</b><span>Approved curriculum</span></div></div>
+<div class="upd">Updated as of November 1, 2026</div></div>
+<div class="tgrid">
+<figure><img src="./assets/photos/training-coaching-pink.jpg" alt="An MHN trainer coaching a trainee through a comfort technique" style="object-position:50% 40%"><figcaption>In training</figcaption></figure>
+<figure><img src="./assets/photos/birth-meeting-newborn.jpg" alt="A doula with parents meeting their newborn at birth" style="object-position:50% 55%"><figcaption>In the room</figcaption></figure>
+<figure><img src="./assets/photos/cohort-louisiana-healthcare.jpg" alt="An MHN cohort in their purple training jackets" style="object-position:50% 60%"><figcaption>Graduated</figcaption></figure>
+</div></div></section>
 
-<!-- ANIMATED OCTOBER COHORT BANNER (above nav, full bleed) -->
-<div class="page">
+<section class="sec"><div class="wrap">
+<div class="shead"><div><div class="eyebrow">Inside Our Cohorts</div><h2>Hands-on, every cohort.</h2></div><p>Real classroom moments and comfort-measure practice from our most recent trainings.</p></div>
+<div class="strip4">
+<figure style="margin:0"><img src="./assets/photos/training-madeline-instructing.jpg" alt="Madeline LeBlanc demonstrating rebozo technique to a trainee" style="object-position:50% 40%"><div class="cap">Instructor demo</div></figure>
+<figure style="margin:0"><img src="./assets/photos/training-five-minute-break.jpg" alt="Two MHN doulas presenting comfort-measure chart" style="object-position:50% 30%"><div class="cap">Group brainstorm</div></figure>
+<figure style="margin:0"><img src="./assets/photos/training-cub-birth-ball.jpg" alt="MHN trainee with the inflatable CUB birth support" style="object-position:50% 40%"><div class="cap">CUB practice</div></figure>
+<figure style="margin:0"><img src="./assets/photos/training-rebozo-active.jpg" alt="MHN doulas practicing rebozo with the active stretch" style="object-position:50% 45%"><div class="cap">Rebozo practice</div></figure>
+</div></div></section>
 
-<!-- NAV -->
-<!-- COHORT CALLOUT, moved to the very top per Madeline May 17 2026 -->
-<div class="cohort-callout cohort-callout--contained">
-<div>
-<div class="label">Next Birth Doula Training</div>
-<h3>Tau Cohort &middot; February 15&ndash;20, 2027 &middot; in-person day in Baton Rouge, Louisiana</h3>
-<p>Schedule, tuition, what&rsquo;s included, scholarships, attendance requirements, and the application.</p>
-</div>
-<div style="display:flex;flex-direction:column;gap:10px;align-items:stretch">
-<a class="btn" href="cohort.html" style="background:#fff;color:var(--mhn-purple-700);border:none;text-align:center;white-space:nowrap;font-size:18px;font-weight:800;padding:16px 34px;box-shadow:0 6px 18px rgba(0,0,0,0.22)">View Class Details &amp; Dates</a>
-<a class="btn" href="https://forms.monday.com/forms/ca1d4fbc14042eb290043defbd016330?r=use1" target="_blank" rel="noopener" style="background:transparent;color:#fff;border:1.5px solid #fff;text-align:center;white-space:nowrap;font-size:17px;font-weight:800;padding:15px 34px;display:inline-block;border-radius:999px;text-decoration:none">Apply for the Tau Cohort</a>
-</div>
-</div>
-<!-- HERO -->
-<section class="hero hero-with-photo" style="display:grid;grid-template-columns:1.15fr 1fr;gap:40px;align-items:center;max-width:1200px;margin:0 auto;padding:32px 48px 24px;background:#F7F2FA">
-<div>
-<div class="eyebrow">Education &amp; Training</div>
-<h1 class="t" style="margin:10px 0 16px">We educate the <em>maternal health workforce.</em></h1>
-<p class="lede" style="margin:0 0 22px">ICEA-credentialed birth doula training, plus postpartum, bereavement, and breastfeeding specialties. Rooted in Louisiana, available to partners nationwide.</p>
-<div class="hero-stats" style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding-top:24px;margin-top:6px;border-top:2px solid var(--mhn-purple-200)">
-<div><div style="font-family:var(--mhn-font-serif);font-size:48px;font-weight:700;color:var(--mhn-purple-700);line-height:1;letter-spacing:-0.02em">285</div><div style="font-size:15px;letter-spacing:0.14em;text-transform:uppercase;color:var(--mhn-ink-mute);font-weight:700;margin-top:8px;line-height:1.3">Doulas<br>trained</div></div>
-<div><div style="font-family:var(--mhn-font-serif);font-size:48px;font-weight:700;color:var(--mhn-purple-700);line-height:1;letter-spacing:-0.02em">650+</div><div style="font-size:15px;letter-spacing:0.14em;text-transform:uppercase;color:var(--mhn-ink-mute);font-weight:700;margin-top:8px;line-height:1.3">Families<br>served</div></div>
-<div><div style="font-family:var(--mhn-font-serif);font-size:48px;font-weight:700;color:var(--mhn-purple-700);line-height:1;letter-spacing:-0.02em">ICEA</div><div style="font-size:15px;letter-spacing:0.14em;text-transform:uppercase;color:var(--mhn-ink-mute);font-weight:700;margin-top:8px;line-height:1.3">Approved<br>curriculum</div></div>
-</div>
-<p class="mhn-stat-asof">Updated as of November 1, 2026</p>
-</div>
-<div class="hero-photo-grid" style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:14px">
-<figure style="margin:0;position:relative;grid-row:1 / span 2;grid-column:1">
-<img src="./assets/photos/training-coaching-pink.jpg" alt="An MHN trainer coaching a trainee through a comfort technique" style="width:100%;height:100%;object-fit:cover;border-radius:14px;box-shadow:0 10px 28px rgba(94,55,108,0.16);border:4px solid #fff;display:block">
-<figcaption style="position:absolute;top:14px;left:14px;background:rgba(255,255,255,0.95);backdrop-filter:blur(8px);padding:6px 12px;border-radius:999px;font-family:var(--mhn-font-serif);font-style:italic;font-size:14px;color:var(--mhn-purple-700);font-weight:700;letter-spacing:0.02em">In training</figcaption>
-</figure>
-<figure style="margin:0;position:relative;grid-column:2;grid-row:1">
-<img src="./assets/photos/birth-meeting-newborn.jpg" alt="A doula with parents meeting their newborn at birth" style="width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:14px;box-shadow:0 10px 28px rgba(94,55,108,0.16);border:4px solid #fff;display:block">
-<figcaption style="position:absolute;top:12px;left:12px;background:rgba(255,255,255,0.95);backdrop-filter:blur(8px);padding:5px 11px;border-radius:999px;font-family:var(--mhn-font-serif);font-style:italic;font-size:13px;color:var(--mhn-purple-700);font-weight:700;letter-spacing:0.02em">In the room</figcaption>
-</figure>
-<figure style="margin:0;position:relative;grid-column:2;grid-row:2">
-<img src="./assets/photos/cohort-louisiana-healthcare.jpg" alt="An MHN cohort in their purple training jackets" style="width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:14px;box-shadow:0 10px 28px rgba(94,55,108,0.16);border:4px solid #fff;display:block">
-<figcaption style="position:absolute;top:12px;left:12px;background:rgba(255,255,255,0.95);backdrop-filter:blur(8px);padding:5px 11px;border-radius:999px;font-family:var(--mhn-font-serif);font-style:italic;font-size:13px;color:var(--mhn-purple-700);font-weight:700;letter-spacing:0.02em">Graduated</figcaption>
-</figure>
-</div>
-</section>
-<style>
-@media(max-width:900px){.hero-with-photo{grid-template-columns:1fr !important;padding:24px 20px !important;gap:24px !important}.hero-with-photo .hero-photo-grid figure:first-child{grid-row:auto !important}.hero-with-photo .hero-photo-grid figure:first-child img{aspect-ratio:4/5 !important}}
-@media(max-width:560px){.hero-with-photo .hero-photo-grid{grid-template-columns:1fr !important}.hero-with-photo .hero-photo-grid figure:first-child img,.hero-with-photo .hero-photo-grid figure img{aspect-ratio:3/2 !important}}
-</style>
-
-<!-- PHOTO STRIP (training photos)  moved high per Madeline May 17 2026 -->
-<section class="photo-strip">
-<div class="photo-strip-head">
-<div class="eyebrow" style="text-align:center">Inside Our Cohorts</div>
-<h2>Hands-on, every cohort.</h2>
-<p>Real classroom moments and comfort-measure practice from our most recent trainings.</p>
-</div>
-<div class="frame-row">
-<figure class="mhn-frame"><img src="./assets/photos/training-madeline-instructing.jpg" alt="Madeline LeBlanc demonstrating rebozo technique to a trainee"><figcaption>Instructor demo</figcaption></figure>
-<figure class="mhn-frame"><img src="./assets/photos/training-five-minute-break.jpg" alt="Two MHN doulas presenting comfort-measure chart"><figcaption>Group brainstorm</figcaption></figure>
-<figure class="mhn-frame"><img src="./assets/photos/training-cub-birth-ball.jpg" alt="MHN trainee with the inflatable CUB birth support"><figcaption>CUB practice</figcaption></figure>
-<figure class="mhn-frame"><img src="./assets/photos/training-rebozo-active.jpg" alt="MHN doulas practicing rebozo with the active stretch"><figcaption>Rebozo practice</figcaption></figure>
-</div>
-</section>
-
-<!-- PROGRAMS -->
-<section class="programs">
-<div class="programs-head">
-<div class="eyebrow">What We Train</div>
-<h2>Five programs, one workforce.</h2>
-<p>Our birth doula training is the entry point and the most-requested. Beyond it, we offer postpartum, bereavement, breastfeeding, and customized curriculum for partner organizations.</p>
-</div>
-<div class="pgrid">
-
-<div class="pcard">
-<span class="badge">Flagship Program</span>
-<h3>Birth Doula Training</h3>
+<section class="sec bg-900 dk"><div class="wrap">
+<div class="shead"><div><div class="eyebrow">What We Train</div><h2>Five programs, one workforce.</h2></div><p>Our birth doula training is the entry point and the most-requested. Beyond it, we offer postpartum, bereavement, breastfeeding, and customized curriculum for partner organizations.</p></div>
+<div class="wc flag"><div class="t"><span class="pill">Flagship Program</span><h3>Birth Doula Training</h3>
 <p>An ICEA-approved birth doula training. Hybrid or fully in-person formats, forty hours of training in total (24 live contact hours plus 16 hours of independent coursework), evidence-based curriculum developed by ICEA Approved Trainer Madeline LeBlanc, ICCE, ICBD, RN, IBCLC.</p>
-<ul>
-<li>Physiology of birth and comfort measures</li>
-<li>Newborn care and postpartum mental health</li>
-<li>Scope of practice, BRAIN framework, SDOH screening</li>
-<li>Volunteer-track scholarships available</li>
-<li><strong>Available in Spanish</strong> by request for partner organizations</li>
-</ul>
-<a class="more" href="cohort.html">View the next cohort</a>
+<a class="btn btn--primary" style="margin-top:16px" href="cohort.html">View the next cohort</a></div>
+<div class="l"><ul class="chk"><li>Physiology of birth and comfort measures</li><li>Newborn care and postpartum mental health</li><li>Scope of practice, BRAIN framework, SDOH screening</li><li>Volunteer-track scholarships available</li><li>Available in Spanish by request for partner organizations</li></ul></div></div>
+<div class="progs">
+<div class="wc prog"><span class="tag">Specialty Track</span><h3>Postpartum Doula Training</h3><p>Specialty training for doulas who want to support families through the first weeks at home. Newborn care, infant feeding, sleep coaching, parental mental health, and the recovering mother.</p><ul class="chk"><li>Postpartum physiology and recovery</li><li>Infant feeding (breast, bottle, paced)</li><li>Lactation support fundamentals</li><li>Postpartum mood disorders and escalation</li></ul><a class="more" href="contact.html">Email about the next round</a></div>
+<div class="wc prog"><span class="tag">Specialty Track · Online</span><h3>Bereavement Doula Specialty</h3><p>An ICEA-approved specialty training for doulas, nurses, and birth workers who want to bear witness to families through pregnancy and infant loss. Fully online, self-paced, with six months of access and 16 ICEA CEUs.</p><ul class="chk"><li>Trauma-informed care for pregnancy and infant loss</li><li>Hardcover textbook + reflective workbook included</li><li>Online &amp; self-paced</li></ul><a class="more" href="store.html">Learn more &amp; enroll</a></div>
+<div class="wc prog"><span class="tag">Coming Soon</span><h3>Breastfeeding Education</h3><p>Two complementary programs in development. Breastfeeding Basics for every birth worker; Breastfeeding Not-So-Basics for advanced cases. Curriculum designed by an IBCLC; first cohort dates announced soon.</p><ul class="chk"><li>Latch, positioning, and the first hour</li><li>Common challenges and when to refer to an IBCLC</li><li>Returning to work and complex cases (advanced)</li></ul><a class="more" href="contact.html">Get notified when it opens</a></div>
+<div class="wc prog"><span class="tag">Custom &amp; Contract</span><h3>Customized Curriculum</h3><p>We adapt our curriculum for hospitals, universities, and partner nonprofits, including Spanish-language delivery. Past partners include Franciscan Missionaries of Our Lady University, March of Dimes, Family Road of Greater Baton Rouge, the Diocese of Baton Rouge, and community organizations.</p><ul class="chk"><li>CEU programming for nursing teams</li><li>Spanish-language doula curriculum</li><li>Workforce development partnerships</li><li>On-site or hybrid delivery</li></ul><a class="more" href="contact.html">Talk to us about a partnership</a></div>
 </div>
+<p class="note">The next section is specific to our flagship Birth Doula Training. Other specialties (postpartum, bereavement, breastfeeding) have their own structure. The full ICEA certification pathway lives on the <a href="cohort.html#certification-pathway">class details page</a>.</p>
+</div></section>
 
-<div class="pcard">
-<span class="badge">Specialty Track</span>
-<h3>Postpartum Doula Training</h3>
-<p>Specialty training for doulas who want to support families through the first weeks at home. Newborn care, infant feeding, sleep coaching, parental mental health, and the recovering mother.</p>
-<ul>
-<li>Postpartum physiology and recovery</li>
-<li>Infant feeding (breast, bottle, paced)</li>
-<li>Lactation support fundamentals</li>
-<li>Postpartum mood disorders and escalation</li>
-</ul>
-<a class="more" href="contact.html">Email about the next round</a>
-</div>
+<section class="sec"><div class="wrap">
+<div class="shead"><div><div class="eyebrow">Birth Doula · Format Flexibility</div><h2>We meet you where you are.</h2></div><p>For our birth doula training only, we offer three scheduling formats. Bereavement is fully online and self-paced; postpartum and breastfeeding programs have their own structure.</p></div>
+<div class="formats">
+<div class="wc fmt"><span class="tag">Hybrid</span><h3>4 + 14 online nights + 1 in-person day</h3><p>Weeknight evenings online plus a single in-person Saturday. Best for trainees with weekday work commitments who can travel only once. Format used by the Tau Cohort.</p></div>
+<div class="wc fmt"><span class="tag">Hybrid</span><h3>2 + 22 online nights + 2 in-person days</h3><p>Two weeknight evenings online plus a full weekend of hands-on practice. Our most-requested format, used by past cohorts.</p></div>
+<div class="wc fmt"><span class="tag">In-Person · Intensive</span><h3>3 full in-person days</h3><p>Three back-to-back days for organizations and groups that prefer immersive, fully in-person delivery. Often used for partner contracts.</p></div>
+</div></div></section>
 
-<div class="pcard">
-<span class="badge">Specialty Track &middot; Online</span>
-<h3>Bereavement Doula Specialty</h3>
-<p>An ICEA-approved specialty training for doulas, nurses, and birth workers who want to bear witness to families through pregnancy and infant loss. <strong>Fully online</strong>, self-paced, with six months of access and 16 ICEA CEUs.</p>
-<ul>
-<li>Trauma-informed care for pregnancy and infant loss</li>
-<li>Hardcover textbook + reflective workbook included</li>
-<li>Online &amp; self-paced</li>
-</ul>
-<a class="more" href="store.html">Learn more &amp; enroll</a>
-</div>
-
-<div class="pcard">
-<span class="badge">Coming Soon</span>
-<h3>Breastfeeding Education</h3>
-<p>Two complementary programs in development. <strong>Breastfeeding Basics</strong> for every birth worker; <strong>Breastfeeding Not-So-Basics</strong> for advanced cases. Curriculum designed by an IBCLC; first cohort dates announced soon.</p>
-<ul>
-<li>Latch, positioning, and the first hour</li>
-<li>Common challenges and when to refer to an IBCLC</li>
-<li>Returning to work and complex cases (advanced)</li>
-</ul>
-<a class="more" href="contact.html">Get notified when it opens</a>
-</div>
-
-<div class="pcard pcard--wide">
-<span class="badge">Custom &amp; Contract</span>
-<h3>Customized Curriculum</h3>
-<p>We adapt our curriculum for hospitals, universities, and partner nonprofits, including Spanish-language delivery. Past partners include Franciscan Missionaries of Our Lady University, March of Dimes, Family Road of Greater Baton Rouge, the Diocese of Baton Rouge, and community organizations.</p>
-<ul>
-<li>CEU programming for nursing teams</li>
-<li>Spanish-language doula curriculum</li>
-<li>Workforce development partnerships</li>
-<li>On-site or hybrid delivery</li>
-</ul>
-<a class="more" href="contact.html">Talk to us about a partnership</a>
-</div>
-
-</div>
-</section>
-
-<!-- Birth-doula-specific transitional note (slim) -->
-<div style="text-align:center;padding:24px 48px 0;font-family:var(--mhn-font-serif);font-style:italic;color:var(--mhn-purple-500);font-size:15px;max-width:760px;margin:0 auto;letter-spacing:0.02em">The next section is specific to our flagship Birth Doula Training. Other specialties (postpartum, bereavement, breastfeeding) have their own structure. The full ICEA certification pathway lives on the <a href="cohort.html#certification-pathway" style="color:var(--mhn-purple-700);font-weight:700;text-decoration:none;border-bottom:1.5px solid var(--mhn-purple-200)">class details page</a>.</div>
-
-<!-- FORMATS -->
-<section class="formats">
-<div class="formats-head" style="margin:0 auto 30px;max-width:680px;text-align:center">
-<div class="eyebrow" style="text-align:center">Birth Doula &middot; Format Flexibility</div>
-<h2>We meet you where you are.</h2>
-<p>For our birth doula training only, we offer three scheduling formats. Bereavement is fully online and self-paced; postpartum and breastfeeding programs have their own structure.</p>
-</div>
-<div class="fgrid">
-<div class="fcard">
-<div class="meta">Hybrid &middot; 4 + 1</div>
-<div class="h">4 online nights + 1 in-person day</div>
-<p>Weeknight evenings online plus a single in-person Saturday. Best for trainees with weekday work commitments who can travel only once. Format used by the Tau Cohort.</p>
-</div>
-<div class="fcard">
-<div class="meta">Hybrid &middot; 2 + 2</div>
-<div class="h">2 online nights + 2 in-person days</div>
-<p>Two weeknight evenings online plus a full weekend of hands-on practice. Our most-requested format, used by past cohorts.</p>
-</div>
-<div class="fcard">
-<div class="meta">In-Person &middot; Intensive</div>
-<div class="h">3 full in-person days</div>
-<p>Three back-to-back days for organizations and groups that prefer immersive, fully in-person delivery. Often used for partner contracts.</p>
-</div>
-</div>
-</section>
-
-<!-- ICEA Certification Pathway + For Graduates: Practicing in Louisiana now live on cohort.html -->
-
-<!-- STORE CTA -->
-<section class="store-cta">
-<div class="store-cta-inner">
-<div>
-<div class="eyebrow">Training Materials</div>
-<h2>Get our training materials directly.</h2>
-<p>Whether you&rsquo;re joining a future cohort or training your own team, the texts, decks, and field guides our trainees use are available in our store.</p>
-<p style="margin-top:6px;color:var(--mhn-ink-mute);font-size:16px;font-style:italic">The Pocket Doula deck, The Everything Guide, the Bereavement Doula bundle, the Data-Driven Doula textbook, and the full Bereavement online course.</p>
-</div>
-<div style="text-align:center"><a class="go" href="store.html">Visit the store</a></div>
-</div>
-</section>
-
-<!-- FOOTER (mirror) -->
+<section class="sec bg-800 dk"><div class="wrap store">
+<div><div class="eyebrow">Training Materials</div><h2>Get our training materials directly.</h2>
+<p>Whether you’re joining a future cohort or training your own team, the texts, decks, and field guides our trainees use are available in our store.</p>
+<p>The Pocket Doula deck, The Everything Guide, the Bereavement Doula bundle, the Data-Driven Doula textbook, and the full Bereavement online course.</p>
+<a class="btn btn--primary" href="store.html">Visit the store</a></div>
+<div class="prods">
+<img src="./assets/photos/pocket-doula-angle.jpg" alt="The Pocket Doula deck">
+<img src="./assets/photos/everything-guide.jpg" alt="The Everything Guide">
+<img src="./assets/photos/bereavement-doula-textbook.jpg" alt="Bereavement Doula textbook">
+<img src="./assets/photos/data-driven-doula.jpg" alt="The Data-Driven Doula textbook">
+</div></div></section>
+</main>
 <footer>
 <div class="foot-grid">
 <div class="foot-brand">
@@ -536,6 +161,4 @@ html{overflow-x:hidden}
 <a class="call" href="store.html">Store</a>
 <a class="donate" href="donate.html">Donate</a>
 </div>
-<link rel="stylesheet" href="./density.css?v=20261119m">
-<link rel="stylesheet" href="./polish.css?v=20261119m">
 </body></html>
