@@ -939,7 +939,7 @@ body.portal .course-mod h2,
 body.portal .nr-section h2,
 body.portal .portal-main h2,
 body.portal .portal-main h3{color:#5E376C}
-body.portal .course-mod h2 span:not(.bubble){background:#5E376C;color:#fff}
+body.portal .course-mod h2 span:not(.bubble):not(.mod-name){background:#5E376C;color:#fff;margin-right:0}
 body.portal .nr-section{background:transparent}
 body.portal .dir-controls{background:#F4EBF8;position:sticky;top:74px}
 body.portal .portal-help{background:#3F2449;color:#fff;padding:26px 0}
@@ -962,10 +962,6 @@ body.portal .portal-main>.course-wrap>.course-note:nth-of-type(2){padding-bottom
   body.portal .ptabs nav{flex-wrap:nowrap}
   body.portal .ptabs nav a{padding:8px 9px;font-size:15px}
 }
-body.portal .portal-main>.course-wrap:not(:has(.course-mod)){background:#5E376C;color:#fff;padding:32px max(22px,calc((100% - var(--w))/2)) 28px}
-body.portal .portal-main>.course-wrap:not(:has(.course-mod)) h1,
-body.portal .portal-main>.course-wrap:not(:has(.course-mod)) p,
-body.portal .portal-main>.course-wrap:not(:has(.course-mod)) a{color:#fff}
 body.portal .course-mod,
 body.portal .course-actions{
   width:min(var(--w), calc(100% - 2 * var(--pad)));
@@ -1169,6 +1165,20 @@ body.portal .course-mod h2,
 body.portal .pd-size-card h3,
 body.portal .dir-card h3{color:#3F2449 !important;border-bottom:0}
 body.portal .course-mod{padding:18px 18px 8px}
+body.portal .course-mod h2{display:flex;align-items:center;gap:10px;min-width:0}
+body.portal .course-mod h2 .bubble{width:48px;height:48px;font-size:24px;margin:0;flex:none}
+body.portal .course-mod h2 .mod-name{
+  display:block;width:auto;height:auto;min-width:0;flex:1;margin:0;padding:0;border-radius:0;
+  background:transparent !important;color:#3F2449 !important;
+  font-family:var(--serif);font-size:26px;font-weight:700;letter-spacing:0;text-transform:none;line-height:1.2
+}
+body.portal .course-wrap > .course-open{
+  width:min(var(--w), calc(100% - 2 * var(--pad)));
+  max-width:var(--w);
+  margin:0 auto 8px;
+  box-sizing:border-box;
+  color:#5E376C;
+}
 body.portal .pd-size-card{padding:20px 18px;text-align:center}
 body.portal .pd-size-card .bubble{margin-left:auto;margin-right:auto}
 body.portal .pd-sizes .pd-size-card:nth-child(1){border-top:8px solid #BE185D !important}
