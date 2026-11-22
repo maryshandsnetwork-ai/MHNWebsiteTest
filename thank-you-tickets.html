@@ -52,6 +52,35 @@
     body.a1 .ty.ghero h1{font-size:32px}
     body.a1 .ty.ghero .actions .btn{width:100%}
   }
+/* Cohort graduation mosaic for the ticket thank-you hero (drop into the page <style> block).
+   Real MHN cohort graduation / coating-ceremony photos only. No AI images. */
+body.a1 .ty.ghero .ph.ty-mosaic{background:var(--purple-900,#3F2449)}
+body.a1 .ty-mosaic .tm-grid{position:absolute;inset:0;display:grid;gap:3px;
+  grid-template-columns:repeat(5,minmax(0,1fr));grid-template-rows:repeat(4,minmax(0,1fr));
+  grid-template-areas:
+    "a a s1 p1 s2"
+    "a a s3 p1 s4"
+    "s5 s6 p2 s7 s8"
+    "s9 s10 p2 s11 s12"}
+body.a1 .ty-mosaic .tm{position:relative;margin:0;overflow:hidden;background:var(--plum-800,#4C2C5A)}
+body.a1 .ty-mosaic .tm img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%;display:block}
+body.a1 .ty-mosaic .tm-a{grid-area:a}   body.a1 .ty-mosaic .tm-p1{grid-area:p1} body.a1 .ty-mosaic .tm-p2{grid-area:p2}
+body.a1 .ty-mosaic .tm-s1{grid-area:s1} body.a1 .ty-mosaic .tm-s2{grid-area:s2} body.a1 .ty-mosaic .tm-s3{grid-area:s3}
+body.a1 .ty-mosaic .tm-s4{grid-area:s4} body.a1 .ty-mosaic .tm-s5{grid-area:s5} body.a1 .ty-mosaic .tm-s6{grid-area:s6}
+body.a1 .ty-mosaic .tm-s7{grid-area:s7} body.a1 .ty-mosaic .tm-s8{grid-area:s8} body.a1 .ty-mosaic .tm-s9{grid-area:s9}
+body.a1 .ty-mosaic .tm-s10{grid-area:s10} body.a1 .ty-mosaic .tm-s11{grid-area:s11} body.a1 .ty-mosaic .tm-s12{grid-area:s12}
+/* Tablet: the hero photo band is 200px tall. Feature photo + two tall tiles + four small ones. */
+@media (max-width:1000px){
+  body.a1 .ty-mosaic .tm-grid{grid-template-columns:repeat(6,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));
+    grid-template-areas:"a a p2 s1 s2 p1" "a a p2 s3 s4 p1"}
+  body.a1 .ty-mosaic .tm-s5,body.a1 .ty-mosaic .tm-s6,body.a1 .ty-mosaic .tm-s7,body.a1 .ty-mosaic .tm-s8,
+  body.a1 .ty-mosaic .tm-s9,body.a1 .ty-mosaic .tm-s10,body.a1 .ty-mosaic .tm-s11,body.a1 .ty-mosaic .tm-s12{display:none}
+}
+/* Phone: four photos so each group stays readable in a 200px band. */
+@media (max-width:760px){
+  body.a1 .ty-mosaic .tm-grid{grid-template-columns:repeat(4,minmax(0,1fr));grid-template-areas:"a a p2 s1" "a a p2 s2"}
+  body.a1 .ty-mosaic .tm-p1,body.a1 .ty-mosaic .tm-s3,body.a1 .ty-mosaic .tm-s4{display:none}
+}
 </style>
 </head>
 <body class="a1" data-screen-label="Ticket thank you">
@@ -87,7 +116,25 @@
 <span class="cal">Add to calendar: <a href="https://www.google.com/calendar/render?action=TEMPLATE&amp;text=In+Her+Honor+Awards+Gala&amp;dates=20270109T000000Z/20270109T030000Z&amp;location=Renaissance+Hotel%2C+Baton+Rouge%2C+LA" target="_blank" rel="noopener">Google Calendar</a> · <a href="./assets/in-her-honor-gala.ics">Apple / Outlook</a></span>
 </div>
 </div>
-<div class="ph"><img src="./assets/photos/gala-hero.jpg" alt="A family holding their newborn"></div>
+<div class="ph ty-mosaic" role="img" aria-label="Mary's Hands Network doula cohorts celebrating graduation with their certificates and lavender coats, 2023 to 2026">
+<div class="tm-grid">
+<figure class="tm tm-a"><img src="./assets/photos/cohorts/collage/01-may-2026-ywca.webp" alt="" width="860" height="615" fetchpriority="high" decoding="async" style="object-position:50% 30%"></figure>
+<figure class="tm tm-p2"><img src="./assets/photos/cohorts/collage/03-delta-grad-2023.webp" alt="" width="501" height="600" decoding="async" style="object-position:50% 25%"></figure>
+<figure class="tm tm-s1"><img src="./assets/photos/cohorts/collage/04-beta-grad-2023.webp" alt="" width="480" height="285" decoding="async"></figure>
+<figure class="tm tm-s2"><img src="./assets/photos/cohorts/collage/05-alpha-grad-2023.webp" alt="" width="480" height="377" decoding="async" style="object-position:50% 45%"></figure>
+<figure class="tm tm-p1"><img src="./assets/photos/cohorts/collage/02-theta-coating-2024.webp" alt="" width="459" height="600" loading="lazy" decoding="async" style="object-position:50% 20%"></figure>
+<figure class="tm tm-s3"><img src="./assets/photos/cohorts/collage/08-rho-coating.webp" alt="" width="480" height="281" loading="lazy" decoding="async" style="object-position:50% 70%"></figure>
+<figure class="tm tm-s4"><img src="./assets/photos/cohorts/collage/06-gamma-grad-2023.webp" alt="" width="480" height="336" loading="lazy" decoding="async"></figure>
+<figure class="tm tm-s5"><img src="./assets/photos/cohorts/collage/07-theta-grad-2024.webp" alt="" width="480" height="270" loading="lazy" decoding="async"></figure>
+<figure class="tm tm-s6"><img src="./assets/photos/cohorts/collage/11-cohort-grad-9.webp" alt="" width="480" height="306" loading="lazy" decoding="async"></figure>
+<figure class="tm tm-s7"><img src="./assets/photos/cohorts/collage/12-cohort-grad-12.webp" alt="" width="480" height="407" loading="lazy" decoding="async" style="object-position:50% 30%"></figure>
+<figure class="tm tm-s8"><img src="./assets/photos/cohorts/collage/09-cohort-purple.webp" alt="" width="480" height="281" loading="lazy" decoding="async"></figure>
+<figure class="tm tm-s9"><img src="./assets/photos/cohorts/collage/10-cohort-grad-4.webp" alt="" width="480" height="297" loading="lazy" decoding="async"></figure>
+<figure class="tm tm-s10"><img src="./assets/photos/cohorts/collage/15-cohort-lhc.webp" alt="" width="449" height="480" loading="lazy" decoding="async" style="object-position:50% 35%"></figure>
+<figure class="tm tm-s11"><img src="./assets/photos/cohorts/collage/14-cohort-grad-2.webp" alt="" width="415" height="442" loading="lazy" decoding="async" style="object-position:50% 25%"></figure>
+<figure class="tm tm-s12"><img src="./assets/photos/cohorts/collage/13-cohort-grad-14.webp" alt="" width="480" height="282" loading="lazy" decoding="async"></figure>
+</div>
+</div>
 </section>
 <section class="details bg-800 dk"><div class="wrap">
 <div class="d"><h4>Date</h4><p><b>Friday, January 8, 2027</b></p></div>
