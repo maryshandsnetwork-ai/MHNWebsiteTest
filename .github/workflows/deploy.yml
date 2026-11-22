@@ -61,5 +61,5 @@ jobs:
             -o StrictHostKeyChecking=no \
             -o UserKnownHostsFile=/dev/null \
             dh_n5xhce@ams1-shared-02.dreamhost.com \
-            "umask 077; cat > /home/dh_n5xhce/.htpasswd-directory" < "$tmp"
+            "umask 022; cat > /home/dh_n5xhce/.htpasswd-directory.tmp && chmod 644 /home/dh_n5xhce/.htpasswd-directory.tmp && mv /home/dh_n5xhce/.htpasswd-directory.tmp /home/dh_n5xhce/.htpasswd-directory && ls -l /home/dh_n5xhce/.htpasswd-directory" < "$tmp"
           rm -f "$tmp"
