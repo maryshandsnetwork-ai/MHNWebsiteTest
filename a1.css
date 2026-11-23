@@ -154,9 +154,11 @@ p{margin:0}
 .bars{display:grid;gap:18px;border-radius:10px;padding:22px 24px}
 .bar h4{font-family:var(--sans);font-size:17px;margin-bottom:4px}
 .row{display:grid;grid-template-columns:120px 1fr 54px;align-items:center;gap:12px;font-size:16px;margin-top:6px}
+.bars .row{grid-template-columns:120px 1fr 68px}
 .track{height:16px;border-radius:8px;overflow:hidden}
 .fill{height:100%;border-radius:8px}
 .row b{font-size:20px;text-align:right}
+.bars .row b{white-space:nowrap}
 .note{font-size:15px;padding-top:12px}
 .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .pillar{border-radius:8px;overflow:hidden;display:flex;flex-direction:column}
@@ -189,6 +191,7 @@ p{margin:0}
  .ev{grid-template-columns:1fr}.ev .ph{contain:none;height:190px}.ev .ph.flyer{height:auto}.ev .ph.flyer img{max-height:240px;width:auto}
  .doula h2{font-size:23px}.doula .pic img{aspect-ratio:1/1}
  .row{grid-template-columns:96px 1fr 44px}
+ .bars .row{grid-template-columns:96px 1fr 66px}
  .strip{grid-template-columns:repeat(3,1fr);gap:6px}
  .oc-wrap{gap:22px}.oc-wrap h2{font-size:26px}
 }
@@ -228,6 +231,7 @@ p{margin:0}
 .s-outcomes p,.s-outcomes .lead,.s-outcomes li{color:#F3ECF6}
 .s-outcomes .shead p{color:#EADFEF}
 .s-outcomes a:not(.btn){color:#fff}
+.s-outcomes .note a{color:#fff;text-decoration:underline}
 .s-cohorts{color:#fff}
 .s-cohorts h1,.s-cohorts h2,.s-cohorts h3,.s-cohorts h4{color:#fff}
 .s-cohorts .eyebrow{color:#E2CFEA}
