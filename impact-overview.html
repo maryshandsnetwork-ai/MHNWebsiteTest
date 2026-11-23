@@ -243,6 +243,8 @@ strong { font-weight: 700; }
   font-weight: 700;
   margin-top: 6px;
 }
+.outcome-source{font-family:var(--font-sans);font-style:normal;font-size:16px;line-height:1.4;color:var(--mhn-ink-soft);font-weight:600;margin-top:6px}
+.outcome-source a{color:var(--mhn-purple-700);text-decoration:underline;font-style:normal}
 /* Two-col utility */
 .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px; }
 /* Numbered rows for "what's next" */
@@ -465,7 +467,7 @@ strong { font-weight: 700; }
 ============================================================ -->
 <section class="slide slide--title active" data-notes="TIME &middot; ~30 seconds
 OPENING LINE
-'Mary's Hands Network is Louisiana's largest volunteer-based community doula organization. In three years, we've supported 643 families and cut the cesarean rate for our clients by 62%. Here's the story of what we do   and where we're going.'
+'Mary's Hands Network is Louisiana's largest volunteer-based community doula organization. In three years, we've supported 643 families and kept the cesarean rate for our clients below 15%. Here's the story of what we do   and where we're going.'
 TONE
 Warm. Confident. Data-forward. This is a 5-minute pitch; land it briskly.">
   <div class="eyebrow reveal">Est. 2023 &middot; Louisiana-rooted maternal health</div>
@@ -676,7 +678,7 @@ Say it once. Move on. Let the size do its work.">
 <section class="slide" data-notes="TIME &middot; ~1.5 minutes
 The MHN clinical outcomes chart. Compares Louisiana average, US national, and MHN across 3 key outcomes.
 TALKING POINTS
- MHN cesarean rate is 14% vs Louisiana's 37%   a 62% reduction
+ MHN cesarean rate is less than 15% vs Louisiana's 36.1%
  MHN preterm birth rate is 4% vs Louisiana's 13%   a 71% reduction
  MHN NICU admission ~4% vs Louisiana's 12%   a 67% reduction
 We beat Louisiana, beat the national average, AND exceed Healthy People 2030 targets across all three metrics.">
@@ -687,8 +689,8 @@ We beat Louisiana, beat the national average, AND exceed Healthy People 2030 tar
       <div class="outcome-title">Cesarean rate</div>
       <div class="bars-frame">
         <div class="bar-column">
-          <div class="bar-value">37%</div>
-          <div class="bar-shape bar-la" style="height: 280px;"></div>
+          <div class="bar-value" style="white-space:nowrap">36.1%</div>
+          <div class="bar-shape bar-la" style="height: 273px;"></div>
           <div class="bar-name">Louisiana</div>
         </div>
         <div class="bar-column">
@@ -697,12 +699,12 @@ We beat Louisiana, beat the national average, AND exceed Healthy People 2030 tar
           <div class="bar-name">National</div>
         </div>
         <div class="bar-column mhn">
-          <div class="bar-value">14%</div>
+          <div class="bar-value" style="white-space:nowrap">&lt;15%</div>
           <div class="bar-shape bar-mhn" style="height: 106px;"></div>
           <div class="bar-name mhn">MHN</div>
         </div>
       </div>
-      <div class="outcome-delta">62% fewer</div>
+      <div class="outcome-source">Louisiana: <a href="https://www.cdc.gov/nchs/state-stats/states/la.html" target="_blank" rel="noopener">CDC NCHS, 2024</a></div>
     </div>
     <div class="outcome-col">
       <div class="outcome-title">Preterm birth</div>
