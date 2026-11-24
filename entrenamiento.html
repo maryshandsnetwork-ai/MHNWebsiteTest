@@ -32,6 +32,22 @@
 <script src="./stats.js?v=20261119m" defer></script>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./a1.css?v=20261121f">
+<style>
+.next .wrap{flex-direction:column;align-items:stretch;gap:10px}
+.next .k{align-self:flex-start}
+.train-rows{display:flex;flex-direction:column;gap:8px;width:100%}
+.train-row{display:flex;align-items:center;justify-content:space-between;gap:12px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);border-radius:8px;padding:10px 12px}
+.train-meta{display:flex;flex-direction:column;gap:2px;min-width:0}
+.train-meta strong{font-family:var(--sans);font-size:16px;font-weight:700;color:#fff;font-style:normal;line-height:1.3}
+.train-meta span{font-size:14.5px;line-height:1.35;color:#E2CFEA;font-style:normal}
+.train-note{font-style:normal;font-weight:800;color:#FFD7A8}
+.train-acts{display:flex;gap:8px;flex-shrink:0}
+@media (max-width:760px){
+  .train-row{flex-direction:column;align-items:flex-start}
+  .train-acts{width:100%}
+  .train-acts .btn{flex:1}
+}
+</style>
 </head>
 
 <body class="a1" data-screen-label="Educación y Capacitación">
@@ -56,9 +72,18 @@
   </div>
 </header>
 <main>
-<div class="next"><div class="wrap"><span class="k">Próxima capacitación de doula de parto</span>
-<div class="txt"><h3>Cohorte Tau · 15–20 de febrero, 2027 · día presencial en Baton Rouge, Louisiana</h3><p>Horario, matrícula, qué incluye, becas, requisitos de asistencia y la solicitud.</p></div>
-<div class="acts"><a class="btn btn--primary" href="cohorte.html">Ver detalles de la clase</a><a class="btn btn--outline" href="https://forms.monday.com/forms/ca1d4fbc14042eb290043defbd016330?r=use1" target="_blank" rel="noopener">Inscríbete</a></div></div></div>
+<div class="next" id="upcoming"><div class="wrap"><span class="k">Próximas capacitaciones de doula de parto</span>
+<div class="train-rows">
+<div class="train-row">
+<div class="train-meta"><strong>Cohorte Tau</strong><span>15 al 20 de febrero de 2027, YWCA Greater Baton Rouge</span></div>
+<div class="train-acts"><a class="btn btn--primary" href="cohorte.html">Ver detalles</a><a class="btn btn--outline" href="https://forms.monday.com/forms/ca1d4fbc14042eb290043defbd016330?r=use1" target="_blank" rel="noopener">Inscríbete</a></div>
+</div>
+<div class="train-row">
+<div class="train-meta"><strong>Cohorte Upsilon</strong><span>12 al 17 de abril de 2027, AmeriHealth Caritas Louisiana, Shreveport. <span class="train-note">Clase en inglés</span></span></div>
+<div class="train-acts"><a class="btn btn--primary" href="cohort-shreveport.html">Ver detalles</a><a class="btn btn--outline" href="https://forms.monday.com/forms/7e8132232e950b59014306cb645a0718?r=use1" target="_blank" rel="noopener">Inscríbete</a></div>
+</div>
+</div>
+</div></div>
 <section class="phero bg-700 dk"><div class="wrap">
 <div><div class="eyebrow">Educación y capacitación</div>
 <h1>Capacitamos a la fuerza laboral de salud materna.</h1>
@@ -84,7 +109,7 @@
 <div class="shead"><div><div class="eyebrow">Lo que capacitamos</div><h2>Cinco programas, una fuerza laboral.</h2></div><p>Nuestra capacitación de doula de parto es el punto de entrada y la más solicitada. Más allá de ella, ofrecemos posparto, duelo, lactancia y currículo personalizado para organizaciones aliadas.</p></div>
 <div class="wc flag"><div class="t"><span class="pill">Programa insignia</span><h3>Capacitación de Doula de Parto</h3>
 <p>Una capacitación de doula de parto aprobada por ICEA. Formatos híbridos o totalmente presenciales, cuarenta horas de capacitación en total (24 horas de contacto en vivo más 16 horas de trabajo independiente), currículo basado en evidencia desarrollado por la Instructora Aprobada por ICEA Madeline LeBlanc, ICCE, ICBD, RN, IBCLC.</p>
-<a class="btn btn--primary" style="margin-top:16px" href="cohorte.html">Ver la próxima cohorte</a></div>
+<a class="btn btn--primary" style="margin-top:16px" href="#upcoming">Ver las próximas capacitaciones</a></div>
 <div class="l"><ul class="chk"><li>Fisiología del parto y medidas de confort</li><li>Cuidado del recién nacido y salud mental posparto</li><li>Alcance de la práctica, marco BRAIN, tamizaje de determinantes sociales de la salud</li><li>Becas de la vía de voluntariado disponibles</li><li>Disponible en español a solicitud para organizaciones aliadas</li></ul></div></div>
 <div class="progs">
 <div class="wc prog"><span class="tag">Especialidad</span><h3>Capacitación de Doula de Posparto</h3><p>Capacitación de especialidad para doulas que quieren apoyar a las familias durante las primeras semanas en casa. Cuidado del recién nacido, alimentación infantil, acompañamiento del sueño, salud mental de los padres y la madre en recuperación.</p><ul class="chk"><li>Fisiología y recuperación posparto</li><li>Alimentación infantil (pecho, biberón, ritmo)</li><li>Fundamentos de apoyo a la lactancia</li><li>Trastornos del estado de ánimo posparto y escalamiento</li></ul><a class="more" href="contacto.html">Escríbenos sobre la próxima ronda</a></div>
@@ -98,8 +123,8 @@
 <section class="sec"><div class="wrap">
 <div class="shead"><div><div class="eyebrow">Doula de Parto · Flexibilidad de formato</div><h2>Nos adaptamos a ti.</h2></div><p>Solo para nuestra capacitación de doula de parto, ofrecemos tres formatos de horario. La de duelo es totalmente en línea y a tu propio ritmo; los programas de posparto y lactancia tienen su propia estructura.</p></div>
 <div class="formats">
-<div class="wc fmt"><span class="tag">Híbrido</span><h3>4 noches en línea + 1 día presencial</h3><p>Noches entre semana en línea más un solo sábado presencial. Ideal para aprendices con compromisos laborales entre semana que solo pueden viajar una vez. Formato usado por la Cohorte Tau.</p></div>
-<div class="wc fmt"><span class="tag">Híbrido</span><h3>2 noches en línea + 2 días presenciales</h3><p>Dos noches entre semana en línea más un fin de semana completo de práctica activa. Nuestro formato más solicitado.</p></div>
+<div class="wc fmt"><span class="tag">Híbrido</span><h3>Cuatro noches en vivo en línea y un día presencial</h3><p>Noches entre semana en línea más un solo sábado presencial. Ideal para aprendices con compromisos laborales entre semana que solo pueden viajar una vez. Formato usado por la Cohorte Tau.</p></div>
+<div class="wc fmt"><span class="tag">Híbrido</span><h3>Dos noches en vivo en línea y dos días presenciales</h3><p>Dos noches entre semana en línea más un fin de semana completo de práctica activa. Nuestro formato más solicitado.</p></div>
 <div class="wc fmt"><span class="tag">Presencial · Intensivo</span><h3>3 días completos presenciales</h3><p>Tres días consecutivos para organizaciones y grupos que prefieren una impartición inmersiva y totalmente presencial. Se usa con frecuencia para contratos con aliados.</p></div>
 </div></div></section>
 
@@ -160,7 +185,7 @@
 </div>
 <script>lucide.createIcons();</script>
 <div class="sticky-mobile-cta">
-<a class="apply" href="cohorte.html">Cohorte</a>
+<a class="apply" href="#upcoming">Clases</a>
 <a class="call" href="tienda.html">Tienda</a>
 <a class="donate" href="donar.html">Donar</a>
 </div>
