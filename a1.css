@@ -109,7 +109,7 @@ p{margin:0}
 .stat:first-child{border-left:0;padding-left:0}
 .stat b{display:block;font-family:var(--serif);font-size:34px;line-height:1.1}
 .stat span{font-size:16px}
-.paths{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.paths{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
 .card{border-radius:8px;overflow:hidden;display:flex;flex-direction:column}
 .card img{width:100%;aspect-ratio:16/10;object-fit:cover}
 .card .body{padding:18px 20px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
@@ -1199,3 +1199,31 @@ body.portal .dir-controls{background:#fff}
 body.portal[data-screen-label="Doula Directory"] .dir-search-btn{background:#0F766E !important;color:#fff !important}
 body.portal .nr-birth-roll .br-icon{background:transparent;width:auto;height:auto;border-radius:0}
 body.portal .nr-birth-roll .br-icon .bubble{margin:0}
+
+@media (max-width:1100px){
+  .paths{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:760px){
+  .paths{grid-template-columns:1fr}
+}
+
+.job-hero{padding:26px 0 22px}
+.job-hero h1{font-size:36px;line-height:1.15;margin:4px 0 8px}
+.job-hero .lead{max-width:40rem;font-size:18px;line-height:1.45}
+.job-body{padding:22px 0 32px}
+.job-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:18px}
+.job-facts .wc{padding:12px 14px}
+.job-facts h2{font-family:var(--sans);font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--purple-500);margin:0 0 4px}
+.job-facts p{font-size:17px;line-height:1.4;color:var(--ink)}
+.job-copy{max-width:44rem}
+.job-copy h2{font-size:24px;margin:16px 0 6px}
+.job-copy h2:first-child{margin-top:0}
+.job-copy p{font-size:17px;line-height:1.5;color:var(--ink-soft)}
+.job-copy .chk{margin-top:4px}
+.job-actions{margin-top:12px}
+@media (max-width:760px){
+  .job-hero{padding:22px 0 18px}
+  .job-hero h1{font-size:30px}
+  .job-facts{grid-template-columns:1fr}
+  .job-actions .btn{width:100%}
+}
