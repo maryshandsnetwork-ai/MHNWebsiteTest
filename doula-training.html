@@ -32,14 +32,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./a1.css?v=20261121f">
 <style>
-.next .wrap{align-items:center}
-.next .cohort-picks{display:grid;grid-template-columns:1fr 1fr;gap:10px;flex:1 1 640px;min-width:0}
-.next .pick{display:flex;flex-direction:column;gap:2px;text-decoration:none;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);border-radius:8px;padding:10px 12px;color:#fff;font-style:normal}
-.next .pick strong{display:block;font-family:var(--sans);font-size:16px;font-weight:700;color:#fff;font-style:normal;line-height:1.3}
-.next .pick span{display:block;font-size:14.5px;line-height:1.35;color:#E2CFEA;font-style:normal}
-.next .pick:hover{background:rgba(255,255,255,.16)}
+.next .wrap{flex-direction:column;align-items:stretch;gap:10px}
+.next .k{align-self:flex-start}
+.train-rows{display:flex;flex-direction:column;gap:8px;width:100%}
+.train-row{display:flex;align-items:center;justify-content:space-between;gap:12px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);border-radius:8px;padding:10px 12px}
+.train-meta{display:flex;flex-direction:column;gap:2px;min-width:0}
+.train-meta strong{font-family:var(--sans);font-size:16px;font-weight:700;color:#fff;font-style:normal;line-height:1.3}
+.train-meta span{font-size:14.5px;line-height:1.35;color:#E2CFEA;font-style:normal}
+.train-acts{display:flex;gap:8px;flex-shrink:0}
 @media (max-width:760px){
-  .next .cohort-picks{grid-template-columns:1fr}
+  .train-row{flex-direction:column;align-items:flex-start}
+  .train-acts{width:100%}
+  .train-acts .btn{flex:1}
 }
 </style>
 </head>
@@ -66,10 +70,16 @@
   </div>
 </header>
 <main>
-<div class="next" id="upcoming"><div class="wrap"><span class="k">Upcoming classes</span>
-<div class="cohort-picks">
-<a class="pick" href="cohort.html"><strong>Tau Cohort, February 2027, Baton Rouge</strong><span>Virtual nights Feb 15 to 18, skills day Sat Feb 20 at YWCA Greater Baton Rouge</span></a>
-<a class="pick" href="cohort-shreveport.html"><strong>Upsilon Cohort, April 2027, Shreveport</strong><span>Virtual nights Apr 12 to 15, skills day Sat Apr 17 at AmeriHealth Caritas Louisiana</span></a>
+<div class="next" id="upcoming"><div class="wrap"><span class="k">Upcoming Birth Doula Trainings</span>
+<div class="train-rows">
+<div class="train-row">
+<div class="train-meta"><strong>Tau Cohort</strong><span>Feb 15 to 20, 2027, YWCA Greater Baton Rouge</span></div>
+<div class="train-acts"><a class="btn btn--primary" href="cohort.html">Class details</a><a class="btn btn--outline" href="https://forms.monday.com/forms/ca1d4fbc14042eb290043defbd016330?r=use1" target="_blank" rel="noopener">Apply</a></div>
+</div>
+<div class="train-row">
+<div class="train-meta"><strong>Upsilon Cohort</strong><span>Apr 12 to 17, 2027, AmeriHealth Caritas Louisiana, Shreveport</span></div>
+<div class="train-acts"><a class="btn btn--primary" href="cohort-shreveport.html">Class details</a><a class="btn btn--outline" href="https://forms.monday.com/forms/7e8132232e950b59014306cb645a0718?r=use1" target="_blank" rel="noopener">Apply</a></div>
+</div>
 </div>
 </div></div>
 <section class="phero bg-700 dk"><div class="wrap">
@@ -111,8 +121,8 @@
 <section class="sec"><div class="wrap">
 <div class="shead"><div><div class="eyebrow">Birth Doula · Format Flexibility</div><h2>We meet you where you are.</h2></div><p>For our birth doula training only, we offer three scheduling formats. Bereavement is fully online and self-paced; postpartum and breastfeeding programs have their own structure.</p></div>
 <div class="formats">
-<div class="wc fmt"><span class="tag">Hybrid</span><h3>4 + 14 online nights + 1 in-person day</h3><p>Weeknight evenings online plus a single in-person Saturday. Best for trainees with weekday work commitments who can travel only once. Format used by the Tau and Upsilon cohorts.</p></div>
-<div class="wc fmt"><span class="tag">Hybrid</span><h3>2 + 22 online nights + 2 in-person days</h3><p>Two weeknight evenings online plus a full weekend of hands-on practice. Our most-requested format, used by past cohorts.</p></div>
+<div class="wc fmt"><span class="tag">Hybrid</span><h3>Four live online evenings and one in-person day</h3><p>Weeknight evenings online plus a single in-person Saturday. Best for trainees with weekday work commitments who can travel only once. Format used by the Tau and Upsilon cohorts.</p></div>
+<div class="wc fmt"><span class="tag">Hybrid</span><h3>Two live online evenings and two in-person days</h3><p>Two weeknight evenings online plus a full weekend of hands-on practice. Our most-requested format, used by past cohorts.</p></div>
 <div class="wc fmt"><span class="tag">In-Person · Intensive</span><h3>3 full in-person days</h3><p>Three back-to-back days for organizations and groups that prefer immersive, fully in-person delivery. Often used for partner contracts.</p></div>
 </div></div></section>
 
